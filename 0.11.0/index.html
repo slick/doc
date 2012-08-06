@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Slick - Scala Language Integrated Connection Kit &mdash; Slick 0.11.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.11.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Slick 0.11.0 documentation" href="#" />
+    <link rel="next" title="Getting Started" href="gettingstarted.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="gettingstarted.html" title="Getting Started"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">Slick 0.11.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Slick - Scala Language Integrated Connection Kit</a><ul>
+<li><a class="reference internal" href="#supported-database-systems">Supported database systems</a></li>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gettingstarted.html"
+                        title="next chapter">Getting Started</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="slick-scala-language-integrated-connection-kit">
+<h1>Slick - Scala Language Integrated Connection Kit<a class="headerlink" href="#slick-scala-language-integrated-connection-kit" title="Permalink to this headline">¶</a></h1>
+<p>Slick is a modern database query and access library for Scala. It allows you
+to work with stored data almost as if you were using Scala collections while
+at the same time giving you full control over when a database access happens
+and which data is transferred. You can write your database queries in Scala
+instead of SQL, thus profiting from the static checking, compile-time safety
+and compositionality of Scala. Slick features an extensible query compiler
+which can generate code for different backends.</p>
+<p>It includes the following features:</p>
+<ul class="simple">
+<li>Lifted query embedding (fully featured, composable, uses lifted types, evolved from ScalaQuery)</li>
+<li>Direct query embedding (experimental, limited features, uses ordinary Scala types, based on macros)</li>
+<li>Simple execution of raw SQL queries</li>
+<li>Session management based on JDBC Connections</li>
+</ul>
+<div class="section" id="supported-database-systems">
+<span id="supported-dbs"></span><h2>Supported database systems<a class="headerlink" href="#supported-database-systems" title="Permalink to this headline">¶</a></h2>
+<p>The following database systems are directly supported for type-safe queries
+(with lifted and direct embedding):</p>
+<ul class="simple">
+<li>Derby/JavaDB</li>
+<li>H2</li>
+<li>HSQLDB/HyperSQL</li>
+<li>Microsoft Access</li>
+<li>Microsoft SQL Server</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>SQLite</li>
+</ul>
+<p>Accessing other databases is possible, with a reduced feature set.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#database-connection">Database Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#populating-the-database">Populating the Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#querying">Querying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#row-class-and-schema">Row class and schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#query">Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#execution">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#alternative-direct-embedding-bound-to-a-driver-and-session">Alternative direct embedding bound to a driver and session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#scaffolding">Scaffolding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#ddl-dml-statements">DDL/DML Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#query-statements">Query Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#string-interpolation">String Interpolation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="gettingstarted.html" title="Getting Started"
+             >next</a> |</li>
+        <li><a href="#">Slick 0.11.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012 Typesafe, Inc..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
