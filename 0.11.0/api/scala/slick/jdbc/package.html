@@ -1,0 +1,485 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>jdbc - scala.slick.jdbc</title>
+          <meta name="description" content="jdbc - scala.slick.jdbc" />
+          <meta name="keywords" content="jdbc scala.slick.jdbc" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.jdbc.package';
+            window.location.href = url + '#' + hash;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a></p>
+        <h1>jdbc</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jdbc</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.jdbc.AppliedInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="AppliedInvoker[P,+R]:AppliedInvoker[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AppliedInvoker.html"><span class="name">AppliedInvoker</span></a><span class="tparams">[<span name="P">P</span>, <span name="R">+R</span>]</span><span class="result"> extends <a href="UnitInvoker.html" class="extype" name="scala.slick.jdbc.UnitInvoker">UnitInvoker</a>[<span class="extype" name="scala.slick.jdbc.AppliedInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Base trait for applied invokers
+</p>
+    </li><li name="scala.slick.jdbc.GetResult" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="GetResult[+T]:GetResult[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="GetResult.html"><span class="name">GetResult</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends (<a href="../session/PositionedResult.html" class="extype" name="scala.slick.session.PositionedResult">PositionedResult</a>) ⇒ <span class="extype" name="scala.slick.jdbc.GetResult.T">T</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Basic conversions for extracting values from PositionedResults.</p>
+    </li><li name="scala.slick.jdbc.GetTupleResult" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="GetTupleResult[+T&lt;:Product]:GetTupleResult[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GetTupleResult.html"><span class="name">GetTupleResult</span></a><span class="tparams">[<span name="T">+T &lt;: <span class="extype" name="scala.Product">Product</span></span>]</span><span class="result"> extends <a href="GetResult.html" class="extype" name="scala.slick.jdbc.GetResult">GetResult</a>[<span class="extype" name="scala.slick.jdbc.GetTupleResult.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">GetResult for tuple types.</p>
+    </li><li name="scala.slick.jdbc.Invoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="Invoker[-P,+R]:Invoker[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Invoker.html"><span class="name">Invoker</span></a><span class="tparams">[<span name="P">-P</span>, <span name="R">+R</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Base trait for all statement invokers, using parameter type P and result type R.</p>
+    </li><li name="scala.slick.jdbc.MappedInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="MappedInvoker[-P,U,+R]:MappedInvoker[P,U,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MappedInvoker.html"><span class="name">MappedInvoker</span></a><span class="tparams">[<span name="P">-P</span>, <span name="U">U</span>, <span name="R">+R</span>]</span><span class="result"> extends <a href="Invoker.html" class="extype" name="scala.slick.jdbc.Invoker">Invoker</a>[<span class="extype" name="scala.slick.jdbc.MappedInvoker.P">P</span>, <span class="extype" name="scala.slick.jdbc.MappedInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">An Invoker which applies a mapping function to all results of another Invoker.</p>
+    </li><li name="scala.slick.jdbc.MutatingInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="MutatingInvoker[-P,R]:MutatingInvoker[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MutatingInvoker.html"><span class="name">MutatingInvoker</span></a><span class="tparams">[<span name="P">-P</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="Invoker.html" class="extype" name="scala.slick.jdbc.Invoker">Invoker</a>[<span class="extype" name="scala.slick.jdbc.MutatingInvoker.P">P</span>, <span class="extype" name="scala.slick.jdbc.MutatingInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.MutatingStatementInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="MutatingStatementInvoker[-P,R]:MutatingStatementInvoker[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MutatingStatementInvoker.html"><span class="name">MutatingStatementInvoker</span></a><span class="tparams">[<span name="P">-P</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="StatementInvoker.html" class="extype" name="scala.slick.jdbc.StatementInvoker">StatementInvoker</a>[<span class="extype" name="scala.slick.jdbc.MutatingStatementInvoker.P">P</span>, <span class="extype" name="scala.slick.jdbc.MutatingStatementInvoker.R">R</span>] with <a href="MutatingInvoker.html" class="extype" name="scala.slick.jdbc.MutatingInvoker">MutatingInvoker</a>[<span class="extype" name="scala.slick.jdbc.MutatingStatementInvoker.P">P</span>, <span class="extype" name="scala.slick.jdbc.MutatingStatementInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.MutatingUnitInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="MutatingUnitInvoker[R]:MutatingUnitInvoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MutatingUnitInvoker.html"><span class="name">MutatingUnitInvoker</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <a href="UnitInvoker.html" class="extype" name="scala.slick.jdbc.UnitInvoker">UnitInvoker</a>[<span class="extype" name="scala.slick.jdbc.MutatingUnitInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.ResultSetInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="ResultSetInvoker[+R]:ResultSetInvoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetInvoker.html"><span class="name">ResultSetInvoker</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> extends <a href="UnitInvokerMixin.html" class="extype" name="scala.slick.jdbc.UnitInvokerMixin">UnitInvokerMixin</a>[<span class="extype" name="scala.slick.jdbc.ResultSetInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">An invoker which calls a function to retrieve a ResultSet.</p>
+    </li><li name="scala.slick.jdbc.ResultSetMutator" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="ResultSetMutator[T]:ResultSetMutator[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetMutator.html"><span class="name">ResultSetMutator</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.SQLInterpolation" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="SQLInterpolation:SQLInterpolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLInterpolation.html"><span class="name">SQLInterpolation</span></a><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.SQLInterpolationResult" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="SQLInterpolationResult[P]:SQLInterpolationResult[P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLInterpolationResult.html"><span class="name">SQLInterpolationResult</span></a><span class="tparams">[<span name="P">P</span>]</span><span class="params">(<span name="strings">strings: <a href="../../package.html#Seq[+A]:Seq[A]" class="extmbr" name="scala.Seq">Seq</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="param">param: <span class="extype" name="scala.slick.jdbc.SQLInterpolationResult.P">P</span></span>, <span name="pconv">pconv: <a href="SetParameter.html" class="extype" name="scala.slick.jdbc.SetParameter">SetParameter</a>[<span class="extype" name="scala.slick.jdbc.SQLInterpolationResult.P">P</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.SetParameter" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="SetParameter[-T]:SetParameter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SetParameter.html"><span class="name">SetParameter</span></a><span class="tparams">[<span name="T">-T</span>]</span><span class="result"> extends (<span class="extype" name="scala.slick.jdbc.SetParameter.T">T</span>, <a href="../session/PositionedParameters.html" class="extype" name="scala.slick.session.PositionedParameters">PositionedParameters</a>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Basic conversions for setting parameters in PositionedParameters.</p>
+    </li><li name="scala.slick.jdbc.SetTupleParameter" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="SetTupleParameter[-T&lt;:Product]:SetTupleParameter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SetTupleParameter.html"><span class="name">SetTupleParameter</span></a><span class="tparams">[<span name="T">-T &lt;: <span class="extype" name="scala.Product">Product</span></span>]</span><span class="result"> extends <a href="SetParameter.html" class="extype" name="scala.slick.jdbc.SetParameter">SetParameter</a>[<span class="extype" name="scala.slick.jdbc.SetTupleParameter.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">SetParameter for tuple types.</p>
+    </li><li name="scala.slick.jdbc.StatementInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="StatementInvoker[-P,+R]:StatementInvoker[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StatementInvoker.html"><span class="name">StatementInvoker</span></a><span class="tparams">[<span name="P">-P</span>, <span name="R">+R</span>]</span><span class="result"> extends <a href="Invoker.html" class="extype" name="scala.slick.jdbc.Invoker">Invoker</a>[<span class="extype" name="scala.slick.jdbc.StatementInvoker.P">P</span>, <span class="extype" name="scala.slick.jdbc.StatementInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">An invoker which executes an SQL statement.</p>
+    </li><li name="scala.slick.jdbc.StaticQuery" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="StaticQuery[-P,+R]:StaticQuery[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StaticQuery.html"><span class="name">StaticQuery</span></a><span class="tparams">[<span name="P">-P</span>, <span name="R">+R</span>]</span><span class="result"> extends <a href="StatementInvoker.html" class="extype" name="scala.slick.jdbc.StatementInvoker">StatementInvoker</a>[<span class="extype" name="scala.slick.jdbc.StaticQuery.P">P</span>, <span class="extype" name="scala.slick.jdbc.StaticQuery.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Invoker for raw SQL queries.</p>
+    </li><li name="scala.slick.jdbc.StaticQuery0" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="StaticQuery0[R]:StaticQuery0[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StaticQuery0.html"><span class="name">StaticQuery0</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <a href="StaticQuery.html" class="extype" name="scala.slick.jdbc.StaticQuery">StaticQuery</a>[<span class="extype" name="scala.Unit">Unit</span>, <span class="extype" name="scala.slick.jdbc.StaticQuery0.R">R</span>] with <a href="UnitInvokerMixin.html" class="extype" name="scala.slick.jdbc.UnitInvokerMixin">UnitInvokerMixin</a>[<span class="extype" name="scala.slick.jdbc.StaticQuery0.R">R</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.StaticQuery1" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="StaticQuery1[P1,R]:StaticQuery1[P1,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StaticQuery1.html"><span class="name">StaticQuery1</span></a><span class="tparams">[<span name="P1">P1</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="StaticQuery.html" class="extype" name="scala.slick.jdbc.StaticQuery">StaticQuery</a>[<span class="extype" name="scala.slick.jdbc.StaticQuery1.P1">P1</span>, <span class="extype" name="scala.slick.jdbc.StaticQuery1.R">R</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.UnitInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="UnitInvoker[+R]:UnitInvoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UnitInvoker.html"><span class="name">UnitInvoker</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> extends <a href="Invoker.html" class="extype" name="scala.slick.jdbc.Invoker">Invoker</a>[<span class="extype" name="scala.Unit">Unit</span>, <span class="extype" name="scala.slick.jdbc.UnitInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">An invoker for a Unit parameter with additional parameterless methods.</p>
+    </li><li name="scala.slick.jdbc.UnitInvokerMixin" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="UnitInvokerMixin[+R]:UnitInvokerMixin[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="UnitInvokerMixin.html"><span class="name">UnitInvokerMixin</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> extends <a href="UnitInvoker.html" class="extype" name="scala.slick.jdbc.UnitInvoker">UnitInvoker</a>[<span class="extype" name="scala.slick.jdbc.UnitInvokerMixin.R">R</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.DynamicQuery" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="DynamicQuery[T]:DynamicQuery[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DynamicQuery.html"><span class="name deprecated" title="Deprecated: (Since version 0.10) Use StaticQuery instead">DynamicQuery</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="DynamicQueryBase.html" class="extype" name="scala.slick.jdbc.DynamicQueryBase">DynamicQueryBase</a>[<span class="extype" name="scala.slick.jdbc.DynamicQuery.T">T</span>, <a href="DynamicQuery.html" class="extype" name="scala.slick.jdbc.DynamicQuery">DynamicQuery</a>[<span class="extype" name="scala.slick.jdbc.DynamicQuery.T">T</span>]]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.10)</i> Use StaticQuery instead</p></dd></dl></div>
+    </li><li name="scala.slick.jdbc.DynamicQueryBase" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="DynamicQueryBase[T,+This&lt;:DynamicQueryBase[T,This]]:DynamicQueryBase[T,This]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DynamicQueryBase.html"><span class="name deprecated" title="Deprecated: (Since version 0.10) Use StaticQuery instead">DynamicQueryBase</span></a><span class="tparams">[<span name="T">T</span>, <span name="This">+This &lt;: <a href="DynamicQueryBase.html" class="extype" name="scala.slick.jdbc.DynamicQueryBase">DynamicQueryBase</a>[<span class="extype" name="scala.slick.jdbc.DynamicQueryBase.T">T</span>, <span class="extype" name="scala.slick.jdbc.DynamicQueryBase.This">This</span>]</span>]</span><span class="result"> extends <a href="StatementInvoker.html" class="extype" name="scala.slick.jdbc.StatementInvoker">StatementInvoker</a>[<span class="extype" name="scala.Unit">Unit</span>, <span class="extype" name="scala.slick.jdbc.DynamicQueryBase.T">T</span>] with <a href="UnitInvokerMixin.html" class="extype" name="scala.slick.jdbc.UnitInvokerMixin">UnitInvokerMixin</a>[<span class="extype" name="scala.slick.jdbc.DynamicQueryBase.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Base class for dynamic queries.</p>
+    </li><li name="scala.slick.jdbc.DynamicUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="DynamicUpdate:DynamicUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DynamicUpdate.html"><span class="name deprecated" title="Deprecated: (Since version 0.10) Use StaticQuery instead">DynamicUpdate</span></a><span class="result"> extends <a href="DynamicQueryBase.html" class="extype" name="scala.slick.jdbc.DynamicQueryBase">DynamicQueryBase</a>[<span class="extype" name="scala.Int">Int</span>, <a href="DynamicUpdate.html" class="extype" name="scala.slick.jdbc.DynamicUpdate">DynamicUpdate</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.10)</i> Use StaticQuery instead</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.slick.jdbc.GetResult" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="GetResult:GetResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GetResult$.html"><span class="name">GetResult</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.ResultSetInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="ResultSetInvoker:ResultSetInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetInvoker$.html"><span class="name">ResultSetInvoker</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.SetParameter" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="SetParameter:SetParameter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SetParameter$.html"><span class="name">SetParameter</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.StaticQuery" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="StaticQuery:StaticQuery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="StaticQuery$.html"><span class="name">StaticQuery</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.UnitInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="UnitInvoker:UnitInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="UnitInvoker$.html"><span class="name">UnitInvoker</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.jdbc.meta" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="meta:meta"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="meta/package.html"><span class="name">meta</span></a>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.slick.jdbc.DynamicQuery" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="DynamicQuery:DynamicQuery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DynamicQuery$.html"><span class="name deprecated" title="Deprecated: (Since version 0.10) Use StaticQuery instead">DynamicQuery</span></a>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.10)</i> Use StaticQuery instead</p></dd></dl></div>
+    </li><li name="scala.slick.jdbc.DynamicUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="DynamicUpdate:DynamicUpdate"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DynamicUpdate$.html"><span class="name deprecated" title="Deprecated: (Since version 0.10) Use StaticQuery instead">DynamicUpdate</span></a>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 0.10)</i> Use StaticQuery instead</p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="No Group">
+              <h3>No Group</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
