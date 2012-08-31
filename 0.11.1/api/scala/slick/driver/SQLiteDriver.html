@@ -1,0 +1,1085 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>SQLiteDriver - scala.slick.driver.SQLiteDriver</title>
+          <meta name="description" content="SQLiteDriver - scala.slick.driver.SQLiteDriver" />
+          <meta name="keywords" content="SQLiteDriver scala.slick.driver.SQLiteDriver" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.driver.SQLiteDriver';
+            window.location.href = url + '#' + hash;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <a href="SQLiteDriver$.html" title="Go to companion"><img src="../../../lib/trait_to_object_big.png" /></a>
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a>.<a href="package.html" class="extype" name="scala.slick.driver">driver</a></p>
+        <h1><a href="SQLiteDriver$.html" title="Go to companion">SQLiteDriver</a></h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SQLiteDriver</span><span class="result"> extends <a href="ExtendedDriver.html" class="extype" name="scala.slick.driver.ExtendedDriver">ExtendedDriver</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Slick driver for SQLite.</p><p>This driver implements the ExtendedProfile with the following
+limitations:</p><ul><li>Sequences are not supported because SQLite does not have them.</li><li>Blobs are not supported by the SQLite JDBC driver (but binary data in
+    the form of <code>Array[Byte]</code> is).</li><li>SQLite does not allow mutation of result sets. All cursors are
+    read-only.</li><li><code>Functions.user</code> and <code>Functions.database</code> are
+    not available in SQLite. Slick will return empty strings for
+    both.</li><li>Row numbers (required by <code>zip</code> and <code>zipWithIndex</code>)
+    are not supported. Trying to generate SQL code which uses this feature
+    throws a SlickException.</li><li>When returning columns from an INSERT operation, only a single column
+    may be specified which must be the table's AutoInc column.</li></ul></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="ExtendedDriver.html" class="extype" name="scala.slick.driver.ExtendedDriver">ExtendedDriver</a>, <a href="BasicDriver.html" class="extype" name="scala.slick.driver.BasicDriver">BasicDriver</a>, <a href="BasicInvokerComponent.html" class="extype" name="scala.slick.driver.BasicInvokerComponent">BasicInvokerComponent</a>, <a href="BasicExecutorComponent.html" class="extype" name="scala.slick.driver.BasicExecutorComponent">BasicExecutorComponent</a>, <a href="BasicSQLUtilsComponent.html" class="extype" name="scala.slick.driver.BasicSQLUtilsComponent">BasicSQLUtilsComponent</a>, <a href="BasicTypeMapperDelegatesComponent.html" class="extype" name="scala.slick.driver.BasicTypeMapperDelegatesComponent">BasicTypeMapperDelegatesComponent</a>, <a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a>, <a href="ExtendedProfile.html" class="extype" name="scala.slick.driver.ExtendedProfile">ExtendedProfile</a>, <a href="ExtendedTableComponent.html" class="extype" name="scala.slick.driver.ExtendedTableComponent">ExtendedTableComponent</a>, <a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a>, <a href="BasicTableComponent.html" class="extype" name="scala.slick.driver.BasicTableComponent">BasicTableComponent</a>, <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="SQLiteDriver$.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scala.slick.driver.SQLiteDriver"><span>SQLiteDriver</span></li><li class="in" name="scala.slick.driver.ExtendedDriver"><span>ExtendedDriver</span></li><li class="in" name="scala.slick.driver.BasicDriver"><span>BasicDriver</span></li><li class="in" name="scala.slick.driver.BasicInvokerComponent"><span>BasicInvokerComponent</span></li><li class="in" name="scala.slick.driver.BasicExecutorComponent"><span>BasicExecutorComponent</span></li><li class="in" name="scala.slick.driver.BasicSQLUtilsComponent"><span>BasicSQLUtilsComponent</span></li><li class="in" name="scala.slick.driver.BasicTypeMapperDelegatesComponent"><span>BasicTypeMapperDelegatesComponent</span></li><li class="in" name="scala.slick.driver.BasicStatementBuilderComponent"><span>BasicStatementBuilderComponent</span></li><li class="in" name="scala.slick.driver.ExtendedProfile"><span>ExtendedProfile</span></li><li class="in" name="scala.slick.driver.ExtendedTableComponent"><span>ExtendedTableComponent</span></li><li class="in" name="scala.slick.driver.BasicProfile"><span>BasicProfile</span></li><li class="in" name="scala.slick.driver.BasicTableComponent"><span>BasicTableComponent</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.driver.BasicInvokerComponent.AbstractKeysInsertInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="AbstractKeysInsertInvoker[U,RU]:BasicDriver.AbstractKeysInsertInvoker[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$AbstractKeysInsertInvoker.html"><span class="name">AbstractKeysInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="BasicDriver.html#InsertInvoker[U]:BasicDriver.InsertInvoker[U]" class="extmbr" name="scala.slick.driver.BasicInvokerComponent.InsertInvoker">BasicDriver.InsertInvoker</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.AbstractKeysInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Base class with common functionality for KeysInsertInvoker and MappedKeysInsertInvoker.</p>
+    </li><li name="scala.slick.driver.BasicTableComponent.BasicColumnOptions" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="BasicColumnOptions:BasicDriver.BasicColumnOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicTableComponent$BasicColumnOptions.html"><span class="name">BasicColumnOptions</span></a><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicTableComponent.html" class="extype" name="scala.slick.driver.BasicTableComponent">BasicTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver.ColumnDDLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="ColumnDDLBuilder:ColumnDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$ColumnDDLBuilder.html"><span class="name">ColumnDDLBuilder</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.BasicStatementBuilderComponent.ColumnDDLBuilder">SQLiteDriver.ColumnDDLBuilder</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for column specifications in DDL statements.</p>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.CountingInsertInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="CountingInsertInvoker[U]:BasicDriver.CountingInsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$CountingInsertInvoker.html"><span class="name">CountingInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="BasicDriver.html#InsertInvoker[U]:BasicDriver.InsertInvoker[U]" class="extmbr" name="scala.slick.driver.BasicInvokerComponent.InsertInvoker">BasicDriver.InsertInvoker</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.CountingInsertInvoker.U">U</span>] with <a href="BasicDriver.html#FullInsertInvoker[U]:BasicDriver.FullInsertInvoker[U]" class="extmbr" name="scala.slick.driver.BasicInvokerComponent.FullInsertInvoker">BasicDriver.FullInsertInvoker</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.CountingInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls and returning affected row counts.</p>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.DeleteInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="DeleteInvoker:BasicDriver.DeleteInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$DeleteInvoker.html"><span class="name">DeleteInvoker</span></a><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running DELETE calls.</p>
+    </li><li name="scala.slick.driver.ExtendedTableComponent.ExtendedColumnOptions" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="ExtendedColumnOptions:ExtendedDriver.ExtendedColumnOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ExtendedTableComponent$ExtendedColumnOptions.html"><span class="name">ExtendedColumnOptions</span></a><span class="result"> extends <a href="ExtendedDriver.html#BasicColumnOptions:BasicDriver.BasicColumnOptions" class="extmbr" name="scala.slick.driver.BasicTableComponent.BasicColumnOptions">ExtendedDriver.BasicColumnOptions</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ExtendedTableComponent.html" class="extype" name="scala.slick.driver.ExtendedTableComponent">ExtendedTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.FullInsertInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="FullInsertInvoker[U]:BasicDriver.FullInsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$FullInsertInvoker.html"><span class="name">FullInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An InsertInvoker that can also insert from another query.</p>
+    </li><li name="scala.slick.driver.BasicProfile.Implicits" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="Implicits:BasicDriver.Implicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicProfile$Implicits.html"><span class="name">Implicits</span></a><span class="result"> extends <a href="../lifted/ExtensionMethodConversions.html" class="extype" name="scala.slick.lifted.ExtensionMethodConversions">ExtensionMethodConversions</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicStatementBuilderComponent.InsertBuilder" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="InsertBuilder:BasicDriver.InsertBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicStatementBuilderComponent$InsertBuilder.html"><span class="name">InsertBuilder</span></a><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for INSERT statements.</p>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.InsertInvoker" visbl="pub" data-isabs="true" fullComment="no" group="No Group">
+      <a id="InsertInvoker[U]:BasicDriver.InsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$InsertInvoker.html"><span class="name">InsertInvoker</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls.</p>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.KeysInsertInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="KeysInsertInvoker[U,RU]:BasicDriver.KeysInsertInvoker[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$KeysInsertInvoker.html"><span class="name">KeysInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="BasicDriver.html#AbstractKeysInsertInvoker[U,RU]:BasicDriver.AbstractKeysInsertInvoker[U,RU]" class="extmbr" name="scala.slick.driver.BasicInvokerComponent.AbstractKeysInsertInvoker">BasicDriver.AbstractKeysInsertInvoker</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.KeysInsertInvoker.U">U</span>, <span class="extype" name="scala.slick.driver.BasicInvokerComponent.KeysInsertInvoker.RU">RU</span>] with <a href="BasicDriver.html#FullInsertInvoker[U]:BasicDriver.FullInsertInvoker[U]" class="extmbr" name="scala.slick.driver.BasicInvokerComponent.FullInsertInvoker">BasicDriver.FullInsertInvoker</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.KeysInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls and returning generated keys.</p>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.MappedKeysInsertInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="MappedKeysInsertInvoker[U,RU,R]:BasicDriver.MappedKeysInsertInvoker[U,RU,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$MappedKeysInsertInvoker.html"><span class="name">MappedKeysInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="BasicDriver.html#AbstractKeysInsertInvoker[U,RU]:BasicDriver.AbstractKeysInsertInvoker[U,RU]" class="extmbr" name="scala.slick.driver.BasicInvokerComponent.AbstractKeysInsertInvoker">BasicDriver.AbstractKeysInsertInvoker</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.MappedKeysInsertInvoker.U">U</span>, <span class="extype" name="scala.slick.driver.BasicInvokerComponent.MappedKeysInsertInvoker.RU">RU</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls and returning generated keys combined with the values.</p>
+    </li><li name="scala.slick.driver.SQLiteDriver.QueryBuilder" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="QueryBuilder:QueryBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$QueryBuilder.html"><span class="name">QueryBuilder</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.BasicStatementBuilderComponent.QueryBuilder">SQLiteDriver.QueryBuilder</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for SELECT and UPDATE statements.</p>
+    </li><li name="scala.slick.driver.BasicExecutorComponent.QueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="QueryExecutor[R]:BasicDriver.QueryExecutor[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicExecutorComponent$QueryExecutor.html"><span class="name">QueryExecutor</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicExecutorComponent.html" class="extype" name="scala.slick.driver.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.QueryInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="QueryInvoker[QQ,R]:BasicDriver.QueryInvoker[QQ,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$QueryInvoker.html"><span class="name">QueryInvoker</span></a><span class="tparams">[<span name="QQ">QQ</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="../jdbc/StatementInvoker.html" class="extype" name="scala.slick.jdbc.StatementInvoker">StatementInvoker</a>[<span class="extype" name="scala.Unit">Unit</span>, <span class="extype" name="scala.slick.driver.BasicInvokerComponent.QueryInvoker.R">R</span>] with <a href="../jdbc/MutatingStatementInvoker.html" class="extype" name="scala.slick.jdbc.MutatingStatementInvoker">MutatingStatementInvoker</a>[<span class="extype" name="scala.Unit">Unit</span>, <span class="extype" name="scala.slick.driver.BasicInvokerComponent.QueryInvoker.R">R</span>] with <a href="../jdbc/UnitInvokerMixin.html" class="extype" name="scala.slick.jdbc.UnitInvokerMixin">UnitInvokerMixin</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.QueryInvoker.R">R</span>] with <a href="../jdbc/MutatingUnitInvoker.html" class="extype" name="scala.slick.jdbc.MutatingUnitInvoker">MutatingUnitInvoker</a>[<span class="extype" name="scala.slick.driver.BasicInvokerComponent.QueryInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Invoker for executing queries.</p>
+    </li><li name="scala.slick.driver.BasicSQLUtilsComponent.QuotingSymbolNamer" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="QuotingSymbolNamer:BasicDriver.QuotingSymbolNamer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicSQLUtilsComponent$QuotingSymbolNamer.html"><span class="name">QuotingSymbolNamer</span></a><span class="result"> extends <a href="../ast/SymbolNamer.html" class="extype" name="scala.slick.ast.SymbolNamer">SymbolNamer</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicSQLUtilsComponent.html" class="extype" name="scala.slick.driver.BasicSQLUtilsComponent">BasicSQLUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicStatementBuilderComponent.SequenceDDLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="SequenceDDLBuilder:BasicDriver.SequenceDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicStatementBuilderComponent$SequenceDDLBuilder.html"><span class="name">SequenceDDLBuilder</span></a><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for DDL statements for sequences.</p>
+    </li><li name="scala.slick.driver.BasicProfile.SimpleQL" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="SimpleQL:BasicDriver.SimpleQL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicProfile$SimpleQL.html"><span class="name">SimpleQL</span></a><span class="result"> extends <a href="BasicDriver.html#Implicits:BasicDriver.Implicits" class="extmbr" name="scala.slick.driver.BasicProfile.Implicits">BasicDriver.Implicits</a> with <a href="../lifted/Aliases.html" class="extype" name="scala.slick.lifted.Aliases">Aliases</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicStatementBuilderComponent.StatementPart" visbl="pub" data-isabs="true" fullComment="yes" group="No Group">
+      <a id="StatementPart:BasicDriver.StatementPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicStatementBuilderComponent$StatementPart.html"><span class="name">StatementPart</span></a><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicTableComponent.Table" visbl="pub" data-isabs="true" fullComment="yes" group="No Group">
+      <a id="Table[T]:BasicDriver.Table[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicTableComponent$Table.html"><span class="name">Table</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../lifted/AbstractTable.html" class="extype" name="scala.slick.lifted.AbstractTable">AbstractTable</a>[<span class="extype" name="scala.slick.driver.BasicTableComponent.Table.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicTableComponent.html" class="extype" name="scala.slick.driver.BasicTableComponent">BasicTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver.TableDDLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="TableDDLBuilder:TableDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$TableDDLBuilder.html"><span class="name">TableDDLBuilder</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.BasicStatementBuilderComponent.TableDDLBuilder">SQLiteDriver.TableDDLBuilder</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for various DDL statements.</p>
+    </li><li name="scala.slick.driver.BasicExecutorComponent.ToQueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="ToQueryExecutor[M]:BasicDriver.ToQueryExecutor[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicExecutorComponent$ToQueryExecutor.html"><span class="name">ToQueryExecutor</span></a><span class="tparams">[<span name="M">M</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicExecutorComponent.html" class="extype" name="scala.slick.driver.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver.TypeMapperDelegates" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="TypeMapperDelegates:TypeMapperDelegates"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$TypeMapperDelegates.html"><span class="name">TypeMapperDelegates</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.BasicTypeMapperDelegatesComponent.TypeMapperDelegates">SQLiteDriver.TypeMapperDelegates</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="BasicTypeMapperDelegatesComponent.html" class="extype" name="scala.slick.driver.BasicTypeMapperDelegatesComponent">BasicTypeMapperDelegatesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicExecutorComponent.UnshapedQueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="UnshapedQueryExecutor[M]:BasicDriver.UnshapedQueryExecutor[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicExecutorComponent$UnshapedQueryExecutor.html"><span class="name">UnshapedQueryExecutor</span></a><span class="tparams">[<span name="M">M</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicExecutorComponent.html" class="extype" name="scala.slick.driver.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicInvokerComponent.UpdateInvoker" visbl="pub" data-isabs="false" fullComment="no" group="No Group">
+      <a id="UpdateInvoker[T]:BasicDriver.UpdateInvoker[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicInvokerComponent$UpdateInvoker.html"><span class="name">UpdateInvoker</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running UPDATE calls.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.driver.BasicStatementBuilderComponent.FromPart" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="FromPart:FromPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicStatementBuilderComponent$FromPart$.html"><span class="name">FromPart</span></a><span class="result"> extends <a href="BasicDriver.html#StatementPart:BasicDriver.StatementPart" class="extmbr" name="scala.slick.driver.BasicStatementBuilderComponent.StatementPart">BasicDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#Implicit" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="Implicit:Implicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Implicit</span><span class="result">: <a href="#Implicits:BasicDriver.Implicits" class="extmbr" name="scala.slick.driver.BasicProfile.Implicits">Implicits</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicStatementBuilderComponent.OtherPart" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="OtherPart:OtherPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicStatementBuilderComponent$OtherPart$.html"><span class="name">OtherPart</span></a><span class="result"> extends <a href="BasicDriver.html#StatementPart:BasicDriver.StatementPart" class="extmbr" name="scala.slick.driver.BasicStatementBuilderComponent.StatementPart">BasicDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicStatementBuilderComponent.SelectPart" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="SelectPart:SelectPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicStatementBuilderComponent$SelectPart$.html"><span class="name">SelectPart</span></a><span class="result"> extends <a href="BasicDriver.html#StatementPart:BasicDriver.StatementPart" class="extmbr" name="scala.slick.driver.BasicStatementBuilderComponent.StatementPart">BasicDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicStatementBuilderComponent.WherePart" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="WherePart:WherePart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BasicStatementBuilderComponent$WherePart$.html"><span class="name">WherePart</span></a><span class="result"> extends <a href="BasicDriver.html#StatementPart:BasicDriver.StatementPart" class="extmbr" name="scala.slick.driver.BasicStatementBuilderComponent.StatementPart">BasicDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#buildDeleteStatement" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="buildDeleteStatement(Query[_,_]):QueryBuilderResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildDeleteStatement</span><span class="params">(<span name="q">q: <a href="../lifted/Query.html" class="extype" name="scala.slick.lifted.Query">Query</a>[_, _]</span>)</span><span class="result">: <a href="QueryBuilderResult.html" class="extype" name="scala.slick.driver.QueryBuilderResult">QueryBuilderResult</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#buildSelectStatement" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="buildSelectStatement(Query[_,_]):QueryBuilderResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildSelectStatement</span><span class="params">(<span name="q">q: <a href="../lifted/Query.html" class="extype" name="scala.slick.lifted.Query">Query</a>[_, _]</span>)</span><span class="result">: <a href="QueryBuilderResult.html" class="extype" name="scala.slick.driver.QueryBuilderResult">QueryBuilderResult</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#buildSequenceDDL" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="buildSequenceDDL(Sequence[_]):DDL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildSequenceDDL</span><span class="params">(<span name="seq">seq: <a href="../lifted/Sequence.html" class="extype" name="scala.slick.lifted.Sequence">Sequence</a>[_]</span>)</span><span class="result">: <a href="../lifted/DDL.html" class="extype" name="scala.slick.lifted.DDL">DDL</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#buildTableDDL" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="buildTableDDL(Table[_]):DDL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildTableDDL</span><span class="params">(<span name="table">table: <a href="#Table[T]:BasicDriver.Table[T]" class="extmbr" name="scala.slick.driver.BasicTableComponent.Table">Table</a>[_]</span>)</span><span class="result">: <a href="../lifted/DDL.html" class="extype" name="scala.slick.lifted.DDL">DDL</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#buildUpdateStatement" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="buildUpdateStatement(Query[_,_]):QueryBuilderResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildUpdateStatement</span><span class="params">(<span name="q">q: <a href="../lifted/Query.html" class="extype" name="scala.slick.lifted.Query">Query</a>[_, _]</span>)</span><span class="result">: <a href="QueryBuilderResult.html" class="extype" name="scala.slick.driver.QueryBuilderResult">QueryBuilderResult</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.slick.driver.ExtendedTableComponent#columnOptions" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="columnOptions:ExtendedColumnOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">columnOptions</span><span class="result">: <a href="#ExtendedColumnOptions:ExtendedDriver.ExtendedColumnOptions" class="extmbr" name="scala.slick.driver.ExtendedTableComponent.ExtendedColumnOptions">ExtendedColumnOptions</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ExtendedTableComponent.html" class="extype" name="scala.slick.driver.ExtendedTableComponent">ExtendedTableComponent</a> → <a href="BasicTableComponent.html" class="extype" name="scala.slick.driver.BasicTableComponent">BasicTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#compiler" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="compiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#createColumnDDLBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="createColumnDDLBuilder(FieldSymbol,Table[_]):ColumnDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createColumnDDLBuilder</span><span class="params">(<span name="column">column: <a href="../ast/FieldSymbol.html" class="extype" name="scala.slick.ast.FieldSymbol">FieldSymbol</a></span>, <span name="table">table: <a href="#Table[T]:BasicDriver.Table[T]" class="extmbr" name="scala.slick.driver.BasicTableComponent.Table">Table</a>[_]</span>)</span><span class="result">: <a href="SQLiteDriver$ColumnDDLBuilder.html" class="extype" name="scala.slick.driver.SQLiteDriver.ColumnDDLBuilder">ColumnDDLBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#createInsertBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="createInsertBuilder(Node):InsertBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createInsertBuilder</span><span class="params">(<span name="node">node: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#InsertBuilder:BasicDriver.InsertBuilder" class="extmbr" name="scala.slick.driver.BasicStatementBuilderComponent.InsertBuilder">InsertBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#createQueryBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="createQueryBuilder(QueryBuilderInput):QueryBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryBuilder</span><span class="params">(<span name="input">input: <a href="QueryBuilderInput.html" class="extype" name="scala.slick.driver.QueryBuilderInput">QueryBuilderInput</a></span>)</span><span class="result">: <a href="SQLiteDriver$QueryBuilder.html" class="extype" name="scala.slick.driver.SQLiteDriver.QueryBuilder">QueryBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#createQueryBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="createQueryBuilder(Query[_,_]):SQLiteDriver.QueryBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryBuilder</span><span class="params">(<span name="q">q: <a href="../lifted/Query.html" class="extype" name="scala.slick.lifted.Query">Query</a>[_, _]</span>)</span><span class="result">: <span class="extype" name="scala.slick.driver.BasicStatementBuilderComponent.QueryBuilder">SQLiteDriver.QueryBuilder</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#createQueryTemplate" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="createQueryTemplate[P,R](Query[_,R]):BasicQueryTemplate[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryTemplate</span><span class="tparams">[<span name="P">P</span>, <span name="R">R</span>]</span><span class="params">(<span name="q">q: <a href="../lifted/Query.html" class="extype" name="scala.slick.lifted.Query">Query</a>[_, <span class="extype" name="scala.slick.driver.BasicProfile.createQueryTemplate.R">R</span>]</span>)</span><span class="result">: <a href="BasicQueryTemplate.html" class="extype" name="scala.slick.driver.BasicQueryTemplate">BasicQueryTemplate</a>[<span class="extype" name="scala.slick.driver.BasicProfile.createQueryTemplate.P">P</span>, <span class="extype" name="scala.slick.driver.BasicProfile.createQueryTemplate.R">R</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#createSequenceDDLBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="createSequenceDDLBuilder(Sequence[_]):SequenceDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createSequenceDDLBuilder</span><span class="params">(<span name="seq">seq: <a href="../lifted/Sequence.html" class="extype" name="scala.slick.lifted.Sequence">Sequence</a>[_]</span>)</span><span class="result">: <a href="#SequenceDDLBuilder:BasicDriver.SequenceDDLBuilder" class="extmbr" name="scala.slick.driver.BasicStatementBuilderComponent.SequenceDDLBuilder">SequenceDDLBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#createTableDDLBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="createTableDDLBuilder(Table[_]):TableDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createTableDDLBuilder</span><span class="params">(<span name="table">table: <a href="#Table[T]:BasicDriver.Table[T]" class="extmbr" name="scala.slick.driver.BasicTableComponent.Table">Table</a>[_]</span>)</span><span class="result">: <a href="SQLiteDriver$TableDDLBuilder.html" class="extype" name="scala.slick.driver.SQLiteDriver.TableDDLBuilder">TableDDLBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">java.lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.driver.BasicSQLUtilsComponent#likeEncode" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="likeEncode(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">likeEncode</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicSQLUtilsComponent.html" class="extype" name="scala.slick.driver.BasicSQLUtilsComponent">BasicSQLUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicSQLUtilsComponent#mapTypeName" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="mapTypeName(TypeMapperDelegate[_]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mapTypeName</span><span class="params">(<span name="tmd">tmd: <a href="../lifted/TypeMapperDelegate.html" class="extype" name="scala.slick.lifted.TypeMapperDelegate">TypeMapperDelegate</a>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicSQLUtilsComponent.html" class="extype" name="scala.slick.driver.BasicSQLUtilsComponent">BasicSQLUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.slick.driver.ExtendedDriver#profile" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="profile:ExtendedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">profile</span><span class="result">: <a href="ExtendedProfile.html" class="extype" name="scala.slick.driver.ExtendedProfile">ExtendedProfile</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="ExtendedDriver.html" class="extype" name="scala.slick.driver.ExtendedDriver">ExtendedDriver</a> → <a href="BasicDriver.html" class="extype" name="scala.slick.driver.BasicDriver">BasicDriver</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicSQLUtilsComponent#quote" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="quote[T](T)(TypeMapper[T]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">quote</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="v">v: <span class="extype" name="scala.slick.driver.BasicSQLUtilsComponent.quote.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="tm">tm: <a href="../lifted/TypeMapper.html" class="extype" name="scala.slick.lifted.TypeMapper">TypeMapper</a>[<span class="extype" name="scala.slick.driver.BasicSQLUtilsComponent.quote.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicSQLUtilsComponent.html" class="extype" name="scala.slick.driver.BasicSQLUtilsComponent">BasicSQLUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicSQLUtilsComponent#quoteIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="quoteIdentifier(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">quoteIdentifier</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicSQLUtilsComponent.html" class="extype" name="scala.slick.driver.BasicSQLUtilsComponent">BasicSQLUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#simple" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="simple:SimpleQL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">simple</span><span class="result">: <a href="#SimpleQL:BasicDriver.SimpleQL" class="extmbr" name="scala.slick.driver.BasicProfile.SimpleQL">SimpleQL</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">A collection of values for using the query language with a single import
+statement.</p><div class="fullcomment"><div class="comment cmt"><p>A collection of values for using the query language with a single import
+statement. This provides the driver's implicits, the Database and
+Session objects for DB connections, and commonly used query language
+types and objects.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#supportsArbitraryInsertReturnColumns" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="supportsArbitraryInsertReturnColumns:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">supportsArbitraryInsertReturnColumns</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#typeMapperDelegates" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="typeMapperDelegates:TypeMapperDelegates"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">typeMapperDelegates</span><span class="result">: <a href="SQLiteDriver$TypeMapperDelegates.html" class="extype" name="scala.slick.driver.SQLiteDriver.TypeMapperDelegates">TypeMapperDelegates</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.slick.driver.BasicProfile#buildInsertStatement" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="buildInsertStatement(Any,Query[_,_]):InsertBuilderResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 1.0) Use createInsertBuilder.buildInsert">buildInsertStatement</span><span class="params">(<span name="cb">cb: <span class="extype" name="scala.Any">Any</span></span>, <span name="q">q: <a href="../lifted/Query.html" class="extype" name="scala.slick.lifted.Query">Query</a>[_, _]</span>)</span><span class="result">: <a href="InsertBuilderResult.html" class="extype" name="scala.slick.driver.InsertBuilderResult">InsertBuilderResult</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 1.0)</i> Use createInsertBuilder.buildInsert</p></dd></dl></div>
+    </li><li name="scala.slick.driver.BasicProfile#buildInsertStatement" visbl="pub" data-isabs="false" fullComment="yes" group="No Group">
+      <a id="buildInsertStatement(Any):InsertBuilderResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 1.0) Use createInsertBuilder.buildInsert">buildInsertStatement</span><span class="params">(<span name="cb">cb: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="InsertBuilderResult.html" class="extype" name="scala.slick.driver.InsertBuilderResult">InsertBuilderResult</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 1.0)</i> Use createInsertBuilder.buildInsert</p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.slick.driver.ExtendedDriver">
+              <h3>Inherited from <a href="ExtendedDriver.html" class="extype" name="scala.slick.driver.ExtendedDriver">ExtendedDriver</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicDriver">
+              <h3>Inherited from <a href="BasicDriver.html" class="extype" name="scala.slick.driver.BasicDriver">BasicDriver</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicInvokerComponent">
+              <h3>Inherited from <a href="BasicInvokerComponent.html" class="extype" name="scala.slick.driver.BasicInvokerComponent">BasicInvokerComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicExecutorComponent">
+              <h3>Inherited from <a href="BasicExecutorComponent.html" class="extype" name="scala.slick.driver.BasicExecutorComponent">BasicExecutorComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicSQLUtilsComponent">
+              <h3>Inherited from <a href="BasicSQLUtilsComponent.html" class="extype" name="scala.slick.driver.BasicSQLUtilsComponent">BasicSQLUtilsComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicTypeMapperDelegatesComponent">
+              <h3>Inherited from <a href="BasicTypeMapperDelegatesComponent.html" class="extype" name="scala.slick.driver.BasicTypeMapperDelegatesComponent">BasicTypeMapperDelegatesComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicStatementBuilderComponent">
+              <h3>Inherited from <a href="BasicStatementBuilderComponent.html" class="extype" name="scala.slick.driver.BasicStatementBuilderComponent">BasicStatementBuilderComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.ExtendedProfile">
+              <h3>Inherited from <a href="ExtendedProfile.html" class="extype" name="scala.slick.driver.ExtendedProfile">ExtendedProfile</a></h3>
+            </div><div class="parent" name="scala.slick.driver.ExtendedTableComponent">
+              <h3>Inherited from <a href="ExtendedTableComponent.html" class="extype" name="scala.slick.driver.ExtendedTableComponent">ExtendedTableComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicProfile">
+              <h3>Inherited from <a href="BasicProfile.html" class="extype" name="scala.slick.driver.BasicProfile">BasicProfile</a></h3>
+            </div><div class="parent" name="scala.slick.driver.BasicTableComponent">
+              <h3>Inherited from <a href="BasicTableComponent.html" class="extype" name="scala.slick.driver.BasicTableComponent">BasicTableComponent</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../package.html#AnyRef:AnyRef" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="No Group">
+              <h3>No Group</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
