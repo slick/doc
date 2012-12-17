@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Plain SQL Queries &mdash; SLICK 0.10.0 documentation</title>
+    <title>Plain SQL Queries &mdash; Slick 0.11.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.10.0',
+        VERSION:     '0.11.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,8 +25,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="SLICK 0.10.0 documentation" href="index.html" />
-    <link rel="prev" title="Plain Scala Queries" href="queryable.html" /> 
+    <link rel="top" title="Slick 0.11.2 documentation" href="index.html" />
+    <link rel="next" title="Slick TestKit" href="testkit.html" />
+    <link rel="prev" title="Direct Embedding" href="direct-embedding.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,9 +37,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="queryable.html" title="Plain Scala Queries"
+          <a href="testkit.html" title="Slick TestKit"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="direct-embedding.html" title="Direct Embedding"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">SLICK 0.10.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Slick 0.11.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -55,8 +59,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="queryable.html"
-                        title="previous chapter">Plain Scala Queries</a></p>
+  <p class="topless"><a href="direct-embedding.html"
+                        title="previous chapter">Direct Embedding</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="testkit.html"
+                        title="next chapter">Slick TestKit</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/sql.txt"
@@ -87,20 +94,21 @@
 <h1>Plain SQL Queries<a class="headerlink" href="#plain-sql-queries" title="Permalink to this headline">¶</a></h1>
 <p>Sometimes you may need to write your own SQL code for an operation which is
 not well supported at a higher level of abstraction. Instead of falling back
-to the low level of <a class="reference external" href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>, you can use SLICK&#8217;s <em>Plain SQL</em> queries with a much
+to the low level of <a class="reference external" href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>, you can use Slick&#8217;s <em>Plain SQL</em> queries with a much
 nicer Scala-based API.</p>
 <div class="section" id="scaffolding">
 <h2>Scaffolding<a class="headerlink" href="#scaffolding" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/slick/slick-examples/blob/0.10.0/src/main/scala/scala/slick/examples/jdbc/PlainSQL.scala">SLICK example jdbc/PlainSQL</a> demonstrates some features of the <em>Plain SQL</em> support. The
+<p><a class="reference external" href="https://github.com/slick/slick-examples/blob/0.11.2/src/main/scala/scala/slick/examples/jdbc/PlainSQL.scala">Slick example jdbc/PlainSQL</a> demonstrates some features of the <em>Plain SQL</em> support. The
 imports are different from what you&#8217;re used to for the
-<a class="reference internal" href="ql.html"><em>Query Language</em></a> or <a class="reference internal" href="queryable.html"><em>Plain Scala</em></a> queries:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scala.slick.session.Database</span>
+<a class="reference internal" href="lifted-embedding.html"><em>lifted embedding</em></a> or
+<a class="reference internal" href="direct-embedding.html"><em>direct embedding</em></a>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scala.slick.driver.JdbcDriver.backend.Database</span>
 <span class="k">import</span> <span class="nn">Database.threadLocalSession</span>
 <span class="k">import</span> <span class="nn">scala.slick.jdbc.</span><span class="o">{</span><span class="nc">GetResult</span><span class="o">,</span> <span class="nc">StaticQuery</span> <span class="k">=&gt;</span> <span class="n">Q</span><span class="o">}</span>
 </pre></div>
 </div>
-<p>First of all, there is no <em>SLICK driver</em> being imported. The JDBC-based APIs
-in SLICK depend only on JDBC itself and do not implement any database-specific
+<p>First of all, there is no <em>Slick driver</em> being imported. The JDBC-based APIs
+in Slick depend only on JDBC itself and do not implement any database-specific
 abstractions. All we need for the database connection is <tt class="docutils literal"><span class="pre">Database</span></tt>, plus
 the <tt class="docutils literal"><span class="pre">threadLocalSession</span></tt> to simplify session handling.</p>
 <p>The most important class for <em>Plain SQL</em> queries is
@@ -123,8 +131,8 @@ some case classes for our data:</p>
 <p>The simplest <tt class="docutils literal"><span class="pre">StaticQuery</span></tt> method is <tt class="docutils literal"><span class="pre">updateNA</span></tt> which creates a
 parameterless (<em>NA = no args</em>) <tt class="docutils literal"><span class="pre">StaticQuery[Unit,</span> <span class="pre">Int]</span></tt> that is supposed to
 return the row count from a DDL statement instead of a result set. It can be
-executed the same way as a query from the <a class="reference internal" href="ql.html"><em>Query Language</em></a>. Here we
-are using <tt class="docutils literal"><span class="pre">.execute</span></tt> to run the query without getting the results:</p>
+executed the same way as a query that uses the <a class="reference internal" href="lifted-embedding.html"><em>lifted embedding</em></a>. Here we are using <tt class="docutils literal"><span class="pre">.execute</span></tt> to run the query without
+getting the results:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Create the tables, including primary and foreign keys</span>
 <span class="n">Q</span><span class="o">.</span><span class="n">updateNA</span><span class="o">(</span><span class="s">&quot;create table suppliers(&quot;</span><span class="o">+</span>
   <span class="s">&quot;id int not null primary key, &quot;</span><span class="o">+</span>
@@ -184,7 +192,7 @@ parameter for the rows of the result set. You can use it to execute a
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>In order for this to work, SLICK needs to know how to read <tt class="docutils literal"><span class="pre">Coffee</span></tt> values
+<p>In order for this to work, Slick needs to know how to read <tt class="docutils literal"><span class="pre">Coffee</span></tt> values
 from a <tt class="docutils literal"><span class="pre">PositionedResult</span></tt> object. This is done with an implicit
 <tt class="docutils literal"><span class="pre">GetResult</span></tt> value. There are predefined <tt class="docutils literal"><span class="pre">GetResult</span></tt> implicits for the
 standard JDBC types, for Options of those (to represent nullable columns) and
@@ -204,7 +212,7 @@ whatever type is expected at this place. (Of course you can only use it when
 the type is actually known like in this constructor call.)</p>
 <p>The <tt class="docutils literal"><span class="pre">queryNA</span></tt> method for parameterless queries is complemented by <tt class="docutils literal"><span class="pre">query</span></tt>
 which takes two type parameters, one for the query parameters and one for the
-result set rows. Similarly, there is matching <tt class="docutils literal"><span class="pre">update</span></tt> for <tt class="docutils literal"><span class="pre">updateNA</span></tt>.
+result set rows. Similarly, there is a matching <tt class="docutils literal"><span class="pre">update</span></tt> for <tt class="docutils literal"><span class="pre">updateNA</span></tt>.
 The execution methods of the resulting <tt class="docutils literal"><span class="pre">StaticQuery</span></tt> need to be called with
 the query parameters, as seen here in the call to <tt class="docutils literal"><span class="pre">.list</span></tt>:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Perform a join to retrieve coffee names and supplier names for</span>
@@ -269,9 +277,12 @@ call:</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="queryable.html" title="Plain Scala Queries"
+          <a href="testkit.html" title="Slick TestKit"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="direct-embedding.html" title="Direct Embedding"
              >previous</a> |</li>
-        <li><a href="index.html">SLICK 0.10.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Slick 0.11.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

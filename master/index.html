@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SLICK - Scala Language Integrated Connection Kit &mdash; SLICK 0.10.0 documentation</title>
+    <title>Slick - Scala Language Integrated Connection Kit &mdash; Slick 0.11.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.10.0',
+        VERSION:     '0.11.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="SLICK 0.10.0 documentation" href="#" />
-    <link rel="next" title="Getting Started" href="gettingstarted.html" /> 
+    <link rel="top" title="Slick 0.11.2 documentation" href="#" />
+    <link rel="next" title="Introduction" href="introduction.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,26 +36,16 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="gettingstarted.html" title="Getting Started"
+          <a href="introduction.html" title="Introduction"
              accesskey="N">next</a> |</li>
-        <li><a href="#">SLICK 0.10.0 documentation</a> &raquo;</li> 
+        <li><a href="#">Slick 0.11.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">SLICK - Scala Language Integrated Connection Kit</a><ul>
-<li><a class="reference internal" href="#supported-database-systems">Supported database systems</a><ul>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
   <h4>Next topic</h4>
-  <p class="topless"><a href="gettingstarted.html"
-                        title="next chapter">Getting Started</a></p>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">Introduction</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -83,49 +73,49 @@
           <div class="body">
             
   <div class="section" id="slick-scala-language-integrated-connection-kit">
-<h1>SLICK - Scala Language Integrated Connection Kit<a class="headerlink" href="#slick-scala-language-integrated-connection-kit" title="Permalink to this headline">¶</a></h1>
-<p>Project SLICK (Scala Language Integrated Connection Kit) aims at the
-development of a complete, modern, convenient, efficient and safe data query
-and access framework for the Scala programming language that operates on the
-Java platform. Ordinary Scala code can be used to query different database
-back-ends. Queries can be processed and validated at compile time, even in
-user-provided back-ends.</p>
-<p>It includes the following features:</p>
-<ul class="simple">
-<li>Query language with type-safe queries</li>
-<li>Writing database queries with plain Scala code</li>
-<li>Simple execution of raw SQL queries</li>
-<li>Session management based on JDBC Connections</li>
-</ul>
-<div class="section" id="supported-database-systems">
-<span id="supported-dbs"></span><h2>Supported database systems<a class="headerlink" href="#supported-database-systems" title="Permalink to this headline">¶</a></h2>
-<p>The following database systems are directly supported for type-safe queries
-(using the query language or Scala code lifted to DB queries):</p>
-<ul class="simple">
-<li>Derby/JavaDB</li>
-<li>H2</li>
-<li>HSQLDB/HyperSQL</li>
-<li>Microsoft Access</li>
-<li>Microsoft SQL Server</li>
-<li>MySQL</li>
-<li>PostgreSQL</li>
-<li>SQLite</li>
-</ul>
-<p>Accessing other databases is possible, with a reduced feature set.</p>
+<h1>Slick - Scala Language Integrated Connection Kit<a class="headerlink" href="#slick-scala-language-integrated-connection-kit" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-is-slick">What is Slick?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#supported-database-systems">Supported database systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#quick-overview">Quick Overview</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#imports">Imports</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#database-connection">Database Connection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#tables">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#schema">Schema</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#populating-the-database">Populating the Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#querying">Querying</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="session.html">Session Handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ql.html">Query Language</a></li>
-<li class="toctree-l1"><a class="reference internal" href="queryable.html">Plain Scala Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifted-embedding.html">Lifted Embedding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#tables">Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#mapped-tables">Mapped Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#constraints">Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#data-definition-language">Data Definition Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#sorting-and-filtering">Sorting and Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#joining-and-zipping">Joining and Zipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#unions">Unions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#aggregation">Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#querying">Querying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#inserting-and-updating">Inserting and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#query-templates">Query Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lifted-embedding.html#user-defined-functions-and-types">User-Defined Functions and Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#row-class-and-schema">Row class and schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#query">Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#execution">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#alternative-direct-embedding-bound-to-a-driver-and-session">Alternative direct embedding bound to a driver and session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#features">Features</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="sql.html#scaffolding">Scaffolding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sql.html#ddl-dml-statements">DDL/DML Statements</a></li>
@@ -133,8 +123,15 @@ user-provided back-ends.</p>
 <li class="toctree-l2"><a class="reference internal" href="sql.html#string-interpolation">String Interpolation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#scaffolding">Scaffolding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#driver">Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#test-harness">Test Harness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#database-configuration">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#testing">Testing</a></li>
 </ul>
-</div>
+</li>
+</ul>
 </div>
 </div>
 
@@ -151,9 +148,9 @@ user-provided back-ends.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="gettingstarted.html" title="Getting Started"
+          <a href="introduction.html" title="Introduction"
              >next</a> |</li>
-        <li><a href="#">SLICK 0.10.0 documentation</a> &raquo;</li> 
+        <li><a href="#">Slick 0.11.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
