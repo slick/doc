@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plain SQL Queries &mdash; Slick 1.0.0-RC1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.0-RC1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Slick 1.0.0-RC1 documentation" href="index.html" />
+    <link rel="next" title="Slick TestKit" href="testkit.html" />
+    <link rel="prev" title="Direct Embedding" href="direct-embedding.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="testkit.html" title="Slick TestKit"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="direct-embedding.html" title="Direct Embedding"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Slick 1.0.0-RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Plain SQL Queries</a><ul>
+<li><a class="reference internal" href="#scaffolding">Scaffolding</a></li>
+<li><a class="reference internal" href="#ddl-dml-statements">DDL/DML Statements</a></li>
+<li><a class="reference internal" href="#query-statements">Query Statements</a></li>
+<li><a class="reference internal" href="#string-interpolation">String Interpolation</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="direct-embedding.html"
+                        title="previous chapter">Direct Embedding</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="testkit.html"
+                        title="next chapter">Slick TestKit</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/sql.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="plain-sql-queries">
+<h1>Plain SQL Queries<a class="headerlink" href="#plain-sql-queries" title="Permalink to this headline">¶</a></h1>
+<p>Sometimes you may need to write your own SQL code for an operation which is
+not well supported at a higher level of abstraction. Instead of falling back
+to the low level of <a class="reference external" href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>, you can use Slick&#8217;s <em>Plain SQL</em> queries with a much
+nicer Scala-based API.</p>
+<div class="section" id="scaffolding">
+<h2>Scaffolding<a class="headerlink" href="#scaffolding" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/slick/slick-examples/blob/1.0.0-RC1/src/main/scala/scala/slick/examples/jdbc/PlainSQL.scala">Slick example jdbc/PlainSQL</a> demonstrates some features of the <em>Plain SQL</em> support. The
+imports are different from what you&#8217;re used to for the
+<a class="reference internal" href="lifted-embedding.html"><em>lifted embedding</em></a> or
+<a class="reference internal" href="direct-embedding.html"><em>direct embedding</em></a>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scala.slick.session.Database</span>
+<span class="k">import</span> <span class="nn">Database.threadLocalSession</span>
+<span class="k">import</span> <span class="nn">scala.slick.jdbc.</span><span class="o">{</span><span class="nc">GetResult</span><span class="o">,</span> <span class="nc">StaticQuery</span> <span class="k">=&gt;</span> <span class="n">Q</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>First of all, there is no <em>Slick driver</em> being imported. The JDBC-based APIs
+in Slick depend only on JDBC itself and do not implement any database-specific
+abstractions. All we need for the database connection is <tt class="docutils literal"><span class="pre">Database</span></tt>, plus
+the <tt class="docutils literal"><span class="pre">threadLocalSession</span></tt> to simplify session handling.</p>
+<p>The most important class for <em>Plain SQL</em> queries is
+<tt class="docutils literal"><span class="pre">scala.slick.jdbc.StaticQuery</span></tt> which gets imported as <tt class="docutils literal"><span class="pre">Q</span></tt> for more
+convenient use.</p>
+<p>The database connection is opened
+<a class="reference internal" href="gettingstarted.html#gettingstarted-dbconnection"><em>in the usual way</em></a>. We are also defining
+some case classes for our data:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">street</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">city</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">state</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">zip</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Coffee</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">supID</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">price</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">sales</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">total</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+
+<span class="nc">Database</span><span class="o">.</span><span class="n">forURL</span><span class="o">(</span><span class="s">&quot;jdbc:h2:mem:test1&quot;</span><span class="o">,</span> <span class="n">driver</span> <span class="k">=</span> <span class="s">&quot;org.h2.Driver&quot;</span><span class="o">)</span> <span class="n">withSession</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ddl-dml-statements">
+<h2>DDL/DML Statements<a class="headerlink" href="#ddl-dml-statements" title="Permalink to this headline">¶</a></h2>
+<p>The simplest <tt class="docutils literal"><span class="pre">StaticQuery</span></tt> method is <tt class="docutils literal"><span class="pre">updateNA</span></tt> which creates a
+parameterless (<em>NA = no args</em>) <tt class="docutils literal"><span class="pre">StaticQuery[Unit,</span> <span class="pre">Int]</span></tt> that is supposed to
+return the row count from a DDL statement instead of a result set. It can be
+executed the same way as a query that uses the <a class="reference internal" href="lifted-embedding.html"><em>lifted embedding</em></a>. Here we are using <tt class="docutils literal"><span class="pre">.execute</span></tt> to run the query without
+getting the results:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Create the tables, including primary and foreign keys</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">updateNA</span><span class="o">(</span><span class="s">&quot;create table suppliers(&quot;</span><span class="o">+</span>
+  <span class="s">&quot;id int not null primary key, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;name varchar not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;street varchar not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;city varchar not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;state varchar not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;zip varchar not null)&quot;</span><span class="o">).</span><span class="n">execute</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">updateNA</span><span class="o">(</span><span class="s">&quot;create table coffees(&quot;</span><span class="o">+</span>
+  <span class="s">&quot;name varchar not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;sup_id int not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;price double not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;sales int not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;total int not null, &quot;</span><span class="o">+</span>
+  <span class="s">&quot;foreign key(sup_id) references suppliers(id))&quot;</span><span class="o">).</span><span class="n">execute</span>
+</pre></div>
+</div>
+<p>You can append a <tt class="docutils literal"><span class="pre">String</span></tt> to an existing <tt class="docutils literal"><span class="pre">StaticQuery</span></tt> object with <tt class="docutils literal"><span class="pre">+</span></tt>,
+yielding a new <tt class="docutils literal"><span class="pre">StaticQuery</span></tt> with the same types. The convenience method
+<tt class="docutils literal"><span class="pre">StaticQuery.u</span></tt> constructs an empty <em>update</em> query to start with (identical
+to <tt class="docutils literal"><span class="pre">StaticQuery.updateNA(&quot;&quot;)</span></tt>). We are using it to insert some data into the
+<tt class="docutils literal"><span class="pre">SUPPLIERS</span></tt> table:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Insert some suppliers</span>
+<span class="o">(</span><span class="n">Q</span><span class="o">.</span><span class="n">u</span> <span class="o">+</span> <span class="s">&quot;insert into suppliers values(101, &#39;Acme, Inc.&#39;, &#39;99 Market Street&#39;, &#39;Groundsville&#39;, &#39;CA&#39;, &#39;95199&#39;)&quot;</span><span class="o">).</span><span class="n">execute</span>
+<span class="o">(</span><span class="n">Q</span><span class="o">.</span><span class="n">u</span> <span class="o">+</span> <span class="s">&quot;insert into suppliers values(49, &#39;Superior Coffee&#39;, &#39;1 Party Place&#39;, &#39;Mendocino&#39;, &#39;CA&#39;, &#39;95460&#39;)&quot;</span><span class="o">).</span><span class="n">execute</span>
+<span class="o">(</span><span class="n">Q</span><span class="o">.</span><span class="n">u</span> <span class="o">+</span> <span class="s">&quot;insert into suppliers values(150, &#39;The High Ground&#39;, &#39;100 Coffee Lane&#39;, &#39;Meadows&#39;, &#39;CA&#39;, &#39;93966&#39;)&quot;</span><span class="o">).</span><span class="n">execute</span>
+</pre></div>
+</div>
+<p>Embedding literals into SQL code is generally not recommended for security and
+performance reasons, especially if they are to be filled at run-time with
+user-provided data. You can use the special concatenation operator <tt class="docutils literal"><span class="pre">+?</span></tt> to
+add a bind variable to a query string and instantiate it with the provided
+value when the statement gets executed:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="n">insert</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Coffee</span><span class="o">)</span> <span class="k">=</span> <span class="o">(</span><span class="n">Q</span><span class="o">.</span><span class="n">u</span> <span class="o">+</span> <span class="s">&quot;insert into coffees values (&quot;</span> <span class="o">+?</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span>
+  <span class="s">&quot;,&quot;</span> <span class="o">+?</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+?</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+?</span> <span class="n">c</span><span class="o">.</span><span class="n">sales</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+?</span> <span class="n">c</span><span class="o">.</span><span class="n">total</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">).</span><span class="n">execute</span>
+
+<span class="c1">// Insert some coffees</span>
+<span class="nc">Seq</span><span class="o">(</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mf">7.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;French_Roast&quot;</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;Espresso&quot;</span><span class="o">,</span> <span class="mi">150</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;Colombian_Decaf&quot;</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;French_Roast_Decaf&quot;</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
+<span class="o">).</span><span class="n">foreach</span><span class="o">(</span><span class="n">insert</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The SQL statement is the same for all calls:
+<tt class="docutils literal"><span class="pre">insert</span> <span class="pre">into</span> <span class="pre">coffees</span> <span class="pre">values</span> <span class="pre">(?,?,?,?,?)</span></tt></p>
+</div>
+<div class="section" id="query-statements">
+<h2>Query Statements<a class="headerlink" href="#query-statements" title="Permalink to this headline">¶</a></h2>
+<p>Similar to <tt class="docutils literal"><span class="pre">updateNA</span></tt>, there is a <tt class="docutils literal"><span class="pre">queryNA</span></tt> method which takes a type
+parameter for the rows of the result set. You can use it to execute a
+<em>select</em> statement and iterate over the results:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">Q</span><span class="o">.</span><span class="n">queryNA</span><span class="o">[</span><span class="kt">Coffee</span><span class="o">](</span><span class="s">&quot;select * from coffees&quot;</span><span class="o">)</span> <span class="n">foreach</span> <span class="o">{</span> <span class="n">c</span> <span class="k">=&gt;</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">&quot;  &quot;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">sales</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">total</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In order for this to work, Slick needs to know how to read <tt class="docutils literal"><span class="pre">Coffee</span></tt> values
+from a <tt class="docutils literal"><span class="pre">PositionedResult</span></tt> object. This is done with an implicit
+<tt class="docutils literal"><span class="pre">GetResult</span></tt> value. There are predefined <tt class="docutils literal"><span class="pre">GetResult</span></tt> implicits for the
+standard JDBC types, for Options of those (to represent nullable columns) and
+for tuples of types which have a <tt class="docutils literal"><span class="pre">GetResult</span></tt>. For the <tt class="docutils literal"><span class="pre">Supplier</span></tt> and
+<tt class="docutils literal"><span class="pre">Coffee</span></tt> classes in this example we have to write our own:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Result set getters</span>
+<span class="k">implicit</span> <span class="k">val</span> <span class="n">getSupplierResult</span> <span class="k">=</span> <span class="nc">GetResult</span><span class="o">(</span><span class="n">r</span> <span class="k">=&gt;</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="n">nextInt</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span>
+  <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">))</span>
+<span class="k">implicit</span> <span class="k">val</span> <span class="n">getCoffeeResult</span> <span class="k">=</span> <span class="nc">GetResult</span><span class="o">(</span><span class="n">r</span> <span class="k">=&gt;</span> <span class="nc">Coffee</span><span class="o">(</span><span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;))</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">GetResult[T]</span></tt> is simply a wrapper for a function <tt class="docutils literal"><span class="pre">PositionedResult</span> <span class="pre">=&gt;</span> <span class="pre">T</span></tt>.
+The first one above uses the explicit <tt class="docutils literal"><span class="pre">PositionedResult</span></tt> methods <tt class="docutils literal"><span class="pre">getInt</span></tt>
+and <tt class="docutils literal"><span class="pre">getString</span></tt> to read the next <tt class="docutils literal"><span class="pre">Int</span></tt> or <tt class="docutils literal"><span class="pre">String</span></tt> value in the current
+row. The second one uses the shortcut method <tt class="docutils literal"><span class="pre">&lt;&lt;</span></tt> which returns a value of
+whatever type is expected at this place. (Of course you can only use it when
+the type is actually known like in this constructor call.)</p>
+<p>The <tt class="docutils literal"><span class="pre">queryNA</span></tt> method for parameterless queries is complemented by <tt class="docutils literal"><span class="pre">query</span></tt>
+which takes two type parameters, one for the query parameters and one for the
+result set rows. Similarly, there is a matching <tt class="docutils literal"><span class="pre">update</span></tt> for <tt class="docutils literal"><span class="pre">updateNA</span></tt>.
+The execution methods of the resulting <tt class="docutils literal"><span class="pre">StaticQuery</span></tt> need to be called with
+the query parameters, as seen here in the call to <tt class="docutils literal"><span class="pre">.list</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Perform a join to retrieve coffee names and supplier names for</span>
+<span class="c1">// all coffees costing less than $9.00</span>
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">Q</span><span class="o">.</span><span class="n">query</span><span class="o">[</span><span class="kt">Double</span>, <span class="o">(</span><span class="kt">String</span>, <span class="kt">String</span><span class="o">)](</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select c.name, s.name</span>
+<span class="s">  from coffees c, suppliers s</span>
+<span class="s">  where c.price &lt; ? and s.id = c.sup_id</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">)</span>
+<span class="c1">// This time we read the result set into a List</span>
+<span class="k">val</span> <span class="n">l2</span> <span class="k">=</span> <span class="n">q2</span><span class="o">.</span><span class="n">list</span><span class="o">(</span><span class="mf">9.0</span><span class="o">)</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">t</span> <span class="k">&lt;-</span> <span class="n">l2</span><span class="o">)</span> <span class="n">println</span><span class="o">(</span><span class="s">&quot;  &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">_1</span> <span class="o">+</span> <span class="s">&quot; supplied by &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="o">.</span><span class="n">_2</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>As an alternative, you can apply the parameters directly to the query, thus
+reducing it to a parameterless query. This makes the syntax for parameterized
+queries the same as for normal function application:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">supplierById</span> <span class="k">=</span> <span class="n">Q</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">Supplier</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;select * from suppliers where id = ?&quot;</span>
+<span class="n">println</span><span class="o">(</span><span class="s">&quot;Supplier #49: &quot;</span> <span class="o">+</span> <span class="n">supplierById</span><span class="o">(</span><span class="mi">49</span><span class="o">).</span><span class="n">first</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-interpolation">
+<h2>String Interpolation<a class="headerlink" href="#string-interpolation" title="Permalink to this headline">¶</a></h2>
+<p>In order to use the <em>string interpolation</em> prefixes <tt class="docutils literal"><span class="pre">sql</span></tt> and <tt class="docutils literal"><span class="pre">sqlu</span></tt>,
+you need to add one more import statement:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">Q.interpolation</span>
+</pre></div>
+</div>
+<p>As long as you don&#8217;t want function-like reusable queries, interpolation is the
+easiest and syntactically nicest way of building a parameterized query. Any
+variable or expression injected into a query gets turned into a bind variable
+in the resulting query string. (You can use <tt class="docutils literal"><span class="pre">#$</span></tt> instead of <tt class="docutils literal"><span class="pre">$</span></tt> to get the
+literal value inserted directly into the query.) The result type is specified
+in a call to <tt class="docutils literal"><span class="pre">.as</span></tt> which turns the object produced by the <tt class="docutils literal"><span class="pre">sql</span></tt>
+interpolator into a <tt class="docutils literal"><span class="pre">StaticQuery</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="n">coffeeByName</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">sql</span><span class="s">&quot;select * from coffees where name = $name&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Coffee</span><span class="o">]</span>
+<span class="n">println</span><span class="o">(</span><span class="s">&quot;Coffee Colombian: &quot;</span> <span class="o">+</span> <span class="n">coffeeByName</span><span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">).</span><span class="n">firstOption</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>There is a similar interpolator <tt class="docutils literal"><span class="pre">sqlu</span></tt> for building <em>update</em> statements. It
+is hardcoded to return an <tt class="docutils literal"><span class="pre">Int</span></tt> value so it does not need the extra <tt class="docutils literal"><span class="pre">.as</span></tt>
+call:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="n">deleteCoffee</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span> <span class="k">=</span> <span class="n">sqlu</span><span class="s">&quot;delete from coffees where name = $name&quot;</span><span class="o">.</span><span class="n">first</span>
+<span class="k">val</span> <span class="n">rows</span> <span class="k">=</span> <span class="n">deleteCoffee</span><span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">)</span>
+<span class="n">println</span><span class="o">(</span><span class="n">s</span><span class="s">&quot;Deleted $rows rows&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="testkit.html" title="Slick TestKit"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="direct-embedding.html" title="Direct Embedding"
+             >previous</a> |</li>
+        <li><a href="index.html">Slick 1.0.0-RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012 Typesafe, Inc..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
