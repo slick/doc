@@ -1,0 +1,467 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>compiler - scala.slick.compiler</title>
+          <meta name="description" content="compiler - scala.slick.compiler" />
+          <meta name="keywords" content="compiler scala.slick.compiler" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.compiler.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a></p>
+        <h1>compiler</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compiler</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.compiler.AssignUniqueSymbols" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AssignUniqueSymbolsextendsPhase"></a>
+      <a id="AssignUniqueSymbols:AssignUniqueSymbols"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AssignUniqueSymbols.html"><span class="name">AssignUniqueSymbols</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Ensure that all symbol definitions in a tree are unique</p>
+    </li><li name="scala.slick.compiler.ColumnizerUtils" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ColumnizerUtilsextendsObject"></a>
+      <a id="ColumnizerUtils:ColumnizerUtils"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ColumnizerUtils.html"><span class="name">ColumnizerUtils</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.compiler.CompilationState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CompilationStateextendsObject"></a>
+      <a id="CompilationState:CompilationState"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CompilationState.html"><span class="name">CompilationState</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The mutable state of a compiler run, consisting of immutable state of
+individual phases that can be updated.</p>
+    </li><li name="scala.slick.compiler.ConvertToComprehensions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConvertToComprehensionsextendsPhase"></a>
+      <a id="ConvertToComprehensions:ConvertToComprehensions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConvertToComprehensions.html"><span class="name">ConvertToComprehensions</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Conversion of basic ASTs to a shape suitable for relational DBs.</p>
+    </li><li name="scala.slick.compiler.ExpandRefs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ExpandRefsextendsPhasewithColumnizerUtils"></a>
+      <a id="ExpandRefs:ExpandRefs"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ExpandRefs.html"><span class="name">ExpandRefs</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a> with <a href="ColumnizerUtils.html" class="extype" name="scala.slick.compiler.ColumnizerUtils">ColumnizerUtils</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Expand Paths to ProductNodes and TableExpansions into ProductNodes of
+Paths and TableRefExpansions of Paths, so that all Paths point to
+individual columns by index</p>
+    </li><li name="scala.slick.compiler.ExpandTables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ExpandTablesextendsPhase"></a>
+      <a id="ExpandTables:ExpandTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ExpandTables.html"><span class="name">ExpandTables</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Replace all TableNodes with TableExpansions which contain both the
+expansion and the original table.</p>
+    </li><li name="scala.slick.compiler.FixRowNumberOrdering" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FixRowNumberOrderingextendsPhase"></a>
+      <a id="FixRowNumberOrdering:FixRowNumberOrdering"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FixRowNumberOrdering.html"><span class="name">FixRowNumberOrdering</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Inject the proper orderings into the RowNumber nodes produced earlier by
+the resolveFixJoins phase.</p>
+    </li><li name="scala.slick.compiler.ForceOuterBinds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ForceOuterBindsextendsPhase"></a>
+      <a id="ForceOuterBinds:ForceOuterBinds"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ForceOuterBinds.html"><span class="name">ForceOuterBinds</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Ensure that all collection operations are wrapped in a Bind so that we
+have a place for expanding references later.</p>
+    </li><li name="scala.slick.compiler.FuseComprehensions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FuseComprehensionsextendsPhase"></a>
+      <a id="FuseComprehensions:FuseComprehensions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FuseComprehensions.html"><span class="name">FuseComprehensions</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Fuse sub-comprehensions into their parents.</p>
+    </li><li name="scala.slick.compiler.Inline" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InlineextendsPhase"></a>
+      <a id="Inline:Inline"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Inline.html"><span class="name">Inline</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Inline references to global symbols which occur only once in a Ref node.</p>
+    </li><li name="scala.slick.compiler.LetDynamicEliminated" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LetDynamicEliminatedextendsPhase"></a>
+      <a id="LetDynamicEliminated:LetDynamicEliminated"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LetDynamicEliminated.html"><span class="name">LetDynamicEliminated</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Ensure that LetDynamic has been eliminated</p>
+    </li><li name="scala.slick.compiler.LocalizeRefs" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LocalizeRefsextendsPhase"></a>
+      <a id="LocalizeRefs:LocalizeRefs"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LocalizeRefs.html"><span class="name">LocalizeRefs</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Replace IntrinsicSymbols by AnonSymbols and collect them in a LetDynamic</p>
+    </li><li name="scala.slick.compiler.Phase" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Phaseextends(scala.slick.ast.Node,scala.slick.compiler.CompilationState)=&gt;scala.slick.ast.NodewithLogging"></a>
+      <a id="Phase:Phase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Phase.html"><span class="name">Phase</span></a><span class="result"> extends (<a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a>, <a href="CompilationState.html" class="extype" name="scala.slick.compiler.CompilationState">CompilationState</a>) ⇒ <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a> with <a href="../util/Logging.html" class="extype" name="scala.slick.util.Logging">Logging</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A phase of the query compiler, identified by a unique name</p>
+    </li><li name="scala.slick.compiler.PruneFields" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PruneFieldsextendsPhase"></a>
+      <a id="PruneFields:PruneFields"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PruneFields.html"><span class="name">PruneFields</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Remove unreferenced fields from StructNodes</p>
+    </li><li name="scala.slick.compiler.QueryCompiler" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryCompilerextendsLogging"></a>
+      <a id="QueryCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryCompiler.html"><span class="name">QueryCompiler</span></a><span class="result"> extends <a href="../util/Logging.html" class="extype" name="scala.slick.util.Logging">Logging</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An immutable, stateless query compiler consisting of a series of phases</p>
+    </li><li name="scala.slick.compiler.ReconstructProducts" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReconstructProductsextendsPhase"></a>
+      <a id="ReconstructProducts:ReconstructProducts"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReconstructProducts.html"><span class="name">ReconstructProducts</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Since Nodes cannot be encoded into Scala Tuples, they have to be encoded
+into the Tuples' children instead, so we end up with trees like
+ProductNode(Select(r, ElementSymbol(1)), Select(r, ElementSymbol(2)))
+where r is a Ref to an expression that yields a Query of
+ProductNode(_, _).</p>
+    </li><li name="scala.slick.compiler.RelabelUnions" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RelabelUnionsextendsPhase"></a>
+      <a id="RelabelUnions:RelabelUnions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RelabelUnions.html"><span class="name">RelabelUnions</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Assign the AnonSymbols of fields from the left side of a Union to the
+right side.</p>
+    </li><li name="scala.slick.compiler.ReplaceFieldSymbols" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReplaceFieldSymbolsextendsPhasewithColumnizerUtils"></a>
+      <a id="ReplaceFieldSymbols:ReplaceFieldSymbols"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReplaceFieldSymbols.html"><span class="name">ReplaceFieldSymbols</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a> with <a href="ColumnizerUtils.html" class="extype" name="scala.slick.compiler.ColumnizerUtils">ColumnizerUtils</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Replace references to FieldSymbols in TableExpansions by the
+appropriate ElementSymbol</p>
+    </li><li name="scala.slick.compiler.ResolveZipJoins" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResolveZipJoinsextendsPhase"></a>
+      <a id="ResolveZipJoins:ResolveZipJoins"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResolveZipJoins.html"><span class="name">ResolveZipJoins</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Rewrite zip joins into a form suitable for SQL (using inner joins and
+RowNumber columns.</p>
+    </li><li name="scala.slick.compiler.ResolveZipJoinsState" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResolveZipJoinsStateextendsObject"></a>
+      <a id="ResolveZipJoinsState:ResolveZipJoinsState"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResolveZipJoinsState.html"><span class="name">ResolveZipJoinsState</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.compiler.RewriteOrderBy" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RewriteOrderByextendsPhase"></a>
+      <a id="RewriteOrderBy:RewriteOrderBy"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RewriteOrderBy.html"><span class="name">RewriteOrderBy</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Rewrite OrderBy to SortBy</p>
+    </li><li name="scala.slick.compiler.RewritePaths" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RewritePathsextendsPhase"></a>
+      <a id="RewritePaths:RewritePaths"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RewritePaths.html"><span class="name">RewritePaths</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="scala.slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Remove TableExpansions and TableRefExpansions, and flatten ProductNodes
+into StructNodes and remove unnecessary columns from them.</p>
+    </li><li name="scala.slick.compiler.Transformer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TransformerextendsObject"></a>
+      <a id="Transformer:Transformer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Transformer.html"><span class="name">Transformer</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A tree transformer which replaces nodes transitively while updating
+some information about the tree.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.slick.compiler.Phase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Phase"></a>
+      <a id="Phase:Phase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Phase$.html"><span class="name">Phase</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">The standard phases of the query compiler</p>
+    </li><li name="scala.slick.compiler.QueryCompiler" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryCompiler"></a>
+      <a id="QueryCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryCompiler$.html"><span class="name">QueryCompiler</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.compiler.Transformer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Transformer"></a>
+      <a id="Transformer:Transformer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Transformer$.html"><span class="name">Transformer</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.compiler.UnionLeft" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnionLeft"></a>
+      <a id="UnionLeft:UnionLeft"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="UnionLeft$.html"><span class="name">UnionLeft</span></a>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
