@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started &mdash; Slick 1.0.1-RC1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1-RC1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 1.0.1-RC1 documentation" href="index.html" />
+    <link rel="next" title="Lifted Embedding" href="lifted-embedding.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="lifted-embedding.html" title="Lifted Embedding"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Slick 1.0.1-RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#imports">Imports</a></li>
+<li><a class="reference internal" href="#database-connection">Database Connection</a></li>
+<li><a class="reference internal" href="#schema">Schema</a></li>
+<li><a class="reference internal" href="#populating-the-database">Populating the Database</a></li>
+<li><a class="reference internal" href="#querying">Querying</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="lifted-embedding.html"
+                        title="next chapter">Lifted Embedding</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/gettingstarted.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way of setting up a Slick application is by starting with the
+<a class="reference external" href="https://github.com/slick/slick-examples/tree/1.0.1-RC1">Slick Examples</a> project. You can build and run this project by following the
+instructions in its README file.</p>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s take a closer look at what&#8217;s happening in that project. First of all,
+you need to add Slick and the embedded databases or drivers for external
+databases to your project. If you are using <a class="reference external" href="http://www.scala-sbt.org/">sbt</a>, you do this in your
+main <tt class="docutils literal"><span class="pre">build.sbt</span></tt> file:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">List</span><span class="o">(</span>
+  <span class="c1">// use the right Slick version here:</span>
+  <span class="s">&quot;com.typesafe.slick&quot;</span> <span class="o">%%</span> <span class="s">&quot;slick&quot;</span> <span class="o">%</span> <span class="s">&quot;1.0.0&quot;</span><span class="o">,</span>
+  <span class="s">&quot;org.slf4j&quot;</span> <span class="o">%</span> <span class="s">&quot;slf4j-nop&quot;</span> <span class="o">%</span> <span class="s">&quot;1.6.4&quot;</span><span class="o">,</span>
+  <span class="s">&quot;com.h2database&quot;</span> <span class="o">%</span> <span class="s">&quot;h2&quot;</span> <span class="o">%</span> <span class="s">&quot;1.3.166&quot;</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p>Slick uses <a class="reference external" href="http://www.slf4j.org/">SLF4J</a> for its own debug logging so you also need to add an SLF4J
+implementation. Here we are using <tt class="docutils literal"><span class="pre">slf4j-nop</span></tt> to disable logging. You have
+to replace this with a real logging framework like <a class="reference external" href="http://logback.qos.ch/">Logback</a> if you want to see
+log output.</p>
+</div>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/slick/slick-examples/blob/1.0.1-RC1/src/main/scala/com/typesafe/slick/examples/lifted/FirstExample.scala">Slick example lifted/FirstExample</a> contains a self-contained application that you can run.
+It starts off with some imports:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Use H2Driver to connect to an H2 database</span>
+<span class="k">import</span> <span class="nn">scala.slick.driver.H2Driver.simple._</span>
+
+<span class="c1">// Use the implicit threadLocalSession</span>
+<span class="k">import</span> <span class="nn">Database.threadLocalSession</span>
+</pre></div>
+</div>
+<p>Since we are using <a class="reference external" href="http://h2database.com/">H2</a> as our database system, we need to import features
+from Slick&#8217;s <tt class="docutils literal"><span class="pre">H2Driver</span></tt>. A driver&#8217;s <tt class="docutils literal"><span class="pre">simple</span></tt> object contains all commonly
+needed imports from the driver and other parts of Slick such as
+<a class="reference internal" href="session.html"><em>session handling</em></a>. The only extra import we use is the
+<tt class="docutils literal"><span class="pre">threadLocalSession</span></tt>. This simplifies the session handling by attaching a
+session to the current thread so you do not have to pass it around on your own
+(or at least assign it to an implicit variable).</p>
+</div>
+<div class="section" id="database-connection">
+<span id="gettingstarted-dbconnection"></span><h2>Database Connection<a class="headerlink" href="#database-connection" title="Permalink to this headline">¶</a></h2>
+<p>In the body of the application we create a <tt class="docutils literal"><span class="pre">Database</span></tt> object which specifies
+how to connect to a database, and then immediately open a session, running all
+code within the following block inside that session:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="nc">Database</span><span class="o">.</span><span class="n">forURL</span><span class="o">(</span><span class="s">&quot;jdbc:h2:mem:test1&quot;</span><span class="o">,</span> <span class="n">driver</span> <span class="k">=</span> <span class="s">&quot;org.h2.Driver&quot;</span><span class="o">)</span> <span class="n">withSession</span> <span class="o">{</span>
+  <span class="c1">// The session is never named explicitly. It is bound to the current</span>
+  <span class="c1">// thread as the threadLocalSession that we imported</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In a Java SE environment, database sessions are usually created by connecting
+to a JDBC URL using a JDBC driver class (see the JDBC driver&#8217;s documentation
+for the correct URL syntax). If you are only using
+<a class="reference internal" href="sql.html"><em>plain SQL queries</em></a>, nothing more is required, but when Slick is
+generating SQL code for you (using the <a class="reference internal" href="direct-embedding.html"><em>direct embedding</em></a>
+or the <a class="reference internal" href="lifted-embedding.html"><em>lifted embedding</em></a>), you need to make sure to use
+a matching Slick driver (in our case the <tt class="docutils literal"><span class="pre">H2Driver</span></tt> import above).</p>
+</div>
+<div class="section" id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>We are using the <a class="reference internal" href="lifted-embedding.html"><em>lifted embedding</em></a> in this
+application, so we have to write <tt class="docutils literal"><span class="pre">Table</span></tt> objects for our database tables:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Definition of the SUPPLIERS table</span>
+<span class="k">object</span> <span class="nc">Suppliers</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)](</span><span class="s">&quot;SUPPLIERS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span> <span class="c1">// This is the primary key column</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;SUP_NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">city</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;CITY&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">state</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STATE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">zip</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;ZIP&quot;</span><span class="o">)</span>
+  <span class="c1">// Every table needs a * projection with the same type as the table&#39;s type parameter</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="n">id</span> <span class="o">~</span> <span class="n">name</span> <span class="o">~</span> <span class="n">street</span> <span class="o">~</span> <span class="n">city</span> <span class="o">~</span> <span class="n">state</span> <span class="o">~</span> <span class="n">zip</span>
+<span class="o">}</span>
+
+<span class="c1">// Definition of the COFFEES table</span>
+<span class="k">object</span> <span class="nc">Coffees</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span>, <span class="kt">Double</span>, <span class="kt">Int</span>, <span class="kt">Int</span><span class="o">)](</span><span class="s">&quot;COFFEES&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;COF_NAME&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">supID</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">price</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Double</span><span class="o">](</span><span class="s">&quot;PRICE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">sales</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SALES&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">total</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;TOTAL&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="n">name</span> <span class="o">~</span> <span class="n">supID</span> <span class="o">~</span> <span class="n">price</span> <span class="o">~</span> <span class="n">sales</span> <span class="o">~</span> <span class="n">total</span>
+  <span class="c1">// A reified foreign key relation that can be navigated to create a join</span>
+  <span class="k">def</span> <span class="n">supplier</span> <span class="k">=</span> <span class="n">foreignKey</span><span class="o">(</span><span class="s">&quot;SUP_FK&quot;</span><span class="o">,</span> <span class="n">supID</span><span class="o">,</span> <span class="nc">Suppliers</span><span class="o">)(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>All columns get a name (usually in camel case for Scala and upper case with
+underscores for SQL) and a Scala type (from which the SQL type can be derived
+automatically). Make sure to define them with <tt class="docutils literal"><span class="pre">def</span></tt> and not with <tt class="docutils literal"><span class="pre">val</span></tt>.
+The table object also needs a Scala name, SQL name and type. The type argument
+of the table must match the type of the special <tt class="docutils literal"><span class="pre">*</span></tt> projection. In simple
+cases this is a tuple of all columns but more complex mappings are possible.</p>
+<p>The <tt class="docutils literal"><span class="pre">foreignKey</span></tt> definition in the <tt class="docutils literal"><span class="pre">Coffees</span></tt> table ensures that the
+<tt class="docutils literal"><span class="pre">supID</span></tt> field can only contain values for which a corresponding <tt class="docutils literal"><span class="pre">id</span></tt>
+exists in the <tt class="docutils literal"><span class="pre">Suppliers</span></tt> table, thus creating an <em>n to one</em> relationship:
+A <tt class="docutils literal"><span class="pre">Coffees</span></tt> row points to exactly one <tt class="docutils literal"><span class="pre">Suppliers</span></tt> row but any number
+of coffees can point to the same supplier. This constraint is enforced at the
+database level.</p>
+</div>
+<div class="section" id="populating-the-database">
+<h2>Populating the Database<a class="headerlink" href="#populating-the-database" title="Permalink to this headline">¶</a></h2>
+<p>The connection to the embedded H2 database engine provides us with an empty
+database. Before we can execute queries, we need to create the database schema
+(consisting of the <tt class="docutils literal"><span class="pre">Coffees</span></tt> and <tt class="docutils literal"><span class="pre">Suppliers</span></tt> tables) and insert some test
+data:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Create the tables, including primary and foreign keys</span>
+<span class="o">(</span><span class="nc">Suppliers</span><span class="o">.</span><span class="n">ddl</span> <span class="o">++</span> <span class="nc">Coffees</span><span class="o">.</span><span class="n">ddl</span><span class="o">).</span><span class="n">create</span>
+
+<span class="c1">// Insert some suppliers</span>
+<span class="nc">Suppliers</span><span class="o">.</span><span class="n">insert</span><span class="o">(</span><span class="mi">101</span><span class="o">,</span> <span class="s">&quot;Acme, Inc.&quot;</span><span class="o">,</span>      <span class="s">&quot;99 Market Street&quot;</span><span class="o">,</span> <span class="s">&quot;Groundsville&quot;</span><span class="o">,</span> <span class="s">&quot;CA&quot;</span><span class="o">,</span> <span class="s">&quot;95199&quot;</span><span class="o">)</span>
+<span class="nc">Suppliers</span><span class="o">.</span><span class="n">insert</span><span class="o">(</span> <span class="mi">49</span><span class="o">,</span> <span class="s">&quot;Superior Coffee&quot;</span><span class="o">,</span> <span class="s">&quot;1 Party Place&quot;</span><span class="o">,</span>    <span class="s">&quot;Mendocino&quot;</span><span class="o">,</span>    <span class="s">&quot;CA&quot;</span><span class="o">,</span> <span class="s">&quot;95460&quot;</span><span class="o">)</span>
+<span class="nc">Suppliers</span><span class="o">.</span><span class="n">insert</span><span class="o">(</span><span class="mi">150</span><span class="o">,</span> <span class="s">&quot;The High Ground&quot;</span><span class="o">,</span> <span class="s">&quot;100 Coffee Lane&quot;</span><span class="o">,</span>  <span class="s">&quot;Meadows&quot;</span><span class="o">,</span>      <span class="s">&quot;CA&quot;</span><span class="o">,</span> <span class="s">&quot;93966&quot;</span><span class="o">)</span>
+
+<span class="c1">// Insert some coffees (using JDBC&#39;s batch insert feature, if supported by the DB)</span>
+<span class="nc">Coffees</span><span class="o">.</span><span class="n">insertAll</span><span class="o">(</span>
+  <span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">,</span>         <span class="mi">101</span><span class="o">,</span> <span class="mf">7.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="o">(</span><span class="s">&quot;French_Roast&quot;</span><span class="o">,</span>       <span class="mi">49</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="o">(</span><span class="s">&quot;Espresso&quot;</span><span class="o">,</span>          <span class="mi">150</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="o">(</span><span class="s">&quot;Colombian_Decaf&quot;</span><span class="o">,</span>   <span class="mi">101</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="o">(</span><span class="s">&quot;French_Roast_Decaf&quot;</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p>The tables&#8217; <tt class="docutils literal"><span class="pre">ddl</span></tt> methods create <tt class="docutils literal"><span class="pre">DDL</span></tt> (data definition language) objects
+with the database-specific code for creating and dropping tables and other
+database entities. Multiple <tt class="docutils literal"><span class="pre">DDL</span></tt> values can be combined with <tt class="docutils literal"><span class="pre">++</span></tt> to
+allow all entities to be created and dropped in the correct order, even when
+they have circular dependencies on each other.</p>
+<p>Inserting the tuples of data is done with the <tt class="docutils literal"><span class="pre">insert</span></tt> and <tt class="docutils literal"><span class="pre">insertAll</span></tt>
+methods. Note that by default a database <tt class="docutils literal"><span class="pre">Session</span></tt> is in <em>auto-commit</em> mode.
+Each call to the database like <tt class="docutils literal"><span class="pre">insert</span></tt> or <tt class="docutils literal"><span class="pre">insertAll</span></tt> executes atomically
+in its own transaction (i.e. it succeeds or fails completely but can never
+leave the database in an inconsistent state somewhere in between). In this
+mode we we have to populate the <tt class="docutils literal"><span class="pre">Suppliers</span></tt> table first because the
+<tt class="docutils literal"><span class="pre">Coffees</span></tt> data can only refer to valid supplier IDs.</p>
+<p>We could also use an explicit transaction bracket encompassing all these
+statements. Then the order would not matter because the constraints are only
+enforced at the end when the transaction is committed.</p>
+</div>
+<div class="section" id="querying">
+<h2>Querying<a class="headerlink" href="#querying" title="Permalink to this headline">¶</a></h2>
+<p>The simplest kind of query iterates over all the data in a table:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Iterate through all coffees and output them</span>
+<span class="nc">Query</span><span class="o">(</span><span class="nc">Coffees</span><span class="o">)</span> <span class="n">foreach</span> <span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">supID</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">sales</span><span class="o">,</span> <span class="n">total</span><span class="o">)</span> <span class="k">=&gt;</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">&quot;  &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">supID</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">price</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">sales</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">total</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This corresponds to a <tt class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">COFFEES</span></tt> in SQL (except that the <tt class="docutils literal"><span class="pre">*</span></tt>
+is the table&#8217;s <tt class="docutils literal"><span class="pre">*</span></tt> projection we defined earlier and not whatever the
+database sees as <tt class="docutils literal"><span class="pre">*</span></tt>). The type of the values we get in the loop is,
+unsurprisingly, the type parameter of <tt class="docutils literal"><span class="pre">Coffees</span></tt>.</p>
+<p>Let&#8217;s add a <em>projection</em> to this basic query. This is written in Scala with
+the <tt class="docutils literal"><span class="pre">map</span></tt> method or a <em>for comprehension</em>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Why not let the database do the string conversion and concatenation?</span>
+<span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="k">for</span><span class="o">(</span><span class="n">c</span> <span class="k">&lt;-</span> <span class="nc">Coffees</span><span class="o">)</span> <span class="c1">// Coffees lifted automatically to a Query</span>
+  <span class="k">yield</span> <span class="nc">ConstColumn</span><span class="o">(</span><span class="s">&quot;  &quot;</span><span class="o">)</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">++</span> <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">++</span>
+    <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">++</span> <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">sales</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">++</span>
+    <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">total</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+<span class="c1">// The first string constant needs to be lifted manually to a ConstColumn</span>
+<span class="c1">// so that the proper ++ operator is found</span>
+<span class="n">q1</span> <span class="n">foreach</span> <span class="n">println</span>
+</pre></div>
+</div>
+<p>The output will be the same: For each row of the table, all columns get
+converted to strings and concatenated into one tab-separated string. The
+difference is that all of this now happens inside the database engine, and
+only the resulting concatenated string is shipped to the client. Note that we
+avoid Scala&#8217;s <tt class="docutils literal"><span class="pre">+</span></tt> operator (which is already heavily overloaded) in favor of
+<tt class="docutils literal"><span class="pre">++</span></tt> (commonly used for sequence concatenation). Also, there is no automatic
+conversion of other argument types to strings. This has to be done explicitly
+with the type conversion method <tt class="docutils literal"><span class="pre">asColumnOf</span></tt>.</p>
+<p>Joining and filtering tables is done the same way as when working with Scala
+collections:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Perform a join to retrieve coffee names and supplier names for</span>
+<span class="c1">// all coffees costing less than $9.00</span>
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">c</span> <span class="k">&lt;-</span> <span class="nc">Coffees</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">9.0</span>
+  <span class="n">s</span> <span class="k">&lt;-</span> <span class="nc">Suppliers</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Note the use of <tt class="docutils literal"><span class="pre">===</span></tt> instead of <tt class="docutils literal"><span class="pre">==</span></tt> for comparing two values for
+equality. Similarly, the lifted embedding uses <tt class="docutils literal"><span class="pre">=!=</span></tt> instead of <tt class="docutils literal"><span class="pre">!=</span></tt> for
+inequality. (The other comparison operators are the same as in Scala:
+<tt class="docutils literal"><span class="pre">&lt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;=</span></tt>, <tt class="docutils literal"><span class="pre">&gt;=</span></tt>, <tt class="docutils literal"><span class="pre">&gt;</span></tt>.)</p>
+<p>The generator expression <tt class="docutils literal"><span class="pre">Suppliers</span> <span class="pre">if</span> <span class="pre">s.id</span> <span class="pre">===</span> <span class="pre">c.supID</span></tt> follows the
+relationship established by the foreign key <tt class="docutils literal"><span class="pre">Coffees.supplier</span></tt>. Instead of
+repeating the join condition here we can use the foreign key directly:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q3</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">c</span> <span class="k">&lt;-</span> <span class="nc">Coffees</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">9.0</span>
+  <span class="n">s</span> <span class="k">&lt;-</span> <span class="n">c</span><span class="o">.</span><span class="n">supplier</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="lifted-embedding.html" title="Lifted Embedding"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="index.html">Slick 1.0.1-RC1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2013 Typesafe, Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
