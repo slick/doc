@@ -1,0 +1,870 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>MemoryQueryingProfile - Slick 2.0.0-M2 - scala.slick.memory.MemoryQueryingProfile</title>
+          <meta name="description" content="MemoryQueryingProfile - Slick 2.0.0 - M2 - scala.slick.memory.MemoryQueryingProfile" />
+          <meta name="keywords" content="MemoryQueryingProfile Slick 2.0.0 M2 scala.slick.memory.MemoryQueryingProfile" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.memory.MemoryQueryingProfile';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a>.<a href="package.html" class="extype" name="scala.slick.memory">memory</a></p>
+        <h1>MemoryQueryingProfile</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MemoryQueryingProfile</span><span class="result"> extends <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>The querying (read-only) part that can be shared between MemoryDriver and DistributedDriver.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="MemoryQueryingDriver.html" class="extype" name="scala.slick.memory.MemoryQueryingDriver">MemoryQueryingDriver</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a>, <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a>, <a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a>, <a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a>, <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a>, <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a>, <a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a>, <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="DistributedDriver.html" class="extype" name="scala.slick.memory.DistributedDriver">DistributedDriver</a>, <a href="DistributedProfile.html" class="extype" name="scala.slick.memory.DistributedProfile">DistributedProfile</a>, <a href="MemoryDriver$.html" class="extype" name="scala.slick.memory.MemoryDriver">MemoryDriver</a>, <a href="MemoryDriver.html" class="extype" name="scala.slick.memory.MemoryDriver">MemoryDriver</a>, <a href="MemoryProfile.html" class="extype" name="scala.slick.memory.MemoryProfile">MemoryProfile</a>, <a href="MemoryQueryingDriver.html" class="extype" name="scala.slick.memory.MemoryQueryingDriver">MemoryQueryingDriver</a></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scala.slick.memory.MemoryQueryingProfile"><span>MemoryQueryingProfile</span></li><li class="in" name="scala.slick.profile.RelationalProfile"><span>RelationalProfile</span></li><li class="in" name="scala.slick.profile.RelationalTypesComponent"><span>RelationalTypesComponent</span></li><li class="in" name="scala.slick.profile.RelationalSequenceComponent"><span>RelationalSequenceComponent</span></li><li class="in" name="scala.slick.profile.RelationalTableComponent"><span>RelationalTableComponent</span></li><li class="in" name="scala.slick.profile.BasicProfile"><span>BasicProfile</span></li><li class="in" name="scala.slick.profile.BasicExecutorComponent"><span>BasicExecutorComponent</span></li><li class="in" name="scala.slick.profile.BasicInvokerComponent"><span>BasicInvokerComponent</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.profile.BasicProfile.Backend" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Backend&lt;:scala.slick.backend.DatabaseComponent"></a>
+      <a id="Backend:MemoryQueryingDriver.Backend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Backend</span><span class="result"> &lt;: <a href="../backend/DatabaseComponent.html" class="extype" name="scala.slick.backend.DatabaseComponent">DatabaseComponent</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The back-end type required by this profile</p><div class="fullcomment"><div class="comment cmt"><p>The back-end type required by this profile</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.memory.MemoryQueryingProfile.BaseColumnType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="BaseColumnType[T]=scala.slick.ast.ScalaType[T]withscala.slick.ast.BaseTypedType[T]"></a>
+      <a id="BaseColumnType[T]:MemoryQueryingDriver.BaseColumnType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BaseColumnType</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="../ast/ScalaType.html" class="extype" name="scala.slick.ast.ScalaType">ScalaType</a>[<span class="extype" name="scala.slick.memory.MemoryQueryingProfile.BaseColumnType.T">T</span>] with <a href="../ast/BaseTypedType.html" class="extype" name="scala.slick.ast.BaseTypedType">BaseTypedType</a>[<span class="extype" name="scala.slick.memory.MemoryQueryingProfile.BaseColumnType.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> → <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalTableComponent.ColumnOptions" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ColumnOptionsextendsAnyRef"></a>
+      <a id="ColumnOptions:RelationalDriver.ColumnOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalTableComponent$ColumnOptions.html"><span class="name">ColumnOptions</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.memory.MemoryQueryingProfile.ColumnType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ColumnType[T]=scala.slick.ast.ScalaType[T]"></a>
+      <a id="ColumnType[T]:MemoryQueryingDriver.ColumnType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ColumnType</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="../ast/ScalaType.html" class="extype" name="scala.slick.ast.ScalaType">ScalaType</a>[<span class="extype" name="scala.slick.memory.MemoryQueryingProfile.ColumnType.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> → <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicInvokerComponent.DDLInvoker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DDLInvokerextendsAnyRef"></a>
+      <a id="DDLInvoker:BasicDriver.DDLInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/BasicInvokerComponent$DDLInvoker.html"><span class="name">DDLInvoker</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running DDL statements.</p>
+    </li><li name="scala.slick.memory.MemoryQueryingProfile.ImplicitColumnTypes" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ImplicitColumnTypesextendsAnyRef"></a>
+      <a id="ImplicitColumnTypes:MemoryQueryingDriver.ImplicitColumnTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile$ImplicitColumnTypes.html"><span class="name">ImplicitColumnTypes</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> → <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.memory.MemoryQueryingProfile.Implicits" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ImplicitsextendsMemoryQueryingProfile.this.ImplicitswithMemoryQueryingProfile.this.ImplicitColumnTypes"></a>
+      <a id="Implicits:MemoryQueryingDriver.Implicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile$Implicits.html"><span class="name">Implicits</span></a><span class="result"> extends <span class="extype" name="scala.slick.profile.RelationalProfile.Implicits">MemoryQueryingDriver.Implicits</span> with <a href="MemoryQueryingDriver.html#ImplicitColumnTypesextendsAnyRef" class="extmbr" name="scala.slick.memory.MemoryQueryingProfile.ImplicitColumnTypes">MemoryQueryingDriver.ImplicitColumnTypes</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> → <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicInvokerComponent.InsertInvoker" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="InsertInvoker[T]&lt;:BasicInvokerComponent.this.InsertInvokerDef[T]"></a>
+      <a id="InsertInvoker[T]:MemoryQueryingDriver.InsertInvoker[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">InsertInvoker</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> &lt;: <a href="MemoryQueryingDriver.html#InsertInvokerDef[T]extendsAnyRef" class="extmbr" name="scala.slick.profile.BasicInvokerComponent.InsertInvokerDef">MemoryQueryingDriver.InsertInvokerDef</a>[<span class="extype" name="scala.slick.profile.BasicInvokerComponent.InsertInvoker.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type of insert invokers returned by the driver</p><div class="fullcomment"><div class="comment cmt"><p>The type of insert invokers returned by the driver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicInvokerComponent.InsertInvokerDef" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="InsertInvokerDef[T]extendsAnyRef"></a>
+      <a id="InsertInvokerDef[T]:BasicDriver.InsertInvokerDef[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/BasicInvokerComponent$InsertInvokerDef.html"><span class="name">InsertInvokerDef</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicExecutorComponent.QueryExecutor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="QueryExecutor[T]&lt;:BasicExecutorComponent.this.QueryExecutorDef[T]"></a>
+      <a id="QueryExecutor[T]:MemoryQueryingDriver.QueryExecutor[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">QueryExecutor</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> &lt;: <a href="MemoryQueryingDriver.html#QueryExecutorDef[R]extendsAnyRef" class="extmbr" name="scala.slick.profile.BasicExecutorComponent.QueryExecutorDef">MemoryQueryingDriver.QueryExecutorDef</a>[<span class="extype" name="scala.slick.profile.BasicExecutorComponent.QueryExecutor.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type of query executors returned by the driver</p><div class="fullcomment"><div class="comment cmt"><p>The type of query executors returned by the driver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicExecutorComponent.QueryExecutorDef" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="QueryExecutorDef[R]extendsAnyRef"></a>
+      <a id="QueryExecutorDef[R]:BasicDriver.QueryExecutorDef[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/BasicExecutorComponent$QueryExecutorDef.html"><span class="name">QueryExecutorDef</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile.SchemaDescription" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SchemaDescription&lt;:BasicProfile.this.SchemaDescriptionDef"></a>
+      <a id="SchemaDescription:MemoryQueryingDriver.SchemaDescription"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SchemaDescription</span><span class="result"> &lt;: <a href="MemoryQueryingDriver.html#SchemaDescriptionDefextendsAnyRef" class="extmbr" name="scala.slick.profile.BasicProfile.SchemaDescriptionDef">MemoryQueryingDriver.SchemaDescriptionDef</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type of a schema description (DDL)</p><div class="fullcomment"><div class="comment cmt"><p>The type of a schema description (DDL)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile.SchemaDescriptionDef" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SchemaDescriptionDefextendsAnyRef"></a>
+      <a id="SchemaDescriptionDef:BasicDriver.SchemaDescriptionDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/BasicProfile$SchemaDescriptionDef.html"><span class="name">SchemaDescriptionDef</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A schema description contains the SQL statements for creating and
+dropping database entities.</p>
+    </li><li name="scala.slick.profile.RelationalSequenceComponent.Sequence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Sequence[T]extendsTyped"></a>
+      <a id="Sequence[T]:RelationalDriver.Sequence[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalSequenceComponent$Sequence.html"><span class="name">Sequence</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../ast/Typed.html" class="extype" name="scala.slick.ast.Typed">Typed</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalProfile.SimpleQL" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SimpleQLextendsRelationalProfile.this.SimpleQLwithRelationalProfile.this.Implicits"></a>
+      <a id="SimpleQL:RelationalDriver.SimpleQL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalProfile$SimpleQL.html"><span class="name">SimpleQL</span></a><span class="result"> extends <span class="extype" name="scala.slick.profile.BasicProfile.SimpleQL">RelationalDriver.SimpleQL</span> with <a href="../profile/RelationalDriver.html#ImplicitsextendsRelationalProfile.this.ImplicitswithRelationalProfile.this.ImplicitColumnTypes" class="extmbr" name="scala.slick.profile.RelationalProfile.Implicits">RelationalDriver.Implicits</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalTableComponent.Table" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Table[T]extendsAbstractTable[T]"></a>
+      <a id="Table[T]:RelationalDriver.Table[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalTableComponent$Table.html"><span class="name">Table</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../lifted/AbstractTable.html" class="extype" name="scala.slick.lifted.AbstractTable">AbstractTable</a>[<span class="extype" name="scala.slick.profile.RelationalTableComponent.Table.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalProfile.TableQueryExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TableQueryExtensionMethods[T&lt;:RelationalProfile.this.Table[_],U]extendsAnyRef"></a>
+      <a id="TableQueryExtensionMethods[T&lt;:RelationalDriver.Table[_],U]:RelationalDriver.TableQueryExtensionMethods[T,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalProfile$TableQueryExtensionMethods.html"><span class="name">TableQueryExtensionMethods</span></a><span class="tparams">[<span name="T">T &lt;: <a href="../profile/RelationalDriver.html#Table[T]extendsAbstractTable[T]" class="extmbr" name="scala.slick.profile.RelationalTableComponent.Table">RelationalDriver.Table</a>[_]</span>, <span name="U">U</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicExecutorComponent.UnshapedQueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="UnshapedQueryExecutor[M]extendsAnyRef"></a>
+      <a id="UnshapedQueryExecutor[M]:BasicDriver.UnshapedQueryExecutor[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/BasicExecutorComponent$UnshapedQueryExecutor.html"><span class="name">UnshapedQueryExecutor</span></a><span class="tparams">[<span name="M">M</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="scala.slick.profile.RelationalProfile#Implicit" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Implicit:RelationalProfile.this.Implicits"></a>
+      <a id="Implicit:MemoryQueryingDriver.Implicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Implicit</span><span class="result">: <span class="extype" name="scala.slick.profile.RelationalProfile.Implicits">MemoryQueryingDriver.Implicits</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile#backend" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="backend:BasicProfile.this.Backend"></a>
+      <a id="backend:MemoryQueryingDriver.Backend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">backend</span><span class="result">: <a href="MemoryQueryingDriver.html#Backend&lt;:scala.slick.backend.DatabaseComponent" class="extmbr" name="scala.slick.memory.MemoryQueryingDriver.Backend">MemoryQueryingDriver.Backend</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalSequenceComponent#buildSequenceSchemaDescription" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="buildSequenceSchemaDescription(seq:RelationalSequenceComponent.this.Sequence[_]):RelationalSequenceComponent.this.SchemaDescription"></a>
+      <a id="buildSequenceSchemaDescription(MemoryQueryingDriver.Sequence[_]):MemoryQueryingDriver.SchemaDescription"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildSequenceSchemaDescription</span><span class="params">(<span name="seq">seq: <a href="MemoryQueryingDriver.html#Sequence[T]extendsTyped" class="extmbr" name="scala.slick.profile.RelationalSequenceComponent.Sequence">MemoryQueryingDriver.Sequence</a>[_]</span>)</span><span class="result">: <a href="MemoryQueryingDriver.html#SchemaDescription&lt;:BasicProfile.this.SchemaDescriptionDef" class="extmbr" name="scala.slick.memory.MemoryQueryingDriver.SchemaDescription">MemoryQueryingDriver.SchemaDescription</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalTableComponent#buildTableSchemaDescription" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="buildTableSchemaDescription(table:RelationalTableComponent.this.Table[_]):RelationalTableComponent.this.SchemaDescription"></a>
+      <a id="buildTableSchemaDescription(MemoryQueryingDriver.Table[_]):MemoryQueryingDriver.SchemaDescription"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildTableSchemaDescription</span><span class="params">(<span name="table">table: <a href="MemoryQueryingDriver.html#Table[T]extendsAbstractTable[T]" class="extmbr" name="scala.slick.profile.RelationalTableComponent.Table">MemoryQueryingDriver.Table</a>[_]</span>)</span><span class="result">: <a href="MemoryQueryingDriver.html#SchemaDescription&lt;:BasicProfile.this.SchemaDescriptionDef" class="extmbr" name="scala.slick.memory.MemoryQueryingDriver.SchemaDescription">MemoryQueryingDriver.SchemaDescription</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicInvokerComponent#createInsertInvoker" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="createInsertInvoker[T](tree:scala.slick.ast.Node):BasicInvokerComponent.this.InsertInvoker[T]"></a>
+      <a id="createInsertInvoker[T](Node):MemoryQueryingDriver.InsertInvoker[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createInsertInvoker</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="MemoryQueryingDriver.html#InsertInvoker[T]&lt;:BasicInvokerComponent.this.InsertInvokerDef[T]" class="extmbr" name="scala.slick.memory.MemoryQueryingDriver.InsertInvoker">MemoryQueryingDriver.InsertInvoker</a>[<span class="extype" name="scala.slick.profile.BasicInvokerComponent.createInsertInvoker.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create an InsertInvoker -- this method should be implemented by drivers as needed</p><div class="fullcomment"><div class="comment cmt"><p>Create an InsertInvoker -- this method should be implemented by drivers as needed</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicExecutorComponent#createQueryExecutor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="createQueryExecutor[R](tree:scala.slick.ast.Node,param:Any):BasicExecutorComponent.this.QueryExecutor[R]"></a>
+      <a id="createQueryExecutor[R](Node,Any):MemoryQueryingDriver.QueryExecutor[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryExecutor</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="MemoryQueryingDriver.html#QueryExecutor[T]&lt;:BasicExecutorComponent.this.QueryExecutorDef[T]" class="extmbr" name="scala.slick.memory.MemoryQueryingDriver.QueryExecutor">MemoryQueryingDriver.QueryExecutor</a>[<span class="extype" name="scala.slick.profile.BasicExecutorComponent.createQueryExecutor.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create an executor -- this method should be implemented by drivers as needed</p><div class="fullcomment"><div class="comment cmt"><p>Create an executor -- this method should be implemented by drivers as needed</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile#deleteCompiler" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="deleteCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="deleteCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deleteCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The compiler used for deleting data</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for deleting data</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile#insertCompiler" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="insertCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="insertCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">insertCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The compiler used for inserting data</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for inserting data</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile#queryCompiler" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="queryCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="queryCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The compiler used for queries</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for queries</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalProfile#simple" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="simple:RelationalProfile.this.SimpleQL"></a>
+      <a id="simple:MemoryQueryingDriver.SimpleQL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">simple</span><span class="result">: <a href="MemoryQueryingDriver.html#SimpleQLextendsRelationalProfile.this.SimpleQLwithRelationalProfile.this.Implicits" class="extmbr" name="scala.slick.profile.RelationalProfile.SimpleQL">MemoryQueryingDriver.SimpleQL</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">A collection of values for using the query language with a single import
+statement.</p><div class="fullcomment"><div class="comment cmt"><p>A collection of values for using the query language with a single import
+statement. This provides the driver's implicits, the Database and
+Session objects for DB connections, and commonly used query language
+types and objects.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile#updateCompiler" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="updateCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="updateCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">updateCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The compiler used for updates</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for updates</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalSequenceComponent.Sequence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Sequence"></a>
+      <a id="Sequence:Sequence"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalSequenceComponent$Sequence$.html"><span class="name">Sequence</span></a>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile#capabilities" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="capabilities:Set[scala.slick.profile.Capability]"></a>
+      <a id="capabilities:Set[Capability]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">capabilities</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../profile/Capability.html" class="extype" name="scala.slick.profile.Capability">Capability</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalTableComponent#columnOptions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="columnOptions:RelationalTableComponent.this.ColumnOptions"></a>
+      <a id="columnOptions:MemoryQueryingDriver.ColumnOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">columnOptions</span><span class="result">: <a href="MemoryQueryingDriver.html#ColumnOptionsextendsAnyRef" class="extmbr" name="scala.slick.profile.RelationalTableComponent.ColumnOptions">MemoryQueryingDriver.ColumnOptions</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalProfile#computeCapabilities" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="computeCapabilities:scala.collection.immutable.Set[scala.slick.profile.Capability]"></a>
+      <a id="computeCapabilities:Set[Capability]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">computeCapabilities</span><span class="result">: <span class="extype" name="scala.collection.immutable.Set">Set</span>[<a href="../profile/Capability.html" class="extype" name="scala.slick.profile.Capability">Capability</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.slick.profile.RelationalProfile">
+              <h3>Inherited from <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalTypesComponent">
+              <h3>Inherited from <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalSequenceComponent">
+              <h3>Inherited from <a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalTableComponent">
+              <h3>Inherited from <a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.BasicProfile">
+              <h3>Inherited from <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></h3>
+            </div><div class="parent" name="scala.slick.profile.BasicExecutorComponent">
+              <h3>Inherited from <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.BasicInvokerComponent">
+              <h3>Inherited from <a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

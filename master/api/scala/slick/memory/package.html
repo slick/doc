@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>memory - Slick 2.0.0-M2 - scala.slick.memory</title>
+          <meta name="description" content="memory - Slick 2.0.0 - M2 - scala.slick.memory" />
+          <meta name="keywords" content="memory Slick 2.0.0 M2 scala.slick.memory" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.memory.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a></p>
+        <h1>memory</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">memory</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.memory.DistributedBackend" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DistributedBackendextendsDatabaseComponentwithLogging"></a>
+      <a id="DistributedBackend:DistributedBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedBackend.html"><span class="name">DistributedBackend</span></a><span class="result"> extends <a href="../backend/DatabaseComponent.html" class="extype" name="scala.slick.backend.DatabaseComponent">DatabaseComponent</a> with <a href="../util/Logging.html" class="extype" name="scala.slick.util.Logging">Logging</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The backend for DistributedDriver</p>
+    </li><li name="scala.slick.memory.DistributedDriver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DistributedDriverextendsMemoryQueryingDriverwithDistributedProfile"></a>
+      <a id="DistributedDriver:DistributedDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedDriver.html"><span class="name">DistributedDriver</span></a><span class="result"> extends <a href="MemoryQueryingDriver.html" class="extype" name="scala.slick.memory.MemoryQueryingDriver">MemoryQueryingDriver</a> with <a href="DistributedProfile.html" class="extype" name="scala.slick.memory.DistributedProfile">DistributedProfile</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.memory.DistributedProfile" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DistributedProfileextendsMemoryQueryingProfile"></a>
+      <a id="DistributedProfile:DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedProfile.html"><span class="name">DistributedProfile</span></a><span class="result"> extends <a href="MemoryQueryingProfile.html" class="extype" name="scala.slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A profile and driver for distributed queries.</p>
+    </li><li name="scala.slick.memory.DriverComputation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DriverComputationextendsNullaryNodewithTypedNodewithProductwithSerializable"></a>
+      <a id="DriverComputation:DriverComputation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DriverComputation.html"><span class="name">DriverComputation</span></a><span class="params">(<span name="compiled">compiled: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="driver">driver: <a href="../profile/RelationalDriver.html" class="extype" name="scala.slick.profile.RelationalDriver">RelationalDriver</a></span>, <span name="tpe">tpe: <a href="../ast/Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>)</span><span class="result"> extends <a href="../ast/NullaryNode.html" class="extype" name="scala.slick.ast.NullaryNode">NullaryNode</a> with <a href="../ast/TypedNode.html" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Represents a computation that needs to be performed by another driver.</p>
+    </li><li name="scala.slick.memory.HeapBackend" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="HeapBackendextendsDatabaseComponentwithLogging"></a>
+      <a id="HeapBackend:HeapBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="HeapBackend.html"><span class="name">HeapBackend</span></a><span class="result"> extends <a href="../backend/DatabaseComponent.html" class="extype" name="scala.slick.backend.DatabaseComponent">DatabaseComponent</a> with <a href="../util/Logging.html" class="extype" name="scala.slick.util.Logging">Logging</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A simple database engine that stores data in heap data structures.</p>
+    </li><li name="scala.slick.memory.MemoryDriver" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MemoryDriverextendsMemoryQueryingDriverwithMemoryProfile"></a>
+      <a id="MemoryDriver:MemoryDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryDriver.html"><span class="name">MemoryDriver</span></a><span class="result"> extends <a href="MemoryQueryingDriver.html" class="extype" name="scala.slick.memory.MemoryQueryingDriver">MemoryQueryingDriver</a> with <a href="MemoryProfile.html" class="extype" name="scala.slick.memory.MemoryProfile">MemoryProfile</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.memory.MemoryProfile" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MemoryProfileextendsMemoryQueryingProfile"></a>
+      <a id="MemoryProfile:MemoryProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryProfile.html"><span class="name">MemoryProfile</span></a><span class="result"> extends <a href="MemoryQueryingProfile.html" class="extype" name="scala.slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A profile and driver for interpreted queries on top of the in-memory database.</p>
+    </li><li name="scala.slick.memory.MemoryQueryingDriver" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MemoryQueryingDriverextendsRelationalDriverwithMemoryQueryingProfilewithRelationalMappingCompilerComponent"></a>
+      <a id="MemoryQueryingDriver:MemoryQueryingDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingDriver.html"><span class="name">MemoryQueryingDriver</span></a><span class="result"> extends <a href="../profile/RelationalDriver.html" class="extype" name="scala.slick.profile.RelationalDriver">RelationalDriver</a> with <a href="MemoryQueryingProfile.html" class="extype" name="scala.slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> with <a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.memory.MemoryQueryingProfile" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MemoryQueryingProfileextendsRelationalProfile"></a>
+      <a id="MemoryQueryingProfile:MemoryQueryingProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile.html"><span class="name">MemoryQueryingProfile</span></a><span class="result"> extends <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">The querying (read-only) part that can be shared between MemoryDriver and DistributedDriver.</p>
+    </li><li name="scala.slick.memory.QueryInterpreter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryInterpreterextendsLogging"></a>
+      <a id="QueryInterpreter:QueryInterpreter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryInterpreter.html"><span class="name">QueryInterpreter</span></a><span class="result"> extends <a href="../util/Logging.html" class="extype" name="scala.slick.util.Logging">Logging</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A query interpreter for the MemoryDriver and for client-side operations
+that need to be run as part of distributed queries against multiple
+backends.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.slick.memory.DistributedBackend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DistributedBackend"></a>
+      <a id="DistributedBackend:DistributedBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedBackend$.html"><span class="name">DistributedBackend</span></a><span class="result"> extends <a href="DistributedBackend.html" class="extype" name="scala.slick.memory.DistributedBackend">DistributedBackend</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.memory.HeapBackend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HeapBackend"></a>
+      <a id="HeapBackend:HeapBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HeapBackend$.html"><span class="name">HeapBackend</span></a><span class="result"> extends <a href="HeapBackend.html" class="extype" name="scala.slick.memory.HeapBackend">HeapBackend</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.memory.MemoryDriver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MemoryDriver"></a>
+      <a id="MemoryDriver:MemoryDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryDriver$.html"><span class="name">MemoryDriver</span></a><span class="result"> extends <a href="MemoryDriver.html" class="extype" name="scala.slick.memory.MemoryDriver">MemoryDriver</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.memory.MemoryProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MemoryProfile"></a>
+      <a id="MemoryProfile:MemoryProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryProfile$.html"><span class="name">MemoryProfile</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.memory.QueryInterpreter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryInterpreter"></a>
+      <a id="QueryInterpreter:QueryInterpreter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryInterpreter$.html"><span class="name">QueryInterpreter</span></a>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

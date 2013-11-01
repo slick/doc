@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +7,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Plain SQL Queries &mdash; Slick 0.11.2 documentation</title>
+    <title>Plain SQL Queries &mdash; Slick 2.0.0-M2 documentation</title>
     
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.11.2',
+        URL_ROOT:    './',
+        VERSION:     '2.0.0-M2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,67 +24,49 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Slick 0.11.2 documentation" href="index.html" />
-    <link rel="next" title="Slick TestKit" href="testkit.html" />
-    <link rel="prev" title="Direct Embedding" href="direct-embedding.html" /> 
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 2.0.0-M2 documentation" href="index.html" />
+    <link rel="next" title="Direct Embedding" href="direct-embedding.html" />
+    <link rel="prev" title="Lifted Embedding" href="lifted-embedding.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="testkit.html" title="Slick TestKit"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/sql.rst">edit this page on github</a><span>
+          |
+          <a href="lifted-embedding.html" title="Lifted Embedding"
+             accesskey="P">previous</a> |
           <a href="direct-embedding.html" title="Direct Embedding"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Slick 0.11.2 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Plain SQL Queries</a><ul>
-<li><a class="reference internal" href="#scaffolding">Scaffolding</a></li>
-<li><a class="reference internal" href="#ddl-dml-statements">DDL/DML Statements</a></li>
-<li><a class="reference internal" href="#query-statements">Query Statements</a></li>
-<li><a class="reference internal" href="#string-interpolation">String Interpolation</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="direct-embedding.html"
-                        title="previous chapter">Direct Embedding</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="testkit.html"
-                        title="next chapter">Slick TestKit</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/sql.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
         </div>
-      </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          2.0 documentation
+        </a></div>
+       </div>
+    </div>
 
-    <div class="document">
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body">
@@ -98,29 +79,29 @@ to the low level of <a class="reference external" href="http://en.wikipedia.org/
 nicer Scala-based API.</p>
 <div class="section" id="scaffolding">
 <h2>Scaffolding<a class="headerlink" href="#scaffolding" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/slick/slick-examples/blob/0.11.2/src/main/scala/scala/slick/examples/jdbc/PlainSQL.scala">Slick example jdbc/PlainSQL</a> demonstrates some features of the <em>Plain SQL</em> support. The
+<p><a class="reference external" href="https://github.com/slick/slick-examples/blob/2.0.0-M2/src/main/scala/com/typesafe/slick/examples/jdbc/PlainSQL.scala">jdbc/PlainSQL.scala</a> demonstrates some features of the <em>Plain SQL</em> support. The
 imports are different from what you&#8217;re used to for the
 <a class="reference internal" href="lifted-embedding.html"><em>lifted embedding</em></a> or
 <a class="reference internal" href="direct-embedding.html"><em>direct embedding</em></a>:</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scala.slick.driver.JdbcDriver.backend.Database</span>
-<span class="k">import</span> <span class="nn">Database.threadLocalSession</span>
+<span class="k">import</span> <span class="nn">Database.dynamicSession</span>
 <span class="k">import</span> <span class="nn">scala.slick.jdbc.</span><span class="o">{</span><span class="nc">GetResult</span><span class="o">,</span> <span class="nc">StaticQuery</span> <span class="k">=&gt;</span> <span class="n">Q</span><span class="o">}</span>
 </pre></div>
 </div>
 <p>First of all, there is no <em>Slick driver</em> being imported. The JDBC-based APIs
 in Slick depend only on JDBC itself and do not implement any database-specific
 abstractions. All we need for the database connection is <tt class="docutils literal"><span class="pre">Database</span></tt>, plus
-the <tt class="docutils literal"><span class="pre">threadLocalSession</span></tt> to simplify session handling.</p>
+the <tt class="docutils literal"><span class="pre">dynamicSession</span></tt> to simplify session handling.</p>
 <p>The most important class for <em>Plain SQL</em> queries is
 <tt class="docutils literal"><span class="pre">scala.slick.jdbc.StaticQuery</span></tt> which gets imported as <tt class="docutils literal"><span class="pre">Q</span></tt> for more
 convenient use.</p>
 <p>The database connection is opened
 <a class="reference internal" href="gettingstarted.html#gettingstarted-dbconnection"><em>in the usual way</em></a>. We are also defining
 some case classes for our data:</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">street</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">city</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">state</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">zip</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
-<span class="k">case</span> <span class="k">class</span> <span class="nc">Coffee</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">supID</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">price</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">sales</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">total</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">id</span><span class="k">:</span><span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span><span class="kt">String</span><span class="o">,</span> <span class="n">street</span><span class="k">:</span><span class="kt">String</span><span class="o">,</span> <span class="n">city</span><span class="k">:</span><span class="kt">String</span><span class="o">,</span> <span class="n">state</span><span class="k">:</span><span class="kt">String</span><span class="o">,</span> <span class="n">zip</span><span class="k">:</span><span class="kt">String</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Coffee</span><span class="o">(</span><span class="n">name</span><span class="k">:</span><span class="kt">String</span><span class="o">,</span> <span class="n">supID</span><span class="k">:</span><span class="kt">Int</span><span class="o">,</span> <span class="n">price</span><span class="k">:</span><span class="kt">Double</span><span class="o">,</span> <span class="n">sales</span><span class="k">:</span><span class="kt">Int</span><span class="o">,</span> <span class="n">total</span><span class="k">:</span><span class="kt">Int</span><span class="o">)</span>
 
-<span class="nc">Database</span><span class="o">.</span><span class="n">forURL</span><span class="o">(</span><span class="s">&quot;jdbc:h2:mem:test1&quot;</span><span class="o">,</span> <span class="n">driver</span> <span class="k">=</span> <span class="s">&quot;org.h2.Driver&quot;</span><span class="o">)</span> <span class="n">withSession</span> <span class="o">{</span>
+<span class="nc">Database</span><span class="o">.</span><span class="n">forURL</span><span class="o">(</span><span class="s">&quot;jdbc:h2:mem:test1&quot;</span><span class="o">,</span> <span class="n">driver</span> <span class="k">=</span> <span class="s">&quot;org.h2.Driver&quot;</span><span class="o">)</span> <span class="n">withDynSession</span> <span class="o">{</span>
 
 <span class="o">}</span>
 </pre></div>
@@ -268,26 +249,62 @@ call:</p>
           </div>
         </div>
       </div>
-      <div class="clearer"></div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connections / Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifted-embedding.html">Lifted Embedding</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Plain SQL Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scaffolding">Scaffolding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ddl-dml-statements">DDL/DML Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#query-statements">Query Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-interpolation">String Interpolation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="testkit.html" title="Slick TestKit"
-             >next</a> |</li>
-        <li class="right" >
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="lifted-embedding.html" title="Lifted Embedding"
+             >previous</a> |
           <a href="direct-embedding.html" title="Direct Embedding"
-             >previous</a> |</li>
-        <li><a href="index.html">Slick 0.11.2 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
     <div class="footer">
-        &copy; Copyright 2011-2012 Typesafe, Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2011-2013 Typesafe, Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
   </body>
 </html>

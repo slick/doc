@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +7,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; Slick 0.11.2 documentation</title>
+    <title>Introduction &mdash; Slick 2.0.0-M2 documentation</title>
     
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '0.11.2',
+        URL_ROOT:    './',
+        VERSION:     '2.0.0-M2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,66 +24,49 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Slick 0.11.2 documentation" href="index.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 2.0.0-M2 documentation" href="index.html" />
     <link rel="next" title="Getting Started" href="gettingstarted.html" />
-    <link rel="prev" title="Slick - Scala Language Integrated Connection Kit" href="index.html" /> 
+    <link rel="prev" title="Slick - Scala Language Integrated Connection Kit" href="index.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
   </head>
   <body>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="gettingstarted.html" title="Getting Started"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/introduction.rst">edit this page on github</a><span>
+          |
           <a href="index.html" title="Slick - Scala Language Integrated Connection Kit"
-             accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Slick 0.11.2 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Introduction</a><ul>
-<li><a class="reference internal" href="#what-is-slick">What is Slick?</a></li>
-<li><a class="reference internal" href="#supported-database-systems">Supported database systems</a></li>
-<li><a class="reference internal" href="#quick-overview">Quick Overview</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Slick - Scala Language Integrated Connection Kit</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="gettingstarted.html"
-                        title="next chapter">Getting Started</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/introduction.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+             accesskey="P">previous</a> |
+          <a href="gettingstarted.html" title="Getting Started"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
         </div>
-      </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          2.0 documentation
+        </a></div>
+       </div>
+    </div>
 
-    <div class="document">
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
       <div class="documentwrapper">
         <div class="bodywrapper">
           <div class="body">
@@ -93,36 +75,81 @@
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-slick">
 <h2>What is Slick?<a class="headerlink" href="#what-is-slick" title="Permalink to this headline">¶</a></h2>
-<p>Slick is a modern database query and access library for Scala. It allows you
+<p>Slick is <a class="reference external" href="http://www.typesafe.com">Typesafe</a>&#8216;s modern database query and access library for Scala. It allows you
 to work with stored data almost as if you were using Scala collections while
 at the same time giving you full control over when a database access happens
-and which data is transferred. You can write your database queries in Scala
-instead of SQL, thus profiting from the static checking, compile-time safety
-and compositionality of Scala. Slick features an extensible query compiler
-which can generate code for different backends.</p>
-<p>It includes the following features:</p>
+and which data is transferred. You can also use SQL directly.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">limit</span> <span class="k">=</span> <span class="mf">10.0</span>
+<span class="c1">// Your query could look like this:</span>
+<span class="o">(</span> <span class="k">for</span><span class="o">(</span> <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">;</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">limit</span> <span class="o">)</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">).</span><span class="n">list</span>
+<span class="c1">// or this:</span>
+<span class="n">sql</span><span class="s">&quot;select name from coffees where price &lt; $limit&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">list</span>
+</pre></div>
+</div>
+<p>When using Scala instead of SQL for your queries you profit from the compile-time safety
+and compositionality. Slick can generate queries for different backends including
+your own, using its extensible query compiler.</p>
+</div>
+<div class="section" id="why-slick-features">
+<h2>Why Slick? / Features<a class="headerlink" href="#why-slick-features" title="Permalink to this headline">¶</a></h2>
+<p>Slick offers a unique combination of features:</p>
+<div class="section" id="easy">
+<h3>Easy<a class="headerlink" href="#easy" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Lifted query embedding (fully featured, composable, uses lifted types, evolved from ScalaQuery)</li>
-<li>Direct query embedding (experimental, limited features, uses ordinary Scala types, based on macros)</li>
-<li>Simple execution of raw SQL queries</li>
-<li>Session management based on JDBC Connections</li>
+<li>Access stored data just like Scala collections</li>
+<li>Unified session management based on JDBC Connections</li>
+<li>Supports SQL if you need it</li>
+<li>Simple setup</li>
 </ul>
+</div>
+<div class="section" id="concise">
+<h3>Concise<a class="headerlink" href="#concise" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Scala syntax</li>
+<li>Fetch results without pain (no ResultSet.getX)</li>
+</ul>
+</div>
+<div class="section" id="scales-naturally">
+<h3>Scales naturally<a class="headerlink" href="#scales-naturally" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Stateless (like the web)</li>
+<li>Explicit control of execution time and transferred data</li>
+</ul>
+</div>
+<div class="section" id="safe">
+<h3>Safe<a class="headerlink" href="#safe" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>No SQL-injections</li>
+<li>Compile-time safety (types, names, no typos, etc.)</li>
+<li>Type-safe support for custom database functions</li>
+</ul>
+</div>
+<div class="section" id="composable">
+<h3>Composable<a class="headerlink" href="#composable" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>It‘s Scala code: abstract and re-use with ease</li>
+</ul>
+<p>Slick requires Scala 2.10. (For Scala 2.9 please use <a class="reference external" href="http://scalaquery.org">ScalaQuery</a>, the predecessor of Slick).</p>
+</div>
 </div>
 <div class="section" id="supported-database-systems">
 <span id="supported-dbs"></span><h2>Supported database systems<a class="headerlink" href="#supported-database-systems" title="Permalink to this headline">¶</a></h2>
-<p>The following database systems are directly supported for type-safe queries
-(with lifted and direct embedding):</p>
 <ul class="simple">
+<li>DB2 (via <a class="reference internal" href="extensions.html"><em>slick-extensions</em></a>)</li>
 <li>Derby/JavaDB</li>
 <li>H2</li>
 <li>HSQLDB/HyperSQL</li>
 <li>Microsoft Access</li>
 <li>Microsoft SQL Server</li>
 <li>MySQL</li>
+<li>Oracle (via <a class="reference internal" href="extensions.html"><em>slick-extensions</em></a>)</li>
 <li>PostgreSQL</li>
 <li>SQLite</li>
 </ul>
-<p>Accessing other databases is possible, with a reduced feature set.</p>
+<p>Other SQL databases can be accessed right away with a reduced feature set.
+Writing a fully featured plugin for your own SQL-based backend can be achieved
+with a reasonable amount of work. Support for other backends (like NoSQL) is
+under development but not yet available.</p>
 </div>
 <div class="section" id="quick-overview">
 <h2>Quick Overview<a class="headerlink" href="#quick-overview" title="Permalink to this headline">¶</a></h2>
@@ -130,26 +157,27 @@ which can generate code for different backends.</p>
 <ol class="arabic">
 <li><p class="first">Add the Slick jar and its dependencies to your project</p>
 </li>
-<li><p class="first">Pick a driver for a particular db and create a session (or simply pick threadLocalSession)</p>
+<li><p class="first">Pick a driver for a particular db</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scala.slick.driver.H2Driver.simple._</span>
-<span class="k">import</span> <span class="nn">Database.threadLocalSession</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Describe your Database schema</p>
-<div class="highlight-scala"><div class="highlight"><pre><span class="k">object</span> <span class="nc">Coffees</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Double</span><span class="o">)](</span><span class="s">&quot;COFFEES&quot;</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Coffees</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Double</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;COFFEES&quot;</span><span class="o">)</span> <span class="o">{</span>
   <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;COF_NAME&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
   <span class="k">def</span> <span class="n">price</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Double</span><span class="o">](</span><span class="s">&quot;PRICE&quot;</span><span class="o">)</span>
-  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="n">name</span> <span class="o">~</span> <span class="n">price</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">price</span><span class="o">)</span>
 <span class="o">}</span>
+<span class="k">val</span> <span class="n">coffees</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Coffees</span><span class="o">]</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">Write queries using for-comprehensions or map/flatMap wrapped in a session scope</p>
 <div class="highlight-scala"><div class="highlight"><pre><span class="nc">Database</span><span class="o">.</span><span class="n">forURL</span><span class="o">(</span><span class="s">&quot;jdbc:h2:mem:test1&quot;</span><span class="o">,</span> <span class="n">driver</span> <span class="k">=</span> <span class="s">&quot;org.h2.Driver&quot;</span><span class="o">)</span> <span class="n">withSession</span> <span class="o">{</span>
-  <span class="o">(</span> <span class="k">for</span><span class="o">(</span> <span class="n">c</span> <span class="k">&lt;-</span> <span class="nc">Coffees</span><span class="o">;</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">10.0</span> <span class="o">)</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">).</span><span class="n">list</span>
+  <span class="k">implicit</span> <span class="n">session</span> <span class="k">=&gt;</span>
+  <span class="o">(</span> <span class="k">for</span><span class="o">(</span> <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">;</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">10.0</span> <span class="o">)</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">).</span><span class="n">list</span>
   <span class="c1">// or</span>
-  <span class="nc">Coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">).</span><span class="n">list</span>
+  <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">).</span><span class="n">list</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -157,32 +185,73 @@ which can generate code for different backends.</p>
 </ol>
 <p>The <a class="reference internal" href="gettingstarted.html"><em>next chapter</em></a> explains these steps and further aspects in more detail.</p>
 </div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>Slick is released under a BSD-Style free and open source software <a class="reference external" href="https://github.com/slick/slick/blob/2.0.0-M2/LICENSE.txt">license</a>.</p>
+</div>
 </div>
 
 
           </div>
         </div>
       </div>
-      <div class="clearer"></div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-slick">What is Slick?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-slick-features">Why Slick? / Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-database-systems">Supported database systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-overview">Quick Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connections / Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lifted-embedding.html">Lifted Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
     </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="gettingstarted.html" title="Getting Started"
-             >next</a> |</li>
-        <li class="right" >
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
           <a href="index.html" title="Slick - Scala Language Integrated Connection Kit"
-             >previous</a> |</li>
-        <li><a href="index.html">Slick 0.11.2 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
+             >previous</a> |
+          <a href="gettingstarted.html" title="Getting Started"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
     <div class="footer">
-        &copy; Copyright 2011-2012 Typesafe, Inc..
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2011-2013 Typesafe, Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
     </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
   </body>
 </html>
