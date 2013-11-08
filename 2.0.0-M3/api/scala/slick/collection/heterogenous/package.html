@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>heterogenous - Slick 2.0.0-M3 - scala.slick.collection.heterogenous</title>
+          <meta name="description" content="heterogenous - Slick 2.0.0 - M3 - scala.slick.collection.heterogenous" />
+          <meta name="keywords" content="heterogenous Slick 2.0.0 M3 scala.slick.collection.heterogenous" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'scala.slick.collection.heterogenous.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="scala">scala</a>.<a href="../../package.html" class="extype" name="scala.slick">slick</a>.<a href="../package.html" class="extype" name="scala.slick.collection">collection</a></p>
+        <h1>heterogenous</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">heterogenous</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.collection.heterogenous.HCons" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HCons[+H,+T&lt;:scala.slick.collection.heterogenous.HList]extendsHList"></a>
+      <a id="HCons[+H,+T&lt;:HList]:HCons[H,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="HCons.html"><span class="name">HCons</span></a><span class="tparams">[<span name="H">+H</span>, <span name="T">+T &lt;: <a href="HList.html" class="extype" name="scala.slick.collection.heterogenous.HList">HList</a></span>]</span><span class="result"> extends <a href="HList.html" class="extype" name="scala.slick.collection.heterogenous.HList">HList</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.collection.heterogenous.HList" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="HListextendsProduct"></a>
+      <a id="HList:HList"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="HList.html"><span class="name">HList</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A heterogenous list where each element has its own type.</p>
+    </li><li name="scala.slick.collection.heterogenous.Nat" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NatextendsAnyRef"></a>
+      <a id="Nat:Nat"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Nat.html"><span class="name">Nat</span></a><span class="result"> extends <a href="../../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Natural numbers for indexing in HLists.</p>
+    </li><li name="scala.slick.collection.heterogenous.Succ" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Succ[N&lt;:scala.slick.collection.heterogenous.Nat]extendsNat"></a>
+      <a id="Succ[N&lt;:Nat]:Succ[N]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Succ.html"><span class="name">Succ</span></a><span class="tparams">[<span name="N">N &lt;: <a href="Nat.html" class="extype" name="scala.slick.collection.heterogenous.Nat">Nat</a></span>]</span><span class="result"> extends <a href="Nat.html" class="extype" name="scala.slick.collection.heterogenous.Nat">Nat</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.collection.heterogenous.TypedFunction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TypedFunctionextendsAnyRef"></a>
+      <a id="TypedFunction:TypedFunction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="TypedFunction.html"><span class="name">TypedFunction</span></a><span class="result"> extends <a href="../../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A function which operates at the type and value levels.</p>
+    </li><li name="scala.slick.collection.heterogenous.TypedFunction2" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TypedFunction2[-T1,-T2,+TR,F[_&lt;:T1,_&lt;:T2]&lt;:TR]extendsTypedFunction"></a>
+      <a id="TypedFunction2[-T1,-T2,+TR,F[_&lt;:T1,_&lt;:T2]&lt;:TR]:TypedFunction2[T1,T2,TR,F]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="TypedFunction2.html"><span class="name">TypedFunction2</span></a><span class="tparams">[<span name="T1">-T1</span>, <span name="T2">-T2</span>, <span name="TR">+TR</span>, <span name="F">F<span class="tparams">[<span name="_">_ &lt;: <span class="extype" name="scala.slick.collection.heterogenous.TypedFunction2.T1">T1</span></span>, <span name="_">_ &lt;: <span class="extype" name="scala.slick.collection.heterogenous.TypedFunction2.T2">T2</span></span>]</span> &lt;: <span class="extype" name="scala.slick.collection.heterogenous.TypedFunction2.TR">TR</span></span>]</span><span class="result"> extends <a href="TypedFunction.html" class="extype" name="scala.slick.collection.heterogenous.TypedFunction">TypedFunction</a></span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.slick.collection.heterogenous.HCons" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HCons"></a>
+      <a id="HCons:HCons"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HCons$.html"><span class="name">HCons</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.collection.heterogenous.HList" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HList"></a>
+      <a id="HList:HList"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HList$.html"><span class="name">HList</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.collection.heterogenous.HNil" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HNil"></a>
+      <a id="HNil:HNil"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HNil$.html"><span class="name">HNil</span></a><span class="result"> extends <a href="HList.html" class="extype" name="scala.slick.collection.heterogenous.HList">HList</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.collection.heterogenous.Nat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Nat"></a>
+      <a id="Nat:Nat"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Nat$.html"><span class="name">Nat</span></a>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.collection.heterogenous.Zero" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Zero"></a>
+      <a id="Zero:Zero"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Zero$.html"><span class="name">Zero</span></a><span class="result"> extends <a href="Nat.html" class="extype" name="scala.slick.collection.heterogenous.Nat">Nat</a></span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.slick.collection.heterogenous.syntax" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="syntax"></a>
+      <a id="syntax:syntax"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="syntax$.html"><span class="name">syntax</span></a>
+      </span>
+      </h4>
+      <p class="comment cmt">Extra syntax for heterogenous collections.</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../lib/template.js"></script>
+    </body>
+      </html>
