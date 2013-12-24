@@ -1,0 +1,936 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>TypedNode - Slick 2.0.0-RC1 - scala.slick.ast.TypedNode</title>
+          <meta name="description" content="TypedNode - Slick 2.0.0 - RC1 - scala.slick.ast.TypedNode" />
+          <meta name="keywords" content="TypedNode Slick 2.0.0 RC1 scala.slick.ast.TypedNode" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.ast.TypedNode';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../lib/trait_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a>.<a href="package.html" class="extype" name="scala.slick.ast">ast</a></p>
+        <h1>TypedNode</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TypedNode</span><span class="result"> extends <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a> with <a href="Typed.html" class="extype" name="scala.slick.ast.Typed">Typed</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/2.0.0-RC1/src/main/scala/scala/slick/ast/Node.scala" target="_blank">Node.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="Typed.html" class="extype" name="scala.slick.ast.Typed">Typed</a>, <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a>, <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="Apply.html" class="extype" name="scala.slick.ast.Apply">Apply</a>, <a href="../profile/RelationalMappingCompilerComponent$CompiledMapping.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent.CompiledMapping">CompiledMapping</a>, <a href="CompiledStatement.html" class="extype" name="scala.slick.ast.CompiledStatement">CompiledStatement</a>, <a href="../memory/DriverComputation.html" class="extype" name="scala.slick.memory.DriverComputation">DriverComputation</a>, <a href="LiteralNode.html" class="extype" name="scala.slick.ast.LiteralNode">LiteralNode</a>, <a href="QueryParameter.html" class="extype" name="scala.slick.ast.QueryParameter">QueryParameter</a>, <a href="RangeFrom.html" class="extype" name="scala.slick.ast.RangeFrom">RangeFrom</a>, <a href="../driver/MySQLDriver$QueryBuilder$RowNum.html" class="extype" name="scala.slick.driver.MySQLDriver.QueryBuilder.RowNum">RowNum</a>, <a href="../driver/MySQLDriver$QueryBuilder$RowNumGen.html" class="extype" name="scala.slick.driver.MySQLDriver.QueryBuilder.RowNumGen">RowNumGen</a>, <a href="RowNumber.html" class="extype" name="scala.slick.ast.RowNumber">RowNumber</a>, <a href="SequenceNode.html" class="extype" name="scala.slick.ast.SequenceNode">SequenceNode</a>, <a href="../lifted/SimpleLiteral.html" class="extype" name="scala.slick.lifted.SimpleLiteral">SimpleLiteral</a>, <a href="TableNode.html" class="extype" name="scala.slick.ast.TableNode">TableNode</a></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph515" viewBox="0.00 0.00 1587.00 158.00" height="158pt" width="1587pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 154)" class="graph" id="graph0"><polygon points="-4,4 -4,-154 1583,-154 1583,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph515_0"><g id="a_this trait|graph515_0"><a xlink:title="scala.slick.ast.TypedNode (this trait)" xlink:href="#inheritance-diagram"><polygon points="872.25,-88 777.75,-88 777.75,-62 872.25,-62 872.25,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-81" x="790" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.7495" x="809.537" text-anchor="start">TypedNode</text></a></g></g><!-- node1 --><g class="node class" id="graph515_1"><g id="a_class|graph515_1"><a xlink:title="scala.slick.ast.Apply" xlink:href="Apply.html#inheritance-diagram"><polygon points="68.25,-26 -0.25,-26 -0.25,-0 68.25,-0 68.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="31.6035" text-anchor="start">Apply</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph515_0_1"><g id="a_inheritance|graph515_0_1"><a xlink:title="Apply is a subtype of TypedNode"><path d="M771.987,-74.3655C648.96,-74.3963 334.885,-69.7674 77,-26 74.2491,-25.5331 71.4216,-24.9603 68.5934,-24.3205" stroke="#d4d4d4" fill="none"></path><polygon points="772.348,-76.1153 777.346,-74.3612 772.345,-72.6153 772.348,-76.1153" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph515_2"><g id="a_class|graph515_2"><a xlink:title="scala.slick.profile.RelationalMappingCompilerComponent.CompiledMapping" xlink:href="../profile/RelationalMappingCompilerComponent$CompiledMapping.html#inheritance-diagram"><polygon points="211.25,-26 86.75,-26 86.75,-0 211.25,-0 211.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="99" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="118.811" text-anchor="start">CompiledMapping</text></a></g></g><!-- node0&#45;&gt;node2 --><g class="edge inheritance" id="graph515_0_2"><g id="a_inheritance|graph515_0_2"><a xlink:title="CompiledMapping is a subtype of TypedNode"><path d="M772.279,-71.3364C667.142,-65.688 424.037,-50.9408 221,-26 217.856,-25.6137 214.639,-25.1885 211.393,-24.7355" stroke="#d4d4d4" fill="none"></path><polygon points="772.399,-73.0952 777.485,-71.6147 772.586,-69.6002 772.399,-73.0952" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node class" id="graph515_3"><g id="a_class|graph515_3"><a xlink:title="scala.slick.ast.CompiledStatement" xlink:href="CompiledStatement.html#inheritance-diagram"><polygon points="362,-26 230,-26 230,-0 362,-0 362,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="242" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="261.7" text-anchor="start">CompiledStatement</text></a></g></g><!-- node0&#45;&gt;node3 --><g class="edge inheritance" id="graph515_0_3"><g id="a_inheritance|graph515_0_3"><a xlink:title="CompiledStatement is a subtype of TypedNode"><path d="M772.309,-69.3487C687.581,-61.6628 515.873,-45.2345 371,-26 368.124,-25.6182 365.189,-25.2134 362.225,-24.7923" stroke="#d4d4d4" fill="none"></path><polygon points="772.378,-71.112 777.515,-69.8199 772.693,-67.6263 772.378,-71.112" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node class" id="graph515_4"><g id="a_class|graph515_4"><a xlink:title="scala.slick.memory.DriverComputation" xlink:href="../memory/DriverComputation.html#inheritance-diagram"><polygon points="508,-26 380,-26 380,-0 508,-0 508,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="392" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="411.929" text-anchor="start">DriverComputation</text></a></g></g><!-- node0&#45;&gt;node4 --><g class="edge inheritance" id="graph515_0_4"><g id="a_inheritance|graph515_0_4"><a xlink:title="DriverComputation is a subtype of TypedNode"><path d="M772.424,-65.9427C711.094,-56.5121 606.658,-40.3553 517,-26 514.083,-25.533 511.101,-25.053 508.089,-24.5662" stroke="#d4d4d4" fill="none"></path><polygon points="772.285,-67.6918 777.493,-66.7219 772.817,-64.2324 772.285,-67.6918" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node trait" id="graph515_5"><g id="a_trait|graph515_5"><a xlink:title="scala.slick.ast.LiteralNode" xlink:href="LiteralNode.html#inheritance-diagram"><polygon points="621.25,-26 526.75,-26 526.75,-0 621.25,-0 621.25,-26" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-19" x="539" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="558.54" text-anchor="start">LiteralNode</text></a></g></g><!-- node0&#45;&gt;node5 --><g class="edge inheritance" id="graph515_0_5"><g id="a_inheritance|graph515_0_5"><a xlink:title="LiteralNode is a subtype of TypedNode"><path d="M772.421,-61.4314C727.804,-50.7659 664.358,-35.5996 621.312,-25.3096" stroke="#d4d4d4" fill="none"></path><polygon points="772.224,-63.1834 777.494,-62.6439 773.038,-59.7793 772.224,-63.1834" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node6 --><g class="node class" id="graph515_6"><g id="a_class|graph515_6"><a xlink:title="scala.slick.ast.QueryParameter" xlink:href="QueryParameter.html#inheritance-diagram"><polygon points="758,-26 640,-26 640,-0 758,-0 758,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="652" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="671.653" text-anchor="start">QueryParameter</text></a></g></g><!-- node0&#45;&gt;node6 --><g class="edge inheritance" id="graph515_0_6"><g id="a_inheritance|graph515_0_6"><a xlink:title="QueryParameter is a subtype of TypedNode"><path d="M794.757,-59.5985C773.282,-49.3726 744.773,-35.7968 724.46,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="794.235,-61.2884 799.502,-61.8581 795.74,-58.1284 794.235,-61.2884" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node7 --><g class="node class" id="graph515_7"><g id="a_class|graph515_7"><a xlink:title="scala.slick.ast.RangeFrom" xlink:href="RangeFrom.html#inheritance-diagram"><polygon points="873.25,-26 776.75,-26 776.75,-0 873.25,-0 873.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="789" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="808.712" text-anchor="start">RangeFrom</text></a></g></g><!-- node0&#45;&gt;node7 --><g class="edge inheritance" id="graph515_0_7"><g id="a_inheritance|graph515_0_7"><a xlink:title="RangeFrom is a subtype of TypedNode"><path d="M825,-56.6826C825,-46.8961 825,-34.9026 825,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="823.25,-56.8581 825,-61.8581 826.75,-56.8581 823.25,-56.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node8 --><g class="node class" id="graph515_8"><g id="a_class|graph515_8"><a xlink:title="scala.slick.driver.MySQLDriver.QueryBuilder.RowNum" xlink:href="../driver/MySQLDriver$QueryBuilder$RowNum.html#inheritance-diagram"><polygon points="976.25,-26 891.75,-26 891.75,-0 976.25,-0 976.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="904" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="923.552" text-anchor="start">RowNum</text></a></g></g><!-- node0&#45;&gt;node8 --><g class="edge inheritance" id="graph515_0_8"><g id="a_inheritance|graph515_0_8"><a xlink:title="RowNum is a subtype of TypedNode"><path d="M851.632,-59.34C870.154,-49.1447 894.55,-35.7155 911.975,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="850.594,-57.9138 847.058,-61.8581 852.282,-60.98 850.594,-57.9138" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node9 --><g class="node class" id="graph515_9"><g id="a_class|graph515_9"><a xlink:title="scala.slick.driver.MySQLDriver.QueryBuilder.RowNumGen" xlink:href="../driver/MySQLDriver$QueryBuilder$RowNumGen.html#inheritance-diagram"><polygon points="1099,-26 995,-26 995,-0 1099,-0 1099,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="1007" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="1026.6" text-anchor="start">RowNumGen</text></a></g></g><!-- node0&#45;&gt;node9 --><g class="edge inheritance" id="graph515_0_9"><g id="a_inheritance|graph515_0_9"><a xlink:title="RowNumGen is a subtype of TypedNode"><path d="M874.727,-60.5602C913.018,-50.2114 965.475,-36.0339 1002.41,-26.0504" stroke="#d4d4d4" fill="none"></path><polygon points="874.028,-58.9363 869.658,-61.9303 874.941,-62.3151 874.028,-58.9363" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node10 --><g class="node class" id="graph515_10"><g id="a_class|graph515_10"><a xlink:title="scala.slick.ast.RowNumber" xlink:href="RowNumber.html#inheritance-diagram"><polygon points="1217,-26 1117,-26 1117,-0 1217,-0 1217,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="1129" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="1148.83" text-anchor="start">RowNumber</text></a></g></g><!-- node0&#45;&gt;node10 --><g class="edge inheritance" id="graph515_0_10"><g id="a_inheritance|graph515_0_10"><a xlink:title="RowNumber is a subtype of TypedNode"><path d="M877.452,-65.6293C934.332,-56.4294 1027.75,-40.9621 1108,-26 1110.88,-25.4635 1113.83,-24.9009 1116.81,-24.3242" stroke="#d4d4d4" fill="none"></path><polygon points="877.06,-63.9199 872.403,-66.445 877.618,-67.3751 877.06,-63.9199" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node11 --><g class="node class" id="graph515_11"><g id="a_class|graph515_11"><a xlink:title="scala.slick.ast.SequenceNode" xlink:href="SequenceNode.html#inheritance-diagram"><polygon points="1348.25,-26 1235.75,-26 1235.75,-0 1348.25,-0 1348.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="1248" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="1267.64" text-anchor="start">SequenceNode</text></a></g></g><!-- node0&#45;&gt;node11 --><g class="edge inheritance" id="graph515_0_11"><g id="a_inheritance|graph515_0_11"><a xlink:title="SequenceNode is a subtype of TypedNode"><path d="M877.757,-68.7169C954.564,-60.7916 1101.59,-44.7388 1226,-26 1229.11,-25.5317 1232.3,-25.0286 1235.51,-24.5035" stroke="#d4d4d4" fill="none"></path><polygon points="877.144,-67.0207 872.35,-69.2734 877.502,-70.5023 877.144,-67.0207" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12 --><g class="node class" id="graph515_12"><g id="a_class|graph515_12"><a xlink:title="scala.slick.lifted.SimpleLiteral" xlink:href="../lifted/SimpleLiteral.html#inheritance-diagram"><polygon points="1469,-26 1367,-26 1367,-0 1469,-0 1469,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="1379" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="1398.71" text-anchor="start">SimpleLiteral</text></a></g></g><!-- node0&#45;&gt;node12 --><g class="edge inheritance" id="graph515_0_12"><g id="a_inheritance|graph515_0_12"><a xlink:title="SimpleLiteral is a subtype of TypedNode"><path d="M877.548,-71.0811C973.259,-65.3602 1182.26,-51.0009 1357,-26 1360.21,-25.5414 1363.5,-25.0255 1366.81,-24.472" stroke="#d4d4d4" fill="none"></path><polygon points="877.408,-69.3363 872.52,-71.3799 877.616,-72.8301 877.408,-69.3363" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node13 --><g class="node class" id="graph515_13"><g id="a_class|graph515_13"><a xlink:title="scala.slick.ast.TableNode" xlink:href="TableNode.html#inheritance-diagram"><polygon points="1579,-26 1487,-26 1487,-0 1579,-0 1579,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="1499" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="1518.7" text-anchor="start">TableNode</text></a></g></g><!-- node0&#45;&gt;node13 --><g class="edge inheritance" id="graph515_0_13"><g id="a_inheritance|graph515_0_13"><a xlink:title="TableNode is a subtype of TypedNode"><path d="M877.547,-72.6569C988.828,-69.2605 1256.25,-58.1765 1478,-26 1480.9,-25.579 1483.88,-25.0918 1486.87,-24.5599" stroke="#d4d4d4" fill="none"></path><polygon points="877.312,-70.9131 872.367,-72.8129 877.417,-74.4115 877.312,-70.9131" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node14 --><g class="node trait" id="graph515_14"><g id="a_trait|graph515_14"><a xlink:title="scala.slick.ast.Node" xlink:href="Node.html#inheritance-diagram"><polygon points="815,-150 747,-150 747,-124 815,-124 815,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-143" x="759" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-132.75" x="778.658" text-anchor="start">Node</text></a></g></g><!-- node14&#45;&gt;node0 --><g class="edge inheritance" id="graph515_14_0"><g id="a_inheritance|graph515_14_0"><a xlink:title="TypedNode is a subtype of Node"><path d="M792.909,-119.761C800.221,-109.789 809.433,-97.2278 816.109,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="791.45,-118.791 789.904,-123.858 794.272,-120.861 791.45,-118.791" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node15 --><g class="node trait" id="graph515_15"><g id="a_trait|graph515_15"><a xlink:title="scala.slick.ast.Typed" xlink:href="Typed.html#inheritance-diagram"><polygon points="905,-150 833,-150 833,-124 905,-124 905,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-143" x="845" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-132.75" x="864.99" text-anchor="start">Typed</text></a></g></g><!-- node15&#45;&gt;node0 --><g class="edge inheritance" id="graph515_15_0"><g id="a_inheritance|graph515_15_0"><a xlink:title="TypedNode is a subtype of Typed"><path d="M857.091,-119.761C849.779,-109.789 840.567,-97.2278 833.891,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="855.728,-120.861 860.096,-123.858 858.55,-118.791 855.728,-120.861" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scala.slick.ast.TypedNode"><span>TypedNode</span></li><li class="in" name="scala.slick.ast.Typed"><span>Typed</span></li><li class="in" name="scala.slick.ast.Node"><span>Node</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.ast.Node.Self" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Self&gt;:Node.this.type&lt;:scala.slick.ast.Node"></a>
+      <a id="Self:Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Self</span><span class="result"> &gt;: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>.this.type &lt;: <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="scala.slick.ast.Node#nodeChildren" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="nodeChildren:Seq[scala.slick.ast.Node]"></a>
+      <a id="nodeChildren:Seq[Node]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeChildren</span><span class="result">: <a href="../../package.html#Seq[+A]=Seq[A]" class="extmbr" name="scala.Seq">Seq</a>[<a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">All child nodes of this node.</p><div class="fullcomment"><div class="comment cmt"><p>All child nodes of this node. Must be implemented by subclasses.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeRebuild" visbl="prt" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="nodeRebuild(ch:IndexedSeq[scala.slick.ast.Node]):Node.this.Self"></a>
+      <a id="nodeRebuild(IndexedSeq[Node]):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeRebuild</span><span class="params">(<span name="ch">ch: <a href="../../package.html#IndexedSeq[+A]=IndexedSeq[A]" class="extmbr" name="scala.IndexedSeq">IndexedSeq</a>[<a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a>]</span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Rebuild this node with a new list of children.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node with a new list of children. Implementations of this
+method *must not* perform any optimization to reuse the current node.
+This method always returns a fresh copy.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Typed#tpe" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="tpe:scala.slick.ast.Type"></a>
+      <a id="tpe:Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tpe</span><span class="result">: <a href="Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Typed.html" class="extype" name="scala.slick.ast.Typed">Typed</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(TypedNode,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((TypedNode)⇒Boolean,⇒Any):TypedNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((TypedNode)⇒Boolean):TypedNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):TypedNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):TypedNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeBuildTypedNode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeBuildTypedNode[T&gt;:Node.this.type&lt;:scala.slick.ast.Node](newNode:T,newType:scala.slick.ast.Type):T"></a>
+      <a id="nodeBuildTypedNode[T&lt;:Node&gt;:TypedNode.this.type](T,Type):T"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeBuildTypedNode</span><span class="tparams">[<span name="T">T &gt;: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>.this.type &lt;: <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>]</span><span class="params">(<span name="newNode">newNode: <span class="extype" name="scala.slick.ast.Node.nodeBuildTypedNode.T">T</span></span>, <span name="newType">newType: <a href="Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>)</span><span class="result">: <span class="extype" name="scala.slick.ast.Node.nodeBuildTypedNode.T">T</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeChildNames" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeChildNames:Iterable[String]"></a>
+      <a id="nodeChildNames:Iterable[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeChildNames</span><span class="result">: <a href="../../package.html#Iterable[+A]=Iterable[A]" class="extmbr" name="scala.Iterable">Iterable</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Names for the child nodes to show in AST dumps.</p><div class="fullcomment"><div class="comment cmt"><p>Names for the child nodes to show in AST dumps. Defaults to a numbered
+sequence starting at 0 but can be overridden by subclasses to produce
+more suitable names.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.TypedNode#nodeHasType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeHasType:Boolean"></a>
+      <a id="nodeHasType:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeHasType</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> → <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeIntrinsicSymbol" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeIntrinsicSymbol:scala.slick.ast.IntrinsicSymbol"></a>
+      <a id="nodeIntrinsicSymbol:IntrinsicSymbol"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeIntrinsicSymbol</span><span class="result">: <a href="IntrinsicSymbol.html" class="extype" name="scala.slick.ast.IntrinsicSymbol">IntrinsicSymbol</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The intrinsic symbol that points to this Node object.</p><div class="fullcomment"><div class="comment cmt"><p>The intrinsic symbol that points to this Node object.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeMapChildren" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeMapChildren(f:scala.slick.ast.Node=&gt;scala.slick.ast.Node,keepType:Boolean):Node.this.Self"></a>
+      <a id="nodeMapChildren((Node)⇒Node,Boolean):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeMapChildren</span><span class="params">(<span name="f">f: (<a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a>) ⇒ <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="keepType">keepType: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Apply a mapping function to all children of this node and recreate the
+node with the new children.</p><div class="fullcomment"><div class="comment cmt"><p>Apply a mapping function to all children of this node and recreate the
+node with the new children. If all new children are identical to the old
+ones, this node is returned. If <code><code>keepType</code></code> is set to true, the type
+of this node is kept even if the children have changed.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.TypedNode#nodePeekType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodePeekType:scala.slick.ast.Type"></a>
+      <a id="nodePeekType:Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodePeekType</span><span class="result">: <a href="Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> → <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeRebuildOrThis" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeRebuildOrThis(ch:IndexedSeq[scala.slick.ast.Node]):Node.this.Self"></a>
+      <a id="nodeRebuildOrThis(IndexedSeq[Node]):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeRebuildOrThis</span><span class="params">(<span name="ch">ch: <a href="../../package.html#IndexedSeq[+A]=IndexedSeq[A]" class="extmbr" name="scala.IndexedSeq">IndexedSeq</a>[<a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a>]</span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Rebuild this node with a new list of children unless all children are
+identical to the current ones.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node with a new list of children unless all children are
+identical to the current ones.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeRebuildWithType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeRebuildWithType(tpe:scala.slick.ast.Type):Node.this.Self"></a>
+      <a id="nodeRebuildWithType(Type):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeRebuildWithType</span><span class="params">(<span name="tpe">tpe: <a href="Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.TypedNode#nodeType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeType:scala.slick.ast.Type"></a>
+      <a id="nodeType:Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeType</span><span class="result">: <a href="Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The current type of this node</p><div class="fullcomment"><div class="comment cmt"><p>The current type of this node</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> → <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeTyped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeTyped(tpe:scala.slick.ast.Type):Node.this.type"></a>
+      <a id="nodeTyped(Type):TypedNode.this.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeTyped</span><span class="params">(<span name="tpe">tpe: <a href="Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>.this.type</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return this Node with a Type assigned.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with a Type assigned. This may only be called on
+freshly constructed nodes with no other existing references, i.e.
+creating the Node plus assigning it a Type must be atomic.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeTypedOrCopy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeTypedOrCopy(tpe:scala.slick.ast.Type):Node.this.Self"></a>
+      <a id="nodeTypedOrCopy(Type):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeTypedOrCopy</span><span class="params">(<span name="tpe">tpe: <a href="Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return this Node with a Type assigned (if no other type has been seen
+for it yet) or a typed copy.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with a Type assigned (if no other type has been seen
+for it yet) or a typed copy.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeUntypedOrCopy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeUntypedOrCopy:Node.this.Self"></a>
+      <a id="nodeUntypedOrCopy:Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeUntypedOrCopy</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return this Node with no Type assigned (if it's type has not been
+observed yet) or an untyped copy.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with no Type assigned (if it's type has not been
+observed yet) or an untyped copy.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.Node#nodeWithComputedType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeWithComputedType(scope:scala.slick.ast.SymbolScope,typeChildren:Boolean,retype:Boolean):Node.this.Self"></a>
+      <a id="nodeWithComputedType(SymbolScope,Boolean,Boolean):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeWithComputedType</span><span class="params">(<span name="scope">scope: <a href="SymbolScope.html" class="extype" name="scala.slick.ast.SymbolScope">SymbolScope</a> = <span class="symbol"><span class="name"><a href="SymbolScope$.html">SymbolScope.empty</a></span></span></span>, <span name="typeChildren">typeChildren: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="retype">retype: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Rebuild this node and all children with their computed type.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node and all children with their computed type. If this
+node already has a type, the children are only type-checked again if
+<code><code>typeChildren</code></code> is set to true. if <code><code>retype</code></code> is also set to true, the
+existing type of this node is replaced. If this node does not yet have
+a type, the types of all children are computed.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.slick.ast.TypedNode#nodeWithComputedType2" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeWithComputedType2(scope:scala.slick.ast.SymbolScope,typeChildren:Boolean,retype:Boolean):TypedNode.this.Self"></a>
+      <a id="nodeWithComputedType2(SymbolScope,Boolean,Boolean):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeWithComputedType2</span><span class="params">(<span name="scope">scope: <a href="SymbolScope.html" class="extype" name="scala.slick.ast.SymbolScope">SymbolScope</a></span>, <span name="typeChildren">typeChildren: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="retype">retype: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:scala.slick.ast.Node" class="extmbr" name="scala.slick.ast.TypedNode.Self">Self</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> → <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.slick.ast.Node#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(TypedNode,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(typedNode: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(typedNode: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:TypedNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(typedNode: ArrowAssoc[TypedNode]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:TypedNode"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(typedNode: Ensuring[TypedNode]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.slick.ast.Typed">
+              <h3>Inherited from <a href="Typed.html" class="extype" name="scala.slick.ast.Typed">Typed</a></h3>
+            </div><div class="parent" name="scala.slick.ast.Node">
+              <h3>Inherited from <a href="Node.html" class="extype" name="scala.slick.ast.Node">Node</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
+    </body>
+      </html>
