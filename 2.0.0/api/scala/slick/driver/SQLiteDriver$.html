@@ -1,0 +1,1877 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>SQLiteDriver - Slick 2.0.0 - scala.slick.driver.SQLiteDriver</title>
+          <meta name="description" content="SQLiteDriver - Slick 2.0.0 - scala.slick.driver.SQLiteDriver" />
+          <meta name="keywords" content="SQLiteDriver Slick 2.0.0 scala.slick.driver.SQLiteDriver" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.driver.SQLiteDriver$';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <a href="SQLiteDriver.html" title="Go to companion"><img src="../../../lib/object_to_trait_big.png" /></a>
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a>.<a href="package.html" class="extype" name="scala.slick.driver">driver</a></p>
+        <h1><a href="SQLiteDriver.html" title="Go to companion">SQLiteDriver</a></h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SQLiteDriver</span><span class="result"> extends <a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/2.0.0/src/main/scala/scala/slick/driver/SQLiteDriver.scala" target="_blank">SQLiteDriver.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a>, <a href="JdbcDriver.html" class="extype" name="scala.slick.driver.JdbcDriver">JdbcDriver</a>, <a href="../jdbc/JdbcMappingCompilerComponent.html" class="extype" name="scala.slick.jdbc.JdbcMappingCompilerComponent">JdbcMappingCompilerComponent</a>, <a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a>, <a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a>, <a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a>, <a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a>, <a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a>, <a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a>, <a href="JdbcTableComponent.html" class="extype" name="scala.slick.driver.JdbcTableComponent">JdbcTableComponent</a>, <a href="../profile/SqlDriver.html" class="extype" name="scala.slick.profile.SqlDriver">SqlDriver</a>, <a href="../profile/SqlUtilsComponent.html" class="extype" name="scala.slick.profile.SqlUtilsComponent">SqlUtilsComponent</a>, <a href="../profile/SqlProfile.html" class="extype" name="scala.slick.profile.SqlProfile">SqlProfile</a>, <a href="../profile/SqlTableComponent.html" class="extype" name="scala.slick.profile.SqlTableComponent">SqlTableComponent</a>, <a href="../profile/SqlExecutorComponent.html" class="extype" name="scala.slick.profile.SqlExecutorComponent">SqlExecutorComponent</a>, <a href="../profile/RelationalDriver.html" class="extype" name="scala.slick.profile.RelationalDriver">RelationalDriver</a>, <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a>, <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a>, <a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a>, <a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a>, <a href="../profile/BasicDriver.html" class="extype" name="scala.slick.profile.BasicDriver">BasicDriver</a>, <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a>, <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a>, <a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a>, <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph266" viewBox="0.00 0.00 3260.00 220.00" height="220pt" width="3260pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 216)" class="graph" id="graph0"><polygon points="-4,4 -4,-216 3256,-216 3256,4 -4,4" stroke="white" fill="white"></polygon><!-- node0 --><g class="node outside class" id="graph266_0"><g id="a_outside class|graph266_0"><a xlink:title="scala.slick.jdbc.JdbcMappingCompilerComponent.JdbcInsertCompiler" xlink:href="../jdbc/JdbcMappingCompilerComponent$JdbcInsertCompiler.html#inheritance-diagram"><polygon points="208,-150 0,-150 0,-124 208,-124 208,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="31.9165" text-anchor="start">driver.JdbcDriver.JdbcInsertCompiler</text></a></g></g><!-- node1 --><g class="node outside class" id="graph266_1"><g id="a_outside class|graph266_1"><a xlink:title="scala.slick.jdbc.JdbcMappingCompilerComponent.JdbcCodeGen" xlink:href="../jdbc/JdbcMappingCompilerComponent$JdbcCodeGen.html#inheritance-diagram"><polygon points="411.25,-150 226.75,-150 226.75,-124 411.25,-124 411.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="239" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="258.522" text-anchor="start">driver.JdbcDriver.JdbcCodeGen</text></a></g></g><!-- node2 --><g class="node outside trait" id="graph266_2"><g id="a_outside trait|graph266_2"><a xlink:title="scala.slick.jdbc.JdbcMappingCompilerComponent.MappingCompiler" xlink:href="../jdbc/JdbcMappingCompilerComponent$MappingCompiler.html#inheritance-diagram"><polygon points="311,-212 111,-212 111,-186 311,-186 311,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="123" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="142.803" text-anchor="start">driver.JdbcDriver.MappingCompiler</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph266_2_0"><g id="a_inheritance|graph266_2_0"><a xlink:title="driver.JdbcDriver.JdbcInsertCompiler is a subtype of driver.JdbcDriver.MappingCompiler"><path d="M184.856,-183.34C166.675,-173.145 142.726,-159.715 125.621,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="184.13,-184.939 189.347,-185.858 185.842,-181.886 184.13,-184.939" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2&#45;&gt;node1 --><g class="edge inheritance" id="graph266_2_1"><g id="a_inheritance|graph266_2_1"><a xlink:title="driver.JdbcDriver.JdbcCodeGen is a subtype of driver.JdbcDriver.MappingCompiler"><path d="M237.388,-183.34C255.74,-173.145 279.912,-159.715 297.177,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="236.376,-181.9 232.855,-185.858 238.076,-184.96 236.376,-181.9" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node outside class" id="graph266_3"><g id="a_outside class|graph266_3"><a xlink:title="scala.slick.profile.RelationalMappingCompilerComponent.TypeMappingResultConverter" xlink:href="../profile/RelationalMappingCompilerComponent$TypeMappingResultConverter.html#inheritance-diagram"><polygon points="606.25,-150 429.75,-150 429.75,-124 606.25,-124 606.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="442" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="461.966" text-anchor="start">TypeMappingResultConverter</text></a></g></g><!-- node4 --><g class="node outside class" id="graph266_4"><g id="a_outside class|graph266_4"><a xlink:title="scala.slick.profile.RelationalMappingCompilerComponent.GetOrElseResultConverter" xlink:href="../profile/RelationalMappingCompilerComponent$GetOrElseResultConverter.html#inheritance-diagram"><polygon points="787.25,-150 624.75,-150 624.75,-124 787.25,-124 787.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="637" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="656.646" text-anchor="start">GetOrElseResultConverter</text></a></g></g><!-- node5 --><g class="node outside class" id="graph266_5"><g id="a_outside class|graph266_5"><a xlink:title="scala.slick.profile.RelationalMappingCompilerComponent.ProductResultConverter" xlink:href="../profile/RelationalMappingCompilerComponent$ProductResultConverter.html#inheritance-diagram"><polygon points="956.25,-150 805.75,-150 805.75,-124 956.25,-124 956.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="818" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="837.754" text-anchor="start">ProductResultConverter</text></a></g></g><!-- node6 --><g class="node outside trait" id="graph266_6"><g id="a_outside trait|graph266_6"><a xlink:title="scala.slick.profile.RelationalMappingCompilerComponent.ResultConverter" xlink:href="../profile/RelationalMappingCompilerComponent$ResultConverter.html#inheritance-diagram"><polygon points="764.25,-212 647.75,-212 647.75,-186 764.25,-186 764.25,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="660" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="679.985" text-anchor="start">ResultConverter</text></a></g></g><!-- node6&#45;&gt;node3 --><g class="edge inheritance" id="graph266_6_3"><g id="a_inheritance|graph266_6_3"><a xlink:title="TypeMappingResultConverter is a subtype of ResultConverter"><path d="M662.864,-184.233C630.5,-173.904 586.625,-159.902 555.667,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="662.66,-186.005 667.955,-185.858 663.724,-182.671 662.66,-186.005" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node6&#45;&gt;node4 --><g class="edge inheritance" id="graph266_6_4"><g id="a_inheritance|graph266_6_4"><a xlink:title="GetOrElseResultConverter is a subtype of ResultConverter"><path d="M706,-180.683C706,-170.896 706,-158.903 706,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="704.25,-180.858 706,-185.858 707.75,-180.858 704.25,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node6&#45;&gt;node5 --><g class="edge inheritance" id="graph266_6_5"><g id="a_inheritance|graph266_6_5"><a xlink:title="ProductResultConverter is a subtype of ResultConverter"><path d="M746.153,-184.233C776.28,-173.904 817.12,-159.902 845.938,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="745.576,-182.581 741.414,-185.858 746.711,-185.892 745.576,-182.581" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node7 --><g class="node outside object" id="graph266_7"><g id="a_outside object|graph266_7"><a xlink:title="scala.slick.driver.JdbcStatementBuilderComponent.OtherPart" xlink:href="JdbcStatementBuilderComponent$OtherPart$.html#inheritance-diagram"><polygon points="1063,-150 975,-150 975,-124 1063,-124 1063,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-143" x="987" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="1006.94" text-anchor="start">OtherPart</text></a></g></g><!-- node8 --><g class="node outside object" id="graph266_8"><g id="a_outside object|graph266_8"><a xlink:title="scala.slick.driver.JdbcStatementBuilderComponent.WherePart" xlink:href="JdbcStatementBuilderComponent$WherePart$.html#inheritance-diagram"><polygon points="1173,-150 1081,-150 1081,-124 1173,-124 1173,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-143" x="1093" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="1112.71" text-anchor="start">WherePart</text></a></g></g><!-- node9 --><g class="node outside object" id="graph266_9"><g id="a_outside object|graph266_9"><a xlink:title="scala.slick.driver.JdbcStatementBuilderComponent.FromPart" xlink:href="JdbcStatementBuilderComponent$FromPart$.html#inheritance-diagram"><polygon points="1277,-150 1191,-150 1191,-124 1277,-124 1277,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-143" x="1203" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="1222.78" text-anchor="start">FromPart</text></a></g></g><!-- node10 --><g class="node outside object" id="graph266_10"><g id="a_outside object|graph266_10"><a xlink:title="scala.slick.driver.JdbcStatementBuilderComponent.SelectPart" xlink:href="JdbcStatementBuilderComponent$SelectPart$.html#inheritance-diagram"><polygon points="1385,-150 1295,-150 1295,-124 1385,-124 1385,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-143" x="1307" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="1326.54" text-anchor="start">SelectPart</text></a></g></g><!-- node11 --><g class="node outside class" id="graph266_11"><g id="a_outside class|graph266_11"><a xlink:title="scala.slick.driver.JdbcStatementBuilderComponent.StatementPart" xlink:href="JdbcStatementBuilderComponent$StatementPart.html#inheritance-diagram"><polygon points="1259,-212 1101,-212 1101,-186 1259,-186 1259,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-205" x="1113" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="1132.64" text-anchor="start">JdbcDriver.StatementPart</text></a></g></g><!-- node11&#45;&gt;node7 --><g class="edge inheritance" id="graph266_11_7"><g id="a_inheritance|graph266_11_7"><a xlink:title="OtherPart is a subtype of JdbcDriver.StatementPart"><path d="M1142.72,-184.105C1115.03,-173.789 1077.66,-159.861 1051.26,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="1142.12,-185.752 1147.42,-185.858 1143.35,-182.472 1142.12,-185.752" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node11&#45;&gt;node8 --><g class="edge inheritance" id="graph266_11_8"><g id="a_inheritance|graph266_11_8"><a xlink:title="WherePart is a subtype of JdbcDriver.StatementPart"><path d="M1165.89,-182.027C1157.05,-172.014 1145.82,-159.309 1137.71,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="1164.65,-183.269 1169.27,-185.858 1167.28,-180.952 1164.65,-183.269" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node11&#45;&gt;node9 --><g class="edge inheritance" id="graph266_11_9"><g id="a_inheritance|graph266_11_9"><a xlink:title="FromPart is a subtype of JdbcDriver.StatementPart"><path d="M1194.38,-182.027C1203.39,-172.014 1214.82,-159.309 1223.09,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="1192.97,-180.971 1190.93,-185.858 1195.57,-183.312 1192.97,-180.971" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node11&#45;&gt;node10 --><g class="edge inheritance" id="graph266_11_10"><g id="a_inheritance|graph266_11_10"><a xlink:title="SelectPart is a subtype of JdbcDriver.StatementPart"><path d="M1217.39,-183.977C1244.87,-173.674 1281.81,-159.82 1307.94,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="1216.45,-182.464 1212.38,-185.858 1217.67,-185.741 1216.45,-182.464" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12 --><g class="node outside trait" id="graph266_12"><g id="a_outside trait|graph266_12"><a xlink:title="scala.slick.driver.JdbcProfile.Implicits" xlink:href="JdbcProfile$Implicits.html#inheritance-diagram"><polygon points="1592,-150 1462,-150 1462,-124 1592,-124 1592,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-143" x="1474" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="1493.55" text-anchor="start">JdbcDriver.Implicits</text></a></g></g><!-- node13 --><g class="node outside trait" id="graph266_13"><g id="a_outside trait|graph266_13"><a xlink:title="scala.slick.driver.JdbcProfile.LowPriorityImplicits" xlink:href="JdbcProfile$LowPriorityImplicits.html#inheritance-diagram"><polygon points="1527,-212 1347,-212 1347,-186 1527,-186 1527,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="1359" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="1378.82" text-anchor="start">JdbcDriver.LowPriorityImplicits</text></a></g></g><!-- node13&#45;&gt;node12 --><g class="edge inheritance" id="graph266_13_12"><g id="a_inheritance|graph266_13_12"><a xlink:title="JdbcDriver.Implicits is a subtype of JdbcDriver.LowPriorityImplicits"><path d="M1459.38,-183.08C1474.62,-172.917 1494.55,-159.634 1508.81,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="1458.4,-181.628 1455.21,-185.858 1460.34,-184.541 1458.4,-181.628" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node14 --><g class="node outside trait" id="graph266_14"><g id="a_outside trait|graph266_14"><a xlink:title="scala.slick.driver.JdbcTypesComponent.ImplicitColumnTypes" xlink:href="JdbcTypesComponent$ImplicitColumnTypes.html#inheritance-diagram"><polygon points="1732.25,-212 1545.75,-212 1545.75,-186 1732.25,-186 1732.25,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="1558" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="1577.98" text-anchor="start">JdbcDriver.ImplicitColumnTypes</text></a></g></g><!-- node14&#45;&gt;node12 --><g class="edge inheritance" id="graph266_14_12"><g id="a_inheritance|graph266_14_12"><a xlink:title="JdbcDriver.Implicits is a subtype of JdbcDriver.ImplicitColumnTypes"><path d="M1611.63,-183.34C1592.6,-173.145 1567.54,-159.715 1549.63,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="1611.1,-185.04 1616.34,-185.858 1612.75,-181.954 1611.1,-185.04" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node15 --><g class="node outside class" id="graph266_15"><g id="a_outside class|graph266_15"><a xlink:title="scala.slick.driver.JdbcTypesComponent.DriverJdbcType" xlink:href="JdbcTypesComponent$DriverJdbcType.html#inheritance-diagram"><polygon points="1785.25,-150 1610.75,-150 1610.75,-124 1785.25,-124 1785.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="1623" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="1642.54" text-anchor="start">JdbcDriver.DriverJdbcType[T]</text></a></g></g><!-- node16 --><g class="node outside object" id="graph266_16"><g id="a_outside object|graph266_16"><a xlink:title="scala.slick.driver.JdbcTypesComponent.MappedJdbcType" xlink:href="JdbcTypesComponent$MappedJdbcType$.html#inheritance-diagram"><polygon points="2272.25,-150 2149.75,-150 2149.75,-124 2272.25,-124 2272.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/object_diagram.png" y="-143" x="2162" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="2181.64" text-anchor="start">MappedJdbcType</text></a></g></g><!-- node17 --><g class="node outside class" id="graph266_17"><g id="a_outside class|graph266_17"><a xlink:title="scala.slick.driver.JdbcTypesComponent.MappedJdbcType" xlink:href="JdbcTypesComponent$MappedJdbcType.html#inheritance-diagram"><polygon points="2000.25,-150 1803.75,-150 1803.75,-124 2000.25,-124 2000.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="1816" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="1835.97" text-anchor="start">JdbcDriver.MappedJdbcType[T, U]</text></a></g></g><!-- node18 --><g class="node outside trait" id="graph266_18"><g id="a_outside trait|graph266_18"><a xlink:title="scala.slick.driver.JdbcTypesComponent.JdbcType" xlink:href="JdbcTypesComponent$JdbcType.html#inheritance-diagram"><polygon points="1976.25,-212 1827.75,-212 1827.75,-186 1976.25,-186 1976.25,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="1840" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="1859.87" text-anchor="start">JdbcDriver.JdbcType[T]</text></a></g></g><!-- node18&#45;&gt;node15 --><g class="edge inheritance" id="graph266_18_15"><g id="a_inheritance|graph266_18_15"><a xlink:title="JdbcDriver.DriverJdbcType[T] is a subtype of JdbcDriver.JdbcType[T]"><path d="M1855.63,-184.36C1820.47,-174.019 1772.6,-159.942 1738.87,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="1855.43,-186.126 1860.72,-185.858 1856.41,-182.768 1855.43,-186.126" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node18&#45;&gt;node17 --><g class="edge inheritance" id="graph266_18_17"><g id="a_inheritance|graph266_18_17"><a xlink:title="JdbcDriver.MappedJdbcType[T, U] is a subtype of JdbcDriver.JdbcType[T]"><path d="M1902,-180.683C1902,-170.896 1902,-158.903 1902,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="1900.25,-180.858 1902,-185.858 1903.75,-180.858 1900.25,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node31 --><g class="node default" id="graph266_31"><g id="a_default|graph266_31"><a xlink:title="scala.slick.driver.SQLiteDriver.BaseColumnType"><polygon points="2131.25,-150 2018.75,-150 2018.75,-124 2131.25,-124 2131.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="2030.2" text-anchor="start">BaseColumnType[T]</text></a></g></g><!-- node18&#45;&gt;node31 --><g class="edge inheritance" id="graph266_18_31"><g id="a_inheritance|graph266_18_31"><a xlink:title="BaseColumnType[T] is a subtype of JdbcDriver.JdbcType[T]"><path d="M1942.06,-184.105C1971.81,-173.789 2011.97,-159.861 2040.34,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="1941.16,-182.566 1937.01,-185.858 1942.31,-185.873 1941.16,-182.566" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node19 --><g class="node outside class" id="graph266_19"><g id="a_outside class|graph266_19"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.MappedKeysInsertInvoker" xlink:href="JdbcInvokerComponent$MappedKeysInsertInvoker.html#inheritance-diagram"><polygon points="2385,-26 2129,-26 2129,-0 2385,-0 2385,-26" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="2141" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-8.74951" x="2160.74" text-anchor="start">JdbcDriver.MappedKeysInsertInvoker[U, RU, R]</text></a></g></g><!-- node20 --><g class="node outside class" id="graph266_20"><g id="a_outside class|graph266_20"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.KeysInsertInvoker" xlink:href="JdbcInvokerComponent$KeysInsertInvoker.html#inheritance-diagram"><polygon points="2727.25,-26 2520.75,-26 2520.75,-0 2727.25,-0 2727.25,-26" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-19" x="2533" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-8.74951" x="2552.7" text-anchor="start">JdbcDriver.KeysInsertInvoker[U, RU]</text></a></g></g><!-- node21 --><g class="node outside class" id="graph266_21"><g id="a_outside class|graph266_21"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.AbstractKeysInsertInvoker" xlink:href="JdbcInvokerComponent$AbstractKeysInsertInvoker.html#inheritance-diagram"><polygon points="2379,-88 2135,-88 2135,-62 2379,-62 2379,-88" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-81" x="2147" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-70.7495" x="2166.86" text-anchor="start">JdbcDriver.AbstractKeysInsertInvoker[U, RU]</text></a></g></g><!-- node21&#45;&gt;node19 --><g class="edge inheritance" id="graph266_21_19"><g id="a_inheritance|graph266_21_19"><a xlink:title="JdbcDriver.MappedKeysInsertInvoker[U, RU, R] is a subtype of JdbcDriver.AbstractKeysInsertInvoker[U, RU]"><path d="M2257,-56.6826C2257,-46.8961 2257,-34.9026 2257,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="2255.25,-56.8581 2257,-61.8581 2258.75,-56.8581 2255.25,-56.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node21&#45;&gt;node20 --><g class="edge inheritance" id="graph266_21_20"><g id="a_inheritance|graph266_21_20"><a xlink:title="JdbcDriver.KeysInsertInvoker[U, RU] is a subtype of JdbcDriver.AbstractKeysInsertInvoker[U, RU]"><path d="M2336.13,-61.064C2399.67,-50.6755 2488.23,-36.1969 2550.29,-26.0504" stroke="#d4d4d4" fill="none"></path><polygon points="2335.48,-59.3964 2330.83,-61.9303 2336.04,-62.8505 2335.48,-59.3964" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node22 --><g class="node outside class" id="graph266_22"><g id="a_outside class|graph266_22"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.CountingInsertInvoker" xlink:href="JdbcInvokerComponent$CountingInsertInvoker.html#inheritance-diagram"><polygon points="2602.25,-88 2397.75,-88 2397.75,-62 2602.25,-62 2602.25,-88" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-81" x="2410" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-70.7495" x="2429.8" text-anchor="start">JdbcDriver.CountingInsertInvoker[U]</text></a></g></g><!-- node23 --><g class="node outside trait" id="graph266_23"><g id="a_outside trait|graph266_23"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.FullInsertInvoker" xlink:href="JdbcInvokerComponent$FullInsertInvoker.html#inheritance-diagram"><polygon points="2775.25,-150 2594.75,-150 2594.75,-124 2775.25,-124 2775.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-143" x="2607" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="2626.76" text-anchor="start">JdbcDriver.FullInsertInvoker[U]</text></a></g></g><!-- node23&#45;&gt;node20 --><g class="edge inheritance" id="graph266_23_20"><g id="a_inheritance|graph266_23_20"><a xlink:title="JdbcDriver.KeysInsertInvoker[U, RU] is a subtype of JdbcDriver.FullInsertInvoker[U]"><path d="M2702.5,-120.131C2717.18,-104.823 2733.98,-81.2123 2722,-62 2711.12,-44.5589 2691.86,-33.2796 2673.28,-26.072" stroke="#d4d4d4" fill="none"></path><polygon points="2701.1,-119.051 2698.83,-123.836 2703.59,-121.514 2701.1,-119.051" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node23&#45;&gt;node22 --><g class="edge inheritance" id="graph266_23_22"><g id="a_inheritance|graph266_23_22"><a xlink:title="JdbcDriver.CountingInsertInvoker[U] is a subtype of JdbcDriver.FullInsertInvoker[U]"><path d="M2642.55,-122.233C2610.7,-111.904 2567.53,-97.9016 2537.07,-88.0213" stroke="#d4d4d4" fill="none"></path><polygon points="2642.27,-123.98 2647.56,-123.858 2643.35,-120.651 2642.27,-123.98" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node32 --><g class="node default" id="graph266_32"><g id="a_default|graph266_32"><a xlink:title="scala.slick.driver.SQLiteDriver.InsertInvoker"><polygon points="2713,-88 2621,-88 2621,-62 2713,-62 2713,-88" stroke="#ababab" fill="#e1e1e1"></polygon><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-70.7495" x="2632.27" text-anchor="start">InsertInvoker[T]</text></a></g></g><!-- node23&#45;&gt;node32 --><g class="edge inheritance" id="graph266_23_32"><g id="a_inheritance|graph266_23_32"><a xlink:title="InsertInvoker[T] is a subtype of JdbcDriver.FullInsertInvoker[U]"><path d="M2679.89,-118.954C2676.94,-109.118 2673.3,-96.9839 2670.64,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="2678.24,-119.572 2681.36,-123.858 2681.6,-118.566 2678.24,-119.572" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node24 --><g class="node outside class" id="graph266_24"><g id="a_outside class|graph266_24"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.BaseInsertInvoker" xlink:href="JdbcInvokerComponent$BaseInsertInvoker.html#inheritance-diagram"><polygon points="2576,-150 2388,-150 2388,-124 2576,-124 2576,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="2400" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="2419.92" text-anchor="start">JdbcDriver.BaseInsertInvoker[U]</text></a></g></g><!-- node24&#45;&gt;node21 --><g class="edge inheritance" id="graph266_24_21"><g id="a_inheritance|graph266_24_21"><a xlink:title="JdbcDriver.AbstractKeysInsertInvoker[U, RU] is a subtype of JdbcDriver.BaseInsertInvoker[U]"><path d="M2431.6,-122.56C2392.79,-112.211 2339.63,-98.0339 2302.19,-88.0504" stroke="#d4d4d4" fill="none"></path><polygon points="2431.46,-124.333 2436.74,-123.93 2432.36,-120.951 2431.46,-124.333" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node24&#45;&gt;node22 --><g class="edge inheritance" id="graph266_24_22"><g id="a_inheritance|graph266_24_22"><a xlink:title="JdbcDriver.CountingInsertInvoker[U] is a subtype of JdbcDriver.BaseInsertInvoker[U]"><path d="M2487.11,-118.954C2490.06,-109.118 2493.7,-96.9839 2496.36,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="2485.4,-118.566 2485.64,-123.858 2488.76,-119.572 2485.4,-118.566" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node24&#45;&gt;node32 --><g class="edge inheritance" id="graph266_24_32"><g id="a_inheritance|graph266_24_32"><a xlink:title="InsertInvoker[T] is a subtype of JdbcDriver.BaseInsertInvoker[U]"><path d="M2524.45,-122.233C2556.3,-111.904 2599.47,-97.9016 2629.93,-88.0213" stroke="#d4d4d4" fill="none"></path><polygon points="2523.65,-120.651 2519.44,-123.858 2524.73,-123.98 2523.65,-120.651" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node25 --><g class="node outside class" id="graph266_25"><g id="a_outside class|graph266_25"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.UnitQueryInvoker" xlink:href="JdbcInvokerComponent$UnitQueryInvoker.html#inheritance-diagram"><polygon points="2978.25,-150 2793.75,-150 2793.75,-124 2978.25,-124 2978.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-143" x="2806" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="2825.81" text-anchor="start">JdbcDriver.UnitQueryInvoker[R]</text></a></g></g><!-- node26 --><g class="node outside class" id="graph266_26"><g id="a_outside class|graph266_26"><a xlink:title="scala.slick.driver.JdbcInvokerComponent.QueryInvoker" xlink:href="JdbcInvokerComponent$QueryInvoker.html#inheritance-diagram"><polygon points="2975,-212 2797,-212 2797,-186 2975,-186 2975,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-205" x="2809" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="2828.73" text-anchor="start">JdbcDriver.QueryInvoker[P, R]</text></a></g></g><!-- node26&#45;&gt;node25 --><g class="edge inheritance" id="graph266_26_25"><g id="a_inheritance|graph266_26_25"><a xlink:title="JdbcDriver.UnitQueryInvoker[R] is a subtype of JdbcDriver.QueryInvoker[P, R]"><path d="M2886,-180.683C2886,-170.896 2886,-158.903 2886,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="2884.25,-180.858 2886,-185.858 2887.75,-180.858 2884.25,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node27 --><g class="node outside trait" id="graph266_27"><g id="a_outside trait|graph266_27"><a xlink:title="scala.slick.profile.SqlProfile.DDL" xlink:href="../profile/SqlProfile$DDL.html#inheritance-diagram"><polygon points="3125.25,-150 3018.75,-150 3018.75,-124 3125.25,-124 3125.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-143" x="3031" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="3050.62" text-anchor="start">SqlDriver.DDL</text></a></g></g><!-- node28 --><g class="node outside trait" id="graph266_28"><g id="a_outside trait|graph266_28"><a xlink:title="scala.slick.profile.RelationalTypesComponent.MappedColumnTypeFactory" xlink:href="../profile/RelationalTypesComponent$MappedColumnTypeFactory.html#inheritance-diagram"><polygon points="2372.25,-212 2049.75,-212 2049.75,-186 2372.25,-186 2372.25,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="2062" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="2081.6" text-anchor="start">(RelationalTypesComponent.this)#MappedColumnTypeFactory</text></a></g></g><!-- node28&#45;&gt;node16 --><g class="edge inheritance" id="graph266_28_16"><g id="a_inheritance|graph266_28_16"><a xlink:title="MappedJdbcType is a subtype of (RelationalTypesComponent.this)#MappedColumnTypeFactory"><path d="M2211,-180.683C2211,-170.896 2211,-158.903 2211,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="2209.25,-180.858 2211,-185.858 2212.75,-180.858 2209.25,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node29 --><g class="node outside trait" id="graph266_29"><g id="a_outside trait|graph266_29"><a xlink:title="scala.slick.profile.BasicProfile.SchemaDescriptionDef" xlink:href="../profile/BasicProfile$SchemaDescriptionDef.html#inheritance-diagram"><polygon points="3193,-212 2993,-212 2993,-186 3193,-186 3193,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="3005" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="3024.81" text-anchor="start">BasicDriver.SchemaDescriptionDef</text></a></g></g><!-- node29&#45;&gt;node27 --><g class="edge inheritance" id="graph266_29_27"><g id="a_inheritance|graph266_29_27"><a xlink:title="SqlDriver.DDL is a subtype of BasicDriver.SchemaDescriptionDef"><path d="M3087.03,-180.954C3083.59,-171.118 3079.34,-158.984 3076.24,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="3085.45,-181.717 3088.75,-185.858 3088.75,-180.561 3085.45,-181.717" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node33 --><g class="node default" id="graph266_33"><g id="a_default|graph266_33"><a xlink:title="scala.slick.driver.SQLiteDriver.SchemaDescription"><polygon points="3252.25,-150 3143.75,-150 3143.75,-124 3252.25,-124 3252.25,-150" stroke="#ababab" fill="#e1e1e1"></polygon><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-132.75" x="3155.15" text-anchor="start">SchemaDescription</text></a></g></g><!-- node29&#45;&gt;node33 --><g class="edge inheritance" id="graph266_29_33"><g id="a_inheritance|graph266_29_33"><a xlink:title="SchemaDescription is a subtype of BasicDriver.SchemaDescriptionDef"><path d="M3118.65,-183.34C3136.5,-173.145 3160,-159.715 3176.78,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="3117.72,-181.858 3114.25,-185.858 3119.46,-184.897 3117.72,-181.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node30 --><g class="node outside trait" id="graph266_30"><g id="a_outside trait|graph266_30"><a xlink:title="scala.slick.profile.BasicInvokerComponent.InsertInvokerDef" xlink:href="../profile/BasicInvokerComponent$InsertInvokerDef.html#inheritance-diagram"><polygon points="2573.25,-212 2390.75,-212 2390.75,-186 2573.25,-186 2573.25,-212" stroke="#ababab" fill="#e1e1e1"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-205" x="2403" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#7d7d7d" font-size="10.00" font-family="Arial" y="-194.75" x="2422.92" text-anchor="start">BasicDriver.InsertInvokerDef[T]</text></a></g></g><!-- node30&#45;&gt;node24 --><g class="edge inheritance" id="graph266_30_24"><g id="a_inheritance|graph266_30_24"><a xlink:title="JdbcDriver.BaseInsertInvoker[U] is a subtype of BasicDriver.InsertInvokerDef[T]"><path d="M2482,-180.683C2482,-170.896 2482,-158.903 2482,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="2480.25,-180.858 2482,-185.858 2483.75,-180.858 2480.25,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scala.slick.driver.SQLiteDriver"><span>SQLiteDriver</span></li><li class="in" name="scala.slick.driver.SQLiteDriver"><span>SQLiteDriver</span></li><li class="in" name="scala.slick.driver.JdbcDriver"><span>JdbcDriver</span></li><li class="in" name="scala.slick.jdbc.JdbcMappingCompilerComponent"><span>JdbcMappingCompilerComponent</span></li><li class="in" name="scala.slick.profile.RelationalMappingCompilerComponent"><span>RelationalMappingCompilerComponent</span></li><li class="in" name="scala.slick.driver.JdbcStatementBuilderComponent"><span>JdbcStatementBuilderComponent</span></li><li class="in" name="scala.slick.driver.JdbcProfile"><span>JdbcProfile</span></li><li class="in" name="scala.slick.driver.JdbcTypesComponent"><span>JdbcTypesComponent</span></li><li class="in" name="scala.slick.driver.JdbcExecutorComponent"><span>JdbcExecutorComponent</span></li><li class="in" name="scala.slick.driver.JdbcInvokerComponent"><span>JdbcInvokerComponent</span></li><li class="in" name="scala.slick.driver.JdbcTableComponent"><span>JdbcTableComponent</span></li><li class="in" name="scala.slick.profile.SqlDriver"><span>SqlDriver</span></li><li class="in" name="scala.slick.profile.SqlUtilsComponent"><span>SqlUtilsComponent</span></li><li class="in" name="scala.slick.profile.SqlProfile"><span>SqlProfile</span></li><li class="in" name="scala.slick.profile.SqlTableComponent"><span>SqlTableComponent</span></li><li class="in" name="scala.slick.profile.SqlExecutorComponent"><span>SqlExecutorComponent</span></li><li class="in" name="scala.slick.profile.RelationalDriver"><span>RelationalDriver</span></li><li class="in" name="scala.slick.profile.RelationalProfile"><span>RelationalProfile</span></li><li class="in" name="scala.slick.profile.RelationalTypesComponent"><span>RelationalTypesComponent</span></li><li class="in" name="scala.slick.profile.RelationalSequenceComponent"><span>RelationalSequenceComponent</span></li><li class="in" name="scala.slick.profile.RelationalTableComponent"><span>RelationalTableComponent</span></li><li class="in" name="scala.slick.profile.BasicDriver"><span>BasicDriver</span></li><li class="in" name="scala.slick.profile.BasicProfile"><span>BasicProfile</span></li><li class="in" name="scala.slick.profile.BasicExecutorComponent"><span>BasicExecutorComponent</span></li><li class="in" name="scala.slick.profile.BasicInvokerComponent"><span>BasicInvokerComponent</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="scala.slick.driver.JdbcInvokerComponent.AbstractKeysInsertInvoker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AbstractKeysInsertInvoker[U,RU]extendsJdbcInvokerComponent.this.BaseInsertInvoker[U]"></a>
+      <a id="AbstractKeysInsertInvoker[U,RU]:JdbcDriver.AbstractKeysInsertInvoker[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$AbstractKeysInsertInvoker.html"><span class="name">AbstractKeysInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="JdbcDriver.html#BaseInsertInvoker[U]extendsJdbcInvokerComponent.this.InsertInvokerDef[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.BaseInsertInvoker">JdbcDriver.BaseInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.AbstractKeysInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Base class with common functionality for KeysInsertInvoker and MappedKeysInsertInvoker.</p>
+    </li><li name="scala.slick.driver.JdbcProfile.Backend" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Backend=scala.slick.jdbc.JdbcBackend"></a>
+      <a id="Backend:Backend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Backend</span><span class="result"> = <a href="../jdbc/JdbcBackend.html" class="extype" name="scala.slick.jdbc.JdbcBackend">JdbcBackend</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The back-end type required by this profile</p><div class="fullcomment"><div class="comment cmt"><p>The back-end type required by this profile</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile.BaseColumnType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="BaseColumnType[T]=JdbcProfile.this.JdbcType[T]withscala.slick.ast.BaseTypedType[T]"></a>
+      <a id="BaseColumnType[T]:BaseColumnType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BaseColumnType</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="#JdbcType[T]extendsTypedType[T]" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.JdbcType">JdbcType</a>[<span class="extype" name="scala.slick.driver.JdbcProfile.BaseColumnType.T">T</span>] with <a href="../ast/BaseTypedType.html" class="extype" name="scala.slick.ast.BaseTypedType">BaseTypedType</a>[<span class="extype" name="scala.slick.driver.JdbcProfile.BaseColumnType.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.BaseInsertInvoker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BaseInsertInvoker[U]extendsJdbcInvokerComponent.this.InsertInvokerDef[U]"></a>
+      <a id="BaseInsertInvoker[U]:JdbcDriver.BaseInsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$BaseInsertInvoker.html"><span class="name">BaseInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcDriver.html#InsertInvokerDef[T]extendsAnyRef" class="extmbr" name="scala.slick.profile.BasicInvokerComponent.InsertInvokerDef">JdbcDriver.InsertInvokerDef</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.BaseInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls.</p>
+    </li><li name="scala.slick.driver.SQLiteDriver.ColumnDDLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ColumnDDLBuilderextendsSQLiteDriver.this.ColumnDDLBuilder"></a>
+      <a id="ColumnDDLBuilder:ColumnDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$ColumnDDLBuilder.html"><span class="name">ColumnDDLBuilder</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent.ColumnDDLBuilder">SQLiteDriver.ColumnDDLBuilder</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for column specifications in DDL statements.</p>
+    </li><li name="scala.slick.driver.JdbcTableComponent.ColumnOptions" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ColumnOptionsextendsJdbcTableComponent.this.ColumnOptions"></a>
+      <a id="ColumnOptions:JdbcDriver.ColumnOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTableComponent$ColumnOptions.html"><span class="name">ColumnOptions</span></a><span class="result"> extends <span class="extype" name="scala.slick.profile.SqlTableComponent.ColumnOptions">JdbcDriver.ColumnOptions</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTableComponent.html" class="extype" name="scala.slick.driver.JdbcTableComponent">JdbcTableComponent</a> → <a href="../profile/SqlTableComponent.html" class="extype" name="scala.slick.profile.SqlTableComponent">SqlTableComponent</a> → <a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile.ColumnType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ColumnType[T]=JdbcProfile.this.JdbcType[T]"></a>
+      <a id="ColumnType[T]:ColumnType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ColumnType</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="#JdbcType[T]extendsTypedType[T]" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.JdbcType">JdbcType</a>[<span class="extype" name="scala.slick.driver.JdbcProfile.ColumnType.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalMappingCompilerComponent.CompiledMapping" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CompiledMappingextendsNullaryNodewithTypedNodewithProductwithSerializable"></a>
+      <a id="CompiledMapping:CompiledMapping"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalMappingCompilerComponent$CompiledMapping.html"><span class="name">CompiledMapping</span></a><span class="params">(<span name="converter">converter: <a href="../profile/RelationalMappingCompilerComponent$ResultConverter.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent.ResultConverter">ResultConverter</a></span>, <span name="tpe">tpe: <a href="../ast/Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>)</span><span class="result"> extends <a href="../ast/NullaryNode.html" class="extype" name="scala.slick.ast.NullaryNode">NullaryNode</a> with <a href="../ast/TypedNode.html" class="extype" name="scala.slick.ast.TypedNode">TypedNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A node that wraps a ResultConverter</p>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.CountingInsertInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CountingInsertInvoker[U]extendsJdbcInvokerComponent.this.BaseInsertInvoker[U]withJdbcInvokerComponent.this.FullInsertInvoker[U]"></a>
+      <a id="CountingInsertInvoker[U]:JdbcDriver.CountingInsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$CountingInsertInvoker.html"><span class="name">CountingInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcDriver.html#BaseInsertInvoker[U]extendsJdbcInvokerComponent.this.InsertInvokerDef[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.BaseInsertInvoker">JdbcDriver.BaseInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.CountingInsertInvoker.U">U</span>] with <a href="JdbcDriver.html#FullInsertInvoker[U]extendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.FullInsertInvoker">JdbcDriver.FullInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.CountingInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls and returning affected row counts.</p>
+    </li><li name="scala.slick.profile.SqlProfile.DDL" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DDLextendsSqlProfile.this.SchemaDescriptionDef"></a>
+      <a id="DDL:SqlDriver.DDL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/SqlProfile$DDL.html"><span class="name">DDL</span></a><span class="result"> extends <a href="../profile/SqlDriver.html#SchemaDescriptionDefextendsAnyRef" class="extmbr" name="scala.slick.profile.BasicProfile.SchemaDescriptionDef">SqlDriver.SchemaDescriptionDef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/SqlProfile.html" class="extype" name="scala.slick.profile.SqlProfile">SqlProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.DDLInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DDLInvokerextendsJdbcInvokerComponent.this.DDLInvoker"></a>
+      <a id="DDLInvoker:JdbcDriver.DDLInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$DDLInvoker.html"><span class="name">DDLInvoker</span></a><span class="result"> extends <span class="extype" name="scala.slick.profile.BasicInvokerComponent.DDLInvoker">JdbcDriver.DDLInvoker</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running DDL statements.</p>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.DeleteInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DeleteInvokerextendsAnyRef"></a>
+      <a id="DeleteInvoker:JdbcDriver.DeleteInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$DeleteInvoker.html"><span class="name">DeleteInvoker</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running DELETE calls.</p>
+    </li><li name="scala.slick.driver.JdbcTypesComponent.DriverJdbcType" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DriverJdbcType[T]extendsJdbcTypesComponent.this.JdbcType[T]withBaseTypedType[T]"></a>
+      <a id="DriverJdbcType[T]:JdbcDriver.DriverJdbcType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTypesComponent$DriverJdbcType.html"><span class="name">DriverJdbcType</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="JdbcDriver.html#JdbcType[T]extendsTypedType[T]" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.JdbcType">JdbcDriver.JdbcType</a>[<span class="extype" name="scala.slick.driver.JdbcTypesComponent.DriverJdbcType.T">T</span>] with <a href="../ast/BaseTypedType.html" class="extype" name="scala.slick.ast.BaseTypedType">BaseTypedType</a>[<span class="extype" name="scala.slick.driver.JdbcTypesComponent.DriverJdbcType.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.FullInsertInvoker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="FullInsertInvoker[U]extendsAnyRef"></a>
+      <a id="FullInsertInvoker[U]:JdbcDriver.FullInsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$FullInsertInvoker.html"><span class="name">FullInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">An InsertInvoker that can also insert from another query.</p>
+    </li><li name="scala.slick.profile.RelationalMappingCompilerComponent.GetOrElseResultConverter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GetOrElseResultConverterextendsRelationalMappingCompilerComponent.this.ResultConverter"></a>
+      <a id="GetOrElseResultConverter:GetOrElseResultConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalMappingCompilerComponent$GetOrElseResultConverter.html"><span class="name">GetOrElseResultConverter</span></a><span class="result"> extends <a href="../profile/RelationalMappingCompilerComponent$ResultConverter.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent.ResultConverter">ResultConverter</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTypesComponent.ImplicitColumnTypes" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ImplicitColumnTypesextendsJdbcTypesComponent.this.ImplicitColumnTypes"></a>
+      <a id="ImplicitColumnTypes:JdbcDriver.ImplicitColumnTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTypesComponent$ImplicitColumnTypes.html"><span class="name">ImplicitColumnTypes</span></a><span class="result"> extends <span class="extype" name="scala.slick.profile.RelationalTypesComponent.ImplicitColumnTypes">JdbcDriver.ImplicitColumnTypes</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a> → <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile.Implicits" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ImplicitsextendsJdbcProfile.this.LowPriorityImplicitswithJdbcProfile.this.ImplicitswithJdbcProfile.this.ImplicitColumnTypes"></a>
+      <a id="Implicits:JdbcDriver.Implicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcProfile$Implicits.html"><span class="name">Implicits</span></a><span class="result"> extends <a href="JdbcDriver.html#LowPriorityImplicitsextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcProfile.LowPriorityImplicits">JdbcDriver.LowPriorityImplicits</a> with <span class="extype" name="scala.slick.profile.RelationalProfile.Implicits">JdbcDriver.Implicits</span> with <a href="JdbcDriver.html#ImplicitColumnTypesextendsJdbcTypesComponent.this.ImplicitColumnTypes" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.ImplicitColumnTypes">JdbcDriver.ImplicitColumnTypes</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.InsertBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InsertBuilderextendsAnyRef"></a>
+      <a id="InsertBuilder:JdbcDriver.InsertBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$InsertBuilder.html"><span class="name">InsertBuilder</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for INSERT statements.</p>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.InsertInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="InsertInvoker[T]=JdbcInvokerComponent.this.CountingInsertInvoker[T]"></a>
+      <a id="InsertInvoker[T]:InsertInvoker[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">InsertInvoker</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="#CountingInsertInvoker[U]extendsJdbcInvokerComponent.this.BaseInsertInvoker[U]withJdbcInvokerComponent.this.FullInsertInvoker[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.CountingInsertInvoker">CountingInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.InsertInvoker.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type of insert invokers returned by the driver</p><div class="fullcomment"><div class="comment cmt"><p>The type of insert invokers returned by the driver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a> → <a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicInvokerComponent.InsertInvokerDef" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="InsertInvokerDef[T]extendsAnyRef"></a>
+      <a id="InsertInvokerDef[T]:BasicDriver.InsertInvokerDef[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/BasicInvokerComponent$InsertInvokerDef.html"><span class="name">InsertInvokerDef</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.jdbc.JdbcMappingCompilerComponent.JdbcCodeGen" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JdbcCodeGenextendsCodeGenwithJdbcMappingCompilerComponent.this.MappingCompiler"></a>
+      <a id="JdbcCodeGen:driver.JdbcDriver.JdbcCodeGen"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../jdbc/JdbcMappingCompilerComponent$JdbcCodeGen.html"><span class="name">JdbcCodeGen</span></a><span class="result"> extends <a href="../compiler/CodeGen.html" class="extype" name="scala.slick.compiler.CodeGen">CodeGen</a> with <a href="JdbcDriver.html#MappingCompilerextendsJdbcMappingCompilerComponent.this.MappingCompiler" class="extmbr" name="scala.slick.jdbc.JdbcMappingCompilerComponent.MappingCompiler">driver.JdbcDriver.MappingCompiler</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Code generator phase for JdbcProfile-based drivers.</p>
+    </li><li name="scala.slick.jdbc.JdbcMappingCompilerComponent.JdbcInsertCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="JdbcInsertCompilerextendsInsertCompilerwithJdbcMappingCompilerComponent.this.MappingCompiler"></a>
+      <a id="JdbcInsertCompiler:driver.JdbcDriver.JdbcInsertCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../jdbc/JdbcMappingCompilerComponent$JdbcInsertCompiler.html"><span class="name">JdbcInsertCompiler</span></a><span class="result"> extends <a href="../compiler/InsertCompiler.html" class="extype" name="scala.slick.compiler.InsertCompiler">InsertCompiler</a> with <a href="JdbcDriver.html#MappingCompilerextendsJdbcMappingCompilerComponent.this.MappingCompiler" class="extmbr" name="scala.slick.jdbc.JdbcMappingCompilerComponent.MappingCompiler">driver.JdbcDriver.MappingCompiler</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../jdbc/JdbcMappingCompilerComponent.html" class="extype" name="scala.slick.jdbc.JdbcMappingCompilerComponent">JdbcMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTypesComponent.JdbcType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcType[T]extendsTypedType[T]"></a>
+      <a id="JdbcType[T]:JdbcDriver.JdbcType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTypesComponent$JdbcType.html"><span class="name">JdbcType</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../ast/TypedType.html" class="extype" name="scala.slick.ast.TypedType">TypedType</a>[<span class="extype" name="scala.slick.driver.JdbcTypesComponent.JdbcType.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A JdbcType object represents a Scala type that can be
+used as a column type in the database.</p>
+    </li><li name="scala.slick.driver.SQLiteDriver.JdbcTypes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="JdbcTypesextendsSQLiteDriver.this.JdbcTypes"></a>
+      <a id="JdbcTypes:JdbcTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$JdbcTypes.html"><span class="name">JdbcTypes</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.JdbcTypesComponent.JdbcTypes">SQLiteDriver.JdbcTypes</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.KeysInsertInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="KeysInsertInvoker[U,RU]extendsJdbcInvokerComponent.this.AbstractKeysInsertInvoker[U,RU]withJdbcInvokerComponent.this.FullInsertInvoker[U]"></a>
+      <a id="KeysInsertInvoker[U,RU]:JdbcDriver.KeysInsertInvoker[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$KeysInsertInvoker.html"><span class="name">KeysInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="JdbcDriver.html#AbstractKeysInsertInvoker[U,RU]extendsJdbcInvokerComponent.this.BaseInsertInvoker[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.AbstractKeysInsertInvoker">JdbcDriver.AbstractKeysInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.KeysInsertInvoker.U">U</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.KeysInsertInvoker.RU">RU</span>] with <a href="JdbcDriver.html#FullInsertInvoker[U]extendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.FullInsertInvoker">JdbcDriver.FullInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.KeysInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls and returning generated keys.</p>
+    </li><li name="scala.slick.driver.JdbcProfile.LowPriorityImplicits" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="LowPriorityImplicitsextendsAnyRef"></a>
+      <a id="LowPriorityImplicits:JdbcDriver.LowPriorityImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcProfile$LowPriorityImplicits.html"><span class="name">LowPriorityImplicits</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalTypesComponent.MappedColumnTypeFactory" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="MappedColumnTypeFactoryextendsAnyRef"></a>
+      <a id="MappedColumnTypeFactory:(RelationalTypesComponent.this)#MappedColumnTypeFactory"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalTypesComponent$MappedColumnTypeFactory.html"><span class="name">MappedColumnTypeFactory</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTypesComponent.MappedJdbcType" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="MappedJdbcType[T,U]extendsJdbcTypesComponent.this.JdbcType[T]"></a>
+      <a id="MappedJdbcType[T,U]:JdbcDriver.MappedJdbcType[T,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTypesComponent$MappedJdbcType.html"><span class="name">MappedJdbcType</span></a><span class="tparams">[<span name="T">T</span>, <span name="U">U</span>]</span><span class="result"> extends <a href="JdbcDriver.html#JdbcType[T]extendsTypedType[T]" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.JdbcType">JdbcDriver.JdbcType</a>[<span class="extype" name="scala.slick.driver.JdbcTypesComponent.MappedJdbcType.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.MappedKeysInsertInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MappedKeysInsertInvoker[U,RU,R]extendsJdbcInvokerComponent.this.AbstractKeysInsertInvoker[U,RU]"></a>
+      <a id="MappedKeysInsertInvoker[U,RU,R]:JdbcDriver.MappedKeysInsertInvoker[U,RU,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$MappedKeysInsertInvoker.html"><span class="name">MappedKeysInsertInvoker</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="JdbcDriver.html#AbstractKeysInsertInvoker[U,RU]extendsJdbcInvokerComponent.this.BaseInsertInvoker[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.AbstractKeysInsertInvoker">JdbcDriver.AbstractKeysInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.MappedKeysInsertInvoker.U">U</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.MappedKeysInsertInvoker.RU">RU</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running INSERT calls and returning generated keys combined with the values.</p>
+    </li><li name="scala.slick.jdbc.JdbcMappingCompilerComponent.MappingCompiler" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MappingCompilerextendsJdbcMappingCompilerComponent.this.MappingCompiler"></a>
+      <a id="MappingCompiler:driver.JdbcDriver.MappingCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../jdbc/JdbcMappingCompilerComponent$MappingCompiler.html"><span class="name">MappingCompiler</span></a><span class="result"> extends <span class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent.MappingCompiler">driver.JdbcDriver.MappingCompiler</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Create a CompiledMapping for parameters and result sets.</p>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.OracleStyleRowNum" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OracleStyleRowNumextendsJdbcStatementBuilderComponent.this.QueryBuilder"></a>
+      <a id="OracleStyleRowNum:JdbcDriver.OracleStyleRowNum"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$OracleStyleRowNum.html"><span class="name">OracleStyleRowNum</span></a><span class="result"> extends <a href="JdbcDriver.html#QueryBuilderextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.QueryBuilder">JdbcDriver.QueryBuilder</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">QueryBuilder mix-in for Oracle-style ROWNUM (applied before ORDER BY
+and GROUP BY) instead of the standard SQL ROWNUMBER().</p>
+    </li><li name="scala.slick.profile.RelationalMappingCompilerComponent.ProductResultConverter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProductResultConverterextendsRelationalMappingCompilerComponent.this.ResultConverter"></a>
+      <a id="ProductResultConverter:ProductResultConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalMappingCompilerComponent$ProductResultConverter.html"><span class="name">ProductResultConverter</span></a><span class="result"> extends <a href="../profile/RelationalMappingCompilerComponent$ResultConverter.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent.ResultConverter">ResultConverter</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver.QueryBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryBuilderextendsSQLiteDriver.this.QueryBuilder"></a>
+      <a id="QueryBuilder:QueryBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$QueryBuilder.html"><span class="name">QueryBuilder</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent.QueryBuilder">SQLiteDriver.QueryBuilder</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for SELECT and UPDATE statements.</p>
+    </li><li name="scala.slick.driver.JdbcExecutorComponent.QueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QueryExecutor[T]=JdbcExecutorComponent.this.QueryExecutorDef[T]"></a>
+      <a id="QueryExecutor[T]:QueryExecutor[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">QueryExecutor</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="#QueryExecutorDef[R]extendsJdbcExecutorComponent.this.QueryExecutorDef[R]" class="extmbr" name="scala.slick.driver.JdbcExecutorComponent.QueryExecutorDef">QueryExecutorDef</a>[<span class="extype" name="scala.slick.driver.JdbcExecutorComponent.QueryExecutor.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type of query executors returned by the driver</p><div class="fullcomment"><div class="comment cmt"><p>The type of query executors returned by the driver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a> → <a href="../profile/SqlExecutorComponent.html" class="extype" name="scala.slick.profile.SqlExecutorComponent">SqlExecutorComponent</a> → <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcExecutorComponent.QueryExecutorDef" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QueryExecutorDef[R]extendsJdbcExecutorComponent.this.QueryExecutorDef[R]"></a>
+      <a id="QueryExecutorDef[R]:JdbcDriver.QueryExecutorDef[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcExecutorComponent$QueryExecutorDef.html"><span class="name">QueryExecutorDef</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <span class="extype" name="scala.slick.profile.SqlExecutorComponent.QueryExecutorDef">JdbcDriver.QueryExecutorDef</span>[<span class="extype" name="scala.slick.driver.JdbcExecutorComponent.QueryExecutorDef.R">R</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a> → <a href="../profile/SqlExecutorComponent.html" class="extype" name="scala.slick.profile.SqlExecutorComponent">SqlExecutorComponent</a> → <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.QueryInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryInvoker[P,R]extendsStatementInvoker[P,R]withMutatingStatementInvoker[P,R]"></a>
+      <a id="QueryInvoker[P,R]:JdbcDriver.QueryInvoker[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$QueryInvoker.html"><span class="name">QueryInvoker</span></a><span class="tparams">[<span name="P">P</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="../jdbc/StatementInvoker.html" class="extype" name="scala.slick.jdbc.StatementInvoker">StatementInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.QueryInvoker.P">P</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.QueryInvoker.R">R</span>] with <a href="../jdbc/MutatingStatementInvoker.html" class="extype" name="scala.slick.jdbc.MutatingStatementInvoker">MutatingStatementInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.QueryInvoker.P">P</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.QueryInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A parameterized query invoker.</p>
+    </li><li name="scala.slick.profile.SqlUtilsComponent.QuotingSymbolNamer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QuotingSymbolNamerextendsSymbolNamer"></a>
+      <a id="QuotingSymbolNamer:SqlDriver.QuotingSymbolNamer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/SqlUtilsComponent$QuotingSymbolNamer.html"><span class="name">QuotingSymbolNamer</span></a><span class="result"> extends <a href="../ast/SymbolNamer.html" class="extype" name="scala.slick.ast.SymbolNamer">SymbolNamer</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/SqlUtilsComponent.html" class="extype" name="scala.slick.profile.SqlUtilsComponent">SqlUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalMappingCompilerComponent.ResultConverter" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ResultConverterextendsAnyRef"></a>
+      <a id="ResultConverter:ResultConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalMappingCompilerComponent$ResultConverter.html"><span class="name">ResultConverter</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.RowNumberPagination" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="RowNumberPaginationextendsJdbcStatementBuilderComponent.this.QueryBuilder"></a>
+      <a id="RowNumberPagination:JdbcDriver.RowNumberPagination"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$RowNumberPagination.html"><span class="name">RowNumberPagination</span></a><span class="result"> extends <a href="JdbcDriver.html#QueryBuilderextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.QueryBuilder">JdbcDriver.QueryBuilder</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">QueryBuilder mix-in for pagination based on RowNumber.</p>
+    </li><li name="scala.slick.jdbc.JdbcMappingCompilerComponent.RowReader" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RowReader=scala.slick.jdbc.PositionedResult"></a>
+      <a id="RowReader:RowReader"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">RowReader</span><span class="result"> = <a href="../jdbc/PositionedResult.html" class="extype" name="scala.slick.jdbc.PositionedResult">PositionedResult</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../jdbc/JdbcMappingCompilerComponent.html" class="extype" name="scala.slick.jdbc.JdbcMappingCompilerComponent">JdbcMappingCompilerComponent</a> → <a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.jdbc.JdbcMappingCompilerComponent.RowUpdater" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RowUpdater=scala.slick.jdbc.PositionedResult"></a>
+      <a id="RowUpdater:RowUpdater"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">RowUpdater</span><span class="result"> = <a href="../jdbc/PositionedResult.html" class="extype" name="scala.slick.jdbc.PositionedResult">PositionedResult</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../jdbc/JdbcMappingCompilerComponent.html" class="extype" name="scala.slick.jdbc.JdbcMappingCompilerComponent">JdbcMappingCompilerComponent</a> → <a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.jdbc.JdbcMappingCompilerComponent.RowWriter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RowWriter=scala.slick.jdbc.PositionedParameters"></a>
+      <a id="RowWriter:RowWriter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">RowWriter</span><span class="result"> = <a href="../jdbc/PositionedParameters.html" class="extype" name="scala.slick.jdbc.PositionedParameters">PositionedParameters</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../jdbc/JdbcMappingCompilerComponent.html" class="extype" name="scala.slick.jdbc.JdbcMappingCompilerComponent">JdbcMappingCompilerComponent</a> → <a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.SqlProfile.SchemaDescription" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SchemaDescription=SqlProfile.this.DDL"></a>
+      <a id="SchemaDescription:SchemaDescription"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SchemaDescription</span><span class="result"> = <a href="#DDLextendsSqlProfile.this.SchemaDescriptionDef" class="extmbr" name="scala.slick.profile.SqlProfile.DDL">DDL</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type of a schema description (DDL)</p><div class="fullcomment"><div class="comment cmt"><p>The type of a schema description (DDL)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/SqlProfile.html" class="extype" name="scala.slick.profile.SqlProfile">SqlProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile.SchemaDescriptionDef" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SchemaDescriptionDefextendsAnyRef"></a>
+      <a id="SchemaDescriptionDef:BasicDriver.SchemaDescriptionDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/BasicProfile$SchemaDescriptionDef.html"><span class="name">SchemaDescriptionDef</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">A schema description contains the SQL statements for creating and
+dropping database entities.</p>
+    </li><li name="scala.slick.profile.RelationalSequenceComponent.Sequence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Sequence[T]extendsTyped"></a>
+      <a id="Sequence[T]:RelationalDriver.Sequence[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalSequenceComponent$Sequence.html"><span class="name">Sequence</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../ast/Typed.html" class="extype" name="scala.slick.ast.Typed">Typed</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.SequenceDDLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SequenceDDLBuilderextendsAnyRef"></a>
+      <a id="SequenceDDLBuilder:JdbcDriver.SequenceDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$SequenceDDLBuilder.html"><span class="name">SequenceDDLBuilder</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for DDL statements for sequences.</p>
+    </li><li name="scala.slick.profile.RelationalProfile.SimpleQL" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SimpleQLextendsRelationalProfile.this.SimpleQLwithRelationalProfile.this.Implicits"></a>
+      <a id="SimpleQL:RelationalDriver.SimpleQL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalProfile$SimpleQL.html"><span class="name">SimpleQL</span></a><span class="result"> extends <span class="extype" name="scala.slick.profile.BasicProfile.SimpleQL">RelationalDriver.SimpleQL</span> with <a href="../profile/RelationalDriver.html#ImplicitsextendsRelationalProfile.this.ImplicitswithRelationalProfile.this.ImplicitColumnTypes" class="extmbr" name="scala.slick.profile.RelationalProfile.Implicits">RelationalDriver.Implicits</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.StatementPart" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="StatementPartextendsAnyRef"></a>
+      <a id="StatementPart:JdbcDriver.StatementPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$StatementPart.html"><span class="name">StatementPart</span></a><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalTableComponent.Table" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Table[T]extendsAbstractTable[T]"></a>
+      <a id="Table[T]:RelationalDriver.Table[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalTableComponent$Table.html"><span class="name">Table</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../lifted/AbstractTable.html" class="extype" name="scala.slick.lifted.AbstractTable">AbstractTable</a>[<span class="extype" name="scala.slick.profile.RelationalTableComponent.Table.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver.TableDDLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableDDLBuilderextendsSQLiteDriver.this.TableDDLBuilder"></a>
+      <a id="TableDDLBuilder:TableDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteDriver$TableDDLBuilder.html"><span class="name">TableDDLBuilder</span></a><span class="result"> extends <span class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent.TableDDLBuilder">SQLiteDriver.TableDDLBuilder</span></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for various DDL statements.</p>
+    </li><li name="scala.slick.profile.RelationalProfile.TableQueryExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TableQueryExtensionMethods[T&lt;:RelationalProfile.this.Table[_],U]extendsAnyRef"></a>
+      <a id="TableQueryExtensionMethods[T&lt;:RelationalDriver.Table[_],U]:RelationalDriver.TableQueryExtensionMethods[T,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalProfile$TableQueryExtensionMethods.html"><span class="name">TableQueryExtensionMethods</span></a><span class="tparams">[<span name="T">T &lt;: <a href="../profile/RelationalDriver.html#Table[T]extendsAbstractTable[T]" class="extmbr" name="scala.slick.profile.RelationalTableComponent.Table">RelationalDriver.Table</a>[_]</span>, <span name="U">U</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTypesComponent.TypeInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TypeInfo=JdbcTypesComponent.this.JdbcType[Any]"></a>
+      <a id="TypeInfo:TypeInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TypeInfo</span><span class="result"> = <a href="#JdbcType[T]extendsTypedType[T]" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.JdbcType">JdbcType</a>[<span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalMappingCompilerComponent.TypeMappingResultConverter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TypeMappingResultConverterextendsRelationalMappingCompilerComponent.this.ResultConverter"></a>
+      <a id="TypeMappingResultConverter:TypeMappingResultConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalMappingCompilerComponent$TypeMappingResultConverter.html"><span class="name">TypeMappingResultConverter</span></a><span class="result"> extends <a href="../profile/RelationalMappingCompilerComponent$ResultConverter.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent.ResultConverter">ResultConverter</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.UnitQueryInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnitQueryInvoker[R]extendsJdbcInvokerComponent.this.QueryInvoker[Unit,R]withUnitInvokerMixin[R]withMutatingUnitInvoker[R]"></a>
+      <a id="UnitQueryInvoker[R]:JdbcDriver.UnitQueryInvoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$UnitQueryInvoker.html"><span class="name">UnitQueryInvoker</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <a href="JdbcDriver.html#QueryInvoker[P,R]extendsStatementInvoker[P,R]withMutatingStatementInvoker[P,R]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.QueryInvoker">JdbcDriver.QueryInvoker</a>[<span class="extype" name="scala.Unit">Unit</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.UnitQueryInvoker.R">R</span>] with <a href="../jdbc/UnitInvokerMixin.html" class="extype" name="scala.slick.jdbc.UnitInvokerMixin">UnitInvokerMixin</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.UnitQueryInvoker.R">R</span>] with <a href="../jdbc/MutatingUnitInvoker.html" class="extype" name="scala.slick.jdbc.MutatingUnitInvoker">MutatingUnitInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.UnitQueryInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Invoker for executing queries.</p>
+    </li><li name="scala.slick.driver.JdbcExecutorComponent.UnshapedQueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="UnshapedQueryExecutor[T]=JdbcExecutorComponent.this.UnshapedQueryExecutorDef[T]"></a>
+      <a id="UnshapedQueryExecutor[T]:UnshapedQueryExecutor[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UnshapedQueryExecutor</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="#UnshapedQueryExecutorDef[M]extendsJdbcExecutorComponent.this.UnshapedQueryExecutorDef[M]" class="extmbr" name="scala.slick.driver.JdbcExecutorComponent.UnshapedQueryExecutorDef">UnshapedQueryExecutorDef</a>[<span class="extype" name="scala.slick.driver.JdbcExecutorComponent.UnshapedQueryExecutor.T">T</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type of query executors returned by the driver</p><div class="fullcomment"><div class="comment cmt"><p>The type of query executors returned by the driver</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a> → <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcExecutorComponent.UnshapedQueryExecutorDef" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="UnshapedQueryExecutorDef[M]extendsJdbcExecutorComponent.this.UnshapedQueryExecutorDef[M]"></a>
+      <a id="UnshapedQueryExecutorDef[M]:JdbcDriver.UnshapedQueryExecutorDef[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcExecutorComponent$UnshapedQueryExecutorDef.html"><span class="name">UnshapedQueryExecutorDef</span></a><span class="tparams">[<span name="M">M</span>]</span><span class="result"> extends <span class="extype" name="scala.slick.profile.BasicExecutorComponent.UnshapedQueryExecutorDef">JdbcDriver.UnshapedQueryExecutorDef</span>[<span class="extype" name="scala.slick.driver.JdbcExecutorComponent.UnshapedQueryExecutorDef.M">M</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a> → <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent.UpdateInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpdateInvoker[T]extendsAnyRef"></a>
+      <a id="UpdateInvoker[T]:JdbcDriver.UpdateInvoker[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent$UpdateInvoker.html"><span class="name">UpdateInvoker</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="comment cmt">Pseudo-invoker for running UPDATE calls.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.profile.SqlProfile.DDL" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DDL"></a>
+      <a id="DDL:DDL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/SqlProfile$DDL$.html"><span class="name">DDL</span></a>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/SqlProfile.html" class="extype" name="scala.slick.profile.SqlProfile">SqlProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.FromPart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="FromPart"></a>
+      <a id="FromPart:FromPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$FromPart$.html"><span class="name">FromPart</span></a><span class="result"> extends <a href="JdbcDriver.html#StatementPartextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.StatementPart">JdbcDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#Implicit" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Implicit:JdbcProfile.this.Implicits"></a>
+      <a id="Implicit:Implicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Implicit</span><span class="result">: <a href="#ImplicitsextendsJdbcProfile.this.LowPriorityImplicitswithJdbcProfile.this.ImplicitswithJdbcProfile.this.ImplicitColumnTypes" class="extmbr" name="scala.slick.driver.JdbcProfile.Implicits">Implicits</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#MappedColumnType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MappedColumnType:JdbcProfile.this.MappedJdbcType.type"></a>
+      <a id="MappedColumnType:MappedJdbcType.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MappedColumnType</span><span class="result">: <a href="#MappedJdbcType" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.MappedJdbcType">MappedJdbcType</a>.type</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTypesComponent.MappedJdbcType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MappedJdbcType"></a>
+      <a id="MappedJdbcType:MappedJdbcType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTypesComponent$MappedJdbcType$.html"><span class="name">MappedJdbcType</span></a><span class="result"> extends <a href="JdbcDriver.html#MappedColumnTypeFactoryextendsAnyRef" class="extmbr" name="scala.slick.profile.RelationalTypesComponent.MappedColumnTypeFactory">JdbcDriver.MappedColumnTypeFactory</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.OtherPart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="OtherPart"></a>
+      <a id="OtherPart:OtherPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$OtherPart$.html"><span class="name">OtherPart</span></a><span class="result"> extends <a href="JdbcDriver.html#StatementPartextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.StatementPart">JdbcDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.SelectPart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SelectPart"></a>
+      <a id="SelectPart:SelectPart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$SelectPart$.html"><span class="name">SelectPart</span></a><span class="result"> extends <a href="JdbcDriver.html#StatementPartextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.StatementPart">JdbcDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.RelationalSequenceComponent.Sequence" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Sequence"></a>
+      <a id="Sequence:Sequence"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="../profile/RelationalSequenceComponent$Sequence$.html"><span class="name">Sequence</span></a>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent.WherePart" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="WherePart"></a>
+      <a id="WherePart:WherePart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent$WherePart$.html"><span class="name">WherePart</span></a><span class="result"> extends <a href="JdbcDriver.html#StatementPartextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.StatementPart">JdbcDriver.StatementPart</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#backend" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="backend:JdbcProfile.this.Backend"></a>
+      <a id="backend:Backend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">backend</span><span class="result">: <a href="#Backend=scala.slick.jdbc.JdbcBackend" class="extmbr" name="scala.slick.driver.SQLiteDriver.Backend">Backend</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#buildSequenceSchemaDescription" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="buildSequenceSchemaDescription(seq:JdbcProfile.this.Sequence[_]):JdbcProfile.this.DDL"></a>
+      <a id="buildSequenceSchemaDescription(Sequence[_]):DDL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildSequenceSchemaDescription</span><span class="params">(<span name="seq">seq: <a href="#Sequence[T]extendsTyped" class="extmbr" name="scala.slick.profile.RelationalSequenceComponent.Sequence">Sequence</a>[_]</span>)</span><span class="result">: <a href="#DDLextendsSqlProfile.this.SchemaDescriptionDef" class="extmbr" name="scala.slick.profile.SqlProfile.DDL">DDL</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#buildTableSchemaDescription" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="buildTableSchemaDescription(table:JdbcProfile.this.Table[_]):JdbcProfile.this.DDL"></a>
+      <a id="buildTableSchemaDescription(Table[_]):DDL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildTableSchemaDescription</span><span class="params">(<span name="table">table: <a href="#Table[T]extendsAbstractTable[T]" class="extmbr" name="scala.slick.profile.RelationalTableComponent.Table">Table</a>[_]</span>)</span><span class="result">: <a href="#DDLextendsSqlProfile.this.SchemaDescriptionDef" class="extmbr" name="scala.slick.profile.SqlProfile.DDL">DDL</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.BasicProfile#capabilities" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="capabilities:Set[scala.slick.profile.Capability]"></a>
+      <a id="capabilities:Set[Capability]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">capabilities</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../profile/Capability.html" class="extype" name="scala.slick.profile.Capability">Capability</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTableComponent#columnOptions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="columnOptions:JdbcTableComponent.this.ColumnOptions"></a>
+      <a id="columnOptions:ColumnOptions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">columnOptions</span><span class="result">: <a href="#ColumnOptionsextendsJdbcTableComponent.this.ColumnOptions" class="extmbr" name="scala.slick.driver.JdbcTableComponent.ColumnOptions">ColumnOptions</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTableComponent.html" class="extype" name="scala.slick.driver.JdbcTableComponent">JdbcTableComponent</a> → <a href="../profile/SqlTableComponent.html" class="extype" name="scala.slick.profile.SqlTableComponent">SqlTableComponent</a> → <a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#columnTypes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="columnTypes:SQLiteDriver.this.JdbcTypes"></a>
+      <a id="columnTypes:JdbcTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">columnTypes</span><span class="result">: <a href="#JdbcTypesextendsSQLiteDriver.this.JdbcTypes" class="extmbr" name="scala.slick.driver.SQLiteDriver.JdbcTypes">JdbcTypes</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#compiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="compiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#computeCapabilities" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="computeCapabilities:Set[scala.slick.profile.Capability]"></a>
+      <a id="computeCapabilities:Set[Capability]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">computeCapabilities</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../profile/Capability.html" class="extype" name="scala.slick.profile.Capability">Capability</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/SqlProfile.html" class="extype" name="scala.slick.profile.SqlProfile">SqlProfile</a> → <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#createColumnDDLBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createColumnDDLBuilder(column:scala.slick.ast.FieldSymbol,table:SQLiteDriver.this.Table[_]):SQLiteDriver.this.ColumnDDLBuilder"></a>
+      <a id="createColumnDDLBuilder(FieldSymbol,Table[_]):ColumnDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createColumnDDLBuilder</span><span class="params">(<span name="column">column: <a href="../ast/FieldSymbol.html" class="extype" name="scala.slick.ast.FieldSymbol">FieldSymbol</a></span>, <span name="table">table: <a href="#Table[T]extendsAbstractTable[T]" class="extmbr" name="scala.slick.profile.RelationalTableComponent.Table">Table</a>[_]</span>)</span><span class="result">: <a href="#ColumnDDLBuilderextendsSQLiteDriver.this.ColumnDDLBuilder" class="extmbr" name="scala.slick.driver.SQLiteDriver.ColumnDDLBuilder">ColumnDDLBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createCountingInsertInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createCountingInsertInvoker[U](tree:scala.slick.ast.Node):JdbcInvokerComponent.this.CountingInsertInvoker[U]"></a>
+      <a id="createCountingInsertInvoker[U](Node):CountingInsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createCountingInsertInvoker</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#CountingInsertInvoker[U]extendsJdbcInvokerComponent.this.BaseInsertInvoker[U]withJdbcInvokerComponent.this.FullInsertInvoker[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.CountingInsertInvoker">CountingInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createCountingInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createDDLInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createDDLInvoker(ddl:JdbcInvokerComponent.this.SchemaDescription):JdbcInvokerComponent.this.DDLInvoker"></a>
+      <a id="createDDLInvoker(SchemaDescription):DDLInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createDDLInvoker</span><span class="params">(<span name="ddl">ddl: <a href="#SchemaDescription=SqlProfile.this.DDL" class="extmbr" name="scala.slick.driver.SQLiteDriver.SchemaDescription">SchemaDescription</a></span>)</span><span class="result">: <a href="#DDLInvokerextendsJdbcInvokerComponent.this.DDLInvoker" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.DDLInvoker">DDLInvoker</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create a DDLInvoker -- this method should be implemented by drivers as needed</p><div class="fullcomment"><div class="comment cmt"><p>Create a DDLInvoker -- this method should be implemented by drivers as needed</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a> → <a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createDeleteInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createDeleteInvoker(tree:scala.slick.ast.Node,param:Any):JdbcInvokerComponent.this.DeleteInvoker"></a>
+      <a id="createDeleteInvoker(Node,Any):DeleteInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createDeleteInvoker</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="#DeleteInvokerextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.DeleteInvoker">DeleteInvoker</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent#createInsertBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createInsertBuilder(node:scala.slick.ast.Node):JdbcStatementBuilderComponent.this.InsertBuilder"></a>
+      <a id="createInsertBuilder(Node):InsertBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createInsertBuilder</span><span class="params">(<span name="node">node: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#InsertBuilderextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.InsertBuilder">InsertBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createInsertInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createInsertInvoker[U](tree:scala.slick.ast.Node):JdbcInvokerComponent.this.CountingInsertInvoker[U]"></a>
+      <a id="createInsertInvoker[U](Node):CountingInsertInvoker[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createInsertInvoker</span><span class="tparams">[<span name="U">U</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#CountingInsertInvoker[U]extendsJdbcInvokerComponent.this.BaseInsertInvoker[U]withJdbcInvokerComponent.this.FullInsertInvoker[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.CountingInsertInvoker">CountingInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createInsertInvoker.U">U</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create an InsertInvoker -- this method should be implemented by drivers as needed</p><div class="fullcomment"><div class="comment cmt"><p>Create an InsertInvoker -- this method should be implemented by drivers as needed</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a> → <a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createKeysInsertInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createKeysInsertInvoker[U,RU](tree:scala.slick.ast.Node,keys:scala.slick.ast.Node):JdbcInvokerComponent.this.KeysInsertInvoker[U,RU]"></a>
+      <a id="createKeysInsertInvoker[U,RU](Node,Node):KeysInsertInvoker[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createKeysInsertInvoker</span><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="keys">keys: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#KeysInsertInvoker[U,RU]extendsJdbcInvokerComponent.this.AbstractKeysInsertInvoker[U,RU]withJdbcInvokerComponent.this.FullInsertInvoker[U]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.KeysInsertInvoker">KeysInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createKeysInsertInvoker.U">U</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createKeysInsertInvoker.RU">RU</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createMappedKeysInsertInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createMappedKeysInsertInvoker[U,RU,R](tree:scala.slick.ast.Node,keys:scala.slick.ast.Node,tr:(U,RU)=&gt;R):JdbcInvokerComponent.this.MappedKeysInsertInvoker[U,RU,R]"></a>
+      <a id="createMappedKeysInsertInvoker[U,RU,R](Node,Node,(U,RU)⇒R):MappedKeysInsertInvoker[U,RU,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createMappedKeysInsertInvoker</span><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>, <span name="R">R</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="keys">keys: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="tr">tr: (<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createMappedKeysInsertInvoker.U">U</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createMappedKeysInsertInvoker.RU">RU</span>) ⇒ <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createMappedKeysInsertInvoker.R">R</span></span>)</span><span class="result">: <a href="#MappedKeysInsertInvoker[U,RU,R]extendsJdbcInvokerComponent.this.AbstractKeysInsertInvoker[U,RU]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.MappedKeysInsertInvoker">MappedKeysInsertInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createMappedKeysInsertInvoker.U">U</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createMappedKeysInsertInvoker.RU">RU</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createMappedKeysInsertInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#createModel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createModel(implicitsession:scala.slick.jdbc.JdbcBackend#SessionDef):scala.slick.model.Model"></a>
+      <a id="createModel(SessionDef):Model"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createModel</span><span class="params">(<span class="implicit">implicit </span><span name="session">session: <a href="../jdbc/JdbcBackend$SessionDef.html" class="extype" name="scala.slick.jdbc.JdbcBackend.SessionDef">SessionDef</a></span>)</span><span class="result">: <a href="../model/Model.html" class="extype" name="scala.slick.model.Model">Model</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Gets the Slick data model describing this data source</p><div class="fullcomment"><div class="comment cmt"><p>Gets the Slick data model describing this data source</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#createQueryBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createQueryBuilder(n:scala.slick.ast.Node,state:scala.slick.compiler.CompilerState):SQLiteDriver.this.QueryBuilder"></a>
+      <a id="createQueryBuilder(Node,CompilerState):QueryBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryBuilder</span><span class="params">(<span name="n">n: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="state">state: <a href="../compiler/CompilerState.html" class="extype" name="scala.slick.compiler.CompilerState">CompilerState</a></span>)</span><span class="result">: <a href="#QueryBuilderextendsSQLiteDriver.this.QueryBuilder" class="extmbr" name="scala.slick.driver.SQLiteDriver.QueryBuilder">QueryBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcExecutorComponent#createQueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createQueryExecutor[R](tree:scala.slick.ast.Node,param:Any):JdbcExecutorComponent.this.QueryExecutor[R]"></a>
+      <a id="createQueryExecutor[R](Node,Any):QueryExecutor[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryExecutor</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="#QueryExecutor[T]=JdbcExecutorComponent.this.QueryExecutorDef[T]" class="extmbr" name="scala.slick.driver.SQLiteDriver.QueryExecutor">QueryExecutor</a>[<span class="extype" name="scala.slick.driver.JdbcExecutorComponent.createQueryExecutor.R">R</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create an executor -- this method should be implemented by drivers as needed</p><div class="fullcomment"><div class="comment cmt"><p>Create an executor -- this method should be implemented by drivers as needed</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a> → <a href="../profile/SqlExecutorComponent.html" class="extype" name="scala.slick.profile.SqlExecutorComponent">SqlExecutorComponent</a> → <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createQueryInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createQueryInvoker[P,R](tree:scala.slick.ast.Node):JdbcInvokerComponent.this.QueryInvoker[P,R]"></a>
+      <a id="createQueryInvoker[P,R](Node):QueryInvoker[P,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryInvoker</span><span class="tparams">[<span name="P">P</span>, <span name="R">R</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#QueryInvoker[P,R]extendsStatementInvoker[P,R]withMutatingStatementInvoker[P,R]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.QueryInvoker">QueryInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createQueryInvoker.P">P</span>, <span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createQueryInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcStatementBuilderComponent#createSequenceDDLBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createSequenceDDLBuilder(seq:JdbcStatementBuilderComponent.this.Sequence[_]):JdbcStatementBuilderComponent.this.SequenceDDLBuilder"></a>
+      <a id="createSequenceDDLBuilder(Sequence[_]):SequenceDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createSequenceDDLBuilder</span><span class="params">(<span name="seq">seq: <a href="#Sequence[T]extendsTyped" class="extmbr" name="scala.slick.profile.RelationalSequenceComponent.Sequence">Sequence</a>[_]</span>)</span><span class="result">: <a href="#SequenceDDLBuilderextendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcStatementBuilderComponent.SequenceDDLBuilder">SequenceDDLBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#createTableDDLBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createTableDDLBuilder(table:SQLiteDriver.this.Table[_]):SQLiteDriver.this.TableDDLBuilder"></a>
+      <a id="createTableDDLBuilder(Table[_]):TableDDLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createTableDDLBuilder</span><span class="params">(<span name="table">table: <a href="#Table[T]extendsAbstractTable[T]" class="extmbr" name="scala.slick.profile.RelationalTableComponent.Table">Table</a>[_]</span>)</span><span class="result">: <a href="#TableDDLBuilderextendsSQLiteDriver.this.TableDDLBuilder" class="extmbr" name="scala.slick.driver.SQLiteDriver.TableDDLBuilder">TableDDLBuilder</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createUnitQueryInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createUnitQueryInvoker[R](tree:scala.slick.ast.Node):JdbcInvokerComponent.this.UnitQueryInvoker[R]"></a>
+      <a id="createUnitQueryInvoker[R](Node):UnitQueryInvoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createUnitQueryInvoker</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#UnitQueryInvoker[R]extendsJdbcInvokerComponent.this.QueryInvoker[Unit,R]withUnitInvokerMixin[R]withMutatingUnitInvoker[R]" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.UnitQueryInvoker">UnitQueryInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createUnitQueryInvoker.R">R</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcExecutorComponent#createUnshapedQueryExecutor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createUnshapedQueryExecutor[M](value:M):JdbcExecutorComponent.this.UnshapedQueryExecutor[M]"></a>
+      <a id="createUnshapedQueryExecutor[M](M):UnshapedQueryExecutor[M]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createUnshapedQueryExecutor</span><span class="tparams">[<span name="M">M</span>]</span><span class="params">(<span name="value">value: <span class="extype" name="scala.slick.driver.JdbcExecutorComponent.createUnshapedQueryExecutor.M">M</span></span>)</span><span class="result">: <a href="#UnshapedQueryExecutor[T]=JdbcExecutorComponent.this.UnshapedQueryExecutorDef[T]" class="extmbr" name="scala.slick.driver.SQLiteDriver.UnshapedQueryExecutor">UnshapedQueryExecutor</a>[<span class="extype" name="scala.slick.driver.JdbcExecutorComponent.createUnshapedQueryExecutor.M">M</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a> → <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#createUpdateInvoker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createUpdateInvoker[T](tree:scala.slick.ast.Node,param:Any):JdbcInvokerComponent.this.UpdateInvoker[T]"></a>
+      <a id="createUpdateInvoker[T](Node,Any):UpdateInvoker[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createUpdateInvoker</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="scala.slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="#UpdateInvoker[T]extendsAnyRef" class="extmbr" name="scala.slick.driver.JdbcInvokerComponent.UpdateInvoker">UpdateInvoker</a>[<span class="extype" name="scala.slick.driver.JdbcInvokerComponent.createUpdateInvoker.T">T</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTypesComponent#defaultSqlTypeName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="defaultSqlTypeName(tmd:JdbcTypesComponent.this.JdbcType[_]):String"></a>
+      <a id="defaultSqlTypeName(JdbcType[_]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">defaultSqlTypeName</span><span class="params">(<span name="tmd">tmd: <a href="#JdbcType[T]extendsTypedType[T]" class="extmbr" name="scala.slick.driver.JdbcTypesComponent.JdbcType">JdbcType</a>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#deleteCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="deleteCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="deleteCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deleteCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.driver.SQLiteDriver#getTables" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getTables:scala.slick.jdbc.UnitInvoker[scala.slick.jdbc.meta.MTable]"></a>
+      <a id="getTables:UnitInvoker[MTable]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getTables</span><span class="result">: <a href="../jdbc/UnitInvoker.html" class="extype" name="scala.slick.jdbc.UnitInvoker">UnitInvoker</a>[<a href="../jdbc/meta/MTable.html" class="extype" name="scala.slick.jdbc.meta.MTable">MTable</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Jdbc meta data for all tables
+</p><div class="fullcomment"><div class="comment cmt"><p>Jdbc meta data for all tables
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a> → <a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#insertCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="insertCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="insertCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">insertCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#invokerMutateConcurrency" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="invokerMutateConcurrency:scala.slick.jdbc.ResultSetConcurrency"></a>
+      <a id="invokerMutateConcurrency:ResultSetConcurrency"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">invokerMutateConcurrency</span><span class="result">: <a href="../jdbc/ResultSetConcurrency.html" class="extype" name="scala.slick.jdbc.ResultSetConcurrency">ResultSetConcurrency</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#invokerMutateType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="invokerMutateType:scala.slick.jdbc.ResultSetType"></a>
+      <a id="invokerMutateType:ResultSetType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">invokerMutateType</span><span class="result">: <a href="../jdbc/ResultSetType.html" class="extype" name="scala.slick.jdbc.ResultSetType">ResultSetType</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcInvokerComponent#invokerPreviousAfterDelete" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="invokerPreviousAfterDelete:Boolean"></a>
+      <a id="invokerPreviousAfterDelete:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">invokerPreviousAfterDelete</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.profile.SqlUtilsComponent#likeEncode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="likeEncode(s:String):String"></a>
+      <a id="likeEncode(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">likeEncode</span><span class="params">(<span name="s">s: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/SqlUtilsComponent.html" class="extype" name="scala.slick.profile.SqlUtilsComponent">SqlUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcDriver#profile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="profile:scala.slick.driver.JdbcProfile"></a>
+      <a id="profile:JdbcProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">profile</span><span class="result">: <a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcDriver.html" class="extype" name="scala.slick.driver.JdbcDriver">JdbcDriver</a> → <a href="../profile/SqlDriver.html" class="extype" name="scala.slick.profile.SqlDriver">SqlDriver</a> → <a href="../profile/RelationalDriver.html" class="extype" name="scala.slick.profile.RelationalDriver">RelationalDriver</a> → <a href="../profile/BasicDriver.html" class="extype" name="scala.slick.profile.BasicDriver">BasicDriver</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#queryCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="queryCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="queryCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcDriver#quote" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="quote[T](v:T)(implicittm:scala.slick.ast.TypedType[T]):String"></a>
+      <a id="quote[T](T)(TypedType[T]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">quote</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="v">v: <span class="extype" name="scala.slick.driver.JdbcDriver.quote.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="tm">tm: <a href="../ast/TypedType.html" class="extype" name="scala.slick.ast.TypedType">TypedType</a>[<span class="extype" name="scala.slick.driver.JdbcDriver.quote.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcDriver.html" class="extype" name="scala.slick.driver.JdbcDriver">JdbcDriver</a></dd></dl></div>
+    </li><li name="scala.slick.profile.SqlUtilsComponent#quoteIdentifier" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="quoteIdentifier(id:String):String"></a>
+      <a id="quoteIdentifier(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">quoteIdentifier</span><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">quotes identifiers to avoid collisions with SQL keywords and other syntax issues</p><div class="fullcomment"><div class="comment cmt"><p>quotes identifiers to avoid collisions with SQL keywords and other syntax issues</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/SqlUtilsComponent.html" class="extype" name="scala.slick.profile.SqlUtilsComponent">SqlUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.slick.profile.SqlUtilsComponent#quoteTableName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="quoteTableName(t:scala.slick.ast.TableNode):String"></a>
+      <a id="quoteTableName(TableNode):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">quoteTableName</span><span class="params">(<span name="t">t: <a href="../ast/TableNode.html" class="extype" name="scala.slick.ast.TableNode">TableNode</a></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/SqlUtilsComponent.html" class="extype" name="scala.slick.profile.SqlUtilsComponent">SqlUtilsComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#simple" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="simple:JdbcProfile.this.SimpleQLwithJdbcProfile.this.Implicits"></a>
+      <a id="simple:SimpleQLwithImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">simple</span><span class="result">: <a href="#SimpleQLextendsRelationalProfile.this.SimpleQLwithRelationalProfile.this.Implicits" class="extmbr" name="scala.slick.profile.RelationalProfile.SimpleQL">SimpleQL</a> with <a href="#ImplicitsextendsJdbcProfile.this.LowPriorityImplicitswithJdbcProfile.this.ImplicitswithJdbcProfile.this.ImplicitColumnTypes" class="extmbr" name="scala.slick.driver.JdbcProfile.Implicits">Implicits</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">A collection of values for using the query language with a single import
+statement.</p><div class="fullcomment"><div class="comment cmt"><p>A collection of values for using the query language with a single import
+statement. This provides the driver's implicits, the Database and
+Session objects for DB connections, and commonly used query language
+types and objects.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.slick.profile.BasicDriver#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../profile/BasicDriver.html" class="extype" name="scala.slick.profile.BasicDriver">BasicDriver</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcTypesComponent#typeInfoFor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="typeInfoFor(t:scala.slick.ast.Type):JdbcTypesComponent.this.TypeInfo"></a>
+      <a id="typeInfoFor(Type):TypeInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">typeInfoFor</span><span class="params">(<span name="t">t: <a href="../ast/Type.html" class="extype" name="scala.slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="#TypeInfo=JdbcTypesComponent.this.JdbcType[Any]" class="extmbr" name="scala.slick.driver.SQLiteDriver.TypeInfo">TypeInfo</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></dd></dl></div>
+    </li><li name="scala.slick.driver.JdbcProfile#updateCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="updateCompiler:scala.slick.compiler.QueryCompiler"></a>
+      <a id="updateCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">updateCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="scala.slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a> → <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.slick.driver.SQLiteDriver">
+              <h3>Inherited from <a href="SQLiteDriver.html" class="extype" name="scala.slick.driver.SQLiteDriver">SQLiteDriver</a></h3>
+            </div><div class="parent" name="scala.slick.driver.JdbcDriver">
+              <h3>Inherited from <a href="JdbcDriver.html" class="extype" name="scala.slick.driver.JdbcDriver">JdbcDriver</a></h3>
+            </div><div class="parent" name="scala.slick.jdbc.JdbcMappingCompilerComponent">
+              <h3>Inherited from <a href="../jdbc/JdbcMappingCompilerComponent.html" class="extype" name="scala.slick.jdbc.JdbcMappingCompilerComponent">JdbcMappingCompilerComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalMappingCompilerComponent">
+              <h3>Inherited from <a href="../profile/RelationalMappingCompilerComponent.html" class="extype" name="scala.slick.profile.RelationalMappingCompilerComponent">RelationalMappingCompilerComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.JdbcStatementBuilderComponent">
+              <h3>Inherited from <a href="JdbcStatementBuilderComponent.html" class="extype" name="scala.slick.driver.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.JdbcProfile">
+              <h3>Inherited from <a href="JdbcProfile.html" class="extype" name="scala.slick.driver.JdbcProfile">JdbcProfile</a></h3>
+            </div><div class="parent" name="scala.slick.driver.JdbcTypesComponent">
+              <h3>Inherited from <a href="JdbcTypesComponent.html" class="extype" name="scala.slick.driver.JdbcTypesComponent">JdbcTypesComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.JdbcExecutorComponent">
+              <h3>Inherited from <a href="JdbcExecutorComponent.html" class="extype" name="scala.slick.driver.JdbcExecutorComponent">JdbcExecutorComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.JdbcInvokerComponent">
+              <h3>Inherited from <a href="JdbcInvokerComponent.html" class="extype" name="scala.slick.driver.JdbcInvokerComponent">JdbcInvokerComponent</a></h3>
+            </div><div class="parent" name="scala.slick.driver.JdbcTableComponent">
+              <h3>Inherited from <a href="JdbcTableComponent.html" class="extype" name="scala.slick.driver.JdbcTableComponent">JdbcTableComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.SqlDriver">
+              <h3>Inherited from <a href="../profile/SqlDriver.html" class="extype" name="scala.slick.profile.SqlDriver">SqlDriver</a></h3>
+            </div><div class="parent" name="scala.slick.profile.SqlUtilsComponent">
+              <h3>Inherited from <a href="../profile/SqlUtilsComponent.html" class="extype" name="scala.slick.profile.SqlUtilsComponent">SqlUtilsComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.SqlProfile">
+              <h3>Inherited from <a href="../profile/SqlProfile.html" class="extype" name="scala.slick.profile.SqlProfile">SqlProfile</a></h3>
+            </div><div class="parent" name="scala.slick.profile.SqlTableComponent">
+              <h3>Inherited from <a href="../profile/SqlTableComponent.html" class="extype" name="scala.slick.profile.SqlTableComponent">SqlTableComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.SqlExecutorComponent">
+              <h3>Inherited from <a href="../profile/SqlExecutorComponent.html" class="extype" name="scala.slick.profile.SqlExecutorComponent">SqlExecutorComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalDriver">
+              <h3>Inherited from <a href="../profile/RelationalDriver.html" class="extype" name="scala.slick.profile.RelationalDriver">RelationalDriver</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalProfile">
+              <h3>Inherited from <a href="../profile/RelationalProfile.html" class="extype" name="scala.slick.profile.RelationalProfile">RelationalProfile</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalTypesComponent">
+              <h3>Inherited from <a href="../profile/RelationalTypesComponent.html" class="extype" name="scala.slick.profile.RelationalTypesComponent">RelationalTypesComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalSequenceComponent">
+              <h3>Inherited from <a href="../profile/RelationalSequenceComponent.html" class="extype" name="scala.slick.profile.RelationalSequenceComponent">RelationalSequenceComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.RelationalTableComponent">
+              <h3>Inherited from <a href="../profile/RelationalTableComponent.html" class="extype" name="scala.slick.profile.RelationalTableComponent">RelationalTableComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.BasicDriver">
+              <h3>Inherited from <a href="../profile/BasicDriver.html" class="extype" name="scala.slick.profile.BasicDriver">BasicDriver</a></h3>
+            </div><div class="parent" name="scala.slick.profile.BasicProfile">
+              <h3>Inherited from <a href="../profile/BasicProfile.html" class="extype" name="scala.slick.profile.BasicProfile">BasicProfile</a></h3>
+            </div><div class="parent" name="scala.slick.profile.BasicExecutorComponent">
+              <h3>Inherited from <a href="../profile/BasicExecutorComponent.html" class="extype" name="scala.slick.profile.BasicExecutorComponent">BasicExecutorComponent</a></h3>
+            </div><div class="parent" name="scala.slick.profile.BasicInvokerComponent">
+              <h3>Inherited from <a href="../profile/BasicInvokerComponent.html" class="extype" name="scala.slick.profile.BasicInvokerComponent">BasicInvokerComponent</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
+    </body>
+      </html>
