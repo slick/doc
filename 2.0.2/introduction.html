@@ -1,0 +1,302 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; Slick 2.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 2.0.2 documentation" href="index.html" />
+    <link rel="next" title="Getting Started" href="gettingstarted.html" />
+    <link rel="prev" title="Slick - Scala Language Integrated Connection Kit" href="index.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/introduction.rst">edit this page on github</a><span>
+          |
+          <a href="index.html" title="Slick - Scala Language Integrated Connection Kit"
+             accesskey="P">previous</a> |
+          <a href="gettingstarted.html" title="Getting Started"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          2.0.2 documentation
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-slick">
+<h2>What is Slick?<a class="headerlink" href="#what-is-slick" title="Permalink to this headline">¶</a></h2>
+<p>Slick is <a class="reference external" href="http://www.typesafe.com">Typesafe</a>&#8216;s modern database query and access library for Scala. It allows you
+to work with stored data almost as if you were using Scala collections while
+at the same time giving you full control over when a database access happens
+and which data is transferred. You can also use SQL directly.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">limit</span> <span class="k">=</span> <span class="mf">10.0</span>
+
+<span class="c1">// Your query could look like this:</span>
+<span class="o">(</span> <span class="k">for</span><span class="o">(</span> <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">;</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="n">limit</span> <span class="o">)</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">).</span><span class="n">list</span>
+
+<span class="c1">// Or using more plain SQL String Interpolation:</span>
+<span class="n">sql</span><span class="s">&quot;select COF_NAME from COFFEES where PRICE &lt; $limit&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">].</span><span class="n">list</span>
+
+<span class="c1">// Both queries result in SQL equivalent to:</span>
+<span class="c1">// select COF_NAME from COFFEES where PRICE &lt; 10.0</span>
+</pre></div>
+</div>
+<p>When using Scala instead of raw SQL for your queries you benefit from compile-time safety
+and compositionality. Slick can generate queries for different back-end databases including
+your own, using its extensible query compiler.</p>
+<p>Get started learning Slick in minutes using the <a class="reference external" href="http://typesafe.com/activator/template/hello-slick">Hello Slick</a> template in
+<a class="reference external" href="http://typesafe.com/activator">Typesafe Activator</a>.</p>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scala">
+<h3>Scala<a class="headerlink" href="#scala" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Queries, Table &amp; Column Mappings, and types are plain Scala</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Coffees</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Double</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;COFFEES&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;COF_NAME&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">price</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Double</span><span class="o">](</span><span class="s">&quot;PRICE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">price</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">coffees</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Coffees</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Data access APIs similar to Scala collections</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Query that only returns the &quot;name&quot; column</span>
+<span class="n">coffees</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+
+<span class="c1">// Query that does a &quot;where price &lt; 10.0&quot;</span>
+<span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-safe">
+<h3>Type Safe<a class="headerlink" href="#type-safe" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Let your IDE help you write your code</li>
+<li>Find problems at compile-time instead of at runtime</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// The result of &quot;select PRICE from COFFEES&quot; is a Seq of Double</span>
+<span class="c1">// because of the type safe column definitions</span>
+<span class="k">val</span> <span class="n">coffeeNames</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Double</span><span class="o">]</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span><span class="o">).</span><span class="n">list</span>
+
+<span class="c1">// Query builders are type safe:</span>
+<span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="o">)</span>
+<span class="c1">// Using a string in the filter would result in a compilation error</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="composable">
+<h3>Composable<a class="headerlink" href="#composable" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Queries are functions that can be composed and reused</li>
+</ul>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Create a query for coffee names with a price less than 10, sorted by name</span>
+<span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">10.0</span><span class="o">).</span><span class="n">sortBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// The generated SQL is equivalent to:</span>
+<span class="c1">// select name from COFFEES where PRICE &lt; 10.0 order by NAME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compatibility">
+<h2>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
+<p>Slick requires Scala 2.10. (For Scala 2.9 please use <a class="reference external" href="http://scalaquery.org">ScalaQuery</a>, the predecessor of Slick).</p>
+</div>
+<div class="section" id="supported-database-systems">
+<span id="supported-dbs"></span><h2>Supported database systems<a class="headerlink" href="#supported-database-systems" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>DB2 (via <a class="reference internal" href="extensions.html"><em>slick-extensions</em></a>)</li>
+<li>Derby/JavaDB</li>
+<li>H2</li>
+<li>HSQLDB/HyperSQL</li>
+<li>Microsoft Access</li>
+<li>Microsoft SQL Server (via <a class="reference internal" href="extensions.html"><em>slick-extensions</em></a>)</li>
+<li>MySQL</li>
+<li>Oracle (via <a class="reference internal" href="extensions.html"><em>slick-extensions</em></a>)</li>
+<li>PostgreSQL</li>
+<li>SQLite</li>
+</ul>
+<p>Other SQL databases can be accessed right away with a reduced feature set.
+Writing a fully featured plugin for your own SQL-based backend can be achieved
+with a reasonable amount of work. Support for other backends (like NoSQL) is
+under development but not yet available.</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>Slick is released under a BSD-Style free and open source software <a class="reference external" href="https://github.com/slick/slick/blob/2.0.2/LICENSE.txt">license</a>.
+See the chapter on the commercial <a class="reference internal" href="extensions.html"><em>Slick Extensions</em></a> add-on
+package for details on licensing the Slick drivers for the big commercial
+database systems.</p>
+</div>
+<div class="section" id="query-apis">
+<h2>Query APIs<a class="headerlink" href="#query-apis" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Lifted Embedding</em> is the standard API for type-safe queries and updates
+in Slick. Please see <a class="reference internal" href="gettingstarted.html"><em>Getting Started</em></a> for an introduction. Most of this
+user manual focuses on the <em>Lifted Embedding</em>.</p>
+<p>For writing your own SQL statements you can use the <a class="reference internal" href="sql.html"><em>Plain SQL</em></a> API.</p>
+<p>The experimental <a class="reference internal" href="direct-embedding.html"><em>Direct Embedding</em></a> is available as an
+alternative to the <em>Lifted Embedding</em>.</p>
+</div>
+<div class="section" id="lifted-embedding">
+<span id="id1"></span><h2>Lifted Embedding<a class="headerlink" href="#lifted-embedding" title="Permalink to this headline">¶</a></h2>
+<p>The name <em>Lifted Embedding</em> refers to the fact that you are not working with
+standard Scala types (as in the <a class="reference internal" href="direct-embedding.html"><em>direct embedding</em></a>)
+but with types that are <em>lifted</em> into a <a class="reference external" href="http://slick.typesafe.com/doc/2.0.2/api/#scala.slick.lifted.Rep">Rep</a> type
+constructor. This becomes clear when you compare the types of a simple
+Scala collections example</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Coffee</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">price</span><span class="k">:</span> <span class="kt">Double</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">coffees</span><span class="k">:</span> <span class="kt">List</span><span class="o">[</span><span class="kt">Coffee</span><span class="o">]</span> <span class="k">=</span> <span class="c1">//...</span>
+
+<span class="k">val</span> <span class="n">l</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mf">8.0</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">//                       ^       ^          ^</span>
+<span class="c1">//                       Double  Double     String</span>
+</pre></div>
+</div>
+<p>... with the types of similar code using the lifted embedding:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Coffees</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Double</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;COFFEES&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;COF_NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">price</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Double</span><span class="o">](</span><span class="s">&quot;PRICE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">price</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">coffees</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Coffees</span><span class="o">]</span>
+
+<span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mf">8.0</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">//                       ^       ^          ^</span>
+<span class="c1">//               Rep[Double]  Rep[Double]  Rep[String]</span>
+</pre></div>
+</div>
+<p>All plain types are lifted into <tt class="docutils literal"><span class="pre">Rep</span></tt>. The same is true for the table row
+type <tt class="docutils literal"><span class="pre">Coffees</span></tt> which is a subtype of <tt class="docutils literal"><span class="pre">Rep[(String,</span> <span class="pre">Double)]</span></tt>.
+Even the literal <tt class="docutils literal"><span class="pre">8.0</span></tt> is automatically lifted to a <tt class="docutils literal"><span class="pre">Rep[Double]</span></tt> by an
+implicit conversion because that is what the <tt class="docutils literal"><span class="pre">&gt;</span></tt> operator on
+<tt class="docutils literal"><span class="pre">Rep[Double]</span></tt> expects for the right-hand side. This lifting is necessary
+because the lifted types allow us to generate a syntax tree that captures
+the query computations. Getting plain Scala functions and values would not
+give us enough information for translating those computations to SQL.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Table Of Contents</h3>
+          <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-slick">What is Slick?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supported-database-systems">Supported database systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#query-apis">Query APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lifted-embedding">Lifted Embedding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide from Slick 1.0 to 2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connections / Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema code generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding (Experimental Feature)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="index.html" title="Slick - Scala Language Integrated Connection Kit"
+             >previous</a> |
+          <a href="gettingstarted.html" title="Getting Started"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2014 Typesafe, Inc..
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
