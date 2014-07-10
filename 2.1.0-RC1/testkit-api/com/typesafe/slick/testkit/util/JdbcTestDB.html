@@ -1,0 +1,1006 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>JdbcTestDB - Slick-TestKit 2.1.0-RC1 - com.typesafe.slick.testkit.util.JdbcTestDB</title>
+          <meta name="description" content="JdbcTestDB - Slick - TestKit 2.1.0 - RC1 - com.typesafe.slick.testkit.util.JdbcTestDB" />
+          <meta name="keywords" content="JdbcTestDB Slick TestKit 2.1.0 RC1 com.typesafe.slick.testkit.util.JdbcTestDB" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'com.typesafe.slick.testkit.util.JdbcTestDB';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../../../lib/class_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.typesafe">typesafe</a>.<a href="../../package.html" class="extype" name="com.typesafe.slick">slick</a>.<a href="../package.html" class="extype" name="com.typesafe.slick.testkit">testkit</a>.<a href="package.html" class="extype" name="com.typesafe.slick.testkit.util">util</a></p>
+        <h1>JdbcTestDB</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">JdbcTestDB</span><span class="result"> extends <a href="SqlTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.SqlTestDB">SqlTestDB</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/2.1.0-RC1/slick-testkit/src/main/scala/com/typesafe/slick/testkit/util/TestDB.scala" target="_blank">TestDB.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="SqlTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.SqlTestDB">SqlTestDB</a>, <a href="RelationalTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.RelationalTestDB">RelationalTestDB</a>, <a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="AccessDB.html" class="extype" name="com.typesafe.slick.testkit.util.AccessDB">AccessDB</a>, <a href="DerbyDB.html" class="extype" name="com.typesafe.slick.testkit.util.DerbyDB">DerbyDB</a>, <a href="ExternalJdbcTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.ExternalJdbcTestDB">ExternalJdbcTestDB</a>, <a href="H2TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.H2TestDB">H2TestDB</a>, <a href="HsqlDB.html" class="extype" name="com.typesafe.slick.testkit.util.HsqlDB">HsqlDB</a>, <a href="InternalJdbcTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.InternalJdbcTestDB">InternalJdbcTestDB</a>, <a href="SQLiteTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.SQLiteTestDB">SQLiteTestDB</a></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph8" viewBox="0.00 0.00 291.00 158.00" height="158pt" width="291pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 154)" class="graph" id="graph0"><polygon points="-4,4 -4,-154 287,-154 287,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph8_0"><g id="a_this class|graph8_0"><a xlink:title="com.typesafe.slick.testkit.util.JdbcTestDB (this class)" xlink:href="#inheritance-diagram"><polygon points="191,-88 93,-88 93,-62 191,-62 191,-88" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../../../lib/class_diagram.png" y="-81" x="105" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.7495" x="124.934" text-anchor="start">JdbcTestDB</text></a></g></g><!-- node1 --><g class="node class" id="graph8_1"><g id="a_class|graph8_1"><a xlink:title="com.typesafe.slick.testkit.util.ExternalJdbcTestDB" xlink:href="ExternalJdbcTestDB.html#inheritance-diagram"><polygon points="134,-26 0,-26 0,-0 134,-0 134,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../../../lib/class_diagram.png" y="-19" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="31.5913" text-anchor="start">ExternalJdbcTestDB</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph8_0_1"><g id="a_inheritance|graph8_0_1"><a xlink:title="ExternalJdbcTestDB is a subtype of JdbcTestDB"><path d="M122.695,-58.5563C110.08,-48.4643 93.8395,-35.4716 82.1548,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="121.825,-60.1011 126.823,-61.8581 124.011,-57.3681 121.825,-60.1011" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph8_2"><g id="a_class|graph8_2"><a xlink:title="com.typesafe.slick.testkit.util.InternalJdbcTestDB" xlink:href="InternalJdbcTestDB.html#inheritance-diagram"><polygon points="283.25,-26 152.75,-26 152.75,-0 283.25,-0 283.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../../../lib/class_diagram.png" y="-19" x="165" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="184.756" text-anchor="start">InternalJdbcTestDB</text></a></g></g><!-- node0&#45;&gt;node2 --><g class="edge inheritance" id="graph8_0_2"><g id="a_inheritance|graph8_0_2"><a xlink:title="InternalJdbcTestDB is a subtype of JdbcTestDB"><path d="M161.562,-58.5563C174.345,-48.4643 190.803,-35.4716 202.643,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="160.22,-57.3863 157.38,-61.8581 162.389,-60.1334 160.22,-57.3863" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph8_3"><g id="a_trait|graph8_3"><a xlink:title="com.typesafe.slick.testkit.util.SqlTestDB" xlink:href="SqlTestDB.html#inheritance-diagram"><polygon points="187.25,-150 96.75,-150 96.75,-124 187.25,-124 187.25,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../../../lib/trait_diagram.png" y="-143" x="109" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-132.75" x="128.769" text-anchor="start">SqlTestDB</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph8_3_0"><g id="a_inheritance|graph8_3_0"><a xlink:title="JdbcTestDB is a subtype of SqlTestDB"><path d="M142,-118.683C142,-108.896 142,-96.9026 142,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="140.25,-118.858 142,-123.858 143.75,-118.858 140.25,-118.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="com.typesafe.slick.testkit.util.JdbcTestDB"><span>JdbcTestDB</span></li><li class="in" name="com.typesafe.slick.testkit.util.SqlTestDB"><span>SqlTestDB</span></li><li class="in" name="com.typesafe.slick.testkit.util.RelationalTestDB"><span>RelationalTestDB</span></li><li class="in" name="com.typesafe.slick.testkit.util.TestDB"><span>TestDB</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="com.typesafe.slick.testkit.util.JdbcTestDB#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(confName:String):com.typesafe.slick.testkit.util.JdbcTestDB"></a>
+      <a id="&lt;init&gt;:JdbcTestDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">JdbcTestDB</span><span class="params">(<span name="confName">confName: <span class="extype" name="scala.Predef.String">String</span></span>)</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.typesafe.slick.testkit.util.JdbcTestDB.Driver" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Driver=scala.slick.driver.JdbcDriver"></a>
+      <a id="Driver:Driver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Driver</span><span class="result"> = <span class="extype" name="scala.slick.driver.JdbcDriver">JdbcDriver</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> → <a href="SqlTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.SqlTestDB">SqlTestDB</a> → <a href="RelationalTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.RelationalTestDB">RelationalTestDB</a> → <a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="com.typesafe.slick.testkit.util.TestDB#createDB" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="createDB():TestDB.this.profile.Backend#Database"></a>
+      <a id="createDB():Database"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createDB</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.slick.jdbc.JdbcBackend.Database">Database</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Create the Database object for this test database configuration</p><div class="fullcomment"><div class="comment cmt"><p>Create the Database object for this test database configuration</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#driver" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="driver:TestDB.this.Driver"></a>
+      <a id="driver:Driver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">driver</span><span class="result">: <a href="#Driver=scala.slick.driver.JdbcDriver" class="extmbr" name="com.typesafe.slick.testkit.util.JdbcTestDB.Driver">Driver</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The Slick driver for the database</p><div class="fullcomment"><div class="comment cmt"><p>The Slick driver for the database</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#jdbcDriver" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="jdbcDriver:String"></a>
+      <a id="jdbcDriver:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jdbcDriver</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(JdbcTestDB,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#assertNotTablesExist" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="assertNotTablesExist(tables:String*)(implicitsession:scala.slick.jdbc.JdbcBackend#SessionDef):Unit"></a>
+      <a id="assertNotTablesExist(String*)(SessionDef):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">assertNotTablesExist</span><span class="params">(<span name="tables">tables: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="session">session: <span class="extype" name="scala.slick.jdbc.JdbcBackend.SessionDef">SessionDef</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> → <a href="RelationalTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.RelationalTestDB">RelationalTestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#assertTablesExist" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="assertTablesExist(tables:String*)(implicitsession:scala.slick.jdbc.JdbcBackend#SessionDef):Unit"></a>
+      <a id="assertTablesExist(String*)(SessionDef):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">assertTablesExist</span><span class="params">(<span name="tables">tables: <span class="extype" name="scala.Predef.String">String</span>*</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="session">session: <span class="extype" name="scala.slick.jdbc.JdbcBackend.SessionDef">SessionDef</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> → <a href="RelationalTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.RelationalTestDB">RelationalTestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#canGetLocalTables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="canGetLocalTables:Boolean"></a>
+      <a id="canGetLocalTables:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">canGetLocalTables</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#capabilities" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="capabilities:Set[scala.slick.profile.Capability]"></a>
+      <a id="capabilities:Set[Capability]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">capabilities</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<span class="extype" name="scala.slick.profile.Capability">Capability</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The capabilities of the Slick driver, possibly modified for this
+test configuration.</p><div class="fullcomment"><div class="comment cmt"><p>The capabilities of the Slick driver, possibly modified for this
+test configuration.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#cleanUpAfter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cleanUpAfter():Unit"></a>
+      <a id="cleanUpAfter():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cleanUpAfter</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">This method is called to clean up after running all tests.</p><div class="fullcomment"><div class="comment cmt"><p>This method is called to clean up after running all tests. It
+defaults to cleanUpBefore().</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#cleanUpBefore" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cleanUpBefore():Unit"></a>
+      <a id="cleanUpBefore():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cleanUpBefore</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">This method is called to clean up before running all tests.</p><div class="fullcomment"><div class="comment cmt"><p>This method is called to clean up before running all tests.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#confName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="confName:String"></a>
+      <a id="confName:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">confName</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The test database name</p><div class="fullcomment"><div class="comment cmt"><p>The test database name</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> → <a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#confOptionalString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="confOptionalString(path:String):Option[String]"></a>
+      <a id="confOptionalString(String):Option[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">confOptionalString</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="java.lang.String">String</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#confString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="confString(path:String):String"></a>
+      <a id="confString(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">confString</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#confStrings" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="confStrings(path:String):Seq[String]"></a>
+      <a id="confStrings(String):Seq[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">confStrings</span><span class="params">(<span name="path">path: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#config" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="config:com.typesafe.config.Config"></a>
+      <a id="config:Config"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">config</span><span class="result">: <span class="extype" name="com.typesafe.config.Config">Config</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The test configuration</p><div class="fullcomment"><div class="comment cmt"><p>The test configuration</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#database" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="database:JdbcTestDB.this.profile.backend.DatabaseFactoryDef"></a>
+      <a id="database:DatabaseFactoryDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">database</span><span class="result">: <span class="extype" name="scala.slick.jdbc.JdbcBackend.DatabaseFactoryDef">DatabaseFactoryDef</span></span>
+      </span>
+      </h4>
+      
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#dropUserArtifacts" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="dropUserArtifacts(implicitsession:scala.slick.jdbc.JdbcBackend#SessionDef):Unit"></a>
+      <a id="dropUserArtifacts(SessionDef):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">dropUserArtifacts</span><span class="params">(<span class="implicit">implicit </span><span name="session">session: <span class="extype" name="scala.slick.jdbc.JdbcBackend.SessionDef">SessionDef</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">This method is called between individual test methods to remove all
+database artifacts that were created by the test.</p><div class="fullcomment"><div class="comment cmt"><p>This method is called between individual test methods to remove all
+database artifacts that were created by the test.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> → <a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((JdbcTestDB)⇒Boolean,⇒Any):JdbcTestDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((JdbcTestDB)⇒Boolean):JdbcTestDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):JdbcTestDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):JdbcTestDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#getLocalSequences" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getLocalSequences(implicitsession:scala.slick.jdbc.JdbcBackend#SessionDef):List[String]"></a>
+      <a id="getLocalSequences(SessionDef):List[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getLocalSequences</span><span class="params">(<span class="implicit">implicit </span><span name="session">session: <span class="extype" name="scala.slick.jdbc.JdbcBackend.SessionDef">SessionDef</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="com.typesafe.slick.testkit.util.JdbcTestDB#getLocalTables" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getLocalTables(implicitsession:scala.slick.jdbc.JdbcBackend#SessionDef):List[String]"></a>
+      <a id="getLocalTables(SessionDef):List[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getLocalTables</span><span class="params">(<span class="implicit">implicit </span><span name="session">session: <span class="extype" name="scala.slick.jdbc.JdbcBackend.SessionDef">SessionDef</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#isEnabled" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isEnabled:Boolean"></a>
+      <a id="isEnabled:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isEnabled</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Check if this test database is enabled</p><div class="fullcomment"><div class="comment cmt"><p>Check if this test database is enabled</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#isPersistent" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isPersistent:Boolean"></a>
+      <a id="isPersistent:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isPersistent</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Indicates whether the database persists after closing the last connection</p><div class="fullcomment"><div class="comment cmt"><p>Indicates whether the database persists after closing the last connection</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#isShared" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isShared:Boolean"></a>
+      <a id="isShared:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isShared</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Indicates whether the database's sessions have shared state.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates whether the database's sessions have shared state. When a
+database is shared but not persistent, Testkit keeps a session open
+to make it persistent.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.typesafe.slick.testkit.util.TestDB#profile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="profile:TestDB.this.driver.profile.type"></a>
+      <a id="profile:scala.slick.driver.JdbcDriver.profile.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">profile</span><span class="result">: <span class="extype" name="scala.slick.driver.JdbcDriver.profile">scala.slick.driver.JdbcDriver.profile</span>.type</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The Slick driver for the database</p><div class="fullcomment"><div class="comment cmt"><p>The Slick driver for the database</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(JdbcTestDB,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(jdbcTestDB: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(jdbcTestDB: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:JdbcTestDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(jdbcTestDB: ArrowAssoc[JdbcTestDB]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:JdbcTestDB"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(jdbcTestDB: Ensuring[JdbcTestDB]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="com.typesafe.slick.testkit.util.SqlTestDB">
+              <h3>Inherited from <a href="SqlTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.SqlTestDB">SqlTestDB</a></h3>
+            </div><div class="parent" name="com.typesafe.slick.testkit.util.RelationalTestDB">
+              <h3>Inherited from <a href="RelationalTestDB.html" class="extype" name="com.typesafe.slick.testkit.util.RelationalTestDB">RelationalTestDB</a></h3>
+            </div><div class="parent" name="com.typesafe.slick.testkit.util.TestDB">
+              <h3>Inherited from <a href="TestDB.html" class="extype" name="com.typesafe.slick.testkit.util.TestDB">TestDB</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="com.typesafe.slick.testkit.util.JdbcTestDB">JdbcTestDB</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../../../lib/diagrams.js"></script>
+    </body>
+      </html>
