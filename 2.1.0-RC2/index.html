@@ -1,0 +1,317 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Slick - Scala Language Integrated Connection Kit &mdash; Slick 2.1.0-RC2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.1.0-RC2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 2.1.0-RC2 documentation" href="#" />
+    <link rel="next" title="Introduction" href="introduction.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/index.rst">edit this page on github</a><span>
+          |
+          <a href="introduction.html" title="Introduction"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="#">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          2.1.0-RC2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="slick-scala-language-integrated-connection-kit">
+<h1>Slick - Scala Language Integrated Connection Kit<a class="headerlink" href="#slick-scala-language-integrated-connection-kit" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-documentation-scaladoc">
+<h2>API Documentation (scaladoc)<a class="headerlink" href="#api-documentation-scaladoc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="api/">Slick</a></li>
+<li><a class="reference external" href="testkit-api/">Slick TestKit</a></li>
+<li><a class="reference external" href="codegen-api/">Slick Code Generator</a></li>
+<li><a class="reference external" href="extensions-api/">Slick Extensions</a></li>
+</ul>
+</div>
+<div class="section" id="user-manual">
+<h2>User Manual<a class="headerlink" href="#user-manual" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#what-is-slick">What is Slick?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#supported-database-systems">Supported database systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#compatibility-policy">Compatibility Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#query-apis">Query APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#index-6">Lifted Embedding</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#adding-slick-to-your-project">Adding Slick to Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#quick-introduction">Quick Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#database-connection">Database Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#populating-the-database">Populating the Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gettingstarted.html#querying">Querying</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html#upgrade-from-2-0-to-2-1">Upgrade from 2.0 to 2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#query-type-parameters">Query type parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#list-and-first"><tt class="docutils literal"><span class="pre">.list</span></tt> and <tt class="docutils literal"><span class="pre">.first</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#where"><tt class="docutils literal"><span class="pre">.where</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#isnull-and-isnotnull"><tt class="docutils literal"><span class="pre">.isNull</span></tt> and <tt class="docutils literal"><span class="pre">.isNotNull</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#static-plain-sql-queries">Static Plain SQL Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#slick-code-generator-slick-model">Slick code generator / Slick model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html#upgrade-from-1-0-to-2-0">Upgrade from 1.0 to 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#code-generation">Code Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#table-descriptions">Table Descriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#mapped-tables">Mapped Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#profile-hierarchy">Profile Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#inserting">Inserting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#pre-compiled-updates">Pre-compiled Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#database-and-session-handling">Database and Session Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#dynamically-and-statically-scoped-sessions">Dynamically and Statically Scoped Sessions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html#mapped-column-types">Mapped Column Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="from-sql-to-slick.html">Coming from SQL to Slick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="from-sql-to-slick.html#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="from-sql-to-slick.html#queries-in-comparison">Queries in comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#jdbc-query">JDBC Query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#slick-plain-sql-queries">Slick Plain SQL queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#slick-type-safe-composable-queries">Slick type-safe, composable queries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="from-sql-to-slick.html#main-obstacle-semantic-api-differences">Main obstacle: Semantic API differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="from-sql-to-slick.html#scala-to-sql-compilation-during-runtime">Scala-to-SQL compilation during runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="from-sql-to-slick.html#limitations">Limitations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#missing-query-operators">Missing query operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#unsupported-jdbc-features">Unsupported JDBC features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#non-optimal-sql-code">Non-optimal SQL code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="from-sql-to-slick.html#sql-vs-slick-examples">SQL vs. Slick examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#select">select *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#index-1">select</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#where">where</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#order-by">order by</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#aggregations-max-etc">Aggregations (max, etc.)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#group-by">group by</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#having">having</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#implicit-join">Implicit join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#explicit-join">Explicit join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#left-right-outer-join">left/right/outer join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#subquery">Subquery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#scalar-value-subquery-custom-function">Scalar value subquery / custom function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#insert">insert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#update">update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="from-sql-to-slick.html#delete">delete</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connections / Transactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connection.html#database-connection">Database connection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#using-a-jdbc-url">Using a JDBC URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#using-a-datasource">Using a DataSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#using-a-jndi-name">Using a JNDI Name</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connection.html#session-handling">Session handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#automatically-closing-session-scope">Automatically closing Session scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#implicit-session">Implicit Session</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#transactions">Transactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#manual-session-handling">Manual Session handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#passing-sessions-around">Passing sessions around</a></li>
+<li class="toctree-l3"><a class="reference internal" href="connection.html#dynamically-scoped-sessions">Dynamically scoped sessions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="connection.html#connection-pools">Connection Pools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connection.html#jdbc-interoperability">JDBC interoperability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema code generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="code-generation.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-generation.html#standalone-use">Standalone use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-generation.html#integrated-into-sbt">Integrated into sbt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-generation.html#generated-code">Generated Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-generation.html#warning">Warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="code-generation.html#customization">Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html#table-rows">Table Rows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html#table-query">Table Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html#mapped-tables">Mapped Tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html#constraints">Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schemas.html#data-definition-language">Data Definition Language</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#sorting-and-filtering">Sorting and Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#joining-and-zipping">Joining and Zipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#unions">Unions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#aggregation">Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#querying">Querying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#inserting">Inserting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#updating">Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html#compiled-queries">Compiled Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="userdefined.html#scalar-database-functions">Scalar Database Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userdefined.html#other-database-functions-and-stored-procedures">Other Database Functions And Stored Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userdefined.html#using-custom-scalar-types-in-queries">Using Custom Scalar Types in Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userdefined.html#using-custom-record-types-in-queries">Using Custom Record Types in Queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="userdefined.html#polymorphic-types-e-g-custom-tuple-types-or-hlists">Polymorphic Types (e.g. Custom Tuple Types or HLists)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdefined.html#monomorphic-case-classes">Monomorphic Case Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="userdefined.html#combining-mapped-types">Combining Mapped Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#scaffolding">Scaffolding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#ddl-dml-statements">DDL/DML Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#query-statements">Query Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#string-interpolation">String Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql.html#other-jdbc-features">Other JDBC features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding (Experimental Feature)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#row-class-and-schema">Row class and schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#query">Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#execution">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#alternative-direct-embedding-bound-to-a-driver-and-session">Alternative direct embedding bound to a driver and session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="direct-embedding.html#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#scaffolding">Scaffolding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#driver">Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#test-harness">Test Harness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#database-configuration">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testkit.html#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#adding-slick-to-your-project">Adding Slick to Your Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#quick-introduction">Quick Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="from-sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Connections / Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema code generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding (Experimental Feature)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="introduction.html" title="Introduction"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2014 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
