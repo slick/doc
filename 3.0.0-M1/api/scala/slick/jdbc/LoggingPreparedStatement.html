@@ -1,0 +1,2002 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>LoggingPreparedStatement - Slick 3.0.0-M1 - scala.slick.jdbc.LoggingPreparedStatement</title>
+          <meta name="description" content="LoggingPreparedStatement - Slick 3.0.0 - M1 - scala.slick.jdbc.LoggingPreparedStatement" />
+          <meta name="keywords" content="LoggingPreparedStatement Slick 3.0.0 M1 scala.slick.jdbc.LoggingPreparedStatement" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'scala.slick.jdbc.LoggingPreparedStatement';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../../lib/class_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="scala">scala</a>.<a href="../package.html" class="extype" name="scala.slick">slick</a>.<a href="package.html" class="extype" name="scala.slick.jdbc">jdbc</a></p>
+        <h1>LoggingPreparedStatement</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">LoggingPreparedStatement</span><span class="result"> extends <a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> with <span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A wrapper for <code>java.sql.PreparedStatement</code> that logs statements and benchmark results
+to the appropriate <a href="JdbcBackend.html" class="extype" name="scala.slick.jdbc.JdbcBackend">JdbcBackend</a> loggers.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/3.0.0-M1/src/main/scala/scala/slick/jdbc/LoggingStatement.scala" target="_blank">LoggingStatement.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span>, <a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a>, <span class="extype" name="java.sql.Statement">Statement</span>, <span class="extype" name="java.lang.AutoCloseable">AutoCloseable</span>, <span class="extype" name="java.sql.Wrapper">Wrapper</span>, <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph273" viewBox="0.00 0.00 281.00 120.00" height="120pt" width="281pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph0"><polygon points="-4,4 -4,-116 277,-116 277,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph273_0"><g id="a_this class|graph273_0"><a xlink:title="scala.slick.jdbc.LoggingPreparedStatement (this class)" xlink:href="#inheritance-diagram"><polygon points="218.25,-50 51.75,-50 51.75,-24 218.25,-24 218.25,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-43" x="64" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-32.7495" x="83.9561" text-anchor="start">LoggingPreparedStatement</text></a></g></g><!-- node1 --><g class="node class" id="graph273_1"><g id="a_class|graph273_1"><a xlink:title="scala.slick.jdbc.LoggingStatement" xlink:href="LoggingStatement.html#inheritance-diagram"><polygon points="124.25,-112 -0.25,-112 -0.25,-86 124.25,-86 124.25,-112" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../../lib/class_diagram.png" y="-105" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="31.5249" text-anchor="start">LoggingStatement</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph273_1_0"><g id="a_inheritance|graph273_1_0"><a xlink:title="LoggingPreparedStatement is a subtype of LoggingStatement"><path d="M80.7899,-82.5563C93.0684,-72.4643 108.876,-59.4716 120.249,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="79.5242,-81.3313 76.7726,-85.8581 81.7466,-84.0352 79.5242,-81.3313" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph273_2"><g id="a_trait|graph273_2"><a xlink:title="java.sql.PreparedStatement"><polygon points="273.25,-112 142.75,-112 142.75,-86 273.25,-86 273.25,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../../lib/trait_diagram.png" y="-105" x="155" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="174.751" text-anchor="start">PreparedStatement</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph273_2_0"><g id="a_inheritance|graph273_2_0"><a xlink:title="LoggingPreparedStatement is a subtype of PreparedStatement"><path d="M189.21,-82.5563C176.932,-72.4643 161.124,-59.4716 149.751,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="188.253,-84.0352 193.227,-85.8581 190.476,-81.3313 188.253,-84.0352" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="scala.slick.jdbc.LoggingPreparedStatement"><span>LoggingPreparedStatement</span></li><li class="in" name="java.sql.PreparedStatement"><span>PreparedStatement</span></li><li class="in" name="scala.slick.jdbc.LoggingStatement"><span>LoggingStatement</span></li><li class="in" name="java.sql.Statement"><span>Statement</span></li><li class="in" name="java.lang.AutoCloseable"><span>AutoCloseable</span></li><li class="in" name="java.sql.Wrapper"><span>Wrapper</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="scala.slick.jdbc.LoggingPreparedStatement#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(st:java.sql.PreparedStatement):scala.slick.jdbc.LoggingPreparedStatement"></a>
+      <a id="&lt;init&gt;:LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">LoggingPreparedStatement</span><span class="params">(<span name="st">st: <span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span></span>)</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(LoggingPreparedStatement,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#addBatch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addBatch():Unit"></a>
+      <a id="addBatch():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addBatch</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#addBatch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="addBatch(sql:String):Unit"></a>
+      <a id="addBatch(String):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">addBatch</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#cancel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cancel():Unit"></a>
+      <a id="cancel():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cancel</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#clearBatch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clearBatch():Unit"></a>
+      <a id="clearBatch():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clearBatch</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#clearParameters" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clearParameters():Unit"></a>
+      <a id="clearParameters():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clearParameters</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#clearWarnings" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clearWarnings():Unit"></a>
+      <a id="clearWarnings():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clearWarnings</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#close" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="close():Unit"></a>
+      <a id="close():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">close</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement → AutoCloseable</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#closeOnCompletion" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="closeOnCompletion():Unit"></a>
+      <a id="closeOnCompletion():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">closeOnCompletion</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((LoggingPreparedStatement)⇒Boolean,⇒Any):LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((LoggingPreparedStatement)⇒Boolean):LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#execute" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="execute():Boolean"></a>
+      <a id="execute():Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">execute</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#execute" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="execute(sql:String):Boolean"></a>
+      <a id="execute(String):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">execute</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#execute" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="execute(sql:String,autoGeneratedKeys:Int):Boolean"></a>
+      <a id="execute(String,Int):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">execute</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="autoGeneratedKeys">autoGeneratedKeys: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#execute" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="execute(sql:String,columnIndexes:Array[Int]):Boolean"></a>
+      <a id="execute(String,Array[Int]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">execute</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="columnIndexes">columnIndexes: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#execute" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="execute(sql:String,columnNames:Array[String]):Boolean"></a>
+      <a id="execute(String,Array[String]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">execute</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="columnNames">columnNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#executeBatch" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeBatch():Array[Int]"></a>
+      <a id="executeBatch():Array[Int]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeBatch</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#executeQuery" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeQuery():java.sql.ResultSet"></a>
+      <a id="executeQuery():ResultSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeQuery</span><span class="params">()</span><span class="result">: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#executeQuery" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeQuery(sql:String):java.sql.ResultSet"></a>
+      <a id="executeQuery(String):ResultSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeQuery</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#executeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeUpdate():Int"></a>
+      <a id="executeUpdate():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeUpdate</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#executeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeUpdate(sql:String):Int"></a>
+      <a id="executeUpdate(String):Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeUpdate</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#executeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeUpdate(sql:String,autoGeneratedKeys:Int):Int"></a>
+      <a id="executeUpdate(String,Int):Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeUpdate</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="autoGeneratedKeys">autoGeneratedKeys: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#executeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeUpdate(sql:String,columnIndexes:Array[Int]):Int"></a>
+      <a id="executeUpdate(String,Array[Int]):Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeUpdate</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="columnIndexes">columnIndexes: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Int">Int</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#executeUpdate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="executeUpdate(sql:String,columnNames:Array[String]):Int"></a>
+      <a id="executeUpdate(String,Array[String]):Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">executeUpdate</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="columnNames">columnNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getConnection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getConnection():java.sql.Connection"></a>
+      <a id="getConnection():Connection"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getConnection</span><span class="params">()</span><span class="result">: <span class="extype" name="java.sql.Connection">Connection</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getFetchDirection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFetchDirection():Int"></a>
+      <a id="getFetchDirection():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFetchDirection</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getFetchSize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFetchSize():Int"></a>
+      <a id="getFetchSize():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFetchSize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getGeneratedKeys" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getGeneratedKeys():java.sql.ResultSet"></a>
+      <a id="getGeneratedKeys():ResultSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getGeneratedKeys</span><span class="params">()</span><span class="result">: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getMaxFieldSize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMaxFieldSize():Int"></a>
+      <a id="getMaxFieldSize():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMaxFieldSize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getMaxRows" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMaxRows():Int"></a>
+      <a id="getMaxRows():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMaxRows</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#getMetaData" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMetaData():java.sql.ResultSetMetaData"></a>
+      <a id="getMetaData():ResultSetMetaData"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMetaData</span><span class="params">()</span><span class="result">: <span class="extype" name="java.sql.ResultSetMetaData">ResultSetMetaData</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getMoreResults" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMoreResults():Boolean"></a>
+      <a id="getMoreResults():Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMoreResults</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getMoreResults" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getMoreResults(current:Int):Boolean"></a>
+      <a id="getMoreResults(Int):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getMoreResults</span><span class="params">(<span name="current">current: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#getParameterMetaData" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getParameterMetaData():java.sql.ParameterMetaData"></a>
+      <a id="getParameterMetaData():ParameterMetaData"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getParameterMetaData</span><span class="params">()</span><span class="result">: <span class="extype" name="java.sql.ParameterMetaData">ParameterMetaData</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getQueryTimeout" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getQueryTimeout():Int"></a>
+      <a id="getQueryTimeout():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getQueryTimeout</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getResultSet" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getResultSet():java.sql.ResultSet"></a>
+      <a id="getResultSet():ResultSet"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getResultSet</span><span class="params">()</span><span class="result">: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getResultSetConcurrency" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getResultSetConcurrency():Int"></a>
+      <a id="getResultSetConcurrency():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getResultSetConcurrency</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getResultSetHoldability" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getResultSetHoldability():Int"></a>
+      <a id="getResultSetHoldability():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getResultSetHoldability</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getResultSetType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getResultSetType():Int"></a>
+      <a id="getResultSetType():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getResultSetType</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getUpdateCount" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getUpdateCount():Int"></a>
+      <a id="getUpdateCount():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getUpdateCount</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#getWarnings" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getWarnings():java.sql.SQLWarning"></a>
+      <a id="getWarnings():SQLWarning"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getWarnings</span><span class="params">()</span><span class="result">: <span class="extype" name="java.sql.SQLWarning">SQLWarning</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#isCloseOnCompletion" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isCloseOnCompletion():Boolean"></a>
+      <a id="isCloseOnCompletion():Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isCloseOnCompletion</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#isClosed" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isClosed():Boolean"></a>
+      <a id="isClosed():Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isClosed</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#isPoolable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isPoolable():Boolean"></a>
+      <a id="isPoolable():Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isPoolable</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#isWrapperFor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isWrapperFor(iface:Class[_]):Boolean"></a>
+      <a id="isWrapperFor(Class[_]):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isWrapperFor</span><span class="params">(<span name="iface">iface: <span class="extype" name="scala.Predef.Class">Class</span>[_]</span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Wrapper</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#logged" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="logged[T](sql:String,what:String)(f:=&gt;T):T"></a>
+      <a id="logged[T](String,String)(⇒T):T"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">logged</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="sql">sql: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="what">what: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;statement&quot;</span></span>)</span><span class="params">(<span name="f">f: ⇒ <span class="extype" name="scala.slick.jdbc.LoggingStatement.logged.T">T</span></span>)</span><span class="result">: <span class="extype" name="scala.slick.jdbc.LoggingStatement.logged.T">T</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setArray(idx:Int,value:java.sql.Array):Unit"></a>
+      <a id="setArray(Int,java.sql.Array):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setArray</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Array">java.sql.Array</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setAsciiStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setAsciiStream(idx:Int,value:java.io.InputStream,len:Int):Unit"></a>
+      <a id="setAsciiStream(Int,InputStream,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setAsciiStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>, <span name="len">len: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setAsciiStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setAsciiStream(idx:Int,value:java.io.InputStream,len:Long):Unit"></a>
+      <a id="setAsciiStream(Int,InputStream,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setAsciiStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>, <span name="len">len: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setAsciiStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setAsciiStream(idx:Int,value:java.io.InputStream):Unit"></a>
+      <a id="setAsciiStream(Int,InputStream):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setAsciiStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBigDecimal" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBigDecimal(idx:Int,value:java.math.BigDecimal):Unit"></a>
+      <a id="setBigDecimal(Int,java.math.BigDecimal):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBigDecimal</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.math.BigDecimal">java.math.BigDecimal</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBinaryStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBinaryStream(idx:Int,value:java.io.InputStream,len:Int):Unit"></a>
+      <a id="setBinaryStream(Int,InputStream,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBinaryStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>, <span name="len">len: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBinaryStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBinaryStream(idx:Int,value:java.io.InputStream,len:Long):Unit"></a>
+      <a id="setBinaryStream(Int,InputStream,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBinaryStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>, <span name="len">len: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBinaryStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBinaryStream(idx:Int,value:java.io.InputStream):Unit"></a>
+      <a id="setBinaryStream(Int,InputStream):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBinaryStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBlob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBlob(idx:Int,value:java.sql.Blob):Unit"></a>
+      <a id="setBlob(Int,Blob):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBlob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Blob">Blob</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBlob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBlob(idx:Int,value:java.io.InputStream,len:Long):Unit"></a>
+      <a id="setBlob(Int,InputStream,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBlob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>, <span name="len">len: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBlob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBlob(idx:Int,value:java.io.InputStream):Unit"></a>
+      <a id="setBlob(Int,InputStream):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBlob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBoolean" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBoolean(idx:Int,value:Boolean):Unit"></a>
+      <a id="setBoolean(Int,Boolean):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBoolean</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setByte" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setByte(idx:Int,value:Byte):Unit"></a>
+      <a id="setByte(Int,Byte):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setByte</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Byte">Byte</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setBytes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setBytes(idx:Int,value:Array[Byte]):Unit"></a>
+      <a id="setBytes(Int,Array[Byte]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setBytes</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setCharacterStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setCharacterStream(idx:Int,value:java.io.Reader,len:Int):Unit"></a>
+      <a id="setCharacterStream(Int,Reader,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setCharacterStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>, <span name="len">len: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setCharacterStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setCharacterStream(idx:Int,value:java.io.Reader,len:Long):Unit"></a>
+      <a id="setCharacterStream(Int,Reader,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setCharacterStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>, <span name="len">len: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setCharacterStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setCharacterStream(idx:Int,value:java.io.Reader):Unit"></a>
+      <a id="setCharacterStream(Int,Reader):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setCharacterStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setClob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setClob(idx:Int,value:java.sql.Clob):Unit"></a>
+      <a id="setClob(Int,Clob):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setClob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Clob">Clob</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setClob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setClob(idx:Int,value:java.io.Reader,len:Long):Unit"></a>
+      <a id="setClob(Int,Reader,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setClob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>, <span name="len">len: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setClob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setClob(idx:Int,value:java.io.Reader):Unit"></a>
+      <a id="setClob(Int,Reader):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setClob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setCursorName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setCursorName(name:String):Unit"></a>
+      <a id="setCursorName(String):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setCursorName</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setDate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setDate(idx:Int,value:java.sql.Date):Unit"></a>
+      <a id="setDate(Int,Date):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setDate</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Date">Date</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setDate" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setDate(idx:Int,value:java.sql.Date,cal:java.util.Calendar):Unit"></a>
+      <a id="setDate(Int,Date,Calendar):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setDate</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Date">Date</span></span>, <span name="cal">cal: <span class="extype" name="java.util.Calendar">Calendar</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setDouble" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setDouble(idx:Int,value:Double):Unit"></a>
+      <a id="setDouble(Int,Double):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setDouble</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Double">Double</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setEscapeProcessing" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setEscapeProcessing(enable:Boolean):Unit"></a>
+      <a id="setEscapeProcessing(Boolean):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setEscapeProcessing</span><span class="params">(<span name="enable">enable: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setFetchDirection" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setFetchDirection(direction:Int):Unit"></a>
+      <a id="setFetchDirection(Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setFetchDirection</span><span class="params">(<span name="direction">direction: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setFetchSize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setFetchSize(rows:Int):Unit"></a>
+      <a id="setFetchSize(Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setFetchSize</span><span class="params">(<span name="rows">rows: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setFloat" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setFloat(idx:Int,value:Float):Unit"></a>
+      <a id="setFloat(Int,Float):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setFloat</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Float">Float</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setInt" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setInt(idx:Int,value:Int):Unit"></a>
+      <a id="setInt(Int,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setInt</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setLong" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setLong(idx:Int,value:Long):Unit"></a>
+      <a id="setLong(Int,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setLong</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setMaxFieldSize" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setMaxFieldSize(max:Int):Unit"></a>
+      <a id="setMaxFieldSize(Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setMaxFieldSize</span><span class="params">(<span name="max">max: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setMaxRows" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setMaxRows(max:Int):Unit"></a>
+      <a id="setMaxRows(Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setMaxRows</span><span class="params">(<span name="max">max: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNCharacterStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNCharacterStream(idx:Int,value:java.io.Reader,len:Long):Unit"></a>
+      <a id="setNCharacterStream(Int,Reader,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNCharacterStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>, <span name="len">len: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNCharacterStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNCharacterStream(idx:Int,value:java.io.Reader):Unit"></a>
+      <a id="setNCharacterStream(Int,Reader):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNCharacterStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNClob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNClob(idx:Int,value:java.sql.NClob):Unit"></a>
+      <a id="setNClob(Int,NClob):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNClob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.NClob">NClob</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNClob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNClob(idx:Int,value:java.io.Reader,len:Long):Unit"></a>
+      <a id="setNClob(Int,Reader,Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNClob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>, <span name="len">len: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNClob" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNClob(idx:Int,value:java.io.Reader):Unit"></a>
+      <a id="setNClob(Int,Reader):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNClob</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.Reader">Reader</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNString(idx:Int,value:String):Unit"></a>
+      <a id="setNString(Int,String):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNString</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNull" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNull(idx:Int,tpe:Int):Unit"></a>
+      <a id="setNull(Int,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNull</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="tpe">tpe: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setNull" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNull(idx:Int,tpe:Int,tpeString:String):Unit"></a>
+      <a id="setNull(Int,Int,String):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNull</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="tpe">tpe: <span class="extype" name="scala.Int">Int</span></span>, <span name="tpeString">tpeString: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setObject" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setObject(idx:Int,value:Any,tpe:Int):Unit"></a>
+      <a id="setObject(Int,Any,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setObject</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Any">Any</span></span>, <span name="tpe">tpe: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setObject" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setObject(idx:Int,value:Any):Unit"></a>
+      <a id="setObject(Int,Any):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setObject</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setObject" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setObject(idx:Int,value:Any,tpe:Int,scale:Int):Unit"></a>
+      <a id="setObject(Int,Any,Int,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setObject</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Any">Any</span></span>, <span name="tpe">tpe: <span class="extype" name="scala.Int">Int</span></span>, <span name="scale">scale: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setPoolable" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setPoolable(poolable:Boolean):Unit"></a>
+      <a id="setPoolable(Boolean):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setPoolable</span><span class="params">(<span name="poolable">poolable: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#setQueryTimeout" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setQueryTimeout(seconds:Int):Unit"></a>
+      <a id="setQueryTimeout(Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setQueryTimeout</span><span class="params">(<span name="seconds">seconds: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Statement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setRef" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setRef(idx:Int,value:java.sql.Ref):Unit"></a>
+      <a id="setRef(Int,Ref):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setRef</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Ref">Ref</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setRowId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setRowId(idx:Int,value:java.sql.RowId):Unit"></a>
+      <a id="setRowId(Int,RowId):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setRowId</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.RowId">RowId</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setSQLXML" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setSQLXML(idx:Int,value:java.sql.SQLXML):Unit"></a>
+      <a id="setSQLXML(Int,SQLXML):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setSQLXML</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.SQLXML">SQLXML</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setShort" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setShort(idx:Int,value:Short):Unit"></a>
+      <a id="setShort(Int,Short):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setShort</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Short">Short</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setString(idx:Int,value:String):Unit"></a>
+      <a id="setString(Int,String):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setString</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setTime(idx:Int,value:java.sql.Time):Unit"></a>
+      <a id="setTime(Int,Time):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setTime</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Time">Time</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setTime" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setTime(idx:Int,value:java.sql.Time,cal:java.util.Calendar):Unit"></a>
+      <a id="setTime(Int,Time,Calendar):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setTime</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Time">Time</span></span>, <span name="cal">cal: <span class="extype" name="java.util.Calendar">Calendar</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setTimestamp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setTimestamp(idx:Int,value:java.sql.Timestamp):Unit"></a>
+      <a id="setTimestamp(Int,Timestamp):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setTimestamp</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Timestamp">Timestamp</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setTimestamp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setTimestamp(idx:Int,value:java.sql.Timestamp,cal:java.util.Calendar):Unit"></a>
+      <a id="setTimestamp(Int,Timestamp,Calendar):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setTimestamp</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.sql.Timestamp">Timestamp</span></span>, <span name="cal">cal: <span class="extype" name="java.util.Calendar">Calendar</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingPreparedStatement#setURL" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setURL(idx:Int,value:java.net.URL):Unit"></a>
+      <a id="setURL(Int,URL):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setURL</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.net.URL">URL</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.slick.jdbc.LoggingStatement#unwrap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="unwrap[T](iface:Class[T]):T"></a>
+      <a id="unwrap[T](Class[T]):T"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">unwrap</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="iface">iface: <span class="extype" name="scala.Predef.Class">Class</span>[<span class="extype" name="scala.slick.jdbc.LoggingStatement.unwrap.T">T</span>]</span>)</span><span class="result">: <span class="extype" name="scala.slick.jdbc.LoggingStatement.unwrap.T">T</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a> → Wrapper</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(LoggingPreparedStatement,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(loggingPreparedStatement: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(loggingPreparedStatement: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.slick.jdbc.LoggingPreparedStatement#setUnicodeStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setUnicodeStream(idx:Int,value:java.io.InputStream,len:Int):Unit"></a>
+      <a id="setUnicodeStream(Int,InputStream,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version ) setUnicodeStream is deprecated">setUnicodeStream</span><span class="params">(<span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>, <span name="value">value: <span class="extype" name="java.io.InputStream">InputStream</span></span>, <span name="len">len: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> → PreparedStatement</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version )</i> setUnicodeStream is deprecated</p></dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(loggingPreparedStatement: ArrowAssoc[LoggingPreparedStatement]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(loggingPreparedStatement: Ensuring[LoggingPreparedStatement]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="java.sql.PreparedStatement">
+              <h3>Inherited from <span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span></h3>
+            </div><div class="parent" name="scala.slick.jdbc.LoggingStatement">
+              <h3>Inherited from <a href="LoggingStatement.html" class="extype" name="scala.slick.jdbc.LoggingStatement">LoggingStatement</a></h3>
+            </div><div class="parent" name="java.sql.Statement">
+              <h3>Inherited from <span class="extype" name="java.sql.Statement">Statement</span></h3>
+            </div><div class="parent" name="java.lang.AutoCloseable">
+              <h3>Inherited from <span class="extype" name="java.lang.AutoCloseable">AutoCloseable</span></h3>
+            </div><div class="parent" name="java.sql.Wrapper">
+              <h3>Inherited from <span class="extype" name="java.sql.Wrapper">Wrapper</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="scala.slick.jdbc.LoggingPreparedStatement">LoggingPreparedStatement</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../../lib/diagrams.js"></script>
+    </body>
+      </html>

@@ -1,0 +1,275 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Schema code generation &mdash; Slick 3.0.0-M1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0.0-M1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.0.0-M1 documentation" href="index.html" />
+    <link rel="next" title="Schemas" href="schemas.html" />
+    <link rel="prev" title="Databases &amp; Actions" href="database.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/code-generation.rst">edit this page on github</a><span>
+          |
+          <a href="database.html" title="Databases &amp; Actions"
+             accesskey="P">previous</a> |
+          <a href="schemas.html" title="Schemas"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.0.0-M1 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="schema-code-generation">
+<h1>Schema code generation<a class="headerlink" href="#schema-code-generation" title="Permalink to this headline">¶</a></h1>
+<p>The Slick code generator is a convenient tool for working
+with an existing or evolving database schema. It can be run
+stand-alone or integrated into you sbt build for creating all
+code Slick needs to work.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>By default, the code generator generates Table classes, corresponding TableQuery values, which
+can be used in a collection-like manner, as well as case classes for holding complete
+rows of values. For Tables with more than 22 columns the generator automatically switches
+to Slick&#8217;s experimental HList implementation for overcoming Scala&#8217;s tuple size limit. (In Scala
+&lt;= 2.10.3 use <tt class="docutils literal"><span class="pre">HCons</span></tt> instead of <tt class="docutils literal"><span class="pre">::</span></tt> as a type contructor due to performance issues during compilation, which are fixed in 2.10.4 and later.)</p>
+<p>The implementation is ready for practical use, but since it is new in
+Slick 2.0 we consider it experimental and reserve the right to remove features
+without a deprecation cycle if we think that it is necessary. It would be only
+a small effort to run an old generator against a future version of Slick though,
+if necessary, as it&#8217;s implementation is rather isolated from the rest of Slick.
+We are interested in hearing about people&#8217;s experiences with
+using it in practice.</p>
+<p>Parts of the generator are also explained in our <a class="reference external" href="http://slick.typesafe.com/docs/#20131203_patterns_for_slick_database_applications_at_scala_exchange_2013">talk at Scala eXchange 2013</a>.</p>
+</div>
+<div class="section" id="standalone-use">
+<h2>Standalone use<a class="headerlink" href="#standalone-use" title="Permalink to this headline">¶</a></h2>
+<p>Slick&#8217;s code generator comes with a default runner that can be used from the command line or from Java/Scala. You can simply execute</p>
+<blockquote>
+<div><div class="highlight-scala"><div class="highlight"><pre><span class="n">scala</span><span class="o">.</span><span class="n">slick</span><span class="o">.</span><span class="n">codegen</span><span class="o">.</span><span class="nc">SourceCodeGenerator</span><span class="o">.</span><span class="n">main</span><span class="o">(</span>
+  <span class="nc">Array</span><span class="o">(</span><span class="n">slickDriver</span><span class="o">,</span> <span class="n">jdbcDriver</span><span class="o">,</span> <span class="n">url</span><span class="o">,</span> <span class="n">outputFolder</span><span class="o">,</span> <span class="n">pkg</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>or</p>
+<blockquote>
+<div><div class="highlight-scala"><div class="highlight"><pre><span class="n">scala</span><span class="o">.</span><span class="n">slick</span><span class="o">.</span><span class="n">codegen</span><span class="o">.</span><span class="nc">SourceCodeGenerator</span><span class="o">.</span><span class="n">main</span><span class="o">(</span>
+  <span class="nc">Array</span><span class="o">(</span><span class="n">slickDriver</span><span class="o">,</span> <span class="n">jdbcDriver</span><span class="o">,</span> <span class="n">url</span><span class="o">,</span> <span class="n">outputFolder</span><span class="o">,</span> <span class="n">pkg</span><span class="o">,</span> <span class="n">user</span><span class="o">,</span> <span class="n">password</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>and provide the following values</p>
+<ul class="simple">
+<li><strong>slickDriver</strong> Fully qualified name of Slick driver class, e.g. <em>&#8220;scala.slick.driver.H2Driver&#8221;</em></li>
+<li><strong>jdbcDriver</strong> Fully qualified name of jdbc driver class, e.g. <em>&#8220;org.h2.Driver&#8221;</em></li>
+<li><strong>url</strong> jdbc url, e.g. <em>&#8220;jdbc:postgresql://localhost/test&#8221;</em></li>
+<li><strong>outputFolder</strong> Place where the package folder structure should be put</li>
+<li><strong>pkg</strong> Scala package the generated code should be places in</li>
+<li><strong>user</strong> database connection user name</li>
+<li><strong>password</strong> database connection password</li>
+</ul>
+</div>
+<div class="section" id="integrated-into-sbt">
+<h2>Integrated into sbt<a class="headerlink" href="#integrated-into-sbt" title="Permalink to this headline">¶</a></h2>
+<p>The code generator can be run before every compilation or manually.
+An example project showing both can be <a class="reference external" href="https://github.com/slick/slick-codegen-example/tree/master">found here</a>.</p>
+</div>
+<div class="section" id="generated-code">
+<h2>Generated Code<a class="headerlink" href="#generated-code" title="Permalink to this headline">¶</a></h2>
+<p>By default, the code generator places a file <tt class="docutils literal"><span class="pre">Tables.scala</span></tt> in the given folder in a subfolder corresponding
+to the package. The file contains an <tt class="docutils literal"><span class="pre">object</span> <span class="pre">Tables</span></tt> from which the code
+can be imported for use right away. Make sure you use the same Slick driver.
+The file also contains a <tt class="docutils literal"><span class="pre">trait</span> <span class="pre">Tables</span></tt> which can be used in the cake pattern.</p>
+</div>
+<div class="section" id="warning">
+<h2>Warning<a class="headerlink" href="#warning" title="Permalink to this headline">¶</a></h2>
+<p>When using the generated code, be careful <strong>not</strong> to mix different database drivers accidentally. The default <tt class="docutils literal"><span class="pre">object</span> <span class="pre">Tables</span></tt> uses the driver used during code generation. Using it together with a different driver for queries will lead to runtime errors. The generated <tt class="docutils literal"><span class="pre">trait</span> <span class="pre">Tables</span></tt> can be used with a different driver, but be aware, that this is currently untested and not officially supported. It may or may not work in your case. We will officially support this at some point in the future.</p>
+</div>
+<div class="section" id="customization">
+<h2>Customization<a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h2>
+<p>The generator can be flexibly customized by overriding methods to programmatically
+generate any code based on the data model. This can be used for minor customizations
+as well as heavy, model driven code generation, e.g. for framework bindings (Play,...),
+other data-related, repetetive sections of applications, etc.</p>
+<p><a class="reference external" href="https://github.com/slick/slick-codegen-customization-example/tree/master">This example</a>
+shows a customized code-generator and how to setup
+up a multi-project sbt build, which compiles and runs it
+before compiling the main sources.</p>
+<p>The implementation of the code generator
+is structured into a small hierarchy of sub-generators responsible
+for different fragments of the complete output. The implementation of each
+sub-generator can be swapped out for a customized one by overriding the corresponding
+factory method. SourceCodeGenerator contains a factory method Table, which it uses to
+generate a sub-generator for each table. The sub-generator Table in turn contains
+sub-generators for Table classes, entity case classes, columns, key, indices, etc.
+Custom sub-generators can easily be added as well.</p>
+<p>Within the sub-generators the relevant part of the Slick data model can
+be accessed to drive the code generation.</p>
+<p>Please see the <a class="reference external" href="http://slick.typesafe.com/doc/3.0.0-M1/codegen-api/#scala.slick.codegen.SourceCodeGenerator">api documentation</a> for info
+on all of the methods that can be overridden for customization.</p>
+<dl class="docutils">
+<dt>Here is an example for customizing the generator:</dt>
+<dd><div class="first last highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">scala.slick.jdbc.meta.createModel</span>
+<span class="k">import</span> <span class="nn">scala.slick.codegen.SourceCodeGenerator</span>
+<span class="c1">// fetch data model</span>
+<span class="k">val</span> <span class="n">model</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">withSession</span><span class="o">{</span> <span class="k">implicit</span> <span class="n">session</span> <span class="k">=&gt;</span>
+  <span class="n">createModel</span><span class="o">(</span><span class="n">H2Driver</span><span class="o">.</span><span class="n">getTables</span><span class="o">.</span><span class="n">list</span><span class="o">,</span><span class="n">H2Driver</span><span class="o">)</span> <span class="c1">// you can filter specific tables here</span>
+<span class="o">}</span>
+<span class="c1">// customize code generator</span>
+<span class="k">val</span> <span class="n">codegen</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SourceCodeGenerator</span><span class="o">(</span><span class="n">model</span><span class="o">){</span>
+  <span class="c1">// override mapped table and class name</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">entityName</span> <span class="k">=</span>
+    <span class="n">dbTableName</span> <span class="k">=&gt;</span> <span class="n">dbTableName</span><span class="o">.</span><span class="n">dropRight</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="n">toLowerCase</span><span class="o">.</span><span class="n">toCamelCase</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">tableName</span> <span class="k">=</span>
+    <span class="n">dbTableName</span> <span class="k">=&gt;</span> <span class="n">dbTableName</span><span class="o">.</span><span class="n">toLowerCase</span><span class="o">.</span><span class="n">toCamelCase</span>
+
+  <span class="c1">// add some custom import</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="n">code</span> <span class="k">=</span> <span class="s">&quot;import foo.{MyCustomType,MyCustomTypeMapper}&quot;</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="k">super</span><span class="o">.</span><span class="n">code</span>
+
+  <span class="c1">// override table generator</span>
+  <span class="k">override</span> <span class="k">def</span> <span class="nc">Table</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Table</span><span class="o">(</span><span class="k">_</span><span class="o">){</span>
+    <span class="c1">// disable entity class generation and mapping</span>
+    <span class="k">override</span> <span class="k">def</span> <span class="nc">EntityType</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">EntityType</span><span class="o">{</span>
+      <span class="k">override</span> <span class="k">def</span> <span class="n">classEnabled</span> <span class="k">=</span> <span class="kc">false</span>
+    <span class="o">}</span>
+
+     <span class="c1">// override contained column generator</span>
+    <span class="k">override</span> <span class="k">def</span> <span class="nc">Column</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Column</span><span class="o">(</span><span class="k">_</span><span class="o">){</span>
+      <span class="c1">// use the data model member of this column to change the Scala type,</span>
+      <span class="c1">// e.g. to a custom enum or anything else</span>
+      <span class="k">override</span> <span class="k">def</span> <span class="n">rawType</span> <span class="k">=</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">model</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">&quot;SOME_SPECIAL_COLUMN_NAME&quot;</span><span class="o">)</span> <span class="s">&quot;MyCustomType&quot;</span> <span class="k">else</span> <span class="k">super</span><span class="o">.</span><span class="n">rawType</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">codegen</span><span class="o">.</span><span class="n">writeToFile</span><span class="o">(</span>
+  <span class="s">&quot;scala.slick.driver.H2Driver&quot;</span><span class="o">,</span><span class="s">&quot;some/folder/&quot;</span><span class="o">,</span><span class="s">&quot;some.packag&quot;</span><span class="o">,</span><span class="s">&quot;Tables&quot;</span><span class="o">,</span><span class="s">&quot;Tables.scala&quot;</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Databases &amp; Actions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Schema code generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standalone-use">Standalone use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integrated-into-sbt">Integrated into sbt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generated-code">Generated Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#warning">Warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customization">Customization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding (Experimental Feature)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="database.html" title="Databases &amp; Actions"
+             >previous</a> |
+          <a href="schemas.html" title="Schemas"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2014 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
