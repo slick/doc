@@ -1,0 +1,579 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Queries &mdash; Slick 3.0.0-SNAPSHOT documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0.0-SNAPSHOT',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.0.0-SNAPSHOT documentation" href="index.html" />
+    <link rel="next" title="User-Defined Features" href="userdefined.html" />
+    <link rel="prev" title="Schemas" href="schemas.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/queries.rst">edit this page on github</a><span>
+          |
+          <a href="schemas.html" title="Schemas"
+             accesskey="P">previous</a> |
+          <a href="userdefined.html" title="User-Defined Features"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.0.0-SNAPSHOT manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="queries">
+<span id="index-0"></span><h1>Queries<a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes how to write type-safe queries for selecting,
+inserting, updating and deleting data with the
+<a class="reference internal" href="introduction.html#lifted-embedding"><em>Lifted Embedding</em></a> API.</p>
+<div class="section" id="expressions">
+<span id="index-1"></span><h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<p>Scalar (non-record, non-collection) values are represented by type <tt class="docutils literal"><span class="pre">Rep[T]</span></tt> where a
+<tt class="docutils literal"><span class="pre">TypedType[T]</span></tt> must exist.</p>
+<p>The operators and other methods which are commonly used in the lifted
+embedding are added through implicit conversions defined in
+<tt class="docutils literal"><span class="pre">ExtensionMethodConversions</span></tt>. The actual methods can be found in
+the classes <tt class="docutils literal"><span class="pre">AnyExtensionMethods</span></tt>, <tt class="docutils literal"><span class="pre">ColumnExtensionMethods</span></tt>,
+<tt class="docutils literal"><span class="pre">NumericColumnExtensionMethods</span></tt>, <tt class="docutils literal"><span class="pre">BooleanColumnExtensionMethods</span></tt> and
+<tt class="docutils literal"><span class="pre">StringColumnExtensionMethods</span></tt>
+(cf. <a class="reference external" href="https://github.com/slick/slick/blob/3.0.0-SNAPSHOT/src/main/scala/slick/lifted/ExtensionMethods.scala">ExtensionMethods</a>).</p>
+<p>Collection values are represented by the <tt class="docutils literal"><span class="pre">Query</span></tt> class (a <tt class="docutils literal"><span class="pre">Rep[Seq[T]]</span></tt>)
+which contains many standard collection methods like <tt class="docutils literal"><span class="pre">flatMap</span></tt>,
+<tt class="docutils literal"><span class="pre">filter</span></tt>, <tt class="docutils literal"><span class="pre">take</span></tt> and <tt class="docutils literal"><span class="pre">groupBy</span></tt>. Due to the two different component
+types of a <tt class="docutils literal"><span class="pre">Query</span></tt> (lifted and plain), the signatures for these methods are
+very complex but the semantics are essentially the same as for Scala
+collections.</p>
+<p>Additional methods for queries of scalar values are added via an
+implicit conversion to <tt class="docutils literal"><span class="pre">SingleColumnQueryExtensionMethods</span></tt>.</p>
+</div>
+<div class="section" id="sorting-and-filtering">
+<span id="index-2"></span><h2>Sorting and Filtering<a class="headerlink" href="#sorting-and-filtering" title="Permalink to this headline">¶</a></h2>
+<p>There are various methods with sorting/filtering semantics (i.e. they take a
+<tt class="docutils literal"><span class="pre">Query</span></tt> and return a new <tt class="docutils literal"><span class="pre">Query</span></tt> of the same type), for example:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">supID</span> <span class="o">===</span> <span class="mi">101</span><span class="o">)</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot;</span>
+<span class="c1">//     where &quot;SUP_ID&quot; = 101</span>
+
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">drop</span><span class="o">(</span><span class="mi">10</span><span class="o">).</span><span class="n">take</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot;</span>
+<span class="c1">//     limit 5 offset 10</span>
+
+<span class="k">val</span> <span class="n">q3</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">sortBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">desc</span><span class="o">.</span><span class="n">nullsFirst</span><span class="o">)</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot;</span>
+<span class="c1">//     order by &quot;COF_NAME&quot; desc nulls first</span>
+
+<span class="c1">// building criteria using a &quot;dynamic filter&quot; e.g. from a webform. </span>
+<span class="k">val</span> <span class="n">criteriaColombian</span> <span class="k">=</span> <span class="nc">Option</span><span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">criteriaEspresso</span> <span class="k">=</span> <span class="nc">Option</span><span class="o">(</span><span class="s">&quot;Espresso&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">criteriaRoast</span><span class="k">:</span><span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="nc">None</span>
+
+<span class="k">val</span> <span class="n">q4</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span> <span class="o">{</span> <span class="n">coffee</span> <span class="k">=&gt;</span> 
+  <span class="nc">List</span><span class="o">(</span>
+      <span class="n">criteriaColombian</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">coffee</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="k">_</span><span class="o">),</span>
+      <span class="n">criteriaEspresso</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">coffee</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="k">_</span><span class="o">),</span>
+      <span class="n">criteriaRoast</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">coffee</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="k">_</span><span class="o">)</span> <span class="c1">// not a condition as `criteriaRoast` evaluates to `None` </span>
+  <span class="o">).</span><span class="n">collect</span><span class="o">({</span><span class="k">case</span> <span class="nc">Some</span><span class="o">(</span><span class="n">criteria</span><span class="o">)</span>  <span class="k">=&gt;</span> <span class="n">criteria</span><span class="o">}).</span><span class="n">reduceLeftOption</span><span class="o">(</span><span class="k">_</span> <span class="o">||</span> <span class="k">_</span><span class="o">).</span><span class="n">getOrElse</span><span class="o">(</span><span class="kc">true</span><span class="k">:</span><span class="kt">Column</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">])</span>
+<span class="o">}</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot;</span>
+<span class="c1">//     where (&quot;COF_NAME&quot; = &#39;Colombian&#39; or &quot;COF_NAME&quot; = &#39;Espresso&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="joining-and-zipping">
+<span id="index-3"></span><h2>Joining and Zipping<a class="headerlink" href="#joining-and-zipping" title="Permalink to this headline">¶</a></h2>
+<p>Joins are used to combine two different tables or queries into a single query.</p>
+<p>There are two different ways of writing joins: <em>Explicit</em> joins are performed
+by calling a method that joins two queries into a single query of a tuple of
+the individual results. <em>Implicit</em> joins arise from the use of <tt class="docutils literal"><span class="pre">flatMap</span></tt>.</p>
+<p id="index-4">An <em>implicit cross-join</em> is created with a <tt class="docutils literal"><span class="pre">flatMap</span></tt> operation on a <tt class="docutils literal"><span class="pre">Query</span></tt>
+(i.e. by introducing more than one generator in a for-comprehension):</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">implicitCrossJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span>
+  <span class="n">s</span> <span class="k">&lt;-</span> <span class="n">suppliers</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// compiles to SQL:</span>
+<span class="c1">//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot; x2, &quot;SUPPLIERS&quot; x3</span>
+</pre></div>
+</div>
+<p>If you add a filter expression, it becomes an <em>implicit inner join</em>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">implicitInnerJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span>
+  <span class="n">s</span> <span class="k">&lt;-</span> <span class="n">suppliers</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span> <span class="o">===</span> <span class="n">s</span><span class="o">.</span><span class="n">id</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// compiles to SQL:</span>
+<span class="c1">//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot; x2, &quot;SUPPLIERS&quot; x3</span>
+<span class="c1">//     where x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;</span>
+</pre></div>
+</div>
+<p>The semantics of these implicit joins are the same as when you are using
+<tt class="docutils literal"><span class="pre">flatMap</span></tt> on Scala collections.</p>
+<p id="index-5">Explicit joins are created by calling one of the available join methods:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">explicitCrossJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="n">join</span> <span class="n">suppliers</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2</span>
+<span class="c1">//     inner join &quot;SUPPLIERS&quot; x3</span>
+
+<span class="k">val</span> <span class="n">explicitInnerJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="n">join</span> <span class="n">suppliers</span> <span class="n">on</span> <span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">supID</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2</span>
+<span class="c1">//     inner join &quot;SUPPLIERS&quot; x3</span>
+<span class="c1">//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;</span>
+
+<span class="k">val</span> <span class="n">explicitLeftOuterJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="n">joinLeft</span> <span class="n">suppliers</span> <span class="n">on</span> <span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">supID</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">))</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2</span>
+<span class="c1">//     left outer join &quot;SUPPLIERS&quot; x3</span>
+<span class="c1">//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;</span>
+
+<span class="k">val</span> <span class="n">explicitRightOuterJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="n">joinRight</span> <span class="n">suppliers</span> <span class="n">on</span> <span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">supID</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">),</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2</span>
+<span class="c1">//     right outer join &quot;SUPPLIERS&quot; x3</span>
+<span class="c1">//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;</span>
+
+<span class="k">val</span> <span class="n">explicitFullOuterJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="n">joinFull</span> <span class="n">suppliers</span> <span class="n">on</span> <span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">supID</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">),</span> <span class="n">s</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">))</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2</span>
+<span class="c1">//     full outer join &quot;SUPPLIERS&quot; x3</span>
+<span class="c1">//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;</span>
+</pre></div>
+</div>
+<p>Note the use of <tt class="docutils literal"><span class="pre">map</span></tt> in the <tt class="docutils literal"><span class="pre">yield</span></tt> clauses of the outer joins. Since these joins can
+introduce additional NULL values (on the right-hand side for a left outer join, on the left-hand
+sides for a right outer join, and on both sides for a full outer join), the respective sides of
+the join are wrapped in an <tt class="docutils literal"><span class="pre">Option</span></tt> (with <tt class="docutils literal"><span class="pre">None</span></tt> representing a row that was not matched).</p>
+<p>In addition to the usual join operators supported by relational databases
+(which are based off a cross join or outer join), Slick also has <em>zip joins</em>
+which create a pairwise join of two queries. The semantics are again the same
+as for Scala collections, using the <tt class="docutils literal"><span class="pre">zip</span></tt> and <tt class="docutils literal"><span class="pre">zipWith</span></tt> methods:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">zipJoinQuery</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="n">zip</span> <span class="n">suppliers</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">zipWithJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">res</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">.</span><span class="n">zipWith</span><span class="o">(</span><span class="n">suppliers</span><span class="o">,</span> <span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Coffees</span><span class="o">,</span> <span class="n">s</span><span class="k">:</span> <span class="kt">Suppliers</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">))</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="n">res</span>
+</pre></div>
+</div>
+<p>A particular kind of zip join is provided by <tt class="docutils literal"><span class="pre">zipWithIndex</span></tt>. It zips a query
+result with an infinite sequence starting at 0. Such a sequence cannot be
+represented by an SQL database and Slick does not currently support it, either.
+The resulting zipped query,
+however, can be represented in SQL with the use of a <em>row number</em> function,
+so <tt class="docutils literal"><span class="pre">zipWithIndex</span></tt> is supported as a primitive operator:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">zipWithIndexJoin</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">idx</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">.</span><span class="n">zipWithIndex</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">idx</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unions">
+<span id="index-6"></span><h2>Unions<a class="headerlink" href="#unions" title="Permalink to this headline">¶</a></h2>
+<p>Two queries can be concatenated with the <tt class="docutils literal"><span class="pre">++</span></tt> (or <tt class="docutils literal"><span class="pre">unionAll</span></tt>) and <tt class="docutils literal"><span class="pre">union</span></tt>
+operators if they have compatible types:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">8.0</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mf">9.0</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">unionQuery</span> <span class="k">=</span> <span class="n">q1</span> <span class="n">union</span> <span class="n">q2</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select x8.&quot;COF_NAME&quot;, x8.&quot;SUP_ID&quot;, x8.&quot;PRICE&quot;, x8.&quot;SALES&quot;, x8.&quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot; x8</span>
+<span class="c1">//     where x8.&quot;PRICE&quot; &lt; 8.0</span>
+<span class="c1">//   union select x9.&quot;COF_NAME&quot;, x9.&quot;SUP_ID&quot;, x9.&quot;PRICE&quot;, x9.&quot;SALES&quot;, x9.&quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot; x9</span>
+<span class="c1">//     where x9.&quot;PRICE&quot; &gt; 9.0</span>
+
+<span class="k">val</span> <span class="n">unionAllQuery</span> <span class="k">=</span> <span class="n">q1</span> <span class="o">++</span> <span class="n">q2</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select x8.&quot;COF_NAME&quot;, x8.&quot;SUP_ID&quot;, x8.&quot;PRICE&quot;, x8.&quot;SALES&quot;, x8.&quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot; x8</span>
+<span class="c1">//     where x8.&quot;PRICE&quot; &lt; 8.0</span>
+<span class="c1">//   union all select x9.&quot;COF_NAME&quot;, x9.&quot;SUP_ID&quot;, x9.&quot;PRICE&quot;, x9.&quot;SALES&quot;, x9.&quot;TOTAL&quot;</span>
+<span class="c1">//     from &quot;COFFEES&quot; x9</span>
+<span class="c1">//     where x9.&quot;PRICE&quot; &gt; 9.0</span>
+</pre></div>
+</div>
+<p>Unlike <tt class="docutils literal"><span class="pre">union</span></tt> which filters out duplicate values, <tt class="docutils literal"><span class="pre">++</span></tt> simply concatenates
+the results of the individual queries, which is usually more efficient.</p>
+</div>
+<div class="section" id="aggregation">
+<span id="index-7"></span><h2>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this headline">¶</a></h2>
+<p>The simplest form of aggregation consists of computing a primitive value from a
+Query that returns a single column, usually with a numeric type, e.g.:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">min</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select min(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4</span>
+
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">max</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select max(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4</span>
+
+<span class="k">val</span> <span class="n">q3</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">sum</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select sum(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4</span>
+
+<span class="k">val</span> <span class="n">q4</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">avg</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select avg(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4</span>
+</pre></div>
+</div>
+<p>Note that these aggregate queries return a scalar result, not a collection.
+Some aggregation functions are defined for arbitrary queries (of more than
+one column):</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">length</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select count(1) from &quot;COFFEES&quot;</span>
+
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">exists</span>
+<span class="c1">// compiles to SQL (simplified):</span>
+<span class="c1">//   select exists(select * from &quot;COFFEES&quot;)</span>
+</pre></div>
+</div>
+<p id="index-8">Grouping is done with the <tt class="docutils literal"><span class="pre">groupBy</span></tt> method. It has the same semantics as for
+Scala collections:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="o">(</span><span class="k">for</span> <span class="o">{</span>
+  <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span>
+  <span class="n">s</span> <span class="k">&lt;-</span> <span class="n">c</span><span class="o">.</span><span class="n">supplier</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">s</span><span class="o">)).</span><span class="n">groupBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_1</span><span class="o">.</span><span class="n">supID</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">supID</span><span class="o">,</span> <span class="n">css</span><span class="o">)</span> <span class="k">=&gt;</span>
+  <span class="o">(</span><span class="n">supID</span><span class="o">,</span> <span class="n">css</span><span class="o">.</span><span class="n">length</span><span class="o">,</span> <span class="n">css</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_1</span><span class="o">.</span><span class="n">price</span><span class="o">).</span><span class="n">avg</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="c1">// compiles to SQL:</span>
+<span class="c1">//   select x2.&quot;SUP_ID&quot;, count(1), avg(x2.&quot;PRICE&quot;)</span>
+<span class="c1">//     from &quot;COFFEES&quot; x2, &quot;SUPPLIERS&quot; x3</span>
+<span class="c1">//     where x3.&quot;SUP_ID&quot; = x2.&quot;SUP_ID&quot;</span>
+<span class="c1">//     group by x2.&quot;SUP_ID&quot;</span>
+</pre></div>
+</div>
+<p>Note that the intermediate query <tt class="docutils literal"><span class="pre">q</span></tt> contains nested values of type <tt class="docutils literal"><span class="pre">Query</span></tt>.
+These would turn into nested collections when executing the query, which is
+not supported at the moment. Therefore it is necessary to flatten the nested
+queries immediately by aggregating their values (or individual columns)
+as done in <tt class="docutils literal"><span class="pre">q2</span></tt>.</p>
+<span class="target" id="index-9"></span></div>
+<div class="section" id="querying">
+<span id="index-10"></span><h2>Querying<a class="headerlink" href="#querying" title="Permalink to this headline">¶</a></h2>
+<p>A Query can be converted into an <a class="reference external" href="api/index.html#slick.dbio.DBIOAction">Action</a> by calling its
+<tt class="docutils literal"><span class="pre">result</span></tt> method. The Action can then be <a class="reference internal" href="database.html#executing-actions"><em>executed</em></a> directly in a
+streaming or fully materialized way, or composed further with other Actions:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">price</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">action</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">result</span>
+<span class="k">val</span> <span class="n">result</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[</span><span class="kt">Double</span><span class="o">]]</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">action</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">sql</span> <span class="k">=</span> <span class="n">action</span><span class="o">.</span><span class="n">statements</span><span class="o">.</span><span class="n">head</span>
+</pre></div>
+</div>
+<p>If you only want a single result value, you can call <tt class="docutils literal"><span class="pre">head</span></tt> or
+<tt class="docutils literal"><span class="pre">headOption</span></tt> on the <tt class="docutils literal"><span class="pre">result</span></tt> Action.</p>
+</div>
+<div class="section" id="deleting">
+<span id="index-11"></span><h2>Deleting<a class="headerlink" href="#deleting" title="Permalink to this headline">¶</a></h2>
+<p>Deleting works very similarly to querying. You write a query which selects the
+rows to delete and then get an Action by calling the <tt class="docutils literal"><span class="pre">delete</span></tt> method on it:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">supID</span> <span class="o">===</span> <span class="mi">15</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">action</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">delete</span>
+<span class="k">val</span> <span class="n">affectedRowsCount</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">action</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">sql</span> <span class="k">=</span> <span class="n">action</span><span class="o">.</span><span class="n">statements</span><span class="o">.</span><span class="n">head</span>
+</pre></div>
+</div>
+<p>A query for deleting must only select from a single table. Any projection is
+ignored (it always deletes full rows).</p>
+</div>
+<div class="section" id="inserting">
+<span id="index-12"></span><h2>Inserting<a class="headerlink" href="#inserting" title="Permalink to this headline">¶</a></h2>
+<p>Inserts are done based on a projection of columns from a single table. When you use the table
+directly, the insert is performed against its <tt class="docutils literal"><span class="pre">*</span></tt> projection. Omitting some of a table&#8217;s columns
+when inserting causes the database to use the default values specified in the table definition, or
+a type-specific default in case no explicit default was given. All methods for building insert
+Actions are defined in
+<a class="reference external" href="api/index.html#slick.driver.JdbcActionComponent&#64;CountingInsertActionComposer[U]:JdbcDriver.CountingInsertActionComposer[U]">CountingInsertActionComposer</a> and
+<a class="reference external" href="api/index.html#slick.driver.JdbcActionComponent&#64;ReturningInsertActionComposer[U,RU]:JdbcDriver.ReturningInsertActionComposer[U,RU]">ReturningInsertActionComposer</a>.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">insertActions</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span>
+  <span class="n">coffees</span> <span class="o">+=</span> <span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mf">7.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+
+  <span class="n">coffees</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
+    <span class="o">(</span><span class="s">&quot;French_Roast&quot;</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+    <span class="o">(</span><span class="s">&quot;Espresso&quot;</span><span class="o">,</span>    <span class="mi">150</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
+  <span class="o">),</span>
+
+  <span class="c1">// &quot;sales&quot; and &quot;total&quot; will use the default value 0:</span>
+  <span class="n">coffees</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">c</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span><span class="o">))</span> <span class="o">+=</span> <span class="o">(</span><span class="s">&quot;Colombian_Decaf&quot;</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">)</span>
+<span class="o">)</span>
+
+<span class="c1">// Get the statement without having to specify a value to insert:</span>
+<span class="k">val</span> <span class="n">sql</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">insertStatement</span>
+
+<span class="c1">// compiles to SQL:</span>
+<span class="c1">//   INSERT INTO &quot;COFFEES&quot; (&quot;COF_NAME&quot;,&quot;SUP_ID&quot;,&quot;PRICE&quot;,&quot;SALES&quot;,&quot;TOTAL&quot;) VALUES (?,?,?,?,?)</span>
+</pre></div>
+</div>
+<p id="index-13">When you include an <tt class="docutils literal"><span class="pre">AutoInc</span></tt> column in an insert operation, it is silently
+ignored, so that the database can generate the proper value.
+In this case you usually want to get back the auto-generated primary key
+column. By default, <tt class="docutils literal"><span class="pre">+=</span></tt> gives you a count of the number of affected
+rows (which will usually be 1) and <tt class="docutils literal"><span class="pre">++=</span></tt> gives you an accumulated
+count in an <tt class="docutils literal"><span class="pre">Option</span></tt> (which can be <tt class="docutils literal"><span class="pre">None</span></tt> if the database system does not
+provide counts for all rows). This can be changed with the <tt class="docutils literal"><span class="pre">returning</span></tt>
+method where you specify the columns to be returned (as a single value or
+tuple from <tt class="docutils literal"><span class="pre">+=</span></tt> and a <tt class="docutils literal"><span class="pre">Seq</span></tt> of such values from <tt class="docutils literal"><span class="pre">++=</span></tt>):</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">userId</span> <span class="k">=</span>
+  <span class="o">(</span><span class="n">users</span> <span class="n">returning</span> <span class="n">users</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">))</span> <span class="o">+=</span> <span class="nc">User</span><span class="o">(</span><span class="nc">None</span><span class="o">,</span> <span class="s">&quot;Stefan&quot;</span><span class="o">,</span> <span class="s">&quot;Zeiger&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Note that many database systems only allow a single column to be returned
+which must be the table&#8217;s auto-incrementing primary key. If you ask for
+other columns a <tt class="docutils literal"><span class="pre">SlickException</span></tt> is thrown at runtime (unless the database
+actually supports it).</p>
+<p>You can follow the <tt class="docutils literal"><span class="pre">returning</span></tt> method with the <tt class="docutils literal"><span class="pre">into</span></tt> method to map
+the inserted values and the generated keys (specified in returning) to a desired value.
+Here is an example of using this feature to return an object with an updated id:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">userWithId</span> <span class="k">=</span>
+  <span class="o">(</span><span class="n">users</span> <span class="n">returning</span> <span class="n">users</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+         <span class="n">into</span> <span class="o">((</span><span class="n">user</span><span class="o">,</span><span class="n">id</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">user</span><span class="o">.</span><span class="n">copy</span><span class="o">(</span><span class="n">id</span><span class="k">=</span><span class="nc">Some</span><span class="o">(</span><span class="n">id</span><span class="o">)))</span>
+  <span class="o">)</span> <span class="o">+=</span> <span class="nc">User</span><span class="o">(</span><span class="nc">None</span><span class="o">,</span> <span class="s">&quot;Stefan&quot;</span><span class="o">,</span> <span class="s">&quot;Zeiger&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Instead of inserting data from the client side you can also insert data
+created by a <tt class="docutils literal"><span class="pre">Query</span></tt> or a scalar expression that is executed in the
+database server:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Users2</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;users2&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;name&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">users2</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Users2</span><span class="o">]</span>
+
+<span class="k">val</span> <span class="n">actions</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span>
+  <span class="n">users2</span><span class="o">.</span><span class="n">schema</span><span class="o">.</span><span class="n">create</span><span class="o">,</span>
+  <span class="n">users2</span> <span class="n">forceInsertQuery</span> <span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="n">u</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">u</span><span class="o">.</span><span class="n">id</span><span class="o">,</span> <span class="n">u</span><span class="o">.</span><span class="n">first</span> <span class="o">++</span> <span class="s">&quot; &quot;</span> <span class="o">++</span> <span class="n">u</span><span class="o">.</span><span class="n">last</span><span class="o">)</span> <span class="o">}),</span>
+  <span class="n">users2</span> <span class="n">forceInsertExpr</span> <span class="o">(</span><span class="n">users</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="s">&quot;admin&quot;</span><span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p>In these cases, <tt class="docutils literal"><span class="pre">AutoInc</span></tt> columns are <em>not</em> ignored.</p>
+</div>
+<div class="section" id="updating">
+<span id="index-14"></span><h2>Updating<a class="headerlink" href="#updating" title="Permalink to this headline">¶</a></h2>
+<p>Updates are performed by writing a query that selects the data to update and
+then replacing it with new data. The query must only return raw columns (no
+computed values) selected from a single table. The relevant methods for
+updating are defined in
+<a class="reference external" href="api/index.html#slick.driver.JdbcActionComponent&#64;UpdateActionExtensionMethodsImpl[T]:JdbcDriver.UpdateActionExtensionMethodsImpl[T]">UpdateExtensionMethods</a>.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span> <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="s">&quot;Espresso&quot;</span> <span class="o">}</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span>
+<span class="k">val</span> <span class="n">updateAction</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">update</span><span class="o">(</span><span class="mf">10.49</span><span class="o">)</span>
+
+<span class="c1">// Get the statement without having to specify an updated value:</span>
+<span class="k">val</span> <span class="n">sql</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">updateStatement</span>
+
+<span class="c1">// compiles to SQL:</span>
+<span class="c1">//   update &quot;COFFEES&quot; set &quot;PRICE&quot; = ? where &quot;COFFEES&quot;.&quot;COF_NAME&quot; = &#39;Espresso&#39;</span>
+</pre></div>
+</div>
+<p>There is currently no way to use scalar expressions or transformations of
+the existing data in the database for updates.</p>
+<span class="target" id="index-15"></span></div>
+<div class="section" id="compiled-queries">
+<span id="index-16"></span><span id="id1"></span><h2>Compiled Queries<a class="headerlink" href="#compiled-queries" title="Permalink to this headline">¶</a></h2>
+<p>Database queries typically depend on some parameters, e.g. an ID for which
+you want to retrieve a matching database row. You can write a regular Scala
+function to create a parameterized <tt class="docutils literal"><span class="pre">Query</span></tt> object each time you need to
+execute that query but this will incur the cost of recompiling the query
+in Slick (and possibly also on the database if you don&#8217;t use bind variables
+for all parameters). It is more efficient to pre-compile such parameterized
+query functions:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="n">userNameByIDRange</span><span class="o">(</span><span class="n">min</span><span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">Int</span><span class="o">],</span> <span class="n">max</span><span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="k">=</span>
+  <span class="k">for</span> <span class="o">{</span>
+    <span class="n">u</span> <span class="k">&lt;-</span> <span class="n">users</span> <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;=</span> <span class="n">min</span> <span class="o">&amp;&amp;</span> <span class="n">u</span><span class="o">.</span><span class="n">id</span> <span class="o">&lt;</span> <span class="n">max</span>
+  <span class="o">}</span> <span class="k">yield</span> <span class="n">u</span><span class="o">.</span><span class="n">first</span>
+
+<span class="k">val</span> <span class="n">userNameByIDRangeCompiled</span> <span class="k">=</span> <span class="nc">Compiled</span><span class="o">(</span><span class="n">userNameByIDRange</span> <span class="k">_</span><span class="o">)</span>
+
+<span class="c1">// The query will be compiled only once:</span>
+<span class="k">val</span> <span class="n">namesAction1</span> <span class="k">=</span> <span class="n">userNameByIDRangeCompiled</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">).</span><span class="n">result</span>
+<span class="k">val</span> <span class="n">namesAction2</span> <span class="k">=</span> <span class="n">userNameByIDRangeCompiled</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">).</span><span class="n">result</span>
+<span class="c1">// Also works for .insert, .update and .delete</span>
+</pre></div>
+</div>
+<p>This works for all functions that take parameters consisting only of individual columns or
+or <a class="reference internal" href="userdefined.html#record-types"><em>records</em></a> of columns and return a <tt class="docutils literal"><span class="pre">Query</span></tt> object or a
+scalar query. See the API documentation for <a class="reference external" href="api/index.html#slick.lifted.Compiled">Compiled</a>
+and its subclasses for details on composing compiled queries.</p>
+<p id="index-17">Be aware that <tt class="docutils literal"><span class="pre">take</span></tt> and <tt class="docutils literal"><span class="pre">drop</span></tt> take <tt class="docutils literal"><span class="pre">ConstColumn[Long]</span></tt> parameters. Unlike <tt class="docutils literal"><span class="pre">Rep[Long]]</span></tt>,
+which could be substituted by another value computed by a query, a ConstColumn can only be literal
+value or a parameter of a compiled query. This is necessary because the actual value has to be
+known by the time the query is prepared for execution by Slick.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">userPaged</span> <span class="k">=</span> <span class="nc">Compiled</span><span class="o">((</span><span class="n">d</span><span class="k">:</span> <span class="kt">ConstColumn</span><span class="o">[</span><span class="kt">Long</span><span class="o">],</span> <span class="n">t</span><span class="k">:</span> <span class="kt">ConstColumn</span><span class="o">[</span><span class="kt">Long</span><span class="o">])</span> <span class="k">=&gt;</span> <span class="n">users</span><span class="o">.</span><span class="n">drop</span><span class="o">(</span><span class="n">d</span><span class="o">).</span><span class="n">take</span><span class="o">(</span><span class="n">t</span><span class="o">))</span>
+
+<span class="k">val</span> <span class="n">usersAction1</span> <span class="k">=</span> <span class="n">userPaged</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">).</span><span class="n">result</span>
+<span class="k">val</span> <span class="n">usersAction2</span> <span class="k">=</span> <span class="n">userPaged</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">3</span><span class="o">).</span><span class="n">result</span>
+</pre></div>
+</div>
+<p>You can use a compiled query for querying, inserting, updating and deleting data. For
+backwards-compatibility with Slick 1.0 you can still create a compiled
+query by calling <tt class="docutils literal"><span class="pre">flatMap</span></tt> on a <a class="reference external" href="api/index.html#slick.lifted.Parameters">Parameters</a> object.
+In many cases this enables you to write a single <em>for comprehension</em> for a
+compiled query:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">userNameByID</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">id</span> <span class="k">&lt;-</span> <span class="nc">Parameters</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+  <span class="n">u</span> <span class="k">&lt;-</span> <span class="n">users</span> <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="n">id</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="n">u</span><span class="o">.</span><span class="n">first</span>
+
+<span class="k">val</span> <span class="n">nameAction</span> <span class="k">=</span> <span class="n">userNameByID</span><span class="o">(</span><span class="mi">2</span><span class="o">).</span><span class="n">result</span><span class="o">.</span><span class="n">head</span>
+
+<span class="k">val</span> <span class="n">userNameByIDRange</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">min</span><span class="o">,</span> <span class="n">max</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="nc">Parameters</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">Int</span><span class="o">)]</span>
+  <span class="n">u</span> <span class="k">&lt;-</span> <span class="n">users</span> <span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;=</span> <span class="n">min</span> <span class="o">&amp;&amp;</span> <span class="n">u</span><span class="o">.</span><span class="n">id</span> <span class="o">&lt;</span> <span class="n">max</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="n">u</span><span class="o">.</span><span class="n">first</span>
+
+<span class="k">val</span> <span class="n">namesAction</span> <span class="k">=</span> <span class="n">userNameByIDRange</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="mi">5</span><span class="o">).</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Databases &amp; I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema code generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#expressions">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sorting-and-filtering">Sorting and Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#joining-and-zipping">Joining and Zipping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unions">Unions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aggregation">Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#querying">Querying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inserting">Inserting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating">Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compiled-queries">Compiled Queries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding (Experimental, Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="schemas.html" title="Schemas"
+             >previous</a> |
+          <a href="userdefined.html" title="User-Defined Features"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2014 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
