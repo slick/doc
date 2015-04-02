@@ -1,0 +1,1012 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>SetTransactionIsolation - Slick 3.0.0-RC3 - slick.driver.JdbcActionComponent.SetTransactionIsolation</title>
+          <meta name="description" content="SetTransactionIsolation - Slick 3.0.0 - RC3 - slick.driver.JdbcActionComponent.SetTransactionIsolation" />
+          <meta name="keywords" content="SetTransactionIsolation Slick 3.0.0 RC3 slick.driver.JdbcActionComponent.SetTransactionIsolation" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.driver.JdbcActionComponent$SetTransactionIsolation';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../lib/class_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a>.<a href="package.html" class="extype" name="slick.driver">driver</a>.<a href="JdbcActionComponent.html" class="extype" name="slick.driver.JdbcActionComponent">JdbcActionComponent</a></p>
+        <h1>SetTransactionIsolation</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SetTransactionIsolation</span><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcDriver.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.driver.JdbcDriver.Backend">JdbcDriver.Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/3.0.0-RC3/src/main/scala/slick/driver/JdbcActionComponent.scala" target="_blank">JdbcActionComponent.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcDriver.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.driver.JdbcDriver.Backend">JdbcDriver.Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>], <a href="../dbio/DatabaseAction.html" class="extype" name="slick.dbio.DatabaseAction">DatabaseAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>], <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>], <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>, <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph398" viewBox="0.00 0.00 374.00 120.00" height="120pt" width="374pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph0"><polygon points="-4,4 -4,-116 370,-116 370,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph398_0"><g id="a_this class|graph398_0"><a xlink:title="slick.driver.JdbcActionComponent.SetTransactionIsolation (this class)" xlink:href="#inheritance-diagram"><polygon points="282,-50 84,-50 84,-24 282,-24 282,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-43" x="96" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-32.7495" x="115.538" text-anchor="start">JdbcDriver.SetTransactionIsolation</text></a></g></g><!-- node1 --><g class="node trait" id="graph398_1"><g id="a_trait|graph398_1"><a xlink:title="slick.dbio.SynchronousDatabaseAction" xlink:href="../dbio/SynchronousDatabaseAction.html#inheritance-diagram"><polygon points="366,-112 0,-112 0,-86 366,-86 366,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-105" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="31.7881" text-anchor="start">SynchronousDatabaseAction[Int, NoStream, JdbcDriver.Backend, Effect]</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph398_1_0"><g id="a_inheritance|graph398_1_0"><a xlink:title="JdbcDriver.SetTransactionIsolation is a subtype of SynchronousDatabaseAction[Int, NoStream, JdbcDriver.Backend, Effect]"><path d="M183,-80.6826C183,-70.8961 183,-58.9026 183,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="181.25,-80.8581 183,-85.8581 184.75,-80.8581 181.25,-80.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.driver.JdbcActionComponent.SetTransactionIsolation"><span>SetTransactionIsolation</span></li><li class="in" name="slick.dbio.SynchronousDatabaseAction"><span>SynchronousDatabaseAction</span></li><li class="in" name="slick.dbio.DatabaseAction"><span>DatabaseAction</span></li><li class="in" name="slick.dbio.DBIOAction"><span>DBIOAction</span></li><li class="in" name="slick.util.Dumpable"><span>Dumpable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="slick.driver.JdbcActionComponent.SetTransactionIsolation#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(ti:Int):JdbcActionComponent.this.SetTransactionIsolation"></a>
+      <a id="&lt;init&gt;:JdbcDriver.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SetTransactionIsolation</span><span class="params">(<span name="ti">ti: <span class="extype" name="scala.Int">Int</span></span>)</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.dbio.SynchronousDatabaseAction.StreamState" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="StreamState&gt;:Null&lt;:AnyRef"></a>
+      <a id="StreamState:StreamState"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">StreamState</span><span class="result"> &gt;: <span class="extype" name="scala.Null">Null</span> &lt;: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The type used by this action for the state of a suspended stream.</p><div class="fullcomment"><div class="comment cmt"><p>The type used by this action for the state of a suspended stream. A call to <code>emitStream</code>
+produces such a state which is then fed back into the next call.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(JdbcDriver.SetTransactionIsolation,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#&gt;&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&gt;&gt;[R2,S2&lt;:slick.dbio.NoStream,E2&lt;:slick.dbio.Effect](a:slick.dbio.DBIOAction[R2,S2,E2]):slick.dbio.DBIOAction[R2,S2,EwithE2]"></a>
+      <a id="&gt;&gt;[R2,S2&lt;:NoStream,E2&lt;:Effect](DBIOAction[R2,S2,E2]):DBIOAction[R2,S2,EffectwithE2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $greater$greater" class="name">&gt;&gt;</span><span class="tparams">[<span name="R2">R2</span>, <span name="S2">S2 &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E2">E2 &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="a">a: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.DBIOAction.&gt;&gt;.R2">R2</span>, <span class="extype" name="slick.dbio.DBIOAction.&gt;&gt;.S2">S2</span>, <span class="extype" name="slick.dbio.DBIOAction.&gt;&gt;.E2">E2</span>]</span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.DBIOAction.&gt;&gt;.R2">R2</span>, <span class="extype" name="slick.dbio.DBIOAction.&gt;&gt;.S2">S2</span>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a> with <span class="extype" name="slick.dbio.DBIOAction.&gt;&gt;.E2">E2</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">A shortcut for <code>andThen</code>.</p><div class="fullcomment"><div class="comment cmt"><p>A shortcut for <code>andThen</code>.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#andFinally" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="andFinally[E2&lt;:slick.dbio.Effect](a:slick.dbio.DBIOAction[_,slick.dbio.NoStream,E2]):slick.dbio.DBIOAction[R,S,EwithE2]"></a>
+      <a id="andFinally[E2&lt;:Effect](DBIOAction[_,NoStream,E2]):DBIOAction[Int,NoStream,EffectwithE2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">andFinally</span><span class="tparams">[<span name="E2">E2 &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="a">a: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[_, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.andFinally.E2">E2</span>]</span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a> with <span class="extype" name="slick.dbio.SynchronousDatabaseAction.andFinally.E2">E2</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Run another action after this action, whether it succeeds or fails, and then return the
+result of the first action.</p><div class="fullcomment"><div class="comment cmt"><p>Run another action after this action, whether it succeeds or fails, and then return the
+result of the first action. If the first action fails, its failure is propagated, whether
+the second action fails or succeeds. If the first action succeeds, a failure of the second
+action is propagated.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a> → <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#andThen" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="andThen[R2,S2&lt;:slick.dbio.NoStream,E2&lt;:slick.dbio.Effect](a:slick.dbio.DBIOAction[R2,S2,E2]):slick.dbio.DBIOAction[R2,S2,EwithE2]"></a>
+      <a id="andThen[R2,S2&lt;:NoStream,E2&lt;:Effect](DBIOAction[R2,S2,E2]):DBIOAction[R2,S2,EffectwithE2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">andThen</span><span class="tparams">[<span name="R2">R2</span>, <span name="S2">S2 &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E2">E2 &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="a">a: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.SynchronousDatabaseAction.andThen.R2">R2</span>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.andThen.S2">S2</span>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.andThen.E2">E2</span>]</span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.SynchronousDatabaseAction.andThen.R2">R2</span>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.andThen.S2">S2</span>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a> with <span class="extype" name="slick.dbio.SynchronousDatabaseAction.andThen.E2">E2</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Run another action after this action, if it completed successfully, and return the result
+of the second action.</p><div class="fullcomment"><div class="comment cmt"><p>Run another action after this action, if it completed successfully, and return the result
+of the second action. If either of the two actions fails, the resulting action also fails.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a> → <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#asTry" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asTry:slick.dbio.DBIOAction[scala.util.Try[R],slick.dbio.NoStream,E]"></a>
+      <a id="asTry:DBIOAction[Try[Int],NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asTry</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Int">Int</span>], <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Convert a successful result <code>v</code> of this action into a successful result <code>Success(v)</code> and a
+failure <code>t</code> into a successful result <code>Failure(t)</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Convert a successful result <code>v</code> of this action into a successful result <code>Success(v)</code> and a
+failure <code>t</code> into a successful result <code>Failure(t)</code>. This is the most generic combinator that
+can be used for error recovery. If possible, use <a href="#andFinally[E2&lt;:slick.dbio.Effect](a:slick.dbio.DBIOAction[_,slick.dbio.NoStream,E2]):slick.dbio.DBIOAction[R,S,EwithE2]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation#andFinally">andFinally</a> or <a href="#cleanUp[E2&lt;:slick.dbio.Effect](f:Option[Throwable]=&gt;slick.dbio.DBIOAction[_,slick.dbio.NoStream,E2],keepFailure:Boolean)(implicitexecutor:scala.concurrent.ExecutionContext):slick.dbio.DBIOAction[R,S,EwithE2]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation#cleanUp">cleanUp</a> instead,
+because those combinators, unlike <code>asTry</code>, support streaming.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a> → <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#cancelStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cancelStream(context:B#StreamingContext,state:SynchronousDatabaseAction.this.StreamState):Unit"></a>
+      <a id="cancelStream(StreamingContext,StreamState):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cancelStream</span><span class="params">(<span name="context">context: <a href="../jdbc/JdbcBackend.html#StreamingContext=JdbcBackend.this.JdbcStreamingActionContext" class="extmbr" name="slick.jdbc.JdbcBackend.StreamingContext">StreamingContext</a></span>, <span name="state">state: <a href="#StreamState&gt;:Null&lt;:AnyRef" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation.StreamState">StreamState</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Dispose of a <code>StreamState</code> when a streaming action is cancelled.</p><div class="fullcomment"><div class="comment cmt"><p>Dispose of a <code>StreamState</code> when a streaming action is cancelled. Whenever <code>emitStream</code>
+returns <code>null</code> or throws an Exception, it needs to dispose of the state itself. This
+method will not be called in these cases.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a></dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#cleanUp" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="cleanUp[E2&lt;:slick.dbio.Effect](f:Option[Throwable]=&gt;slick.dbio.DBIOAction[_,slick.dbio.NoStream,E2],keepFailure:Boolean)(implicitexecutor:scala.concurrent.ExecutionContext):slick.dbio.DBIOAction[R,S,EwithE2]"></a>
+      <a id="cleanUp[E2&lt;:Effect]((Option[Throwable])⇒DBIOAction[_,NoStream,E2],Boolean)(ExecutionContext):DBIOAction[Int,NoStream,EffectwithE2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cleanUp</span><span class="tparams">[<span name="E2">E2 &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scala.Option">Option</span>[<a href="../../scala/package.html#Throwable=Throwable" class="extmbr" name="scala.Throwable">Throwable</a>]) ⇒ <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[_, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.DBIOAction.cleanUp.E2">E2</span>]</span>, <span name="keepFailure">keepFailure: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">true</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executor">executor: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a> with <span class="extype" name="slick.dbio.DBIOAction.cleanUp.E2">E2</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Run another action after this action, whether it succeeds or fails, in order to clean up or
+transform an error produced by this action.</p><div class="fullcomment"><div class="comment cmt"><p>Run another action after this action, whether it succeeds or fails, in order to clean up or
+transform an error produced by this action. The clean-up action is computed from the failure
+of this action, wrapped in <code>Some</code>, or <code>None</code> if this action succeeded.
+</p></div><dl class="paramcmts block"><dt class="param">keepFailure</dt><dd class="cmt"><p>If this action returns successfully, the resulting action also returns
+                   successfully unless the clean-up action fails. If this action fails and
+                   <code>keepFailure</code> is set to <code>true</code> (the default), the resulting action fails
+                   with the same error, no matter whether the clean-up action succeeds or
+                   fails. If <code>keepFailure</code> is set to <code>false</code>, an error from the clean-up
+                   action will override the error from this action.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#emitStream" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="emitStream(context:B#StreamingContext,limit:Long,state:SynchronousDatabaseAction.this.StreamState):SynchronousDatabaseAction.this.StreamState"></a>
+      <a id="emitStream(StreamingContext,Long,StreamState):StreamState"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">emitStream</span><span class="params">(<span name="context">context: <a href="../jdbc/JdbcBackend.html#StreamingContext=JdbcBackend.this.JdbcStreamingActionContext" class="extmbr" name="slick.jdbc.JdbcBackend.StreamingContext">StreamingContext</a></span>, <span name="limit">limit: <span class="extype" name="scala.Long">Long</span></span>, <span name="state">state: <a href="#StreamState&gt;:Null&lt;:AnyRef" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation.StreamState">StreamState</a></span>)</span><span class="result">: <a href="#StreamState&gt;:Null&lt;:AnyRef" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation.StreamState">StreamState</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Run this action synchronously and emit results to the context.</p><div class="fullcomment"><div class="comment cmt"><p>Run this action synchronously and emit results to the context. This methods may throw an
+Exception to indicate a failure.
+</p></div><dl class="paramcmts block"><dt class="param">limit</dt><dd class="cmt"><p>The maximum number of results to emit, or Long.MaxValue for no limit.</p></dd><dt class="param">state</dt><dd class="cmt"><p>The state returned by a previous invocation of this method, or <code>null</code> if
+            a new stream should be produced.</p></dd><dt>returns</dt><dd class="cmt"><p>A stream state if there are potentially more results available, or null if the
+        stream is finished.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((JdbcDriver.SetTransactionIsolation)⇒Boolean,⇒Any):JdbcDriver.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((JdbcDriver.SetTransactionIsolation)⇒Boolean):JdbcDriver.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):JdbcDriver.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):JdbcDriver.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#failed" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="failed:slick.dbio.DBIOAction[Throwable,slick.dbio.NoStream,E]"></a>
+      <a id="failed:DBIOAction[Throwable,NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">failed</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<a href="../../scala/package.html#Throwable=Throwable" class="extmbr" name="scala.Throwable">Throwable</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return an action which contains the Throwable with which this action failed as its result.</p><div class="fullcomment"><div class="comment cmt"><p>Return an action which contains the Throwable with which this action failed as its result.
+If this action succeeded, the resulting action fails with a NoSuchElementException.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a> → <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#filter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="filter(p:R=&gt;Boolean)(implicitexecutor:scala.concurrent.ExecutionContext):slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]"></a>
+      <a id="filter((Int)⇒Boolean)(ExecutionContext):DBIOAction[Int,NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">filter</span><span class="params">(<span name="p">p: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executor">executor: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Filter the result of this action with the given predicate.</p><div class="fullcomment"><div class="comment cmt"><p>Filter the result of this action with the given predicate. If the predicate matches, the
+original result is returned, otherwise the resulting action fails with a
+NoSuchElementException.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#flatMap" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="flatMap[R2,S2&lt;:slick.dbio.NoStream,E2&lt;:slick.dbio.Effect](f:R=&gt;slick.dbio.DBIOAction[R2,S2,E2])(implicitexecutor:scala.concurrent.ExecutionContext):slick.dbio.DBIOAction[R2,S2,EwithE2]"></a>
+      <a id="flatMap[R2,S2&lt;:NoStream,E2&lt;:Effect]((Int)⇒DBIOAction[R2,S2,E2])(ExecutionContext):DBIOAction[R2,S2,EffectwithE2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">flatMap</span><span class="tparams">[<span name="R2">R2</span>, <span name="S2">S2 &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E2">E2 &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scala.Int">Int</span>) ⇒ <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.DBIOAction.flatMap.R2">R2</span>, <span class="extype" name="slick.dbio.DBIOAction.flatMap.S2">S2</span>, <span class="extype" name="slick.dbio.DBIOAction.flatMap.E2">E2</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executor">executor: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.DBIOAction.flatMap.R2">R2</span>, <span class="extype" name="slick.dbio.DBIOAction.flatMap.S2">S2</span>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a> with <span class="extype" name="slick.dbio.DBIOAction.flatMap.E2">E2</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Use the result produced by the successful execution of this action to compute and then
+run the next action in sequence.</p><div class="fullcomment"><div class="comment cmt"><p>Use the result produced by the successful execution of this action to compute and then
+run the next action in sequence. The resulting action fails if either this action, the
+computation, or the computed action fails.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SetTransactionIsolation#getDumpInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getDumpInfo:slick.util.DumpInfo"></a>
+      <a id="getDumpInfo:DumpInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getDumpInfo</span><span class="result">: <a href="../util/DumpInfo.html" class="extype" name="slick.util.DumpInfo">DumpInfo</a></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Return the name, main info, attribute info and named children</p><div class="fullcomment"><div class="comment cmt"><p>Return the name, main info, attribute info and named children</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">SetTransactionIsolation</a> → <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.dbio.DatabaseAction#isLogged" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isLogged:Boolean"></a>
+      <a id="isLogged:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isLogged</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Whether or not this action should be included in log output by default.</p><div class="fullcomment"><div class="comment cmt"><p>Whether or not this action should be included in log output by default.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DatabaseAction.html" class="extype" name="slick.dbio.DatabaseAction">DatabaseAction</a> → <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#map" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="map[R2](f:R=&gt;R2)(implicitexecutor:scala.concurrent.ExecutionContext):slick.dbio.DBIOAction[R2,slick.dbio.NoStream,E]"></a>
+      <a id="map[R2]((Int)⇒R2)(ExecutionContext):DBIOAction[R2,NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">map</span><span class="tparams">[<span name="R2">R2</span>]</span><span class="params">(<span name="f">f: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="slick.dbio.DBIOAction.map.R2">R2</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executor">executor: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.DBIOAction.map.R2">R2</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Transform the result of a successful execution of this action.</p><div class="fullcomment"><div class="comment cmt"><p>Transform the result of a successful execution of this action. If this action fails, the
+resulting action also fails.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#named" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="named(name:String):slick.dbio.DBIOAction[R,S,E]"></a>
+      <a id="named(String):DBIOAction[Int,NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">named</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get a wrapping action which has a name that will be included in log output.</p><div class="fullcomment"><div class="comment cmt"><p>Get a wrapping action which has a name that will be included in log output.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#nonFusedEquivalentAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nonFusedEquivalentAction:slick.dbio.DBIOAction[R,S,E]"></a>
+      <a id="nonFusedEquivalentAction:DBIOAction[Int,NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nonFusedEquivalentAction</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get the equivalent non-fused action if this action has been fused, otherwise this
+action is returned.</p><div class="fullcomment"><div class="comment cmt"><p>Get the equivalent non-fused action if this action has been fused, otherwise this
+action is returned.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SetTransactionIsolation#run" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="run(ctx:slick.jdbc.JdbcBackend#JdbcActionContext):Int"></a>
+      <a id="run(JdbcActionContext):Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">run</span><span class="params">(<span name="ctx">ctx: <a href="../jdbc/JdbcBackend$JdbcActionContext.html" class="extype" name="slick.jdbc.JdbcBackend.JdbcActionContext">JdbcActionContext</a></span>)</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Run this action synchronously and produce a result, or throw an Exception to indicate a
+failure.</p><div class="fullcomment"><div class="comment cmt"><p>Run this action synchronously and produce a result, or throw an Exception to indicate a
+failure.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">SetTransactionIsolation</a> → <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a></dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#supportsStreaming" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="supportsStreaming:Boolean"></a>
+      <a id="supportsStreaming:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">supportsStreaming</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Whether or not this action supports streaming results.</p><div class="fullcomment"><div class="comment cmt"><p>Whether or not this action supports streaming results. An action with a <code>Streaming</code> result
+type must either support streaming directly or have a <a href="#nonFusedEquivalentAction:slick.dbio.DBIOAction[R,S,E]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation#nonFusedEquivalentAction">nonFusedEquivalentAction</a> which
+supports streaming. This flag is not used if the Action has a <code>NoStream</code> result type.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.dbio.DBIOAction#withFilter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withFilter(p:R=&gt;Boolean)(implicitexecutor:scala.concurrent.ExecutionContext):slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]"></a>
+      <a id="withFilter((Int)⇒Boolean)(ExecutionContext):DBIOAction[Int,NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withFilter</span><span class="params">(<span name="p">p: (<span class="extype" name="scala.Int">Int</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="executor">executor: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#withPinnedSession" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withPinnedSession:slick.dbio.DBIOAction[R,S,E]"></a>
+      <a id="withPinnedSession:DBIOAction[Int,NoStream,Effect]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withPinnedSession</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Use a pinned database session when running this action.</p><div class="fullcomment"><div class="comment cmt"><p>Use a pinned database session when running this action. If it is composed of multiple
+database actions, they will all use the same session, even when sequenced with non-database
+actions. For non-composite or non-database actions, this has no effect.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a> → <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="slick.dbio.SynchronousDatabaseAction#zip" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="zip[R2,E2&lt;:slick.dbio.Effect](a:slick.dbio.DBIOAction[R2,slick.dbio.NoStream,E2]):slick.dbio.DBIOAction[(R,R2),slick.dbio.NoStream,EwithE2]"></a>
+      <a id="zip[R2,E2&lt;:Effect](DBIOAction[R2,NoStream,E2]):DBIOAction[(Int,R2),NoStream,EffectwithE2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">zip</span><span class="tparams">[<span name="R2">R2</span>, <span name="E2">E2 &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="a">a: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.SynchronousDatabaseAction.zip.R2">R2</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.zip.E2">E2</span>]</span>)</span><span class="result">: <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[(<span class="extype" name="scala.Int">Int</span>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.zip.R2">R2</span>), <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a> with <span class="extype" name="slick.dbio.SynchronousDatabaseAction.zip.E2">E2</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Run another action after this action, if it completed successfully, and return the result
+of both actions.</p><div class="fullcomment"><div class="comment cmt"><p>Run another action after this action, if it completed successfully, and return the result
+of both actions. If either of the two actions fails, the resulting action also fails.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a> → <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a></dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(JdbcDriver.SetTransactionIsolation,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(setTransactionIsolation: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(setTransactionIsolation: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:JdbcDriver.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(setTransactionIsolation: ArrowAssoc[JdbcDriver.SetTransactionIsolation]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:JdbcDriver.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(setTransactionIsolation: Ensuring[JdbcDriver.SetTransactionIsolation]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.dbio.SynchronousDatabaseAction">
+              <h3>Inherited from <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcDriver.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.driver.JdbcDriver.Backend">JdbcDriver.Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</h3>
+            </div><div class="parent" name="slick.dbio.DatabaseAction">
+              <h3>Inherited from <a href="../dbio/DatabaseAction.html" class="extype" name="slick.dbio.DatabaseAction">DatabaseAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</h3>
+            </div><div class="parent" name="slick.dbio.DBIOAction">
+              <h3>Inherited from <a href="../dbio/DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</h3>
+            </div><div class="parent" name="slick.util.Dumpable">
+              <h3>Inherited from <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" class="extmbr" name="slick.driver.JdbcActionComponent.SetTransactionIsolation">JdbcDriver.SetTransactionIsolation</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../lib/diagrams.js"></script>
+    </body>
+      </html>

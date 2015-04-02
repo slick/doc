@@ -1,0 +1,587 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Upgrade Guides &mdash; Slick 3.0.0-RC2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0.0-RC2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.0.0-RC2 documentation" href="index.html" />
+    <link rel="next" title="Slick Extensions" href="extensions.html" />
+    <link rel="prev" title="Coming from SQL to Slick" href="sql-to-slick.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/upgrade.rst">edit this page on github</a><span>
+          |
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             accesskey="P">previous</a> |
+          <a href="extensions.html" title="Slick Extensions"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.0.0-RC2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="upgrade-guides">
+<span id="index-0"></span><h1>Upgrade Guides<a class="headerlink" href="#upgrade-guides" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="compatibility-policy">
+<span id="index-1"></span><h2>Compatibility Policy<a class="headerlink" href="#compatibility-policy" title="Permalink to this headline">¶</a></h2>
+<p>Slick requires Scala 2.10 or 2.11. (For Scala 2.9 please use <a class="reference external" href="http://scalaquery.org">ScalaQuery</a>, the predecessor of Slick).</p>
+<p>Slick version numbers consist of an epoch, a major and minor version, and possibly a qualifier
+(for milestone, RC and SNAPSHOT versions).</p>
+<p>For release versions (i.e. versions without a qualifier), backward binary compatibility is
+guaranteed between releases with the same epoch and major version (e.g. you could use 2.1.2 as a
+drop-in relacement for 2.1.0 but not for 2.0.0). <a class="reference internal" href="extensions.html"><em>Slick Extensions</em></a> requires at
+least the same minor version of Slick (e.g. Slick Extensions 2.1.2 can be used with Slick 2.1.2 but
+not with Slick 2.1.1). Binary compatibility is not preserved for <cite>slick-codegen</cite>, which is generally
+used at compile-time.</p>
+<p>We do not guarantee source compatibility but we try to preserve it within the same major release.
+Upgrading to a new major release may require some changes to your sources. We generally deprecate
+old features and keep them around for a full major release cycle (i.e. features which become
+deprecated in 2.1.0 will not be removed before 2.2.0) but this is not possible for all kinds of
+changes.</p>
+<p>Release candidates have the same compatibility guarantees as the final versions to which they
+lead. There are <em>no compatibility guarantees</em> whatsoever for milestones and snapshots.</p>
+</div>
+<div class="section" id="upgrade-from-2-1-to-3-0">
+<h2>Upgrade from 2.1 to 3.0<a class="headerlink" href="#upgrade-from-2-1-to-3-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="package-structure">
+<h3>Package Structure<a class="headerlink" href="#package-structure" title="Permalink to this headline">¶</a></h3>
+<p>Slick has moved from package <tt class="docutils literal"><span class="pre">scala.slick</span></tt> to <tt class="docutils literal"><span class="pre">slick</span></tt>. A package object in <tt class="docutils literal"><span class="pre">scala.slick</span></tt> provides deprecated
+aliases for many common types and values.</p>
+</div>
+<div class="section" id="database-i-o-actions">
+<h3>Database I/O Actions<a class="headerlink" href="#database-i-o-actions" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">simple</span></tt> and <tt class="docutils literal"><span class="pre">Implicits</span></tt> imports from drivers are deprecated and will be removed in Slick 3.1.
+You should use <tt class="docutils literal"><span class="pre">api</span></tt> instead, which will give
+you the same features, except for the old <tt class="docutils literal"><span class="pre">Invoker</span></tt> and <tt class="docutils literal"><span class="pre">Executor</span></tt> APIs for blocking execution of database calls.
+These have been replaced by a new monadic database I/O actions API. See <a class="reference internal" href="dbio.html"><em>Database I/O Actions</em></a> for
+details of the new API.</p>
+</div>
+<div class="section" id="join-operators">
+<h3>Join Operators<a class="headerlink" href="#join-operators" title="Permalink to this headline">¶</a></h3>
+<p>The old outer join operators did not handle <tt class="docutils literal"><span class="pre">null</span></tt> values correctly, requiring complicated mappings in user code,
+especially when using nested outer joins or outer joins over mapped entities. This is no longer necessary with the
+new outer join operators that lift one (left or right outer join) or both sides (full outer join) of the join into an
+<tt class="docutils literal"><span class="pre">Option</span></tt>. This is made possible by the new nested Options and non-primitive Options support in Slick.</p>
+<p>The old operators are deprecated but still available. Deprecation warnings will point you to the right replacement:</p>
+<ul class="simple">
+<li>leftJoin -&gt; joinLeft</li>
+<li>rightJoin -&gt; joinRight</li>
+<li>outerJoin -&gt; joinFull</li>
+<li>innerJoin -&gt; join</li>
+</ul>
+<p>Passing an explicit <tt class="docutils literal"><span class="pre">JoinType</span></tt> to the generic <tt class="docutils literal"><span class="pre">join</span></tt> operator does not make sense anymore with the new join
+semantics and is therefore deprecated, too. <tt class="docutils literal"><span class="pre">join</span></tt> is now used exclusively for inner joins.</p>
+</div>
+<div class="section" id="first">
+<h3>first<a class="headerlink" href="#first" title="Permalink to this headline">¶</a></h3>
+<p>The old Invoker API used the <tt class="docutils literal"><span class="pre">first</span></tt> and <tt class="docutils literal"><span class="pre">firstOption</span></tt> methods to get the first element of a collection-valued
+query. The same operations for streaming Actions in the new API are called <tt class="docutils literal"><span class="pre">head</span></tt> and <tt class="docutils literal"><span class="pre">headOption</span></tt> respectively,
+consistent with the names used by the Scala Collections API.</p>
+</div>
+<div class="section" id="column-type">
+<h3>Column Type<a class="headerlink" href="#column-type" title="Permalink to this headline">¶</a></h3>
+<p>The type <tt class="docutils literal"><span class="pre">Column[T]</span></tt> has been subsumed into its supertype <tt class="docutils literal"><span class="pre">Rep[T]</span></tt>. For operations which are only available for
+individual columns, an implicit <tt class="docutils literal"><span class="pre">TypedType[T]</span></tt> evidence is required. The more flexible handling of Option columns
+requires Option and non-Option columns to be treated differently when creating an implicit <tt class="docutils literal"><span class="pre">Shape</span></tt>. In this case
+the evidence needs to be of type <tt class="docutils literal"><span class="pre">OptionTypedType[T]</span></tt> or <tt class="docutils literal"><span class="pre">BaseTypedType[T]</span></tt>, respectively. If you want to abstract
+over both, it may be more convenient to pass the required <tt class="docutils literal"><span class="pre">Shape</span></tt> as an implicit parameter and let it be instantiated
+at the call site where the concrete type is known.</p>
+<p><tt class="docutils literal"><span class="pre">Column[T]</span></tt> is still available as a deprecated alias for <tt class="docutils literal"><span class="pre">Rep[T]</span></tt>. Due to the required implicit evidence, it
+cannot provide complete backwards compatibility in all cases.</p>
+</div>
+<div class="section" id="closing-databases">
+<h3>Closing Databases<a class="headerlink" href="#closing-databases" title="Permalink to this headline">¶</a></h3>
+<p>Since a <tt class="docutils literal"><span class="pre">Database</span></tt> instance can now have an associated connection pool and thread pool, it is
+important to call <tt class="docutils literal"><span class="pre">shutdown</span></tt> or <tt class="docutils literal"><span class="pre">close</span></tt> when you are done using it, so that these pools can be
+shut down properly. You should take care to do this when you migrate to the new action-based API.
+As long as you exclusively use the deprecated synchronous API, it is not strictly necessary.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not rely on the lazy initialization! Slick 3.1 will require <tt class="docutils literal"><span class="pre">Database</span></tt> objects to always be
+closed and may create connection and thread pool immediately.</p>
+</div>
+</div>
+<div class="section" id="metadata-api-and-code-generator">
+<h3>Metadata API and Code Generator<a class="headerlink" href="#metadata-api-and-code-generator" title="Permalink to this headline">¶</a></h3>
+<p>The JDBC metadata API in package <tt class="docutils literal"><span class="pre">slick.jdbc.meta</span></tt> has been switched to the new API, producing Actions instead
+of Invokers. The code generator, which uses this API, has been completely rewritten for the asynchronous API. It still
+supports the same functionality and the same concepts but any customization of the code generator will have to be
+changed. See the code generator tests and the <a class="reference internal" href="code-generation.html"><em>Schema Code Generation</em></a> chapter for examples.</p>
+</div>
+<div class="section" id="inserting-from-queries-and-expressions">
+<h3>Inserting from Queries and Expressions<a class="headerlink" href="#inserting-from-queries-and-expressions" title="Permalink to this headline">¶</a></h3>
+<p>In Slick 2.0, soft inserts (where auto-incrementing columns are ignored) became the default for inserting raw values.
+Inserting from another query or a computed expression still uses force-insert semantics (i.e. trying to insert even into
+auto-incrementing columns, whether or not the database supports it). The new DBIO API properly reflects this by renaming
+<tt class="docutils literal"><span class="pre">insert(Query)</span></tt> to <tt class="docutils literal"><span class="pre">forceInsertQuery(Query)</span></tt> and <tt class="docutils literal"><span class="pre">insertExpr</span></tt> to <tt class="docutils literal"><span class="pre">forceInsertExpr</span></tt>.</p>
+</div>
+<div class="section" id="default-string-types">
+<h3>Default String Types<a class="headerlink" href="#default-string-types" title="Permalink to this headline">¶</a></h3>
+<p>The default type for <tt class="docutils literal"><span class="pre">String</span></tt> columns of unconstrained length in JdbcProfile has traditionally been <tt class="docutils literal"><span class="pre">VARCHAR(254)</span></tt>.
+Some drivers (like H2Driver) already changed it into an unconstrained string type. Slick 3.0 now also uses <tt class="docutils literal"><span class="pre">VARCHAR</span></tt>
+on PostgreSQL and <tt class="docutils literal"><span class="pre">TEXT</span></tt> on MySQL. The former should be harmless but MySQL&#8217;s <tt class="docutils literal"><span class="pre">TEXT</span></tt> type is similar to <tt class="docutils literal"><span class="pre">CLOB</span></tt> and
+has some limitations (e.g. no default values and no index without a prefix length). You can use an explicit
+<tt class="docutils literal"><span class="pre">O.Length(254)</span></tt> column option to go back to the previous behavior or change the default in the application.conf key
+<tt class="docutils literal"><span class="pre">slick.driver.MySQL.defaultStringType</span></tt>.</p>
+</div>
+<div class="section" id="jdbcdriver">
+<h3>JdbcDriver<a class="headerlink" href="#jdbcdriver" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">JdbcDriver</span></tt> object has been deprecated. You should always use the correct driver for your database system.</p>
+</div>
+</div>
+<div class="section" id="upgrade-from-2-0-to-2-1">
+<h2>Upgrade from 2.0 to 2.1<a class="headerlink" href="#upgrade-from-2-0-to-2-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="query-type-parameters">
+<h3>Query type parameters<a class="headerlink" href="#query-type-parameters" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="api/index.html#slick.lifted.Query">Query</a> now takes 3 type parameters instead of two. 2.0&#8217;s <tt class="docutils literal"><span class="pre">Query[T,E]</span></tt> is equivalent to Slick 2.1&#8217;s <tt class="docutils literal"><span class="pre">Query[T,E,Seq]</span></tt>. The third parameter is the collection type to be returned when executing the query using <tt class="docutils literal"><span class="pre">.run</span></tt>, which always returned a <tt class="docutils literal"><span class="pre">Seq</span></tt> in Slick 2.0. This is the only place where it is used right now. In the future we will work on making queries correspond to the behavior of the corresponding Scala collection types, i.e. <tt class="docutils literal"><span class="pre">Query[_,_,Set]</span></tt> having the uniqueness property, <tt class="docutils literal"><span class="pre">Query[_,_,List]</span></tt> being order preserving, etc. The collecton type can be changed to <tt class="docutils literal"><span class="pre">C</span></tt> by calling <tt class="docutils literal"><span class="pre">.to[C]</span></tt> on a query.</p>
+<p>To upgrade your code to 2.1 you can either rename the new Query type to something else in the import, i.e. <tt class="docutils literal"><span class="pre">import</span> <span class="pre">....simple.{Query=&gt;NewQuery,_}</span></tt> and then write a type alias <tt class="docutils literal"><span class="pre">type</span> <span class="pre">Query[T,E]</span> <span class="pre">=</span> <span class="pre">NewQuery[T,E,Seq]</span></tt>. Or you can add <tt class="docutils literal"><span class="pre">Seq</span></tt> as the third type argument in your code. This regex should work for most places: replace <tt class="docutils literal"><span class="pre">([^a-zA-Z])Query\[([^\]]+),</span> <span class="pre">?([^\]]+)\]</span></tt> with <tt class="docutils literal"><span class="pre">\1Query[\2,</span> <span class="pre">\3,</span> <span class="pre">Seq]</span></tt>.</p>
+</div>
+<div class="section" id="list-and-first">
+<h3><tt class="docutils literal"><span class="pre">.list</span></tt> and <tt class="docutils literal"><span class="pre">.first</span></tt><a class="headerlink" href="#list-and-first" title="Permalink to this headline">¶</a></h3>
+<p>These methods had an empty argument list before the implicit argument list in 2.0. This has been dropped for uniformity. Calls like <tt class="docutils literal"><span class="pre">.list()</span></tt> need to be replaced with <tt class="docutils literal"><span class="pre">.list</span></tt> and <tt class="docutils literal"><span class="pre">.first()</span></tt> by <tt class="docutils literal"><span class="pre">.first</span></tt>.</p>
+</div>
+<div class="section" id="where">
+<h3><tt class="docutils literal"><span class="pre">.where</span></tt><a class="headerlink" href="#where" title="Permalink to this headline">¶</a></h3>
+<p>This method has been deprecated in favor of the Scala collections conformant <tt class="docutils literal"><span class="pre">.filter</span></tt> method.</p>
+</div>
+<div class="section" id="isnull-and-isnotnull">
+<h3><tt class="docutils literal"><span class="pre">.isNull</span></tt> and <tt class="docutils literal"><span class="pre">.isNotNull</span></tt><a class="headerlink" href="#isnull-and-isnotnull" title="Permalink to this headline">¶</a></h3>
+<p>These methods have been deprecated in favor of new Scala standard library conformant <tt class="docutils literal"><span class="pre">isEmpty</span></tt> and <tt class="docutils literal"><span class="pre">isDefined</span></tt> methods. They can now only be used on Option columns. Otherwise you get a type error. A quick workaround for using them on non-Option columns is casting them into Option columns using <tt class="docutils literal"><span class="pre">.?</span></tt>, e.g. <tt class="docutils literal"><span class="pre">someCol.?.isDefined</span></tt>. The reason that you have to do this points to using a wrong type for your column however, i.e. non-Option for a nullable column and should really be fixed in your Table definition.</p>
+</div>
+<div class="section" id="static-plain-sql-queries">
+<h3>Static Plain SQL Queries<a class="headerlink" href="#static-plain-sql-queries" title="Permalink to this headline">¶</a></h3>
+<p>The interface for using argument placeholders has been changed. Where in 2.0 you could write</p>
+<p><tt class="docutils literal"><span class="pre">StaticQuery.query[T,…](&quot;select</span> <span class="pre">...&quot;).list(someT)</span></tt></p>
+<p>you now have to write</p>
+<p><tt class="docutils literal"><span class="pre">StaticQuery.query[T,…](&quot;select</span> <span class="pre">...&quot;).apply(someT).list</span></tt></p>
+</div>
+<div class="section" id="slick-code-generator-slick-model">
+<h3>Slick code generator / Slick model<a class="headerlink" href="#slick-code-generator-slick-model" title="Permalink to this headline">¶</a></h3>
+<p>The code generator has been moved into a separate artifact in order to evolve it faster than Slick core. it moved from package <tt class="docutils literal"><span class="pre">slick.model.codegen</span></tt> to package <tt class="docutils literal"><span class="pre">slick.codegen</span></tt>. Binary compatibility will not be guaranteed, as it is supposed to be used before compile time. Add</p>
+<pre class="literal-block">
+&quot;com.typesafe.slick&quot; %% &quot;slick-codegen&quot; % &quot;3.0.0-RC2&quot;
+</pre>
+<p>to the dependencies of your code generator sbt project.</p>
+<p>Method <tt class="docutils literal"><span class="pre">SourceCodeGenerator#Table#compound</span></tt> has been replaced by two methods <tt class="docutils literal"><span class="pre">compoundValue</span></tt> and <tt class="docutils literal"><span class="pre">compoundType</span></tt> generating potentially differently shaped code for values and types of compound values.</p>
+<p>Method <tt class="docutils literal"><span class="pre">getTables</span></tt> of the Slick drivers, which returns an Invoker for listing all default database tables has been deprecated in favor of new method <tt class="docutils literal"><span class="pre">defautTables</span></tt>, which returns the tables directly in order to allow Slick to exclude meta tables at this point.</p>
+<p>Method <tt class="docutils literal"><span class="pre">slick.jdbc.meta.createModel(tables)</span></tt> has been moved into the drivers and can now be invoked using e.g. <tt class="docutils literal"><span class="pre">H2Driver.createModel(Some(tables))</span></tt></p>
+<p>The model generated by Slick now contains improved information like the database column type, length of string columns, default values for strings in MySQL. The code generator
+will embed the portable length into generated code and can optionally embed the non-portable database column type into generated code when overriding <tt class="docutils literal"><span class="pre">SlickCodeGenerator#Table#Column#dbType</span></tt> with <tt class="docutils literal"><span class="pre">true</span></tt>.</p>
+<p>The new <tt class="docutils literal"><span class="pre">ModelBuilder</span></tt> can be extended to customize model creation from jdbc meta data, similar to how the code generator can be customized. This allows working around differences and bugs in jdbc drivers, when creating the model or making up for missing features in Slick, e.g supporting specific types of your dbms of choice.</p>
+</div>
+</div>
+<div class="section" id="upgrade-from-1-0-to-2-0">
+<h2>Upgrade from 1.0 to 2.0<a class="headerlink" href="#upgrade-from-1-0-to-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Slick 2.0 contains some improvements which are not source compatible with Slick
+1.0. When migrating your application from 1.0 to 2.0, you will likely need to
+perform changes in the following areas.</p>
+<div class="section" id="code-generation">
+<h3>Code Generation<a class="headerlink" href="#code-generation" title="Permalink to this headline">¶</a></h3>
+<p>Instead of writing your table descriptions or plain SQL mappers by hand, in 2.0 you can
+now automatically generate them from your database schema. The code-generator
+is flexible enough to customize it&#8217;s output to fit exactly what you need.
+<a class="reference internal" href="code-generation.html"><em>More info on code generation</em></a>.</p>
+</div>
+<div class="section" id="table-descriptions">
+<span id="index-2"></span><h3>Table Descriptions<a class="headerlink" href="#table-descriptions" title="Permalink to this headline">¶</a></h3>
+<p>In Slick 1.0 tables were defined by a single <tt class="docutils literal"><span class="pre">val</span></tt> or <tt class="docutils literal"><span class="pre">object</span></tt> (called the
+<em>table object</em>) and the <tt class="docutils literal"><span class="pre">*</span></tt> projection was limited to a flat tuple of columns
+that had to be constructed with the special <tt class="docutils literal"><span class="pre">~</span></tt> operator:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// --------------------- Slick 1.0 code -- does not compile in 2.0 ---------------------</span>
+
+<span class="k">object</span> <span class="nc">Suppliers</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)](</span><span class="s">&quot;SUPPLIERS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;SUP_NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="n">id</span> <span class="o">~</span> <span class="n">name</span> <span class="o">~</span> <span class="n">street</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In Slick 2.0 you need to define your table as a class that takes an extra
+<tt class="docutils literal"><span class="pre">Tag</span></tt> argument (the <em>table row class</em>) plus an instance of a <tt class="docutils literal"><span class="pre">TableQuery</span></tt>
+of that class (representing the actual database table). Tuples for the <tt class="docutils literal"><span class="pre">*</span></tt>
+projection can use the standard tuple syntax:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Suppliers</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;SUPPLIERS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;SUP_NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">street</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">suppliers</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Suppliers</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>You can import <a class="reference external" href="api/index.html#slick.util.TupleMethods$">TupleMethods</a>._ to get
+support for the old <cite>~</cite> syntax. The simple <tt class="docutils literal"><span class="pre">TableQuery[T]</span></tt> syntax is a
+macro which expands to a proper TableQuery instance that calls the table&#8217;s
+constructor (<tt class="docutils literal"><span class="pre">new</span> <span class="pre">TableQuery(new</span> <span class="pre">T(_))</span></tt>). In Slick 1.0 it was common practice
+to place extra static methods associated with a table into that table&#8217;s object.
+You can do the same in 2.0 with a custom <tt class="docutils literal"><span class="pre">TableQuery</span></tt> object:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">object</span> <span class="nc">suppliers</span> <span class="k">extends</span> <span class="nc">TableQuery</span><span class="o">(</span><span class="k">new</span> <span class="nc">Suppliers</span><span class="o">(</span><span class="k">_</span><span class="o">))</span> <span class="o">{</span>
+  <span class="c1">// put extra methods here, e.g.:</span>
+  <span class="k">val</span> <span class="n">findByID</span> <span class="k">=</span> <span class="k">this</span><span class="o">.</span><span class="n">findBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Note that a <tt class="docutils literal"><span class="pre">TableQuery</span></tt> is a <tt class="docutils literal"><span class="pre">Query</span></tt> for the table. The implicit
+conversion from a table row object to a <tt class="docutils literal"><span class="pre">Query</span></tt> that could be applied in
+unexpected places is no longer needed or available. All the places where you
+had to use the raw <em>table object</em> in Slick 1.0 have been changed to use the
+<em>table query</em> instead, e.g. inserting (see below) or foreign key references.</p>
+<p>The method for creating simple finders has been renamed from <tt class="docutils literal"><span class="pre">createFinderBy</span></tt>
+to <tt class="docutils literal"><span class="pre">findBy</span></tt>. It is defined as an <em>extension method</em> for <tt class="docutils literal"><span class="pre">TableQuery</span></tt>, so
+you have to prefix the call with <tt class="docutils literal"><span class="pre">this.</span></tt> (see code snippet above).</p>
+</div>
+<div class="section" id="mapped-tables">
+<h3>Mapped Tables<a class="headerlink" href="#mapped-tables" title="Permalink to this headline">¶</a></h3>
+<p>In 1.0 the <tt class="docutils literal"><span class="pre">&lt;&gt;</span></tt> method for bidirectional mappings was overloaded for
+different arities so you could directly pass a case class&#8217;s <tt class="docutils literal"><span class="pre">apply</span></tt> method to
+it:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// --------------------- Slick 1.0 code -- does not compile in 2.0 ---------------------</span>
+
+<span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="n">id</span> <span class="o">~</span> <span class="n">name</span> <span class="o">~</span> <span class="n">street</span> <span class="o">&lt;&gt;</span> <span class="o">(</span><span class="nc">Supplier</span> <span class="k">_</span><span class="o">,</span> <span class="nc">Supplier</span><span class="o">.</span><span class="n">unapply</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>This is no longer supported in 2.0. One of the reasons is that the overloading
+led to complicated error messages.
+You now have to use a function with an appropriate tuple type.
+If you map to a case class you can simply use <tt class="docutils literal"><span class="pre">.tupled</span></tt> on its
+companion object:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">street</span><span class="o">)</span> <span class="o">&lt;&gt;</span> <span class="o">(</span><span class="nc">Supplier</span><span class="o">.</span><span class="n">tupled</span><span class="o">,</span> <span class="nc">Supplier</span><span class="o">.</span><span class="n">unapply</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Note that <tt class="docutils literal"><span class="pre">.tupled</span></tt> is only available for proper Scala <em>functions</em>. In 1.0 it
+was sufficient to have a <em>method</em> like <tt class="docutils literal"><span class="pre">apply</span></tt> that could be converted to
+a function on demand (<tt class="docutils literal"><span class="pre">&lt;&gt;</span> <span class="pre">(Supplier.apply</span> <span class="pre">_,</span> <span class="pre">Supplier.unapply)</span></tt>).</p>
+<p>When using a case class, the companion object extends the correct function
+type by default, but only if you do not define the object yourself. In that
+case you should provide the right supertype manually, e.g.:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">street</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+
+<span class="k">object</span> <span class="nc">Supplier</span> <span class="c1">// overriding the default companion object</span>
+  <span class="k">extends</span> <span class="o">((</span><span class="nc">Int</span><span class="o">,</span> <span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Supplier</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// manually extending the correct function type</span>
+  <span class="c1">//...</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Alternatively, you can have the Scala compiler first do the lifting to a
+function and then call <tt class="docutils literal"><span class="pre">.tupled</span></tt>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">street</span><span class="o">)</span> <span class="o">&lt;&gt;</span> <span class="o">((</span><span class="nc">Supplier</span><span class="o">.</span><span class="n">apply</span> <span class="k">_</span><span class="o">).</span><span class="n">tupled</span><span class="o">,</span> <span class="nc">Supplier</span><span class="o">.</span><span class="n">unapply</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="profile-hierarchy">
+<span id="index-3"></span><h3>Profile Hierarchy<a class="headerlink" href="#profile-hierarchy" title="Permalink to this headline">¶</a></h3>
+<p>Slick 1.0 provided two <em>profiles</em>, <tt class="docutils literal"><span class="pre">BasicProfile</span></tt> and <tt class="docutils literal"><span class="pre">ExtendedProfile</span></tt>.
+These two have been unified in 2.0 as <tt class="docutils literal"><span class="pre">JdbcProfile</span></tt>. Slick now provides
+more abstract profiles, in particular <tt class="docutils literal"><span class="pre">RelationalProfile</span></tt> which does not
+have all the features of <tt class="docutils literal"><span class="pre">JdbcProfile</span></tt> but is supported by the new
+<tt class="docutils literal"><span class="pre">HeapDriver</span></tt> and <tt class="docutils literal"><span class="pre">DistributedDriver</span></tt>. When porting code from Slick 1.0,
+you generally want to switch to <tt class="docutils literal"><span class="pre">JdbcProfile</span></tt> when abstracting over
+drivers. In particular, pay attention to the fact that <tt class="docutils literal"><span class="pre">BasicProfile</span></tt>
+in 2.0 is very different from <tt class="docutils literal"><span class="pre">BasicProfile</span></tt> in 1.0.</p>
+</div>
+<div class="section" id="inserting">
+<h3>Inserting<a class="headerlink" href="#inserting" title="Permalink to this headline">¶</a></h3>
+<p>In Slick 1.0 you used to construct a projection for inserting from the
+<em>table object</em>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// --------------------- Slick 1.0 code -- does not compile in 2.0 ---------------------</span>
+
+<span class="o">(</span><span class="nc">Suppliers</span><span class="o">.</span><span class="n">name</span> <span class="o">~</span> <span class="nc">Suppliers</span><span class="o">.</span><span class="n">street</span><span class="o">)</span> <span class="n">insert</span> <span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">,</span> <span class="s">&quot;bar&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Since there is no raw table object any more in 2.0 you have to use a
+projection from the table query:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">suppliers</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">s</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">street</span><span class="o">))</span> <span class="o">+=</span> <span class="o">(</span><span class="s">&quot;foo&quot;</span><span class="o">,</span> <span class="s">&quot;bar&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Note the use of the new <tt class="docutils literal"><span class="pre">+=</span></tt> operator for API compatibility with Scala
+collections. The old name <tt class="docutils literal"><span class="pre">insert</span></tt> is still available as an alias.</p>
+<p>Slick 2.0 will now automatically exclude <tt class="docutils literal"><span class="pre">AutoInc</span></tt> fields by default when
+inserting data. In 1.0 it was common to have a separate projection for
+inserts in order to exclude these fields manually:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// --------------------- Slick 1.0 code -- does not compile in 2.0 ---------------------</span>
+
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">street</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+
+<span class="k">object</span> <span class="nc">Suppliers</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">Supplier</span><span class="o">](</span><span class="s">&quot;SUPPLIERS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">AutoInc</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;SUP_NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="c1">// Map a Supplier case class:</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="n">id</span> <span class="o">~</span> <span class="n">name</span> <span class="o">~</span> <span class="n">street</span> <span class="o">&lt;&gt;</span> <span class="o">(</span><span class="nc">Supplier</span><span class="o">.</span><span class="n">tupled</span><span class="o">,</span> <span class="nc">Supplier</span><span class="o">.</span><span class="n">unapply</span><span class="o">)</span>
+  <span class="c1">// Special mapping without the &#39;id&#39; field:</span>
+  <span class="k">def</span> <span class="n">forInsert</span> <span class="k">=</span> <span class="n">name</span> <span class="o">~</span> <span class="n">street</span> <span class="o">&lt;&gt;</span> <span class="o">(</span>
+    <span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">street</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Supplier</span><span class="o">(-</span><span class="mi">1</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">street</span><span class="o">)</span> <span class="o">},</span>
+    <span class="o">{</span> <span class="n">sup</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">sup</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">sup</span><span class="o">.</span><span class="n">street</span><span class="o">)</span> <span class="o">}</span>
+  <span class="o">)</span>
+<span class="o">}</span>
+
+<span class="nc">Suppliers</span><span class="o">.</span><span class="n">forInsert</span><span class="o">.</span><span class="n">insert</span><span class="o">(</span><span class="n">mySupplier</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>This is no longer necessary in 2.0. You can simply insert using the default
+projection and Slick will skip the auto-incrementing <tt class="docutils literal"><span class="pre">id</span></tt> column:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">street</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+
+<span class="k">class</span> <span class="nc">Suppliers</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">Supplier</span><span class="o">](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;SUPPLIERS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">AutoInc</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;SUP_NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">street</span><span class="o">)</span> <span class="o">&lt;&gt;</span> <span class="o">(</span><span class="nc">Supplier</span><span class="o">.</span><span class="n">tupled</span><span class="o">,</span> <span class="nc">Supplier</span><span class="o">.</span><span class="n">unapply</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">suppliers</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Suppliers</span><span class="o">]</span>
+
+<span class="n">suppliers</span> <span class="o">+=</span> <span class="n">mySupplier</span>
+</pre></div>
+</div>
+<p>If you really want to insert into an <tt class="docutils literal"><span class="pre">AutoInc</span></tt> field, you can use the new
+methods <tt class="docutils literal"><span class="pre">forceInsert</span></tt> and <tt class="docutils literal"><span class="pre">forceInsertAll</span></tt>.</p>
+</div>
+<div class="section" id="pre-compiled-updates">
+<h3>Pre-compiled Updates<a class="headerlink" href="#pre-compiled-updates" title="Permalink to this headline">¶</a></h3>
+<p>Slick now supports pre-compilation of updates in the same manner like selects, see
+<a class="reference internal" href="queries.html#compiled-queries"><em>Compiled Queries</em></a>.</p>
+</div>
+<div class="section" id="database-and-session-handling">
+<span id="index-4"></span><h3>Database and Session Handling<a class="headerlink" href="#database-and-session-handling" title="Permalink to this headline">¶</a></h3>
+<p>In Slick 1.0, the common JDBC-based <tt class="docutils literal"><span class="pre">Database</span></tt> and <tt class="docutils literal"><span class="pre">Session</span></tt> types, as well
+as the <tt class="docutils literal"><span class="pre">Database</span></tt> factory object, could be found in the package
+<tt class="docutils literal"><span class="pre">slick.session</span></tt>. Since Slick 2.0 is no longer restricted to JDBC-based
+databases, this package has been replaced by the new
+<a class="reference external" href="api/index.html#slick.backend.DatabaseComponent">DatabaseComponent</a> (a.k.a. <em>backend</em>) hierarchy. If
+you work at the <a class="reference external" href="api/index.html#slick.driver.JdbcProfile">JdbcProfile</a> abstraction level, you
+will always use a <a class="reference external" href="api/index.html#slick.jdbc.JdbcBackend">JdbcBackend</a> from which you can import
+the types that were previously found in <tt class="docutils literal"><span class="pre">slick.session</span></tt>. Note that
+importing <tt class="docutils literal"><span class="pre">simple._</span></tt> from a driver will automatically bring these types into
+scope.</p>
+</div>
+<div class="section" id="dynamically-and-statically-scoped-sessions">
+<h3>Dynamically and Statically Scoped Sessions<a class="headerlink" href="#dynamically-and-statically-scoped-sessions" title="Permalink to this headline">¶</a></h3>
+<p>Slick 2.0 still supports both, thread-local dynamic sessions and statically
+scoped sessions, but the syntax has changed to make the recommended way of
+using statically scoped sessions more concise. The old <tt class="docutils literal"><span class="pre">threadLocalSession</span></tt>
+is now called <tt class="docutils literal"><span class="pre">dynamicSession</span></tt> and the overloads of the associated session
+handling methods <tt class="docutils literal"><span class="pre">withSession</span></tt> and <tt class="docutils literal"><span class="pre">withTransaction</span></tt> have been renamed to
+<tt class="docutils literal"><span class="pre">withDynSession</span></tt> and <tt class="docutils literal"><span class="pre">withDynTransaction</span></tt> respectively. If you used this
+pattern in Slick 1.0:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// --------------------- Slick 1.0 code -- does not compile in 2.0 ---------------------</span>
+
+<span class="k">import</span> <span class="nn">scala.slick.session.Database.threadLocalSession</span>
+
+<span class="n">myDB</span> <span class="n">withSession</span> <span class="o">{</span>
+  <span class="c1">// use the implicit threadLocalSession here</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>You have to change it for Slick 2.0 to:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">slick.jdbc.JdbcBackend.Database.dynamicSession</span>
+
+<span class="n">myDB</span> <span class="n">withDynSession</span> <span class="o">{</span>
+  <span class="c1">// use the implicit dynamicSession here</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>On the other hand, due to the overloaded methods, Slick 1.0 required
+an explicit type annotation when using the statically scoped session:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">myDB</span> <span class="n">withSession</span> <span class="o">{</span> <span class="k">implicit</span> <span class="n">session</span><span class="k">:</span> <span class="kt">Session</span> <span class="o">=&gt;</span>
+  <span class="c1">// use the implicit session here</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>This is no longer necessary in 2.0:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">myDB</span> <span class="n">withSession</span> <span class="o">{</span> <span class="k">implicit</span> <span class="n">session</span> <span class="k">=&gt;</span>
+  <span class="c1">// use the implicit session here</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Again, the recommended practice is NOT to use dynamic sessions.
+If you are uncertain if you need them the answer is most probably no.
+Static sessions are safer.</p>
+</div>
+<div class="section" id="mapped-column-types">
+<span id="index-5"></span><h3>Mapped Column Types<a class="headerlink" href="#mapped-column-types" title="Permalink to this headline">¶</a></h3>
+<p>Slick 1.0&#8217;s <tt class="docutils literal"><span class="pre">MappedTypeMapper</span></tt> has been renamed to
+<a class="reference external" href="api/index.html#slick.driver.JdbcTypesComponent&#64;MappedColumnType:JdbcDriver.MappedColumnTypeFactory">MappedColumnType</a>.
+Its basic form (using
+<a class="reference external" href="api/index.html#slick.profile.RelationalTypesComponent$MappedColumnTypeFactory&#64;base[T,U]((T)⇒U,(U)⇒T)(ClassTag[T],RelationalDriver.BaseColumnType[U]):RelationalDriver.BaseColumnType[T]">MappedColumnType.base</a>)
+is now available at the <a class="reference external" href="api/index.html#slick.profile.RelationalProfile">RelationalProfile</a> level (with
+more advanced uses still requiring <a class="reference external" href="api/index.html#slick.driver.JdbcProfile">JdbcProfile</a>). The
+idiomatic use in Slick 1.0 was:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// --------------------- Slick 1.0 code -- does not compile in 2.0 ---------------------</span>
+
+<span class="k">case</span> <span class="k">class</span> <span class="nc">MyID</span><span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+
+<span class="k">implicit</span> <span class="k">val</span> <span class="n">myIDTypeMapper</span> <span class="k">=</span>
+  <span class="nc">MappedTypeMapper</span><span class="o">.</span><span class="n">base</span><span class="o">[</span><span class="kt">MyID</span>, <span class="kt">Int</span><span class="o">](</span><span class="k">_</span><span class="o">.</span><span class="n">value</span><span class="o">,</span> <span class="k">new</span> <span class="nc">MyID</span><span class="o">(</span><span class="k">_</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>This has changed to:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">MyID</span><span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+
+<span class="k">implicit</span> <span class="k">val</span> <span class="n">myIDColumnType</span> <span class="k">=</span>
+  <span class="nc">MappedColumnType</span><span class="o">.</span><span class="n">base</span><span class="o">[</span><span class="kt">MyID</span>, <span class="kt">Int</span><span class="o">](</span><span class="k">_</span><span class="o">.</span><span class="n">value</span><span class="o">,</span> <span class="k">new</span> <span class="nc">MyID</span><span class="o">(</span><span class="k">_</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>If you need to map a simple wrapper type (as shown in this example), you can
+now do that in an easier way by extending <a class="reference external" href="api/index.html#slick.lifted.MappedTo">MappedTo</a>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">case</span> <span class="k">class</span> <span class="nc">MyID</span><span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">MappedTo</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+
+<span class="c1">// No extra implicit required any more</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Upgrade Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compatibility-policy">Compatibility Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-from-2-1-to-3-0">Upgrade from 2.1 to 3.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#package-structure">Package Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-i-o-actions">Database I/O Actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#join-operators">Join Operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first">first</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#column-type">Column Type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closing-databases">Closing Databases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-api-and-code-generator">Metadata API and Code Generator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting-from-queries-and-expressions">Inserting from Queries and Expressions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-string-types">Default String Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jdbcdriver">JdbcDriver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-from-2-0-to-2-1">Upgrade from 2.0 to 2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#query-type-parameters">Query type parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#list-and-first"><tt class="docutils literal"><span class="pre">.list</span></tt> and <tt class="docutils literal"><span class="pre">.first</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where"><tt class="docutils literal"><span class="pre">.where</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#isnull-and-isnotnull"><tt class="docutils literal"><span class="pre">.isNull</span></tt> and <tt class="docutils literal"><span class="pre">.isNotNull</span></tt></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#static-plain-sql-queries">Static Plain SQL Queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slick-code-generator-slick-model">Slick code generator / Slick model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-from-1-0-to-2-0">Upgrade from 1.0 to 2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-generation">Code Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#table-descriptions">Table Descriptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapped-tables">Mapped Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profile-hierarchy">Profile Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inserting">Inserting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-compiled-updates">Pre-compiled Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-and-session-handling">Database and Session Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamically-and-statically-scoped-sessions">Dynamically and Statically Scoped Sessions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mapped-column-types">Mapped Column Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             >previous</a> |
+          <a href="extensions.html" title="Slick Extensions"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2015 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

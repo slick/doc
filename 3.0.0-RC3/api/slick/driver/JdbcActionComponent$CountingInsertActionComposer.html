@@ -1,0 +1,932 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>CountingInsertActionComposer - Slick 3.0.0-RC3 - slick.driver.JdbcActionComponent.CountingInsertActionComposer</title>
+          <meta name="description" content="CountingInsertActionComposer - Slick 3.0.0 - RC3 - slick.driver.JdbcActionComponent.CountingInsertActionComposer" />
+          <meta name="keywords" content="CountingInsertActionComposer Slick 3.0.0 RC3 slick.driver.JdbcActionComponent.CountingInsertActionComposer" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.driver.JdbcActionComponent$CountingInsertActionComposer';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../lib/trait_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a>.<a href="package.html" class="extype" name="slick.driver">driver</a>.<a href="JdbcActionComponent.html" class="extype" name="slick.driver.JdbcActionComponent">JdbcActionComponent</a></p>
+        <h1>CountingInsertActionComposer</h1>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">CountingInsertActionComposer</span><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcDriver.html#InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.InsertActionComposer">JdbcDriver.InsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>An InsertInvoker that returns the number of affected rows.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/3.0.0-RC3/src/main/scala/slick/driver/JdbcActionComponent.scala" target="_blank">JdbcActionComponent.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="JdbcDriver.html#InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.InsertActionComposer">JdbcDriver.InsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>], <a href="JdbcDriver.html#SimpleInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionExtensionMethodsImpl[U]" class="extmbr" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">JdbcDriver.SimpleInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>], <a href="JdbcDriver.html#InsertActionExtensionMethodsImpl[T]extendsAnyRef" class="extmbr" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl">JdbcDriver.InsertActionExtensionMethodsImpl</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>], <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+          <span class="toggle">Known Subclasses</span>
+          <div class="subClasses hiddenContent"><a href="JdbcActionComponent$CountingInsertActionComposerImpl.html" class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposerImpl">CountingInsertActionComposerImpl</a></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph387" viewBox="0.00 0.00 302.00 158.00" height="158pt" width="302pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 154)" class="graph" id="graph0"><polygon points="-4,4 -4,-154 298,-154 298,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph387_0"><g id="a_this trait|graph387_0"><a xlink:title="slick.driver.JdbcActionComponent.CountingInsertActionComposer (this trait)" xlink:href="#inheritance-diagram"><polygon points="270,-88 24,-88 24,-62 270,-62 270,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-81" x="36" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.7495" x="55.7344" text-anchor="start">JdbcDriver.CountingInsertActionComposer[U]</text></a></g></g><!-- node1 --><g class="node class" id="graph387_1"><g id="a_class|graph387_1"><a xlink:title="slick.driver.JdbcActionComponent.CountingInsertActionComposerImpl" xlink:href="JdbcActionComponent$CountingInsertActionComposerImpl.html#inheritance-diagram"><polygon points="279.25,-26 14.75,-26 14.75,-0 279.25,-0 279.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="27" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="46.7886" text-anchor="start">JdbcDriver.CountingInsertActionComposerImpl[U]</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph387_0_1"><g id="a_inheritance|graph387_0_1"><a xlink:title="JdbcDriver.CountingInsertActionComposerImpl[U] is a subtype of JdbcDriver.CountingInsertActionComposer[U]"><path d="M147,-56.6826C147,-46.8961 147,-34.9026 147,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="145.25,-56.8581 147,-61.8581 148.75,-56.8581 145.25,-56.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph387_2"><g id="a_trait|graph387_2"><a xlink:title="slick.driver.JdbcActionComponent.InsertActionComposer" xlink:href="JdbcActionComponent$InsertActionComposer.html#inheritance-diagram"><polygon points="250,-150 44,-150 44,-124 250,-124 250,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-143" x="56" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-132.75" x="75.749" text-anchor="start">JdbcDriver.InsertActionComposer[U]</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph387_2_0"><g id="a_inheritance|graph387_2_0"><a xlink:title="JdbcDriver.CountingInsertActionComposer[U] is a subtype of JdbcDriver.InsertActionComposer[U]"><path d="M147,-118.683C147,-108.896 147,-96.9026 147,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="145.25,-118.858 147,-123.858 148.75,-118.858 145.25,-118.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer"><span>CountingInsertActionComposer</span></li><li class="in" name="slick.driver.JdbcActionComponent.InsertActionComposer"><span>InsertActionComposer</span></li><li class="in" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer"><span>SimpleInsertActionComposer</span></li><li class="in" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl"><span>InsertActionExtensionMethodsImpl</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.any2stringfmt" data-hidden="true"><span>by any2stringfmt</span></li><li class="in" name="scala.Predef.any2ArrowAssoc" data-hidden="true"><span>by any2ArrowAssoc</span></li><li class="in" name="scala.Predef.any2Ensuring" data-hidden="true"><span>by any2Ensuring</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.MultiInsertResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MultiInsertResult=Option[Int]"></a>
+      <a id="MultiInsertResult:MultiInsertResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">MultiInsertResult</span><span class="result"> = <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The result type when inserting a collection of values.</p><div class="fullcomment"><div class="comment cmt"><p>The result type when inserting a collection of values.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">CountingInsertActionComposer</a> → <a href="../profile/RelationalActionComponent$InsertActionExtensionMethodsImpl.html" class="extype" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl">InsertActionExtensionMethodsImpl</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.QueryInsertResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QueryInsertResult=Int"></a>
+      <a id="QueryInsertResult:QueryInsertResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">QueryInsertResult</span><span class="result"> = <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The result type of operations that insert data produced by another query</p><div class="fullcomment"><div class="comment cmt"><p>The result type of operations that insert data produced by another query</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">CountingInsertActionComposer</a> → <a href="JdbcActionComponent$InsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer">InsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.SingleInsertOrUpdateResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SingleInsertOrUpdateResult=Int"></a>
+      <a id="SingleInsertOrUpdateResult:SingleInsertOrUpdateResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SingleInsertOrUpdateResult</span><span class="result"> = <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The return type for <code>insertOrUpdate</code> operations</p><div class="fullcomment"><div class="comment cmt"><p>The return type for <code>insertOrUpdate</code> operations</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">CountingInsertActionComposer</a> → <a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.SingleInsertResult" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SingleInsertResult=Int"></a>
+      <a id="SingleInsertResult:SingleInsertResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SingleInsertResult</span><span class="result"> = <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">The result type when inserting a single value.</p><div class="fullcomment"><div class="comment cmt"><p>The result type when inserting a single value.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">CountingInsertActionComposer</a> → <a href="../profile/RelationalActionComponent$InsertActionExtensionMethodsImpl.html" class="extype" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl">InsertActionExtensionMethodsImpl</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer#++=" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="++=(values:Iterable[U]):JdbcActionComponent.this.DriverAction[SimpleInsertActionComposer.this.MultiInsertResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="++=(Iterable[U]):JdbcDriver.DriverAction[MultiInsertResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus$plus$eq" class="name">++=</span><span class="params">(<span name="values">values: <a href="../../scala/package.html#Iterable[+A]=Iterable[A]" class="extmbr" name="scala.Iterable">Iterable</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#MultiInsertResult=Option[Int]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.MultiInsertResult">MultiInsertResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert multiple rows, skipping AutoInc columns.</p><div class="fullcomment"><div class="comment cmt"><p>Insert multiple rows, skipping AutoInc columns.
+Uses JDBC's batch update feature if supported by the JDBC driver.
+Returns Some(rowsAffected), or None if the database returned no row
+count for some part of the batch. If any part of the batch fails, an
+exception is thrown.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a> → <a href="../profile/RelationalActionComponent$InsertActionExtensionMethodsImpl.html" class="extype" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl">InsertActionExtensionMethodsImpl</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer#+=" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="+=(value:U):JdbcActionComponent.this.DriverAction[SimpleInsertActionComposer.this.SingleInsertResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="+=(U):JdbcDriver.DriverAction[SingleInsertResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus$eq" class="name">+=</span><span class="params">(<span name="value">value: <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span></span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#SingleInsertResult=Int" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.SingleInsertResult">SingleInsertResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert a single row, skipping AutoInc columns.</p><div class="fullcomment"><div class="comment cmt"><p>Insert a single row, skipping AutoInc columns.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a> → <a href="../profile/RelationalActionComponent$InsertActionExtensionMethodsImpl.html" class="extype" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl">InsertActionExtensionMethodsImpl</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer#forceInsert" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsert(value:U):JdbcActionComponent.this.DriverAction[SimpleInsertActionComposer.this.SingleInsertResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="forceInsert(U):JdbcDriver.DriverAction[SingleInsertResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsert</span><span class="params">(<span name="value">value: <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span></span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#SingleInsertResult=Int" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.SingleInsertResult">SingleInsertResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert a single row, including AutoInc columns.</p><div class="fullcomment"><div class="comment cmt"><p>Insert a single row, including AutoInc columns. This is not supported
+by all database engines (see
+<a href="JdbcProfile$$capabilities$.html#forceInsert:slick.profile.Capability" class="extmbr" name="slick.driver.JdbcProfile.capabilities#forceInsert">slick.driver.JdbcProfile.capabilities.forceInsert</a>).</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer#forceInsertAll" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertAll(values:Iterable[U]):JdbcActionComponent.this.DriverAction[SimpleInsertActionComposer.this.MultiInsertResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="forceInsertAll(Iterable[U]):JdbcDriver.DriverAction[MultiInsertResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertAll</span><span class="params">(<span name="values">values: <a href="../../scala/package.html#Iterable[+A]=Iterable[A]" class="extmbr" name="scala.Iterable">Iterable</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#MultiInsertResult=Option[Int]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.MultiInsertResult">MultiInsertResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert multiple rows, including AutoInc columns.</p><div class="fullcomment"><div class="comment cmt"><p>Insert multiple rows, including AutoInc columns.
+This is not supported by all database engines (see
+<a href="JdbcProfile$$capabilities$.html#forceInsert:slick.profile.Capability" class="extmbr" name="slick.driver.JdbcProfile.capabilities#forceInsert">slick.driver.JdbcProfile.capabilities.forceInsert</a>).
+Uses JDBC's batch update feature if supported by the JDBC driver.
+Returns Some(rowsAffected), or None if the database returned no row
+count for some part of the batch. If any part of the batch fails, an
+exception is thrown.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.InsertActionComposer#forceInsertExpr" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertExpr[TT](c:TT)(implicitshape:slick.lifted.Shape[_&lt;:slick.lifted.FlatShapeLevel,TT,U,_]):JdbcActionComponent.this.DriverAction[InsertActionComposer.this.QueryInsertResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="forceInsertExpr[TT](TT)(Shape[_&lt;:FlatShapeLevel,TT,U,_]):JdbcDriver.DriverAction[QueryInsertResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertExpr</span><span class="tparams">[<span name="TT">TT</span>]</span><span class="params">(<span name="c">c: <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertExpr.TT">TT</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="shape">shape: <a href="../lifted/Shape.html" class="extype" name="slick.lifted.Shape">Shape</a>[_ &lt;: <a href="../lifted/FlatShapeLevel.html" class="extype" name="slick.lifted.FlatShapeLevel">FlatShapeLevel</a>, <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertExpr.TT">TT</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>, _]</span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#QueryInsertResult=Int" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.QueryInsertResult">QueryInsertResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert a single row from a scalar expression</p><div class="fullcomment"><div class="comment cmt"><p>Insert a single row from a scalar expression</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$InsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer">InsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.InsertActionComposer#forceInsertQuery" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertQuery[TT,C[_]](compiledQuery:slick.lifted.CompiledStreamingExecutable[slick.lifted.Query[TT,U,C],_,_]):JdbcActionComponent.this.DriverAction[InsertActionComposer.this.QueryInsertResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="forceInsertQuery[TT,C[_]](CompiledStreamingExecutable[Query[TT,U,C],_,_]):JdbcDriver.DriverAction[QueryInsertResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertQuery</span><span class="tparams">[<span name="TT">TT</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="compiledQuery">compiledQuery: <a href="../lifted/CompiledStreamingExecutable.html" class="extype" name="slick.lifted.CompiledStreamingExecutable">CompiledStreamingExecutable</a>[<a href="../lifted/Query.html" class="extype" name="slick.lifted.Query">Query</a>[<span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertQuery.TT">TT</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>, <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertQuery.C">C</span>], _, _]</span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#QueryInsertResult=Int" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.QueryInsertResult">QueryInsertResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert data produced by another query</p><div class="fullcomment"><div class="comment cmt"><p>Insert data produced by another query</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$InsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer">InsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.InsertActionComposer#forceInsertQuery" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertQuery[TT,C[_]](query:slick.lifted.Query[TT,U,C]):JdbcActionComponent.this.DriverAction[InsertActionComposer.this.QueryInsertResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="forceInsertQuery[TT,C[_]](Query[TT,U,C]):JdbcDriver.DriverAction[QueryInsertResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertQuery</span><span class="tparams">[<span name="TT">TT</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="query">query: <a href="../lifted/Query.html" class="extype" name="slick.lifted.Query">Query</a>[<span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertQuery.TT">TT</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>, <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertQuery.C">C</span>]</span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#QueryInsertResult=Int" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.QueryInsertResult">QueryInsertResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert data produced by another query</p><div class="fullcomment"><div class="comment cmt"><p>Insert data produced by another query</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$InsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer">InsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer#forceInsertStatement" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertStatement:String"></a>
+      <a id="forceInsertStatement:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertStatement</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get the SQL statement for a forced insert</p><div class="fullcomment"><div class="comment cmt"><p>Get the SQL statement for a forced insert</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.InsertActionComposer#forceInsertStatementFor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertStatementFor[TT,C[_]](compiledQuery:slick.lifted.CompiledStreamingExecutable[slick.lifted.Query[TT,U,C],_,_]):String"></a>
+      <a id="forceInsertStatementFor[TT,C[_]](CompiledStreamingExecutable[Query[TT,U,C],_,_]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertStatementFor</span><span class="tparams">[<span name="TT">TT</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="compiledQuery">compiledQuery: <a href="../lifted/CompiledStreamingExecutable.html" class="extype" name="slick.lifted.CompiledStreamingExecutable">CompiledStreamingExecutable</a>[<a href="../lifted/Query.html" class="extype" name="slick.lifted.Query">Query</a>[<span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertStatementFor.TT">TT</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>, <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertStatementFor.C">C</span>], _, _]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get the SQL statement for inserting data produced by another query</p><div class="fullcomment"><div class="comment cmt"><p>Get the SQL statement for inserting data produced by another query</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$InsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer">InsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.InsertActionComposer#forceInsertStatementFor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertStatementFor[TT,C[_]](query:slick.lifted.Query[TT,U,C]):String"></a>
+      <a id="forceInsertStatementFor[TT,C[_]](Query[TT,U,C]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertStatementFor</span><span class="tparams">[<span name="TT">TT</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="query">query: <a href="../lifted/Query.html" class="extype" name="slick.lifted.Query">Query</a>[<span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertStatementFor.TT">TT</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>, <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertStatementFor.C">C</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get the SQL statement for inserting data produced by another query</p><div class="fullcomment"><div class="comment cmt"><p>Get the SQL statement for inserting data produced by another query</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$InsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer">InsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.InsertActionComposer#forceInsertStatementFor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="forceInsertStatementFor[TT](c:TT)(implicitshape:slick.lifted.Shape[_&lt;:slick.lifted.FlatShapeLevel,TT,U,_]):String"></a>
+      <a id="forceInsertStatementFor[TT](TT)(Shape[_&lt;:FlatShapeLevel,TT,U,_]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">forceInsertStatementFor</span><span class="tparams">[<span name="TT">TT</span>]</span><span class="params">(<span name="c">c: <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertStatementFor.TT">TT</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="shape">shape: <a href="../lifted/Shape.html" class="extype" name="slick.lifted.Shape">Shape</a>[_ &lt;: <a href="../lifted/FlatShapeLevel.html" class="extype" name="slick.lifted.FlatShapeLevel">FlatShapeLevel</a>, <span class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer.forceInsertStatementFor.TT">TT</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>, _]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get the SQL statement for inserting a single row from a scalar expression</p><div class="fullcomment"><div class="comment cmt"><p>Get the SQL statement for inserting a single row from a scalar expression</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$InsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.InsertActionComposer">InsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer#insertOrUpdate" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="insertOrUpdate(value:U):JdbcActionComponent.this.DriverAction[SimpleInsertActionComposer.this.SingleInsertOrUpdateResult,slick.dbio.NoStream,slick.dbio.Effect.Write]"></a>
+      <a id="insertOrUpdate(U):JdbcDriver.DriverAction[SingleInsertOrUpdateResult,NoStream,Write]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">insertOrUpdate</span><span class="params">(<span name="value">value: <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span></span>)</span><span class="result">: <a href="JdbcDriver.html#DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.profile.FixedSqlAction[R,S,E]" class="extmbr" name="slick.driver.JdbcDriver.DriverAction">JdbcDriver.DriverAction</a>[<a href="#SingleInsertOrUpdateResult=Int" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.SingleInsertOrUpdateResult">SingleInsertOrUpdateResult</a>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect$$Write.html" class="extype" name="slick.dbio.Effect.Write">Write</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Insert a single row if its primary key does not exist in the table,
+otherwise update the existing record.</p><div class="fullcomment"><div class="comment cmt"><p>Insert a single row if its primary key does not exist in the table,
+otherwise update the existing record.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer#insertStatement" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="insertStatement:String"></a>
+      <a id="insertStatement:String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">insertStatement</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Get the SQL statement for a standard (soft) insert</p><div class="fullcomment"><div class="comment cmt"><p>Get the SQL statement for a standard (soft) insert</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcActionComponent$SimpleInsertActionComposer.html" class="extype" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">SimpleInsertActionComposer</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcActionComponent.CountingInsertActionComposer#returning" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="returning[RT,RU,C[_]](value:slick.lifted.Query[RT,RU,C]):JdbcActionComponent.this.ReturningInsertActionComposer[U,RU]"></a>
+      <a id="returning[RT,RU,C[_]](Query[RT,RU,C]):JdbcDriver.ReturningInsertActionComposer[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">returning</span><span class="tparams">[<span name="RT">RT</span>, <span name="RU">RU</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="params">(<span name="value">value: <a href="../lifted/Query.html" class="extype" name="slick.lifted.Query">Query</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.returning.RT">RT</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.returning.RU">RU</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.returning.C">C</span>]</span>)</span><span class="result">: <a href="JdbcDriver.html#ReturningInsertActionComposer[U,RU]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.ReturningInsertActionComposer">JdbcDriver.ReturningInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>, <span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.returning.RU">RU</span>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Add a mapping from the inserted values and the generated key to compute a new return value.</p>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:AnyRef):Boolean"></a>
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(JdbcDriver.CountingInsertActionComposer[U],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:AnyRef):Boolean"></a>
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.Any#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((JdbcDriver.CountingInsertActionComposer[U])⇒Boolean,⇒Any):JdbcDriver.CountingInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((JdbcDriver.CountingInsertActionComposer[U])⇒Boolean):JdbcDriver.CountingInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):JdbcDriver.CountingInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):JdbcDriver.CountingInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.any2ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(JdbcDriver.CountingInsertActionComposer[U],B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Shadowed Implicit Value Members</h3>
+              <ol><li name="scala.Predef.any2stringadd#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.runtime.StringAdd">StringAdd</span> performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(countingInsertActionComposer: StringAdd).self</pre></div></dd><dt>Definition Classes</dt><dd>StringAdd</dd></dl></div>
+    </li><li name="scala.Predef.any2stringfmt#self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="self:Any"></a>
+      <a id="self:Any"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed">self</span><span class="result">: <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.runtime.StringFormat">StringFormat</span> performed by method any2stringfmt in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(countingInsertActionComposer: StringFormat).self</pre></div></dd><dt>Definition Classes</dt><dd>StringFormat</dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.Predef.any2ArrowAssoc#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:JdbcDriver.CountingInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use leftOfArrow instead">x</span><span class="result">: <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2ArrowAssoc in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(countingInsertActionComposer: ArrowAssoc[JdbcDriver.CountingInsertActionComposer[U]]).x</pre></div></dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>leftOfArrow<code> instead</code></u></code></p></dd></dl></div>
+    </li><li name="scala.Predef.any2Ensuring#x" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="x:A"></a>
+      <a id="x:JdbcDriver.CountingInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit shadowed deprecated" title="Deprecated: (Since version 2.10.0) Use resultOfEnsuring instead">x</span><span class="result">: <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]] performed by method any2Ensuring in scala.Predef.
+            
+          </dd><dt class="implicit">Shadowing</dt><dd>This implicitly inherited member is ambiguous. One or more implicitly inherited members have similar signatures, so calling this member may produce an ambiguous implicit conversion compiler error.<br />To access this member you can use a <a href="http://stackoverflow.com/questions/2087250/what-is-the-purpose-of-type-ascription-in-scala" target="_blank">type ascription</a>:<br /><div class="cmt"><pre>(countingInsertActionComposer: Ensuring[JdbcDriver.CountingInsertActionComposer[U]]).x</pre></div></dd><dt>Definition Classes</dt><dd>Ensuring</dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 2.10.0)</i> Use <code><u>resultOfEnsuring<code> instead</code></u></code></p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.driver.JdbcActionComponent.InsertActionComposer">
+              <h3>Inherited from <a href="JdbcDriver.html#InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.InsertActionComposer">JdbcDriver.InsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</h3>
+            </div><div class="parent" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">
+              <h3>Inherited from <a href="JdbcDriver.html#SimpleInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionExtensionMethodsImpl[U]" class="extmbr" name="slick.driver.JdbcActionComponent.SimpleInsertActionComposer">JdbcDriver.SimpleInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</h3>
+            </div><div class="parent" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl">
+              <h3>Inherited from <a href="JdbcDriver.html#InsertActionExtensionMethodsImpl[T]extendsAnyRef" class="extmbr" name="slick.profile.RelationalActionComponent.InsertActionExtensionMethodsImpl">JdbcDriver.InsertActionExtensionMethodsImpl</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to <span class="extype" name="scala.runtime.StringAdd">StringAdd</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2stringfmt">
+              <h3>Inherited by implicit conversion any2stringfmt from
+                <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to <span class="extype" name="scala.runtime.StringFormat">StringFormat</span>
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2ArrowAssoc">
+              <h3>Inherited by implicit conversion any2ArrowAssoc from
+                <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.any2Ensuring">
+              <h3>Inherited by implicit conversion any2Ensuring from
+                <a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="JdbcDriver.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer">JdbcDriver.CountingInsertActionComposer</a>[<span class="extype" name="slick.driver.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+      <script defer="defer" type="text/javascript" id="jquery-js" src="../../lib/jquery.js"></script><script defer="defer" type="text/javascript" id="jquery-ui-js" src="../../lib/jquery-ui.js"></script><script defer="defer" type="text/javascript" id="tools-tooltip-js" src="../../lib/tools.tooltip.js"></script><script defer="defer" type="text/javascript" id="template-js" src="../../lib/template.js"></script><script defer="defer" type="text/javascript" id="modernizr-custom-js" src="../../lib/modernizr.custom.js"></script><script defer="defer" type="text/javascript" id="diagrams-js" src="../../lib/diagrams.js"></script>
+    </body>
+      </html>
