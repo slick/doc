@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Upgrade Guides &mdash; Slick 3.0.0-RC2 documentation</title>
+    <title>Upgrade Guides &mdash; Slick 3.0.0-RC3 documentation</title>
     
     <link rel="stylesheet" href="_static/slick.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '3.0.0-RC2',
+        VERSION:     '3.0.0-RC3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Slick 3.0.0-RC2 documentation" href="index.html" />
+    <link rel="top" title="Slick 3.0.0-RC3 documentation" href="index.html" />
     <link rel="next" title="Slick Extensions" href="extensions.html" />
     <link rel="prev" title="Coming from SQL to Slick" href="sql-to-slick.html" />
 <script type="text/javascript">
@@ -58,7 +58,7 @@ if(window.location.host == 'slick.typesafe.com'){
         </div>
         <div class="headertitle"><a href="index.html">
             <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
-          3.0.0-RC2 manual
+          3.0.0-RC3 manual
         </a></div>
        </div>
     </div>
@@ -210,7 +210,7 @@ has some limitations (e.g. no default values and no index without a prefix lengt
 <h3>Slick code generator / Slick model<a class="headerlink" href="#slick-code-generator-slick-model" title="Permalink to this headline">¶</a></h3>
 <p>The code generator has been moved into a separate artifact in order to evolve it faster than Slick core. it moved from package <tt class="docutils literal"><span class="pre">slick.model.codegen</span></tt> to package <tt class="docutils literal"><span class="pre">slick.codegen</span></tt>. Binary compatibility will not be guaranteed, as it is supposed to be used before compile time. Add</p>
 <pre class="literal-block">
-&quot;com.typesafe.slick&quot; %% &quot;slick-codegen&quot; % &quot;3.0.0-RC2&quot;
+&quot;com.typesafe.slick&quot; %% &quot;slick-codegen&quot; % &quot;3.0.0-RC3&quot;
 </pre>
 <p>to the dependencies of your code generator sbt project.</p>
 <p>Method <tt class="docutils literal"><span class="pre">SourceCodeGenerator#Table#compound</span></tt> has been replaced by two methods <tt class="docutils literal"><span class="pre">compoundValue</span></tt> and <tt class="docutils literal"><span class="pre">compoundType</span></tt> generating potentially differently shaped code for values and types of compound values.</p>
