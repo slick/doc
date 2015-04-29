@@ -1,0 +1,425 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started &mdash; Slick 3.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.0.0 documentation" href="index.html" />
+    <link rel="next" title="Database Configuration" href="database.html" />
+    <link rel="prev" title="Supported Databases" href="supported-databases.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/src/sphinx/gettingstarted.rst">edit this page on github</a><span>
+          |
+          <a href="supported-databases.html" title="Supported Databases"
+             accesskey="P">previous</a> |
+          <a href="database.html" title="Database Configuration"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.0.0 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="getting-started">
+<span id="index-0"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way to get started is with a working application in Typesafe <a class="reference external" href="https://typesafe.com/activator">Activator</a>. The following
+templates are created by the Slick team, with updated versions being made for new Slick releases:</p>
+<ul class="simple">
+<li>To learn the basics of Slick, start with the <a class="reference external" href="https://typesafe.com/activator/template/hello-slick-3.0">Hello Slick template</a>. It contains an extended
+version of the tutorial and code from this page.</li>
+<li>The <a class="reference external" href="https://typesafe.com/activator/template/slick-plainsql-3.0">Slick Plain SQL Queries template</a> shows you how to do SQL queries with Slick.</li>
+<li>The <a class="reference external" href="http://typesafe.com/activator/template/slick-multidb-3.0">Slick Multi-DB Patterns template</a> shows you how to write Slick applications that can use
+different database systems and how to use custom database functions in Slick queries.</li>
+<li>The <a class="reference external" href="https://typesafe.com/activator/template/slick-testkit-example-3.0">Slick TestKit Example template</a> shows you how to use Slick TestKit to test your own Slick drivers.</li>
+</ul>
+<p>There are more Slick templates created by the community, as well as versions of our own templates for other
+Slick releases. You can find <a class="reference external" href="https://typesafe.com/activator/templates#filter:slick">all Slick templates</a>
+on the Typesafe web site.</p>
+<div class="section" id="adding-slick-to-your-project">
+<span id="index-1"></span><h2>Adding Slick to Your Project<a class="headerlink" href="#adding-slick-to-your-project" title="Permalink to this headline">¶</a></h2>
+<p>To include Slick in an existing project use the library published on Maven Central.  For sbt projects add the
+following to your build definition - <tt class="docutils literal"><span class="pre">build.sbt</span></tt> or <tt class="docutils literal"><span class="pre">project/Build.scala</span></tt>:</p>
+<pre class="literal-block">
+libraryDependencies ++= Seq(
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.0.0&quot;,
+  &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.6.4&quot;
+)
+</pre>
+<p>For Maven projects add the following to your <tt class="docutils literal"><span class="pre">&lt;dependencies&gt;</span></tt> (make sure to use the correct Scala
+version prefix, <tt class="docutils literal"><span class="pre">_2.10</span></tt> or <tt class="docutils literal"><span class="pre">_2.11</span></tt>, to match your project&#8217;s Scala version):</p>
+<pre class="literal-block">
+&lt;dependency&gt;
+  &lt;groupId&gt;com.typesafe.slick&lt;/groupId&gt;
+  &lt;artifactId&gt;slick_2.10&lt;/artifactId&gt;
+  &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+  &lt;artifactId&gt;slf4j-nop&lt;/artifactId&gt;
+  &lt;version&gt;1.6.4&lt;/version&gt;
+&lt;/dependency&gt;
+</pre>
+<p id="index-2">Slick uses <a class="reference external" href="http://www.slf4j.org/">SLF4J</a> for its own debug logging so you also need to add an SLF4J
+implementation. Here we are using <tt class="docutils literal"><span class="pre">slf4j-nop</span></tt> to disable logging. You have
+to replace this with a real logging framework like <a class="reference external" href="http://logback.qos.ch/">Logback</a> if you want to see
+log output.</p>
+<p>The Reactive Streams API is pulled in automatically as a transitive dependency.</p>
+<p>If you want to use Slick&#8217;s connection pool support, you need to add <a class="reference external" href="http://brettwooldridge.github.io/HikariCP/">HikariCP</a>
+as a dependency.</p>
+</div>
+<div class="section" id="quick-introduction">
+<h2>Quick Introduction<a class="headerlink" href="#quick-introduction" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The rest of this chapter is based on the <a class="reference external" href="https://typesafe.com/activator/template/hello-slick-3.0">Hello Slick template</a>. The prefered
+way of reading this introduction is in <a class="reference external" href="https://typesafe.com/activator">Activator</a>, where you can edit and run the code
+directly while reading the tutorial.</p>
+</div>
+<p>To use Slick you first need to import the API for the database you will be using, like:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Use H2Driver to connect to an H2 database</span>
+<span class="k">import</span> <span class="nn">slick.driver.H2Driver.api._</span>
+
+<span class="k">import</span> <span class="nn">scala.concurrent.ExecutionContext.Implicits.global</span>
+</pre></div>
+</div>
+<p>Since we are using <a class="reference external" href="http://h2database.com/">H2</a> as our database system, we need to import features
+from Slick&#8217;s <tt class="docutils literal"><span class="pre">H2Driver</span></tt>. A driver&#8217;s <tt class="docutils literal"><span class="pre">api</span></tt> object contains all commonly
+needed imports from the driver and other parts of Slick such as
+<a class="reference internal" href="database.html"><em>database handling</em></a>.</p>
+<p>Slick&#8217;s API is fully asynchronous and runs database call in a separate thread pool. For running
+user code in composition of <tt class="docutils literal"><span class="pre">DBIOAction</span></tt> and <tt class="docutils literal"><span class="pre">Future</span></tt> values, we import the global
+<tt class="docutils literal"><span class="pre">ExecutionContext</span></tt>. When using Slick as part of a larger application (e.g. with <a class="reference external" href="https://playframework.com/">Play</a> or
+<a class="reference external" href="http://akka.io/">Akka</a>) the framework may provide a better alternative to this default <tt class="docutils literal"><span class="pre">ExecutionContext</span></tt>.</p>
+<div class="section" id="database-configuration">
+<span id="gettingstarted-dbconnection"></span><h3>Database Configuration<a class="headerlink" href="#database-configuration" title="Permalink to this headline">¶</a></h3>
+<p>In the body of the application we create a <tt class="docutils literal"><span class="pre">Database</span></tt> object which specifies how to connect to a
+database. In most cases you will want to configure database connections with <a class="reference external" href="https://github.com/typesafehub/config">Typesafe Config</a> in
+your <tt class="docutils literal"><span class="pre">application.conf</span></tt>, which is also used by <a class="reference external" href="https://playframework.com/">Play</a> and <a class="reference external" href="http://akka.io/">Akka</a> for their configuration:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">h2mem1</span> <span class="k">=</span> <span class="o">{</span>
+  <span class="n">url</span> <span class="k">=</span> <span class="s">&quot;jdbc:h2:mem:test1&quot;</span>
+  <span class="n">driver</span> <span class="k">=</span> <span class="n">org</span><span class="o">.</span><span class="n">h2</span><span class="o">.</span><span class="nc">Driver</span>
+  <span class="n">connectionPool</span> <span class="k">=</span> <span class="n">disabled</span>
+  <span class="n">keepAliveConnection</span> <span class="k">=</span> <span class="kc">true</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>For the purpose of this example we disable the connection pool (there is no point in using one for
+an embedded in-memory database) and request a keep-alive connection (which ensures that the
+database does not get dropped while we are using it). The database can be easily instantiated from
+the configuration like this:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">db</span> <span class="k">=</span> <span class="nc">Database</span><span class="o">.</span><span class="n">forConfig</span><span class="o">(</span><span class="s">&quot;h2mem1&quot;</span><span class="o">)</span>
+<span class="k">try</span> <span class="o">{</span>
+  <span class="c1">// ...</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="n">db</span><span class="o">.</span><span class="n">close</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A <tt class="docutils literal"><span class="pre">Database</span></tt> object usually manages a thread pool and a connection pool. You should always
+shut it down properly when it is no longer needed (unless the JVM process terminates anyway).</p>
+</div>
+</div>
+<div class="section" id="schema">
+<h3>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h3>
+<p>Before we can write Slick queries, we need to describe a database schema with <tt class="docutils literal"><span class="pre">Table</span></tt> row classes
+and <tt class="docutils literal"><span class="pre">TableQuery</span></tt> values for our tables. You can either use the <a class="reference internal" href="code-generation.html"><em>code generator</em></a>
+to automatically create them for your database schema or you can write them by hand:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Definition of the SUPPLIERS table</span>
+<span class="k">class</span> <span class="nc">Suppliers</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;SUPPLIERS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span> <span class="c1">// This is the primary key column</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;SUP_NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">city</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;CITY&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">state</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STATE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">zip</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;ZIP&quot;</span><span class="o">)</span>
+  <span class="c1">// Every table needs a * projection with the same type as the table&#39;s type parameter</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">street</span><span class="o">,</span> <span class="n">city</span><span class="o">,</span> <span class="n">state</span><span class="o">,</span> <span class="n">zip</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">suppliers</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Suppliers</span><span class="o">]</span>
+
+<span class="c1">// Definition of the COFFEES table</span>
+<span class="k">class</span> <span class="nc">Coffees</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span>, <span class="kt">Double</span>, <span class="kt">Int</span>, <span class="kt">Int</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;COFFEES&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;COF_NAME&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">supID</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SUP_ID&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">price</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Double</span><span class="o">](</span><span class="s">&quot;PRICE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">sales</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;SALES&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">total</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;TOTAL&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">supID</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">sales</span><span class="o">,</span> <span class="n">total</span><span class="o">)</span>
+  <span class="c1">// A reified foreign key relation that can be navigated to create a join</span>
+  <span class="k">def</span> <span class="n">supplier</span> <span class="k">=</span> <span class="n">foreignKey</span><span class="o">(</span><span class="s">&quot;SUP_FK&quot;</span><span class="o">,</span> <span class="n">supID</span><span class="o">,</span> <span class="n">suppliers</span><span class="o">)(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">coffees</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Coffees</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>All columns get a name (usually in camel case for Scala and upper case with
+underscores for SQL) and a Scala type (from which the SQL type can be derived
+automatically).
+The table object also needs a Scala name, SQL name and type. The type argument
+of the table must match the type of the special <tt class="docutils literal"><span class="pre">*</span></tt> projection. In simple
+cases this is a tuple of all columns but more complex mappings are possible.</p>
+<p>The <tt class="docutils literal"><span class="pre">foreignKey</span></tt> definition in the <tt class="docutils literal"><span class="pre">coffees</span></tt> table ensures that the
+<tt class="docutils literal"><span class="pre">supID</span></tt> field can only contain values for which a corresponding <tt class="docutils literal"><span class="pre">id</span></tt>
+exists in the <tt class="docutils literal"><span class="pre">suppliers</span></tt> table, thus creating an <em>n to one</em> relationship:
+A <tt class="docutils literal"><span class="pre">Coffees</span></tt> row points to exactly one <tt class="docutils literal"><span class="pre">Suppliers</span></tt> row but any number
+of coffees can point to the same supplier. This constraint is enforced at the
+database level.</p>
+</div>
+<div class="section" id="populating-the-database">
+<h3>Populating the Database<a class="headerlink" href="#populating-the-database" title="Permalink to this headline">¶</a></h3>
+<p>The connection to the embedded H2 database engine provides us with an empty
+database. Before we can execute queries, we need to create the database schema
+(consisting of the <tt class="docutils literal"><span class="pre">coffees</span></tt> and <tt class="docutils literal"><span class="pre">suppliers</span></tt> tables) and insert some test
+data:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">setup</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span>
+  <span class="c1">// Create the tables, including primary and foreign keys</span>
+  <span class="o">(</span><span class="n">suppliers</span><span class="o">.</span><span class="n">schema</span> <span class="o">++</span> <span class="n">coffees</span><span class="o">.</span><span class="n">schema</span><span class="o">).</span><span class="n">create</span><span class="o">,</span>
+
+  <span class="c1">// Insert some suppliers</span>
+  <span class="n">suppliers</span> <span class="o">+=</span> <span class="o">(</span><span class="mi">101</span><span class="o">,</span> <span class="s">&quot;Acme, Inc.&quot;</span><span class="o">,</span>      <span class="s">&quot;99 Market Street&quot;</span><span class="o">,</span> <span class="s">&quot;Groundsville&quot;</span><span class="o">,</span> <span class="s">&quot;CA&quot;</span><span class="o">,</span> <span class="s">&quot;95199&quot;</span><span class="o">),</span>
+  <span class="n">suppliers</span> <span class="o">+=</span> <span class="o">(</span> <span class="mi">49</span><span class="o">,</span> <span class="s">&quot;Superior Coffee&quot;</span><span class="o">,</span> <span class="s">&quot;1 Party Place&quot;</span><span class="o">,</span>    <span class="s">&quot;Mendocino&quot;</span><span class="o">,</span>    <span class="s">&quot;CA&quot;</span><span class="o">,</span> <span class="s">&quot;95460&quot;</span><span class="o">),</span>
+  <span class="n">suppliers</span> <span class="o">+=</span> <span class="o">(</span><span class="mi">150</span><span class="o">,</span> <span class="s">&quot;The High Ground&quot;</span><span class="o">,</span> <span class="s">&quot;100 Coffee Lane&quot;</span><span class="o">,</span>  <span class="s">&quot;Meadows&quot;</span><span class="o">,</span>      <span class="s">&quot;CA&quot;</span><span class="o">,</span> <span class="s">&quot;93966&quot;</span><span class="o">),</span>
+  <span class="c1">// Equivalent SQL code:</span>
+  <span class="c1">// insert into SUPPLIERS(SUP_ID, SUP_NAME, STREET, CITY, STATE, ZIP) values (?,?,?,?,?,?)</span>
+
+  <span class="c1">// Insert some coffees (using JDBC&#39;s batch insert feature, if supported by the DB)</span>
+  <span class="n">coffees</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
+    <span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">,</span>         <span class="mi">101</span><span class="o">,</span> <span class="mf">7.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+    <span class="o">(</span><span class="s">&quot;French_Roast&quot;</span><span class="o">,</span>       <span class="mi">49</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+    <span class="o">(</span><span class="s">&quot;Espresso&quot;</span><span class="o">,</span>          <span class="mi">150</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+    <span class="o">(</span><span class="s">&quot;Colombian_Decaf&quot;</span><span class="o">,</span>   <span class="mi">101</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+    <span class="o">(</span><span class="s">&quot;French_Roast_Decaf&quot;</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
+  <span class="o">)</span>
+  <span class="c1">// Equivalent SQL code:</span>
+  <span class="c1">// insert into COFFEES(COF_NAME, SUP_ID, PRICE, SALES, TOTAL) values (?,?,?,?,?)</span>
+<span class="o">)</span>
+
+<span class="k">val</span> <span class="n">setupFuture</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">setup</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">TableQuery</span></tt>&#8216;s <tt class="docutils literal"><span class="pre">ddl</span></tt> method creates <tt class="docutils literal"><span class="pre">DDL</span></tt> (data definition language) objects
+with the database-specific code for creating and dropping tables and other
+database entities. Multiple <tt class="docutils literal"><span class="pre">DDL</span></tt> values can be combined with <tt class="docutils literal"><span class="pre">++</span></tt> to
+allow all entities to be created and dropped in the correct order, even when
+they have circular dependencies on each other.</p>
+<p>Inserting the tuples of data is done with the <tt class="docutils literal"><span class="pre">+=</span></tt> and <tt class="docutils literal"><span class="pre">++=</span></tt> methods,
+similar to how you add data to mutable Scala collections.</p>
+<p>The <tt class="docutils literal"><span class="pre">create</span></tt>, <tt class="docutils literal"><span class="pre">+=</span></tt> and <tt class="docutils literal"><span class="pre">++=</span></tt> methods return an <tt class="docutils literal"><span class="pre">Action</span></tt> which can be executed on a database
+at a later time to produce a result. There are several different combinators for combining multiple
+Actions into sequences, yielding another Action. Here we use the simplest one, <tt class="docutils literal"><span class="pre">Action.seq</span></tt>, which
+can concatenate any number of Actions, discarding the return values (i.e. the resulting Action
+produces a result of type <tt class="docutils literal"><span class="pre">Unit</span></tt>). We then execute the setup Action asynchronously with
+<tt class="docutils literal"><span class="pre">db.run</span></tt>, yielding a <tt class="docutils literal"><span class="pre">Future[Unit]</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Database connections and transactions are managed automatically by Slick. By default
+connections are acquired and released on demand and used in <em>auto-commit</em> mode. In this mode we
+have to populate the <tt class="docutils literal"><span class="pre">suppliers</span></tt> table first because the <tt class="docutils literal"><span class="pre">coffees</span></tt> data can only refer to valid
+supplier IDs. We could also use an explicit transaction bracket encompassing all these statements
+(<tt class="docutils literal"><span class="pre">db.run(setup.transactionally)</span></tt>). Then the order would not matter because the constraints are
+only enforced at the end when the transaction is committed.</p>
+</div>
+</div>
+<div class="section" id="querying">
+<h3>Querying<a class="headerlink" href="#querying" title="Permalink to this headline">¶</a></h3>
+<p>The simplest kind of query iterates over all the data in a table:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Read all coffees and print them to the console</span>
+<span class="n">println</span><span class="o">(</span><span class="s">&quot;Coffees:&quot;</span><span class="o">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">coffees</span><span class="o">.</span><span class="n">result</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">foreach</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">supID</span><span class="o">,</span> <span class="n">price</span><span class="o">,</span> <span class="n">sales</span><span class="o">,</span> <span class="n">total</span><span class="o">)</span> <span class="k">=&gt;</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">&quot;  &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">supID</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">price</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">sales</span> <span class="o">+</span> <span class="s">&quot;\t&quot;</span> <span class="o">+</span> <span class="n">total</span><span class="o">)</span>
+<span class="o">})</span>
+<span class="c1">// Equivalent SQL code:</span>
+<span class="c1">// select COF_NAME, SUP_ID, PRICE, SALES, TOTAL from COFFEES</span>
+</pre></div>
+</div>
+<p>This corresponds to a <tt class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">COFFEES</span></tt> in SQL (except that the <tt class="docutils literal"><span class="pre">*</span></tt>
+is the table&#8217;s <tt class="docutils literal"><span class="pre">*</span></tt> projection we defined earlier and not whatever the
+database sees as <tt class="docutils literal"><span class="pre">*</span></tt>). The type of the values we get in the loop is,
+unsurprisingly, the type parameter of <tt class="docutils literal"><span class="pre">Coffees</span></tt>.</p>
+<p>Let&#8217;s add a <em>projection</em> to this basic query. This is written in Scala with
+the <tt class="docutils literal"><span class="pre">map</span></tt> method or a <em>for comprehension</em>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Why not let the database do the string conversion and concatenation?</span>
+<span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="k">for</span><span class="o">(</span><span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">)</span>
+  <span class="k">yield</span> <span class="nc">LiteralColumn</span><span class="o">(</span><span class="s">&quot;  &quot;</span><span class="o">)</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span> <span class="o">++</span> <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">++</span>
+    <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">++</span> <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">sales</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">++</span>
+    <span class="s">&quot;\t&quot;</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">total</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+<span class="c1">// The first string constant needs to be lifted manually to a LiteralColumn</span>
+<span class="c1">// so that the proper ++ operator is found</span>
+
+<span class="c1">// Equivalent SQL code:</span>
+<span class="c1">// select &#39;  &#39; || COF_NAME || &#39;\t&#39; || SUP_ID || &#39;\t&#39; || PRICE || &#39;\t&#39; SALES || &#39;\t&#39; TOTAL from COFFEES</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">stream</span><span class="o">(</span><span class="n">q1</span><span class="o">.</span><span class="n">result</span><span class="o">).</span><span class="n">foreach</span><span class="o">(</span><span class="n">println</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The output will be the same: For each row of the table, all columns get
+converted to strings and concatenated into one tab-separated string. The
+difference is that all of this now happens inside the database engine, and
+only the resulting concatenated string is shipped to the client. Note that we
+avoid Scala&#8217;s <tt class="docutils literal"><span class="pre">+</span></tt> operator (which is already heavily overloaded) in favor of
+<tt class="docutils literal"><span class="pre">++</span></tt> (commonly used for sequence concatenation). Also, there is no automatic
+conversion of other argument types to strings. This has to be done explicitly
+with the type conversion method <tt class="docutils literal"><span class="pre">asColumnOf</span></tt>.</p>
+<p>This time we also use <a class="reference external" href="http://www.reactive-streams.org/">Reactive Streams</a> to get a streaming result from the
+database and print the elements as they come in instead of materializing the
+whole result set upfront.</p>
+<p>Joining and filtering tables is done the same way as when working with Scala
+collections:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// Perform a join to retrieve coffee names and supplier names for</span>
+<span class="c1">// all coffees costing less than $9.00</span>
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">9.0</span>
+  <span class="n">s</span> <span class="k">&lt;-</span> <span class="n">suppliers</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="n">c</span><span class="o">.</span><span class="n">supID</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// Equivalent SQL code:</span>
+<span class="c1">// select c.COF_NAME, s.SUP_NAME from COFFEES c, SUPPLIERS s where c.PRICE &lt; 9.0 and s.SUP_ID = c.SUP_ID</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Note the use of <tt class="docutils literal"><span class="pre">===</span></tt> instead of <tt class="docutils literal"><span class="pre">==</span></tt> for comparing two values for equality and <tt class="docutils literal"><span class="pre">=!=</span></tt>
+instead of <tt class="docutils literal"><span class="pre">!=</span></tt> for inequality. This is necessary because these operators are already defined
+(with unsuitable types and semantics) on the base type <tt class="docutils literal"><span class="pre">Any</span></tt>, so they cannot be replaced by
+extension methods. The other comparison operators are the same as in standard Scala code:
+<tt class="docutils literal"><span class="pre">&lt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;=</span></tt>, <tt class="docutils literal"><span class="pre">&gt;=</span></tt>, <tt class="docutils literal"><span class="pre">&gt;</span></tt>.</p>
+</div>
+<p>The generator expression <tt class="docutils literal"><span class="pre">suppliers</span> <span class="pre">if</span> <span class="pre">s.id</span> <span class="pre">===</span> <span class="pre">c.supID</span></tt> follows the
+relationship established by the foreign key <tt class="docutils literal"><span class="pre">Coffees.supplier</span></tt>. Instead of
+repeating the join condition here we can use the foreign key directly:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q3</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&lt;</span> <span class="mf">9.0</span>
+  <span class="n">s</span> <span class="k">&lt;-</span> <span class="n">c</span><span class="o">.</span><span class="n">supplier</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+<span class="c1">// Equivalent SQL code:</span>
+<span class="c1">// select c.COF_NAME, s.SUP_NAME from COFFEES c, SUPPLIERS s where c.PRICE &lt; 9.0 and s.SUP_ID = c.SUP_ID</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-slick-to-your-project">Adding Slick to Your Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-introduction">Quick Introduction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#database-configuration">Database Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schema">Schema</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#populating-the-database">Populating the Database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#querying">Querying</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="direct-embedding.html">Direct Embedding (Deprecated)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="supported-databases.html" title="Supported Databases"
+             >previous</a> |
+          <a href="database.html" title="Database Configuration"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2015 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
