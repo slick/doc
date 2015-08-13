@@ -1,0 +1,682 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Coming from SQL to Slick &mdash; Slick 3.1.0-M2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.1.0-M2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.1.0-M2 documentation" href="index.html" />
+    <link rel="next" title="Upgrade Guides" href="upgrade.html" />
+    <link rel="prev" title="Coming from ORM to Slick" href="orm-to-slick.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/sql-to-slick.rst">edit this page on github</a><span>
+          |
+          <a href="orm-to-slick.html" title="Coming from ORM to Slick"
+             accesskey="P">previous</a> |
+          <a href="upgrade.html" title="Upgrade Guides"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.1.0-M2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="coming-from-sql-to-slick">
+<h1>Coming from SQL to Slick<a class="headerlink" href="#coming-from-sql-to-slick" title="Permalink to this headline">¶</a></h1>
+<p>Coming from JDBC/SQL to Slick is pretty straight forward in many ways. Slick can be considered as a
+drop-in replacement with a nicer API for handling connections, fetching results and using a query
+language, which is integrated more nicely into Scala than writing queries as Strings. The main
+obstacle for developers coming from SQL to Slick seems to be the semantic differences of seemingly
+similar operations between SQL and Scala&#8217;s collections API which Slick&#8217;s API imitates. The
+following sections give a quick overview over the differences. They start with conceptual
+differences and then list examples of many <a class="reference internal" href="#sql-to-slick-operators"><em>SQL operators and their Slick equivalents</em></a>. For a more detailed explanations of Slick&#8217;s API please refer to
+<a class="reference internal" href="queries.html"><em>chapter queries</em></a> and the equivalent methods in the
+<a class="reference external" href="http://www.scala-lang.org/api/2.10.0/#scala.collection.immutable.Seq">the Scala collections API</a>.</p>
+<div class="section" id="schema">
+<span id="sql-schema"></span><h2>Schema<a class="headerlink" href="#schema" title="Permalink to this headline">¶</a></h2>
+<p>The later examples use the following database schema</p>
+<img alt="_images/from-sql-to-slick.person-address.png" class="align-center" src="_images/from-sql-to-slick.person-address.png" />
+<p>mapped to Slick using the following code:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">type</span> <span class="kt">Person</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Int</span><span class="o">,</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">,</span><span class="nc">Int</span><span class="o">)</span>
+<span class="k">class</span> <span class="nc">People</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">Person</span><span class="o">](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;PERSON&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">AutoInc</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">age</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;AGE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">addressId</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;ADDRESS_ID&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span><span class="n">name</span><span class="o">,</span><span class="n">age</span><span class="o">,</span><span class="n">addressId</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">address</span> <span class="k">=</span> <span class="n">foreignKey</span><span class="o">(</span><span class="s">&quot;ADDRESS&quot;</span><span class="o">,</span><span class="n">addressId</span><span class="o">,</span><span class="n">addresses</span><span class="o">)(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">lazy</span> <span class="k">val</span> <span class="n">people</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">People</span><span class="o">]</span>
+
+<span class="k">type</span> <span class="kt">Address</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Int</span><span class="o">,</span><span class="nc">String</span><span class="o">,</span><span class="nc">String</span><span class="o">)</span>
+<span class="k">class</span> <span class="nc">Addresses</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">Address</span><span class="o">](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;ADDRESS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">AutoInc</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">city</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;CITY&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span><span class="n">street</span><span class="o">,</span><span class="n">city</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">lazy</span> <span class="k">val</span> <span class="n">addresses</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Addresses</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Tables can alternatively be mapped to case classes. Similar code can be <a class="reference internal" href="code-generation.html"><em>auto-generated</em></a> or <a class="reference internal" href="schemas.html"><em>hand-written</em></a>.</p>
+</div>
+<div class="section" id="queries-in-comparison">
+<h2>Queries in comparison<a class="headerlink" href="#queries-in-comparison" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jdbc-query">
+<h3>JDBC Query<a class="headerlink" href="#jdbc-query" title="Permalink to this headline">¶</a></h3>
+<p>A JDBC query with error handling could look like this:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">java.sql._</span>
+
+<span class="nc">Class</span><span class="o">.</span><span class="n">forName</span><span class="o">(</span><span class="s">&quot;org.h2.Driver&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">conn</span> <span class="k">=</span> <span class="nc">DriverManager</span><span class="o">.</span><span class="n">getConnection</span><span class="o">(</span><span class="s">&quot;jdbc:h2:mem:test1&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">people</span> <span class="k">=</span> <span class="k">new</span> <span class="n">scala</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">mutable</span><span class="o">.</span><span class="nc">MutableList</span><span class="o">[(</span><span class="kt">Int</span>,<span class="kt">String</span>,<span class="kt">Int</span><span class="o">)]()</span>
+<span class="k">try</span><span class="o">{</span>
+  <span class="k">val</span> <span class="n">stmt</span> <span class="k">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">createStatement</span><span class="o">()</span>
+  <span class="k">try</span><span class="o">{</span>
+
+    <span class="k">val</span> <span class="n">rs</span> <span class="k">=</span> <span class="n">stmt</span><span class="o">.</span><span class="n">executeQuery</span><span class="o">(</span><span class="s">&quot;select ID, NAME, AGE from PERSON&quot;</span><span class="o">)</span>
+    <span class="k">try</span><span class="o">{</span>
+      <span class="k">while</span><span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="n">next</span><span class="o">()){</span>
+        <span class="n">people</span> <span class="o">+=</span> <span class="o">((</span><span class="n">rs</span><span class="o">.</span><span class="n">getInt</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">rs</span><span class="o">.</span><span class="n">getString</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">rs</span><span class="o">.</span><span class="n">getInt</span><span class="o">(</span><span class="mi">3</span><span class="o">)))</span>
+      <span class="o">}</span>
+    <span class="o">}</span><span class="k">finally</span><span class="o">{</span>
+      <span class="n">rs</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+    <span class="o">}</span>
+
+  <span class="o">}</span><span class="k">finally</span><span class="o">{</span>
+    <span class="n">stmt</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+  <span class="o">}</span>
+<span class="o">}</span><span class="k">finally</span><span class="o">{</span>
+  <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Slick gives us two choices how to write queries. One is SQL strings just like JDBC. The other are type-safe, composable queries.</p>
+</div>
+<div class="section" id="slick-plain-sql-queries">
+<h3>Slick Plain SQL queries<a class="headerlink" href="#slick-plain-sql-queries" title="Permalink to this headline">¶</a></h3>
+<p>This is useful if you either want to continue writing queries in SQL or if you need a feature not (yet) supported by
+Slick otherwise. Executing the same query using Slick Plain SQL, which has built-in error-handling and resource
+management optimized for asynchronous execution, looks like this:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">slick.driver.H2Driver.api._</span>
+
+<span class="k">val</span> <span class="n">db</span> <span class="k">=</span> <span class="nc">Database</span><span class="o">.</span><span class="n">forConfig</span><span class="o">(</span><span class="s">&quot;h2mem1&quot;</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">action</span> <span class="k">=</span> <span class="n">sql</span><span class="s">&quot;select ID, NAME, AGE from PERSON&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[(</span><span class="kt">Int</span>,<span class="kt">String</span>,<span class="kt">Int</span><span class="o">)]</span>
+<span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">action</span><span class="o">)</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">.list</span></tt> returns a list of results. <tt class="docutils literal"><span class="pre">.first</span></tt> a single result. <tt class="docutils literal"><span class="pre">.foreach</span></tt> can be used to iterate over the results without ever materializing all results at once.</p>
+</div>
+<div class="section" id="slick-type-safe-composable-queries">
+<h3>Slick type-safe, composable queries<a class="headerlink" href="#slick-type-safe-composable-queries" title="Permalink to this headline">¶</a></h3>
+<p>Slick&#8217;s key feature are type-safe, composable queries. Slick comes with a Scala-to-SQL compiler, which allows a (purely functional) sub-set of the Scala language to be compiled to SQL queries. Also available are a subset of the standard library and some extensions, e.g. for joins. The familiarity allows Scala developers to instantly write many queries against all supported relational databases with little learning required and without knowing SQL or remembering the particular dialect. Such Slick queries are composable, which means that you can write and re-use fragments and functions to avoid repetitive code like join conditions in a much more practical way than concatenating SQL strings. The fact that such queries are type-safe not only catches many mistakes early at compile time, but also eliminates the risk of SQL injection vulnerabilities.</p>
+<p>The same query written as a type-safe Slick query looks like this:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">slick.driver.H2Driver.api._</span>
+
+<span class="k">val</span> <span class="n">db</span> <span class="k">=</span> <span class="nc">Database</span><span class="o">.</span><span class="n">forConfig</span><span class="o">(</span><span class="s">&quot;h2mem1&quot;</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">query</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">id</span><span class="o">,</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">))</span>
+<span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">query</span><span class="o">.</span><span class="n">result</span><span class="o">)</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">.run</span></tt> automatically returns a Seq for collection-like queries and a single value for scalar queries. <tt class="docutils literal"><span class="pre">.list</span></tt>, <tt class="docutils literal"><span class="pre">.first</span></tt> and <tt class="docutils literal"><span class="pre">.foreach</span></tt> are also available.</p>
+<p>A key benefit compared to SQL strings is, that you can easily transform the query by calling more methods on it. E.g. <tt class="docutils literal"><span class="pre">query.filter(_.age</span> <span class="pre">&gt;</span> <span class="pre">18)</span></tt> returns transformed query which further restricts the results. This allows to build libraries of queries, which re-use each other become much more maintainable. You can abstract over join conditions, pagination, filters, etc.</p>
+<p>It is important to note that Slick needs the type-information to type-check these queries. This type information closely corresponds to the database schema and is provided to Slick in the form of Table sub classes and TableQuery values shown above.</p>
+</div>
+</div>
+<div class="section" id="main-obstacle-semantic-api-differences">
+<h2>Main obstacle: Semantic API differences<a class="headerlink" href="#main-obstacle-semantic-api-differences" title="Permalink to this headline">¶</a></h2>
+<p>Some methods of the Scala collections work a bit differently than their SQL counter parts. This seems to be one of the
+main causes of confusion for people newly coming from SQL to Slick. Especially <a class="reference internal" href="#groupby">groupBy</a> seems to be tricky.</p>
+<p>The best approach to write queries using Slick&#8217;s type-safe api is thinking in terms of Scala collections. What would the code be if you had a Seq of tuples or case classes instead of a Slick TableQuery object. Use that exact code. If needed adapt it with workarounds where a Scala library feature is currently not supported by Slick or if Slick is slightly different. Some operations are more strongly typed in Slick than in Scala for example. Arithmetic operation in different types require explicit casts using <tt class="docutils literal"><span class="pre">.asColumnOf[T]</span></tt>. Also Slick uses 3-valued logic for Option inference.</p>
+</div>
+<div class="section" id="scala-to-sql-compilation-during-runtime">
+<h2>Scala-to-SQL compilation during runtime<a class="headerlink" href="#scala-to-sql-compilation-during-runtime" title="Permalink to this headline">¶</a></h2>
+<p>Slick runs a Scala-to-SQL compiler to implement its type-safe query feature. The compiler runs at Scala run-time and it does take its time which can even go up to second or longer for complex queries. It can be very useful to run the compiler only once per defined query and upfront, e.g. at app startup instead of each execution over and over. <a class="reference internal" href="queries.html#compiled-queries"><em>Compiled queries</em></a> allow you to cache the generated SQL for re-use.</p>
+</div>
+<div class="section" id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>When you use Slick extensively you will run into cases, where Slick&#8217;s type-safe query language does not support a query operator or JDBC feature you may desire to use or produces non-optimal SQL code. There are several ways to deal with that.</p>
+<div class="section" id="missing-query-operators">
+<h3>Missing query operators<a class="headerlink" href="#missing-query-operators" title="Permalink to this headline">¶</a></h3>
+<p>Slick is extensible to some degree, which means you can add some kinds of missing operators yourself.</p>
+<div class="section" id="definition-in-terms-of-others">
+<h4>Definition in terms of others<a class="headerlink" href="#definition-in-terms-of-others" title="Permalink to this headline">¶</a></h4>
+<p>If the operator you desire is expressible using existing Slick operations you can simply write a Scala function or implicit class that implements the operator as a method in terms of existing operators. Here we implement <tt class="docutils literal"><span class="pre">squared</span></tt> using multiplication.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">implicit</span> <span class="k">class</span> <span class="nc">MyStringColumnExtensions</span><span class="o">(</span><span class="n">i</span><span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">Int</span><span class="o">]){</span>
+  <span class="k">def</span> <span class="n">squared</span> <span class="k">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span>
+<span class="o">}</span>
+
+<span class="c1">// usage:</span>
+<span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">squared</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="definition-using-a-database-function">
+<h4>Definition using a database function<a class="headerlink" href="#definition-using-a-database-function" title="Permalink to this headline">¶</a></h4>
+<p>If you need a fundamental operator, which is not supported out-of-the-box you can add it yourself if it operates on scalar values. For example Slick currently does not have a <tt class="docutils literal"><span class="pre">power</span></tt> method out of the box. Here we are mapping it to a database function.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">power</span> <span class="k">=</span> <span class="nc">SimpleFunction</span><span class="o">.</span><span class="n">binary</span><span class="o">[</span><span class="kt">Int</span>,<span class="kt">Int</span>,<span class="kt">Int</span><span class="o">](</span><span class="s">&quot;POWER&quot;</span><span class="o">)</span>
+
+<span class="c1">// usage:</span>
+<span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">power</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">,</span><span class="mi">2</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>More information can be found in the chapter about <a class="reference internal" href="userdefined.html#scalar-db-functions"><em>Scalar database functions</em></a>.</p>
+<p>You can however not add operators operating on queries using database functions. The Slick Scala-to-SQL compiler requires knowledge about the structure of the query in order to compile it to the most simple SQL query it can produce. It currently couldn&#8217;t handle custom query operators in that context. (There are some ideas how this restriction can be somewhat lifted in the future, but it needs more investigation). An example for such operator is a MySQL index hint, which is not supported by Slick&#8217;s type-safe api and it cannot be added by users. If you require such an operator you have to write your whole query using Plain SQL. If the operator does not change the return type of the query you could alternatively use the workaround described in the following section.</p>
+</div>
+</div>
+<div class="section" id="non-optimal-sql-code">
+<h3>Non-optimal SQL code<a class="headerlink" href="#non-optimal-sql-code" title="Permalink to this headline">¶</a></h3>
+<p>Slick generates SQL code and tries to make it as simple as possible. The algorithm doing that is not perfect and under continuous improvement. There are cases where the generated queries are more complicated than someone would write them by hand. This can lead to bad performance for certain queries with some optimizers and DBMS. For example, Slick occasionally generates unnecessary sub-queries. In MySQL &lt;= 5.5 this easily leads to unnecessary table scans or indices not being used. The Slick team is working towards generating code better factored to what the query optimizers can currently optimize, but that doesn&#8217;t help you now. To work around it you have to write the more optimal SQL code by hand. You can either run it as a Slick Plain SQL query or you can <a class="reference external" href="https://gist.github.com/cvogt/d9049c63fc395654c4b4">use a hack</a>, which allows you to simply swap out the SQL code Slick uses for a type-safe query.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">id</span><span class="o">,</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">))</span>
+      <span class="o">.</span><span class="n">result</span>
+      <span class="c1">// inject hand-written SQL, see https://gist.github.com/cvogt/d9049c63fc395654c4b4</span>
+      <span class="o">.</span><span class="n">overrideSql</span><span class="o">(</span><span class="s">&quot;SELECT id, name, age FROM Person&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sql-vs-slick-examples">
+<span id="sql-to-slick-operators"></span><h2>SQL vs. Slick examples<a class="headerlink" href="#sql-vs-slick-examples" title="Permalink to this headline">¶</a></h2>
+<p>This section shows an overview over the most important types of SQL queries and a corresponding type-safe Slick query.</p>
+<div class="section" id="select">
+<span id="index-0"></span><h3>SELECT *<a class="headerlink" href="#select" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sql">
+<h4>SQL<a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;select * from PERSON&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="slick">
+<h4>Slick<a class="headerlink" href="#slick" title="Permalink to this headline">¶</a></h4>
+<p>The Slick equivalent of <tt class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*</span></tt> is the <tt class="docutils literal"><span class="pre">result</span></tt> of the plain TableQuery:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="index-1">
+<span id="id1"></span><h3>SELECT<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>SQL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select AGE, concat(concat(concat(NAME,&#39; (&#39;),ID),&#39;)&#39;)</span>
+<span class="s">  from PERSON</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[(</span><span class="kt">Int</span>,<span class="kt">String</span><span class="o">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Slick<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Scala&#8217;s equivalent for <tt class="docutils literal"><span class="pre">SELECT</span></tt> is <tt class="docutils literal"><span class="pre">map</span></tt>. Columns can be referenced similarly and functions operating on columns can be accessed using their Scala eqivalents (but allowing only <tt class="docutils literal"><span class="pre">++</span></tt> for String concatenation, not <tt class="docutils literal"><span class="pre">+</span></tt>).</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">++</span> <span class="s">&quot; (&quot;</span> <span class="o">++</span> <span class="n">p</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">++</span> <span class="s">&quot;)&quot;</span><span class="o">)).</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="where">
+<span id="index-2"></span><h3>WHERE<a class="headerlink" href="#where" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h4>SQL<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;select * from PERSON where AGE &gt;= 18 AND NAME = &#39;C. Vogt&#39;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>Slick<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Scala&#8217;s equivalent for <tt class="docutils literal"><span class="pre">WHERE</span></tt> is <tt class="docutils literal"><span class="pre">filter</span></tt>. Make sure to use <tt class="docutils literal"><span class="pre">===</span></tt> instead of <tt class="docutils literal"><span class="pre">==</span></tt> for comparison.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="o">&amp;&amp;</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="s">&quot;C. Vogt&quot;</span><span class="o">).</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="order-by">
+<span id="index-3"></span><h3>ORDER BY<a class="headerlink" href="#order-by" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>SQL<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;select * from PERSON order by AGE asc, NAME&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>Slick<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p>Scala&#8217;s equivalent for <tt class="docutils literal"><span class="pre">ORDER</span> <span class="pre">BY</span></tt> is <tt class="docutils literal"><span class="pre">sortBy</span></tt>. Provide a tuple to sort by multiple columns. Slick&#8217;s <tt class="docutils literal"><span class="pre">.asc</span></tt> and <tt class="docutils literal"><span class="pre">.desc</span></tt> methods allow to affect the ordering. Be aware that a single <tt class="docutils literal"><span class="pre">ORDER</span> <span class="pre">BY</span></tt> with multiple columns is not equivalent to multiple <tt class="docutils literal"><span class="pre">.sortBy</span></tt> calls but to a single <tt class="docutils literal"><span class="pre">.sortBy</span></tt> call passing a tuple.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">sortBy</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">asc</span><span class="o">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">)).</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aggregations-max-etc">
+<span id="index-4"></span><h3>Aggregations (max, etc.)<a class="headerlink" href="#aggregations-max-etc" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h4>SQL<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;select max(AGE) from PERSON&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">]].</span><span class="n">head</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h4>Slick<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h4>
+<p>Aggregations are collection methods in Scala. In SQL they are called on a column, but in Slick they are called on a collection-like value e.g. a complete query, which people coming from SQL easily trip over. They return a scalar value, which can be run individually. Aggregation methods such as <tt class="docutils literal"><span class="pre">max</span></tt> that can return <tt class="docutils literal"><span class="pre">NULL</span></tt> return Options in Slick.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">age</span><span class="o">).</span><span class="n">max</span><span class="o">.</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="group-by">
+<span id="groupby"></span><span id="index-5"></span><h3>GROUP BY<a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h3>
+<p>People coming from SQL often seem to have trouble understanding Scala&#8217;s and Slick&#8217;s <tt class="docutils literal"><span class="pre">groupBy</span></tt>, because of the different signatures involved. SQL&#8217;s <tt class="docutils literal"><span class="pre">GROUP</span> <span class="pre">BY</span></tt> can be seen as an operation that turns all columns that weren&#8217;t part of the grouping key into collections of all the elements in a group. SQL requires the use of it&#8217;s aggregation operations like <tt class="docutils literal"><span class="pre">avg</span></tt> to compute single values out of these collections.</p>
+<div class="section" id="id10">
+<h4>SQL<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select ADDRESS_ID, AVG(AGE)</span>
+<span class="s">  from PERSON</span>
+<span class="s">  group by ADDRESS_ID</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[(</span><span class="kt">Int</span>,<span class="kt">Option</span><span class="o">[</span><span class="kt">Int</span><span class="o">])]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h4>Slick<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>Scala&#8217;s groupBy returns a Map of grouping keys to Lists of the rows for each group. There is no automatic conversion of individual columns into collections. This has to be done explicitly in Scala, by mapping from the group to the desired column, which then allows SQL-like aggregation.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">addressId</span><span class="o">)</span>
+       <span class="o">.</span><span class="n">map</span><span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">addressId</span><span class="o">,</span> <span class="n">group</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">addressId</span><span class="o">,</span> <span class="n">group</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">age</span><span class="o">).</span><span class="n">avg</span><span class="o">)</span> <span class="o">}</span>
+       <span class="o">.</span><span class="n">result</span>
+</pre></div>
+</div>
+<p>SQL requires to aggregate grouped values. We require the same in Slick for now. This means a <tt class="docutils literal"><span class="pre">groupBy</span></tt> call must be followed by a <tt class="docutils literal"><span class="pre">map</span></tt> call or will fail with an Exception. This makes Slick&#8217;s grouping syntax a bit more complicated than SQL&#8217;s.</p>
+</div>
+</div>
+<div class="section" id="having">
+<span id="index-6"></span><h3>HAVING<a class="headerlink" href="#having" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h4>SQL<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select ADDRESS_ID</span>
+<span class="s">  from PERSON</span>
+<span class="s">  group by ADDRESS_ID</span>
+<span class="s">  having avg(AGE) &gt; 50</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>Slick<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>Slick does not have different methods for <tt class="docutils literal"><span class="pre">WHERE</span></tt> and <tt class="docutils literal"><span class="pre">HAVING</span></tt>. For achieving semantics equivalent to <tt class="docutils literal"><span class="pre">HAVING</span></tt>, just use <tt class="docutils literal"><span class="pre">filter</span></tt> after <tt class="docutils literal"><span class="pre">groupBy</span></tt> and the following <tt class="docutils literal"><span class="pre">map</span></tt>.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">addressId</span><span class="o">)</span>
+       <span class="o">.</span><span class="n">map</span><span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">addressId</span><span class="o">,</span> <span class="n">group</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">addressId</span><span class="o">,</span> <span class="n">group</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">age</span><span class="o">).</span><span class="n">avg</span><span class="o">)</span> <span class="o">}</span>
+       <span class="o">.</span><span class="n">filter</span><span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">addressId</span><span class="o">,</span> <span class="n">avgAge</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">avgAge</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="o">}</span>
+       <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+       <span class="o">.</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="implicit-inner-joins">
+<span id="index-7"></span><h3>Implicit inner joins<a class="headerlink" href="#implicit-inner-joins" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h4>SQL<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select P.NAME, A.CITY</span>
+<span class="s">  from PERSON P, ADDRESS A</span>
+<span class="s">  where P.ADDRESS_ID = a.id</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[(</span><span class="kt">String</span>,<span class="kt">String</span><span class="o">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h4>Slick<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>Slick generates SQL using implicit joins for <tt class="docutils literal"><span class="pre">flatMap</span></tt> and <tt class="docutils literal"><span class="pre">map</span></tt> or the corresponding for-expression syntax.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span>
+  <span class="n">addresses</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">addressId</span> <span class="o">===</span> <span class="n">a</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+           <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">a</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="n">city</span><span class="o">))</span>
+<span class="o">).</span><span class="n">result</span>
+
+<span class="c1">// or equivalent for-expression:</span>
+<span class="o">(</span><span class="k">for</span><span class="o">(</span><span class="n">p</span> <span class="k">&lt;-</span> <span class="n">people</span><span class="o">;</span>
+     <span class="n">a</span> <span class="k">&lt;-</span> <span class="n">addresses</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">addressId</span> <span class="o">===</span> <span class="n">a</span><span class="o">.</span><span class="n">id</span>
+ <span class="o">)</span> <span class="k">yield</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="n">city</span><span class="o">)</span>
+<span class="o">).</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="explicit-inner-joins">
+<span id="index-8"></span><h3>Explicit inner joins<a class="headerlink" href="#explicit-inner-joins" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id16">
+<h4>SQL<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select P.NAME, A.CITY</span>
+<span class="s">  from PERSON P</span>
+<span class="s">  join ADDRESS A on P.ADDRESS_ID = a.id</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[(</span><span class="kt">String</span>,<span class="kt">String</span><span class="o">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id17">
+<h4>Slick<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
+<p>Slick offers a small DSL for explicit joins.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">(</span><span class="n">people</span> <span class="n">join</span> <span class="n">addresses</span> <span class="n">on</span> <span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">addressId</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">))</span>
+  <span class="o">.</span><span class="n">map</span><span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">p</span><span class="o">,</span> <span class="n">a</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">a</span><span class="o">.</span><span class="n">city</span><span class="o">)</span> <span class="o">}.</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="outer-joins-left-right-full">
+<span id="leftjoin"></span><span id="index-9"></span><h3>Outer joins (left/right/full)<a class="headerlink" href="#outer-joins-left-right-full" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id18">
+<h4>SQL<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select P.NAME,A.CITY</span>
+<span class="s">  from ADDRESS A</span>
+<span class="s">  left join PERSON P on P.ADDRESS_ID = a.id</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[(</span><span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>,<span class="kt">String</span><span class="o">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h4>Slick<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h4>
+<p>Outer joins are done using Slick&#8217;s explicit join DSL. Be aware that in case of an outer join SQL changes the type of
+outer joined, non-nullable columns into nullable columns. In order to represent this in a clean way even in the
+presence of mapped types, Slick lifts the whole side of the join into an <tt class="docutils literal"><span class="pre">Option</span></tt>. This goes a bit further than the
+SQL semantics because it allows you to distinguish a row which was not matched in the join from a row that was
+matched but already contained nothign but NULL values.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">(</span><span class="n">addresses</span> <span class="n">joinLeft</span> <span class="n">people</span> <span class="n">on</span> <span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">addressId</span><span class="o">))</span>
+  <span class="o">.</span><span class="n">map</span><span class="o">{</span> <span class="k">case</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">p</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">),</span> <span class="n">a</span><span class="o">.</span><span class="n">city</span><span class="o">)</span> <span class="o">}.</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="subquery">
+<span id="index-10"></span><h3>Subquery<a class="headerlink" href="#subquery" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id20">
+<h4>SQL<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select *</span>
+<span class="s">  from PERSON P</span>
+<span class="s">  where P.ID in (select ID</span>
+<span class="s">                 from ADDRESS</span>
+<span class="s">                 where CITY = &#39;New York City&#39;)</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id21">
+<h4>Slick<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h4>
+<p>Slick queries are composable. Subqueries can be simply composed, where the types work out, just like any other Scala code.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">address_ids</span> <span class="k">=</span> <span class="n">addresses</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">city</span> <span class="o">===</span> <span class="s">&quot;New York City&quot;</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="n">in</span> <span class="n">address_ids</span><span class="o">).</span><span class="n">result</span> <span class="c1">// &lt;- run as one query</span>
+</pre></div>
+</div>
+<p>The method <tt class="docutils literal"><span class="pre">.in</span></tt> expects a sub query. For an in-memory Scala collection, the method <tt class="docutils literal"><span class="pre">.inSet</span></tt> can be used instead.</p>
+</div>
+</div>
+<div class="section" id="scalar-value-subquery-custom-function">
+<span id="index-11"></span><h3>Scalar value subquery / custom function<a class="headerlink" href="#scalar-value-subquery-custom-function" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h4>SQL<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select * from PERSON P,</span>
+<span class="s">                     (select rand() * MAX(ID) as ID from PERSON) RAND_ID</span>
+<span class="s">  where P.ID &gt;= RAND_ID.ID</span>
+<span class="s">  order by P.ID asc</span>
+<span class="s">  limit 1</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Person</span><span class="o">].</span><span class="n">head</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id23">
+<h4>Slick<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h4>
+<p>This code shows a subquery computing a single value in combination with a <a class="reference internal" href="userdefined.html"><em>user-defined database function</em></a>.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">rand</span> <span class="k">=</span> <span class="nc">SimpleFunction</span><span class="o">.</span><span class="n">nullary</span><span class="o">[</span><span class="kt">Double</span><span class="o">](</span><span class="s">&quot;RAND&quot;</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">rndId</span> <span class="k">=</span> <span class="o">(</span><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">).</span><span class="n">max</span><span class="o">.</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">Double</span><span class="o">]</span> <span class="o">*</span> <span class="n">rand</span><span class="o">).</span><span class="n">asColumnOf</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>
+
+<span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;=</span> <span class="n">rndId</span><span class="o">)</span>
+       <span class="o">.</span><span class="n">sortBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+       <span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">head</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="insert">
+<span id="index-12"></span><h3>insert<a class="headerlink" href="#insert" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id24">
+<h4>SQL<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sqlu</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  insert into PERSON (NAME, AGE, ADDRESS_ID) values (&#39;M Odersky&#39;, 12345, 1)</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id25">
+<h4>Slick<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h4>
+<p>Inserts can be a bit surprising at first, when coming from SQL, because unlike SQL, Slick re-uses the same syntax that
+is used for querying to select which columns should be inserted into. So basically, you first write a query and instead
+of creating an Action that gets the result of this query, you call <tt class="docutils literal"><span class="pre">+=</span></tt> on with value to be inserted, which gives you
+an Action that performs the insert. <tt class="docutils literal"><span class="pre">++=</span></tt> allows insertion of a Seq of rows at once. Columns that are auto-incremented
+are automatically ignored, so inserting into them has no effect. Using <tt class="docutils literal"><span class="pre">forceInsert</span></tt> allows actual insertion into
+auto-incremented columns.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">,</span> <span class="n">p</span><span class="o">.</span><span class="n">addressId</span><span class="o">))</span> <span class="o">+=</span> <span class="o">(</span><span class="s">&quot;M Odersky&quot;</span><span class="o">,</span><span class="mi">12345</span><span class="o">,</span><span class="mi">1</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="update">
+<span id="index-13"></span><h3>update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id26">
+<h4>SQL<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sqlu</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  update PERSON set NAME=&#39;M. Odersky&#39;, AGE=54321 where NAME=&#39;M Odersky&#39;</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id27">
+<h4>Slick<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<p>Just like inserts, updates are based on queries that select and filter what should be updated and instead of running the query and fetching the data <tt class="docutils literal"><span class="pre">.update</span></tt> is used to replace it.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="s">&quot;M Odersky&quot;</span><span class="o">)</span>
+       <span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">))</span>
+       <span class="o">.</span><span class="n">update</span><span class="o">((</span><span class="s">&quot;M. Odersky&quot;</span><span class="o">,</span><span class="mi">54321</span><span class="o">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="delete">
+<span id="index-14"></span><h3>delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id28">
+<h4>SQL<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sqlu</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  delete PERSON where NAME=&#39;M. Odersky&#39;</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id29">
+<h4>Slick<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<p>Just like inserts, deletes are based on queries that filter what should be deleted. Instead of getting the query result
+of the query, <tt class="docutils literal"><span class="pre">.delete</span></tt> is used to obtain an Action that deletes the selected rows.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="s">&quot;M. Odersky&quot;</span><span class="o">)</span>
+       <span class="o">.</span><span class="n">delete</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="case">
+<span id="index-15"></span><span id="id30"></span><h3>CASE<a class="headerlink" href="#case" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id31">
+<h4>SQL<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">sql</span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">  select</span>
+<span class="s">    case</span>
+<span class="s">      when ADDRESS_ID = 1 then &#39;A&#39;</span>
+<span class="s">      when ADDRESS_ID = 2 then &#39;B&#39;</span>
+<span class="s">    end</span>
+<span class="s">  from PERSON P</span>
+<span class="s">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Option</span><span class="o">[</span><span class="kt">String</span><span class="o">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id32">
+<h4>Slick<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h4>
+<p>Slick uses <a class="reference external" href="api/index.html#slick.lifted.Case$">a small DSL</a> to allow <tt class="docutils literal"><span class="pre">CASE</span></tt> like case distinctions.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span>
+  <span class="nc">Case</span>
+    <span class="nc">If</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">addressId</span> <span class="o">===</span> <span class="mi">1</span><span class="o">)</span> <span class="nc">Then</span> <span class="s">&quot;A&quot;</span>
+    <span class="nc">If</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">addressId</span> <span class="o">===</span> <span class="mi">2</span><span class="o">)</span> <span class="nc">Then</span> <span class="s">&quot;B&quot;</span>
+<span class="o">).</span><span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Coming from SQL to Slick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#schema">Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queries-in-comparison">Queries in comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jdbc-query">JDBC Query</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slick-plain-sql-queries">Slick Plain SQL queries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slick-type-safe-composable-queries">Slick type-safe, composable queries</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#main-obstacle-semantic-api-differences">Main obstacle: Semantic API differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scala-to-sql-compilation-during-runtime">Scala-to-SQL compilation during runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations">Limitations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#missing-query-operators">Missing query operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#non-optimal-sql-code">Non-optimal SQL code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sql-vs-slick-examples">SQL vs. Slick examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#select">SELECT *</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#index-1">SELECT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where">WHERE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#order-by">ORDER BY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aggregations-max-etc">Aggregations (max, etc.)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group-by">GROUP BY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#having">HAVING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implicit-inner-joins">Implicit inner joins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#explicit-inner-joins">Explicit inner joins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outer-joins-left-right-full">Outer joins (left/right/full)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subquery">Subquery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scalar-value-subquery-custom-function">Scalar value subquery / custom function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insert">insert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update">update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete">delete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#case">CASE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="orm-to-slick.html" title="Coming from ORM to Slick"
+             >previous</a> |
+          <a href="upgrade.html" title="Upgrade Guides"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2015 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

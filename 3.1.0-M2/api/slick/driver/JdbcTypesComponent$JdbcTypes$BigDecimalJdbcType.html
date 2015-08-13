@@ -1,0 +1,1073 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>BigDecimalJdbcType - Slick 3.1.0-M2 - slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType</title>
+          <meta name="description" content="BigDecimalJdbcType - Slick 3.1.0 - M2 - slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType" />
+          <meta name="keywords" content="BigDecimalJdbcType Slick 3.1.0 M2 slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../lib/class_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a>.<a href="package.html" class="extype" name="slick.driver">driver</a>.<a href="JdbcTypesComponent.html" class="extype" name="slick.driver.JdbcTypesComponent">JdbcTypesComponent</a>.<a href="JdbcTypesComponent$JdbcTypes.html" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes">JdbcTypes</a></p>
+        <h1>BigDecimalJdbcType</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="JdbcTypesComponent$JdbcTypes.html" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes">package JdbcTypes</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BigDecimalJdbcType</span><span class="result"> extends <a href="JdbcDriver.html#DriverJdbcType[T]extendsJdbcType[T]" class="extmbr" name="slick.driver.JdbcTypesComponent.DriverJdbcType">JdbcDriver.DriverJdbcType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>] with <a href="../ast/NumericTypedType.html" class="extype" name="slick.ast.NumericTypedType">NumericTypedType</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/3.1.0-M2/src/main/scala/slick/driver/JdbcTypesComponent.scala" target="_blank">JdbcTypesComponent.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../ast/NumericTypedType.html" class="extype" name="slick.ast.NumericTypedType">NumericTypedType</a>, <a href="JdbcDriver.html#DriverJdbcType[T]extendsJdbcType[T]" class="extmbr" name="slick.driver.JdbcTypesComponent.DriverJdbcType">JdbcDriver.DriverJdbcType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>], <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>], <a href="../ast/BaseTypedType.html" class="extype" name="slick.ast.BaseTypedType">BaseTypedType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>], <a href="../ast/AtomicType.html" class="extype" name="slick.ast.AtomicType">AtomicType</a>, <a href="../ast/TypedType.html" class="extype" name="slick.ast.TypedType">TypedType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>], <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a>, <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 376.00 120.00" height="120pt" width="376pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph0"><polygon points="-4,4 -4,-116 372,-116 372,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType (this class)" xlink:href="#inheritance-diagram"><polygon points="275,-50 137,-50 137,-24 275,-24 275,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-43" x="149" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-32.7495" x="168.924" text-anchor="start">BigDecimalJdbcType</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="slick.driver.JdbcTypesComponent.DriverJdbcType" xlink:href="JdbcTypesComponent$DriverJdbcType.html#inheritance-diagram"><polygon points="220,-112 0,-112 0,-86 220,-86 220,-112" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-105" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="31.8057" text-anchor="start">JdbcDriver.DriverJdbcType[BigDecimal]</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="BigDecimalJdbcType is a subtype of JdbcDriver.DriverJdbcType[BigDecimal]"><path d="M133.872,-83.0801C150.132,-72.9173 171.385,-59.6342 186.602,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="132.74,-81.7241 129.427,-85.8581 134.595,-84.6921 132.74,-81.7241" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="slick.ast.NumericTypedType" xlink:href="../ast/NumericTypedType.html#inheritance-diagram"><polygon points="368,-112 238,-112 238,-86 368,-86 368,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-105" x="250" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="269.537" text-anchor="start">NumericTypedType</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="BigDecimalJdbcType is a subtype of NumericTypedType"><path d="M278.88,-83.0801C262.45,-72.9173 240.975,-59.6342 225.6,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="278.198,-84.7161 283.371,-85.8581 280.039,-81.7395 278.198,-84.7161" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType"><span>BigDecimalJdbcType</span></li><li class="in" name="slick.ast.NumericTypedType"><span>NumericTypedType</span></li><li class="in" name="slick.driver.JdbcTypesComponent.DriverJdbcType"><span>DriverJdbcType</span></li><li class="in" name="slick.jdbc.JdbcType"><span>JdbcType</span></li><li class="in" name="slick.ast.BaseTypedType"><span>BaseTypedType</span></li><li class="in" name="slick.ast.AtomicType"><span>AtomicType</span></li><li class="in" name="slick.ast.TypedType"><span>TypedType</span></li><li class="in" name="slick.ast.Type"><span>Type</span></li><li class="in" name="slick.util.Dumpable"><span>Dumpable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;():JdbcTypes.this.BigDecimalJdbcType"></a>
+      <a id="&lt;init&gt;:BigDecimalJdbcType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BigDecimalJdbcType</span><span class="params">()</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@&lt;init&gt;():JdbcTypes.this.BigDecimalJdbcType" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@+(other:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(BigDecimalJdbcType,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.ast.AtomicType#children" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="children:Seq[slick.ast.Type]"></a>
+      <a id="children:Seq[Type]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">children</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@children:Seq[slick.ast.Type]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All children of this Type.</p><div class="fullcomment"><div class="comment cmt"><p>All children of this Type.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ast/AtomicType.html" class="extype" name="slick.ast.AtomicType">AtomicType</a> → <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.DriverJdbcType#classTag" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="classTag:scala.reflect.ClassTag[T]"></a>
+      <a id="classTag:ClassTag[BigDecimal]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">implicit </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">classTag</span><span class="result">: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@classTag:scala.reflect.ClassTag[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A ClassTag for the erased type of this type's Scala values</p><div class="fullcomment"><div class="comment cmt"><p>A ClassTag for the erased type of this type's Scala values</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent$DriverJdbcType.html" class="extype" name="slick.driver.JdbcTypesComponent.DriverJdbcType">DriverJdbcType</a> → <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((BigDecimalJdbcType)⇒Boolean,⇒Any):BigDecimalJdbcType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((BigDecimalJdbcType)⇒Boolean):BigDecimalJdbcType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):BigDecimalJdbcType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):BigDecimalJdbcType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.ast.Type#getDumpInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getDumpInfo:slick.util.DumpInfo"></a>
+      <a id="getDumpInfo:DumpInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getDumpInfo</span><span class="result">: <a href="../util/DumpInfo.html" class="extype" name="slick.util.DumpInfo">DumpInfo</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@getDumpInfo:slick.util.DumpInfo" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the name, main info, attribute info and named children</p><div class="fullcomment"><div class="comment cmt"><p>Return the name, main info, attribute info and named children</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a> → <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType#getValue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getValue(r:java.sql.ResultSet,idx:Int):BigDecimal"></a>
+      <a id="getValue(ResultSet,Int):BigDecimal"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getValue</span><span class="params">(<span name="r">r: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>, <span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.BigDecimal">BigDecimal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@getValue(r:java.sql.ResultSet,idx:Int):BigDecimal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Get a result column of the type.</p><div class="fullcomment"><div class="comment cmt"><p>Get a result column of the type. For reference types, SQL NULL values
+are returned as <code>null</code>, for primitive types a default value is returned.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.DriverJdbcType#hasLiteralForm" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasLiteralForm:Boolean"></a>
+      <a id="hasLiteralForm:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasLiteralForm</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@hasLiteralForm:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Indicates whether values of this type have a literal representation in
+SQL statements.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates whether values of this type have a literal representation in
+SQL statements.
+This must return false if <code>valueToSQLLiteral</code> throws a SlickException.
+QueryBuilder (and driver-specific subclasses thereof) uses this method
+to treat LiteralNodes as volatile (i.e. using bind variables) as needed.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent$DriverJdbcType.html" class="extype" name="slick.driver.JdbcTypesComponent.DriverJdbcType">DriverJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.ast.AtomicType#mapChildren" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mapChildren(f:slick.ast.Type=&gt;slick.ast.Type):AtomicType.this.type"></a>
+      <a id="mapChildren((Type)⇒Type):BigDecimalJdbcType.this.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mapChildren</span><span class="params">(<span name="f">f: (<a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a>) ⇒ <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>.this.type</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@mapChildren(f:slick.ast.Type=&gt;slick.ast.Type):AtomicType.this.type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Apply a transformation to all type children and reconstruct this
+type with the new children, or return the original object if no
+child is changed.</p><div class="fullcomment"><div class="comment cmt"><p>Apply a transformation to all type children and reconstruct this
+type with the new children, or return the original object if no
+child is changed.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ast/AtomicType.html" class="extype" name="slick.ast.AtomicType">AtomicType</a> → <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.ast.TypedType#optionType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="optionType:slick.ast.OptionTypedType[T]"></a>
+      <a id="optionType:OptionTypedType[BigDecimal]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">optionType</span><span class="result">: <a href="../ast/OptionTypedType.html" class="extype" name="slick.ast.OptionTypedType">OptionTypedType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@optionType:slick.ast.OptionTypedType[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ast/TypedType.html" class="extype" name="slick.ast.TypedType">TypedType</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.DriverJdbcType#scalaType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="scalaType:slick.ast.ScalaBaseType[T]"></a>
+      <a id="scalaType:ScalaBaseType[BigDecimal]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">scalaType</span><span class="result">: <a href="../ast/ScalaBaseType.html" class="extype" name="slick.ast.ScalaBaseType">ScalaBaseType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@scalaType:slick.ast.ScalaBaseType[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent$DriverJdbcType.html" class="extype" name="slick.driver.JdbcTypesComponent.DriverJdbcType">DriverJdbcType</a> → <a href="../ast/TypedType.html" class="extype" name="slick.ast.TypedType">TypedType</a></dd></dl></div>
+    </li><li name="slick.ast.Type#select" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="select(sym:slick.ast.TermSymbol):slick.ast.Type"></a>
+      <a id="select(TermSymbol):Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">select</span><span class="params">(<span name="sym">sym: <a href="../ast/TermSymbol.html" class="extype" name="slick.ast.TermSymbol">TermSymbol</a></span>)</span><span class="result">: <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@select(sym:slick.ast.TermSymbol):slick.ast.Type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.DriverJdbcType#setNull" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setNull(p:java.sql.PreparedStatement,idx:Int):Unit"></a>
+      <a id="setNull(PreparedStatement,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setNull</span><span class="params">(<span name="p">p: <span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span></span>, <span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@setNull(p:java.sql.PreparedStatement,idx:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Set a parameter of the type to NULL.</p><div class="fullcomment"><div class="comment cmt"><p>Set a parameter of the type to NULL.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent$DriverJdbcType.html" class="extype" name="slick.driver.JdbcTypesComponent.DriverJdbcType">DriverJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcType#setOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setOption(v:Option[T],p:java.sql.PreparedStatement,idx:Int):Unit"></a>
+      <a id="setOption(Option[BigDecimal],PreparedStatement,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setOption</span><span class="params">(<span name="v">v: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</span>, <span name="p">p: <span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span></span>, <span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@setOption(v:Option[T],p:java.sql.PreparedStatement,idx:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Set an Option parameter of the type.</p><div class="fullcomment"><div class="comment cmt"><p>Set an Option parameter of the type.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType#setValue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setValue(v:BigDecimal,p:java.sql.PreparedStatement,idx:Int):Unit"></a>
+      <a id="setValue(BigDecimal,PreparedStatement,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setValue</span><span class="params">(<span name="v">v: <span class="extype" name="scala.BigDecimal">BigDecimal</span></span>, <span name="p">p: <span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span></span>, <span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@setValue(v:BigDecimal,p:java.sql.PreparedStatement,idx:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Set a parameter of the type.</p><div class="fullcomment"><div class="comment cmt"><p>Set a parameter of the type.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType#sqlType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sqlType:Int"></a>
+      <a id="sqlType:Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sqlType</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@sqlType:Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The constant from java.sql.Types that is used for setting parameters
+of the type to NULL.</p><div class="fullcomment"><div class="comment cmt"><p>The constant from java.sql.Types that is used for setting parameters
+of the type to NULL.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.DriverJdbcType#sqlTypeName" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="sqlTypeName(size:Option[slick.profile.RelationalProfile.ColumnOption.Length]):String"></a>
+      <a id="sqlTypeName(Option[Length]):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">sqlTypeName</span><span class="params">(<span name="size">size: <span class="extype" name="scala.Option">Option</span>[<a href="../profile/RelationalProfile$$ColumnOption$$Length.html" class="extype" name="slick.profile.RelationalProfile.ColumnOption.Length">Length</a>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@sqlTypeName(size:Option[slick.profile.RelationalProfile.ColumnOption.Length]):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The default name for the SQL type that is used for column declarations.</p><div class="fullcomment"><div class="comment cmt"><p>The default name for the SQL type that is used for column declarations.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent$DriverJdbcType.html" class="extype" name="slick.driver.JdbcTypesComponent.DriverJdbcType">DriverJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.ast.Type#structural" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="structural:slick.ast.Type"></a>
+      <a id="structural:Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">structural</span><span class="result">: <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@structural:slick.ast.Type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The structural view of this type</p><div class="fullcomment"><div class="comment cmt"><p>The structural view of this type</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></dd></dl></div>
+    </li><li name="slick.ast.Type#structuralRec" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="structuralRec:slick.ast.Type"></a>
+      <a id="structuralRec:Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">structuralRec</span><span class="result">: <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@structuralRec:slick.ast.Type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Remove all NominalTypes recursively from this Type</p><div class="fullcomment"><div class="comment cmt"><p>Remove all NominalTypes recursively from this Type</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcType#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcType#updateNull" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="updateNull(r:java.sql.ResultSet,idx:Int):Unit"></a>
+      <a id="updateNull(ResultSet,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">updateNull</span><span class="params">(<span name="r">r: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>, <span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@updateNull(r:java.sql.ResultSet,idx:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Update a column of the type in a mutable result set with NULL.</p><div class="fullcomment"><div class="comment cmt"><p>Update a column of the type in a mutable result set with NULL.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType#updateValue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="updateValue(v:BigDecimal,r:java.sql.ResultSet,idx:Int):Unit"></a>
+      <a id="updateValue(BigDecimal,ResultSet,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">updateValue</span><span class="params">(<span name="v">v: <span class="extype" name="scala.BigDecimal">BigDecimal</span></span>, <span name="r">r: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>, <span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@updateValue(v:BigDecimal,r:java.sql.ResultSet,idx:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Update a column of the type in a mutable result set.</p><div class="fullcomment"><div class="comment cmt"><p>Update a column of the type in a mutable result set.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.DriverJdbcType#valueToSQLLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="valueToSQLLiteral(value:T):String"></a>
+      <a id="valueToSQLLiteral(BigDecimal):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">valueToSQLLiteral</span><span class="params">(<span name="value">value: <span class="extype" name="scala.BigDecimal">BigDecimal</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@valueToSQLLiteral(value:T):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Convert a value to a SQL literal.</p><div class="fullcomment"><div class="comment cmt"><p>Convert a value to a SQL literal.
+This should throw a <code>SlickException</code> if <code>hasLiteralForm</code> is false.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent$DriverJdbcType.html" class="extype" name="slick.driver.JdbcTypesComponent.DriverJdbcType">DriverJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.driver.JdbcTypesComponent.DriverJdbcType#wasNull" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wasNull(r:java.sql.ResultSet,idx:Int):Boolean"></a>
+      <a id="wasNull(ResultSet,Int):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wasNull</span><span class="params">(<span name="r">r: <span class="extype" name="java.sql.ResultSet">ResultSet</span></span>, <span name="idx">idx: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@wasNull(r:java.sql.ResultSet,idx:Int):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Check if the value returned by the immediately preceding call to
+getValue() was NULL.</p><div class="fullcomment"><div class="comment cmt"><p>Check if the value returned by the immediately preceding call to
+getValue() was NULL.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="JdbcTypesComponent$DriverJdbcType.html" class="extype" name="slick.driver.JdbcTypesComponent.DriverJdbcType">DriverJdbcType</a> → <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a></dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(BigDecimalJdbcType,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.driver.JdbcTypesComponent$JdbcTypes$BigDecimalJdbcType@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.ast.NumericTypedType">
+              <h3>Inherited from <a href="../ast/NumericTypedType.html" class="extype" name="slick.ast.NumericTypedType">NumericTypedType</a></h3>
+            </div><div class="parent" name="slick.driver.JdbcTypesComponent.DriverJdbcType">
+              <h3>Inherited from <a href="JdbcDriver.html#DriverJdbcType[T]extendsJdbcType[T]" class="extmbr" name="slick.driver.JdbcTypesComponent.DriverJdbcType">JdbcDriver.DriverJdbcType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</h3>
+            </div><div class="parent" name="slick.jdbc.JdbcType">
+              <h3>Inherited from <a href="../jdbc/JdbcType.html" class="extype" name="slick.jdbc.JdbcType">JdbcType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</h3>
+            </div><div class="parent" name="slick.ast.BaseTypedType">
+              <h3>Inherited from <a href="../ast/BaseTypedType.html" class="extype" name="slick.ast.BaseTypedType">BaseTypedType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</h3>
+            </div><div class="parent" name="slick.ast.AtomicType">
+              <h3>Inherited from <a href="../ast/AtomicType.html" class="extype" name="slick.ast.AtomicType">AtomicType</a></h3>
+            </div><div class="parent" name="slick.ast.TypedType">
+              <h3>Inherited from <a href="../ast/TypedType.html" class="extype" name="slick.ast.TypedType">TypedType</a>[<span class="extype" name="scala.BigDecimal">BigDecimal</span>]</h3>
+            </div><div class="parent" name="slick.ast.Type">
+              <h3>Inherited from <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></h3>
+            </div><div class="parent" name="slick.util.Dumpable">
+              <h3>Inherited from <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.driver.JdbcTypesComponent.JdbcTypes.BigDecimalJdbcType">BigDecimalJdbcType</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>
