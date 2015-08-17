@@ -1,0 +1,1047 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>OptionApply - Slick 3.0.2 - slick.ast.OptionApply</title>
+          <meta name="description" content="OptionApply - Slick 3.0.2 - slick.ast.OptionApply" />
+          <meta name="keywords" content="OptionApply Slick 3.0.2 slick.ast.OptionApply" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.ast.OptionApply';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img src="../../lib/class_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a>.<a href="package.html" class="extype" name="slick.ast">ast</a></p>
+        <h1>OptionApply</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="slick.ast">package ast</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">OptionApply</span><span class="params">(<span name="child">child: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>)</span><span class="result"> extends <a href="UnaryNode.html" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> with <a href="SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Lift a value into an Option as Some (or None if the value is a <code>null</code> column).</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/3.0.2/src/main/scala/slick/ast/Node.scala" target="_blank">Node.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <a href="SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a>, <a href="UnaryNode.html" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>, <a href="Node.html" class="extype" name="slick.ast.Node">Node</a>, <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>, <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#diagrams" target="_blank" class="diagram-help">Learn more about scaladoc diagrams</a>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 457.00 120.00" height="120pt" width="457pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph0"><polygon points="-4,4 -4,-116 453,-116 453,4 -4,4" stroke="white" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="slick.ast.OptionApply (this class)" xlink:href="#inheritance-diagram"><polygon points="284.25,-50 185.75,-50 185.75,-24 284.25,-24 284.25,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-43" x="198" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-32.7495" x="217.872" text-anchor="start">OptionApply</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="slick.ast.UnaryNode" xlink:href="UnaryNode.html#inheritance-diagram"><polygon points="94.25,-112 -0.25,-112 -0.25,-86 94.25,-86 94.25,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-105" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="31.8203" text-anchor="start">UnaryNode</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="OptionApply is a subtype of UnaryNode"><path d="M90.1363,-84.2331C122.5,-73.9041 166.375,-59.9016 197.333,-50.0213" stroke="#d4d4d4" fill="none"></path><polygon points="89.2758,-82.6707 85.0446,-85.8581 90.34,-86.005 89.2758,-82.6707" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="slick.ast.SimplyTypedNode" xlink:href="SimplyTypedNode.html#inheritance-diagram"><polygon points="237.25,-112 112.75,-112 112.75,-86 237.25,-86 237.25,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-105" x="125" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="144.535" text-anchor="start">SimplyTypedNode</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="OptionApply is a subtype of SimplyTypedNode"><path d="M190.708,-82.2924C200.761,-72.2386 213.61,-59.3904 222.876,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="189.44,-81.0851 187.142,-85.8581 191.915,-83.56 189.44,-81.0851" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="scala.Product"><polygon points="334.25,-112 255.75,-112 255.75,-86 334.25,-86 334.25,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-105" x="268" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="287.879" text-anchor="start">Product</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="OptionApply is a subtype of Product"><path d="M279.292,-82.2924C269.239,-72.2386 256.39,-59.3904 247.124,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="278.085,-83.56 282.858,-85.8581 280.56,-81.0851 278.085,-83.56" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node trait" id="graph1_4"><g id="a_trait|graph1_4"><a xlink:title="scala.Serializable"><polygon points="449,-112 353,-112 353,-86 449,-86 449,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-105" x="365" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-94.7495" x="384.764" text-anchor="start">Serializable</text></a></g></g><!-- node4&#45;&gt;node0 --><g class="edge inheritance" id="graph1_4_0"><g id="a_inheritance|graph1_4_0"><a xlink:title="OptionApply is a subtype of Serializable"><path d="M362.558,-84.1054C334.016,-73.7889 295.482,-59.8609 268.259,-50.0213" stroke="#d4d4d4" fill="none"></path><polygon points="362.11,-85.8042 367.407,-85.8581 363.3,-82.5126 362.11,-85.8042" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.ast.OptionApply"><span>OptionApply</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="slick.ast.SimplyTypedNode"><span>SimplyTypedNode</span></li><li class="in" name="slick.ast.UnaryNode"><span>UnaryNode</span></li><li class="in" name="slick.ast.Node"><span>Node</span></li><li class="in" name="slick.util.Dumpable"><span>Dumpable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+            <a href="http://docs.scala-lang.org/overviews/scaladoc/usage.html#members" target="_blank">Learn more about member selection</a>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="slick.ast.OptionApply#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(child:slick.ast.Node):slick.ast.OptionApply"></a>
+      <a id="&lt;init&gt;:OptionApply"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">OptionApply</span><span class="params">(<span name="child">child: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@&lt;init&gt;(child:slick.ast.Node):slick.ast.OptionApply" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.ast.OptionApply.Self" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Self=slick.ast.OptionApply"></a>
+      <a id="Self:Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Self</span><span class="result"> = <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@Self=slick.ast.OptionApply" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> → <a href="SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@+(other:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(OptionApply,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.ast.OptionApply#buildType" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="buildType:slick.ast.OptionType"></a>
+      <a id="buildType:OptionType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildType</span><span class="result">: <a href="OptionType.html" class="extype" name="slick.ast.OptionType">OptionType</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@buildType:slick.ast.OptionType" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> → <a href="SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a></dd></dl></div>
+    </li><li name="slick.ast.OptionApply#child" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="child:slick.ast.Node"></a>
+      <a id="child:Node"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">child</span><span class="result">: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@child:slick.ast.Node" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> → <a href="UnaryNode.html" class="extype" name="slick.ast.UnaryNode">UnaryNode</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((OptionApply)⇒Boolean,⇒Any):OptionApply"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((OptionApply)⇒Boolean):OptionApply"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):OptionApply"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):OptionApply"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.ast.Node#getDumpInfo" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getDumpInfo:slick.util.DumpInfo"></a>
+      <a id="getDumpInfo:DumpInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getDumpInfo</span><span class="result">: <a href="../util/DumpInfo.html" class="extype" name="slick.util.DumpInfo">DumpInfo</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@getDumpInfo:slick.util.DumpInfo" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return the name, main info, attribute info and named children</p><div class="fullcomment"><div class="comment cmt"><p>Return the name, main info, attribute info and named children</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a> → <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.ast.Node#nodeBuildTypedNode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeBuildTypedNode[T&gt;:Node.this.type&lt;:slick.ast.Node](newNode:T,newType:slick.ast.Type):T"></a>
+      <a id="nodeBuildTypedNode[T&lt;:Node&gt;:OptionApply.this.type](T,Type):T"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeBuildTypedNode</span><span class="tparams">[<span name="T">T &gt;: <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>.this.type &lt;: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>]</span><span class="params">(<span name="newNode">newNode: <span class="extype" name="slick.ast.Node.nodeBuildTypedNode.T">T</span></span>, <span name="newType">newType: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result">: <span class="extype" name="slick.ast.Node.nodeBuildTypedNode.T">T</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeBuildTypedNode[T&gt;:Node.this.type&lt;:slick.ast.Node](newNode:T,newType:slick.ast.Type):T" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeChildNames" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeChildNames:Iterable[String]"></a>
+      <a id="nodeChildNames:Iterable[String]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeChildNames</span><span class="result">: <a href="../../scala/package.html#Iterable[+A]=Iterable[A]" class="extmbr" name="scala.Iterable">Iterable</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeChildNames:Iterable[String]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Names for the child nodes to show in AST dumps.</p><div class="fullcomment"><div class="comment cmt"><p>Names for the child nodes to show in AST dumps. Defaults to a numbered
+sequence starting at 0 but can be overridden by subclasses to produce
+more suitable names.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.UnaryNode#nodeChildren" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeChildren:Seq[slick.ast.Node]"></a>
+      <a id="nodeChildren:Seq[Node]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeChildren</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeChildren:Seq[slick.ast.Node]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">All child nodes of this node.</p><div class="fullcomment"><div class="comment cmt"><p>All child nodes of this node. Must be implemented by subclasses.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="UnaryNode.html" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeHasType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeHasType:Boolean"></a>
+      <a id="nodeHasType:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeHasType</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeHasType:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeMapChildren" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeMapChildren(f:slick.ast.Node=&gt;slick.ast.Node,keepType:Boolean):Node.this.Self"></a>
+      <a id="nodeMapChildren((Node)⇒Node,Boolean):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeMapChildren</span><span class="params">(<span name="f">f: (<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>) ⇒ <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="keepType">keepType: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeMapChildren(f:slick.ast.Node=&gt;slick.ast.Node,keepType:Boolean):Node.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Apply a mapping function to all children of this node and recreate the
+node with the new children.</p><div class="fullcomment"><div class="comment cmt"><p>Apply a mapping function to all children of this node and recreate the
+node with the new children. If all new children are identical to the old
+ones, this node is returned. If <code><code>keepType</code></code> is set to true, the type
+of this node is kept even if the children have changed.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodePeekType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodePeekType:slick.ast.Type"></a>
+      <a id="nodePeekType:Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodePeekType</span><span class="result">: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodePeekType:slick.ast.Type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.OptionApply#nodeRebuild" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeRebuild(ch:slick.ast.Node):slick.ast.OptionApply"></a>
+      <a id="nodeRebuild(Node):OptionApply"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeRebuild</span><span class="params">(<span name="ch">ch: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeRebuild(ch:slick.ast.Node):slick.ast.OptionApply" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> → <a href="UnaryNode.html" class="extype" name="slick.ast.UnaryNode">UnaryNode</a></dd></dl></div>
+    </li><li name="slick.ast.UnaryNode#nodeRebuild" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeRebuild(ch:IndexedSeq[slick.ast.Node]):UnaryNode.this.Self"></a>
+      <a id="nodeRebuild(IndexedSeq[Node]):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeRebuild</span><span class="params">(<span name="ch">ch: <a href="../../scala/package.html#IndexedSeq[+A]=IndexedSeq[A]" class="extmbr" name="scala.IndexedSeq">IndexedSeq</a>[<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>]</span>)</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeRebuild(ch:IndexedSeq[slick.ast.Node]):UnaryNode.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Rebuild this node with a new list of children.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node with a new list of children. Implementations of this
+method *must not* perform any optimization to reuse the current node.
+This method always returns a fresh copy.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="UnaryNode.html" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeRebuildOrThis" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeRebuildOrThis(ch:IndexedSeq[slick.ast.Node]):Node.this.Self"></a>
+      <a id="nodeRebuildOrThis(IndexedSeq[Node]):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeRebuildOrThis</span><span class="params">(<span name="ch">ch: <a href="../../scala/package.html#IndexedSeq[+A]=IndexedSeq[A]" class="extmbr" name="scala.IndexedSeq">IndexedSeq</a>[<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>]</span>)</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeRebuildOrThis(ch:IndexedSeq[slick.ast.Node]):Node.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Rebuild this node with a new list of children unless all children are
+identical to the current ones.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node with a new list of children unless all children are
+identical to the current ones.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeRebuildWithType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeRebuildWithType(tpe:slick.ast.Type):Node.this.Self"></a>
+      <a id="nodeRebuildWithType(Type):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeRebuildWithType</span><span class="params">(<span name="tpe">tpe: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeRebuildWithType(tpe:slick.ast.Type):Node.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeType:slick.ast.Type"></a>
+      <a id="nodeType:Type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeType</span><span class="result">: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeType:slick.ast.Type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The current type of this node</p><div class="fullcomment"><div class="comment cmt"><p>The current type of this node</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeTyped" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeTyped(tpe:slick.ast.Type):Node.this.type"></a>
+      <a id="nodeTyped(Type):OptionApply.this.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeTyped</span><span class="params">(<span name="tpe">tpe: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>.this.type</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeTyped(tpe:slick.ast.Type):Node.this.type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return this Node with a Type assigned.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with a Type assigned. This may only be called on
+freshly constructed nodes with no other existing references, i.e.
+creating the Node plus assigning it a Type must be atomic.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeTypedOrCopy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeTypedOrCopy(tpe:slick.ast.Type):Node.this.Self"></a>
+      <a id="nodeTypedOrCopy(Type):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeTypedOrCopy</span><span class="params">(<span name="tpe">tpe: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeTypedOrCopy(tpe:slick.ast.Type):Node.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return this Node with a Type assigned (if no other type has been seen
+for it yet) or a typed copy.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with a Type assigned (if no other type has been seen
+for it yet) or a typed copy.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeUntypedOrCopy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeUntypedOrCopy:Node.this.Self"></a>
+      <a id="nodeUntypedOrCopy:Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeUntypedOrCopy</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeUntypedOrCopy:Node.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Return this Node with no Type assigned (if it's type has not been
+observed yet) or an untyped copy.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with no Type assigned (if it's type has not been
+observed yet) or an untyped copy.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#nodeWithComputedType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeWithComputedType(scope:slick.ast.SymbolScope,typeChildren:Boolean,retype:Boolean):Node.this.Self"></a>
+      <a id="nodeWithComputedType(SymbolScope,Boolean,Boolean):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeWithComputedType</span><span class="params">(<span name="scope">scope: <a href="SymbolScope.html" class="extype" name="slick.ast.SymbolScope">SymbolScope</a> = <span class="symbol"><span class="name"><a href="SymbolScope$.html">SymbolScope.empty</a></span></span></span>, <span name="typeChildren">typeChildren: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="retype">retype: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeWithComputedType(scope:slick.ast.SymbolScope,typeChildren:Boolean,retype:Boolean):Node.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Rebuild this node and all children with their computed type.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node and all children with their computed type. If this
+node already has a type, the children are only type-checked again if
+<code><code>typeChildren</code></code> is set to true. if <code><code>retype</code></code> is also set to true, the
+existing type of this node is replaced. If this node does not yet have
+a type, the types of all children are computed.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.SimplyTypedNode#nodeWithComputedType2" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeWithComputedType2(scope:slick.ast.SymbolScope,typeChildren:Boolean,retype:Boolean):SimplyTypedNode.this.Self"></a>
+      <a id="nodeWithComputedType2(SymbolScope,Boolean,Boolean):Self"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeWithComputedType2</span><span class="params">(<span name="scope">scope: <a href="SymbolScope.html" class="extype" name="slick.ast.SymbolScope">SymbolScope</a></span>, <span name="typeChildren">typeChildren: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="retype">retype: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="#Self=slick.ast.OptionApply" class="extmbr" name="slick.ast.OptionApply.Self">Self</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@nodeWithComputedType2(scope:slick.ast.SymbolScope,typeChildren:Boolean,retype:Boolean):SimplyTypedNode.this.Self" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.ast.Node#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(OptionApply,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.ast.OptionApply@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="slick.ast.SimplyTypedNode">
+              <h3>Inherited from <a href="SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a></h3>
+            </div><div class="parent" name="slick.ast.UnaryNode">
+              <h3>Inherited from <a href="UnaryNode.html" class="extype" name="slick.ast.UnaryNode">UnaryNode</a></h3>
+            </div><div class="parent" name="slick.ast.Node">
+              <h3>Inherited from <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></h3>
+            </div><div class="parent" name="slick.util.Dumpable">
+              <h3>Inherited from <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.ast.OptionApply">OptionApply</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>

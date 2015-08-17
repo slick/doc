@@ -1,0 +1,248 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Direct Embedding (Deprecated) &mdash; Slick 3.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.0.2 documentation" href="index.html" />
+    <link rel="next" title="Slick TestKit" href="testkit.html" />
+    <link rel="prev" title="Slick Extensions" href="extensions.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/direct-embedding.rst">edit this page on github</a><span>
+          |
+          <a href="extensions.html" title="Slick Extensions"
+             accesskey="P">previous</a> |
+          <a href="testkit.html" title="Slick TestKit"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.0.2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="direct-embedding-deprecated">
+<span id="index-0"></span><h1>Direct Embedding (Deprecated)<a class="headerlink" href="#direct-embedding-deprecated" title="Permalink to this headline">¶</a></h1>
+<div class="deprecated">
+<p><span>Deprecated since version 3.0: </span>The direct embedding is an experimental Query API that was added in Slick 1.0. It is deprecated
+in 3.0 and will be removed in 3.1. You should only use Slick&#8217;s standard Scala query API for any kind of
+production use.</p>
+</div>
+<p>Unlike the standard API, the direct embedding uses macros instead of operator overloading and implicit conversions for its implementation.
+For a user the difference in the code is small, but queries using the direct embedding work with ordinary Scala types,
+which can make error messages easier to understand.</p>
+<div class="section" id="dependencies">
+<span id="index-1"></span><h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The direct embedding requires access to the Scala compiler at runtime for
+typechecking. Slick only declares an <em>optional</em> dependency on scala-compiler
+in order to avoid bringing it (along with all transitive dependencies) into
+your application if you don&#8217;t need it. You must add it explicitly to your
+own project&#8217;s <tt class="docutils literal"><span class="pre">build.sbt</span></tt> file if you want to use the direct embedding:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">libraryDependencies</span> <span class="o">&lt;+=</span> <span class="o">(</span><span class="n">scalaVersion</span><span class="o">)(</span><span class="s">&quot;org.scala-lang&quot;</span> <span class="o">%</span> <span class="s">&quot;scala-compiler&quot;</span> <span class="o">%</span> <span class="k">_</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">import</span> <span class="nn">slick.driver.H2Driver</span>
+<span class="k">import</span> <span class="nn">H2Driver.api.</span><span class="o">{</span><span class="nc">Database</span><span class="o">,</span> <span class="nc">DBIO</span><span class="o">}</span>
+<span class="k">import</span> <span class="nn">slick.direct._</span>
+<span class="k">import</span> <span class="nn">slick.direct.AnnotationMapper._</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="row-class-and-schema">
+<h2>Row class and schema<a class="headerlink" href="#row-class-and-schema" title="Permalink to this headline">¶</a></h2>
+<p>The schema description is currently provided as annotations on a case class which is used for holding rows.
+We will later provide more flexible and customizable means of providing the schema information.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// describe schema for direct embedding</span>
+<span class="nd">@table</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;COFFEES&quot;</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Coffee</span><span class="o">(</span>
+  <span class="nd">@column</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;NAME&quot;</span><span class="o">)</span>
+  <span class="n">name</span> <span class="k">:</span> <span class="kt">String</span><span class="o">,</span>
+  <span class="nd">@column</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;PRICE&quot;</span><span class="o">)</span>
+  <span class="n">price</span> <span class="k">:</span> <span class="kt">Double</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="query">
+<h2>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h2>
+<p>Queryable takes an annotated case class as its type argument to formulate queries agains the corresponding table.</p>
+<p><tt class="docutils literal"><span class="pre">_.price</span></tt> is of type Int here. The underlying, macro-based implementation takes care of that the shown arguments to map
+and filter are not executed on the JVM but translated to database queries instead.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">// query database using direct embedding</span>
+<span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="nc">Queryable</span><span class="o">[</span><span class="kt">Coffee</span><span class="o">]</span>
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">q1</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span> <span class="k">_</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mf">3.0</span> <span class="o">).</span><span class="n">map</span><span class="o">(</span> <span class="k">_</span> <span class="o">.</span><span class="n">name</span> <span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="execution">
+<h2>Execution<a class="headerlink" href="#execution" title="Permalink to this headline">¶</a></h2>
+<p>To execute the queries we need to create a SlickBackend instance passing in the chosen database backend driver.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">db</span> <span class="k">=</span> <span class="nc">Database</span><span class="o">.</span><span class="n">forConfig</span><span class="o">(</span><span class="s">&quot;h2mem1&quot;</span><span class="o">)</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="c1">// execute query using a chosen db backend</span>
+    <span class="k">val</span> <span class="n">backend</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">SlickBackend</span><span class="o">(</span> <span class="n">H2Driver</span><span class="o">,</span> <span class="nc">AnnotationMapper</span> <span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span> <span class="nc">Await</span><span class="o">.</span><span class="n">result</span><span class="o">(</span><span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">backend</span><span class="o">.</span><span class="n">result</span><span class="o">(</span><span class="n">q2</span><span class="o">)),</span> <span class="nc">Duration</span><span class="o">.</span><span class="nc">Inf</span><span class="o">)</span> <span class="o">)</span>
+    <span class="n">println</span><span class="o">(</span> <span class="nc">Await</span><span class="o">.</span><span class="n">result</span><span class="o">(</span><span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">backend</span><span class="o">.</span><span class="n">result</span><span class="o">(</span><span class="n">q2</span><span class="o">.</span><span class="n">length</span><span class="o">)),</span> <span class="nc">Duration</span><span class="o">.</span><span class="nc">Inf</span><span class="o">)</span> <span class="o">)</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="n">db</span><span class="o">.</span><span class="n">close</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="alternative-direct-embedding-bound-to-a-driver-and-session">
+<h2>Alternative direct embedding bound to a driver and session<a class="headerlink" href="#alternative-direct-embedding-bound-to-a-driver-and-session" title="Permalink to this headline">¶</a></h2>
+<p>Using ImplicitQueryable, a queryable can be bound to a backend and session. The query can be further adapted and easily executed this way.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="c1">//</span>
+<span class="k">val</span> <span class="n">iq1</span> <span class="k">=</span> <span class="nc">ImplicitQueryable</span><span class="o">(</span> <span class="n">q1</span><span class="o">,</span> <span class="n">backend</span><span class="o">,</span> <span class="n">db</span> <span class="o">)</span>
+<span class="k">val</span> <span class="n">iq2</span> <span class="k">=</span> <span class="n">iq1</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span> <span class="n">c</span> <span class="k">=&gt;</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mf">3.0</span> <span class="o">)</span>
+<span class="n">println</span><span class="o">(</span> <span class="n">iq2</span><span class="o">.</span><span class="n">toSeq</span> <span class="o">)</span> <span class="c1">//  &lt;- triggers execution </span>
+<span class="n">println</span><span class="o">(</span> <span class="n">iq2</span><span class="o">.</span><span class="n">length</span> <span class="o">)</span> <span class="c1">// &lt;- triggers execution</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>The direct embedding currently only supports database columns, which can be mapped to either <tt class="docutils literal"><span class="pre">String,</span> <span class="pre">Int,</span> <span class="pre">Double</span></tt>.</p>
+<p>Queryable and ImplicitQueryable currently support the following methods:</p>
+<p><tt class="docutils literal"><span class="pre">map,</span> <span class="pre">flatMap,</span> <span class="pre">filter,</span> <span class="pre">length</span></tt></p>
+<p>The methods are all immutable meaning they leave the left-hand-side Queryable unmodified, but return a new Queryable incorporating the
+changes by the method call.</p>
+<p>Within the expressions passed to the above methods, the following operators may be used:</p>
+<p><tt class="docutils literal"><span class="pre">Any:</span> <span class="pre">==</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">Int,</span> <span class="pre">Double:</span> <span class="pre">+</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">String:</span> <span class="pre">+</span></tt></p>
+<p><tt class="docutils literal"><span class="pre">Boolean:</span> <span class="pre">||</span> <span class="pre">&amp;&amp;</span></tt></p>
+<p>Other operators may type check and compile ok, if they are defined for the corresponding types.
+They can however currently not be translated to SQL, which makes the query fail at runtime, for example: <tt class="docutils literal"><span class="pre">(</span> <span class="pre">coffees.map(</span> <span class="pre">c</span> <span class="pre">=&gt;</span> <span class="pre">c.name.repr</span> <span class="pre">)</span> <span class="pre">)</span></tt>.
+We are evaluating ways to catch those cases at compile time in the future</p>
+<p>Queries may result in sequences of arbitrarily nested tuples, which may also contain objects representing complete rows. E.g.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">q1</span><span class="o">.</span><span class="n">map</span><span class="o">(</span> <span class="n">c</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">c</span><span class="o">.</span><span class="n">price</span><span class="o">))</span> <span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Direct Embedding (Deprecated)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#row-class-and-schema">Row class and schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#query">Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execution">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#alternative-direct-embedding-bound-to-a-driver-and-session">Alternative direct embedding bound to a driver and session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="extensions.html" title="Slick Extensions"
+             >previous</a> |
+          <a href="testkit.html" title="Slick TestKit"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2015 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
