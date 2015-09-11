@@ -1,0 +1,176 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>ms - com.typesafe.slick.driver.ms</title>
+          <meta name="description" content="ms - com.typesafe.slick.driver.ms" />
+          <meta name="keywords" content="ms com.typesafe.slick.driver.ms" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../../index.html';
+            var hash = 'com.typesafe.slick.driver.ms.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img src="../../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.typesafe">typesafe</a>.<a href="../../package.html" class="extype" name="com.typesafe.slick">slick</a>.<a href="../package.html" class="extype" name="com.typesafe.slick.driver">driver</a></p>
+        <h1>ms</h1><span class="permalink">
+      <a href="../../../../../index.html#com.typesafe.slick.driver.ms.package" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ms</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.typesafe.slick.driver.ms.ProtectGroupBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProtectGroupByextendsPhase"></a>
+      <a id="ProtectGroupBy:ProtectGroupBy"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProtectGroupBy.html"><span class="name">ProtectGroupBy</span></a><span class="result"> extends <span class="extype" name="slick.compiler.Phase">Phase</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.typesafe.slick.driver.ms.package@ProtectGroupByextendsPhase" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Ensure that every expression in a GroupBy's &quot;by&quot; clause contains a reference to a proper
+source field.</p><div class="fullcomment"><div class="comment cmt"><p>Ensure that every expression in a GroupBy's &quot;by&quot; clause contains a reference to a proper
+source field. If this is not the case, wrap the source in a Subquery boundary.</p></div></div>
+    </li><li name="com.typesafe.slick.driver.ms.SQLServerDriver" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SQLServerDriverextendsJdbcDriver"></a>
+      <a id="SQLServerDriver:SQLServerDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLServerDriver.html"><span class="name">SQLServerDriver</span></a><span class="result"> extends <span class="extype" name="slick.driver.JdbcDriver">JdbcDriver</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.typesafe.slick.driver.ms.package@SQLServerDriverextendsJdbcDriver" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick driver for Microsoft SQL Server.</p><div class="fullcomment"><div class="comment cmt"><p>Slick driver for Microsoft SQL Server.</p><p>This driver implements <code>slick.driver.JdbcProfile</code>
+<i>without</i> the following capabilities:</p><ul><li><code>slick.driver.JdbcProfile.capabilities.returnInsertOther</code>:
+    When returning columns from an INSERT operation, only a single column
+    may be specified which must be the table's AutoInc column.</li><li><code>slick.profile.SqlProfile.capabilities.sequence</code>:
+    Sequences are not supported because SQLServer does not have this
+    feature.</li><li><code>slick.driver.JdbcProfile.capabilities.forceInsert</code>:
+    Inserting explicit values into AutoInc columns with <i>forceInsert</i>
+    operations is not supported.</li><li><code>slick.driver.JdbcProfile.capabilities.createModel</code>:
+    Reading the database schema is currently only supported through JTDS,
+    not through Microsoft's official JDBC driver.</li><li><span class="extype" name="slick.driver.JdbcProfile.capabilities.insertOrUpdate">slick.driver.JdbcProfile.capabilities.insertOrUpdate</span>:
+    InsertOrUpdate operations are emulated on the client side if generated
+    keys should be returned. Otherwise the operation is performmed
+    natively on the server side.</li><li><span class="extype" name="slick.driver.JdbcProfile.capabilities.supportsByte">slick.driver.JdbcProfile.capabilities.supportsByte</span>:
+    SQL Server's TINYINT is unsigned. It doesn't have a signed Byte-like
+    type. Slick maps Byte to SMALLINT instead and that's how it shows up
+    in model and code-generation.</li></ul><p>The default type for strings of unlimited length is &quot;VARCHAR(MAX)&quot;, falling back to
+&quot;VARCHAR(254)&quot; if a <code>PrimaryKey</code> column option is set. This can be
+changed by overriding <code>slick.driver.SQLServer.defaultStringType</code>
+in application.conf.
+</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="com.typesafe.slick.driver.ms.SQLServerDriver" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SQLServerDriver"></a>
+      <a id="SQLServerDriver:SQLServerDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLServerDriver$.html"><span class="name">SQLServerDriver</span></a><span class="result"> extends <a href="SQLServerDriver.html" class="extype" name="com.typesafe.slick.driver.ms.SQLServerDriver">SQLServerDriver</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.typesafe.slick.driver.ms.package@SQLServerDriver" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
