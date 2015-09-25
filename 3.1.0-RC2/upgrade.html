@@ -1,0 +1,219 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Upgrade Guides &mdash; Slick 3.1.0-RC2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.1.0-RC2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.1.0-RC2 documentation" href="index.html" />
+    <link rel="next" title="Slick Extensions" href="extensions.html" />
+    <link rel="prev" title="Coming from SQL to Slick" href="sql-to-slick.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/upgrade.rst">edit this page on github</a><span>
+          |
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             accesskey="P">previous</a> |
+          <a href="extensions.html" title="Slick Extensions"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.1.0-RC2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="upgrade-guides">
+<span id="index-0"></span><h1>Upgrade Guides<a class="headerlink" href="#upgrade-guides" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="compatibility-policy">
+<span id="index-1"></span><h2>Compatibility Policy<a class="headerlink" href="#compatibility-policy" title="Permalink to this headline">¶</a></h2>
+<p>Slick requires Scala 2.10 or 2.11. (For Scala 2.9 please use <a class="reference external" href="http://scalaquery.org">ScalaQuery</a>, the predecessor of Slick).</p>
+<p>Slick version numbers consist of an epoch, a major and minor version, and possibly a qualifier
+(for milestone, RC and SNAPSHOT versions).</p>
+<p>For release versions (i.e. versions without a qualifier), backward binary compatibility is
+guaranteed between releases with the same epoch and major version (e.g. you could use 2.1.2 as a
+drop-in relacement for 2.1.0 but not for 2.0.0). <a class="reference internal" href="extensions.html"><em>Slick Extensions</em></a> requires at
+least the same minor version of Slick (e.g. Slick Extensions 2.1.2 can be used with Slick 2.1.2 but
+not with Slick 2.1.1). Binary compatibility is not preserved for <cite>slick-codegen</cite>, which is generally
+used at compile-time.</p>
+<p>We do not guarantee source compatibility but we try to preserve it within the same major release.
+Upgrading to a new major release may require some changes to your sources. We generally deprecate
+old features and keep them around for a full major release cycle (i.e. features which become
+deprecated in 2.1.0 will not be removed before 2.2.0) but this is not possible for all kinds of
+changes.</p>
+<p>Release candidates have the same compatibility guarantees as the final versions to which they
+lead. There are <em>no compatibility guarantees</em> whatsoever for milestones and snapshots.</p>
+</div>
+<div class="section" id="upgrade-from-3-0-to-3-1">
+<h2>Upgrade from 3.0 to 3.1<a class="headerlink" href="#upgrade-from-3-0-to-3-1" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the changes that are needed when upgrading from Slick 3.0 to 3.1. If you are
+currently using an older version of Slick, please see the older <a class="reference external" href="http://slick.typesafe.com/docs/">Slick Manuals</a> for details on other
+changes that may be required.</p>
+<div class="section" id="deprecations">
+<h3>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h3>
+<p>Most deprecated features from 3.0, including the old <tt class="docutils literal"><span class="pre">Invoker</span></tt> and <tt class="docutils literal"><span class="pre">Executor</span></tt> APIs and the package
+aliases for <tt class="docutils literal"><span class="pre">scala.slick</span></tt> were removed.</p>
+</div>
+<div class="section" id="hikaricp">
+<h3>HikariCP<a class="headerlink" href="#hikaricp" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="http://brettwooldridge.github.io/HikariCP/">HikariCP</a> support for Slick was factored out into its own module with a non-optional dependency
+on HikariCP itself. This makes it easier to use the correct version of HikariCP (which does not have
+a well-defined binary compatibility policy) with Slick. See the section on <a class="reference internal" href="gettingstarted.html#dependencies"><em>dependencies</em></a>
+for more information.</p>
+<p>Due to packaging constraints imposed by OSGi, <a class="reference external" href="hikaricp-api/index.html#slick.jdbc.hikaricp.HikariCPJdbcDataSource">HikariCPJdbcDataSource</a>
+was moved from package <tt class="docutils literal"><span class="pre">slick.jdbc</span></tt> to <tt class="docutils literal"><span class="pre">slick.jdbc.hikaricp</span></tt>.</p>
+</div>
+<div class="section" id="counting-option-columns">
+<h3>Counting Option columns<a class="headerlink" href="#counting-option-columns" title="Permalink to this headline">¶</a></h3>
+<p>Counting collection-valued queries with <tt class="docutils literal"><span class="pre">.length</span></tt> now ignores nullability of the columns, i.e. it
+is equivalent to <tt class="docutils literal"><span class="pre">COUNT(*)</span></tt> in SQL, no matter what is being counted. The previous approach of
+picking a random column led to inconsistent results. This is particularly relevant when you try to
+count one side of an outer join. Up to Slick 3.0 the goal (although not achieved in all cases due
+to a design problem) was not to include non-matching rows in the total (equivalent to counting only
+the discriminator column). This does not make sense anymore for the new outer join operators
+(introduced in 3.0) with correct <tt class="docutils literal"><span class="pre">Option</span></tt> types. The new semantics are identical to those of
+Scala collections.</p>
+<p>There is a new operator <tt class="docutils literal"><span class="pre">.countDefined</span></tt> for counting only the defined / matching (i.e. non-NULL
+in SQL) rows. To avoid any ambiguities in the definition, it is only available for
+collection-valued queries of a single column with an <tt class="docutils literal"><span class="pre">Option</span></tt> type.</p>
+</div>
+<div class="section" id="default-string-type-on-mysql">
+<h3>Default String type on MySQL<a class="headerlink" href="#default-string-type-on-mysql" title="Permalink to this headline">¶</a></h3>
+<p>Slick 3.0 changed the default string type for MySQL to <cite>TEXT</cite>, which is not allowed for primary keys
+and columns with default values. In these cases we now fall back to the old <cite>VARCHAR(254)</cite> type which
+was used up to Slick 2.1. Like in 3.0 you can change this default by setting the application.conf key
+<cite>slick.driver.MySQL.defaultStringType</cite>.</p>
+</div>
+<div class="section" id="default-string-type-on-sql-server">
+<h3>Default String type on SQL Server<a class="headerlink" href="#default-string-type-on-sql-server" title="Permalink to this headline">¶</a></h3>
+<p>SQLServerDriver (part of <a class="reference internal" href="extensions.html"><em>Slick Extensions</em></a>) used <cite>VARCHAR(MAX)</cite> as the default type
+for strings without a size limit in 3.0. This type cannot be used for primary keys, so we now use
+<cite>VARCHAR(254)</cite> instead if a column has the <cite>PrimaryKey</cite> option set. Like for MySQL (see previous
+paragraph), the default type can be overridden by setting <cite>slick.driver.SQLServer.defaultStringType</cite>
+in application.conf.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Upgrade Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compatibility-policy">Compatibility Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-from-3-0-to-3-1">Upgrade from 3.0 to 3.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deprecations">Deprecations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hikaricp">HikariCP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#counting-option-columns">Counting Option columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-string-type-on-mysql">Default String type on MySQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-string-type-on-sql-server">Default String type on SQL Server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             >previous</a> |
+          <a href="extensions.html" title="Slick Extensions"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2015 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
