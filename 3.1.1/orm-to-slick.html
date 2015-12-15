@@ -1,0 +1,412 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Coming from ORM to Slick &mdash; Slick 3.1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.1.1 documentation" href="index.html" />
+    <link rel="next" title="Coming from SQL to Slick" href="sql-to-slick.html" />
+    <link rel="prev" title="Plain SQL Queries" href="sql.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/orm-to-slick.rst">edit this page on github</a><span>
+          |
+          <a href="sql.html" title="Plain SQL Queries"
+             accesskey="P">previous</a> |
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.1.1 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="coming-from-orm-to-slick">
+<h1>Coming from ORM to Slick<a class="headerlink" href="#coming-from-orm-to-slick" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Slick is not an object-relational mapper (ORM) like Hibernate or other <a class="reference external" href="http://en.wikipedia.org/wiki/Java_Persistence_API">JPA</a>-based products. Slick is a data persistence solution like ORMs and naturally shares some concepts, but it also has significant differences. This chapter explains the differences in order to help you get the best out of Slick and avoid confusion for those familiar with ORMs. We explain how Slick manages to avoid many of the problems often referred to as the object-relational impedance mismatch.</p>
+<p>A good term to describe Slick is functional-relational mapper. Slick allows working with relational data much like with immutable collections and focuses on flexible query composition and strongly controlled side-effects. ORMs usually expose mutable object-graphs, use side-effects like read- and write-caches and hard-code support for anticipated use-cases like inheritance or relationships via association tables. Slick focuses on getting the best out of accessing a relational data store. ORMs focus on persisting an object-graph.</p>
+<p>ORMs are a natural approach when using databases from object-oriented languages. They try to allow working with persisted object-graphs partly as if they were completely in memory. Objects can be modified, associations can be changed and the object graph can be traversed. In practice this is not exactly easy to achieve due to the so called object-relational impedance mismatch. It makes ORMs hard to implement and often complicated to use for more than simple cases and if performance matters. Slick in contrast does not expose an object-graph. It is inspired by SQL and the relational model and mostly just maps their concepts to the most closely corresponding, type-safe Scala features. Database queries are expressed using a restricted, immutable, purely-functional subset of Scala much like collections. Slick also offer <a class="reference internal" href="sql.html"><em>first-class SQL support</em></a> as an alternative.</p>
+<p>In practice, ORMs often suffer from conceptual problems of what they try to achieve, from mere problems of the implementations and from mis-use, because of their complexity. In the following we look at many features of ORMs and what you would use with Slick instead. We&#8217;ll first look at how to work with the object graph. We then look at a series of particular features and use cases and how to handle them with Slick.</p>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Some ORMs use extensive configuration files. Slick is configured using small amounts of Scala code. You have to provide information about how to <a class="reference internal" href="database.html"><em>connect to the database</em></a> and write or auto-generate a <a class="reference internal" href="schemas.html"><em>database-schema</em></a> description if you want Slick to type-check your queries. Everything else like <a class="reference internal" href="#orm-relationships"><em>relationship definitions</em></a> beyond foreign keys are ordinary Scala code, which can use familiar abstraction methods for re-use.</p>
+</div>
+<div class="section" id="mapping-configuration">
+<h2>Mapping configuration.<a class="headerlink" href="#mapping-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The later examples use the following database schema</p>
+<img alt="_images/from-sql-to-slick.person-address.png" class="align-center" src="_images/from-sql-to-slick.person-address.png" />
+<p>mapped to Slick using the following code:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">type</span> <span class="kt">Person</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Int</span><span class="o">,</span><span class="nc">String</span><span class="o">,</span><span class="nc">Int</span><span class="o">,</span><span class="nc">Int</span><span class="o">)</span>
+<span class="k">class</span> <span class="nc">People</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">Person</span><span class="o">](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;PERSON&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">AutoInc</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">name</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;NAME&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">age</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;AGE&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">addressId</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;ADDRESS_ID&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span><span class="n">name</span><span class="o">,</span><span class="n">age</span><span class="o">,</span><span class="n">addressId</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">address</span> <span class="k">=</span> <span class="n">foreignKey</span><span class="o">(</span><span class="s">&quot;ADDRESS&quot;</span><span class="o">,</span><span class="n">addressId</span><span class="o">,</span><span class="n">addresses</span><span class="o">)(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">lazy</span> <span class="k">val</span> <span class="n">people</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">People</span><span class="o">]</span>
+
+<span class="k">type</span> <span class="kt">Address</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Int</span><span class="o">,</span><span class="nc">String</span><span class="o">,</span><span class="nc">String</span><span class="o">)</span>
+<span class="k">class</span> <span class="nc">Addresses</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">Address</span><span class="o">](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;ADDRESS&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;ID&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">AutoInc</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">street</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;STREET&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">city</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;CITY&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span><span class="n">street</span><span class="o">,</span><span class="n">city</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">lazy</span> <span class="k">val</span> <span class="n">addresses</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">Addresses</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Tables can alternatively be mapped to case classes. Similar code can be <a class="reference internal" href="code-generation.html"><em>auto-generated</em></a> or <a class="reference internal" href="schemas.html"><em>hand-written</em></a>.</p>
+<p>In ORMs you often provide your mapping specification in a configuration file. In Slick you provide it as Scala types like above, which are used to type-check Slick queries. A difference is that the Slick mapping is conceptually very simple. It only describes database tables and optionally maps rows to case classes or something else using arbitrary factories and extractors. It does contain information about foreign keys, but nothing else about <a class="reference internal" href="#orm-relationships"><em>relationships</em></a> or other patterns. These are mapped using re-usable queries fragments instead.</p>
+</div>
+<div class="section" id="navigating-the-object-graph">
+<h2>Navigating the object graph<a class="headerlink" href="#navigating-the-object-graph" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-plain-old-method-calls">
+<h3>Using plain old method calls<a class="headerlink" href="#using-plain-old-method-calls" title="Permalink to this headline">¶</a></h3>
+<p>This chapter could also be called strict vs. lazy or imperative vs. declarative. One common feature ORMs provide is using a persisted object graph just as if it was in-memory. And since it is not, artifacts like members or related objects are usually loaded ad-hoc only when they are needed. To make this happen, ORMs implement or intercept method calls, which look like they happen in-memory, but instead execute database queries as needed to return the desired results. Let&#8217;s look at an example using a hypothetical ORM:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">people</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span> <span class="k">=</span> <span class="nc">PeopleFinder</span><span class="o">.</span><span class="n">getByIds</span><span class="o">(</span><span class="nc">Seq</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">99</span><span class="o">,</span><span class="mi">17</span><span class="o">,</span><span class="mi">234</span><span class="o">))</span>
+<span class="k">val</span> <span class="n">addresses</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Address</span><span class="o">]</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">address</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>How many database round trips does this require? In fact reasoning about this question for different code is one of the things you need to devote the most time to when learning the collections-like API of an ORM. What usually happens is, that the ORM would do an immediate database round trip for <tt class="docutils literal"><span class="pre">getByIds</span></tt> and return the resulting people. Then <tt class="docutils literal"><span class="pre">map</span></tt> would be a Scala List method and <tt class="docutils literal"><span class="pre">.map(_.address)</span></tt> accesses the <tt class="docutils literal"><span class="pre">address</span></tt> of each person. An ORM would witness the <tt class="docutils literal"><span class="pre">address</span></tt> accesses one-by-one not knowing upfront that they happen in a loop. This often leads to an additional database round trip for each person, which is not ideal (n+1 problem), because database round trips are expensive. To solve the problem, ORMs often provide means to work around this, by basically telling them about the future, so they can aggregate multiple upcoming round trips into fewer more efficient ones.</p>
+<div class="highlight-scala"><div class="highlight"><pre>                          <span class="c1">// tell the ORM to load all related addresses at once</span>
+<span class="k">val</span> <span class="n">people</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Person</span><span class="o">]</span> <span class="k">=</span> <span class="nc">PeopleFinder</span><span class="o">.</span><span class="n">getByIds</span><span class="o">(</span><span class="nc">Seq</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">99</span><span class="o">,</span><span class="mi">17</span><span class="o">,</span><span class="mi">234</span><span class="o">)).</span><span class="n">prefetch</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">address</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">addresses</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Address</span><span class="o">]</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">address</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Here the prefetch method instructs the hypothetical ORM to load all addresses immediately with the people, often in only one or two database round trips. The addresses are then stored in a cache many ORMs maintain. The later <tt class="docutils literal"><span class="pre">.map(_.address)</span></tt> call could then be fully served from the cache. Of course this is redundant as you basically need to provide the mapping to addresses twice and if you forget to prefetch you will have poor performance. How you specify the pre-fetching rules depends on the ORM, often using external configuration or inline like here.</p>
+<p>Slick works differently. To do the same in Slick you would write the following. The type annotations are optional but shown here for clarity.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">peopleQuery</span><span class="k">:</span> <span class="kt">Query</span><span class="o">[</span><span class="kt">People</span>,<span class="kt">Person</span>,<span class="kt">Seq</span><span class="o">]</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="n">inSet</span><span class="o">(</span><span class="nc">Set</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">99</span><span class="o">,</span><span class="mi">17</span><span class="o">,</span><span class="mi">234</span><span class="o">)))</span>
+<span class="k">val</span> <span class="n">addressesQuery</span><span class="k">:</span> <span class="kt">Query</span><span class="o">[</span><span class="kt">Addresses</span>,<span class="kt">Address</span>,<span class="kt">Seq</span><span class="o">]</span> <span class="k">=</span> <span class="n">peopleQuery</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">address</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>As we can see it looks very much like collection operations but the values we get are of type <tt class="docutils literal"><span class="pre">Query</span></tt>. They do not
+store results, only a plan of the operations that are needed to create a SQL query that produces the results when
+needed. No database round trips happen at all in our example. To actually fetch results, we can have to compile the
+query to a <a class="reference internal" href="database.html"><em>database Action</em></a> with <tt class="docutils literal"><span class="pre">.result</span></tt> and then <tt class="docutils literal"><span class="pre">run</span></tt> it on the Database.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">addressesAction</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[</span><span class="kt">Address</span><span class="o">]]</span> <span class="k">=</span> <span class="n">addressesQuery</span><span class="o">.</span><span class="n">result</span>
+<span class="k">val</span> <span class="n">addresses</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[</span><span class="kt">Address</span><span class="o">]]</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">addressesAction</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>A single query is executed and the results returned. This makes database round trips very explicit and easy to reason about. Achieving few database round trips is easy.</p>
+<p>As you can see with Slick we do not navigate the object graph (i.e. results) directly. We navigate it by composing
+queries instead, which are just place-holder values for potential database round trip yet to happen. We can lazily
+compose queries until they describe exactly what we need and then use a single <tt class="docutils literal"><span class="pre">Database.run</span></tt> call for execution.</p>
+<p>Navigating the object graph directly in an ORM is problematic as explained earlier. Slick gets away without that feature. ORMs often solve the problem by offering a declarative query language as an alternative, which is similar to how you work with Slick.</p>
+</div>
+<div class="section" id="query-languages">
+<h3>Query languages<a class="headerlink" href="#query-languages" title="Permalink to this headline">¶</a></h3>
+<p>ORMs often come with declarative query languages like JPA&#8217;s JQL or Criteria API. Similar to SQL or Slick, they allow expressing queries yet to happen and make execution explicit.</p>
+<div class="section" id="string-based-embeddings">
+<h4>String based embeddings<a class="headerlink" href="#string-based-embeddings" title="Permalink to this headline">¶</a></h4>
+<p>Quite commonly,  these languages, for example HQL, but also SQL are embedded into programs as Strings. Here is an example for HQL.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">hql</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;FROM Person p WHERE p.id in (:ids)&quot;</span>
+<span class="k">val</span> <span class="n">q</span><span class="k">:</span> <span class="kt">Query</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">createQuery</span><span class="o">(</span><span class="n">hql</span><span class="o">)</span>
+<span class="n">q</span><span class="o">.</span><span class="n">setParameterList</span><span class="o">(</span><span class="s">&quot;ids&quot;</span><span class="o">,</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">99</span><span class="o">,</span><span class="mi">17</span><span class="o">,</span><span class="mi">234</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>Strings are a very simple way to embed an arbitrary language and in many programming languages the only way without changing the compiler, for example in Java. While simple, this kind of embedding has significant limitations.</p>
+<p>One issue is that tools often have no knowledge about the embedded language and treat queries as ordinary Strings. The compilers or interpreters of the host languages do not detect syntactical mistakes upfront or if the query produces a different type of result than expected. Also IDEs often do not provide syntax highlighting, code completion, inline error hints, etc.</p>
+<p>More importantly, re-use is very hard. You would need to compose Strings in order to re-use certain parts of queries. As an exercise, try to make the id filtering part of our above HQL example re-useable, so we can use it for table person as well as address. It is really cumbersome.</p>
+<p>In Java and many other languages, strings are the only way to embed a concise query language. As we will see in the next sections, Scala is more flexible.</p>
+</div>
+<div class="section" id="method-based-apis">
+<h4>Method based APIs<a class="headerlink" href="#method-based-apis" title="Permalink to this headline">¶</a></h4>
+<p>Instead of getting the ultimate flexibility for the embedded language, an alternative approach is to go with the extensibility features of the host language and use those. Object-oriented languages like Java and Scala allow extensibility through the definition of APIs consisting of objects and methods. JPA&#8217;s Criteria API use this concept and so does Slick. This allows the host language tools to partially understand the embedded language and provide better support for the features mentioned earlier. Here is an example using Criteria Queries.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">id</span> <span class="k">=</span> <span class="nc">Property</span><span class="o">.</span><span class="n">forName</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="n">session</span><span class="o">.</span><span class="n">createCriteria</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Person</span><span class="o">])</span>
+               <span class="o">.</span><span class="n">add</span><span class="o">(</span> <span class="n">id</span> <span class="n">in</span> <span class="nc">Array</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">99</span><span class="o">,</span><span class="mi">17</span><span class="o">,</span><span class="mi">234</span><span class="o">)</span> <span class="o">)</span>
+</pre></div>
+</div>
+<p>A method based embedding makes queries compositional. Factoring out filtering by ids becomes easy:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">def</span> <span class="n">byIds</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Criteria</span><span class="o">,</span> <span class="n">ids</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="k">=</span> <span class="n">c</span><span class="o">.</span><span class="n">add</span><span class="o">(</span> <span class="n">id</span> <span class="n">in</span> <span class="n">ids</span> <span class="o">)</span>
+
+<span class="k">val</span> <span class="n">c</span> <span class="k">=</span> <span class="n">byIds</span><span class="o">(</span>
+  <span class="n">session</span><span class="o">.</span><span class="n">createCriteria</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Person</span><span class="o">]),</span>
+  <span class="nc">Array</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="mi">99</span><span class="o">,</span><span class="mi">17</span><span class="o">,</span><span class="mi">234</span><span class="o">)</span>
+<span class="o">)</span>      
+</pre></div>
+</div>
+<p>Of course ids are a trivial example, but this becomes very useful for more complex queries.</p>
+<p>Java APIs like JPA&#8217;s Criteria API do not use Scala&#8217;s operator overloading capabilities. This can lead to more cumbersome and less familiar code when expressing queries. Let&#8217;s query for all people younger 5 or older than 65 for example.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">age</span> <span class="k">=</span> <span class="nc">Property</span><span class="o">.</span><span class="n">forName</span><span class="o">(</span><span class="s">&quot;age&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="n">session</span><span class="o">.</span><span class="n">createCriteria</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Person</span><span class="o">])</span>
+               <span class="o">.</span><span class="n">add</span><span class="o">(</span>
+                 <span class="nc">Restrictions</span><span class="o">.</span><span class="n">disjunction</span>
+                   <span class="o">.</span><span class="n">add</span><span class="o">(</span><span class="n">age</span> <span class="n">lt</span> <span class="mi">5</span><span class="o">)</span>
+                   <span class="o">.</span><span class="n">add</span><span class="o">(</span><span class="n">age</span> <span class="n">gt</span> <span class="mi">65</span><span class="o">)</span>
+               <span class="o">)</span>
+</pre></div>
+</div>
+<p>With Scala&#8217;s operator overloading we can do better and that&#8217;s what Slick uses. Queries are very concise. The same query in Slick would look like this:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>There are some limitations to Scala&#8217;s overloading capabilities that affect Slick. In queries, one has to use <tt class="docutils literal"><span class="pre">===</span></tt> instead of <tt class="docutils literal"><span class="pre">==</span></tt>, <tt class="docutils literal"><span class="pre">=!=</span></tt> instead of <tt class="docutils literal"><span class="pre">!=</span></tt> and <tt class="docutils literal"><span class="pre">++</span></tt> for string concatenation instead of <tt class="docutils literal"><span class="pre">+</span></tt>.  Also it is not possible to overload <tt class="docutils literal"><span class="pre">if</span></tt> expressions in Scala. Instead Slick comes with a small <a class="reference internal" href="sql-to-slick.html#case"><em>DSL for SQL case expressions</em></a>.</p>
+<p>As already mentioned, we are working with placeholder values, merely describing the query, not executing it. Here&#8217;s the same expression again with added type annotations to allow us looking behind the scenes a bit:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="o">(</span><span class="n">people</span><span class="k">:</span> <span class="kt">Query</span><span class="o">[</span><span class="kt">People</span>, <span class="kt">Person</span>, <span class="kt">Seq</span><span class="o">]).</span><span class="n">filter</span><span class="o">(</span>
+  <span class="o">(</span><span class="n">p</span><span class="k">:</span> <span class="kt">People</span><span class="o">)</span> <span class="k">=&gt;</span> 
+    <span class="o">(</span>
+      <span class="o">((</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">Int</span><span class="o">])</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span><span class="o">)</span>
+      <span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">]</span>
+    <span class="o">)</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">Query</span></tt> marks collection-like query expressions, e.g. a whole table. <tt class="docutils literal"><span class="pre">People</span></tt> is the Slick Table subclass defined for table person. In this context it may be confusing that the value is used rather as a prototype for a row here. It has members of type <tt class="docutils literal"><span class="pre">Rep</span></tt> representing the individual columns. Expressions based on these columns result in other expressions of type <tt class="docutils literal"><span class="pre">Rep</span></tt>. Here we are using several <tt class="docutils literal"><span class="pre">Rep[Int]</span></tt> to compute a <tt class="docutils literal"><span class="pre">Rep[Boolean]</span></tt>, which we are using as the filter expression. Internally, Slick builds a tree from this, which represents the operations and is used to produce the corresponding SQL code. We often call this process of building up expression trees encapsulated in place-holder values as lifting expressions, which is why we also call this query interface the <em>lifted embedding</em> in Slick.</p>
+<p>It is important to note that Scala allows to be very type-safe here. E.g. Slick supports a method <tt class="docutils literal"><span class="pre">.substring</span></tt> for <tt class="docutils literal"><span class="pre">Rep[String]</span></tt> but not for <tt class="docutils literal"><span class="pre">Rep[Int]</span></tt>. This is impossible in Java and Java APIs like Criteria Queries, but possible in Scala using type-parameter based method extensions via implicits. This allows tools like the Scala compiler and IDEs to understand the code much more precisely and offer better checking and support.</p>
+<p>A nice property of a Slick-like query language is, that it can be used with Scala&#8217;s comprehension syntax, which is just Scala-builtin syntactic sugar for collections operations. The above example can alternatively be written as</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">for</span><span class="o">(</span> <span class="n">p</span> <span class="k">&lt;-</span> <span class="n">people</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span> <span class="o">)</span> <span class="k">yield</span> <span class="n">p</span>
+</pre></div>
+</div>
+<p>Scala&#8217;s comprehension syntax looks much like SQL or ORM query languages. It however lacks syntactic support for some constructs like sorting and grouping, for which one has to use the method-based api, e.g.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="o">(</span> <span class="k">for</span><span class="o">(</span> <span class="n">p</span> <span class="k">&lt;-</span> <span class="n">people</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">||</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span> <span class="o">)</span> <span class="k">yield</span> <span class="n">p</span> <span class="o">).</span><span class="n">sortBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Despite the syntactic limitations, the comprehension syntax is convenient when dealing with multiple inner joins.</p>
+<p>It is important to note that the problems of method-based query apis like Criteria Queries described above are not a conceptual limitation of ORM query languages but merely an artifact of many ORMs being Java frameworks. In principle, a Scala ORMs could offer a query language just like Slick&#8217;s and they should. Comfortably compositional queries allow for a high degree of code re-use. They seem to be Slick&#8217;s favorite feature for many developers.</p>
+</div>
+<div class="section" id="macro-based-embeddings">
+<h4>Macro-based embeddings<a class="headerlink" href="#macro-based-embeddings" title="Permalink to this headline">¶</a></h4>
+<p>Scala macros allow other approaches for embedding queries. They can be used to check queries embedded as Strings at compile time. They can also be used to translate Scala code written without Query and Rep place holder types to SQL. Both approaches are being prototyped and evaluated for Slick but are not ready for prime-time yet. There are other database libraries out there that already use macros for their query language.</p>
+</div>
+</div>
+</div>
+<div class="section" id="query-granularity">
+<h2>Query granularity<a class="headerlink" href="#query-granularity" title="Permalink to this headline">¶</a></h2>
+<p>With ORMs it is not uncommon to treat objects or complete rows as the smallest granularity when loading data. This is not necessarily a limitation of the frameworks, but a habit of using them. With Slick it is very much encouraged to only fetch the data you actually need. While you can map rows to classes with Slick, it is often more efficient to not use that feature, but to restrict your query to the data you actually need in that moment. If you only need a person&#8217;s name and age, just map to those and return them as a tuple.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>This allows you to be very precise about what data is actually transferred.</p>
+</div>
+<div class="section" id="read-caching">
+<h2>Read caching<a class="headerlink" href="#read-caching" title="Permalink to this headline">¶</a></h2>
+<p>Slick doesn&#8217;t cache query results. Working with Slick is like working with JDBC in this regard. Many ORMs come with read and write caches. Caches are side-effects. They can be hard to reason about. It can be tricky to manage cache consistency and lifetime.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="nc">PeopleFinder</span><span class="o">.</span><span class="n">getById</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>This call may be served from the database or from a cache. It is not clear at the call site what the performance is. With Slick it is very clear that executing a query leads to a database round trip and that Slick doesn&#8217;t interfere with member accesses on objects.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="mi">5</span><span class="o">).</span><span class="n">result</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Slick returns a consistent, immutable snapshot of a fraction of the database at that point in time. If you need consistency over multiple queries, use transactions.</p>
+</div>
+<div class="section" id="writes-and-caching">
+<h2>Writes (and caching)<a class="headerlink" href="#writes-and-caching" title="Permalink to this headline">¶</a></h2>
+<p>Writes in many ORMs require write caching to be performant.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">person</span> <span class="k">=</span> <span class="nc">PeopleFinder</span><span class="o">.</span><span class="n">getById</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
+<span class="n">person</span><span class="o">.</span><span class="n">name</span> <span class="k">=</span> <span class="s">&quot;C. Vogt&quot;</span>
+<span class="n">person</span><span class="o">.</span><span class="n">age</span> <span class="k">=</span> <span class="mi">12345</span>
+<span class="n">session</span><span class="o">.</span><span class="n">save</span>
+</pre></div>
+</div>
+<p>Here our hypothetical ORM records changes to the object and the <tt class="docutils literal"><span class="pre">.save</span></tt> method syncs back changes into the database in a single round trip rather than one per member. In Slick you would do the following instead:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">personQuery</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="mi">5</span><span class="o">)</span>
+<span class="n">personQuery</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">)).</span><span class="n">update</span><span class="o">(</span><span class="s">&quot;C. Vogt&quot;</span><span class="o">,</span> <span class="mi">12345</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Slick embraces declarative transformations. Rather than modifying individual members of objects one after the other, you state all modifications at once and Slick creates a single database round trip from it without using a cache. New Slick users seem to be often confused by this syntax, but it is actually very neat. Slick unifies the syntax for queries, inserts, updates and deletes. Here <tt class="docutils literal"><span class="pre">personQuery</span></tt> is just a query. We could use it to fetch data. But instead, we can also use it to update the columns specified by the query. Or we can use it do delete the rows.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">personQuery</span><span class="o">.</span><span class="n">delete</span> <span class="c1">// deletes person with id 5</span>
+</pre></div>
+</div>
+<p>For inserts, we insert into the query, that resembles the whole table and can select individual columns in the same way.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="n">people</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="o">,</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="o">))</span> <span class="o">+=</span> <span class="o">(</span><span class="s">&quot;S. Zeiger&quot;</span><span class="o">,</span> <span class="mi">54321</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="relationships">
+<span id="orm-relationships"></span><h2>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h2>
+<p>ORMs usually provide built-in, hard-coded support for 1-to-many and many-to-many relationships. They can be set up centrally in the configuration. In SQL on the other hand you would specify them using joins in every single query. You have a lot of flexibility what you join and how. With Slick you get the best of both worlds. Slick queries are as flexible as SQL, but also compositional. You can store fragements like join conditions in central places and use language-level abstraction. Relationships of any sort are just one thing you can naturally abstract over like in any Scala code. There is no need for Slick to hard-code support for certain use cases. You can easily implement arbitrary use cases yourself, e.g. the common 1-n or n-n relationships or even relationships spanning over multiple tables, relationships with additional discriminators, polymorphic relationships, etc.</p>
+<p>Here is an example for person and addresses.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">implicit</span> <span class="k">class</span> <span class="nc">PersonExtensions</span><span class="o">[</span><span class="kt">C</span><span class="o">[</span><span class="k">_</span><span class="o">]](</span><span class="n">q</span><span class="k">:</span> <span class="kt">Query</span><span class="o">[</span><span class="kt">People</span>, <span class="kt">Person</span>, <span class="kt">C</span><span class="o">])</span> <span class="o">{</span>
+  <span class="c1">// specify mapping of relationship to address</span>
+  <span class="k">def</span> <span class="n">withAddress</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">join</span><span class="o">(</span><span class="n">addresses</span><span class="o">).</span><span class="n">on</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">addressId</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">val</span> <span class="n">chrisQuery</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="mi">2</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">stefanQuery</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="mi">3</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">chrisWithAddress</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[(</span><span class="kt">Person</span>, <span class="kt">Address</span><span class="o">)]</span> <span class="k">=</span>
+  <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">chrisQuery</span><span class="o">.</span><span class="n">withAddress</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">stefanWithAddress</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[(</span><span class="kt">Person</span>, <span class="kt">Address</span><span class="o">)]</span> <span class="k">=</span>
+  <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">stefanQuery</span><span class="o">.</span><span class="n">withAddress</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>A common question for new Slick users is how they can follow a relationships on a result. In an ORM you could do something like this:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">chris</span><span class="k">:</span> <span class="kt">Person</span> <span class="o">=</span> <span class="nc">PeopleFinder</span><span class="o">.</span><span class="n">getById</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">address</span><span class="k">:</span> <span class="kt">Address</span> <span class="o">=</span> <span class="n">chris</span><span class="o">.</span><span class="n">address</span>
+</pre></div>
+</div>
+<p>As explained earlier, Slick does not allow navigating the object-graph as if data was in memory, because of the problem that comes with it. Instead of navigating relationships on results you write new queries instead.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">chrisQuery</span><span class="k">:</span> <span class="kt">Query</span><span class="o">[</span><span class="kt">People</span>,<span class="kt">Person</span>,<span class="kt">Seq</span><span class="o">]</span> <span class="k">=</span> <span class="n">people</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">id</span> <span class="o">===</span> <span class="mi">2</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">addressQuery</span><span class="k">:</span> <span class="kt">Query</span><span class="o">[</span><span class="kt">Addresses</span>,<span class="kt">Address</span>,<span class="kt">Seq</span><span class="o">]</span> <span class="k">=</span> <span class="n">chrisQuery</span><span class="o">.</span><span class="n">withAddress</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_2</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">address</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">addressQuery</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">head</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>If you leave out the optional type annotation and some intermediate vals it is very clean. And it is very clear where database round trips happen.</p>
+<p>A variant of this question Slick new comers often ask is how they can do something like this in Slick:</p>
+<div class="highlight-scala"><pre>case class Address( … )
+case class Person( …, address: Address )
+</pre>
+</div>
+<p>The problem is that this hard-codes that a Person requires an Address. It can not be loaded without it. This does&#8217;t fit to Slick&#8217;s philosophy of giving you fine-grained control over what you load exactly. With Slick it is advised to map one table to a tuple or case class without them having object references to related objects. Instead you can write a function that joins two tables and returns them as a tuple or association case class instance, providing an association externally, not strongly tied one of the classes.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span class="k">val</span> <span class="n">tupledJoin</span><span class="k">:</span> <span class="kt">Query</span><span class="o">[(</span><span class="kt">People</span>,<span class="kt">Addresses</span><span class="o">)</span>,<span class="o">(</span><span class="kt">Person</span>,<span class="kt">Address</span><span class="o">)</span>, <span class="kt">Seq</span><span class="o">]</span>
+      <span class="k">=</span> <span class="n">people</span> <span class="n">join</span> <span class="n">addresses</span> <span class="n">on</span> <span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">addressId</span> <span class="o">===</span> <span class="k">_</span><span class="o">.</span><span class="n">id</span><span class="o">)</span>
+
+<span class="k">case</span> <span class="k">class</span> <span class="nc">PersonWithAddress</span><span class="o">(</span><span class="n">person</span><span class="k">:</span> <span class="kt">Person</span><span class="o">,</span> <span class="n">address</span><span class="k">:</span> <span class="kt">Address</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">caseClassJoinResults</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">tupledJoin</span><span class="o">.</span><span class="n">result</span><span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="nc">PersonWithAddress</span><span class="o">.</span><span class="n">tupled</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>An alternative approach is giving your classes Option-typed members referring to related objects, where None means that the related objects have not been loaded yet. However this is less type-safe then using a tuple or case class, because it cannot be statically checked, if the related object is loaded.</p>
+<div class="section" id="modifying-relationships">
+<h3>Modifying relationships<a class="headerlink" href="#modifying-relationships" title="Permalink to this headline">¶</a></h3>
+<p>When manipulating relationships with ORMs you usually work on mutable collections of associated objects and inserts or remove related objects. Changes are written to the database immediately or recorded in a write cache and commited later. To avoid stateful caches and mutability, Slick handles relationship manipulations just like SQL - using foreign keys. Changing relationships means updating foreign key fields to new ids, just like updating any other field. As a bonus this allows establishing and removing associations with objects that have not been loaded into memory. Having their ids is sufficient.</p>
+</div>
+</div>
+<div class="section" id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
+<p>Slick does not persist arbitrary object-graphs. It rather exposes the relational data model nicely integrated into Scala. As the relational schema doesn&#8217;t contain inheritance so doesn&#8217;t Slick. This can be unfamiliar at first. Usually inheritance can be simply replaced by relationalships thinking along the lines of roles. Instead of foo is a bar think foo has role bar. As Slick allows query composition and abstraction, inheritance-like query-snippets can be easily implemented and put into functions for re-use. Slick doesn&#8217;t provide any out of the box but allows you to flexibly come up with the ones that match your problem and use them in your queries.</p>
+</div>
+<div class="section" id="code-generation">
+<h2>Code-generation<a class="headerlink" href="#code-generation" title="Permalink to this headline">¶</a></h2>
+<p>Many of the concepts described above can be abstracted over using Scala code to avoid repetition. There cases however, where you reach the limits of Scala&#8217;s type system&#8217;s abstraction capabilities. Code generation offers a solution to this. Slick comes with a very flexible and fully customizable <a class="reference internal" href="code-generation.html"><em>code generator</em></a>, which can be used to avoid repetition in these cases. The code generator operates on the meta data of the database. Combine it with your own extra meta data if needed and use it to generate Slick types, relationship accessors, association classes, etc. For more info see our Scala Days 2014 talk at <a class="reference external" href="http://slick.typesafe.com/docs/">http://slick.typesafe.com/docs/</a> .</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Coming from ORM to Slick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mapping-configuration">Mapping configuration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navigating-the-object-graph">Navigating the object graph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-plain-old-method-calls">Using plain old method calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#query-languages">Query languages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#query-granularity">Query granularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-caching">Read caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writes-and-caching">Writes (and caching)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#relationships">Relationships</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-relationships">Modifying relationships</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#inheritance">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-generation">Code-generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Slick Extensions</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="sql.html" title="Plain SQL Queries"
+             >previous</a> |
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011-2015 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
