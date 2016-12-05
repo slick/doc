@@ -1,0 +1,379 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>User-Defined Features &mdash; Slick 3.2.0-M2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.2.0-M2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.2.0-M2 documentation" href="index.html" />
+    <link rel="next" title="Plain SQL Queries" href="sql.html" />
+    <link rel="prev" title="Schema Code Generation" href="code-generation.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/userdefined.rst">edit this page on github</a><span>
+          |
+          <a href="code-generation.html" title="Schema Code Generation"
+             accesskey="P">previous</a> |
+          <a href="sql.html" title="Plain SQL Queries"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.2.0-M2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user-defined-features">
+<span id="index-0"></span><h1>User-Defined Features<a class="headerlink" href="#user-defined-features" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes how to use custom data types and database functions
+with Slick&#8217;s Scala API.</p>
+<div class="section" id="scalar-database-functions">
+<span id="scalar-db-functions"></span><span id="index-1"></span><h2>Scalar Database Functions<a class="headerlink" href="#scalar-database-functions" title="Permalink to this headline">¶</a></h2>
+<p>If your database system supports a scalar function that is not available as
+a method in Slick you can define it as a
+<a class="reference external" href="api/index.html#slick.lifted.SimpleFunction">SimpleFunction</a>. There are predefined methods for
+creating unary, binary and ternary functions with fixed parameter and return
+types.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// H2 has a day_of_week() function which extracts the day of week from a timestamp</span>
+<span class="k">val</span> <span class="n">dayOfWeek</span> <span class="k">=</span> <span class="nc">SimpleFunction</span><span class="o">.</span><span class="n">unary</span><span class="o">[</span><span class="kt">Date</span>, <span class="kt">Int</span><span class="o">](</span><span class="s">&quot;day_of_week&quot;</span><span class="o">)</span>
+
+<span class="c1">// Use the lifted function in a query to group by day of week</span>
+<span class="k">val</span> <span class="n">q1</span> <span class="k">=</span> <span class="k">for</span> <span class="o">{</span>
+  <span class="o">(</span><span class="n">dow</span><span class="o">,</span> <span class="n">q</span><span class="o">)</span> <span class="k">&lt;-</span> <span class="n">salesPerDay</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">s</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">dayOfWeek</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="n">day</span><span class="o">),</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="o">)).</span><span class="n">groupBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">(</span><span class="n">dow</span><span class="o">,</span> <span class="n">q</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_2</span><span class="o">).</span><span class="n">sum</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>If you need more flexibility regarding the types (e.g. for varargs,
+polymorphic functions, or to support Option and non-Option types in a single
+function), you can use <code class="docutils literal"><span class="pre">SimpleFunction.apply</span></code> to get an untyped instance and
+write your own wrapper function with the proper type-checking:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">dayOfWeek2</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">Date</span><span class="o">])</span> <span class="k">=</span>
+  <span class="nc">SimpleFunction</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;day_of_week&quot;</span><span class="o">).</span><span class="n">apply</span><span class="o">(</span><span class="nc">Seq</span><span class="o">(</span><span class="n">c</span><span class="o">))</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="api/index.html#slick.lifted.SimpleBinaryOperator">SimpleBinaryOperator</a> and
+<a class="reference external" href="api/index.html#slick.lifted.SimpleLiteral">SimpleLiteral</a> work in a similar way. For even more
+flexibility (e.g. function-like expressions with unusual syntax), you can
+use <a class="reference external" href="api/index.html#slick.lifted.SimpleExpression">SimpleExpression</a>.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">current_date</span> <span class="k">=</span> <span class="nc">SimpleLiteral</span><span class="o">[</span><span class="kt">java.sql.Date</span><span class="o">](</span><span class="s">&quot;CURRENT_DATE&quot;</span><span class="o">)</span>
+<span class="n">salesPerDay</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span> <span class="k">=&gt;</span> <span class="n">current_date</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="other-database-functions-and-stored-procedures">
+<h2>Other Database Functions And Stored Procedures<a class="headerlink" href="#other-database-functions-and-stored-procedures" title="Permalink to this headline">¶</a></h2>
+<p>For database functions that return complete tables or stored procedures please use <a class="reference internal" href="sql.html"><span class="doc">Plain SQL Queries</span></a>.
+Stored procedures that return multiple result sets are currently not supported.</p>
+<span class="target" id="index-2"></span></div>
+<div class="section" id="using-custom-scalar-types-in-queries">
+<span id="index-3"></span><h2>Using Custom Scalar Types in Queries<a class="headerlink" href="#using-custom-scalar-types-in-queries" title="Permalink to this headline">¶</a></h2>
+<p>If you need a custom column type you can implement
+<a class="reference external" href="api/index.html#slick.jdbc.JdbcProfile&#64;ColumnType[T]:ColumnType[T]">ColumnType</a>. The most
+common scenario is mapping an application-specific type to an already supported type in the database.
+This can be done much simpler by using
+<a class="reference external" href="api/index.html#slick.jdbc.JdbcProfile&#64;MappedColumnType:MappedJdbcType.type">MappedColumnType</a>
+which takes care of all the boilerplate. It comes with the usual import from the profile.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// An algebraic data type for booleans</span>
+<span class="k">sealed</span> <span class="k">trait</span> <span class="nc">Bool</span>
+<span class="k">case</span> <span class="k">object</span> <span class="nc">True</span> <span class="k">extends</span> <span class="nc">Bool</span>
+<span class="k">case</span> <span class="k">object</span> <span class="nc">False</span> <span class="k">extends</span> <span class="nc">Bool</span>
+
+<span class="c1">// And a ColumnType that maps it to Int values 1 and 0</span>
+<span class="k">implicit</span> <span class="k">val</span> <span class="n">boolColumnType</span> <span class="k">=</span> <span class="nc">MappedColumnType</span><span class="o">.</span><span class="n">base</span><span class="o">[</span><span class="kt">Bool</span>, <span class="kt">Int</span><span class="o">](</span>
+  <span class="o">{</span> <span class="n">b</span> <span class="k">=&gt;</span> <span class="k">if</span><span class="o">(</span><span class="n">b</span> <span class="o">==</span> <span class="nc">True</span><span class="o">)</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span> <span class="o">},</span>    <span class="c1">// map Bool to Int</span>
+  <span class="o">{</span> <span class="n">i</span> <span class="k">=&gt;</span> <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="nc">True</span> <span class="k">else</span> <span class="nc">False</span> <span class="o">}</span> <span class="c1">// map Int to Bool</span>
+<span class="o">)</span>
+
+<span class="c1">// You can now use Bool like any built-in column type (in tables, queries, etc.)</span>
+</pre></div>
+</div>
+<p>You can also subclass
+<a class="reference external" href="api/index.html#slick.jdbc.JdbcProfile&#64;MappedJdbcType">MappedJdbcType</a>
+for a bit more flexibility.</p>
+<p id="index-4">If you have a wrapper class (which can optionally be a case class and/or value
+class) for an underlying value of some supported type, you can make it extend
+<a class="reference external" href="api/index.html#slick.lifted.MappedTo">MappedTo</a> to get a macro-generated implicit
+<code class="docutils literal"><span class="pre">ColumnType</span></code> for free. Such wrapper classes are commonly used for type-safe
+table-specific primary key types:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// A custom ID type for a table</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">MyID</span><span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="kt">Long</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">MappedTo</span><span class="o">[</span><span class="kt">Long</span><span class="o">]</span>
+
+<span class="c1">// Use it directly for this table&#39;s ID -- No extra boilerplate needed</span>
+<span class="k">class</span> <span class="nc">MyTable</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[(</span><span class="kt">MyID</span>, <span class="kt">String</span><span class="o">)](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;MY_TABLE&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">MyID</span><span class="o">](</span><span class="s">&quot;ID&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">data</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;DATA&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">data</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<span class="target" id="index-5"></span></div>
+<div class="section" id="using-custom-record-types-in-queries">
+<span id="record-types"></span><span id="index-6"></span><h2>Using Custom Record Types in Queries<a class="headerlink" href="#using-custom-record-types-in-queries" title="Permalink to this headline">¶</a></h2>
+<p>Record types are data structures containing a statically known
+number of components with individually declared types.  Out of the box,
+Slick supports Scala tuples (up to arity 22) and Slick&#8217;s own
+<a class="reference external" href="api/index.html#slick.collection.heterogeneous.HList">HList</a> implementation. Record
+types can be nested and mixed arbitrarily.</p>
+<p>In order to use custom record types (case classes, custom HLists, tuple-like
+types, etc.) in queries you need to tell Slick how to map them between queries
+and results. You can do that using a <a class="reference external" href="api/index.html#slick.lifted.Shape">Shape</a>
+extending <a class="reference external" href="api/index.html#slick.lifted.MappedScalaProductShape">MappedScalaProductShape</a>.</p>
+<div class="section" id="polymorphic-types-e-g-custom-tuple-types-or-hlists">
+<h3>Polymorphic Types (e.g. Custom Tuple Types or HLists)<a class="headerlink" href="#polymorphic-types-e-g-custom-tuple-types-or-hlists" title="Permalink to this headline">¶</a></h3>
+<p>The distinguishing feature of a <em>polymorphic</em> record type is that it abstracts
+over its element types, so you can use the same record type for both, lifted
+and plain element types. You can add support for custom polymorphic record
+types using an appropriate implicit <a class="reference external" href="api/index.html#slick.lifted.Shape">Shape</a>.</p>
+<p>Here is an example for a type <code class="docutils literal"><span class="pre">Pair</span></code>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// A custom record class</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Pair</span><span class="o">[</span><span class="kt">A</span>, <span class="kt">B</span><span class="o">](</span><span class="n">a</span><span class="k">:</span> <span class="kt">A</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">B</span><span class="o">)</span>
+
+<span class="c1">// A Shape implementation for Pair</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">PairShape</span><span class="o">[</span><span class="kt">Level</span> <span class="k">&lt;:</span> <span class="kt">ShapeLevel</span>, <span class="kt">M</span> <span class="k">&lt;:</span> <span class="kt">Pair</span><span class="o">[</span><span class="k">_</span>,<span class="k">_</span><span class="o">]</span>, <span class="kt">U</span> <span class="k">&lt;:</span> <span class="kt">Pair</span><span class="o">[</span><span class="k">_</span>,<span class="k">_</span><span class="o">]</span> <span class="kt">:</span> <span class="kt">ClassTag</span>, <span class="kt">P</span> <span class="k">&lt;:</span> <span class="kt">Pair</span><span class="o">[</span><span class="k">_</span>,<span class="k">_</span><span class="o">]](</span>
+  <span class="k">val</span> <span class="n">shapes</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Shape</span><span class="o">[</span><span class="k">_</span>, <span class="k">_</span>, <span class="k">_</span>, <span class="k">_</span><span class="o">]])</span>
+<span class="k">extends</span> <span class="nc">MappedScalaProductShape</span><span class="o">[</span><span class="kt">Level</span>, <span class="kt">Pair</span><span class="o">[</span><span class="k">_</span>,<span class="k">_</span><span class="o">]</span>, <span class="kt">M</span>, <span class="kt">U</span>, <span class="kt">P</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">buildValue</span><span class="o">(</span><span class="n">elems</span><span class="k">:</span> <span class="kt">IndexedSeq</span><span class="o">[</span><span class="kt">Any</span><span class="o">])</span> <span class="k">=</span> <span class="nc">Pair</span><span class="o">(</span><span class="n">elems</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="n">elems</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span>
+  <span class="k">def</span> <span class="n">copy</span><span class="o">(</span><span class="n">shapes</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">Shape</span><span class="o">[</span><span class="k">_</span> <span class="k">&lt;:</span> <span class="kt">ShapeLevel</span>, <span class="k">_</span>, <span class="k">_</span>, <span class="k">_</span><span class="o">]])</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">PairShape</span><span class="o">(</span><span class="n">shapes</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="k">implicit</span> <span class="k">def</span> <span class="n">pairShape</span><span class="o">[</span><span class="kt">Level</span> <span class="k">&lt;:</span> <span class="kt">ShapeLevel</span>, <span class="kt">M1</span>, <span class="kt">M2</span>, <span class="kt">U1</span>, <span class="kt">U2</span>, <span class="kt">P1</span>, <span class="kt">P2</span><span class="o">](</span>
+  <span class="k">implicit</span> <span class="n">s1</span><span class="k">:</span> <span class="kt">Shape</span><span class="o">[</span><span class="k">_</span> <span class="k">&lt;:</span> <span class="kt">Level</span>, <span class="kt">M1</span>, <span class="kt">U1</span>, <span class="kt">P1</span><span class="o">],</span> <span class="n">s2</span><span class="k">:</span> <span class="kt">Shape</span><span class="o">[</span><span class="k">_</span> <span class="k">&lt;:</span> <span class="kt">Level</span>, <span class="kt">M2</span>, <span class="kt">U2</span>, <span class="kt">P2</span><span class="o">]</span>
+<span class="o">)</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">PairShape</span><span class="o">[</span><span class="kt">Level</span>, <span class="kt">Pair</span><span class="o">[</span><span class="kt">M1</span>, <span class="kt">M2</span><span class="o">]</span>, <span class="kt">Pair</span><span class="o">[</span><span class="kt">U1</span>, <span class="kt">U2</span><span class="o">]</span>, <span class="kt">Pair</span><span class="o">[</span><span class="kt">P1</span>, <span class="kt">P2</span><span class="o">]](</span><span class="nc">Seq</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="n">s2</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>The implicit method <code class="docutils literal"><span class="pre">pairShape</span></code> in this example provides a Shape for a
+<code class="docutils literal"><span class="pre">Pair</span></code> of two element types whenever Shapes for the individual element
+types are available.</p>
+<p>With these definitions in place, we can use the <code class="docutils literal"><span class="pre">Pair</span></code> record type in every
+location in Slick where a tuple or <code class="docutils literal"><span class="pre">HList</span></code> would be acceptable:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// Use it in a table definition</span>
+<span class="k">class</span> <span class="nc">A</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">Pair</span><span class="o">[</span><span class="kt">Int</span>, <span class="kt">String</span><span class="o">]](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;shape_a&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">s</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;s&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="nc">Pair</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">as</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">A</span><span class="o">]</span>
+
+<span class="c1">// Insert data with the custom shape</span>
+<span class="k">val</span> <span class="n">insertAction</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span>
+  <span class="n">as</span> <span class="o">+=</span> <span class="nc">Pair</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&quot;a&quot;</span><span class="o">),</span>
+  <span class="n">as</span> <span class="o">+=</span> <span class="nc">Pair</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">),</span>
+  <span class="n">as</span> <span class="o">+=</span> <span class="nc">Pair</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">)</span>
+<span class="o">)</span>
+
+<span class="c1">// Use it for returning data from a query</span>
+<span class="k">val</span> <span class="n">q2</span> <span class="k">=</span> <span class="n">as</span>
+  <span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="k">case</span> <span class="n">a</span> <span class="k">=&gt;</span> <span class="nc">Pair</span><span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="n">id</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span><span class="o">.</span><span class="n">s</span> <span class="o">++</span> <span class="n">a</span><span class="o">.</span><span class="n">s</span><span class="o">))</span> <span class="o">}</span>
+  <span class="o">.</span><span class="n">filter</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">Pair</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="k">_</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">id</span> <span class="o">=!=</span> <span class="mi">1</span> <span class="o">}</span>
+  <span class="o">.</span><span class="n">sortBy</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">Pair</span><span class="o">(</span><span class="k">_</span><span class="o">,</span> <span class="n">ss</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">ss</span> <span class="o">}</span>
+  <span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">Pair</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">ss</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">Pair</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="nc">Pair</span><span class="o">(</span><span class="mi">42</span> <span class="o">,</span> <span class="n">ss</span><span class="o">))</span> <span class="o">}</span>
+<span class="c1">// returns: Vector(Pair(3,Pair(42,&quot;bb&quot;)), Pair(2,Pair(42,&quot;cc&quot;)))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="monomorphic-case-classes">
+<h3>Monomorphic Case Classes<a class="headerlink" href="#monomorphic-case-classes" title="Permalink to this headline">¶</a></h3>
+<p>Custom <em>case classes</em> are frequently used as monomorphic record types (i.e.
+record types where the element types are fixed). In order to use them in Slick,
+you need to define the case class for a record of plain values (as usual) plus
+an additional case class for a matching record of lifted values.</p>
+<p>In order to provide a <a class="reference external" href="api/index.html#slick.lifted.Shape">Shape</a> for a custom case class,
+you can use <a class="reference external" href="api/index.html#slick.lifted.CaseClassShape">CaseClassShape</a>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// two custom case class variants</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">Int</span><span class="o">],</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Rep</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">B</span><span class="o">(</span><span class="n">a</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">b</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+
+<span class="c1">// custom case class mapping</span>
+<span class="k">implicit</span> <span class="k">object</span> <span class="nc">BShape</span> <span class="k">extends</span> <span class="nc">CaseClassShape</span><span class="o">(</span><span class="nc">LiftedB</span><span class="o">.</span><span class="n">tupled</span><span class="o">,</span> <span class="n">B</span><span class="o">.</span><span class="n">tupled</span><span class="o">)</span>
+
+<span class="k">class</span> <span class="nc">BRow</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">B</span><span class="o">](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;shape_b&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="n">O</span><span class="o">.</span><span class="nc">PrimaryKey</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">s</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;s&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="n">s</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">bs</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">BRow</span><span class="o">]</span>
+
+<span class="k">val</span> <span class="n">insertActions</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span>
+  <span class="n">bs</span> <span class="o">+=</span> <span class="n">B</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&quot;a&quot;</span><span class="o">),</span>
+  <span class="n">bs</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">b</span> <span class="k">=&gt;</span> <span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="n">id</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="n">s</span><span class="o">))</span> <span class="o">+=</span> <span class="o">((</span><span class="mi">2</span><span class="o">,</span> <span class="s">&quot;c&quot;</span><span class="o">)),</span>
+  <span class="n">bs</span> <span class="o">+=</span> <span class="n">B</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&quot;b&quot;</span><span class="o">)</span>
+<span class="o">)</span>
+
+<span class="k">val</span> <span class="n">q3</span> <span class="k">=</span> <span class="n">bs</span>
+  <span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="k">case</span> <span class="n">b</span> <span class="k">=&gt;</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="n">id</span><span class="o">,</span> <span class="o">(</span><span class="n">b</span><span class="o">.</span><span class="n">s</span> <span class="o">++</span> <span class="n">b</span><span class="o">.</span><span class="n">s</span><span class="o">))</span> <span class="o">}</span>
+  <span class="o">.</span><span class="n">filter</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="n">id</span><span class="o">,</span> <span class="k">_</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">id</span> <span class="o">=!=</span> <span class="mi">1</span> <span class="o">}</span>
+  <span class="o">.</span><span class="n">sortBy</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="k">_</span><span class="o">,</span> <span class="n">ss</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">ss</span> <span class="o">}</span>
+
+<span class="c1">// returns: Vector(B(3,&quot;bb&quot;), B(2,&quot;cc&quot;))</span>
+</pre></div>
+</div>
+<p>Note that this mechanism can be used as an alternative to client-side mappings
+with the <cite>&lt;&gt;</cite> operator. It requires a bit more boilerplate but allows you to use
+the same field names in both, plain and lifted records.</p>
+</div>
+<div class="section" id="combining-mapped-types">
+<h3>Combining Mapped Types<a class="headerlink" href="#combining-mapped-types" title="Permalink to this headline">¶</a></h3>
+<p>In the following example we are combining a mapped case class and the mapped
+<code class="docutils literal"><span class="pre">Pair</span></code> type in another mapped case class.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// Combining multiple mapped types</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">LiftedC</span><span class="o">(</span><span class="n">p</span><span class="k">:</span> <span class="kt">Pair</span><span class="o">[</span><span class="kt">Rep</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span>,<span class="kt">Rep</span><span class="o">[</span><span class="kt">String</span><span class="o">]],</span> <span class="n">b</span><span class="k">:</span> <span class="kt">LiftedB</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">C</span><span class="o">(</span><span class="n">p</span><span class="k">:</span> <span class="kt">Pair</span><span class="o">[</span><span class="kt">Int</span>,<span class="kt">String</span><span class="o">],</span> <span class="n">b</span><span class="k">:</span> <span class="kt">B</span><span class="o">)</span>
+
+<span class="k">implicit</span> <span class="k">object</span> <span class="nc">CShape</span> <span class="k">extends</span> <span class="nc">CaseClassShape</span><span class="o">(</span><span class="nc">LiftedC</span><span class="o">.</span><span class="n">tupled</span><span class="o">,</span> <span class="n">C</span><span class="o">.</span><span class="n">tupled</span><span class="o">)</span>
+
+<span class="k">class</span> <span class="nc">CRow</span><span class="o">(</span><span class="n">tag</span><span class="k">:</span> <span class="kt">Tag</span><span class="o">)</span> <span class="k">extends</span> <span class="nc">Table</span><span class="o">[</span><span class="kt">C</span><span class="o">](</span><span class="n">tag</span><span class="o">,</span> <span class="s">&quot;shape_c&quot;</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">id</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">Int</span><span class="o">](</span><span class="s">&quot;id&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">s</span> <span class="k">=</span> <span class="n">column</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&quot;s&quot;</span><span class="o">)</span>
+  <span class="k">def</span> <span class="n">projection</span> <span class="k">=</span> <span class="nc">LiftedC</span><span class="o">(</span>
+    <span class="nc">Pair</span><span class="o">(</span><span class="n">column</span><span class="o">(</span><span class="s">&quot;p1&quot;</span><span class="o">),</span><span class="n">column</span><span class="o">(</span><span class="s">&quot;p2&quot;</span><span class="o">)),</span> <span class="c1">// (cols defined inline, type inferred)</span>
+    <span class="nc">LiftedB</span><span class="o">(</span><span class="n">id</span><span class="o">,</span><span class="n">s</span><span class="o">)</span>
+  <span class="o">)</span>
+  <span class="k">def</span> <span class="o">*</span> <span class="k">=</span> <span class="n">projection</span>
+<span class="o">}</span>
+<span class="k">val</span> <span class="n">cs</span> <span class="k">=</span> <span class="nc">TableQuery</span><span class="o">[</span><span class="kt">CRow</span><span class="o">]</span>
+
+<span class="k">val</span> <span class="n">insertActions2</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span>
+  <span class="n">cs</span> <span class="o">+=</span> <span class="n">C</span><span class="o">(</span><span class="nc">Pair</span><span class="o">(</span><span class="mi">7</span><span class="o">,</span><span class="s">&quot;x&quot;</span><span class="o">),</span> <span class="n">B</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="s">&quot;a&quot;</span><span class="o">)),</span>
+  <span class="n">cs</span> <span class="o">+=</span> <span class="n">C</span><span class="o">(</span><span class="nc">Pair</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span><span class="s">&quot;y&quot;</span><span class="o">),</span> <span class="n">B</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span><span class="s">&quot;c&quot;</span><span class="o">)),</span>
+  <span class="n">cs</span> <span class="o">+=</span> <span class="n">C</span><span class="o">(</span><span class="nc">Pair</span><span class="o">(</span><span class="mi">9</span><span class="o">,</span><span class="s">&quot;z&quot;</span><span class="o">),</span> <span class="n">B</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span><span class="s">&quot;b&quot;</span><span class="o">))</span>
+<span class="o">)</span>
+
+<span class="k">val</span> <span class="n">q4</span> <span class="k">=</span> <span class="n">cs</span>
+  <span class="o">.</span><span class="n">map</span> <span class="o">{</span> <span class="k">case</span> <span class="n">c</span> <span class="k">=&gt;</span> <span class="nc">LiftedC</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">projection</span><span class="o">.</span><span class="n">p</span><span class="o">,</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="n">id</span><span class="o">,(</span><span class="n">c</span><span class="o">.</span><span class="n">s</span> <span class="o">++</span> <span class="n">c</span><span class="o">.</span><span class="n">s</span><span class="o">)))</span> <span class="o">}</span>
+  <span class="o">.</span><span class="n">filter</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">LiftedC</span><span class="o">(</span><span class="k">_</span><span class="o">,</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="n">id</span><span class="o">,</span><span class="k">_</span><span class="o">))</span> <span class="k">=&gt;</span> <span class="n">id</span> <span class="o">=!=</span> <span class="mi">1</span> <span class="o">}</span>
+  <span class="o">.</span><span class="n">sortBy</span> <span class="o">{</span> <span class="k">case</span> <span class="nc">LiftedC</span><span class="o">(</span><span class="nc">Pair</span><span class="o">(</span><span class="k">_</span><span class="o">,</span><span class="n">p2</span><span class="o">),</span> <span class="nc">LiftedB</span><span class="o">(</span><span class="k">_</span><span class="o">,</span><span class="n">ss</span><span class="o">))</span> <span class="k">=&gt;</span> <span class="n">ss</span><span class="o">++</span><span class="n">p2</span> <span class="o">}</span>
+
+<span class="c1">// returns: Vector(C(Pair(9,&quot;z&quot;),B(3,&quot;bb&quot;)), C(Pair(8,&quot;y&quot;),B(2,&quot;cc&quot;)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Core Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User-Defined Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scalar-database-functions">Scalar Database Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-database-functions-and-stored-procedures">Other Database Functions And Stored Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-custom-scalar-types-in-queries">Using Custom Scalar Types in Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-custom-record-types-in-queries">Using Custom Record Types in Queries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#polymorphic-types-e-g-custom-tuple-types-or-hlists">Polymorphic Types (e.g. Custom Tuple Types or HLists)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monomorphic-case-classes">Monomorphic Case Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#combining-mapped-types">Combining Mapped Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Database Migrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-documentation.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#monitoring">Monitoring</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="code-generation.html" title="Schema Code Generation"
+             >previous</a> |
+          <a href="sql.html" title="Plain SQL Queries"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2016 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

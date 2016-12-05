@@ -1,0 +1,157 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Sphinx Documentation &mdash; Slick 3.2.0-M2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.2.0-M2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.2.0-M2 documentation" href="index.html" />
+    <link rel="next" title="Configuration" href="config.html" />
+    <link rel="prev" title="Slick TestKit" href="testkit.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/sphinx-documentation.rst">edit this page on github</a><span>
+          |
+          <a href="testkit.html" title="Slick TestKit"
+             accesskey="P">previous</a> |
+          <a href="config.html" title="Configuration"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.2.0-M2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sphinx-documentation">
+<h1>Sphinx Documentation<a class="headerlink" href="#sphinx-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>Slick documentation is written in reStructuredText and is compiled by Sphinx via the sbt-site plugin.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Generate HTML documentation in slick/target/sphinx/html/</span>
+sbt sphinx:generateHtml
+</pre></div>
+</div>
+<p>For more details on Sphinx installation and usage in Scala projects, see the <a class="reference external" href="http://doc.akka.io/docs/akka/2.4.0/dev/documentation.html">Akka Sphinx</a> documentation.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Core Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Database Migrations</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sphinx Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building">Building</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#monitoring">Monitoring</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="testkit.html" title="Slick TestKit"
+             >previous</a> |
+          <a href="config.html" title="Configuration"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2016 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

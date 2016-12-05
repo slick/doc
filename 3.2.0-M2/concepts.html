@@ -1,0 +1,207 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Core Concepts &mdash; Slick 3.2.0-M2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.2.0-M2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.2.0-M2 documentation" href="index.html" />
+    <link rel="next" title="Database Configuration" href="database.html" />
+    <link rel="prev" title="Getting Started" href="gettingstarted.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/concepts.rst">edit this page on github</a><span>
+          |
+          <a href="gettingstarted.html" title="Getting Started"
+             accesskey="P">previous</a> |
+          <a href="database.html" title="Database Configuration"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.2.0-M2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="core-concepts">
+<span id="index-0"></span><h1>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline">¶</a></h1>
+<p>When you use Slick, you start by composing <em>Scala queries</em>, then get <em>actions</em> (like &#8220;get results&#8221; or &#8220;insert data&#8221;)
+associated with these queries, and finally run the actions on a <em>database</em> to obtain <em>results</em>.</p>
+<p>This chapter explains how these core concepts relate to each other and how they fit into your application design.</p>
+<div class="section" id="scala-queries">
+<h2>Scala Queries<a class="headerlink" href="#scala-queries" title="Permalink to this headline">¶</a></h2>
+<p>The main type used by queries is <a class="reference external" href="api/index.html#slick.lifted.Rep">Rep</a>. A <code class="docutils literal"><span class="pre">Rep[T]</span></code> is a <em>representation</em> of a type <code class="docutils literal"><span class="pre">T</span></code> that
+provides the necessary operations for building queries. Collection-valued queries are always of type
+<a class="reference external" href="api/index.html#slick.lifted.Query">Query</a>, which is a <code class="docutils literal"><span class="pre">Rep</span></code> of a collection type like <code class="docutils literal"><span class="pre">Rep[Seq[Int]]</span></code>. Queries can be composed
+from representations of database tables (<a class="reference external" href="api/index.html#slick.lifted.TableQuery">TableQuery</a>), literal values and parameters. Query
+composition does not require a database or execute any part of the query. It only builds a description of what to
+execute at a later point.</p>
+</div>
+<div class="section" id="database-i-o-actions">
+<h2>Database I/O Actions<a class="headerlink" href="#database-i-o-actions" title="Permalink to this headline">¶</a></h2>
+<p>Operations that can be executed on a database are called <em>database I/O actions</em> (<a class="reference external" href="api/index.html#slick.dbio.DBIOAction">DBIOAction</a>).
+Several operations on <em>queries</em> and <em>tables</em> create I/O actions, for example <code class="docutils literal"><span class="pre">myQuery.result</span></code>,
+<code class="docutils literal"><span class="pre">myQuery.result.headOption</span></code>, <code class="docutils literal"><span class="pre">myQuery</span> <span class="pre">+=</span> <span class="pre">data</span></code> or <code class="docutils literal"><span class="pre">myTable.schema.create</span></code>. Actions can be composed with
+combinators like <code class="docutils literal"><span class="pre">andThen</span></code>, <code class="docutils literal"><span class="pre">flatMap</span></code>, <code class="docutils literal"><span class="pre">DBIO.seq</span></code> or <code class="docutils literal"><span class="pre">transactionally</span></code>.</p>
+<p>Just like a query, an I/O action is only a <em>description</em> of an operation. Creating or composing actions does not execute
+anything on a database. Combined actions always consist of <em>strictly linear sequences</em> of other actions. Parts of an
+action never run concurrently.</p>
+</div>
+<div class="section" id="plain-sql-statements">
+<h2>Plain SQL Statements<a class="headerlink" href="#plain-sql-statements" title="Permalink to this headline">¶</a></h2>
+<p>As an alternative to Scala queries you can write queries and other database statements in SQL. This is done with
+string interpolators, for example <code class="docutils literal"><span class="pre">sql&quot;select</span> <span class="pre">id</span> <span class="pre">from</span> <span class="pre">mytable&quot;.as[Int]</span></code> or
+<code class="docutils literal"><span class="pre">sqlu&quot;insert</span> <span class="pre">into</span> <span class="pre">mytable</span> <span class="pre">(id)</span> <span class="pre">values</span> <span class="pre">(1)&quot;</span></code>. These interpolators (in the case of <code class="docutils literal"><span class="pre">sql</span></code> with an extra <code class="docutils literal"><span class="pre">.as</span></code> call)
+all produce <em>database I/O actions</em>.</p>
+</div>
+<div class="section" id="databases">
+<h2>Databases<a class="headerlink" href="#databases" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="api/index.html#slick.jdbc.JdbcBackend&#64;Database:Database">Database</a> object encapsulates the resources that are required to
+connect to a specific database. This <em>can</em> be just a number of connection parameters but in most cases it includes a
+<em>connection pool</em> and a <em>thread pool</em>. You should usually create a single <code class="docutils literal"><span class="pre">Database</span></code> object when your application
+starts and shut it down when your application shuts down to ensure that all resources are released.</p>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Any <em>action</em> can be run on a database to obtain the results (or perform side effects such as updating the database).
+Execution is always asynchronous, i.e. it does not block the caller thread. Any kind of action can be run to obtain
+a <code class="docutils literal"><span class="pre">Future</span></code> that is eventually completed with a result when the execution is finished (<code class="docutils literal"><span class="pre">myDatabase.run(myAction)</span></code>).
+Actions that produce a sequence of values usually support streaming results as well. Such an action can be combined
+with a database to produce a <a class="reference external" href="http://www.reactive-streams.org/">Reactive Streams</a> <code class="docutils literal"><span class="pre">Publisher</span></code> (<code class="docutils literal"><span class="pre">myDatabase.stream(myAction)</span></code>). The action is
+executed when a consumer subscribes to the Publisher.</p>
+</div>
+<div class="section" id="profiles">
+<h2>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h2>
+<p>Even when using a standard interface for database drivers like <a class="reference external" href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> there are many differences between databases in
+the SQL dialect they understand, the way they encode data types, or other idiosyncracies. Slick abstracts over these
+differences with <em>profiles</em>. Whenever you write queries (whether in Scala or SQL) or produce other database actions,
+you need a concrete profile for your database. Usually these profiles extend the abstract <a class="reference external" href="api/index.html#slick.jdbc.JdbcProfile">JdbcProfile</a>.
+<code class="docutils literal"><span class="pre">Database</span></code> objects are interchangeable between all subtypes of JdbcProfile but they are usually configured together
+with the profile because you need to pick the correct profile for the database.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Core Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scala-queries">Scala Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#database-i-o-actions">Database I/O Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plain-sql-statements">Plain SQL Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#databases">Databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#results">Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#profiles">Profiles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Database Migrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-documentation.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#monitoring">Monitoring</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="gettingstarted.html" title="Getting Started"
+             >previous</a> |
+          <a href="database.html" title="Database Configuration"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2016 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

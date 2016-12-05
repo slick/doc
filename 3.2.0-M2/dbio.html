@@ -1,0 +1,397 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Database I/O Actions &mdash; Slick 3.2.0-M2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.2.0-M2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.2.0-M2 documentation" href="index.html" />
+    <link rel="next" title="Schemas" href="schemas.html" />
+    <link rel="prev" title="Database Configuration" href="database.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/dbio.rst">edit this page on github</a><span>
+          |
+          <a href="database.html" title="Database Configuration"
+             accesskey="P">previous</a> |
+          <a href="schemas.html" title="Schemas"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.2.0-M2 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="database-i-o-actions">
+<h1>Database I/O Actions<a class="headerlink" href="#database-i-o-actions" title="Permalink to this headline">¶</a></h1>
+<p>Anything that you can execute on a database, whether it is a getting the result of a query
+(<code class="docutils literal"><span class="pre">myQuery.result</span></code>), creating a table (<code class="docutils literal"><span class="pre">myTable.schema.create</span></code>), inserting data
+(<code class="docutils literal"><span class="pre">myTable</span> <span class="pre">+=</span> <span class="pre">item</span></code>) or something else, is an instance of
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction">DBIOAction</a>, parameterized by the result type it will produce when you
+execute it.</p>
+<p><em>Database I/O Actions</em> can be combined with several different combinators (see the
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction">DBIOAction class</a> and <a class="reference external" href="api/index.html#slick.dbio.DBIOAction$">DBIOAction object</a>, which is also
+available under the alias <code class="docutils literal"><span class="pre">DBIO</span></code>, for details), but they will always be executed strictly sequentially and (at least
+conceptually) in a single database session.</p>
+<p>In most cases you will want to use the type aliases <a class="reference external" href="api/index.html#slick.dbio.package&#64;DBIO[+R]:DBIO[R]">DBIO</a>
+and <a class="reference external" href="api/index.html#slick.dbio.package&#64;StreamingDBIO[+R,+T]:StreamingDBIO[R,T]">StreamingDBIO</a> for non-streaming and
+streaming Database I/O Actions. They omit the optional <em>effect types</em> supported by <a class="reference external" href="api/index.html#slick.dbio.DBIOAction">DBIOAction</a>.</p>
+<div class="section" id="executing-database-i-o-actions">
+<span id="executing-actions"></span><span id="index-0"></span><h2>Executing Database I/O Actions<a class="headerlink" href="#executing-database-i-o-actions" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">DBIOAction</span></code>s can be executed either with the goal of producing a fully materialized result or streaming
+data back from the database.</p>
+<div class="section" id="materialized">
+<span id="index-1"></span><h3>Materialized<a class="headerlink" href="#materialized" title="Permalink to this headline">¶</a></h3>
+<p>You can use <code class="docutils literal"><span class="pre">run</span></code> to execute a <code class="docutils literal"><span class="pre">DBIOAction</span></code> on a Database and produce a materialized result. This can
+be, for example, a scalar query result (<code class="docutils literal"><span class="pre">myTable.length.result</span></code>), a collection-valued query
+result (<code class="docutils literal"><span class="pre">myTable.to[Set].result</span></code>), or any other action. Every <code class="docutils literal"><span class="pre">DBIOAction</span></code> supports this mode of
+execution.</p>
+<p>Execution of the action starts in the background when <code class="docutils literal"><span class="pre">run</span></code> is called. The calling thread is not blocked. The
+materialized result is returned as a <a class="reference external" href="http://docs.scala-lang.org/overviews/core/futures.html">Future</a> which is completed asynchronously as soon as the result
+is available:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="k">for</span> <span class="o">(</span><span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">)</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span>
+<span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">result</span>
+<span class="k">val</span> <span class="n">f</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[</span><span class="kt">String</span><span class="o">]]</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">onSuccess</span> <span class="o">{</span> <span class="k">case</span> <span class="n">s</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">s&quot;Result: </span><span class="si">$s</span><span class="s">&quot;</span><span class="o">)</span> <span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="streaming">
+<span id="index-2"></span><h3>Streaming<a class="headerlink" href="#streaming" title="Permalink to this headline">¶</a></h3>
+<p>Collection-valued queries also support streaming results. In this case, the actual collection type
+is ignored and elements are streamed directly from the result set through a <a class="reference external" href="http://www.reactive-streams.org/">Reactive Streams</a>
+<code class="docutils literal"><span class="pre">Publisher</span></code>, which can be processed and consumed by <a class="reference external" href="http://akka.io/docs/">Akka Streams</a>.</p>
+<p>Execution of the <code class="docutils literal"><span class="pre">DBIOAction</span></code> does not start until a <code class="docutils literal"><span class="pre">Subscriber</span></code> is attached to the stream. If multiple
+<code class="docutils literal"><span class="pre">Subscriber</span></code>s subscribe to the same <code class="docutils literal"><span class="pre">Publisher</span></code>, each one triggers an <cite>independent execution</cite> of the
+action.</p>
+<p>Stream elements are signaled as soon as they become available in the streaming part of the <code class="docutils literal"><span class="pre">DBIOAction</span></code>. The end of
+the stream is signaled only after the <em>entire action</em> has completed. For example, when streaming inside a transaction
+and all elements have been delivered successfully, the stream can still fail afterwards if the transaction cannot be
+committed. The <code class="docutils literal"><span class="pre">Subscriber</span></code> is notififed of this failure.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="k">for</span> <span class="o">(</span><span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">)</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span>
+<span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">result</span>
+<span class="k">val</span> <span class="n">p</span><span class="k">:</span> <span class="kt">DatabasePublisher</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">stream</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+
+<span class="c1">// .foreach is a convenience method on DatabasePublisher.</span>
+<span class="c1">// Use Akka Streams for more elaborate stream processing.</span>
+<span class="n">p</span><span class="o">.</span><span class="n">foreach</span> <span class="o">{</span> <span class="n">s</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="s">s&quot;Element: </span><span class="si">$s</span><span class="s">&quot;</span><span class="o">)</span> <span class="o">}</span>
+</pre></div>
+</div>
+<p>When streaming a JDBC result set, the next result page will be buffered in the background if the
+Subscriber is not ready to receive more data, but all elements are signaled synchronously and the
+result set is not advanced before synchronous processing is finished. This allows synchronous
+callbacks to low-level JDBC values like <code class="docutils literal"><span class="pre">Blob</span></code> which depend on the state of the result set. The
+convenience method <code class="docutils literal"><span class="pre">mapResult</span></code> is provided for this purpose:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">q</span> <span class="k">=</span> <span class="k">for</span> <span class="o">(</span><span class="n">c</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">)</span> <span class="k">yield</span> <span class="n">c</span><span class="o">.</span><span class="n">image</span>
+<span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="n">q</span><span class="o">.</span><span class="n">result</span>
+<span class="k">val</span> <span class="n">p1</span><span class="k">:</span> <span class="kt">DatabasePublisher</span><span class="o">[</span><span class="kt">Blob</span><span class="o">]</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">stream</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">p2</span><span class="k">:</span> <span class="kt">DatabasePublisher</span><span class="o">[</span><span class="kt">Array</span><span class="o">[</span><span class="kt">Byte</span><span class="o">]]</span> <span class="k">=</span> <span class="n">p1</span><span class="o">.</span><span class="n">mapResult</span> <span class="o">{</span> <span class="n">b</span> <span class="k">=&gt;</span>
+  <span class="c1">// Executed synchronously on the database thread</span>
+  <span class="n">b</span><span class="o">.</span><span class="n">getBytes</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">b</span><span class="o">.</span><span class="n">length</span><span class="o">().</span><span class="n">toInt</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some database systems may require session parameters to be set in a certain way to support streaming without
+caching all data at once in memory on the client side. For example, <a class="reference external" href="http://www.postgresql.org/">PostgreSQL</a> requires both
+<code class="docutils literal"><span class="pre">.withStatementParameters(rsType</span> <span class="pre">=</span> <span class="pre">ResultSetType.ForwardOnly,</span> <span class="pre">rsConcurrency</span> <span class="pre">=</span> <span class="pre">ResultSetConcurrency.ReadOnly,</span> <span class="pre">fetchSize</span> <span class="pre">=</span> <span class="pre">n)</span></code>
+(with the desired page size <cite>n</cite>) and <code class="docutils literal"><span class="pre">.transactionally</span></code> for proper streaming.</p>
+</div>
+</div>
+</div>
+<div class="section" id="composing-database-i-o-actions">
+<span id="transactions"></span><span id="index-3"></span><h2>Composing Database I/O Actions<a class="headerlink" href="#composing-database-i-o-actions" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">DBIOAction</span></code>s describe sequences of individual actions to execute in strictly sequential order on
+one database session (at least conceptually), therefore the most commonly used combinators deal with
+sequencing. Since a <code class="docutils literal"><span class="pre">DBIOAction</span></code> eventually results in a <code class="docutils literal"><span class="pre">Success</span></code> or <code class="docutils literal"><span class="pre">Failure</span></code>, its combinators,
+just like the ones on <code class="docutils literal"><span class="pre">Future</span></code>, have to distinguish between successful and failed executions. Unless
+specifically noted, all combinators only apply to successful actions. Any failure will abort the
+sequence of execution and result in a failed <code class="docutils literal"><span class="pre">Future</span></code> or <em>Reactive Stream</em>.</p>
+<p>The available DBIO combinators are a purely functional subset of Future combinators. You should be
+familiar with <a class="reference external" href="http://docs.scala-lang.org/overviews/core/futures.html">working with Scala Futures</a> before diving into DBIO combinators. Since the
+result of a database action is usually a Future, this knowledge is required anyway for composing database
+results and other asynchronous code.</p>
+<div class="section" id="sequential-execution">
+<h3>Sequential Execution<a class="headerlink" href="#sequential-execution" title="Permalink to this headline">¶</a></h3>
+<p>The simplest combinator is <a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;seq[E&lt;:Effect](DBIOAction[_,NoStream,E]*):DBIOAction[Unit,NoStream,E]">DBIO.seq</a>
+which takes a varargs list of actions to run in sequence, discarding their return value. If you
+need the return value, you can use <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;andThen[R2,S2&lt;:NoStream,E2&lt;:Effect](DBIOAction[R2,S2,E2]):DBIOAction[R2,S2,EwithE2]">andThen</a>
+to combine two actions and keep the result of the second one. If you need both return values of two
+actions, there is the <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;zip[R2,E2&lt;:Effect](DBIOAction[R2,NoStream,E2]):DBIOAction[(R,R2),NoStream,EwithE2]">zip</a>
+combinator. For getting all result values from a sequence of actions (of compatible types), use
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;sequence[R,M[+_]&lt;:TraversableOnce[_],E&lt;:Effect](M[DBIOAction[R,NoStream,E]])(CanBuildFrom[M[DBIOAction[R,NoStream,E]],R,M[R]]):DBIOAction[M[R],NoStream,E]">DBIO.sequence</a>.
+All these combinators work with pre-existing <code class="docutils literal"><span class="pre">DBIOAction</span></code>s which are composed eagerly:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">ins1</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">coffees</span> <span class="o">+=</span> <span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">,</span> <span class="mf">7.99</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">ins2</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">coffees</span> <span class="o">+=</span> <span class="o">(</span><span class="s">&quot;French_Roast&quot;</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">a1</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Unit</span><span class="o">]</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span><span class="n">ins1</span><span class="o">,</span> <span class="n">ins2</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">a2</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="n">ins1</span> <span class="n">andThen</span> <span class="n">ins2</span>
+
+<span class="k">val</span> <span class="n">a3</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">Int</span><span class="o">)]</span> <span class="k">=</span> <span class="n">ins1</span> <span class="n">zip</span> <span class="n">ins2</span>
+
+<span class="k">val</span> <span class="n">a4</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Vector</span><span class="o">[</span><span class="kt">Int</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">sequence</span><span class="o">(</span><span class="nc">Vector</span><span class="o">(</span><span class="n">ins1</span><span class="o">,</span> <span class="n">ins2</span><span class="o">))</span>
+</pre></div>
+</div>
+<p>If an action depends on a previous action in the sequence, you have to compute it on the fly with
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;flatMap[R2,S2&lt;:NoStream,E2&lt;:Effect]((R)⇒DBIOAction[R2,S2,E2])(ExecutionContext):DBIOAction[R2,S2,EwithE2]">flatMap</a>
+or <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;map[R2]((R)⇒R2)(ExecutionContext):DBIOAction[R2,NoStream,E]">map</a>.
+These two methods plus <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;filter((R)⇒Boolean)(ExecutionContext):DBIOAction[R,NoStream,E]">filter</a>
+enable the use of <em>for comprehensions</em> for action sequencing. Since they take function
+arguments, they also require an implicit <code class="docutils literal"><span class="pre">ExecutionContext</span></code> on which to run the function. This
+way Slick ensures that no non-database code is run on the database thread pool. This ExecutionContext should be
+provided by your application or framework (e.g. <a class="reference external" href="http://akka.io/">Akka</a> or <a class="reference external" href="https://playframework.com/">Play</a>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You should prefer the less flexible methods without an <code class="docutils literal"><span class="pre">ExecutionContext</span></code> where possible. The
+resulting actions can be executed more efficiently.</p>
+</div>
+<p>Similar to <a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;sequence[R,M[+_]&lt;:TraversableOnce[_],E&lt;:Effect](M[DBIOAction[R,NoStream,E]])(CanBuildFrom[M[DBIOAction[R,NoStream,E]],R,M[R]]):DBIOAction[M[R],NoStream,E]">DBIO.sequence</a>
+for upfront composition, there is <a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;fold[T,E&lt;:Effect](Seq[DBIOAction[T,NoStream,E]],T)((T,T)⇒T)(ExecutionContext):DBIOAction[T,NoStream,E]">DBIO.fold</a>
+for working with sequences of actions and composing them based on the previous result.</p>
+</div>
+<div class="section" id="error-handling">
+<h3>Error Handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h3>
+<p>You can use <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;andFinally[E2&lt;:Effect](DBIOAction[_,NoStream,E2]):DBIOAction[R,S,EwithE2]">andFinally</a>
+to perform a cleanup action, no matter whether the previous action succeeded or failed. This is similar to using
+<code class="docutils literal"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">finally</span> <span class="pre">...</span></code> in imperative Scala code. A more flexible version of
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;andFinally[E2&lt;:Effect](DBIOAction[_,NoStream,E2]):DBIOAction[R,S,EwithE2]">andFinally</a>
+is <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;cleanUp[E2&lt;:Effect]((Option[Throwable])⇒DBIOAction[_,NoStream,E2],Boolean)(ExecutionContext):DBIOAction[R,S,EwithE2]">cleanUp</a>.
+It lets you transform the failure and decide how to fail the resulting action if both the original
+one and the cleanup failed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For even more flexible error handling use <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;asTry:DBIOAction[Try[R],NoStream,E]">asTry</a>
+and <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;failed:DBIOAction[Throwable,NoStream,E]">failed</a>. Unlike with
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;andFinally[E2&lt;:Effect](DBIOAction[_,NoStream,E2]):DBIOAction[R,S,EwithE2]">andFinally</a>
+and <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;cleanUp[E2&lt;:Effect]((Option[Throwable])⇒DBIOAction[_,NoStream,E2],Boolean)(ExecutionContext):DBIOAction[R,S,EwithE2]">cleanUp</a>
+the resulting actions cannot be used for streaming.</p>
+</div>
+</div>
+<div class="section" id="primitives">
+<h3>Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h3>
+<p>You can convert a <code class="docutils literal"><span class="pre">Future</span></code> into an action with <a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;from[R](Future[R]):DBIOAction[R,NoStream,Effect]">DBIO.from</a>.
+This allows the result of the <code class="docutils literal"><span class="pre">Future</span></code> to be used in an action sequence. A pre-existing value or
+failure can be converted with <a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;successful[R](R):DBIOAction[R,NoStream,Effect]">DBIO.successful</a>
+and <a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;failed(Throwable):DBIOAction[Nothing,NoStream,Effect]">DBIO.failed</a>, respectively.</p>
+</div>
+<div class="section" id="debugging">
+<h3>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;named(String):DBIOAction[R,S,E]">named</a> combinator names an
+action. This name can be seen in debug logs if you enable the
+<code class="docutils literal"><span class="pre">slick.basic.BasicBackend.action</span></code> <a class="reference internal" href="config.html#logging"><span class="std std-ref">logger</span></a>.</p>
+</div>
+<div class="section" id="transactions-and-pinned-sessions">
+<span id="pinned"></span><h3>Transactions and Pinned Sessions<a class="headerlink" href="#transactions-and-pinned-sessions" title="Permalink to this headline">¶</a></h3>
+<p>When executing a <code class="docutils literal"><span class="pre">DBIOAction</span></code> which is composed of several smaller actions, Slick acquires sessions from
+the connection pool and releases them again as needed so that a session is not kept in use
+unnecessarily while waiting for the result of a non-database computation (e.g. the function passed to
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;flatMap[R2,S2&lt;:NoStream,E2&lt;:Effect]((R)⇒DBIOAction[R2,S2,E2])(ExecutionContext):DBIOAction[R2,S2,EwithE2]">flatMap</a>
+that determines the next action to run). You can use
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;withPinnedSession:DBIOAction[R,S,E]">withPinnedSession</a> to force the
+use of a single session, keeping the existing session open even when waiting for non-database
+computations.</p>
+<p>All <a class="reference external" href="api/index.html#slick.dbio.DBIOAction">DBIOAction combinators</a>
+which combine database actions without any non-database computations in between (e.g.
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;andThen[R2,S2&lt;:NoStream,E2&lt;:Effect](DBIOAction[R2,S2,E2]):DBIOAction[R2,S2,EwithE2]">andThen</a>
+or <a class="reference external" href="api/index.html#slick.dbio.DBIOAction&#64;zip[R2,E2&lt;:Effect](DBIOAction[R2,NoStream,E2]):DBIOAction[(R,R2),NoStream,EwithE2]">zip</a>
+applied to two database computations) can fuse these actions for more efficient execution, with the side-effect that
+the fused action runs inside a single session, even without <code class="docutils literal"><span class="pre">withPinnedSession</span></code>.</p>
+<p>There is a related combinator called
+<a class="reference external" href="api/index.html#slick.jdbc.JdbcActionComponent$JdbcActionExtensionMethods&#64;transactionally:DBIOAction[R,S,EwithTransactional]">transactionally</a>
+to force the use of a transaction. This guarantees that the entire <code class="docutils literal"><span class="pre">DBIOAction</span></code> that is executed will
+either succeed or fail atomically. Without it, all database actions run in auto-commit mode. The use of a transaction
+always implies a pinned session.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">a</span> <span class="k">=</span> <span class="o">(</span><span class="k">for</span> <span class="o">{</span>
+  <span class="n">ns</span> <span class="k">&lt;-</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&quot;ESPRESSO&quot;</span><span class="o">)).</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span><span class="o">).</span><span class="n">result</span>
+  <span class="k">_</span> <span class="k">&lt;-</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span><span class="n">ns</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">n</span> <span class="k">=&gt;</span> <span class="n">coffees</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">name</span> <span class="o">===</span> <span class="n">n</span><span class="o">).</span><span class="n">delete</span><span class="o">)</span><span class="k">:</span> <span class="k">_</span><span class="kt">*</span><span class="o">)</span>
+<span class="o">}</span> <span class="k">yield</span> <span class="o">()).</span><span class="n">transactionally</span>
+
+<span class="k">val</span> <span class="n">f</span><span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">Unit</span><span class="o">]</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">a</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Failure is not guaranteed to be atomic <em>at the level of an individual</em> <code class="docutils literal"><span class="pre">DBIOAction</span></code> that is wrapped with
+<code class="docutils literal"><span class="pre">transactionally</span></code>, so you need to be careful where you apply error recovery combinators. An actual database
+transaction is only created and committed or rolled back for the outermost <code class="docutils literal"><span class="pre">transactionally</span></code> action. Nested
+<code class="docutils literal"><span class="pre">transactionally</span></code> actions simply execute inside the existing transaction without additional savepoints.</p>
+</div>
+</div>
+<div class="section" id="rollbacks">
+<h3>Rollbacks<a class="headerlink" href="#rollbacks" title="Permalink to this headline">¶</a></h3>
+<p>In case you want to force a rollback, you can return <code class="docutils literal"><span class="pre">DBIO.failed</span></code> within a <code class="docutils literal"><span class="pre">DBIOAction</span></code>.</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">countAction</span> <span class="k">=</span> <span class="n">coffees</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">result</span>
+
+<span class="k">val</span> <span class="n">rollbackAction</span> <span class="k">=</span> <span class="o">(</span><span class="n">coffees</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
+  <span class="o">(</span><span class="s">&quot;Cold_Drip&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SerialBlob</span><span class="o">(</span><span class="nc">Array</span><span class="o">[</span><span class="kt">Byte</span><span class="o">](</span><span class="mi">101</span><span class="o">))),</span>
+  <span class="o">(</span><span class="s">&quot;Dutch_Coffee&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SerialBlob</span><span class="o">(</span><span class="nc">Array</span><span class="o">[</span><span class="kt">Byte</span><span class="o">](</span><span class="mi">49</span><span class="o">)))</span>
+<span class="o">)).</span><span class="n">flatMap</span> <span class="o">{</span> <span class="k">_</span> <span class="k">=&gt;</span>
+  <span class="nc">DBIO</span><span class="o">.</span><span class="n">failed</span><span class="o">(</span><span class="k">new</span> <span class="nc">Exception</span><span class="o">(</span><span class="s">&quot;Roll it back&quot;</span><span class="o">))</span>
+<span class="o">}.</span><span class="n">transactionally</span>
+
+<span class="k">val</span> <span class="n">errorHandleAction</span> <span class="k">=</span> <span class="n">rollbackAction</span><span class="o">.</span><span class="n">asTry</span><span class="o">.</span><span class="n">flatMap</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nc">Failure</span><span class="o">(</span><span class="n">e</span><span class="k">:</span> <span class="kt">Throwable</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">successful</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="n">getMessage</span><span class="o">)</span>
+  <span class="k">case</span> <span class="nc">Success</span><span class="o">(</span><span class="k">_</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">successful</span><span class="o">(</span><span class="s">&quot;never reached&quot;</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="c1">// Here we show that that coffee count is the same before and after the attempted insert.</span>
+<span class="c1">// We also show that the result of the action is filled in with the exception&#39;s message.</span>
+<span class="k">val</span> <span class="n">f</span> <span class="k">=</span> <span class="n">db</span><span class="o">.</span><span class="n">run</span><span class="o">(</span><span class="n">countAction</span> <span class="n">zip</span> <span class="n">errorHandleAction</span> <span class="n">zip</span> <span class="n">countAction</span><span class="o">).</span><span class="n">map</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="o">((</span><span class="n">initialCount</span><span class="o">,</span> <span class="n">result</span><span class="o">),</span> <span class="n">finalCount</span><span class="o">)</span> <span class="k">=&gt;</span>
+    <span class="c1">// init: 5, final: 5, result: Roll it back</span>
+    <span class="n">println</span><span class="o">(</span><span class="s">s&quot;init: </span><span class="si">${</span><span class="n">initialCount</span><span class="si">}</span><span class="s">, final: </span><span class="si">${</span><span class="n">finalCount</span><span class="si">}</span><span class="s">, result: </span><span class="si">${</span><span class="n">result</span><span class="si">}</span><span class="s">&quot;</span><span class="o">)</span>
+    <span class="n">result</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="jdbc-interoperability">
+<span id="jdbc-interop"></span><span id="index-4"></span><h2>JDBC Interoperability<a class="headerlink" href="#jdbc-interoperability" title="Permalink to this headline">¶</a></h2>
+<p>In order to drop down to the JDBC level for functionality that is not available in Slick, you can
+use a <code class="docutils literal"><span class="pre">SimpleDBIO</span></code> action which is run on a database thread and gets access to the JDBC <code class="docutils literal"><span class="pre">Connection</span></code>:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">getAutoCommit</span> <span class="k">=</span> <span class="nc">SimpleDBIO</span><span class="o">[</span><span class="kt">Boolean</span><span class="o">](</span><span class="k">_</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">getAutoCommit</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>If you need to access state of the database session across multiple <code class="docutils literal"><span class="pre">SimpleDBIO</span></code> actions, make sure to
+use <code class="docutils literal"><span class="pre">withPinnedSession</span></code> or <code class="docutils literal"><span class="pre">transactionally</span></code> accordingly (see <a class="reference internal" href="#pinned">above</a>).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Core Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database I/O Actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#executing-database-i-o-actions">Executing Database I/O Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#materialized">Materialized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#streaming">Streaming</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#composing-database-i-o-actions">Composing Database I/O Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sequential-execution">Sequential Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#primitives">Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#debugging">Debugging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transactions-and-pinned-sessions">Transactions and Pinned Sessions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rollbacks">Rollbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jdbc-interoperability">JDBC Interoperability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Database Migrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-documentation.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#monitoring">Monitoring</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="database.html" title="Database Configuration"
+             >previous</a> |
+          <a href="schemas.html" title="Schemas"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2016 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
