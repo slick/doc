@@ -1,0 +1,322 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plain SQL Queries &mdash; Slick 3.2.0-RC1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.2.0-RC1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.2.0-RC1 documentation" href="index.html" />
+    <link rel="next" title="Coming from ORM to Slick" href="orm-to-slick.html" />
+    <link rel="prev" title="User-Defined Features" href="userdefined.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/sql.rst">edit this page on github</a><span>
+          |
+          <a href="userdefined.html" title="User-Defined Features"
+             accesskey="P">previous</a> |
+          <a href="orm-to-slick.html" title="Coming from ORM to Slick"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.2.0-RC1 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="plain-sql-queries">
+<span id="index-0"></span><h1>Plain SQL Queries<a class="headerlink" href="#plain-sql-queries" title="Permalink to this headline">¶</a></h1>
+<p>Sometimes you may need to write your own SQL code for an operation which is
+not well supported at a higher level of abstraction. Instead of falling back
+to the low level of <a class="reference external" href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>, you can use Slick&#8217;s <em>Plain SQL</em> queries with a much
+nicer Scala-based API.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The rest of this chapter is based on the <a class="reference external" href="https://typesafe.com/activator/template/slick-plainsql-3.2">Slick Plain SQL Queries template</a>.
+The preferred way of reading this introduction is in <a class="reference external" href="https://typesafe.com/activator">Activator</a>, where you can edit and
+run the code directly while reading the tutorial.</p>
+</div>
+<div class="section" id="scaffolding">
+<h2>Scaffolding<a class="headerlink" href="#scaffolding" title="Permalink to this headline">¶</a></h2>
+<p>The database connection is opened
+<a class="reference internal" href="gettingstarted.html#gettingstarted-dbconnection"><span class="std std-ref">in the usual way</span></a>. All <em>Plain SQL</em> queries result in
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction">DBIOActions</a> that can be composed and run like any other action.</p>
+<span class="target" id="index-1"></span></div>
+<div class="section" id="string-interpolation">
+<span id="index-2"></span><h2>String Interpolation<a class="headerlink" href="#string-interpolation" title="Permalink to this headline">¶</a></h2>
+<p><em>Plain SQL</em> queries in Slick are built via string interpolation using the <code class="docutils literal"><span class="pre">sql</span></code>, <code class="docutils literal"><span class="pre">sqlu</span></code> and
+<code class="docutils literal"><span class="pre">tsql</span></code> interpolators. They are available through the standard <code class="docutils literal"><span class="pre">api._</span></code> import from a Slick profile:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nn">slick.jdbc.H2Profile.api._</span>
+</pre></div>
+</div>
+<p>You can see the simplest use case in the following methods where the <code class="docutils literal"><span class="pre">sqlu</span></code> interpolator is used
+with a literal SQL string:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">createCoffees</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+  <span class="n">sqlu</span><span class="s">&quot;&quot;&quot;create table coffees(</span>
+<span class="s">    name varchar not null,</span>
+<span class="s">    sup_id int not null,</span>
+<span class="s">    price double not null,</span>
+<span class="s">    sales int not null,</span>
+<span class="s">    total int not null,</span>
+<span class="s">    foreign key(sup_id) references suppliers(id))&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="n">createSuppliers</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+  <span class="n">sqlu</span><span class="s">&quot;&quot;&quot;create table suppliers(</span>
+<span class="s">    id int not null primary key,</span>
+<span class="s">    name varchar not null,</span>
+<span class="s">    street varchar not null,</span>
+<span class="s">    city varchar not null,</span>
+<span class="s">    state varchar not null,</span>
+<span class="s">    zip varchar not null)&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="n">insertSuppliers</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Unit</span><span class="o">]</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">seq</span><span class="o">(</span>
+  <span class="c1">// Insert some suppliers</span>
+  <span class="n">sqlu</span><span class="s">&quot;insert into suppliers values(101, &#39;Acme, Inc.&#39;, &#39;99 Market Street&#39;, &#39;Groundsville&#39;, &#39;CA&#39;, &#39;95199&#39;)&quot;</span><span class="o">,</span>
+  <span class="n">sqlu</span><span class="s">&quot;insert into suppliers values(49, &#39;Superior Coffee&#39;, &#39;1 Party Place&#39;, &#39;Mendocino&#39;, &#39;CA&#39;, &#39;95460&#39;)&quot;</span><span class="o">,</span>
+  <span class="n">sqlu</span><span class="s">&quot;insert into suppliers values(150, &#39;The High Ground&#39;, &#39;100 Coffee Lane&#39;, &#39;Meadows&#39;, &#39;CA&#39;, &#39;93966&#39;)&quot;</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">sqlu</span></code> interpolator is used for DML statements which produce a row count instead of a result
+set. Therefore they are of type <code class="docutils literal"><span class="pre">DBIO[Int]</span></code>.</p>
+<p>Any variable or expression injected into a query gets turned into a bind variable in the resulting
+query string. It is not inserted directly into a query string, so there is no danger of SQL
+injection attacks. You can see this used in here:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">insert</span><span class="o">(</span><span class="n">c</span><span class="k">:</span> <span class="kt">Coffee</span><span class="o">)</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span>
+  <span class="n">sqlu</span><span class="s">&quot;insert into coffees values (${c.name}, ${c.supID}, ${c.price}, ${c.sales}, ${c.total})&quot;</span>
+</pre></div>
+</div>
+<p>The SQL statement produced by this method is always the same:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="n">insert</span> <span class="n">into</span> <span class="n">coffees</span> <span class="n">values</span> <span class="o">(?,</span> <span class="o">?,</span> <span class="o">?,</span> <span class="o">?,</span> <span class="o">?)</span>
+</pre></div>
+</div>
+<p>Note the use of the
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;sequence[R,M[+_]&lt;:TraversableOnce[_],E&lt;:Effect](M[DBIOAction[R,NoStream,E]])(CanBuildFrom[M[DBIOAction[R,NoStream,E]],R,M[R]]):DBIOAction[M[R],NoStream,E]">DBIO.sequence</a>
+combinator which is useful for this kind of code:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">inserts</span><span class="k">:</span> <span class="kt">Seq</span><span class="o">[</span><span class="kt">DBIO</span><span class="o">[</span><span class="kt">Int</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">Seq</span><span class="o">(</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;Colombian&quot;</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mf">7.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;French_Roast&quot;</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;Espresso&quot;</span><span class="o">,</span> <span class="mi">150</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;Colombian_Decaf&quot;</span><span class="o">,</span> <span class="mi">101</span><span class="o">,</span> <span class="mf">8.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">),</span>
+  <span class="nc">Coffee</span><span class="o">(</span><span class="s">&quot;French_Roast_Decaf&quot;</span><span class="o">,</span> <span class="mi">49</span><span class="o">,</span> <span class="mf">9.99</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">)</span>
+<span class="o">).</span><span class="n">map</span><span class="o">(</span><span class="n">insert</span><span class="o">)</span>
+
+<span class="k">val</span> <span class="n">combined</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[</span><span class="kt">Int</span><span class="o">]]</span> <span class="k">=</span> <span class="nc">DBIO</span><span class="o">.</span><span class="n">sequence</span><span class="o">(</span><span class="n">inserts</span><span class="o">)</span>
+<span class="n">combined</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">sum</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Unlike the simpler
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;seq[E&lt;:Effect](DBIOAction[_,NoStream,E]*):DBIOAction[Unit,NoStream,E]">DBIO.seq</a>
+combinator which runs a (varargs) sequence of database I/O actions in the given order and discards
+the return values,
+<a class="reference external" href="api/index.html#slick.dbio.DBIOAction$&#64;sequence[R,M[+_]&lt;:TraversableOnce[_],E&lt;:Effect](M[DBIOAction[R,NoStream,E]])(CanBuildFrom[M[DBIOAction[R,NoStream,E]],R,M[R]]):DBIOAction[M[R],NoStream,E]">DBIO.sequence</a>
+turns a <code class="docutils literal"><span class="pre">Seq[DBIO[T]]</span></code> into a <code class="docutils literal"><span class="pre">DBIO[Seq[T]]</span></code>, thus preserving the results of all individual
+actions. It is used here to sum up the affected row counts of all inserts.</p>
+<span class="target" id="index-3"></span></div>
+<div class="section" id="result-sets">
+<span id="index-4"></span><h2>Result Sets<a class="headerlink" href="#result-sets" title="Permalink to this headline">¶</a></h2>
+<p>The following code uses the <code class="docutils literal"><span class="pre">sql</span></code> interpolator which returns a result set produced by a
+statement. The interpolator by itself does not produce a <code class="docutils literal"><span class="pre">DBIO</span></code> value. It needs to be
+followed by a call to <code class="docutils literal"><span class="pre">.as</span></code> to define the row type:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="n">sql</span><span class="s">&quot;&quot;&quot;select c.name, s.name</span>
+<span class="s">      from coffees c, suppliers s</span>
+<span class="s">      where c.price &lt; $price and s.id = c.sup_id&quot;&quot;&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">String</span><span class="o">)]</span>
+</pre></div>
+</div>
+<p>This results in a <code class="docutils literal"><span class="pre">DBIO[Seq[(String,</span> <span class="pre">String)]]</span></code>. The call to <code class="docutils literal"><span class="pre">as</span></code> takes an implicit
+<a class="reference external" href="api/index.html#slick.jdbc.GetResult">GetResult</a> parameter which extracts data of the requested type from a result set.
+There are predefined <code class="docutils literal"><span class="pre">GetResult</span></code> implicits for the standard JDBC types, for Options of those (to
+represent nullable columns) and for tuples of types which have a <code class="docutils literal"><span class="pre">GetResult</span></code>. For non-standard
+return types you have to define your own converters:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="c1">// Case classes for our data</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">street</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">city</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">state</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">zip</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span>
+<span class="k">case</span> <span class="k">class</span> <span class="nc">Coffee</span><span class="o">(</span><span class="n">name</span><span class="k">:</span> <span class="kt">String</span><span class="o">,</span> <span class="n">supID</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">price</span><span class="k">:</span> <span class="kt">Double</span><span class="o">,</span> <span class="n">sales</span><span class="k">:</span> <span class="kt">Int</span><span class="o">,</span> <span class="n">total</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span>
+
+<span class="c1">// Result set getters</span>
+<span class="k">implicit</span> <span class="k">val</span> <span class="n">getSupplierResult</span> <span class="k">=</span> <span class="nc">GetResult</span><span class="o">(</span><span class="n">r</span> <span class="k">=&gt;</span> <span class="nc">Supplier</span><span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="n">nextInt</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span>
+  <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">,</span> <span class="n">r</span><span class="o">.</span><span class="n">nextString</span><span class="o">))</span>
+<span class="k">implicit</span> <span class="k">val</span> <span class="n">getCoffeeResult</span> <span class="k">=</span> <span class="nc">GetResult</span><span class="o">(</span><span class="n">r</span> <span class="k">=&gt;</span> <span class="nc">Coffee</span><span class="o">(</span><span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;,</span> <span class="n">r</span><span class="o">.&lt;&lt;))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">GetResult[T]</span></code> is simply a wrapper for a function <code class="docutils literal"><span class="pre">PositionedResult</span> <span class="pre">=&gt;</span> <span class="pre">T</span></code>. The implicit val for
+<code class="docutils literal"><span class="pre">Supplier</span></code> uses the explicit <code class="docutils literal"><span class="pre">PositionedResult</span></code> methods <code class="docutils literal"><span class="pre">getInt</span></code> and <code class="docutils literal"><span class="pre">getString</span></code> to read
+the next <code class="docutils literal"><span class="pre">Int</span></code> or <code class="docutils literal"><span class="pre">String</span></code> value in the current row. The second one uses the shortcut method
+<code class="docutils literal"><span class="pre">&lt;&lt;</span></code> which returns a value of whatever type is expected at this place. (Of course you can only
+use it when the type is actually known like in this constructor call.)</p>
+</div>
+<div class="section" id="splicing-literal-values">
+<h2>Splicing Literal Values<a class="headerlink" href="#splicing-literal-values" title="Permalink to this headline">¶</a></h2>
+<p>While most parameters should be inserted into SQL statements as bind variables, sometimes you need
+to splice literal values directly into the statement, for example to abstract over table names or
+to run dynamically generated SQL code. You can use <code class="docutils literal"><span class="pre">#$</span></code> instead of <code class="docutils literal"><span class="pre">$</span></code> in all interpolators for
+this purpose, as shown in the following piece of code:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">table</span> <span class="k">=</span> <span class="s">&quot;coffees&quot;</span>
+<span class="n">sql</span><span class="s">&quot;select * from #$table where name = $name&quot;</span><span class="o">.</span><span class="n">as</span><span class="o">[</span><span class="kt">Coffee</span><span class="o">].</span><span class="n">headOption</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-checked-sql-statements">
+<span id="index-5"></span><h2>Type-Checked SQL Statements<a class="headerlink" href="#type-checked-sql-statements" title="Permalink to this headline">¶</a></h2>
+<p>The interpolators you have seen so far only construct a SQL statement at runtime. This provides a
+safe and easy way of building statements but they are still just embedded strings. If you have a
+syntax error in a statement or the types don&#8217;t match up between the database and your Scala code,
+this cannot be detected at compile-time. You can use the <code class="docutils literal"><span class="pre">tsql</span></code> interpolator instead of <code class="docutils literal"><span class="pre">sql</span></code>
+to get just that:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="n">getSuppliers</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">Int</span><span class="o">)</span><span class="k">:</span> <span class="kt">DBIO</span><span class="o">[</span><span class="kt">Seq</span><span class="o">[(</span><span class="kt">Int</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span>, <span class="kt">String</span><span class="o">)]]</span> <span class="k">=</span>
+  <span class="n">tsql</span><span class="s">&quot;select * from suppliers where id &gt; $id&quot;</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal"><span class="pre">tsql</span></code> directly produces a <code class="docutils literal"><span class="pre">DBIOAction</span></code> of the correct type without requiring a call
+to <code class="docutils literal"><span class="pre">.as</span></code>.</p>
+<p>In order to give the compiler access to the database, you have to provide a configuration that can
+be resolved at compile-time. This is done with the <a class="reference external" href="api/index.html#slick.basic.StaticDatabaseConfig">StaticDatabaseConfig</a>
+annotation:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="nd">@StaticDatabaseConfig</span><span class="o">(</span><span class="s">&quot;file:src/main/resources/application.conf#tsql&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>In this case it points to the path &#8220;tsql&#8221; in a local <code class="docutils literal"><span class="pre">application.conf</span></code> file, which must contain
+an appropriate configuration for a <a class="reference external" href="api/index.html#slick.basic.StaticDatabaseConfig">StaticDatabaseConfig</a> object, not just a
+<code class="docutils literal"><span class="pre">Database</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can get <code class="docutils literal"><span class="pre">application.conf</span></code> resolved via the classpath (as usual) by omitting the path and
+only specifying a fragment in the URL, or you can use a <code class="docutils literal"><span class="pre">resource:</span></code> URL scheme for referencing
+an arbitrary classpath resource, but in both cases, they have to be on the <em>compiler&#8217;s</em> own
+classpath, not just the source path or the runtime classpath. Depending on the build tool this
+may not be possible, so it&#8217;s usually better to use a relative <code class="docutils literal"><span class="pre">file:</span></code> URL.</p>
+</div>
+<p>You can also retrieve the statically configured <a class="reference external" href="api/index.html#slick.basic.DatabaseConfig">DatabaseConfig</a> at runtime:</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="k">val</span> <span class="n">dc</span> <span class="k">=</span> <span class="nc">DatabaseConfig</span><span class="o">.</span><span class="n">forAnnotation</span><span class="o">[</span><span class="kt">JdbcProfile</span><span class="o">]</span>
+<span class="k">import</span> <span class="nn">dc.profile.api._</span>
+<span class="k">val</span> <span class="n">db</span> <span class="k">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">db</span>
+</pre></div>
+</div>
+<p>This gives you the Slick profile for the standard <code class="docutils literal"><span class="pre">api._</span></code> import and the <code class="docutils literal"><span class="pre">Database</span></code>. Note that
+it is not mandatory to use the same configuration. You can get a Slick profile and <code class="docutils literal"><span class="pre">Database</span></code> at
+runtime in any other way you like and only use the <code class="docutils literal"><span class="pre">StaticDatabaseConfig</span></code> for compile-time
+checking.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Core Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plain SQL Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scaffolding">Scaffolding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-interpolation">String Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#result-sets">Result Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#splicing-literal-values">Splicing Literal Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#type-checked-sql-statements">Type-Checked SQL Statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Database Migrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-documentation.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#monitoring">Monitoring</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="userdefined.html" title="User-Defined Features"
+             >previous</a> |
+          <a href="orm-to-slick.html" title="Coming from ORM to Slick"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2016 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

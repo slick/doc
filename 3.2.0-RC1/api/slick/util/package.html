@@ -1,0 +1,817 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>util - Slick 3.2.0-RC1 - slick.util</title>
+          <meta name="description" content="util - Slick 3.2.0 - RC1 - slick.util" />
+          <meta name="keywords" content="util Slick 3.2.0 RC1 slick.util" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.util.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a></p>
+        <h1>util</h1><span class="permalink">
+      <a href="../../index.html#slick.util.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">util</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Helper code for various things. Tuples, Logging, SQL, ...</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/3.2.0-RC1/slick/src/main/scala/slick/util/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph1" viewBox="0.00 0.00 623.00 96.00" height="96pt" width="623pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 92)" class="graph" id="graph0"><polygon points="-4,4 -4,-92 619,-92 619,4 -4,4" stroke="white" fill="white"></polygon><!-- node0 --><g class="node class" id="graph1_0"><g id="a_class|graph1_0"><a xlink:title="slick.util.ManagedArrayBlockingQueue" xlink:href="ManagedArrayBlockingQueue.html#inheritance-diagram"><polygon points="190,-26 0,-26 0,-0 190,-0 190,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="31.791" text-anchor="start">ManagedArrayBlockingQueue[E]</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="slick.util.Logging" xlink:href="Logging.html#inheritance-diagram"><polygon points="310,-88 230,-88 230,-62 310,-62 310,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-81" x="242" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.7495" x="261.815" text-anchor="start">Logging</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="ManagedArrayBlockingQueue[E] is a subtype of Logging"><path d="M229.847,-60.2331C199.72,-49.9041 158.88,-35.9016 130.062,-26.0213" stroke="#d4d4d4" fill="none"></path><polygon points="229.289,-61.8918 234.586,-61.8581 230.424,-58.581 229.289,-61.8918" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node object" id="graph1_4"><g id="a_object|graph1_4"><a xlink:title="slick.util.BeanConfigurator" xlink:href="BeanConfigurator$.html#inheritance-diagram"><polygon points="331.25,-26 208.75,-26 208.75,-0 331.25,-0 331.25,-26" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19" x="221" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="240.919" text-anchor="start">BeanConfigurator</text></a></g></g><!-- node1&#45;&gt;node4 --><g class="edge inheritance" id="graph1_1_4"><g id="a_inheritance|graph1_1_4"><a xlink:title="BeanConfigurator is a subtype of Logging"><path d="M270,-56.6826C270,-46.8961 270,-34.9026 270,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="268.25,-56.8581 270,-61.8581 271.75,-56.8581 268.25,-56.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node object" id="graph1_5"><g id="a_object|graph1_5"><a xlink:title="slick.util.AsyncExecutor" xlink:href="AsyncExecutor$.html#inheritance-diagram"><polygon points="460.25,-26 349.75,-26 349.75,-0 460.25,-0 460.25,-26" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19" x="362" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="381.764" text-anchor="start">AsyncExecutor</text></a></g></g><!-- node1&#45;&gt;node5 --><g class="edge inheritance" id="graph1_1_5"><g id="a_inheritance|graph1_1_5"><a xlink:title="AsyncExecutor is a subtype of Logging"><path d="M302.114,-59.7273C325.155,-49.4867 355.866,-35.8374 377.721,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="301.178,-58.2282 297.319,-61.8581 302.599,-61.4265 301.178,-58.2282" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="slick.util.RangeConstArrayOp" xlink:href="RangeConstArrayOp.html#inheritance-diagram"><polygon points="615.25,-26 478.75,-26 478.75,-0 615.25,-0 615.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="491" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-8.74951" x="510.7" text-anchor="start">RangeConstArrayOp</text></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="slick.util.ConstArrayOp" xlink:href="ConstArrayOp.html#inheritance-diagram"><polygon points="606.25,-88 487.75,-88 487.75,-62 606.25,-62 606.25,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-81" x="500" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.7495" x="519.601" text-anchor="start">ConstArrayOp[T]</text></a></g></g><!-- node3&#45;&gt;node2 --><g class="edge inheritance" id="graph1_3_2"><g id="a_inheritance|graph1_3_2"><a xlink:title="RangeConstArrayOp is a subtype of ConstArrayOp[T]"><path d="M547,-56.6826C547,-46.8961 547,-34.9026 547,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="545.25,-56.8581 547,-61.8581 548.75,-56.8581 545.25,-56.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.util"><span>util</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.util.AsyncExecutor" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AsyncExecutorextendsCloseable"></a>
+      <a id="AsyncExecutor:AsyncExecutor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AsyncExecutor.html"><span class="name">AsyncExecutor</span></a><span class="result"> extends <span class="extype" name="java.io.Closeable">Closeable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@AsyncExecutorextendsCloseable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A connection pool for asynchronous execution of blocking I/O actions.</p><div class="fullcomment"><div class="comment cmt"><p>A connection pool for asynchronous execution of blocking I/O actions.
+This is used for the asynchronous query execution API on top of blocking back-ends like JDBC.</p></div></div>
+    </li><li name="slick.util.AsyncExecutorMXBean" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AsyncExecutorMXBeanextendsAnyRef"></a>
+      <a id="AsyncExecutorMXBean:AsyncExecutorMXBean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AsyncExecutorMXBean.html"><span class="name">AsyncExecutorMXBean</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@AsyncExecutorMXBeanextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The information that is exposed by an <a href="AsyncExecutor.html" class="extype" name="slick.util.AsyncExecutor">AsyncExecutor</a> via JMX.</p>
+    </li><li name="slick.util.CloseableIterator" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="CloseableIterator[+T]extendsIterator[T]withCloseable"></a>
+      <a id="CloseableIterator[+T]:CloseableIterator[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CloseableIterator.html"><span class="name">CloseableIterator</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.Iterator">Iterator</span>[<span class="extype" name="slick.util.CloseableIterator.T">T</span>] with <span class="extype" name="java.io.Closeable">Closeable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@CloseableIterator[+T]extendsIterator[T]withCloseable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An Iterator with a <code>close</code> method to close the underlying data source.</p><div class="fullcomment"><div class="comment cmt"><p>An Iterator with a <code>close</code> method to close the underlying data source.
+Implementers must close the data source when <code>hasNext</code> returns <code>false</code>.
+</p></div></div>
+    </li><li name="slick.util.ConfigExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConfigExtensionMethodsextendsAnyVal"></a>
+      <a id="ConfigExtensionMethods:ConfigExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConfigExtensionMethods.html"><span class="name">ConfigExtensionMethods</span></a><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ConfigExtensionMethodsextendsAnyVal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods to make Typesafe Config easier to use</p>
+    </li><li name="slick.util.ConstArray" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConstArray[+T]extendsProduct"></a>
+      <a id="ConstArray[+T]:ConstArray[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConstArray.html"><span class="name">ConstArray</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ConstArray[+T]extendsProduct" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An efficient immutable array implementation which is used in the AST.</p><div class="fullcomment"><div class="comment cmt"><p>An efficient immutable array implementation which is used in the AST. Semantics are generally
+the same as for Scala collections but for performance reasons it does not implement any
+standard collection traits.</p></div></div>
+    </li><li name="slick.util.ConstArrayBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConstArrayBuilder[T]extendsAnyRef"></a>
+      <a id="ConstArrayBuilder[T]:ConstArrayBuilder[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConstArrayBuilder.html"><span class="name">ConstArrayBuilder</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ConstArrayBuilder[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A mutable builder for ConstArrays.</p>
+    </li><li name="slick.util.ConstArrayOp" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ConstArrayOp[+T]extendsAny"></a>
+      <a id="ConstArrayOp[+T]:ConstArrayOp[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ConstArrayOp.html"><span class="name">ConstArrayOp</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ConstArrayOp[+T]extendsAny" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A lazy operation on a ConstArray, produced by <code>withFilter</code>, <code>zip</code>, <code>zipWithIndex</code> and
+<code>ConstArrayOp.from(Range)</code>.</p>
+    </li><li name="slick.util.DumpInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DumpInfoextendsProductwithSerializable"></a>
+      <a id="DumpInfo:DumpInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="DumpInfo.html"><span class="name">DumpInfo</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="mainInfo">mainInfo: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;&quot;</span></span>, <span name="attrInfo">attrInfo: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;&quot;</span></span>, <span name="children">children: <span class="extype" name="scala.Iterable">Iterable</span>[(<span class="extype" name="scala.Predef.String">String</span>, <a href="Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>)] = <span class="symbol">Vector.empty</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@DumpInfoextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The information required for dumping a single object</p>
+    </li><li name="slick.util.Dumpable" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DumpableextendsAnyRef"></a>
+      <a id="Dumpable:Dumpable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Dumpable.html"><span class="name">Dumpable</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@DumpableextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Interface for types that can be used in a tree dump</p>
+    </li><li name="slick.util.Logging" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="LoggingextendsAnyRef"></a>
+      <a id="Logging:Logging"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Logging.html"><span class="name">Logging</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@LoggingextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.MacroSupportInterpolation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MacroSupportInterpolationextendsAnyRef"></a>
+      <a id="MacroSupportInterpolation:MacroSupportInterpolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MacroSupportInterpolation.html"><span class="name">MacroSupportInterpolation</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@MacroSupportInterpolationextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.ManagedArrayBlockingQueue" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ManagedArrayBlockingQueue[E&gt;:Null&lt;:slick.util.AsyncExecutor.PrioritizedRunnable]extendsAbstractQueue[E]withBlockingQueue[E]withLogging"></a>
+      <a id="ManagedArrayBlockingQueue[E&lt;:PrioritizedRunnable&gt;:Null]:ManagedArrayBlockingQueue[E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ManagedArrayBlockingQueue.html"><span class="name">ManagedArrayBlockingQueue</span></a><span class="tparams">[<span name="E">E &gt;: <span class="extype" name="scala.Null">Null</span> &lt;: <a href="AsyncExecutor$$PrioritizedRunnable.html" class="extype" name="slick.util.AsyncExecutor.PrioritizedRunnable">PrioritizedRunnable</a></span>]</span><span class="result"> extends <span class="extype" name="java.util.AbstractQueue">AbstractQueue</span>[<span class="extype" name="slick.util.ManagedArrayBlockingQueue.E">E</span>] with <span class="extype" name="java.util.concurrent.BlockingQueue">BlockingQueue</span>[<span class="extype" name="slick.util.ManagedArrayBlockingQueue.E">E</span>] with <a href="Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ManagedArrayBlockingQueue[E&gt;:Null&lt;:slick.util.AsyncExecutor.PrioritizedRunnable]extendsAbstractQueue[E]withBlockingQueue[E]withLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A simplified copy of <code>java.util.concurrent.ArrayBlockingQueue</code> with additional logic for
+temporarily rejecting elements based on the current size.</p><div class="fullcomment"><div class="comment cmt"><p>A simplified copy of <code>java.util.concurrent.ArrayBlockingQueue</code> with additional logic for
+temporarily rejecting elements based on the current size. All features of the original
+ArrayBlockingQueue have been ported, except the mutation methods of the iterator. See
+<code>java.util.concurrent.ArrayBlockingQueue</code> for documentation.</p></div></div>
+    </li><li name="slick.util.ProductWrapper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProductWrapperextendsProduct"></a>
+      <a id="ProductWrapper:ProductWrapper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProductWrapper.html"><span class="name">ProductWrapper</span></a><span class="result"> extends <span class="extype" name="scala.Product">Product</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ProductWrapperextendsProduct" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Product to represent larger arities than Tuple22</p>
+    </li><li name="slick.util.RangeConstArrayOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RangeConstArrayOpextendsConstArrayOp[Int]"></a>
+      <a id="RangeConstArrayOp:RangeConstArrayOp"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RangeConstArrayOp.html"><span class="name">RangeConstArrayOp</span></a><span class="result"> extends <a href="ConstArrayOp.html" class="extype" name="slick.util.ConstArrayOp">ConstArrayOp</a>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@RangeConstArrayOpextendsConstArrayOp[Int]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.ReadAheadIterator" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReadAheadIterator[+T]extendsBufferedIterator[T]"></a>
+      <a id="ReadAheadIterator[+T]:ReadAheadIterator[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadAheadIterator.html"><span class="name">ReadAheadIterator</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <span class="extype" name="scala.BufferedIterator">BufferedIterator</span>[<span class="extype" name="slick.util.ReadAheadIterator.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ReadAheadIterator[+T]extendsBufferedIterator[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An iterator on top of a data source which does not offer a hasNext()
+method without doing a next()
+</p>
+    </li><li name="slick.util.RefId" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RefId[E&lt;:AnyRef]extendsProductwithSerializable"></a>
+      <a id="RefId[E&lt;:AnyRef]:RefId[E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RefId.html"><span class="name">RefId</span></a><span class="tparams">[<span name="E">E &lt;: <span class="extype" name="scala.AnyRef">AnyRef</span></span>]</span><span class="params">(<span name="e">e: <span class="extype" name="slick.util.RefId.E">E</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@RefId[E&lt;:AnyRef]extendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A wrapper for a value, which uses reference equality of the wrapped
+value as its own equality.</p><div class="fullcomment"><div class="comment cmt"><p>A wrapper for a value, which uses reference equality of the wrapped
+value as its own equality. This can be used, for example, to get the
+equivalent of an <code>IdentityHashMap</code> from a regular <code>HashMap</code>.</p></div></div>
+    </li><li name="slick.util.SQLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SQLBuilderextendsAnyRef"></a>
+      <a id="SQLBuilder:SQLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLBuilder.html"><span class="name">SQLBuilder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@SQLBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.SlickLogger" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SlickLoggerextendsAnyRef"></a>
+      <a id="SlickLogger:SlickLogger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SlickLogger.html"><span class="name">SlickLogger</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@SlickLoggerextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.TableDump" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableDumpextendsAnyRef"></a>
+      <a id="TableDump:TableDump"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TableDump.html"><span class="name">TableDump</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@TableDumpextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Utility methods for creating result set debug output.</p>
+    </li><li name="slick.util.TreePrinter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TreePrinterextendsProductwithSerializable"></a>
+      <a id="TreePrinter:TreePrinter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="TreePrinter.html"><span class="name">TreePrinter</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;&quot;</span></span>, <span name="prefix">prefix: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;&quot;</span></span>, <span name="firstPrefix">firstPrefix: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="narrow">narrow: (<a href="Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>) ⇒ <a href="Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a> = <span class="symbol">identity</span></span>, <span name="mark">mark: (<a href="Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">_ =&gt; false</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@TreePrinterextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Create a readable printout of a tree.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="slick.util#??" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="??:Nothing"></a>
+      <a id="??:Nothing"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $qmark$qmark" class="name">??</span><span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@??:Nothing" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Throw an <code>UnsupportedOperationException</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Throw an <code>UnsupportedOperationException</code>. Like <code>???</code> but <code>NonFatal</code>.</p></div></div>
+    </li><li name="slick.util.AsyncExecutor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AsyncExecutor"></a>
+      <a id="AsyncExecutor:AsyncExecutor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="AsyncExecutor$.html"><span class="name">AsyncExecutor</span></a><span class="result"> extends <a href="Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@AsyncExecutor" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.BeanConfigurator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BeanConfigurator"></a>
+      <a id="BeanConfigurator:BeanConfigurator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BeanConfigurator$.html"><span class="name">BeanConfigurator</span></a><span class="result"> extends <a href="Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@BeanConfigurator" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Configure Java Beans reflectively, using Typesafe Config for data type conversions.</p>
+    </li><li name="slick.util.ClassLoaderUtil" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ClassLoaderUtil"></a>
+      <a id="ClassLoaderUtil:ClassLoaderUtil"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ClassLoaderUtil$.html"><span class="name">ClassLoaderUtil</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ClassLoaderUtil" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Utilities for working with classloaders
+</p>
+    </li><li name="slick.util.CloseableIterator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CloseableIterator"></a>
+      <a id="CloseableIterator:CloseableIterator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CloseableIterator$.html"><span class="name">CloseableIterator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@CloseableIterator" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.ConfigExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConfigExtensionMethods"></a>
+      <a id="ConfigExtensionMethods:ConfigExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConfigExtensionMethods$.html"><span class="name">ConfigExtensionMethods</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ConfigExtensionMethods" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.ConstArray" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConstArray"></a>
+      <a id="ConstArray:ConstArray"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConstArray$.html"><span class="name">ConstArray</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ConstArray" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.ConstArrayOp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConstArrayOp"></a>
+      <a id="ConstArrayOp:ConstArrayOp"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConstArrayOp$.html"><span class="name">ConstArrayOp</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ConstArrayOp" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.DumpInfo" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DumpInfo"></a>
+      <a id="DumpInfo:DumpInfo"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DumpInfo$.html"><span class="name">DumpInfo</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@DumpInfo" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.Ellipsis" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Ellipsis"></a>
+      <a id="Ellipsis:Ellipsis"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Ellipsis$.html"><span class="name">Ellipsis</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@Ellipsis" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Create a wrapper for a <code>Dumpable</code> to omit some nodes.</p>
+    </li><li name="slick.util.GlobalConfig" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="GlobalConfig"></a>
+      <a id="GlobalConfig:GlobalConfig"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GlobalConfig$.html"><span class="name">GlobalConfig</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@GlobalConfig" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Singleton object with Slick's configuration, loaded from the application config.</p><div class="fullcomment"><div class="comment cmt"><p>Singleton object with Slick's configuration, loaded from the application config.
+This includes configuration for the global profile objects and settings for debug logging.</p><p>In addition to being listed in reference.conf, all essential config options also have their
+default values hardcoded here because we cannot rely on getting reference.conf on the classpath
+in all cases (e.g. the <code>tsql</code> macro).</p></div></div>
+    </li><li name="slick.util.MacroSupport" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MacroSupport"></a>
+      <a id="MacroSupport:MacroSupport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MacroSupport$.html"><span class="name">MacroSupport</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@MacroSupport" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.ReadAheadIterator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReadAheadIterator"></a>
+      <a id="ReadAheadIterator:ReadAheadIterator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ReadAheadIterator$.html"><span class="name">ReadAheadIterator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ReadAheadIterator" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.SQLBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SQLBuilder"></a>
+      <a id="SQLBuilder:SQLBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLBuilder$.html"><span class="name">SQLBuilder</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@SQLBuilder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.SlickLogger" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SlickLogger"></a>
+      <a id="SlickLogger:SlickLogger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SlickLogger$.html"><span class="name">SlickLogger</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@SlickLogger" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.TreePrinter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TreePrinter"></a>
+      <a id="TreePrinter:TreePrinter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TreePrinter$.html"><span class="name">TreePrinter</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@TreePrinter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.util.TupleMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TupleMethods"></a>
+      <a id="TupleMethods:TupleMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TupleMethods$.html"><span class="name">TupleMethods</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@TupleMethods" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for prepending and appending values to tuples</p>
+    </li><li name="slick.util.TupleSupport" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TupleSupport"></a>
+      <a id="TupleSupport:TupleSupport"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TupleSupport$.html"><span class="name">TupleSupport</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@TupleSupport" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Utility functions for working with tuples of different arities</p>
+    </li><li name="slick.util#ignoreFollowOnError" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ignoreFollowOnError:PartialFunction[Throwable,Unit]"></a>
+      <a id="ignoreFollowOnError:PartialFunction[Throwable,Unit]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ignoreFollowOnError</span><span class="result">: <span class="extype" name="scala.PartialFunction">PartialFunction</span>[<span class="extype" name="scala.Throwable">Throwable</span>, <span class="extype" name="scala.Unit">Unit</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.util.package@ignoreFollowOnError:PartialFunction[Throwable,Unit]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An exception handler which ignores <code>NonFatal</code> exceptions.</p><div class="fullcomment"><div class="comment cmt"><p>An exception handler which ignores <code>NonFatal</code> exceptions. It is used when running cleanup
+code inside of another exception handler to prevent an exception during cleanup from
+overriding the original one.</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>
