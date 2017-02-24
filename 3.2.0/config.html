@@ -1,0 +1,304 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Configuration &mdash; Slick 3.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.2.0 documentation" href="index.html" />
+    <link rel="prev" title="Sphinx Documentation" href="sphinx-documentation.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/config.rst">edit this page on github</a><span>
+          |
+          <a href="sphinx-documentation.html" title="Sphinx Documentation"
+             accesskey="P">previous</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.2.0 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="configuration">
+<span id="index-0"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<p>In addition to configuring your <a class="reference internal" href="database.html"><span class="doc">database connections</span></a> in <code class="docutils literal"><span class="pre">application.conf</span></code> you can also set some
+global options in this file or through system properties (see the <a class="reference external" href="https://github.com/typesafehub/config">Typesafe Config</a> documentation for details).
+These are the available options and their default values as defined in Slick&#8217;s own <code class="docutils literal"><span class="pre">reference.conf</span></code>:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="c1"># These settings are read by slick.util.SlickConfig</span>
+slick <span class="o">{</span>
+  <span class="c1"># Use ANSI color sequences in tree dumps (as used in log messages and</span>
+  <span class="c1"># exceptions of type SlickTreeException).</span>
+  <span class="nv">ansiDump</span> <span class="o">=</span> <span class="nb">false</span>
+
+  <span class="c1"># Use Unicode box characters in tree and table dumps (as used in log</span>
+  <span class="c1"># messages). If this option is not enabled, ASCII approximations are used</span>
+  <span class="c1"># instead.</span>
+  <span class="nv">unicodeDump</span> <span class="o">=</span> <span class="nb">false</span>
+
+  <span class="c1"># Dump individual &quot;Select&quot; and &quot;Ref&quot; nodes instead of combining them into a</span>
+  <span class="c1"># single &quot;Path&quot; element when creating a tree dump (as used in log messages</span>
+  <span class="c1"># and exceptions of type SlickTreeException).</span>
+  <span class="nv">dumpPaths</span> <span class="o">=</span> <span class="nb">false</span>
+
+  <span class="c1"># Use multi-line, indented formatting for SQL statements. If not enabled,</span>
+  <span class="c1"># statements are generated without any linebreaks or indentation. This</span>
+  <span class="c1"># option applies to all generated statements (but not to the Plain SQL API).</span>
+  <span class="nv">sqlIndent</span> <span class="o">=</span> <span class="nb">false</span>
+
+  <span class="c1"># Verify types after each query compiler phase. This is useful for debugging</span>
+  <span class="c1"># the query compiler but should generally not be enabled in production</span>
+  <span class="c1"># environments because it makes query compilation considerably slower.</span>
+  <span class="nv">verifyTypes</span> <span class="o">=</span> <span class="nb">false</span>
+
+  <span class="c1"># Detect unnecessary rebuilding of the AST after every query compiler phase.</span>
+  <span class="c1"># This is useful for debugging the query compiler. Query compilation</span>
+  <span class="c1"># performance is negatively affected by this if phase logging is enabled.</span>
+  <span class="nv">detectRebuild</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="o">}</span>
+
+<span class="c1"># Profile-specific settings for MySQLProfile</span>
+slick.jdbc.MySQLProfile <span class="o">{</span>
+  <span class="c1"># The default SQL type for strings without an explicit size limit.</span>
+  <span class="c1"># When set to null / undefined, pick &quot;TEXT&quot; where possible, otherwise fall back</span>
+  <span class="c1"># to &quot;VARCHAR(254)&quot;</span>
+  <span class="nv">defaultStringType</span> <span class="o">=</span> null
+<span class="o">}</span>
+
+<span class="c1"># Profile-specific settings for SQLServerProfile</span>
+slick.jdbc.SQLServerProfile <span class="o">{</span>
+  <span class="c1"># The default SQL type for strings without an explicit size limit.</span>
+  <span class="c1"># When set to null / undefined, pick &quot;TEXT&quot; where possible, otherwise fall back to &quot;VARCHAR(254)&quot;</span>
+  <span class="nv">defaultStringType</span> <span class="o">=</span> null
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging">
+<span id="index-1"></span><span id="id1"></span><h1>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h1>
+<p>Slick uses <a class="reference external" href="http://www.slf4j.org/">SLF4J</a> for logging. How to configure loggers and appenders depends on the actual logging framework that you
+use in your application. The following <a class="reference external" href="http://logback.qos.ch/">Logback</a> configuration is used internally for testing and debugging of Slick. It
+contains a list of all loggers that are used by Slick for debug output:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;appender</span> <span class="na">name=</span><span class="s">&quot;STDOUT&quot;</span> <span class="na">class=</span><span class="s">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;encoder&gt;</span>
+            <span class="nt">&lt;pattern&gt;</span>*** \(%logger{30}\)%green(%X{debugId}) %msg%n<span class="nt">&lt;/pattern&gt;</span>
+        <span class="nt">&lt;/encoder&gt;</span>
+    <span class="nt">&lt;/appender&gt;</span>
+    <span class="nt">&lt;root</span> <span class="na">level=</span><span class="s">&quot;${log.root:-info}&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;appender-ref</span> <span class="na">ref=</span><span class="s">&quot;STDOUT&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/root&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.basic.BasicBackend.action&quot;</span>          <span class="na">level=</span><span class="s">&quot;${log.action:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.basic.BasicBackend.stream&quot;</span>          <span class="na">level=</span><span class="s">&quot;${log.stream:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler&quot;</span>                           <span class="na">level=</span><span class="s">&quot;${log.qcomp:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.QueryCompiler&quot;</span>             <span class="na">level=</span><span class="s">&quot;${log.qcomp.phases:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.QueryCompilerBenchmark&quot;</span>    <span class="na">level=</span><span class="s">&quot;${log.qcomp.bench:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.Inline&quot;</span>                    <span class="na">level=</span><span class="s">&quot;${log.qcomp.inline:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.AssignUniqueSymbols&quot;</span>       <span class="na">level=</span><span class="s">&quot;${log.qcomp.assignUniqueSymbols:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.InferTypes&quot;</span>                <span class="na">level=</span><span class="s">&quot;${log.qcomp.inferTypes:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.ExpandTables&quot;</span>              <span class="na">level=</span><span class="s">&quot;${log.qcomp.expandTables:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.EmulateOuterJoins&quot;</span>         <span class="na">level=</span><span class="s">&quot;${log.qcomp.emulateOuterJoins:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.ForceOuterBinds&quot;</span>           <span class="na">level=</span><span class="s">&quot;${log.qcomp.forceOuterBinds:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.RemoveMappedTypes&quot;</span>         <span class="na">level=</span><span class="s">&quot;${log.qcomp.removeMappedTypes:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.CreateResultSetMapping&quot;</span>    <span class="na">level=</span><span class="s">&quot;${log.qcomp.createResultSetMapping:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.ExpandSums&quot;</span>                <span class="na">level=</span><span class="s">&quot;${log.qcomp.expandSums:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.ExpandRecords&quot;</span>             <span class="na">level=</span><span class="s">&quot;${log.qcomp.expandRecords:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.ExpandConditionals&quot;</span>        <span class="na">level=</span><span class="s">&quot;${log.qcomp.expandConditionals:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.FlattenProjections&quot;</span>        <span class="na">level=</span><span class="s">&quot;${log.qcomp.flattenProjections:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.CreateAggregates&quot;</span>          <span class="na">level=</span><span class="s">&quot;${log.qcomp.createAggregates:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.RewriteJoins&quot;</span>              <span class="na">level=</span><span class="s">&quot;${log.qcomp.rewriteJoins:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.RemoveTakeDrop&quot;</span>            <span class="na">level=</span><span class="s">&quot;${log.qcomp.removeTakeDrop:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.ResolveZipJoins&quot;</span>           <span class="na">level=</span><span class="s">&quot;${log.qcomp.resolveZipJoins:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.HoistClientOps&quot;</span>            <span class="na">level=</span><span class="s">&quot;${log.qcomp.hoistClientOps:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.ReorderOperations&quot;</span>         <span class="na">level=</span><span class="s">&quot;${log.qcomp.reorderOperations:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.MergeToComprehensions&quot;</span>     <span class="na">level=</span><span class="s">&quot;${log.qcomp.mergeToComprehensions:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.OptimizeScalar&quot;</span>            <span class="na">level=</span><span class="s">&quot;${log.qcomp.optimizeScalar:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.FixRowNumberOrdering&quot;</span>      <span class="na">level=</span><span class="s">&quot;${log.qcomp.fixRowNumberOrdering:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.PruneProjections&quot;</span>          <span class="na">level=</span><span class="s">&quot;${log.qcomp.pruneProjections:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.RewriteDistinct&quot;</span>           <span class="na">level=</span><span class="s">&quot;${log.qcomp.rewriteDistinct:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.RewriteBooleans&quot;</span>           <span class="na">level=</span><span class="s">&quot;${log.qcomp.rewriteBooleans:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.SpecializeParameters&quot;</span>      <span class="na">level=</span><span class="s">&quot;${log.qcomp.specializeParameters:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.CodeGen&quot;</span>                   <span class="na">level=</span><span class="s">&quot;${log.qcomp.codeGen:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.RemoveFieldNames&quot;</span>          <span class="na">level=</span><span class="s">&quot;${log.qcomp.removeFieldNames:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.InsertCompiler&quot;</span>            <span class="na">level=</span><span class="s">&quot;${log.qcomp.insertCompiler:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.compiler.VerifyTypes&quot;</span>               <span class="na">level=</span><span class="s">&quot;${log.qcomp.verifyTypes:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.jdbc.DriverDataSource&quot;</span>              <span class="na">level=</span><span class="s">&quot;${log.jdbc.driver:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.jdbc.JdbcBackend.statement&quot;</span>         <span class="na">level=</span><span class="s">&quot;${log.jdbc.statement:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.jdbc.JdbcBackend.parameter&quot;</span>         <span class="na">level=</span><span class="s">&quot;${log.jdbc.parameter:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.jdbc.JdbcBackend.benchmark&quot;</span>         <span class="na">level=</span><span class="s">&quot;${log.jdbc.bench:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.jdbc.StatementInvoker.result&quot;</span>       <span class="na">level=</span><span class="s">&quot;${log.jdbc.result:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.jdbc.JdbcModelBuilder&quot;</span>              <span class="na">level=</span><span class="s">&quot;${log.createModel:-info}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.memory.HeapBackend&quot;</span>                 <span class="na">level=</span><span class="s">&quot;${log.heap:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.memory.QueryInterpreter&quot;</span>            <span class="na">level=</span><span class="s">&quot;${log.interpreter:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.relational.ResultConverterCompiler&quot;</span> <span class="na">level=</span><span class="s">&quot;${log.resultConverter:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;logger</span> <span class="na">name=</span><span class="s">&quot;slick.util.AsyncExecutor&quot;</span>                 <span class="na">level=</span><span class="s">&quot;${log.asyncExecutor:-inherited}&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Messages on WARNING and ERROR levels may also be emitted by loggers that are not explicitly mentioned in this
+configuration.</p>
+</div>
+<p>You should generally enable logging for the root package <code class="docutils literal"><span class="pre">slick</span></code> at level <code class="docutils literal"><span class="pre">INFO</span></code> (currently unused)
+or <code class="docutils literal"><span class="pre">WARNING</span></code>. Debug logging should only be enabled selectively for individual loggers, otherwise you will get a huge
+amount of log output.</p>
+<p>The following loggers are particularly interesting:</p>
+<dl class="docutils">
+<dt><code class="docutils literal"><span class="pre">slick.basic.BasicBackend.action</span></code></dt>
+<dd>Shows the execution of every <a class="reference internal" href="dbio.html"><span class="doc">Database I/O Action</span></a>.</dd>
+<dt><code class="docutils literal"><span class="pre">slick.compiler.QueryCompiler</span></code></dt>
+<dd>Shows a dump of the AST after every phase of the query compiler when compiling a query.</dd>
+<dt><code class="docutils literal"><span class="pre">slick.jdbc.DriverDataSource</span></code></dt>
+<dd>Shows information about <a class="reference external" href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> drivers being loaded by <a class="reference external" href="api/index.html#slick.jdbc.DriverDataSource">DriverDataSource</a>. Does not
+apply when using a connection pool unless you explicitly use a DriverDataSource as the source for the connection
+pool.</dd>
+<dt><code class="docutils literal"><span class="pre">slick.jdbc.JdbcBackend.statement</span></code></dt>
+<dd>Shows all SQL statements which are executed.</dd>
+<dt><code class="docutils literal"><span class="pre">slick.jdbc.JdbcBackend.parameter</span></code></dt>
+<dd>Shows bind variable contents (for supported types) of all SQL statements which are executed.</dd>
+<dt><code class="docutils literal"><span class="pre">slick.jdbc.JdbcBackend.benchmark</span></code></dt>
+<dd>Shows execution times for SQL statements.</dd>
+<dt><code class="docutils literal"><span class="pre">slick.jdbc.StatementInvoker.result</span></code></dt>
+<dd>Shows the first rows of the result set when a query is executed. Does not apply to streaming results.</dd>
+</dl>
+</div>
+<div class="section" id="monitoring">
+<span id="index-2"></span><h1>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this headline">¶</a></h1>
+<p>When a <a class="reference internal" href="database.html"><span class="doc">Database</span></a> object has the <code class="docutils literal"><span class="pre">registerMbeans</span></code> option enabled (see
+<a class="reference external" href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef&#64;forConfig(String,Config,Driver,ClassLoader):Database">Database.forConfig</a>),
+Slick registers a <a class="reference external" href="https://en.wikipedia.org/wiki/Java_Management_Extensions">JMX</a> management bean of type <a class="reference external" href="api/index.html#slick.util.AsyncExecutorMXBean">AsyncExecutorMXBean</a> that provides information about the
+current workload of the database I/O thread pool and the task queue.</p>
+<p>Connection pool implementations may also honor this option and register additional management beans. In particular,
+the default <a class="reference external" href="http://brettwooldridge.github.io/HikariCP/">HikariCP</a> pool implementation does this. See <a class="reference external" href="https://github.com/brettwooldridge/HikariCP/wiki/MBean-(JMX)-Monitoring-and-Management">HikariCP Monitoring</a> in the HikariCP documentation for
+details.</p>
+<p>The management bean names are qualified with the <code class="docutils literal"><span class="pre">poolName</span></code> from the database configuration, or the config path
+if the <code class="docutils literal"><span class="pre">poolName</span></code> has not been set explicitly.</p>
+<p>Example: Including the following configuration options in the database configuration</p>
+<div class="highlight-scala"><div class="highlight"><pre><span></span><span class="n">connectionPool</span> <span class="k">=</span> <span class="s">&quot;HikariCP&quot;</span>
+<span class="n">registerMbeans</span> <span class="k">=</span> <span class="kc">true</span>
+<span class="n">poolName</span> <span class="k">=</span> <span class="s">&quot;myDb&quot;</span>
+</pre></div>
+</div>
+<p>results in these three management beans being registered:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">slick:type=AsyncExecutor,name=myDb</span></code></li>
+<li><code class="docutils literal"><span class="pre">com.zaxxer.hikari:type=PoolConfig</span> <span class="pre">(myDb)</span></code></li>
+<li><code class="docutils literal"><span class="pre">com.zaxxer.hikari:type=Pool</span> <span class="pre">(myDb)</span></code></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Core Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">Upgrade Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Database Migrations</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-documentation.html">Sphinx Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#monitoring">Monitoring</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="sphinx-documentation.html" title="Sphinx Documentation"
+             >previous</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2016 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

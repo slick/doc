@@ -1,0 +1,1 @@
+Index.PACKAGES = {"slick" : [], "slick.jdbc" : [], "slick.jdbc.hikaricp" : [{"object" : "slick\/jdbc\/hikaricp\/HikariCPJdbcDataSource$.html", "class" : "slick\/jdbc\/hikaricp\/HikariCPJdbcDataSource.html", "name" : "slick.jdbc.hikaricp.HikariCPJdbcDataSource"}]};

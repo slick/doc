@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Upgrade Guides &mdash; Slick 3.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/slick.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '3.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Slick 3.2.0 documentation" href="index.html" />
+    <link rel="next" title="Database Migrations" href="migrations.html" />
+    <link rel="prev" title="Coming from SQL to Slick" href="sql-to-slick.html" />
+<script type="text/javascript">
+if(window.location.host == 'slick.typesafe.com'){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23127719-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();  
+}
+</script>
+
+  </head>
+  <body role="document">
+    <div class="header-wrapper">
+      <div class="header">
+        <div class="rel">
+        <span class="github"><a href="https://github.com/slick/slick/edit/master/slick/src/sphinx/upgrade.rst">edit this page on github</a><span>
+          |
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             accesskey="P">previous</a> |
+          <a href="migrations.html" title="Database Migrations"
+             accesskey="N">next</a> |
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a>
+        </div>
+        <div class="headertitle"><a href="index.html">
+            <span class="logo"><img class="logo" src="_static/slick-logo.png" alt="Slick"/></span>
+          3.2.0 manual
+        </a></div>
+       </div>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="upgrade-guides">
+<span id="index-0"></span><h1>Upgrade Guides<a class="headerlink" href="#upgrade-guides" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="compatibility-policy">
+<span id="index-1"></span><h2>Compatibility Policy<a class="headerlink" href="#compatibility-policy" title="Permalink to this headline">¶</a></h2>
+<p>Slick 3.2 requires Scala 2.11 or 2.12 and Java 8.</p>
+<p>Slick version numbers consist of an epoch, a major and minor version, and possibly a qualifier
+(for milestone, RC and SNAPSHOT versions).</p>
+<p>For release versions (i.e. versions without a qualifier), backward binary compatibility is
+guaranteed between releases with the same epoch and major version (e.g. you could use 2.1.2 as a
+drop-in replacement for 2.1.0 but not for 2.0.0). Binary compatibility is not preserved for
+<cite>slick-codegen</cite>, which is generally used at compile-time.</p>
+<p>We do not guarantee source compatibility but we try to preserve it within the same major release.
+Upgrading to a new major release may require some changes to your sources. We generally deprecate
+old features and keep them around for a full major release cycle (i.e. features which become
+deprecated in 2.1.0 will not be removed before 2.2.0) but this is not possible for all kinds of
+changes.</p>
+<p>Release candidates have the same compatibility guarantees as the final versions to which they
+lead. There are <em>no compatibility guarantees</em> whatsoever for milestones and snapshots.</p>
+</div>
+<div class="section" id="upgrade-from-3-1-to-3-2">
+<h2>Upgrade from 3.1 to 3.2<a class="headerlink" href="#upgrade-from-3-1-to-3-2" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the changes that are needed when upgrading from Slick 3.1 to 3.2. If you are
+currently using an older version of Slick, please see the older <a class="reference external" href="http://slick.typesafe.com/docs/">Slick Manuals</a> for details on other
+changes that may be required.</p>
+<div class="section" id="profiles-vs-drivers">
+<h3>Profiles vs Drivers<a class="headerlink" href="#profiles-vs-drivers" title="Permalink to this headline">¶</a></h3>
+<p>Slick&#8217;s <cite>driver</cite> concept has been renamed to <cite>profile</cite> to end the confusion over Slick drivers vs JDBC drivers.
+All references to <cite>drivers</cite> from now on refer to JDBC drivers. Slick <cite>profiles</cite> can be either abstract
+(like <a class="reference external" href="api/index.html#slick.jdbc.JdbcProfile">JdbcProfile</a>) or
+concrete (like <a class="reference external" href="api/index.html#slick.jdbc.H2Profile">H2Profile</a>). The old names are still available as deprecated
+forwarders.</p>
+<p>The renaming also affects configuration parameters (for example, for <a class="reference internal" href="database.html#databaseconfig"><span class="std std-ref">Databaseconfig</span></a>).
+The old parameter names are still supported but their use will generate warnings at runtime.</p>
+</div>
+<div class="section" id="slick-extensions">
+<h3>Slick Extensions<a class="headerlink" href="#slick-extensions" title="Permalink to this headline">¶</a></h3>
+<p>The <cite>Slick Extensions</cite> package with additional profiles for Oracle, DB2 and SQL Server does not exist
+anymore for Slick 3.2. These profiles have been added to the core Slick package:</p>
+<ul class="simple">
+<li><a class="reference external" href="api/index.html#slick.jdbc.OracleProfile">OracleProfile</a></li>
+<li><a class="reference external" href="api/index.html#slick.jdbc.DB2Profile">DB2Profile</a></li>
+<li><a class="reference external" href="api/index.html#slick.jdbc.SQLServerProfile">SQLServerProfile</a></li>
+</ul>
+</div>
+<div class="section" id="database-action-scheduling">
+<h3>Database Action Scheduling<a class="headerlink" href="#database-action-scheduling" title="Permalink to this headline">¶</a></h3>
+<p>When configuring a <a class="reference internal" href="database.html"><span class="doc">database connection</span></a> with a connection pool with a limited maximum size, you
+should always specify the correct size limit in Slick. This is necessary to prevent deadlocks when using transactions
+(or other pinned sessions). The configuration is done automatically when using Slick&#8217;s built-in HikariCP support.
+You only need to configure it manually if you use a connection pool through a JDBC <cite>DataSource</cite> or JNDI name.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+          <h3>Search</h3>
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+            <h3 style="margin-top: 1.5em;">Table Of Contents</h3>
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported-databases.html">Supported Databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Core Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dbio.html">Database I/O Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="schemas.html">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code-generation.html">Schema Code Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userdefined.html">User-Defined Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql.html">Plain SQL Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Upgrade Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#compatibility-policy">Compatibility Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-from-3-1-to-3-2">Upgrade from 3.1 to 3.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#profiles-vs-drivers">Profiles vs Drivers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slick-extensions">Slick Extensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-action-scheduling">Database Action Scheduling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migrations.html">Database Migrations</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="testkit.html">Slick TestKit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphinx-documentation.html">Sphinx Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html#monitoring">Monitoring</a></li>
+</ul>
+
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+          <a href="sql-to-slick.html" title="Coming from SQL to Slick"
+             >previous</a> |
+          <a href="migrations.html" title="Database Migrations"
+             >next</a> |
+          <a href="genindex.html" title="General Index"
+             >index</a>
+
+        </div>
+        <div class="right">
+          
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2011-2016 Typesafe, Inc.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+  </body>
+</html>
