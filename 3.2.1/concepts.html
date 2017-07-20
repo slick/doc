@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Concepts</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="gettingstarted.html"  title="Getting Started"  />  <link rel="edit" href="https://github.com/slick/slick/blob/3.2/doc/src/concepts.md"  />  <link rel="next" href="database.html"  title="Database Configuration"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.2.1</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="gettingstarted.html"  title="Getting Started" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="database.html"  title="Database Configuration" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/concepts.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="core-concepts" class="a_section" data-magellan-target="core-concepts">Core Concepts<a class="a_hlink" href="#core-concepts"></a></h1>
+<p>When you use Slick, you start by composing <em>Scala queries</em>, then get <em>actions</em> (like “get results” or “insert data”)
+associated with these queries, and finally run the actions on a <em>database</em> to obtain <em>results</em>.</p>
+<p>This chapter explains how these core concepts relate to each other and how they fit into your application design.</p>
+<h2 id="scala-queries" class="a_section" data-magellan-target="scala-queries">Scala Queries<a class="a_hlink" href="#scala-queries"></a></h2>
+<p>The main type used by queries is <a href="api/index.html#slick.lifted.Rep">Rep</a>. A <code class="hljs">Rep[T]</code> is a <em>representation</em> of a type <code class="hljs">T</code> that
+provides the necessary operations for building queries. Collection-valued queries are always of type
+<a href="api/index.html#slick.lifted.Query">Query</a>, which is a <code class="hljs">Rep</code> of a collection type like <code class="hljs">Rep[Seq[Int]]</code>. Queries can be composed
+from representations of database tables (<a href="api/index.html#slick.lifted.TableQuery">TableQuery</a>), literal values and parameters. Query
+composition does not require a database or execute any part of the query. It only builds a description of what to
+execute at a later point.</p>
+<h2 id="database-io-actions" class="a_section" data-magellan-target="database-io-actions">Database I/O Actions<a class="a_hlink" href="#database-io-actions"></a></h2>
+<p>Operations that can be executed on a database are called <em>database I/O actions</em> (<a href="api/index.html#slick.dbio.DBIOAction">DBIOAction</a>).
+Several operations on <em>queries</em> and <em>tables</em> create I/O actions, for example <code class="hljs">myQuery.result</code>,
+<code class="hljs">myQuery.result.headOption</code>, <code class="hljs">myQuery += data</code> or <code class="hljs">myTable.schema.create</code>. Actions can be composed with
+combinators like <code class="hljs">andThen</code>, <code class="hljs">flatMap</code>, <code class="hljs">DBIO.seq</code> or <code class="hljs">transactionally</code>.</p>
+<p>Just like a query, an I/O action is only a <em>description</em> of an operation. Creating or composing actions does not execute
+anything on a database. Combined actions always consist of <em>strictly linear sequences</em> of other actions. Parts of an
+action never run concurrently.</p>
+<h2 id="plain-sql-statements" class="a_section" data-magellan-target="plain-sql-statements">Plain SQL Statements<a class="a_hlink" href="#plain-sql-statements"></a></h2>
+<p>As an alternative to Scala queries you can write queries and other database statements in SQL. This is done with
+string interpolators, for example <code class="hljs">sql&quot;select id from mytable&quot;.as[Int]</code> or
+<code class="hljs">sqlu&quot;insert into mytable (id) values (1)&quot;</code>. These interpolators (in the case of <code class="hljs">sql</code> with an extra <code class="hljs">.as</code> call)
+all produce <em>database I/O actions</em>.</p>
+<h2 id="databases" class="a_section" data-magellan-target="databases">Databases<a class="a_hlink" href="#databases"></a></h2>
+<p>A <a href="api/index.html#slick.jdbc.JdbcBackend@Database:Database">Database</a> object encapsulates the resources that are required to
+connect to a specific database. This <em>can</em> be just a number of connection parameters but in most cases it includes a
+<em>connection pool</em> and a <em>thread pool</em>. You should usually create a single <code class="hljs">Database</code> object when your application
+starts and shut it down when your application shuts down to ensure that all resources are released.</p>
+<h2 id="results" class="a_section" data-magellan-target="results">Results<a class="a_hlink" href="#results"></a></h2>
+<p>Any <em>action</em> can be run on a database to obtain the results (or perform side effects such as updating the database).
+Execution is always asynchronous, i.e. it does not block the caller thread. Any kind of action can be run to obtain
+a <code class="hljs">Future</code> that is eventually completed with a result when the execution is finished (<code class="hljs">myDatabase.run(myAction)</code>).
+Actions that produce a sequence of values usually support streaming results as well. Such an action can be combined
+with a database to produce a <a href="http://www.reactive-streams.org/">Reactive Streams</a> <code class="hljs">Publisher</code> (<code class="hljs">myDatabase.stream(myAction)</code>). The action is
+executed when a consumer subscribes to the Publisher.</p>
+<h2 id="profiles" class="a_section" data-magellan-target="profiles">Profiles<a class="a_hlink" href="#profiles"></a></h2>
+<p>Even when using a standard interface for database drivers like <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> there are many differences between databases in
+the SQL dialect they understand, the way they encode data types, or other idiosyncracies. Slick abstracts over these
+differences with <em>profiles</em>. Whenever you write queries (whether in Scala or SQL) or produce other database actions,
+you need a concrete profile for your database. Usually these profiles extend the abstract <a href="api/index.html#slick.jdbc.JdbcProfile">JdbcProfile</a>.
+<code class="hljs">Database</code> objects are interchangeable between all subtypes of JdbcProfile but they are usually configured together
+with the profile because you need to pick the correct profile for the database.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="gettingstarted.html"  title="Getting Started" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="database.html"  title="Database Configuration" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/concepts.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#core-concepts">Core Concepts</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#scala-queries">Scala Queries</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#database-io-actions">Database I/O Actions</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#plain-sql-statements">Plain SQL Statements</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#databases">Databases</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#results">Results</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#profiles">Profiles</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>
