@@ -1,0 +1,1741 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>jdbc - Slick 3.2.1 - slick.jdbc</title>
+          <meta name="description" content="jdbc - Slick 3.2.1 - slick.jdbc" />
+          <meta name="keywords" content="jdbc Slick 3.2.1 slick.jdbc" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.jdbc.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a></p>
+        <h1>jdbc</h1><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jdbc</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Contains the abstract <code>JdbcProfile</code> and related code. This includes all JDBC-related code,
+facilities for <em>Plain SQL</em> queries, and JDBC-specific profile components.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.2.1/slick/src/main/scala/slick/jdbc/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph1" viewBox="0.00 0.00 2707.00 216.00" height="216pt" width="2707pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 212)" class="graph" id="graph0"><polygon points="-4,4 -4,-212 2703,-212 2703,4 -4,4" stroke="none" fill="white"></polygon><!-- node0 --><g class="node class" id="graph1_0"><g id="a_class|graph1_0"><a xlink:title="slick.jdbc.SetTupleParameter" xlink:href="SetTupleParameter.html#inheritance-diagram"><polygon points="139,-147 0,-147 0,-122 139,-122 139,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="10.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="31.5" text-anchor="start">SetTupleParameter[T]</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="slick.jdbc.SetParameter" xlink:href="SetParameter.html#inheritance-diagram"><polygon points="127.5,-208 11.5,-208 11.5,-183 127.5,-183 127.5,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="21.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="42.5" text-anchor="start">SetParameter[T]</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="SetTupleParameter[T] is a subtype of SetParameter[T]"><path d="M69.5,-177.687C69.5,-167.917 69.5,-155.853 69.5,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="67.7501,-177.843 69.5,-182.843 71.2501,-177.844 67.7501,-177.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="slick.jdbc.GetTupleResult" xlink:href="GetTupleResult.html#inheritance-diagram"><polygon points="280,-147 157,-147 157,-122 280,-122 280,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="167.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="188.5" text-anchor="start">GetTupleResult[T]</text></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="slick.jdbc.GetResult" xlink:href="GetResult.html#inheritance-diagram"><polygon points="268,-208 169,-208 169,-183 268,-183 268,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="179.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="200.5" text-anchor="start">GetResult[T]</text></a></g></g><!-- node3&#45;&gt;node2 --><g class="edge inheritance" id="graph1_3_2"><g id="a_inheritance|graph1_3_2"><a xlink:title="GetTupleResult[T] is a subtype of GetResult[T]"><path d="M218.5,-177.687C218.5,-167.917 218.5,-155.853 218.5,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="216.75,-177.843 218.5,-182.843 220.25,-177.844 216.75,-177.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node class" id="graph1_4"><g id="a_class|graph1_4"><a xlink:title="slick.jdbc.StatementInvoker" xlink:href="StatementInvoker.html#inheritance-diagram"><polygon points="430.5,-147 298.5,-147 298.5,-122 430.5,-122 430.5,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="308.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="329.5" text-anchor="start">StatementInvoker[R]</text></a></g></g><!-- node5 --><g class="node object" id="graph1_5"><g id="a_object|graph1_5"><a xlink:title="slick.jdbc.SQLiteProfile" xlink:href="SQLiteProfile$.html#inheritance-diagram"><polygon points="573.5,-25 471.5,-25 471.5,-0 573.5,-0 573.5,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="481.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="502.5" text-anchor="start">SQLiteProfile</text></a></g></g><!-- node6 --><g class="node trait" id="graph1_6"><g id="a_trait|graph1_6"><a xlink:title="slick.jdbc.SQLiteProfile" xlink:href="SQLiteProfile.html#inheritance-diagram"><polygon points="573.5,-86 471.5,-86 471.5,-61 573.5,-61 573.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="481.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="502.5" text-anchor="start">SQLiteProfile</text></a></g></g><!-- node6&#45;&gt;node5 --><g class="edge inheritance" id="graph1_6_5"><g id="a_inheritance|graph1_6_5"><a xlink:title="SQLiteProfile is a subtype of SQLiteProfile"><path d="M522.5,-55.6874C522.5,-45.9173 522.5,-33.8534 522.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="520.75,-55.8435 522.5,-60.8435 524.25,-55.8435 520.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node7 --><g class="node object" id="graph1_7"><g id="a_object|graph1_7"><a xlink:title="slick.jdbc.SQLServerProfile" xlink:href="SQLServerProfile$.html#inheritance-diagram"><polygon points="709.5,-25 591.5,-25 591.5,-0 709.5,-0 709.5,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="601.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="622.5" text-anchor="start">SQLServerProfile</text></a></g></g><!-- node8 --><g class="node trait" id="graph1_8"><g id="a_trait|graph1_8"><a xlink:title="slick.jdbc.SQLServerProfile" xlink:href="SQLServerProfile.html#inheritance-diagram"><polygon points="709.5,-86 591.5,-86 591.5,-61 709.5,-61 709.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="601.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="622.5" text-anchor="start">SQLServerProfile</text></a></g></g><!-- node8&#45;&gt;node7 --><g class="edge inheritance" id="graph1_8_7"><g id="a_inheritance|graph1_8_7"><a xlink:title="SQLServerProfile is a subtype of SQLServerProfile"><path d="M650.5,-55.6874C650.5,-45.9173 650.5,-33.8534 650.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="648.75,-55.8435 650.5,-60.8435 652.25,-55.8435 648.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node9 --><g class="node class" id="graph1_9"><g id="a_class|graph1_9"><a xlink:title="slick.jdbc.ResultSetInvoker" xlink:href="ResultSetInvoker.html#inheritance-diagram"><polygon points="578.5,-147 448.5,-147 448.5,-122 578.5,-122 578.5,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="458.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="479.5" text-anchor="start">ResultSetInvoker[R]</text></a></g></g><!-- node10 --><g class="node object" id="graph1_10"><g id="a_object|graph1_10"><a xlink:title="slick.jdbc.PostgresProfile" xlink:href="PostgresProfile$.html#inheritance-diagram"><polygon points="839,-25 728,-25 728,-0 839,-0 839,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="738.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="759.5" text-anchor="start">PostgresProfile</text></a></g></g><!-- node11 --><g class="node trait" id="graph1_11"><g id="a_trait|graph1_11"><a xlink:title="slick.jdbc.PostgresProfile" xlink:href="PostgresProfile.html#inheritance-diagram"><polygon points="839,-86 728,-86 728,-61 839,-61 839,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="738.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="759.5" text-anchor="start">PostgresProfile</text></a></g></g><!-- node11&#45;&gt;node10 --><g class="edge inheritance" id="graph1_11_10"><g id="a_inheritance|graph1_11_10"><a xlink:title="PostgresProfile is a subtype of PostgresProfile"><path d="M783.5,-55.6874C783.5,-45.9173 783.5,-33.8534 783.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="781.75,-55.8435 783.5,-60.8435 785.25,-55.8435 781.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12 --><g class="node object" id="graph1_12"><g id="a_object|graph1_12"><a xlink:title="slick.jdbc.OracleProfile" xlink:href="OracleProfile$.html#inheritance-diagram"><polygon points="957.5,-25 857.5,-25 857.5,-0 957.5,-0 957.5,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="867.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="888.5" text-anchor="start">OracleProfile</text></a></g></g><!-- node13 --><g class="node trait" id="graph1_13"><g id="a_trait|graph1_13"><a xlink:title="slick.jdbc.OracleProfile" xlink:href="OracleProfile.html#inheritance-diagram"><polygon points="957.5,-86 857.5,-86 857.5,-61 957.5,-61 957.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="867.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="888.5" text-anchor="start">OracleProfile</text></a></g></g><!-- node13&#45;&gt;node12 --><g class="edge inheritance" id="graph1_13_12"><g id="a_inheritance|graph1_13_12"><a xlink:title="OracleProfile is a subtype of OracleProfile"><path d="M907.5,-55.6874C907.5,-45.9173 907.5,-33.8534 907.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="905.75,-55.8435 907.5,-60.8435 909.25,-55.8435 905.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node14 --><g class="node object" id="graph1_14"><g id="a_object|graph1_14"><a xlink:title="slick.jdbc.MySQLProfile" xlink:href="MySQLProfile$.html#inheritance-diagram"><polygon points="1081,-25 976,-25 976,-0 1081,-0 1081,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="986.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="1007.5" text-anchor="start">MySQLProfile</text></a></g></g><!-- node15 --><g class="node trait" id="graph1_15"><g id="a_trait|graph1_15"><a xlink:title="slick.jdbc.MySQLProfile" xlink:href="MySQLProfile.html#inheritance-diagram"><polygon points="1081,-86 976,-86 976,-61 1081,-61 1081,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="986.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="1007.5" text-anchor="start">MySQLProfile</text></a></g></g><!-- node15&#45;&gt;node14 --><g class="edge inheritance" id="graph1_15_14"><g id="a_inheritance|graph1_15_14"><a xlink:title="MySQLProfile is a subtype of MySQLProfile"><path d="M1028.5,-55.6874C1028.5,-45.9173 1028.5,-33.8534 1028.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="1026.75,-55.8435 1028.5,-60.8435 1030.25,-55.8435 1026.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16 --><g class="node class" id="graph1_16"><g id="a_class|graph1_16"><a xlink:title="slick.jdbc.LoggingPreparedStatement" xlink:href="LoggingPreparedStatement.html#inheritance-diagram"><polygon points="1697.5,-147 1535.5,-147 1535.5,-122 1697.5,-122 1697.5,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="1545.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="1566.5" text-anchor="start">LoggingPreparedStatement</text></a></g></g><!-- node17 --><g class="node class" id="graph1_17"><g id="a_class|graph1_17"><a xlink:title="slick.jdbc.LoggingStatement" xlink:href="LoggingStatement.html#inheritance-diagram"><polygon points="1678,-208 1555,-208 1555,-183 1678,-183 1678,-208" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-202.5" x="1565.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="1586.5" text-anchor="start">LoggingStatement</text></a></g></g><!-- node17&#45;&gt;node16 --><g class="edge inheritance" id="graph1_17_16"><g id="a_inheritance|graph1_17_16"><a xlink:title="LoggingPreparedStatement is a subtype of LoggingStatement"><path d="M1616.5,-177.687C1616.5,-167.917 1616.5,-155.853 1616.5,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="1614.75,-177.843 1616.5,-182.843 1618.25,-177.844 1614.75,-177.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node18 --><g class="node trait" id="graph1_18"><g id="a_trait|graph1_18"><a xlink:title="slick.jdbc.JdbcTypesComponent" xlink:href="JdbcTypesComponent.html#inheritance-diagram"><polygon points="640.5,-208 500.5,-208 500.5,-183 640.5,-183 640.5,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="510.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="531.5" text-anchor="start">JdbcTypesComponent</text></a></g></g><!-- node20 --><g class="node trait" id="graph1_20"><g id="a_trait|graph1_20"><a xlink:title="slick.jdbc.JdbcProfile" xlink:href="JdbcProfile.html#inheritance-diagram"><polygon points="1074.5,-147 982.5,-147 982.5,-122 1074.5,-122 1074.5,-147" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-141.5" x="992.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="1013.5" text-anchor="start">JdbcProfile</text></a></g></g><!-- node18&#45;&gt;node20 --><g class="edge inheritance" id="graph1_18_20"><g id="a_inheritance|graph1_18_20"><a xlink:title="JdbcProfile is a subtype of JdbcTypesComponent"><path d="M645.683,-183.52C646.965,-183.344 648.238,-183.171 649.5,-183 769.427,-166.758 910.977,-149.533 982.372,-140.981" stroke="#d4d4d4" fill="none"></path><polygon points="645.415,-181.79 640.701,-184.207 645.893,-185.257 645.415,-181.79" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node19 --><g class="node trait" id="graph1_19"><g id="a_trait|graph1_19"><a xlink:title="slick.jdbc.JdbcStatementBuilderComponent" xlink:href="JdbcStatementBuilderComponent.html#inheritance-diagram"><polygon points="848,-208 659,-208 659,-183 848,-183 848,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="669.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="690.5" text-anchor="start">JdbcStatementBuilderComponent</text></a></g></g><!-- node19&#45;&gt;node20 --><g class="edge inheritance" id="graph1_19_20"><g id="a_inheritance|graph1_19_20"><a xlink:title="JdbcProfile is a subtype of JdbcStatementBuilderComponent"><path d="M812.332,-181.878C863.135,-170.978 935.531,-155.446 982.27,-145.418" stroke="#d4d4d4" fill="none"></path><polygon points="811.697,-180.224 807.176,-182.984 812.431,-183.646 811.697,-180.224" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node20&#45;&gt;node6 --><g class="edge inheritance" id="graph1_20_6"><g id="a_inheritance|graph1_20_6"><a xlink:title="SQLiteProfile is a subtype of JdbcProfile"><path d="M977.079,-129.425C893.892,-122.517 724.752,-107.17 582.5,-86 579.563,-85.5629 576.55,-85.0838 573.514,-84.5771" stroke="#d4d4d4" fill="none"></path><polygon points="977.306,-131.199 982.433,-129.867 977.595,-127.711 977.306,-131.199" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node20&#45;&gt;node8 --><g class="edge inheritance" id="graph1_20_8"><g id="a_inheritance|graph1_20_8"><a xlink:title="SQLServerProfile is a subtype of JdbcProfile"><path d="M977.166,-125.883C915.649,-116.698 809.474,-100.662 718.5,-86 715.663,-85.5428 712.76,-85.0702 709.829,-84.5892" stroke="#d4d4d4" fill="none"></path><polygon points="977.043,-127.634 982.247,-126.641 977.56,-124.172 977.043,-127.634" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node20&#45;&gt;node11 --><g class="edge inheritance" id="graph1_20_11"><g id="a_inheritance|graph1_20_11"><a xlink:title="PostgresProfile is a subtype of JdbcProfile"><path d="M977.533,-121.226C934.577,-110.882 873.555,-96.1868 831.468,-86.0515" stroke="#d4d4d4" fill="none"></path><polygon points="977.147,-122.933 982.417,-122.403 977.966,-119.53 977.147,-122.933" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node20&#45;&gt;node13 --><g class="edge inheritance" id="graph1_20_13"><g id="a_inheritance|graph1_20_13"><a xlink:title="OracleProfile is a subtype of JdbcProfile"><path d="M1000.28,-119.738C979.397,-109.557 951.265,-95.8399 931.471,-86.1884" stroke="#d4d4d4" fill="none"></path><polygon points="999.622,-121.366 1004.88,-121.984 1001.16,-118.22 999.622,-121.366" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node20&#45;&gt;node15 --><g class="edge inheritance" id="graph1_20_15"><g id="a_inheritance|graph1_20_15"><a xlink:title="MySQLProfile is a subtype of JdbcProfile"><path d="M1028.5,-116.687C1028.5,-106.917 1028.5,-94.8534 1028.5,-86.1323" stroke="#d4d4d4" fill="none"></path><polygon points="1026.75,-116.843 1028.5,-121.843 1030.25,-116.844 1026.75,-116.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node36 --><g class="node trait" id="graph1_36"><g id="a_trait|graph1_36"><a xlink:title="slick.jdbc.HsqldbProfile" xlink:href="HsqldbProfile.html#inheritance-diagram"><polygon points="1201.5,-86 1099.5,-86 1099.5,-61 1201.5,-61 1201.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="1109.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="1130.5" text-anchor="start">HsqldbProfile</text></a></g></g><!-- node20&#45;&gt;node36 --><g class="edge inheritance" id="graph1_20_36"><g id="a_inheritance|graph1_20_36"><a xlink:title="HsqldbProfile is a subtype of JdbcProfile"><path d="M1056.96,-119.738C1078.01,-109.557 1106.37,-95.8399 1126.33,-86.1884" stroke="#d4d4d4" fill="none"></path><polygon points="1056.05,-118.232 1052.31,-121.984 1057.58,-121.383 1056.05,-118.232" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node38 --><g class="node trait" id="graph1_38"><g id="a_trait|graph1_38"><a xlink:title="slick.jdbc.H2Profile" xlink:href="H2Profile.html#inheritance-diagram"><polygon points="1303.5,-86 1219.5,-86 1219.5,-61 1303.5,-61 1303.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="1229.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="1250.5" text-anchor="start">H2Profile</text></a></g></g><!-- node20&#45;&gt;node38 --><g class="edge inheritance" id="graph1_20_38"><g id="a_inheritance|graph1_20_38"><a xlink:title="H2Profile is a subtype of JdbcProfile"><path d="M1079,-120.712C1120.91,-110.099 1179.83,-95.1793 1219.27,-85.1925" stroke="#d4d4d4" fill="none"></path><polygon points="1078.4,-119.06 1073.98,-121.984 1079.25,-122.453 1078.4,-119.06" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node41 --><g class="node trait" id="graph1_41"><g id="a_trait|graph1_41"><a xlink:title="slick.jdbc.DerbyProfile" xlink:href="DerbyProfile.html#inheritance-diagram"><polygon points="1418,-86 1321,-86 1321,-61 1418,-61 1418,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="1331.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="1352.5" text-anchor="start">DerbyProfile</text></a></g></g><!-- node20&#45;&gt;node41 --><g class="edge inheritance" id="graph1_20_41"><g id="a_inheritance|graph1_20_41"><a xlink:title="DerbyProfile is a subtype of JdbcProfile"><path d="M1079.88,-125.436C1136.83,-116.373 1231.37,-100.964 1312.5,-86 1315.18,-85.5056 1317.93,-84.9875 1320.7,-84.4563" stroke="#d4d4d4" fill="none"></path><polygon points="1079.49,-123.726 1074.82,-126.239 1080.04,-127.182 1079.49,-123.726" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node44 --><g class="node trait" id="graph1_44"><g id="a_trait|graph1_44"><a xlink:title="slick.jdbc.DB2Profile" xlink:href="DB2Profile.html#inheritance-diagram"><polygon points="1526.5,-86 1436.5,-86 1436.5,-61 1526.5,-61 1526.5,-86" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="1446.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="1467.5" text-anchor="start">DB2Profile</text></a></g></g><!-- node20&#45;&gt;node44 --><g class="edge inheritance" id="graph1_20_44"><g id="a_inheritance|graph1_20_44"><a xlink:title="DB2Profile is a subtype of JdbcProfile"><path d="M1080,-128.804C1156.06,-121.542 1302.77,-106.279 1426.5,-86 1429.68,-85.4793 1432.95,-84.9018 1436.24,-84.2907" stroke="#d4d4d4" fill="none"></path><polygon points="1079.46,-127.098 1074.65,-129.313 1079.79,-130.582 1079.46,-127.098" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node21 --><g class="node trait" id="graph1_21"><g id="a_trait|graph1_21"><a xlink:title="slick.jdbc.JdbcModelComponent" xlink:href="JdbcModelComponent.html#inheritance-diagram"><polygon points="1007,-208 866,-208 866,-183 1007,-183 1007,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="876.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="897.5" text-anchor="start">JdbcModelComponent</text></a></g></g><!-- node21&#45;&gt;node20 --><g class="edge inheritance" id="graph1_21_20"><g id="a_inheritance|graph1_21_20"><a xlink:title="JdbcProfile is a subtype of JdbcModelComponent"><path d="M958.987,-180.079C974.78,-169.951 995.629,-156.58 1010.36,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="957.94,-178.671 954.676,-182.843 959.83,-181.617 957.94,-178.671" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node22 --><g class="node trait" id="graph1_22"><g id="a_trait|graph1_22"><a xlink:title="slick.jdbc.JdbcMappingCompilerComponent" xlink:href="JdbcMappingCompilerComponent.html#inheritance-diagram"><polygon points="1214,-208 1025,-208 1025,-183 1214,-183 1214,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="1035.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="1056.5" text-anchor="start">JdbcMappingCompilerComponent</text></a></g></g><!-- node22&#45;&gt;node20 --><g class="edge inheritance" id="graph1_22_20"><g id="a_inheritance|graph1_22_20"><a xlink:title="JdbcProfile is a subtype of JdbcMappingCompilerComponent"><path d="M1097.26,-180.079C1081.64,-169.951 1061.01,-156.58 1046.44,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="1096.37,-181.592 1101.52,-182.843 1098.28,-178.655 1096.37,-181.592" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node23 --><g class="node trait" id="graph1_23"><g id="a_trait|graph1_23"><a xlink:title="slick.jdbc.JdbcInvokerComponent" xlink:href="JdbcInvokerComponent.html#inheritance-diagram"><polygon points="1376.5,-208 1232.5,-208 1232.5,-183 1376.5,-183 1376.5,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="1242.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="1263.5" text-anchor="start">JdbcInvokerComponent</text></a></g></g><!-- node23&#45;&gt;node20 --><g class="edge inheritance" id="graph1_23_20"><g id="a_inheritance|graph1_23_20"><a xlink:title="JdbcProfile is a subtype of JdbcInvokerComponent"><path d="M1245.45,-181.878C1194.47,-170.978 1121.81,-155.446 1074.9,-145.418" stroke="#d4d4d4" fill="none"></path><polygon points="1245.37,-183.65 1250.63,-182.984 1246.11,-180.228 1245.37,-183.65" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node24 --><g class="node object" id="graph1_24"><g id="a_object|graph1_24"><a xlink:title="slick.jdbc.DriverJdbcDataSource" xlink:href="DriverJdbcDataSource$.html#inheritance-diagram"><polygon points="1855.5,-147 1715.5,-147 1715.5,-122 1855.5,-122 1855.5,-147" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-141.5" x="1725.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="1746.5" text-anchor="start">DriverJdbcDataSource</text></a></g></g><!-- node25 --><g class="node class" id="graph1_25"><g id="a_class|graph1_25"><a xlink:title="slick.jdbc.DriverJdbcDataSource" xlink:href="DriverJdbcDataSource.html#inheritance-diagram"><polygon points="2212.5,-86 2072.5,-86 2072.5,-61 2212.5,-61 2212.5,-86" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-80.5" x="2082.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-70.5" x="2103.5" text-anchor="start">DriverJdbcDataSource</text></a></g></g><!-- node26 --><g class="node trait" id="graph1_26"><g id="a_trait|graph1_26"><a xlink:title="slick.jdbc.DriverBasedJdbcDataSource" xlink:href="DriverBasedJdbcDataSource.html#inheritance-diagram"><polygon points="2226.5,-147 2058.5,-147 2058.5,-122 2226.5,-122 2226.5,-147" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-141.5" x="2068.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="2089.5" text-anchor="start">DriverBasedJdbcDataSource</text></a></g></g><!-- node26&#45;&gt;node25 --><g class="edge inheritance" id="graph1_26_25"><g id="a_inheritance|graph1_26_25"><a xlink:title="DriverJdbcDataSource is a subtype of DriverBasedJdbcDataSource"><path d="M2142.5,-116.687C2142.5,-106.917 2142.5,-94.8534 2142.5,-86.1323" stroke="#d4d4d4" fill="none"></path><polygon points="2140.75,-116.843 2142.5,-121.843 2144.25,-116.844 2140.75,-116.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node27 --><g class="node object" id="graph1_27"><g id="a_object|graph1_27"><a xlink:title="slick.jdbc.DataSourceJdbcDataSource" xlink:href="DataSourceJdbcDataSource$.html#inheritance-diagram"><polygon points="2041,-147 1874,-147 1874,-122 2041,-122 2041,-147" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-141.5" x="1884.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="1905.5" text-anchor="start">DataSourceJdbcDataSource</text></a></g></g><!-- node28 --><g class="node class" id="graph1_28"><g id="a_class|graph1_28"><a xlink:title="slick.jdbc.DataSourceJdbcDataSource" xlink:href="DataSourceJdbcDataSource.html#inheritance-diagram"><polygon points="2411,-147 2244,-147 2244,-122 2411,-122 2411,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="2254.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="2275.5" text-anchor="start">DataSourceJdbcDataSource</text></a></g></g><!-- node29 --><g class="node trait" id="graph1_29"><g id="a_trait|graph1_29"><a xlink:title="slick.jdbc.JdbcDataSourceFactory" xlink:href="JdbcDataSourceFactory.html#inheritance-diagram"><polygon points="1946,-208 1797,-208 1797,-183 1946,-183 1946,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="1807.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="1828.5" text-anchor="start">JdbcDataSourceFactory</text></a></g></g><!-- node29&#45;&gt;node24 --><g class="edge inheritance" id="graph1_29_24"><g id="a_inheritance|graph1_29_24"><a xlink:title="DriverJdbcDataSource is a subtype of JdbcDataSourceFactory"><path d="M1850.1,-179.819C1835.38,-169.723 1816.11,-156.499 1802.46,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="1849.4,-181.458 1854.51,-182.843 1851.38,-178.572 1849.4,-181.458" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node29&#45;&gt;node27 --><g class="edge inheritance" id="graph1_29_27"><g id="a_inheritance|graph1_29_27"><a xlink:title="DataSourceJdbcDataSource is a subtype of JdbcDataSourceFactory"><path d="M1892.9,-179.819C1907.62,-169.723 1926.89,-156.499 1940.54,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="1891.62,-178.572 1888.49,-182.843 1893.6,-181.458 1891.62,-178.572" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node30 --><g class="node trait" id="graph1_30"><g id="a_trait|graph1_30"><a xlink:title="slick.jdbc.JdbcDataSource" xlink:href="JdbcDataSource.html#inheritance-diagram"><polygon points="2293.5,-208 2177.5,-208 2177.5,-183 2293.5,-183 2293.5,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="2187.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="2208.5" text-anchor="start">JdbcDataSource</text></a></g></g><!-- node30&#45;&gt;node26 --><g class="edge inheritance" id="graph1_30_26"><g id="a_inheritance|graph1_30_26"><a xlink:title="DriverBasedJdbcDataSource is a subtype of JdbcDataSource"><path d="M2212.77,-180.079C2196.8,-169.951 2175.73,-156.58 2160.84,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="2211.97,-181.643 2217.13,-182.843 2213.84,-178.687 2211.97,-181.643" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node30&#45;&gt;node28 --><g class="edge inheritance" id="graph1_30_28"><g id="a_inheritance|graph1_30_28"><a xlink:title="DataSourceJdbcDataSource is a subtype of JdbcDataSource"><path d="M2257.99,-180.079C2273.78,-169.951 2294.63,-156.58 2309.36,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="2256.94,-178.671 2253.68,-182.843 2258.83,-181.617 2256.94,-178.671" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node31 --><g class="node object" id="graph1_31"><g id="a_object|graph1_31"><a xlink:title="slick.jdbc.JdbcBackend" xlink:href="JdbcBackend$.html#inheritance-diagram"><polygon points="2532,-147 2429,-147 2429,-122 2532,-122 2532,-147" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-141.5" x="2439.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="2460.5" text-anchor="start">JdbcBackend</text></a></g></g><!-- node32 --><g class="node trait" id="graph1_32"><g id="a_trait|graph1_32"><a xlink:title="slick.jdbc.JdbcBackend" xlink:href="JdbcBackend.html#inheritance-diagram"><polygon points="2532,-208 2429,-208 2429,-183 2532,-183 2532,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="2439.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="2460.5" text-anchor="start">JdbcBackend</text></a></g></g><!-- node32&#45;&gt;node31 --><g class="edge inheritance" id="graph1_32_31"><g id="a_inheritance|graph1_32_31"><a xlink:title="JdbcBackend is a subtype of JdbcBackend"><path d="M2480.5,-177.687C2480.5,-167.917 2480.5,-155.853 2480.5,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="2478.75,-177.843 2480.5,-182.843 2482.25,-177.844 2478.75,-177.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node33 --><g class="node trait" id="graph1_33"><g id="a_trait|graph1_33"><a xlink:title="slick.jdbc.JdbcActionComponent" xlink:href="JdbcActionComponent.html#inheritance-diagram"><polygon points="1536.5,-208 1394.5,-208 1394.5,-183 1536.5,-183 1536.5,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="1404.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="1425.5" text-anchor="start">JdbcActionComponent</text></a></g></g><!-- node33&#45;&gt;node20 --><g class="edge inheritance" id="graph1_33_20"><g id="a_inheritance|graph1_33_20"><a xlink:title="JdbcProfile is a subtype of JdbcActionComponent"><path d="M1389.36,-183.536C1388.07,-183.356 1386.78,-183.177 1385.5,-183 1274.02,-167.571 1142.81,-150.356 1074.73,-141.494" stroke="#d4d4d4" fill="none"></path><polygon points="1389.21,-185.282 1394.41,-184.241 1389.7,-181.816 1389.21,-185.282" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node34 --><g class="node trait" id="graph1_34"><g id="a_trait|graph1_34"><a xlink:title="slick.jdbc.Invoker" xlink:href="Invoker.html#inheritance-diagram"><polygon points="482,-208 395,-208 395,-183 482,-183 482,-208" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-202.5" x="405.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="426.5" text-anchor="start">Invoker[R]</text></a></g></g><!-- node34&#45;&gt;node4 --><g class="edge inheritance" id="graph1_34_4"><g id="a_inheritance|graph1_34_4"><a xlink:title="StatementInvoker[R] is a subtype of Invoker[R]"><path d="M419.758,-179.557C407.138,-169.495 390.737,-156.419 379.09,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="418.879,-181.095 423.88,-182.843 421.061,-178.358 418.879,-181.095" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node34&#45;&gt;node9 --><g class="edge inheritance" id="graph1_34_9"><g id="a_inheritance|graph1_34_9"><a xlink:title="ResultSetInvoker[R] is a subtype of Invoker[R]"><path d="M457.496,-179.557C470.286,-169.495 486.908,-156.419 498.713,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="456.165,-178.377 453.318,-182.843 458.329,-181.127 456.165,-178.377" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node35 --><g class="node object" id="graph1_35"><g id="a_object|graph1_35"><a xlink:title="slick.jdbc.HsqldbProfile" xlink:href="HsqldbProfile$.html#inheritance-diagram"><polygon points="1201.5,-25 1099.5,-25 1099.5,-0 1201.5,-0 1201.5,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="1109.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="1130.5" text-anchor="start">HsqldbProfile</text></a></g></g><!-- node36&#45;&gt;node35 --><g class="edge inheritance" id="graph1_36_35"><g id="a_inheritance|graph1_36_35"><a xlink:title="HsqldbProfile is a subtype of HsqldbProfile"><path d="M1150.5,-55.6874C1150.5,-45.9173 1150.5,-33.8534 1150.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="1148.75,-55.8435 1150.5,-60.8435 1152.25,-55.8435 1148.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node37 --><g class="node object" id="graph1_37"><g id="a_object|graph1_37"><a xlink:title="slick.jdbc.H2Profile" xlink:href="H2Profile$.html#inheritance-diagram"><polygon points="1303.5,-25 1219.5,-25 1219.5,-0 1303.5,-0 1303.5,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="1229.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="1250.5" text-anchor="start">H2Profile</text></a></g></g><!-- node38&#45;&gt;node37 --><g class="edge inheritance" id="graph1_38_37"><g id="a_inheritance|graph1_38_37"><a xlink:title="H2Profile is a subtype of H2Profile"><path d="M1261.5,-55.6874C1261.5,-45.9173 1261.5,-33.8534 1261.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="1259.75,-55.8435 1261.5,-60.8435 1263.25,-55.8435 1259.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node39 --><g class="node class" id="graph1_39"><g id="a_class|graph1_39"><a xlink:title="slick.jdbc.DriverDataSource" xlink:href="DriverDataSource.html#inheritance-diagram"><polygon points="2684.5,-208 2564.5,-208 2564.5,-183 2684.5,-183 2684.5,-208" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-202.5" x="2574.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-192.5" x="2595.5" text-anchor="start">DriverDataSource</text></a></g></g><!-- node42 --><g class="node class" id="graph1_42"><g id="a_class|graph1_42"><a xlink:title="slick.jdbc.DatabaseUrlDataSource" xlink:href="DatabaseUrlDataSource.html#inheritance-diagram"><polygon points="2699,-147 2550,-147 2550,-122 2699,-122 2699,-147" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="2560.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-131.5" x="2581.5" text-anchor="start">DatabaseUrlDataSource</text></a></g></g><!-- node39&#45;&gt;node42 --><g class="edge inheritance" id="graph1_39_42"><g id="a_inheritance|graph1_39_42"><a xlink:title="DatabaseUrlDataSource is a subtype of DriverDataSource"><path d="M2624.5,-177.687C2624.5,-167.917 2624.5,-155.853 2624.5,-147.132" stroke="#d4d4d4" fill="none"></path><polygon points="2622.75,-177.843 2624.5,-182.843 2626.25,-177.844 2622.75,-177.843" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node40 --><g class="node object" id="graph1_40"><g id="a_object|graph1_40"><a xlink:title="slick.jdbc.DerbyProfile" xlink:href="DerbyProfile$.html#inheritance-diagram"><polygon points="1418,-25 1321,-25 1321,-0 1418,-0 1418,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="1331.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="1352.5" text-anchor="start">DerbyProfile</text></a></g></g><!-- node41&#45;&gt;node40 --><g class="edge inheritance" id="graph1_41_40"><g id="a_inheritance|graph1_41_40"><a xlink:title="DerbyProfile is a subtype of DerbyProfile"><path d="M1369.5,-55.6874C1369.5,-45.9173 1369.5,-33.8534 1369.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="1367.75,-55.8435 1369.5,-60.8435 1371.25,-55.8435 1367.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node43 --><g class="node object" id="graph1_43"><g id="a_object|graph1_43"><a xlink:title="slick.jdbc.DB2Profile" xlink:href="DB2Profile$.html#inheritance-diagram"><polygon points="1526.5,-25 1436.5,-25 1436.5,-0 1526.5,-0 1526.5,-25" stroke="#102966" fill="#3556a7"></polygon><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="1446.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-9.5" x="1467.5" text-anchor="start">DB2Profile</text></a></g></g><!-- node44&#45;&gt;node43 --><g class="edge inheritance" id="graph1_44_43"><g id="a_inheritance|graph1_44_43"><a xlink:title="DB2Profile is a subtype of DB2Profile"><path d="M1481.5,-55.6874C1481.5,-45.9173 1481.5,-33.8534 1481.5,-25.1323" stroke="#d4d4d4" fill="none"></path><polygon points="1479.75,-55.8435 1481.5,-60.8435 1483.25,-55.8435 1479.75,-55.8435" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.jdbc"><span>jdbc</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.jdbc.ActionBasedSQLInterpolation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ActionBasedSQLInterpolationextendsAnyVal"></a>
+      <a id="ActionBasedSQLInterpolation:ActionBasedSQLInterpolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ActionBasedSQLInterpolation.html"><span class="name">ActionBasedSQLInterpolation</span></a><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ActionBasedSQLInterpolationextendsAnyVal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.BaseResultConverter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BaseResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,T]"></a>
+      <a id="BaseResultConverter[T]:BaseResultConverter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseResultConverter.html"><span class="name">BaseResultConverter</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../relational/ResultConverter.html" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<a href="JdbcResultConverterDomain.html" class="extype" name="slick.jdbc.JdbcResultConverterDomain">JdbcResultConverterDomain</a>, <span class="extype" name="slick.jdbc.BaseResultConverter.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@BaseResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specialized JDBC ResultConverter for non-<code>Option</code> values.</p>
+    </li><li name="slick.jdbc.ConnectionPreparer" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConnectionPreparerextendsjava.sql.Connection=&gt;Unit"></a>
+      <a id="ConnectionPreparer:ConnectionPreparer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConnectionPreparer.html"><span class="name">ConnectionPreparer</span></a><span class="result"> extends (<span class="extype" name="java.sql.Connection">Connection</span>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ConnectionPreparerextendsjava.sql.Connection=&gt;Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Set parameters on a new Connection.</p><div class="fullcomment"><div class="comment cmt"><p>Set parameters on a new Connection. This is used by <a href="DataSourceJdbcDataSource.html" class="extype" name="slick.jdbc.DataSourceJdbcDataSource">DataSourceJdbcDataSource</a>.</p></div></div>
+    </li><li name="slick.jdbc.DB2Profile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DB2ProfileextendsJdbcProfile"></a>
+      <a id="DB2Profile:DB2Profile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DB2Profile.html"><span class="name">DB2Profile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DB2ProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for IBM DB2 UDB.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for IBM DB2 UDB.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="../relational/RelationalCapabilities$.html#reverse:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#reverse">slick.relational.RelationalCapabilities.reverse</a>:
+    This String function is not available in DB2.</li><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the client side if generated
+    keys should be returned. Otherwise the operation is performmed
+    natively on the server side.</li><li><a href="JdbcCapabilities$.html#booleanMetaData:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#booleanMetaData">slick.jdbc.JdbcCapabilities.booleanMetaData</a>:
+    DB2 doesn't have booleans, so Slick maps to SMALLINT instead.
+    Other JDBC drivers like MySQL map TINYINT(1) back to a Scala
+    Boolean. DB2 maps SMALLINT to an Integer and that's how it shows
+    up in the JDBC meta data, thus the original type is lost.</li><li><a href="JdbcCapabilities$.html#supportsByte:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#supportsByte">slick.jdbc.JdbcCapabilities.supportsByte</a>:
+    DB2 does not have a BYTE type.</li></ul><p>Note: The DB2 JDBC driver has problems with quoted identifiers. Columns
+which are returned from inserts must not require quoted names (in
+particular, they must not contain lower-case characters or be equal to a
+reserved word), otherwise a bug in the DB2 JDBC driver triggers a SQL
+Error -206 (SQLState 42703).
+</p></div></div>
+    </li><li name="slick.jdbc.DataSourceJdbcDataSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DataSourceJdbcDataSourceextendsJdbcDataSource"></a>
+      <a id="DataSourceJdbcDataSource:DataSourceJdbcDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DataSourceJdbcDataSource.html"><span class="name">DataSourceJdbcDataSource</span></a><span class="result"> extends <a href="JdbcDataSource.html" class="extype" name="slick.jdbc.JdbcDataSource">JdbcDataSource</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DataSourceJdbcDataSourceextendsJdbcDataSource" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A JdbcDataSource for a <code>DataSource</code></p>
+    </li><li name="slick.jdbc.DatabaseUrlDataSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DatabaseUrlDataSourceextendsDriverDataSource"></a>
+      <a id="DatabaseUrlDataSource:DatabaseUrlDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DatabaseUrlDataSource.html"><span class="name">DatabaseUrlDataSource</span></a><span class="result"> extends <a href="DriverDataSource.html" class="extype" name="slick.jdbc.DriverDataSource">DriverDataSource</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DatabaseUrlDataSourceextendsDriverDataSource" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DataSource that wraps the DriverManager API.</p><div class="fullcomment"><div class="comment cmt"><p>A DataSource that wraps the DriverManager API. It can be configured as a Java Bean and used
+both stand-alone and as a source for a connection pool. This implementation is design
+specifically to handle a non-JDBC Database URL in the format defined by the libpq standard.
+</p></div></div>
+    </li><li name="slick.jdbc.DefaultingResultConverter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DefaultingResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,T]"></a>
+      <a id="DefaultingResultConverter[T]:DefaultingResultConverter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DefaultingResultConverter.html"><span class="name">DefaultingResultConverter</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../relational/ResultConverter.html" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<a href="JdbcResultConverterDomain.html" class="extype" name="slick.jdbc.JdbcResultConverterDomain">JdbcResultConverterDomain</a>, <span class="extype" name="slick.jdbc.DefaultingResultConverter.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DefaultingResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specialized JDBC ResultConverter for handling non-<code>Option</code> values with a default.</p><div class="fullcomment"><div class="comment cmt"><p>Specialized JDBC ResultConverter for handling non-<code>Option</code> values with a default.
+A (possibly specialized) function for the default value is used to translate SQL <code>NULL</code> values.</p></div></div>
+    </li><li name="slick.jdbc.DerbyProfile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DerbyProfileextendsJdbcProfile"></a>
+      <a id="DerbyProfile:DerbyProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DerbyProfile.html"><span class="name">DerbyProfile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DerbyProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for Derby/JavaDB.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for Derby/JavaDB.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="../relational/RelationalCapabilities$.html#functionDatabase:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#functionDatabase">slick.relational.RelationalCapabilities.functionDatabase</a>:
+    <code>Functions.database</code> is not available in Derby. Slick
+    will return an empty string instead.</li><li><a href="../relational/RelationalCapabilities$.html#replace:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#replace">slick.relational.RelationalCapabilities.replace</a>,
+    <a href="../relational/RelationalCapabilities$.html#reverse:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#reverse">slick.relational.RelationalCapabilities.reverse</a>:
+    These String functions are not available in Derby.</li><li><a href="../relational/RelationalCapabilities$.html#pagingNested:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#pagingNested">slick.relational.RelationalCapabilities.pagingNested</a>:
+    See <a href="https://issues.apache.org/jira/browse/DERBY-5911"
+    target="_parent">DERBY-5911</a>.</li><li><a href="JdbcCapabilities$.html#returnInsertOther:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#returnInsertOther">slick.jdbc.JdbcCapabilities.returnInsertOther</a>:
+    When returning columns from an INSERT operation, only a single column
+    may be specified which must be the table's AutoInc column.</li><li><a href="../sql/SqlCapabilities$.html#sequenceCurr:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequenceCurr">slick.sql.SqlCapabilities.sequenceCurr</a>:
+    <code>Sequence.curr</code> to get the current value of a sequence is
+    not supported by Derby. Trying to generate SQL code which uses this
+    feature throws a SlickException.</li><li><a href="../sql/SqlCapabilities$.html#sequenceCycle:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequenceCycle">slick.sql.SqlCapabilities.sequenceCycle</a>:
+    Sequence cycling is supported but does not conform to SQL:2008
+    semantics. Derby cycles back to the START value instead of MINVALUE or
+    MAXVALUE.</li><li><a href="../relational/RelationalCapabilities$.html#zip:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#zip">slick.relational.RelationalCapabilities.zip</a>:
+    Ordered sub-queries and window functions with orderings are currently
+    not supported by Derby. These are required by <code>zip</code> and
+    <code>zipWithIndex</code>. Trying to generate SQL code which uses this
+    feature causes the DB to throw an exception. We do not prevent these
+    queries from being generated because we expect future Derby versions to
+    support them with the standard SQL:2003 syntax (see
+    <a href="http://wiki.apache.org/db-derby/OLAPRowNumber" target="_parent"
+    >http://wiki.apache.org/db-derby/OLAPRowNumber</a>).</li><li><a href="../relational/RelationalCapabilities$.html#joinFull:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#joinFull">slick.relational.RelationalCapabilities.joinFull</a>:
+    Full outer joins are emulated because there is not native support
+    for them.</li><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the client side because there
+    is no native support for them (but there is work in progress: see
+    <a href="https://issues.apache.org/jira/browse/DERBY-3155"
+    target="_parent" >DERBY-3155</a>).</li><li><a href="JdbcCapabilities$.html#booleanMetaData:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#booleanMetaData">slick.jdbc.JdbcCapabilities.booleanMetaData</a>:
+    Derby &lt;= 10.6 doesn't have booleans, so Slick maps to SMALLINT instead.
+    Other jdbc drivers like MySQL map TINYINT(1) back to a Scala
+    Boolean. Derby maps SMALLINT to an Integer and that's how it shows
+    up in the jdbc meta data, thus the original type is lost.</li><li><a href="JdbcCapabilities$.html#supportsByte:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#supportsByte">slick.jdbc.JdbcCapabilities.supportsByte</a>:
+    Derby doesn't have a corresponding type for Byte.
+    SMALLINT is used instead and mapped to Short in the Slick model.</li><li><a href="../relational/RelationalCapabilities$.html#repeat:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#repeat">slick.relational.RelationalCapabilities.repeat</a>:
+    There's not builtin string function repeat in Derby.
+    <a href="https://db.apache.org/derby/docs/10.10/ref/rrefsqlj29026.html" target="_parent"
+    >https://db.apache.org/derby/docs/10.10/ref/rrefsqlj29026.html</a></li></ul></div></div>
+    </li><li name="slick.jdbc.DriverDataSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DriverDataSourceextendsDataSourcewithCloseablewithLogging"></a>
+      <a id="DriverDataSource:DriverDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DriverDataSource.html"><span class="name">DriverDataSource</span></a><span class="result"> extends <span class="extype" name="javax.sql.DataSource">DataSource</span> with <span class="extype" name="java.io.Closeable">Closeable</span> with <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DriverDataSourceextendsDataSourcewithCloseablewithLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DataSource that wraps the DriverManager API.</p><div class="fullcomment"><div class="comment cmt"><p>A DataSource that wraps the DriverManager API. It can be configured as a Java Bean and used
+both stand-alone and as a source for a connection pool.</p></div></div>
+    </li><li name="slick.jdbc.GetResult" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="GetResult[+T]extendsslick.jdbc.PositionedResult=&gt;T"></a>
+      <a id="GetResult[+T]:GetResult[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="GetResult.html"><span class="name">GetResult</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends (<a href="PositionedResult.html" class="extype" name="slick.jdbc.PositionedResult">PositionedResult</a>) ⇒ <span class="extype" name="slick.jdbc.GetResult.T">T</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@GetResult[+T]extendsslick.jdbc.PositionedResult=&gt;T" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Basic conversions for extracting values from PositionedResults.</p>
+    </li><li name="slick.jdbc.GetTupleResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetTupleResult[+T&lt;:Product]extendsGetResult[T]"></a>
+      <a id="GetTupleResult[+T&lt;:Product]:GetTupleResult[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="GetTupleResult.html"><span class="name">GetTupleResult</span></a><span class="tparams">[<span name="T">+T &lt;: <span class="extype" name="scala.Product">Product</span></span>]</span><span class="result"> extends <a href="GetResult.html" class="extype" name="slick.jdbc.GetResult">GetResult</a>[<span class="extype" name="slick.jdbc.GetTupleResult.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@GetTupleResult[+T&lt;:Product]extendsGetResult[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">GetResult for tuple types.</p>
+    </li><li name="slick.jdbc.H2Profile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="H2ProfileextendsJdbcProfile"></a>
+      <a id="H2Profile:H2Profile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="H2Profile.html"><span class="name">H2Profile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@H2ProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for H2.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for H2.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="../relational/RelationalCapabilities$.html#reverse:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#reverse">slick.relational.RelationalCapabilities.reverse</a>:
+    This String function is not available in H2.</li><li><a href="../sql/SqlCapabilities$.html#sequenceMin:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequenceMin">slick.sql.SqlCapabilities.sequenceMin</a>,
+    <a href="../sql/SqlCapabilities$.html#sequenceMax:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequenceMax">slick.sql.SqlCapabilities.sequenceMax</a>,
+    <a href="../sql/SqlCapabilities$.html#sequenceCycle:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequenceCycle">slick.sql.SqlCapabilities.sequenceCycle</a>:
+    H2 does not support MINVALUE, MAXVALUE and CYCLE</li><li><a href="JdbcCapabilities$.html#returnInsertOther:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#returnInsertOther">slick.jdbc.JdbcCapabilities.returnInsertOther</a>:
+    When returning columns from an INSERT operation, only a single column
+    may be specified which must be the table's AutoInc column.</li><li><a href="../relational/RelationalCapabilities$.html#joinFull:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#joinFull">slick.relational.RelationalCapabilities.joinFull</a>:
+    Full outer joins are emulated because there is not native support
+    for them.</li><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the client side if the
+    data to insert contains an <code>AutoInc</code> fields. Otherwise the operation
+    is performmed natively on the server side.</li></ul></div></div>
+    </li><li name="slick.jdbc.HsqldbProfile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="HsqldbProfileextendsJdbcProfile"></a>
+      <a id="HsqldbProfile:HsqldbProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="HsqldbProfile.html"><span class="name">HsqldbProfile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@HsqldbProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for <a href="http://www.hsqldb.org/">HyperSQL</a>
+(starting with version 2.0).</a></p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for <a href="http://www.hsqldb.org/">HyperSQL</a>
+(starting with version 2.0).</p><p>This profile implements the <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="../sql/SqlCapabilities$.html#sequenceCurr:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequenceCurr">slick.sql.SqlCapabilities.sequenceCurr</a>:
+    <code>Sequence.curr</code> to get the current value of a sequence is
+    not supported by Hsqldb. Trying to generate SQL code which uses this
+    feature throws a SlickException.</li><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the client side if generated
+    keys should be returned. Otherwise the operation is performmed
+    natively on the server side.</li></ul></div></div>
+    </li><li name="slick.jdbc.InsertBuilderResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InsertBuilderResultextendsAnyRef"></a>
+      <a id="InsertBuilderResult:InsertBuilderResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="InsertBuilderResult.html"><span class="name">InsertBuilderResult</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@InsertBuilderResultextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.Invoker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Invoker[+R]extendsAnyRef"></a>
+      <a id="Invoker[+R]:Invoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Invoker.html"><span class="name">Invoker</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@Invoker[+R]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Base trait for all statement invokers of result element type R.</p>
+    </li><li name="slick.jdbc.IsDefinedResultConverter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IsDefinedResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,Boolean]"></a>
+      <a id="IsDefinedResultConverter[T]:IsDefinedResultConverter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="IsDefinedResultConverter.html"><span class="name">IsDefinedResultConverter</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../relational/ResultConverter.html" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<a href="JdbcResultConverterDomain.html" class="extype" name="slick.jdbc.JdbcResultConverterDomain">JdbcResultConverterDomain</a>, <span class="extype" name="scala.Boolean">Boolean</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@IsDefinedResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,Boolean]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specialized JDBC ResultConverter for handling <code>isDefined</code> checks for <code>Option</code> values.</p>
+    </li><li name="slick.jdbc.JdbcActionComponent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcActionComponentextendsSqlActionComponent"></a>
+      <a id="JdbcActionComponent:JdbcActionComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent.html"><span class="name">JdbcActionComponent</span></a><span class="result"> extends <a href="../sql/SqlActionComponent.html" class="extype" name="slick.sql.SqlActionComponent">SqlActionComponent</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcActionComponentextendsSqlActionComponent" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcBackend" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcBackendextendsRelationalBackend"></a>
+      <a id="JdbcBackend:JdbcBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcBackend.html"><span class="name">JdbcBackend</span></a><span class="result"> extends <a href="../relational/RelationalBackend.html" class="extype" name="slick.relational.RelationalBackend">RelationalBackend</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcBackendextendsRelationalBackend" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A JDBC-based database back-end that is used by <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>.</p>
+    </li><li name="slick.jdbc.JdbcDataSource" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="JdbcDataSourceextendsCloseable"></a>
+      <a id="JdbcDataSource:JdbcDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcDataSource.html"><span class="name">JdbcDataSource</span></a><span class="result"> extends <span class="extype" name="java.io.Closeable">Closeable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcDataSourceextendsCloseable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A <code>JdbcDataSource</code> provides a way to create a <code>Connection</code> object for a database.</p><div class="fullcomment"><div class="comment cmt"><p>A <code>JdbcDataSource</code> provides a way to create a <code>Connection</code> object for a database. It is
+similar to a <code>javax.sql.DataSource</code> but simpler. Unlike <a href="JdbcBackend$DatabaseDef.html" class="extype" name="slick.jdbc.JdbcBackend.DatabaseDef">JdbcBackend.DatabaseDef</a> it is not a
+part of the backend cake. This trait defines the SPI for 3rd-party connection pool support.</p></div></div>
+    </li><li name="slick.jdbc.JdbcDataSourceFactory" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="JdbcDataSourceFactoryextendsAnyRef"></a>
+      <a id="JdbcDataSourceFactory:JdbcDataSourceFactory"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcDataSourceFactory.html"><span class="name">JdbcDataSourceFactory</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcDataSourceFactoryextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Create a <a href="JdbcDataSource.html" class="extype" name="slick.jdbc.JdbcDataSource">JdbcDataSource</a> from a <code>Config</code> object and an optional JDBC <code>Driver</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Create a <a href="JdbcDataSource.html" class="extype" name="slick.jdbc.JdbcDataSource">JdbcDataSource</a> from a <code>Config</code> object and an optional JDBC <code>Driver</code>.
+This is used with the &quot;connectionPool&quot; configuration option in
+<a href="JdbcBackend$DatabaseFactoryDef.html#forConfig(path:String,config:com.typesafe.config.Config,driver:java.sql.Driver,classLoader:ClassLoader):JdbcBackend.this.Database" class="extmbr" name="slick.jdbc.JdbcBackend.DatabaseFactoryDef#forConfig">JdbcBackend.DatabaseFactoryDef.forConfig</a>.</p></div></div>
+    </li><li name="slick.jdbc.JdbcInvokerComponent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcInvokerComponentextendsAnyRef"></a>
+      <a id="JdbcInvokerComponent:JdbcInvokerComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcInvokerComponent.html"><span class="name">JdbcInvokerComponent</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcInvokerComponentextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcMappingCompilerComponent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcMappingCompilerComponentextendsAnyRef"></a>
+      <a id="JdbcMappingCompilerComponent:JdbcMappingCompilerComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcMappingCompilerComponent.html"><span class="name">JdbcMappingCompilerComponent</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcMappingCompilerComponentextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">JDBC profile component which contains the mapping compiler and insert compiler</p>
+    </li><li name="slick.jdbc.JdbcModelBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="JdbcModelBuilderextendsLogging"></a>
+      <a id="JdbcModelBuilder:JdbcModelBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder.html"><span class="name">JdbcModelBuilder</span></a><span class="result"> extends <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcModelBuilderextendsLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Build a Slick model from introspecting the JDBC metadata.</p><div class="fullcomment"><div class="comment cmt"><p>Build a Slick model from introspecting the JDBC metadata.</p><p>In most cases you are better off transforming the generated model instead of overriding functionality here. It is
+only useful if you need easy access to the JDBC metadata in order to influence how the model is generated. A good
+use case would be interpreting column types or default values that Slick doesn't understand out of the box. If you
+just want to remove or hard code some default values, transform the resulting model instead.</p><p>The tight coupling can easily lead to source code incompatibilities in future versions. Avoid hooking in here if you
+don't have to.
+</p></div></div>
+    </li><li name="slick.jdbc.JdbcModelComponent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcModelComponentextendsAnyRef"></a>
+      <a id="JdbcModelComponent:JdbcModelComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelComponent.html"><span class="name">JdbcModelComponent</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcModelComponentextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcProfile" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcProfileextendsSqlProfilewithJdbcActionComponentwithJdbcInvokerComponentwithJdbcTypesComponentwithJdbcModelComponentwithJdbcStatementBuilderComponentwithJdbcMappingCompilerComponent"></a>
+      <a id="JdbcProfile:JdbcProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcProfile.html"><span class="name">JdbcProfile</span></a><span class="result"> extends <a href="../sql/SqlProfile.html" class="extype" name="slick.sql.SqlProfile">SqlProfile</a> with <a href="JdbcActionComponent.html" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> with <a href="JdbcInvokerComponent.html" class="extype" name="slick.jdbc.JdbcInvokerComponent">JdbcInvokerComponent</a> with <a href="JdbcTypesComponent.html" class="extype" name="slick.jdbc.JdbcTypesComponent">JdbcTypesComponent</a> with <a href="JdbcModelComponent.html" class="extype" name="slick.jdbc.JdbcModelComponent">JdbcModelComponent</a> with <a href="JdbcStatementBuilderComponent.html" class="extype" name="slick.jdbc.JdbcStatementBuilderComponent">JdbcStatementBuilderComponent</a> with <a href="JdbcMappingCompilerComponent.html" class="extype" name="slick.jdbc.JdbcMappingCompilerComponent">JdbcMappingCompilerComponent</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcProfileextendsSqlProfilewithJdbcActionComponentwithJdbcInvokerComponentwithJdbcTypesComponentwithJdbcModelComponentwithJdbcStatementBuilderComponentwithJdbcMappingCompilerComponent" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Abstract profile for accessing SQL databases via JDBC.</p>
+    </li><li name="slick.jdbc.JdbcResultConverterDomain" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcResultConverterDomainextendsResultConverterDomain"></a>
+      <a id="JdbcResultConverterDomain:JdbcResultConverterDomain"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcResultConverterDomain.html"><span class="name">JdbcResultConverterDomain</span></a><span class="result"> extends <a href="../relational/ResultConverterDomain.html" class="extype" name="slick.relational.ResultConverterDomain">ResultConverterDomain</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcResultConverterDomainextendsResultConverterDomain" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcStatementBuilderComponent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcStatementBuilderComponentextendsAnyRef"></a>
+      <a id="JdbcStatementBuilderComponent:JdbcStatementBuilderComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcStatementBuilderComponent.html"><span class="name">JdbcStatementBuilderComponent</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcStatementBuilderComponentextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcType" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="JdbcType[T]extendsBaseTypedType[T]"></a>
+      <a id="JdbcType[T]:JdbcType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcType.html"><span class="name">JdbcType</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../ast/BaseTypedType.html" class="extype" name="slick.ast.BaseTypedType">BaseTypedType</a>[<span class="extype" name="slick.jdbc.JdbcType.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcType[T]extendsBaseTypedType[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A JdbcType object represents a Scala type that can be used as a column type in the database.</p><div class="fullcomment"><div class="comment cmt"><p>A JdbcType object represents a Scala type that can be used as a column type in the database.
+Implicit JdbcTypes for the standard types are provided by the profile.</p></div></div>
+    </li><li name="slick.jdbc.JdbcTypesComponent" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="JdbcTypesComponentextendsRelationalTypesComponent"></a>
+      <a id="JdbcTypesComponent:JdbcTypesComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTypesComponent.html"><span class="name">JdbcTypesComponent</span></a><span class="result"> extends <a href="../relational/RelationalTypesComponent.html" class="extype" name="slick.relational.RelationalTypesComponent">RelationalTypesComponent</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcTypesComponentextendsRelationalTypesComponent" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.LoggingPreparedStatement" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LoggingPreparedStatementextendsLoggingStatementwithPreparedStatement"></a>
+      <a id="LoggingPreparedStatement:LoggingPreparedStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LoggingPreparedStatement.html"><span class="name">LoggingPreparedStatement</span></a><span class="result"> extends <a href="LoggingStatement.html" class="extype" name="slick.jdbc.LoggingStatement">LoggingStatement</a> with <span class="extype" name="java.sql.PreparedStatement">PreparedStatement</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@LoggingPreparedStatementextendsLoggingStatementwithPreparedStatement" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A wrapper for <code>java.sql.PreparedStatement</code> that logs statements, parameters and benchmark results
+to the appropriate <a href="JdbcBackend.html" class="extype" name="slick.jdbc.JdbcBackend">JdbcBackend</a> loggers.</p>
+    </li><li name="slick.jdbc.LoggingStatement" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LoggingStatementextendsStatement"></a>
+      <a id="LoggingStatement:LoggingStatement"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="LoggingStatement.html"><span class="name">LoggingStatement</span></a><span class="result"> extends <span class="extype" name="java.sql.Statement">Statement</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@LoggingStatementextendsStatement" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A wrapper for <code>java.sql.Statement</code> that logs statements and benchmark results
+to the appropriate <a href="JdbcBackend.html" class="extype" name="slick.jdbc.JdbcBackend">JdbcBackend</a> loggers.</p>
+    </li><li name="slick.jdbc.MySQLProfile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="MySQLProfileextendsJdbcProfile"></a>
+      <a id="MySQLProfile:MySQLProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MySQLProfile.html"><span class="name">MySQLProfile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@MySQLProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for MySQL.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for MySQL.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="JdbcCapabilities$.html#returnInsertOther:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#returnInsertOther">slick.jdbc.JdbcCapabilities.returnInsertOther</a>:
+    When returning columns from an INSERT operation, only a single column
+    may be specified which must be the table's AutoInc column.</li><li><a href="../sql/SqlCapabilities$.html#sequenceLimited:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequenceLimited">slick.sql.SqlCapabilities.sequenceLimited</a>:
+    Non-cyclic sequence may not have an upper limit.</li><li><a href="../relational/RelationalCapabilities$.html#joinFull:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#joinFull">slick.relational.RelationalCapabilities.joinFull</a>:
+    Full outer joins are emulated because there is not native support
+    for them.</li><li><a href="JdbcCapabilities$.html#nullableNoDefault:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#nullableNoDefault">slick.jdbc.JdbcCapabilities.nullableNoDefault</a>:
+    Nullable columns always have NULL as a default according to the SQL
+    standard. Consequently MySQL treats no specifying a default value
+    just as specifying NULL and reports NULL as the default value.
+    Some other dbms treat queries with no default as NULL default, but
+    distinguish NULL from no default value in the meta data.</li></ul><p>Sequences are supported through an emulation which requires the schema to
+be created by Slick. You can also use an existing schema with your own
+sequence emulation if you provide for each sequence <i>s</i> a pair of
+functions <code>s_nextval</code> and <code>s_currval</code>.</p><p>The default type for strings of unlimited length is &quot;TEXT&quot;, falling back to
+&quot;VARCHAR(254)&quot; if a <code>Default</code> or <code>PrimaryKey</code> column option is set. This can be
+changed by overriding <code>slick.jdbc.MySQLProfile.defaultStringType</code>
+in application.conf.</p><p>Note: Slick 3.2 also checks the old config path &quot;slick.driver.MySQL&quot; that was used
+by Slick 3.0 and 3.1, and logs a warning if anything is found there. Values from the
+old path are *not* used anymore. This deprecation warning will be removed in a
+future version.
+</p></div></div>
+    </li><li name="slick.jdbc.OptionResultConverter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="OptionResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,Option[T]]"></a>
+      <a id="OptionResultConverter[T]:OptionResultConverter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionResultConverter.html"><span class="name">OptionResultConverter</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../relational/ResultConverter.html" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<a href="JdbcResultConverterDomain.html" class="extype" name="slick.jdbc.JdbcResultConverterDomain">JdbcResultConverterDomain</a>, <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="slick.jdbc.OptionResultConverter.T">T</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@OptionResultConverter[T]extendsResultConverter[slick.jdbc.JdbcResultConverterDomain,Option[T]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specialized JDBC ResultConverter for handling values of type <code>Option[T]</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Specialized JDBC ResultConverter for handling values of type <code>Option[T]</code>.
+Boxing is avoided when the result is <code>None</code>.</p></div></div>
+    </li><li name="slick.jdbc.OracleProfile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="OracleProfileextendsJdbcProfile"></a>
+      <a id="OracleProfile:OracleProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OracleProfile.html"><span class="name">OracleProfile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@OracleProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for Oracle.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for Oracle.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="../relational/RelationalCapabilities$.html#foreignKeyActions:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#foreignKeyActions">slick.relational.RelationalCapabilities.foreignKeyActions</a>:
+    Foreign key actions <i>Cascade</i>, <i>SetNull</i> and <i>NoAction</i> are
+    directly supported for <i>onDelete</i>. <i>Restrict</i> and <i>SetDefault</i>
+    are ignored (i.e. equals to <i>NoAction</i>). No <i>onUpdate</i> actions are
+    supported but specifying <i>Cascade</i> adds the option INITIALLY DEFERRED
+    to the foreign key constraint, thus allowing you to perform the
+    cascading update manually before committing the current transaction.
+    Other <i>onUpdate</i> actions are ignored.</li><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the client side if generated
+    keys should be returned. Otherwise the operation is performmed
+    natively on the server side.</li><li><a href="JdbcCapabilities$.html#booleanMetaData:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#booleanMetaData">slick.jdbc.JdbcCapabilities.booleanMetaData</a>:
+    Oracle doesn't have booleans, so Slick maps to CHAR instead and
+    that's how it appears in model and generated code.</li><li><a href="JdbcCapabilities$.html#distinguishesIntTypes:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#distinguishesIntTypes">slick.jdbc.JdbcCapabilities.distinguishesIntTypes</a>:
+    Oracle doesn't distinguish integer types and Slick uses NUMBER,
+    which is always mapped back to BigDecimal in model and generated code.</li><li><a href="JdbcCapabilities$.html#supportsByte:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#supportsByte">slick.jdbc.JdbcCapabilities.supportsByte</a>:
+    Oracle does not have a BYTE type.</li></ul><p>Note: The Oracle JDBC driver has problems with quoted identifiers. Columns
+which are returned from inserts must not require quoted names (in
+particular, they must not contain lower-case characters or be equal to a
+reserved word), otherwise a bug in the Oracle JDBC driver triggers an
+ORA-00904 error. The same issue arises when trying to update such a column
+in a mutable result set.</p><p>Updating Blob values in updatable result sets is not supported.
+</p></div></div>
+    </li><li name="slick.jdbc.PositionedParameters" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PositionedParametersextendsAnyRef"></a>
+      <a id="PositionedParameters:PositionedParameters"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PositionedParameters.html"><span class="name">PositionedParameters</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@PositionedParametersextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A wrapper for a JDBC <code>PreparedStatement</code> which allows inceremental setting of
+parameters without having to sepcify the column index each time.</p>
+    </li><li name="slick.jdbc.PositionedResult" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="PositionedResultextendsCloseable"></a>
+      <a id="PositionedResult:PositionedResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PositionedResult.html"><span class="name">PositionedResult</span></a><span class="result"> extends <span class="extype" name="java.io.Closeable">Closeable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@PositionedResultextendsCloseable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A database result positioned at a row and column.</p>
+    </li><li name="slick.jdbc.PositionedResultIterator" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="PositionedResultIterator[+T]extendsReadAheadIterator[T]withCloseableIterator[T]"></a>
+      <a id="PositionedResultIterator[+T]:PositionedResultIterator[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PositionedResultIterator.html"><span class="name">PositionedResultIterator</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <a href="../util/ReadAheadIterator.html" class="extype" name="slick.util.ReadAheadIterator">ReadAheadIterator</a>[<span class="extype" name="slick.jdbc.PositionedResultIterator.T">T</span>] with <a href="../util/CloseableIterator.html" class="extype" name="slick.util.CloseableIterator">CloseableIterator</a>[<span class="extype" name="slick.jdbc.PositionedResultIterator.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@PositionedResultIterator[+T]extendsReadAheadIterator[T]withCloseableIterator[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An CloseableIterator for a PositionedResult.</p>
+    </li><li name="slick.jdbc.PostgresProfile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="PostgresProfileextendsJdbcProfile"></a>
+      <a id="PostgresProfile:PostgresProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="PostgresProfile.html"><span class="name">PostgresProfile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@PostgresProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for PostgreSQL.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for PostgreSQL.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the server side with a single
+    JDBC statement executing multiple server-side statements in a transaction.
+    This is faster than a client-side emulation but may still fail due to
+    concurrent updates. InsertOrUpdate operations with <code>returning</code> are
+    emulated on the client side.</li><li><a href="JdbcCapabilities$.html#nullableNoDefault:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#nullableNoDefault">slick.jdbc.JdbcCapabilities.nullableNoDefault</a>:
+    Nullable columns always have NULL as a default according to the SQL
+    standard. Consequently Postgres treats no specifying a default value
+    just as specifying NULL and reports NULL as the default value.
+    Some other dbms treat queries with no default as NULL default, but
+    distinguish NULL from no default value in the meta data.</li><li><a href="JdbcCapabilities$.html#supportsByte:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#supportsByte">slick.jdbc.JdbcCapabilities.supportsByte</a>:
+    Postgres doesn't have a corresponding type for Byte.
+    SMALLINT is used instead and mapped to Short in the Slick model.</li></ul><p>Notes:</p><ul><li><a href="../relational/RelationalCapabilities$.html#typeBlob:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#typeBlob">slick.relational.RelationalCapabilities.typeBlob</a>:
+  The default implementation of the <code>Blob</code> type uses the
+  database type <code>lo</code> and the stored procedure
+  <code>lo_manage</code>, both of which are provided by the &quot;lo&quot;
+  extension in PostgreSQL.</li></ul></div></div>
+    </li><li name="slick.jdbc.ProtectGroupBy" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProtectGroupByextendsPhase"></a>
+      <a id="ProtectGroupBy:ProtectGroupBy"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProtectGroupBy.html"><span class="name">ProtectGroupBy</span></a><span class="result"> extends <a href="../compiler/Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ProtectGroupByextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Ensure that every expression in a GroupBy's &quot;by&quot; clause contains a reference to a proper
+source field.</p><div class="fullcomment"><div class="comment cmt"><p>Ensure that every expression in a GroupBy's &quot;by&quot; clause contains a reference to a proper
+source field. If this is not the case, wrap the source in a Subquery boundary.</p></div></div>
+    </li><li name="slick.jdbc.ResultSetConcurrency" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ResultSetConcurrencyextendsAnyRef"></a>
+      <a id="ResultSetConcurrency:ResultSetConcurrency"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetConcurrency.html"><span class="name">ResultSetConcurrency</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetConcurrencyextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a result set concurrency mode.</p>
+    </li><li name="slick.jdbc.ResultSetHoldability" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ResultSetHoldabilityextendsAnyRef"></a>
+      <a id="ResultSetHoldability:ResultSetHoldability"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetHoldability.html"><span class="name">ResultSetHoldability</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetHoldabilityextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a result set holdability mode .</p>
+    </li><li name="slick.jdbc.ResultSetInvoker" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ResultSetInvoker[+R]extendsInvoker[R]"></a>
+      <a id="ResultSetInvoker[+R]:ResultSetInvoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetInvoker.html"><span class="name">ResultSetInvoker</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> extends <a href="Invoker.html" class="extype" name="slick.jdbc.Invoker">Invoker</a>[<span class="extype" name="slick.jdbc.ResultSetInvoker.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetInvoker[+R]extendsInvoker[R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An invoker which calls a function to retrieve a ResultSet.</p><div class="fullcomment"><div class="comment cmt"><p>An invoker which calls a function to retrieve a ResultSet. This can be used
+for reading information from a java.sql.DatabaseMetaData object which has
+many methods that return ResultSets.</p><p>For convenience, if the function returns null, this is treated like an
+empty ResultSet.</p></div></div>
+    </li><li name="slick.jdbc.ResultSetMutator" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ResultSetMutator[T]extendsAnyRef"></a>
+      <a id="ResultSetMutator[T]:ResultSetMutator[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetMutator.html"><span class="name">ResultSetMutator</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetMutator[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.ResultSetType" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ResultSetTypeextendsAnyRef"></a>
+      <a id="ResultSetType:ResultSetType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetType.html"><span class="name">ResultSetType</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetTypeextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a result set type.</p>
+    </li><li name="slick.jdbc.SQLActionBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SQLActionBuilderextendsProductwithSerializable"></a>
+      <a id="SQLActionBuilder:SQLActionBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLActionBuilder.html"><span class="name">SQLActionBuilder</span></a><span class="params">(<span name="queryParts">queryParts: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Any">Any</span>]</span>, <span name="unitPConv">unitPConv: <a href="SetParameter.html" class="extype" name="slick.jdbc.SetParameter">SetParameter</a>[<span class="extype" name="scala.Unit">Unit</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SQLActionBuilderextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.SQLServerProfile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SQLServerProfileextendsJdbcProfile"></a>
+      <a id="SQLServerProfile:SQLServerProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLServerProfile.html"><span class="name">SQLServerProfile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SQLServerProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for Microsoft SQL Server.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for Microsoft SQL Server.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="JdbcCapabilities$.html#returnInsertOther:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#returnInsertOther">slick.jdbc.JdbcCapabilities.returnInsertOther</a>:
+    When returning columns from an INSERT operation, only a single column
+    may be specified which must be the table's AutoInc column.</li><li><a href="../sql/SqlCapabilities$.html#sequence:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequence">slick.sql.SqlCapabilities.sequence</a>:
+    Sequences are not supported because SQLServer does not have this
+    feature.</li><li><a href="JdbcCapabilities$.html#forceInsert:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#forceInsert">slick.jdbc.JdbcCapabilities.forceInsert</a>:
+    Inserting explicit values into AutoInc columns with <i>forceInsert</i>
+    operations is not supported.</li><li><a href="JdbcCapabilities$.html#createModel:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#createModel">slick.jdbc.JdbcCapabilities.createModel</a>:
+    Reading the database schema is currently only supported through JTDS,
+    not through Microsoft's official JDBC driver.</li><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the client side if generated
+    keys should be returned. Otherwise the operation is performmed
+    natively on the server side.</li><li><a href="JdbcCapabilities$.html#supportsByte:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#supportsByte">slick.jdbc.JdbcCapabilities.supportsByte</a>:
+    SQL Server's TINYINT is unsigned. It doesn't have a signed Byte-like
+    type. Slick maps Byte to SMALLINT instead and that's how it shows up
+    in model and code-generation.</li></ul><p>The default type for strings of unlimited length is &quot;VARCHAR(MAX)&quot;, falling back to
+&quot;VARCHAR(254)&quot; if a <code>PrimaryKey</code> column option is set. This can be
+changed by overriding <code>slick.jdbc.SQLServerProfile.defaultStringType</code>
+in application.conf.
+</p></div></div>
+    </li><li name="slick.jdbc.SQLiteProfile" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SQLiteProfileextendsJdbcProfile"></a>
+      <a id="SQLiteProfile:SQLiteProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteProfile.html"><span class="name">SQLiteProfile</span></a><span class="result"> extends <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SQLiteProfileextendsJdbcProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Slick profile for SQLite.</p><div class="fullcomment"><div class="comment cmt"><p>Slick profile for SQLite.</p><p>This profile implements <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>
+<i>without</i> the following capabilities:</p><ul><li><a href="../relational/RelationalCapabilities$.html#functionDatabase:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#functionDatabase">slick.relational.RelationalCapabilities.functionDatabase</a>,
+    <a href="../relational/RelationalCapabilities$.html#functionUser:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#functionUser">slick.relational.RelationalCapabilities.functionUser</a>:
+    <code>Functions.user</code> and <code>Functions.database</code> are
+    not available in SQLite. Slick will return empty strings for both.</li><li><a href="../relational/RelationalCapabilities$.html#joinFull:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#joinFull">slick.relational.RelationalCapabilities.joinFull</a>,
+    <a href="../relational/RelationalCapabilities$.html#joinRight:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#joinRight">slick.relational.RelationalCapabilities.joinRight</a>:
+    Right and full outer joins are emulated because there is not native
+    support for them.</li><li><a href="JdbcCapabilities$.html#mutable:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#mutable">slick.jdbc.JdbcCapabilities.mutable</a>:
+    SQLite does not allow mutation of result sets. All cursors are
+    read-only.</li><li><a href="../sql/SqlCapabilities$.html#sequence:slick.basic.Capability" class="extmbr" name="slick.sql.SqlCapabilities#sequence">slick.sql.SqlCapabilities.sequence</a>:
+    Sequences are not supported by SQLite.</li><li><a href="JdbcCapabilities$.html#returnInsertOther:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#returnInsertOther">slick.jdbc.JdbcCapabilities.returnInsertOther</a>:
+    When returning columns from an INSERT operation, only a single column
+    may be specified which must be the table's AutoInc column.</li><li><a href="../relational/RelationalCapabilities$.html#typeBigDecimal:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#typeBigDecimal">slick.relational.RelationalCapabilities.typeBigDecimal</a>:
+    SQLite does not support a decimal type.</li><li><a href="../relational/RelationalCapabilities$.html#typeBlob:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#typeBlob">slick.relational.RelationalCapabilities.typeBlob</a>: Blobs are
+    not supported by the SQLite JDBC driver (but binary data in the form of
+    <code>Array[Byte]</code> is).</li><li><a href="../relational/RelationalCapabilities$.html#zip:slick.basic.Capability" class="extmbr" name="slick.relational.RelationalCapabilities#zip">slick.relational.RelationalCapabilities.zip</a>:
+    Row numbers (required by <code>zip</code> and
+    <code>zipWithIndex</code>) are not supported. Trying to generate SQL
+    code which uses this feature throws a SlickException.</li><li><a href="JdbcCapabilities$.html#insertOrUpdate:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#insertOrUpdate">slick.jdbc.JdbcCapabilities.insertOrUpdate</a>:
+    InsertOrUpdate operations are emulated on the client side if the
+    data to insert contains an <code>AutoInc</code> field. Otherwise the operation
+    is performmed natively on the server side.</li><li><a href="JdbcCapabilities$.html#defaultValueMetaData:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#defaultValueMetaData">slick.jdbc.JdbcCapabilities.defaultValueMetaData</a>:
+    The stable xerial sqlite-jdbc driver 3.7.2 does not return default values
+    for columns in the DatabaseMetaData. Consequently they also do not appear
+    in Slick's model. This has been fixed in sqlite-jdbc, but the only released
+    version that contains the fix is milestone 3.7.15-M1. You can use it instead
+    of the stable 3.7.2 in order to get default values with SQLite.
+    Also see https://code.google.com/p/sqlite-jdbc/issues/detail?id=27</li><li><a href="JdbcCapabilities$.html#booleanMetaData:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#booleanMetaData">slick.jdbc.JdbcCapabilities.booleanMetaData</a>:
+    SQlite doesn't have booleans, so Slick maps to INTEGER instead.
+    Other jdbc drivers like MySQL map TINYINT(1) back to a Scala
+    Boolean. SQlite maps INTEGER to an Integer and that's how it shows
+    up in the jdbc meta data, thus the original type is lost.</li><li><a href="JdbcCapabilities$.html#distinguishesIntTypes:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#distinguishesIntTypes">slick.jdbc.JdbcCapabilities.distinguishesIntTypes</a>:
+    SQLite does not distinguish integer types and maps them all to Int
+    in the meta data.</li><li><a href="JdbcCapabilities$.html#supportsByte:slick.basic.Capability" class="extmbr" name="slick.jdbc.JdbcCapabilities#supportsByte">slick.jdbc.JdbcCapabilities.supportsByte</a>:
+    SQLite does not distinguish integer types and maps them all to Int
+    in the meta data.</li></ul></div></div>
+    </li><li name="slick.jdbc.SetParameter" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SetParameter[-T]extends(T,slick.jdbc.PositionedParameters)=&gt;Unit"></a>
+      <a id="SetParameter[-T]:SetParameter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SetParameter.html"><span class="name">SetParameter</span></a><span class="tparams">[<span name="T">-T</span>]</span><span class="result"> extends (<span class="extype" name="slick.jdbc.SetParameter.T">T</span>, <a href="PositionedParameters.html" class="extype" name="slick.jdbc.PositionedParameters">PositionedParameters</a>) ⇒ <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SetParameter[-T]extends(T,slick.jdbc.PositionedParameters)=&gt;Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Basic conversions for setting parameters in PositionedParameters.</p>
+    </li><li name="slick.jdbc.SetTupleParameter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SetTupleParameter[-T&lt;:Product]extendsSetParameter[T]"></a>
+      <a id="SetTupleParameter[-T&lt;:Product]:SetTupleParameter[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SetTupleParameter.html"><span class="name">SetTupleParameter</span></a><span class="tparams">[<span name="T">-T &lt;: <span class="extype" name="scala.Product">Product</span></span>]</span><span class="result"> extends <a href="SetParameter.html" class="extype" name="slick.jdbc.SetParameter">SetParameter</a>[<span class="extype" name="slick.jdbc.SetTupleParameter.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SetTupleParameter[-T&lt;:Product]extendsSetParameter[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">SetParameter for tuple types.</p>
+    </li><li name="slick.jdbc.SimpleJdbcAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleJdbcAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,slick.jdbc.JdbcBackend,slick.dbio.Effect.All]withProductwithSerializable"></a>
+      <a id="SimpleJdbcAction[+R]:SimpleJdbcAction[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleJdbcAction.html"><span class="name">SimpleJdbcAction</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="params">(<span name="f">f: (<a href="JdbcBackend$JdbcActionContext.html" class="extype" name="slick.jdbc.JdbcBackend.JdbcActionContext">JdbcActionContext</a>) ⇒ <span class="extype" name="slick.jdbc.SimpleJdbcAction.R">R</span></span>)</span><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="slick.jdbc.SimpleJdbcAction.R">R</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcBackend.html" class="extype" name="slick.jdbc.JdbcBackend">JdbcBackend</a>, <a href="../dbio/Effect$$All.html" class="extype" name="slick.dbio.Effect.All">All</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SimpleJdbcAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,slick.jdbc.JdbcBackend,slick.dbio.Effect.All]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A non-streaming Action that wraps a JDBC call.</p>
+    </li><li name="slick.jdbc.StatementInvoker" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="StatementInvoker[+R]extendsInvoker[R]"></a>
+      <a id="StatementInvoker[+R]:StatementInvoker[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StatementInvoker.html"><span class="name">StatementInvoker</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> extends <a href="Invoker.html" class="extype" name="slick.jdbc.Invoker">Invoker</a>[<span class="extype" name="slick.jdbc.StatementInvoker.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@StatementInvoker[+R]extendsInvoker[R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An invoker which executes an SQL statement through JDBC.</p>
+    </li><li name="slick.jdbc.StreamingInvokerAction" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="StreamingInvokerAction[R,T,-E&lt;:slick.dbio.Effect]extendsSynchronousDatabaseAction[R,slick.dbio.Streaming[T],slick.jdbc.JdbcBackend,E]withFixedSqlStreamingAction[R,T,E]"></a>
+      <a id="StreamingInvokerAction[R,T,-E&lt;:Effect]:StreamingInvokerAction[R,T,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamingInvokerAction.html"><span class="name">StreamingInvokerAction</span></a><span class="tparams">[<span name="R">R</span>, <span name="T">T</span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="slick.jdbc.StreamingInvokerAction.R">R</span>, <a href="../dbio/Streaming.html" class="extype" name="slick.dbio.Streaming">Streaming</a>[<span class="extype" name="slick.jdbc.StreamingInvokerAction.T">T</span>], <a href="JdbcBackend.html" class="extype" name="slick.jdbc.JdbcBackend">JdbcBackend</a>, <span class="extype" name="slick.jdbc.StreamingInvokerAction.E">E</span>] with <a href="../sql/FixedSqlStreamingAction.html" class="extype" name="slick.sql.FixedSqlStreamingAction">FixedSqlStreamingAction</a>[<span class="extype" name="slick.jdbc.StreamingInvokerAction.R">R</span>, <span class="extype" name="slick.jdbc.StreamingInvokerAction.T">T</span>, <span class="extype" name="slick.jdbc.StreamingInvokerAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@StreamingInvokerAction[R,T,-E&lt;:slick.dbio.Effect]extendsSynchronousDatabaseAction[R,slick.dbio.Streaming[T],slick.jdbc.JdbcBackend,E]withFixedSqlStreamingAction[R,T,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A streaming Action that wraps an Invoker.</p><div class="fullcomment"><div class="comment cmt"><p>A streaming Action that wraps an Invoker.
+It is used for the Lifted Embedding, Direct Embedding, Plain SQL queries, and JDBC metadata.
+</p></div></div>
+    </li><li name="slick.jdbc.TransactionIsolation" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TransactionIsolationextendsAnyRef"></a>
+      <a id="TransactionIsolation:TransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TransactionIsolation.html"><span class="name">TransactionIsolation</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@TransactionIsolationextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a transaction isolation level.</p>
+    </li><li name="slick.jdbc.DriverBasedJdbcDataSource" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DriverBasedJdbcDataSourceextendsJdbcDataSource"></a>
+      <a id="DriverBasedJdbcDataSource:DriverBasedJdbcDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DriverBasedJdbcDataSource.html"><span class="name deprecated" title="Deprecated: (Since version 3.1) Use DataSourceJdbcDataSource with DriverDataSource instead">DriverBasedJdbcDataSource</span></a><span class="result"> extends <a href="JdbcDataSource.html" class="extype" name="slick.jdbc.JdbcDataSource">JdbcDataSource</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DriverBasedJdbcDataSourceextendsJdbcDataSource" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A JdbcDataSource which can load a JDBC <code>Driver</code> from a class name</p><div class="fullcomment"><div class="comment cmt"><p>A JdbcDataSource which can load a JDBC <code>Driver</code> from a class name</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.1)</i> Use DataSourceJdbcDataSource with DriverDataSource instead</p></dd></dl></div>
+    </li><li name="slick.jdbc.DriverJdbcDataSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DriverJdbcDataSourceextendsDriverBasedJdbcDataSource"></a>
+      <a id="DriverJdbcDataSource:DriverJdbcDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DriverJdbcDataSource.html"><span class="name deprecated" title="Deprecated: (Since version 3.1) Use DataSourceJdbcDataSource with DriverDataSource instead">DriverJdbcDataSource</span></a><span class="result"> extends <a href="DriverBasedJdbcDataSource.html" class="extype" name="slick.jdbc.DriverBasedJdbcDataSource">DriverBasedJdbcDataSource</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DriverJdbcDataSourceextendsDriverBasedJdbcDataSource" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A JdbcDataSource for lookup via a <code>Driver</code> or the <code>DriverManager</code></p><div class="fullcomment"><div class="comment cmt"><p>A JdbcDataSource for lookup via a <code>Driver</code> or the <code>DriverManager</code></p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.1)</i> Use DataSourceJdbcDataSource with DriverDataSource instead</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="slick.jdbc.ActionBasedSQLInterpolation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ActionBasedSQLInterpolation"></a>
+      <a id="ActionBasedSQLInterpolation:ActionBasedSQLInterpolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ActionBasedSQLInterpolation$.html"><span class="name">ActionBasedSQLInterpolation</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ActionBasedSQLInterpolation" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.DB2Profile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DB2Profile"></a>
+      <a id="DB2Profile:DB2Profile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DB2Profile$.html"><span class="name">DB2Profile</span></a><span class="result"> extends <a href="DB2Profile.html" class="extype" name="slick.jdbc.DB2Profile">DB2Profile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DB2Profile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.DataSourceJdbcDataSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DataSourceJdbcDataSource"></a>
+      <a id="DataSourceJdbcDataSource:DataSourceJdbcDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DataSourceJdbcDataSource$.html"><span class="name">DataSourceJdbcDataSource</span></a><span class="result"> extends <a href="JdbcDataSourceFactory.html" class="extype" name="slick.jdbc.JdbcDataSourceFactory">JdbcDataSourceFactory</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DataSourceJdbcDataSource" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.DerbyProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DerbyProfile"></a>
+      <a id="DerbyProfile:DerbyProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DerbyProfile$.html"><span class="name">DerbyProfile</span></a><span class="result"> extends <a href="DerbyProfile.html" class="extype" name="slick.jdbc.DerbyProfile">DerbyProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DerbyProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.GetResult" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetResult"></a>
+      <a id="GetResult:GetResult"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="GetResult$.html"><span class="name">GetResult</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@GetResult" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.H2Profile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="H2Profile"></a>
+      <a id="H2Profile:H2Profile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="H2Profile$.html"><span class="name">H2Profile</span></a><span class="result"> extends <a href="H2Profile.html" class="extype" name="slick.jdbc.H2Profile">H2Profile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@H2Profile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.HsqldbProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HsqldbProfile"></a>
+      <a id="HsqldbProfile:HsqldbProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HsqldbProfile$.html"><span class="name">HsqldbProfile</span></a><span class="result"> extends <a href="HsqldbProfile.html" class="extype" name="slick.jdbc.HsqldbProfile">HsqldbProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@HsqldbProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcBackend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JdbcBackend"></a>
+      <a id="JdbcBackend:JdbcBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcBackend$.html"><span class="name">JdbcBackend</span></a><span class="result"> extends <a href="JdbcBackend.html" class="extype" name="slick.jdbc.JdbcBackend">JdbcBackend</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcBackend" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcCapabilities" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JdbcCapabilities"></a>
+      <a id="JdbcCapabilities:JdbcCapabilities"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcCapabilities$.html"><span class="name">JdbcCapabilities</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcCapabilities" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Capabilities for <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">slick.jdbc.JdbcProfile</a>.</p>
+    </li><li name="slick.jdbc.JdbcDataSource" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JdbcDataSource"></a>
+      <a id="JdbcDataSource:JdbcDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcDataSource$.html"><span class="name">JdbcDataSource</span></a><span class="result"> extends <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcDataSource" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcTypesComponent" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JdbcTypesComponent"></a>
+      <a id="JdbcTypesComponent:JdbcTypesComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcTypesComponent$.html"><span class="name">JdbcTypesComponent</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@JdbcTypesComponent" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.MySQLProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MySQLProfile"></a>
+      <a id="MySQLProfile:MySQLProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MySQLProfile$.html"><span class="name">MySQLProfile</span></a><span class="result"> extends <a href="MySQLProfile.html" class="extype" name="slick.jdbc.MySQLProfile">MySQLProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@MySQLProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.OracleProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OracleProfile"></a>
+      <a id="OracleProfile:OracleProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OracleProfile$.html"><span class="name">OracleProfile</span></a><span class="result"> extends <a href="OracleProfile.html" class="extype" name="slick.jdbc.OracleProfile">OracleProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@OracleProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.PostgresProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PostgresProfile"></a>
+      <a id="PostgresProfile:PostgresProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PostgresProfile$.html"><span class="name">PostgresProfile</span></a><span class="result"> extends <a href="PostgresProfile.html" class="extype" name="slick.jdbc.PostgresProfile">PostgresProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@PostgresProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.ResultSetAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResultSetAction"></a>
+      <a id="ResultSetAction:ResultSetAction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetAction$.html"><span class="name">ResultSetAction</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetAction" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.ResultSetConcurrency" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResultSetConcurrency"></a>
+      <a id="ResultSetConcurrency:ResultSetConcurrency"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetConcurrency$.html"><span class="name">ResultSetConcurrency</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetConcurrency" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.ResultSetHoldability" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResultSetHoldability"></a>
+      <a id="ResultSetHoldability:ResultSetHoldability"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetHoldability$.html"><span class="name">ResultSetHoldability</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetHoldability" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.ResultSetInvoker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResultSetInvoker"></a>
+      <a id="ResultSetInvoker:ResultSetInvoker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetInvoker$.html"><span class="name">ResultSetInvoker</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetInvoker" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.ResultSetType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ResultSetType"></a>
+      <a id="ResultSetType:ResultSetType"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ResultSetType$.html"><span class="name">ResultSetType</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@ResultSetType" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.SQLServerProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SQLServerProfile"></a>
+      <a id="SQLServerProfile:SQLServerProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLServerProfile$.html"><span class="name">SQLServerProfile</span></a><span class="result"> extends <a href="SQLServerProfile.html" class="extype" name="slick.jdbc.SQLServerProfile">SQLServerProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SQLServerProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.SQLiteProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SQLiteProfile"></a>
+      <a id="SQLiteProfile:SQLiteProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SQLiteProfile$.html"><span class="name">SQLiteProfile</span></a><span class="result"> extends <a href="SQLiteProfile.html" class="extype" name="slick.jdbc.SQLiteProfile">SQLiteProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SQLiteProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.SetParameter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SetParameter"></a>
+      <a id="SetParameter:SetParameter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SetParameter$.html"><span class="name">SetParameter</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SetParameter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.SpecializedJdbcResultConverter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpecializedJdbcResultConverter"></a>
+      <a id="SpecializedJdbcResultConverter:SpecializedJdbcResultConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SpecializedJdbcResultConverter$.html"><span class="name">SpecializedJdbcResultConverter</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@SpecializedJdbcResultConverter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Factory methods for JdbcResultConverters which are manually specialized on
+the underlying JdbcType.</p><div class="fullcomment"><div class="comment cmt"><p>Factory methods for JdbcResultConverters which are manually specialized on
+the underlying JdbcType. A generic implementation of this factory still
+provides allocation free call paths but performs almost 100% slower in the
+fast path benchmark.</p></div></div>
+    </li><li name="slick.jdbc.TransactionIsolation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TransactionIsolation"></a>
+      <a id="TransactionIsolation:TransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TransactionIsolation$.html"><span class="name">TransactionIsolation</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@TransactionIsolation" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.meta" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="meta"></a>
+      <a id="meta:meta"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="meta/package.html"><span class="name">meta</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@meta" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="slick.jdbc.DriverJdbcDataSource" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DriverJdbcDataSource"></a>
+      <a id="DriverJdbcDataSource:DriverJdbcDataSource"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DriverJdbcDataSource$.html"><span class="name deprecated" title="Deprecated: (Since version 3.1) Use DataSourceJdbcDataSource with DriverDataSource instead">DriverJdbcDataSource</span></a><span class="result"> extends <a href="JdbcDataSourceFactory.html" class="extype" name="slick.jdbc.JdbcDataSourceFactory">JdbcDataSourceFactory</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.package@DriverJdbcDataSource" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.1)</i> Use DataSourceJdbcDataSource with DriverDataSource instead</p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>

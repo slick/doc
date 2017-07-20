@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="index" href="genindex.html"  title="Index"  />  <link rel="edit" href="https://github.com/slick/slick/blob/3.2/doc/src/index.md"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.2.1</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/index.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="slick" class="a_section" data-magellan-target="slick">Slick<a class="a_hlink" href="#slick"></a></h1>
+<p>Reactive Functional Relational Mapping for Scala</p>
+<h2 id="api-documentation-scaladoc" class="a_section" data-magellan-target="api-documentation-scaladoc">API Documentation (scaladoc)<a class="a_hlink" href="#api-documentation-scaladoc"></a></h2>
+<ul>
+<li><a href="api/index.html">Slick Core</a> (slick)</li>
+<li><a href="api/index.html">Code Generator</a> (slick-codegen)</li>
+<li><a href="hikaricp-api/index.html">HikariCP integration</a> (slick-hikaricp)</li>
+<li><a href="testkit-api/index.html">TestKit</a> (slick-testkit)</li>
+</ul>
+<h2 id="user-manual" class="a_section" data-magellan-target="user-manual">User Manual<a class="a_hlink" href="#user-manual"></a></h2>
+<ul>
+<li><a href="introduction.html">Introduction</a>
+<ul>
+<li><a href="introduction.html#what-is-slick">What is Slick?</a></li>
+<li><a href="introduction.html#functional-relational-mapping">Functional Relational Mapping</a></li>
+<li><a href="introduction.html#reactive-applications">Reactive Applications</a></li>
+<li><a href="introduction.html#plain-sql-support">Plain SQL Support</a></li>
+<li><a href="introduction.html#license">License</a></li>
+<li><a href="introduction.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li><a href="supported-databases.html">Supported Databases</a></li>
+<li><a href="gettingstarted.html">Getting Started</a>
+<ul>
+<li><a href="gettingstarted.html#adding-slick-to-your-project">Adding Slick to Your Project</a></li>
+<li><a href="gettingstarted.html#quick-introduction">Quick Introduction</a>
+<ul>
+<li><a href="gettingstarted.html#database-configuration">Database Configuration</a></li>
+<li><a href="gettingstarted.html#schema">Schema</a></li>
+<li><a href="gettingstarted.html#populating-the-database">Populating the Database</a></li>
+<li><a href="gettingstarted.html#querying">Querying</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="concepts.html">Core Concepts</a>
+<ul>
+<li><a href="concepts.html#scala-queries">Scala Queries</a></li>
+<li><a href="concepts.html#database-io-actions">Database I/O Actions</a></li>
+<li><a href="concepts.html#plain-sql-statements">Plain SQL Statements</a></li>
+<li><a href="concepts.html#databases">Databases</a></li>
+<li><a href="concepts.html#results">Results</a></li>
+<li><a href="concepts.html#profiles">Profiles</a></li>
+</ul>
+</li>
+<li><a href="database.html">Database Configuration</a>
+<ul>
+<li><a href="database.html#using-typesafe-config">Using Typesafe Config</a></li>
+<li><a href="database.html#using-a-jdbc-url">Using a JDBC URL</a></li>
+<li><a href="database.html#using-a-database-url">Using a Database URL</a></li>
+<li><a href="database.html#using-a-datasource">Using a DataSource</a></li>
+<li><a href="database.html#using-a-jndi-name">Using a JNDI Name</a></li>
+<li><a href="database.html#database-thread-pool">Database thread pool</a></li>
+<li><a href="database.html#connection-pools">Connection pools</a></li>
+<li><a href="database.html#databaseconfig">DatabaseConfig</a></li>
+</ul>
+</li>
+<li><a href="dbio.html">Database I/O Actions</a>
+<ul>
+<li><a href="dbio.html#executing-database-io-actions">Executing Database I/O Actions</a>
+<ul>
+<li><a href="dbio.html#materialized">Materialized</a></li>
+<li><a href="dbio.html#streaming">Streaming</a></li>
+</ul>
+</li>
+<li><a href="dbio.html#composing-database-io-actions">Composing Database I/O Actions</a>
+<ul>
+<li><a href="dbio.html#sequential-execution">Sequential Execution</a></li>
+<li><a href="dbio.html#error-handling">Error Handling</a></li>
+<li><a href="dbio.html#primitives">Primitives</a></li>
+<li><a href="dbio.html#debugging">Debugging</a></li>
+<li><a href="dbio.html#transactions">Transactions and Pinned Sessions</a></li>
+<li><a href="dbio.html#rollbacks">Rollbacks</a></li>
+</ul>
+</li>
+<li><a href="dbio.html#jdbc-interoperability">JDBC Interoperability</a></li>
+</ul>
+</li>
+<li><a href="schemas.html">Schemas</a>
+<ul>
+<li><a href="schemas.html#table-rows">Table Rows</a></li>
+<li><a href="schemas.html#table-query">Table Query</a></li>
+<li><a href="schemas.html#mapped-tables">Mapped Tables</a></li>
+<li><a href="schemas.html#constraints">Constraints</a></li>
+<li><a href="schemas.html#data-definition-language">Data Definition Language</a></li>
+</ul>
+</li>
+<li><a href="queries.html">Queries</a>
+<ul>
+<li><a href="queries.html#expressions">Expressions</a></li>
+<li><a href="queries.html#sorting-and-filtering">Sorting and Filtering</a></li>
+<li><a href="queries.html#joining-and-zipping">Joining and Zipping</a>
+<ul>
+<li><a href="queries.html#applicative-joins">Applicative joins</a></li>
+<li><a href="queries.html#monadic-joins">Monadic joins</a></li>
+<li><a href="queries.html#zip-joins">Zip joins</a></li>
+</ul>
+</li>
+<li><a href="queries.html#unions">Unions</a></li>
+<li><a href="queries.html#aggregation">Aggregation</a></li>
+<li><a href="queries.html#querying">Querying</a></li>
+<li><a href="queries.html#deleting">Deleting</a></li>
+<li><a href="queries.html#inserting">Inserting</a></li>
+<li><a href="queries.html#updating">Updating</a></li>
+<li><a href="queries.html#upserting">Upserting</a></li>
+<li><a href="queries.html#compiled-queries">Compiled Queries</a></li>
+</ul>
+</li>
+<li><a href="code-generation.html">Schema Code Generation</a>
+<ul>
+<li><a href="code-generation.html#overview">Overview</a></li>
+<li><a href="code-generation.html#standalone-use">Standalone use</a></li>
+<li><a href="code-generation.html#integrated-into-sbt">Integrated into sbt</a></li>
+<li><a href="code-generation.html#generated-code">Generated Code</a></li>
+<li><a href="code-generation.html#customization">Customization</a></li>
+</ul>
+</li>
+<li><a href="userdefined.html">User-Defined Features</a>
+<ul>
+<li><a href="userdefined.html#scalar-database-functions">Scalar Database Functions</a></li>
+<li><a href="userdefined.html#other-database-functions-and-stored-procedures">Other Database Functions And Stored Procedures</a></li>
+<li><a href="userdefined.html#scalar-types">Using Custom Scalar Types in Queries</a></li>
+<li><a href="userdefined.html#record-types">Using Custom Record Types in Queries</a>
+<ul>
+<li><a href="userdefined.html#polymorphic-types-e.g.-custom-tuple-types-or-hlists">Polymorphic Types (e.g. Custom Tuple Types or HLists)</a></li>
+<li><a href="userdefined.html#monomorphic-case-classes">Monomorphic Case Classes</a></li>
+<li><a href="userdefined.html#combining-mapped-types">Combining Mapped Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="sql.html">Plain SQL Queries</a>
+<ul>
+<li><a href="sql.html#scaffolding">Scaffolding</a></li>
+<li><a href="sql.html#string-interpolation">String Interpolation</a></li>
+<li><a href="sql.html#result-sets">Result Sets</a></li>
+<li><a href="sql.html#splicing-literal-values">Splicing Literal Values</a></li>
+<li><a href="sql.html#type-checked-sql-statements">Type-Checked SQL Statements</a></li>
+</ul>
+</li>
+<li><a href="orm-to-slick.html">Coming from ORM to Slick</a>
+<ul>
+<li><a href="orm-to-slick.html#introduction">Introduction</a></li>
+<li><a href="orm-to-slick.html#configuration">Configuration</a></li>
+<li><a href="orm-to-slick.html#mapping-configuration">Mapping configuration</a></li>
+<li><a href="orm-to-slick.html#navigating-the-object-graph">Navigating the object graph</a>
+<ul>
+<li><a href="orm-to-slick.html#using-plain-old-method-calls">Using plain old method calls</a></li>
+<li><a href="orm-to-slick.html#query-languages">Query languages</a></li>
+</ul>
+</li>
+<li><a href="orm-to-slick.html#query-granularity">Query granularity</a></li>
+<li><a href="orm-to-slick.html#read-caching">Read caching</a></li>
+<li><a href="orm-to-slick.html#writes-and-caching">Writes (and caching)</a></li>
+<li><a href="orm-to-slick.html#relationships">Relationships</a>
+<ul>
+<li><a href="orm-to-slick.html#modifying-relationships">Modifying relationships</a></li>
+</ul>
+</li>
+<li><a href="orm-to-slick.html#inheritance">Inheritance</a></li>
+<li><a href="orm-to-slick.html#code-generation">Code-generation</a></li>
+</ul>
+</li>
+<li><a href="sql-to-slick.html">Coming from SQL to Slick</a>
+<ul>
+<li><a href="sql-to-slick.html#schema">Schema</a></li>
+<li><a href="sql-to-slick.html#queries-in-comparison">Queries in comparison</a>
+<ul>
+<li><a href="sql-to-slick.html#jdbc-query">JDBC Query</a></li>
+<li><a href="sql-to-slick.html#slick-plain-sql-queries">Slick Plain SQL queries</a></li>
+<li><a href="sql-to-slick.html#slick-type-safe-composable-queries">Slick type-safe, composable queries</a></li>
+</ul>
+</li>
+<li><a href="sql-to-slick.html#main-obstacle-semantic-api-differences">Main obstacle: Semantic API differences</a></li>
+<li><a href="sql-to-slick.html#scala-to-sql-compilation-during-runtime">Scala-to-SQL compilation during runtime</a></li>
+<li><a href="sql-to-slick.html#limitations">Limitations</a>
+<ul>
+<li><a href="sql-to-slick.html#missing-query-operators">Missing query operators</a></li>
+<li><a href="sql-to-slick.html#non-optimal-sql-code">Non-optimal SQL code</a></li>
+</ul>
+</li>
+<li><a href="sql-to-slick.html#sql-vs.-slick-examples">SQL vs. Slick examples</a>
+<ul>
+<li><a href="sql-to-slick.html#select-">SELECT *</a></li>
+<li><a href="sql-to-slick.html#select">SELECT</a></li>
+<li><a href="sql-to-slick.html#where">WHERE</a></li>
+<li><a href="sql-to-slick.html#order-by">ORDER BY</a></li>
+<li><a href="sql-to-slick.html#aggregations-max-etc.">Aggregations (max, etc.)</a></li>
+<li><a href="sql-to-slick.html#group-by">GROUP BY</a></li>
+<li><a href="sql-to-slick.html#having">HAVING</a></li>
+<li><a href="sql-to-slick.html#implicit-inner-joins">Implicit inner joins</a></li>
+<li><a href="sql-to-slick.html#explicit-inner-joins">Explicit inner joins</a></li>
+<li><a href="sql-to-slick.html#outer-joins-leftrightfull">Outer joins (left/right/full)</a></li>
+<li><a href="sql-to-slick.html#subquery">Subquery</a></li>
+<li><a href="sql-to-slick.html#scalar-value-subquery--custom-function">Scalar value subquery / custom function</a></li>
+<li><a href="sql-to-slick.html#insert">insert</a></li>
+<li><a href="sql-to-slick.html#update">update</a></li>
+<li><a href="sql-to-slick.html#delete">delete</a></li>
+<li><a href="sql-to-slick.html#case">CASE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="upgrade.html">Upgrade Guides</a>
+<ul>
+<li><a href="upgrade.html#compatibility-policy">Compatibility Policy</a></li>
+<li><a href="upgrade.html#upgrade-from-3.1-to-3.2">Upgrade from 3.1 to 3.2</a>
+<ul>
+<li><a href="upgrade.html#profiles-vs-drivers">Profiles vs Drivers</a></li>
+<li><a href="upgrade.html#slick-extensions">Slick Extensions</a></li>
+<li><a href="upgrade.html#database-action-scheduling">Database Action Scheduling</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="migrations.html">Database Migrations</a>
+<ul>
+<li><a href="migrations.html#scala-forklift">Scala Forklift</a></li>
+<li><a href="migrations.html#slick-migration-api">slick-migration-api</a></li>
+<li><a href="migrations.html#flyway">Flyway</a></li>
+</ul>
+</li>
+<li><a href="testkit.html">Slick TestKit</a>
+<ul>
+<li><a href="testkit.html#scaffolding">Scaffolding</a></li>
+<li><a href="testkit.html#profile">Profile</a></li>
+<li><a href="testkit.html#test-harness">Test Harness</a></li>
+<li><a href="testkit.html#database-configuration">Database Configuration</a></li>
+<li><a href="testkit.html#testing">Testing</a></li>
+</ul>
+</li>
+<li><a href="documentation.html">Markdown Documentation</a></li>
+<li><a href="config.html">Configuration</a>
+<ul>
+<li><a href="config.html#logging">Logging</a></li>
+<li><a href="config.html#monitoring">Monitoring</a></li>
+</ul>
+</li>
+</ul>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/index.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>
