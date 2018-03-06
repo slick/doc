@@ -1,0 +1,1108 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>JdbcModelBuilder - Slick 3.2.2 - slick.jdbc.JdbcModelBuilder</title>
+          <meta name="description" content="JdbcModelBuilder - Slick 3.2.2 - slick.jdbc.JdbcModelBuilder" />
+          <meta name="keywords" content="JdbcModelBuilder Slick 3.2.2 slick.jdbc.JdbcModelBuilder" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.jdbc.JdbcModelBuilder';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../../lib/class_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a>.<a href="package.html" class="extype" name="slick.jdbc">jdbc</a></p>
+        <h1>JdbcModelBuilder</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="slick.jdbc">package jdbc</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">JdbcModelBuilder</span><span class="result"> extends <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Build a Slick model from introspecting the JDBC metadata.</p><p>In most cases you are better off transforming the generated model instead of overriding functionality here. It is
+only useful if you need easy access to the JDBC metadata in order to influence how the model is generated. A good
+use case would be interpreting column types or default values that Slick doesn't understand out of the box. If you
+just want to remove or hard code some default values, transform the resulting model instead.</p><p>The tight coupling can easily lead to source code incompatibilities in future versions. Avoid hooking in here if you
+don't have to.
+</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.2.2/slick/src/main/scala/slick/jdbc/JdbcModelBuilder.scala" target="_blank">JdbcModelBuilder.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="PostgresProfile$ModelBuilder.html" class="extype" name="slick.jdbc.PostgresProfile.ModelBuilder">ModelBuilder</a>, <a href="H2Profile$ModelBuilder.html" class="extype" name="slick.jdbc.H2Profile.ModelBuilder">ModelBuilder</a>, <a href="MySQLProfile$ModelBuilder.html" class="extype" name="slick.jdbc.MySQLProfile.ModelBuilder">ModelBuilder</a>, <a href="SQLServerProfile$ModelBuilder.html" class="extype" name="slick.jdbc.SQLServerProfile.ModelBuilder">ModelBuilder</a>, <a href="SQLiteProfile$ModelBuilder.html" class="extype" name="slick.jdbc.SQLiteProfile.ModelBuilder">ModelBuilder</a>, <a href="OracleProfile$ModelBuilder.html" class="extype" name="slick.jdbc.OracleProfile.ModelBuilder">ModelBuilder</a>, <a href="HsqldbProfile$ModelBuilder.html" class="extype" name="slick.jdbc.HsqldbProfile.ModelBuilder">ModelBuilder</a>, <a href="DerbyProfile$ModelBuilder.html" class="extype" name="slick.jdbc.DerbyProfile.ModelBuilder">ModelBuilder</a></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 950.00 158.00" height="158pt" width="950pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 154)" class="graph" id="graph0"><polygon points="-4,4 -4,-154 946,-154 946,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="slick.jdbc.JdbcModelBuilder (this class)" xlink:href="#inheritance-diagram"><polygon points="532,-88 410,-88 410,-62 532,-62 532,-88" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-81" x="422" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-72.5" x="442" text-anchor="start">JdbcModelBuilder</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="slick.jdbc.DerbyProfile.ModelBuilder" xlink:href="DerbyProfile$ModelBuilder.html#inheritance-diagram"><polygon points="101.5,-26 0.5,-26 0.5,-0 101.5,-0 101.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="32" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M404.862,-66.4856C332.504,-57.9609 213.194,-43.0139 111,-26 107.961,-25.4941 104.841,-24.9488 101.697,-24.3795" stroke="#d4d4d4" fill="none"></path><polygon points="404.82,-68.2426 409.99,-67.0882 405.228,-64.7665 404.82,-68.2426" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="slick.jdbc.H2Profile.ModelBuilder" xlink:href="H2Profile$ModelBuilder.html#inheritance-diagram"><polygon points="221.5,-26 120.5,-26 120.5,-0 221.5,-0 221.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="132" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="152" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node2 --><g class="edge inheritance" id="graph1_0_2"><g id="a_inheritance|graph1_0_2"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M405.714,-60.9428C350.479,-49.8957 272.442,-34.2883 221.782,-24.1564" stroke="#d4d4d4" fill="none"></path><polygon points="405.405,-62.6656 410.651,-61.9303 406.092,-59.2336 405.405,-62.6656" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node class" id="graph1_3"><g id="a_class|graph1_3"><a xlink:title="slick.jdbc.HsqldbProfile.ModelBuilder" xlink:href="HsqldbProfile$ModelBuilder.html#inheritance-diagram"><polygon points="341.5,-26 240.5,-26 240.5,-0 341.5,-0 341.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="252" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="272" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node3 --><g class="edge inheritance" id="graph1_0_3"><g id="a_inheritance|graph1_0_3"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M429.699,-60.2331C398.712,-49.9041 356.705,-35.9016 327.064,-26.0213" stroke="#d4d4d4" fill="none"></path><polygon points="429.277,-61.9371 434.574,-61.8581 430.384,-58.6167 429.277,-61.9371" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node class" id="graph1_4"><g id="a_class|graph1_4"><a xlink:title="slick.jdbc.MySQLProfile.ModelBuilder" xlink:href="MySQLProfile$ModelBuilder.html#inheritance-diagram"><polygon points="461.5,-26 360.5,-26 360.5,-0 461.5,-0 461.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="372" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="392" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node4 --><g class="edge inheritance" id="graph1_0_4"><g id="a_inheritance|graph1_0_4"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M455.292,-58.2924C445.239,-48.2386 432.39,-35.3904 423.124,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="454.085,-59.56 458.858,-61.8581 456.56,-57.0851 454.085,-59.56" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node class" id="graph1_5"><g id="a_class|graph1_5"><a xlink:title="slick.jdbc.OracleProfile.ModelBuilder" xlink:href="OracleProfile$ModelBuilder.html#inheritance-diagram"><polygon points="581.5,-26 480.5,-26 480.5,-0 581.5,-0 581.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="492" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="512" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node5 --><g class="edge inheritance" id="graph1_0_5"><g id="a_inheritance|graph1_0_5"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M486.708,-58.2924C496.761,-48.2386 509.61,-35.3904 518.876,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="485.44,-57.0851 483.142,-61.8581 487.915,-59.56 485.44,-57.0851" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node6 --><g class="node class" id="graph1_6"><g id="a_class|graph1_6"><a xlink:title="slick.jdbc.PostgresProfile.ModelBuilder" xlink:href="PostgresProfile$ModelBuilder.html#inheritance-diagram"><polygon points="701.5,-26 600.5,-26 600.5,-0 701.5,-0 701.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="612" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="632" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node6 --><g class="edge inheritance" id="graph1_0_6"><g id="a_inheritance|graph1_0_6"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M512.301,-60.2331C543.288,-49.9041 585.295,-35.9016 614.936,-26.0213" stroke="#d4d4d4" fill="none"></path><polygon points="511.616,-58.6167 507.426,-61.8581 512.723,-61.9371 511.616,-58.6167" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node7 --><g class="node class" id="graph1_7"><g id="a_class|graph1_7"><a xlink:title="slick.jdbc.SQLServerProfile.ModelBuilder" xlink:href="SQLServerProfile$ModelBuilder.html#inheritance-diagram"><polygon points="821.5,-26 720.5,-26 720.5,-0 821.5,-0 821.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="732" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="752" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node7 --><g class="edge inheritance" id="graph1_0_7"><g id="a_inheritance|graph1_0_7"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M536.286,-60.9428C591.521,-49.8957 669.558,-34.2883 720.218,-24.1564" stroke="#d4d4d4" fill="none"></path><polygon points="535.908,-59.2336 531.349,-61.9303 536.595,-62.6656 535.908,-59.2336" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node8 --><g class="node class" id="graph1_8"><g id="a_class|graph1_8"><a xlink:title="slick.jdbc.SQLiteProfile.ModelBuilder" xlink:href="SQLiteProfile$ModelBuilder.html#inheritance-diagram"><polygon points="941.5,-26 840.5,-26 840.5,-0 941.5,-0 941.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="852" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="872" text-anchor="start">ModelBuilder</text></a></g></g><!-- node0&#45;&gt;node8 --><g class="edge inheritance" id="graph1_0_8"><g id="a_inheritance|graph1_0_8"><a xlink:title="ModelBuilder is a subtype of JdbcModelBuilder"><path d="M537.265,-66.3747C609.444,-57.7813 728.213,-42.8003 830,-26 833.408,-25.4375 836.917,-24.8282 840.448,-24.1925" stroke="#d4d4d4" fill="none"></path><polygon points="536.908,-64.6547 532.15,-66.9823 537.321,-68.1302 536.908,-64.6547" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node9 --><g class="node trait" id="graph1_9"><g id="a_trait|graph1_9"><a xlink:title="slick.util.Logging" xlink:href="../util/Logging.html#inheritance-diagram"><polygon points="510.25,-150 431.75,-150 431.75,-124 510.25,-124 510.25,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-143" x="444" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="464" text-anchor="start">Logging</text></a></g></g><!-- node9&#45;&gt;node0 --><g class="edge inheritance" id="graph1_9_0"><g id="a_inheritance|graph1_9_0"><a xlink:title="JdbcModelBuilder is a subtype of Logging"><path d="M471,-118.683C471,-108.896 471,-96.9026 471,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="469.25,-118.858 471,-123.858 472.75,-118.858 469.25,-118.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                <li class="group out"><span>Grouped</span></li>
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.jdbc.JdbcModelBuilder"><span>JdbcModelBuilder</span></li><li class="in" name="slick.util.Logging"><span>Logging</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="slick.jdbc.JdbcModelBuilder#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="&lt;init&gt;(mTables:Seq[slick.jdbc.meta.MTable],ignoreInvalidDefaults:Boolean)(implicitec:scala.concurrent.ExecutionContext):slick.jdbc.JdbcModelBuilder"></a>
+      <a id="&lt;init&gt;:JdbcModelBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">JdbcModelBuilder</span><span class="params">(<span name="mTables">mTables: <span class="extype" name="scala.Seq">Seq</span>[<a href="meta/MTable.html" class="extype" name="slick.jdbc.meta.MTable">MTable</a>]</span>, <span name="ignoreInvalidDefaults">ignoreInvalidDefaults: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@&lt;init&gt;(mTables:Seq[slick.jdbc.meta.MTable],ignoreInvalidDefaults:Boolean)(implicitec:scala.concurrent.ExecutionContext):slick.jdbc.JdbcModelBuilder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"></p><div class="fullcomment"><div class="comment cmt"></div><dl class="paramcmts block"><dt class="param">ignoreInvalidDefaults</dt><dd class="cmt"><p>see JdbcModelBuilder#ColumnBuilder#default</p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.jdbc.JdbcModelBuilder.Builders" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BuildersextendsAnyRef"></a>
+      <a id="Builders:Builders"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder$Builders.html"><span class="name">Builders</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@BuildersextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder.ColumnBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Basic customization overrides">
+      <a id="ColumnBuilderextendsAnyRef"></a>
+      <a id="ColumnBuilder:ColumnBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder$ColumnBuilder.html"><span class="name">ColumnBuilder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@ColumnBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Column model builder.</p>
+    </li><li name="slick.jdbc.JdbcModelBuilder.ForeignKeyBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ForeignKeyBuilderextendsAnyRef"></a>
+      <a id="ForeignKeyBuilder:ForeignKeyBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder$ForeignKeyBuilder.html"><span class="name">ForeignKeyBuilder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@ForeignKeyBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder.IndexBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IndexBuilderextendsAnyRef"></a>
+      <a id="IndexBuilder:IndexBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder$IndexBuilder.html"><span class="name">IndexBuilder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@IndexBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder.PrimaryKeyBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PrimaryKeyBuilderextendsAnyRef"></a>
+      <a id="PrimaryKeyBuilder:PrimaryKeyBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder$PrimaryKeyBuilder.html"><span class="name">PrimaryKeyBuilder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@PrimaryKeyBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder.TableBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Basic customization overrides">
+      <a id="TableBuilderextendsAnyRef"></a>
+      <a id="TableBuilder:TableBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder$TableBuilder.html"><span class="name">TableBuilder</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@TableBuilderextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Table model builder</p>
+    </li><li name="slick.jdbc.JdbcModelBuilder.TableNamer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableNamerextendsAnyRef"></a>
+      <a id="TableNamer:TableNamer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcModelBuilder$TableNamer.html"><span class="name">TableNamer</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@TableNamerextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@+(other:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(JdbcModelBuilder,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcModelBuilder#buildModel" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="buildModel:slick.dbio.DBIO[slick.model.Model]"></a>
+      <a id="buildModel:DBIO[Model]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildModel</span><span class="result">: <a href="../dbio/package.html#DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]" class="extmbr" name="slick.dbio.DBIO">DBIO</a>[<a href="../model/Model.html" class="extype" name="slick.model.Model">Model</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@buildModel:slick.dbio.DBIO[slick.model.Model]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a Slick data model from jdbc meta data.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a Slick data model from jdbc meta data. Foreign keys pointing out of the given tables
+are not included.</p></div></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcModelBuilder#createBuilders" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createBuilders(tablesByQName:Map[slick.jdbc.meta.MQName,JdbcModelBuilder.this.TableBuilder]):JdbcModelBuilder.this.Builders"></a>
+      <a id="createBuilders(Map[MQName,TableBuilder]):Builders"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createBuilders</span><span class="params">(<span name="tablesByQName">tablesByQName: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="meta/MQName.html" class="extype" name="slick.jdbc.meta.MQName">MQName</a>, <a href="JdbcModelBuilder$TableBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableBuilder">TableBuilder</a>]</span>)</span><span class="result">: <a href="JdbcModelBuilder$Builders.html" class="extype" name="slick.jdbc.JdbcModelBuilder.Builders">Builders</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@createBuilders(tablesByQName:Map[slick.jdbc.meta.MQName,JdbcModelBuilder.this.TableBuilder]):JdbcModelBuilder.this.Builders" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder#createColumnBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="createColumnBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:slick.jdbc.meta.MColumn):JdbcModelBuilder.this.ColumnBuilder"></a>
+      <a id="createColumnBuilder(TableBuilder,MColumn):ColumnBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createColumnBuilder</span><span class="params">(<span name="tableBuilder">tableBuilder: <a href="JdbcModelBuilder$TableBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableBuilder">TableBuilder</a></span>, <span name="meta">meta: <a href="meta/MColumn.html" class="extype" name="slick.jdbc.meta.MColumn">MColumn</a></span>)</span><span class="result">: <a href="JdbcModelBuilder$ColumnBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.ColumnBuilder">ColumnBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@createColumnBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:slick.jdbc.meta.MColumn):JdbcModelBuilder.this.ColumnBuilder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Column model builder factory.</p><div class="fullcomment"><div class="comment cmt"><p>Column model builder factory. Override for customization.</p></div></div>
+    </li><li name="slick.jdbc.JdbcModelBuilder#createForeignKeyBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createForeignKeyBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:Seq[slick.jdbc.meta.MForeignKey]):JdbcModelBuilder.this.ForeignKeyBuilder"></a>
+      <a id="createForeignKeyBuilder(TableBuilder,Seq[MForeignKey]):ForeignKeyBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createForeignKeyBuilder</span><span class="params">(<span name="tableBuilder">tableBuilder: <a href="JdbcModelBuilder$TableBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableBuilder">TableBuilder</a></span>, <span name="meta">meta: <span class="extype" name="scala.Seq">Seq</span>[<a href="meta/MForeignKey.html" class="extype" name="slick.jdbc.meta.MForeignKey">MForeignKey</a>]</span>)</span><span class="result">: <a href="JdbcModelBuilder$ForeignKeyBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.ForeignKeyBuilder">ForeignKeyBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@createForeignKeyBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:Seq[slick.jdbc.meta.MForeignKey]):JdbcModelBuilder.this.ForeignKeyBuilder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder#createIndexBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createIndexBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:Seq[slick.jdbc.meta.MIndexInfo]):JdbcModelBuilder.this.IndexBuilder"></a>
+      <a id="createIndexBuilder(TableBuilder,Seq[MIndexInfo]):IndexBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createIndexBuilder</span><span class="params">(<span name="tableBuilder">tableBuilder: <a href="JdbcModelBuilder$TableBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableBuilder">TableBuilder</a></span>, <span name="meta">meta: <span class="extype" name="scala.Seq">Seq</span>[<a href="meta/MIndexInfo.html" class="extype" name="slick.jdbc.meta.MIndexInfo">MIndexInfo</a>]</span>)</span><span class="result">: <a href="JdbcModelBuilder$IndexBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.IndexBuilder">IndexBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@createIndexBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:Seq[slick.jdbc.meta.MIndexInfo]):JdbcModelBuilder.this.IndexBuilder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder#createPrimaryKeyBuilder" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createPrimaryKeyBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:Seq[slick.jdbc.meta.MPrimaryKey]):JdbcModelBuilder.this.PrimaryKeyBuilder"></a>
+      <a id="createPrimaryKeyBuilder(TableBuilder,Seq[MPrimaryKey]):PrimaryKeyBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createPrimaryKeyBuilder</span><span class="params">(<span name="tableBuilder">tableBuilder: <a href="JdbcModelBuilder$TableBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableBuilder">TableBuilder</a></span>, <span name="meta">meta: <span class="extype" name="scala.Seq">Seq</span>[<a href="meta/MPrimaryKey.html" class="extype" name="slick.jdbc.meta.MPrimaryKey">MPrimaryKey</a>]</span>)</span><span class="result">: <a href="JdbcModelBuilder$PrimaryKeyBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.PrimaryKeyBuilder">PrimaryKeyBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@createPrimaryKeyBuilder(tableBuilder:JdbcModelBuilder.this.TableBuilder,meta:Seq[slick.jdbc.meta.MPrimaryKey]):JdbcModelBuilder.this.PrimaryKeyBuilder" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder#createTableBuilder" visbl="pub" data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="createTableBuilder(namer:JdbcModelBuilder.this.TableNamer):slick.dbio.DBIO[JdbcModelBuilder.this.TableBuilder]"></a>
+      <a id="createTableBuilder(TableNamer):DBIO[TableBuilder]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createTableBuilder</span><span class="params">(<span name="namer">namer: <a href="JdbcModelBuilder$TableNamer.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableNamer">TableNamer</a></span>)</span><span class="result">: <a href="../dbio/package.html#DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]" class="extmbr" name="slick.dbio.DBIO">DBIO</a>[<a href="JdbcModelBuilder$TableBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableBuilder">TableBuilder</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@createTableBuilder(namer:JdbcModelBuilder.this.TableNamer):slick.dbio.DBIO[JdbcModelBuilder.this.TableBuilder]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Table model builder factory.</p><div class="fullcomment"><div class="comment cmt"><p>Table model builder factory. Override for customization.</p></div></div>
+    </li><li name="slick.jdbc.JdbcModelBuilder#createTableNamer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createTableNamer(meta:slick.jdbc.meta.MTable):JdbcModelBuilder.this.TableNamer"></a>
+      <a id="createTableNamer(MTable):TableNamer"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createTableNamer</span><span class="params">(<span name="meta">meta: <a href="meta/MTable.html" class="extype" name="slick.jdbc.meta.MTable">MTable</a></span>)</span><span class="result">: <a href="JdbcModelBuilder$TableNamer.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableNamer">TableNamer</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@createTableNamer(meta:slick.jdbc.meta.MTable):JdbcModelBuilder.this.TableNamer" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((JdbcModelBuilder)⇒Boolean,⇒Any):JdbcModelBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((JdbcModelBuilder)⇒Boolean):JdbcModelBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):JdbcModelBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):JdbcModelBuilder"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcModelBuilder#jdbcTypeToScala" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="jdbcTypeToScala(jdbcType:Int,typeName:String):scala.reflect.ClassTag[_]"></a>
+      <a id="jdbcTypeToScala(Int,String):ClassTag[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">jdbcTypeToScala</span><span class="params">(<span name="jdbcType">jdbcType: <span class="extype" name="scala.Int">Int</span></span>, <span name="typeName">typeName: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;&quot;</span></span>)</span><span class="result">: <span class="extype" name="scala.reflect.ClassTag">ClassTag</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@jdbcTypeToScala(jdbcType:Int,typeName:String):scala.reflect.ClassTag[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts from java.sql.Types w/ type name to the corresponding Java class name (with fully qualified path).</p>
+    </li><li name="slick.util.Logging#logger" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="logger:slick.util.SlickLogger"></a>
+      <a id="logger:SlickLogger"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">logger</span><span class="result">: <a href="../util/SlickLogger.html" class="extype" name="slick.util.SlickLogger">SlickLogger</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@logger:slick.util.SlickLogger" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcModelBuilder#readColumns" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="readColumns(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Vector[slick.jdbc.meta.MColumn]]"></a>
+      <a id="readColumns(MTable):DBIO[Vector[MColumn]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readColumns</span><span class="params">(<span name="t">t: <a href="meta/MTable.html" class="extype" name="slick.jdbc.meta.MTable">MTable</a></span>)</span><span class="result">: <a href="../dbio/package.html#DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]" class="extmbr" name="slick.dbio.DBIO">DBIO</a>[<span class="extype" name="scala.Vector">Vector</span>[<a href="meta/MColumn.html" class="extype" name="slick.jdbc.meta.MColumn">MColumn</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@readColumns(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Vector[slick.jdbc.meta.MColumn]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Read the column metadata for a table in ordinal position order</p>
+    </li><li name="slick.jdbc.JdbcModelBuilder#readForeignKeys" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="readForeignKeys(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Seq[Seq[slick.jdbc.meta.MForeignKey]]]"></a>
+      <a id="readForeignKeys(MTable):DBIO[Seq[Seq[MForeignKey]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readForeignKeys</span><span class="params">(<span name="t">t: <a href="meta/MTable.html" class="extype" name="slick.jdbc.meta.MTable">MTable</a></span>)</span><span class="result">: <a href="../dbio/package.html#DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]" class="extmbr" name="slick.dbio.DBIO">DBIO</a>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Seq">Seq</span>[<a href="meta/MForeignKey.html" class="extype" name="slick.jdbc.meta.MForeignKey">MForeignKey</a>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@readForeignKeys(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Seq[Seq[slick.jdbc.meta.MForeignKey]]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Read the foreign key metadata for a table grouped by name and in key sequence order</p>
+    </li><li name="slick.jdbc.JdbcModelBuilder#readIndices" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="readIndices(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Seq[Seq[slick.jdbc.meta.MIndexInfo]]]"></a>
+      <a id="readIndices(MTable):DBIO[Seq[Seq[MIndexInfo]]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readIndices</span><span class="params">(<span name="t">t: <a href="meta/MTable.html" class="extype" name="slick.jdbc.meta.MTable">MTable</a></span>)</span><span class="result">: <a href="../dbio/package.html#DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]" class="extmbr" name="slick.dbio.DBIO">DBIO</a>[<span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Seq">Seq</span>[<a href="meta/MIndexInfo.html" class="extype" name="slick.jdbc.meta.MIndexInfo">MIndexInfo</a>]]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@readIndices(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Seq[Seq[slick.jdbc.meta.MIndexInfo]]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Read the index metadata grouped by name and in ordinal position order</p>
+    </li><li name="slick.jdbc.JdbcModelBuilder#readPrimaryKeys" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="readPrimaryKeys(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Vector[slick.jdbc.meta.MPrimaryKey]]"></a>
+      <a id="readPrimaryKeys(MTable):DBIO[Vector[MPrimaryKey]]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">readPrimaryKeys</span><span class="params">(<span name="t">t: <a href="meta/MTable.html" class="extype" name="slick.jdbc.meta.MTable">MTable</a></span>)</span><span class="result">: <a href="../dbio/package.html#DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]" class="extmbr" name="slick.dbio.DBIO">DBIO</a>[<span class="extype" name="scala.Vector">Vector</span>[<a href="meta/MPrimaryKey.html" class="extype" name="slick.jdbc.meta.MPrimaryKey">MPrimaryKey</a>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@readPrimaryKeys(t:slick.jdbc.meta.MTable):slick.dbio.DBIO[Vector[slick.jdbc.meta.MPrimaryKey]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Read the primary key metadata for a table in key sequence order</p>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcModelBuilder#tableNamers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tableNamers:Seq[JdbcModelBuilder.this.TableNamer]"></a>
+      <a id="tableNamers:Seq[TableNamer]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tableNamers</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="JdbcModelBuilder$TableNamer.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableNamer">TableNamer</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@tableNamers:Seq[JdbcModelBuilder.this.TableNamer]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcModelBuilder#tableNamersByQName" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="tableNamersByQName:Map[slick.jdbc.meta.MQName,JdbcModelBuilder.this.TableNamer]"></a>
+      <a id="tableNamersByQName:Map[MQName,TableNamer]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">tableNamersByQName</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<a href="meta/MQName.html" class="extype" name="slick.jdbc.meta.MQName">MQName</a>, <a href="JdbcModelBuilder$TableNamer.html" class="extype" name="slick.jdbc.JdbcModelBuilder.TableNamer">TableNamer</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@tableNamersByQName:Map[slick.jdbc.meta.MQName,JdbcModelBuilder.this.TableNamer]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(JdbcModelBuilder,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcModelBuilder@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.util.Logging">
+              <h3>Inherited from <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Basic customization overrides">
+              <h3>Basic customization overrides</h3>
+              
+            </div><div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>
