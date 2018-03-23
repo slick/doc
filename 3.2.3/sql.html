@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plain SQL Queries</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="userdefined.html"  title="User-Defined Features"  />  <link rel="edit" href="https://github.com/slick/slick/blob/3.2/doc/src/sql.md"  />  <link rel="next" href="orm-to-slick.html"  title="Coming from ORM to Slick"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.2.3</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="userdefined.html"  title="User-Defined Features" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="orm-to-slick.html"  title="Coming from ORM to Slick" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/sql.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="plain-sql-queries" class="a_section" data-magellan-target="plain-sql-queries">Plain SQL Queries<a class="a_hlink" href="#plain-sql-queries"></a></h1>
+<p>Sometimes you may need to write your own SQL code for an operation which is
+not well supported at a higher level of abstraction. Instead of falling back
+to the low level of <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a>, you can use Slick’s <em>Plain SQL</em> queries with a much
+nicer Scala-based API.</p>
+<blockquote class="note">
+<p>The rest of this chapter is based on the <a href="https://typesafe.com/activator/template/slick-plainsql-3.2">Slick Plain SQL Queries template</a>.
+The preferred way of reading this introduction is in <a href="https://typesafe.com/activator">Activator</a>, where you can edit and
+run the code directly while reading the tutorial.</p>
+</blockquote>
+<h2 id="scaffolding" class="a_section" data-magellan-target="scaffolding">Scaffolding<a class="a_hlink" href="#scaffolding"></a></h2>
+<p>The database connection is opened
+<a href="gettingstarted.html#database-configuration">in the usual way</a>. All <em>Plain SQL</em> queries result in
+<a href="api/index.html#slick.dbio.DBIOAction">DBIOAction</a> that can be composed and run like any other action.</p>
+<h2 id="string-interpolation" class="a_section" data-magellan-target="string-interpolation">String Interpolation<a class="a_hlink" href="#string-interpolation"></a></h2>
+<p><em>Plain SQL</em> queries in Slick are built via string interpolation using the <code class="hljs">sql</code>, <code class="hljs">sqlu</code> and
+<code class="hljs">tsql</code> interpolators. They are available through the standard <code class="hljs">api._</code> import from a Slick profile:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L9" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p>You can see the simplest use case in the following methods where the <code class="hljs">sqlu</code> interpolator is used
+with a literal SQL string:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">def createCoffees: DBIO[Int] =
+  sqlu"""create table coffees(
+    name varchar not null,
+    sup_id int not null,
+    price double not null,
+    sales int not null,
+    total int not null,
+    foreign key(sup_id) references suppliers(id))"""
+
+def createSuppliers: DBIO[Int] =
+  sqlu"""create table suppliers(
+    id int not null primary key,
+    name varchar not null,
+    street varchar not null,
+    city varchar not null,
+    state varchar not null,
+    zip varchar not null)"""
+
+def insertSuppliers: DBIO[Unit] = DBIO.seq(
+  // Insert some suppliers
+  sqlu"insert into suppliers values(101, 'Acme, Inc.', '99 Market Street', 'Groundsville', 'CA', '95199')",
+  sqlu"insert into suppliers values(49, 'Superior Coffee', '1 Party Place', 'Mendocino', 'CA', '95460')",
+  sqlu"insert into suppliers values(150, 'The High Ground', '100 Coffee Lane', 'Meadows', 'CA', '93966')"
+)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L62-L85" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p>The <code class="hljs">sqlu</code> interpolator is used for DML statements which produce a row count instead of a result
+set. Therefore they are of type <code class="hljs">DBIO[Int]</code>.</p>
+<p>Any variable or expression injected into a query gets turned into a bind variable in the resulting
+query string. It is not inserted directly into a query string, so there is no danger of SQL
+injection attacks. You can see this used in here:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">insert</span></span>(c: <span class="hljs-type">Coffee</span>): <span class="hljs-type">DBIO</span>[<span class="hljs-type">Int</span>] =
+  <span class="hljs-string">sqlu"insert into coffees values (<span class="hljs-subst">${c.name}</span>, <span class="hljs-subst">${c.supID}</span>, <span class="hljs-subst">${c.price}</span>, <span class="hljs-subst">${c.sales}</span>, <span class="hljs-subst">${c.total}</span>)"</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L90-L91" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p>The SQL statement produced by this method is always the same:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> coffees <span class="hljs-keyword">values</span> (?, ?, ?, ?, ?)
+</code></pre>
+</div></div>
+<p>Note the use of the
+<a href="api/index.html#slick.dbio.DBIOAction$@sequence[R,M[+_]%3C:TraversableOnce[_],E%3C:slick.dbio.Effect](in:M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]],R,M[R]]):slick.dbio.DBIOAction[M[R],slick.dbio.NoStream,E]">DBIO.sequence</a>
+combinator which is useful for this kind of code:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> inserts: <span class="hljs-type">Seq</span>[<span class="hljs-type">DBIO</span>[<span class="hljs-type">Int</span>]] = <span class="hljs-type">Seq</span>(
+  <span class="hljs-type">Coffee</span>(<span class="hljs-string">"Colombian"</span>, <span class="hljs-number">101</span>, <span class="hljs-number">7.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  <span class="hljs-type">Coffee</span>(<span class="hljs-string">"French_Roast"</span>, <span class="hljs-number">49</span>, <span class="hljs-number">8.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  <span class="hljs-type">Coffee</span>(<span class="hljs-string">"Espresso"</span>, <span class="hljs-number">150</span>, <span class="hljs-number">9.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  <span class="hljs-type">Coffee</span>(<span class="hljs-string">"Colombian_Decaf"</span>, <span class="hljs-number">101</span>, <span class="hljs-number">8.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  <span class="hljs-type">Coffee</span>(<span class="hljs-string">"French_Roast_Decaf"</span>, <span class="hljs-number">49</span>, <span class="hljs-number">9.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+).map(insert)
+
+<span class="hljs-keyword">val</span> combined: <span class="hljs-type">DBIO</span>[<span class="hljs-type">Seq</span>[<span class="hljs-type">Int</span>]] = <span class="hljs-type">DBIO</span>.sequence(inserts)
+combined.map(_.sum)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L97-L106" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p>Unlike the simpler
+<a href="api/index.html#slick.dbio.DBIOAction$@seq[E%253C:slick.dbio.Effect](actions:slick.dbio.DBIOAction[_,slick.dbio.NoStream,E]*):slick.dbio.DBIOAction[Unit,slick.dbio.NoStream,E]">DBIO.seq</a>
+combinator which runs a (varargs) sequence of database I/O actions in the given order and discards
+the return values,
+<a href="api/index.html#slick.dbio.DBIOAction$@sequence[R,M[+_]%3C:TraversableOnce[_],E%3C:slick.dbio.Effect](in:M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]],R,M[R]]):slick.dbio.DBIOAction[M[R],slick.dbio.NoStream,E]">DBIO.sequence</a>
+turns a <code class="hljs">Seq[DBIO[T]]</code> into a <code class="hljs">DBIO[Seq[T]]</code>, thus preserving the results of all individual
+actions. It is used here to sum up the affected row counts of all inserts.</p>
+<h2 id="result-sets" class="a_section" data-magellan-target="result-sets">Result Sets<a class="a_hlink" href="#result-sets"></a></h2>
+<p>The following code uses the <code class="hljs">sql</code> interpolator which returns a result set produced by a
+statement. The interpolator by itself does not produce a <code class="hljs">DBIO</code> value. It needs to be
+followed by a call to <code class="hljs">.as</code> to define the row type:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""select c.name, s.name
+      from coffees c, suppliers s
+      where c.price &lt; $price and s.id = c.sup_id""".as[(String, String)]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L120-L122" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p>This results in a <code class="hljs">DBIO[Seq[(String, String)]]</code>. The call to <code class="hljs">as</code> takes an implicit
+<a href="api/index.html#slick.jdbc.GetResult">GetResult</a> parameter which extracts data of the requested type from a result set.
+There are predefined <code class="hljs">GetResult</code> implicits for the standard JDBC types, for Options of those (to
+represent nullable columns) and for tuples of types which have a <code class="hljs">GetResult</code>. For non-standard
+return types you have to define your own converters:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Case classes for our data</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Supplier</span>(<span class="hljs-params">id: <span class="hljs-type">Int</span>, name: <span class="hljs-type">String</span>, street: <span class="hljs-type">String</span>, city: <span class="hljs-type">String</span>, state: <span class="hljs-type">String</span>, zip: <span class="hljs-type">String</span></span>)</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffee</span>(<span class="hljs-params">name: <span class="hljs-type">String</span>, supID: <span class="hljs-type">Int</span>, price: <span class="hljs-type">Double</span>, sales: <span class="hljs-type">Int</span>, total: <span class="hljs-type">Int</span></span>)</span>
+
+<span class="hljs-comment">// Result set getters</span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-keyword">val</span> getSupplierResult = <span class="hljs-type">GetResult</span>(r =&gt; <span class="hljs-type">Supplier</span>(r.nextInt, r.nextString, r.nextString,
+  r.nextString, r.nextString, r.nextString))
+<span class="hljs-keyword">implicit</span> <span class="hljs-keyword">val</span> getCoffeeResult = <span class="hljs-type">GetResult</span>(r =&gt; <span class="hljs-type">Coffee</span>(r.&lt;&lt;, r.&lt;&lt;, r.&lt;&lt;, r.&lt;&lt;, r.&lt;&lt;))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L23-L30" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p><code class="hljs">GetResult[T]</code> is simply a wrapper for a function <code class="hljs">PositionedResult =&gt; T</code>. The implicit val for
+<code class="hljs">Supplier</code> uses the explicit <code class="hljs">PositionedResult</code> methods <code class="hljs">getInt</code> and <code class="hljs">getString</code> to read
+the next <code class="hljs">Int</code> or <code class="hljs">String</code> value in the current row. The second one uses the shortcut method
+<code class="hljs">&lt;&lt;</code> which returns a value of whatever type is expected at this place. (Of course you can only
+use it when the type is actually known like in this constructor call.)</p>
+<h2 id="splicing-literal-values" class="a_section" data-magellan-target="splicing-literal-values">Splicing Literal Values<a class="a_hlink" href="#splicing-literal-values"></a></h2>
+<p>While most parameters should be inserted into SQL statements as bind variables, sometimes you need
+to splice literal values directly into the statement, for example to abstract over table names or
+to run dynamically generated SQL code. You can use <code class="hljs">#$</code> instead of <code class="hljs">$</code> in all interpolators for
+this purpose, as shown in the following piece of code:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> table = <span class="hljs-string">"coffees"</span>
+<span class="hljs-string">sql"select * from #<span class="hljs-subst">$table</span> where name = <span class="hljs-subst">$name</span>"</span>.as[<span class="hljs-type">Coffee</span>].headOption</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L142-L143" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<h2 id="type-checked-sql-statements" class="a_section" data-magellan-target="type-checked-sql-statements">Type-Checked SQL Statements<a class="a_hlink" href="#type-checked-sql-statements"></a></h2>
+<p>The interpolators you have seen so far only construct a SQL statement at runtime. This provides a
+safe and easy way of building statements but they are still just embedded strings. If you have a
+syntax error in a statement or the types don’t match up between the database and your Scala code,
+this cannot be detected at compile-time. You can use the <code class="hljs">tsql</code> interpolator instead of <code class="hljs">sql</code>
+to get just that:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getSuppliers</span></span>(id: <span class="hljs-type">Int</span>): <span class="hljs-type">DBIO</span>[<span class="hljs-type">Seq</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>)]] =
+  <span class="hljs-string">tsql"select * from suppliers where id &gt; <span class="hljs-subst">$id</span>"</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L162-L163" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p>Note that <code class="hljs">tsql</code> directly produces a <code class="hljs">DBIOAction</code> of the correct type without requiring a call
+to <code class="hljs">.as</code>.</p>
+<p>In order to give the compiler access to the database, you have to provide a configuration that can
+be resolved at compile-time. This is done with the <a href="api/index.html#slick.basic.StaticDatabaseConfig">StaticDatabaseConfig</a>
+annotation:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-meta">@StaticDatabaseConfig</span>(<span class="hljs-string">"file:src/main/resources/application.conf#tsql"</span>)
+</code></pre>
+</div></div>
+<p>In this case it points to the path “tsql” in a local <code class="hljs">application.conf</code> file, which must contain
+an appropriate configuration for a <a href="api/index.html#slick.basic.StaticDatabaseConfig">StaticDatabaseConfig</a> object, not just a
+<code class="hljs">Database</code>.</p>
+<blockquote class="note">
+<p>You can get <code class="hljs">application.conf</code> resolved via the classpath (as usual) by omitting the path and
+only specifying a fragment in the URL, or you can use a <code class="hljs">resource:</code> URL scheme for referencing
+an arbitrary classpath resource, but in both cases, they have to be on the <em>compiler‘s</em> own
+classpath, not just the source path or the runtime classpath. Depending on the build tool this
+may not be possible, so it’s usually better to use a relative <code class="hljs">file:</code> URL.</p>
+</blockquote>
+<p>You can also retrieve the statically configured <a href="api/index.html#slick.basic.DatabaseConfig">DatabaseConfig</a> at runtime:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> dc = <span class="hljs-type">DatabaseConfig</span>.forAnnotation[<span class="hljs-type">JdbcProfile</span>]
+<span class="hljs-keyword">import</span> dc.profile.api._
+<span class="hljs-keyword">val</span> db = dc.db</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/PlainSQL.scala#L157-L167" class="a_sourcelink">PlainSQL.scala</a></div></div>
+<p>This gives you the Slick profile for the standard <code class="hljs">api._</code> import and the <code class="hljs">Database</code>. Note that
+it is not mandatory to use the same configuration. You can get a Slick profile and <code class="hljs">Database</code> at
+runtime in any other way you like and only use the <code class="hljs">StaticDatabaseConfig</code> for compile-time
+checking.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="userdefined.html"  title="User-Defined Features" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="orm-to-slick.html"  title="Coming from ORM to Slick" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/sql.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#plain-sql-queries">Plain SQL Queries</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#scaffolding">Scaffolding</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#string-interpolation">String Interpolation</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#result-sets">Result Sets</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#splicing-literal-values">Splicing Literal Values</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#type-checked-sql-statements">Type-Checked SQL Statements</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

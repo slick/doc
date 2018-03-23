@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick TestKit</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="migrations.html"  title="Database Migrations"  />  <link rel="edit" href="https://github.com/slick/slick/blob/3.2/doc/src/testkit.md"  />  <link rel="next" href="documentation.html"  title="Markdown Documentation"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.2.3</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="migrations.html"  title="Database Migrations" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="documentation.html"  title="Markdown Documentation" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/testkit.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="slick-testkit" class="a_section" data-magellan-target="slick-testkit">Slick TestKit<a class="a_hlink" href="#slick-testkit"></a></h1>
+<blockquote class="note">
+<p>This chapter is based on the <a href="https://typesafe.com/activator/template/slick-testkit-example-3.2">Slick TestKit Example template</a>/
+The preferred way of reading this introduction is in <a href="https://typesafe.com/activator">Activator</a>, where you can
+edit and run the code directly while reading the tutorial.</p>
+</blockquote>
+<p>When you write your own database profile for Slick, you need a way to run all
+the standard unit tests on it (in addition to any custom tests you may want to
+add) to ensure that it works correctly and does not claim to support any
+capabilities which are not actually implemented. For this purpose the Slick
+unit tests have been factored out into a separate Slick TestKit project.</p>
+<p>To get started, you can clone the <a href="https://typesafe.com/activator/template/slick-testkit-example-3.2">Slick TestKit Example template</a> which
+contains a copy of Slick’s standard PostgreSQL profile and all the infrastructure
+required to build and test it.</p>
+<h2 id="scaffolding" class="a_section" data-magellan-target="scaffolding">Scaffolding<a class="a_hlink" href="#scaffolding"></a></h2>
+<p>Its <code class="hljs">build.sbt</code> file is straight-forward. Apart from the usual name and
+version settings, it adds the dependencies for Slick, the TestKit,
+junit-interface, Logback and the PostgreSQL JDBC driver, and it sets some
+options for the test runs:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">libraryDependencies ++= <span class="hljs-type">Seq</span>(
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick"</span> % <span class="hljs-string">"3.2.3"</span>,
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick-testkit"</span> % <span class="hljs-string">"3.2.3"</span> % <span class="hljs-string">"test"</span>,
+  <span class="hljs-string">"com.novocode"</span> % <span class="hljs-string">"junit-interface"</span> % <span class="hljs-string">"0.10"</span> % <span class="hljs-string">"test"</span>,
+  <span class="hljs-string">"ch.qos.logback"</span> % <span class="hljs-string">"logback-classic"</span> % <span class="hljs-string">"0.9.28"</span> % <span class="hljs-string">"test"</span>,
+  <span class="hljs-string">"postgresql"</span> % <span class="hljs-string">"postgresql"</span> % <span class="hljs-string">"9.1-901.jdbc4"</span> % <span class="hljs-string">"test"</span>
+)
+
+testOptions += <span class="hljs-type">Tests</span>.<span class="hljs-type">Argument</span>(<span class="hljs-type">TestFrameworks</span>.<span class="hljs-type">JUnit</span>, <span class="hljs-string">"-q"</span>, <span class="hljs-string">"-v"</span>, <span class="hljs-string">"-s"</span>, <span class="hljs-string">"-a"</span>)
+
+parallelExecution in <span class="hljs-type">Test</span> := <span class="hljs-literal">false</span>
+
+logBuffered := <span class="hljs-literal">false</span>
+</code></pre>
+</div></div>
+<p>There is a copy of Slick’s logback configuration in
+<code class="hljs">src/test/resources/logback-test.xml</code> but you can swap out the logging
+framework if you prefer a different one.</p>
+<h2 id="profile" class="a_section" data-magellan-target="profile">Profile<a class="a_hlink" href="#profile"></a></h2>
+<p>The actual profile implementation can be found under <code class="hljs">src/main/scala</code>.</p>
+<h2 id="test-harness" class="a_section" data-magellan-target="test-harness">Test Harness<a class="a_hlink" href="#test-harness"></a></h2>
+<p>In order to run the TestKit tests, you need to add a class that extends
+<code class="hljs">ProfileTest</code>, plus an implementation of <code class="hljs">TestDB</code> which tells the TestKit
+how to connect to a test database, get a list of tables, clean up between
+tests, etc.</p>
+<p>In the case of the PostgreSQL test harness (in <code class="hljs">src/test/slick/jdbc/test/MyPostgresTest.scala</code>)
+most of the default implementations can be used out of the box. Only <code class="hljs">localTables</code> and
+<code class="hljs">getLocalSequences</code> require custom implementations. We also modify the profile’s <code class="hljs">capabilities</code>
+to indicate that our profile does not support the JDBC <code class="hljs">getFunctions</code> call:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-meta">@RunWith</span>(classOf[<span class="hljs-type">Testkit</span>])
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPostgresTest</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ProfileTest</span>(<span class="hljs-params"><span class="hljs-type">MyPostgresTest</span>.tdb</span>)</span>
+
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MyPostgresTest</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tdb</span> </span>= <span class="hljs-keyword">new</span> <span class="hljs-type">ExternalJdbcTestDB</span>(<span class="hljs-string">"mypostgres"</span>) {
+    <span class="hljs-keyword">val</span> profile = <span class="hljs-type">MyPostgresProfile</span>
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">localTables</span></span>(<span class="hljs-keyword">implicit</span> ec: <span class="hljs-type">ExecutionContext</span>): <span class="hljs-type">DBIO</span>[<span class="hljs-type">Vector</span>[<span class="hljs-type">String</span>]] =
+      <span class="hljs-type">ResultSetAction</span>[(<span class="hljs-type">String</span>,<span class="hljs-type">String</span>,<span class="hljs-type">String</span>, <span class="hljs-type">String</span>)](_.conn.getMetaData().getTables(<span class="hljs-string">""</span>, <span class="hljs-string">"public"</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>)).map { ts =&gt;
+        ts.filter(_._4.toUpperCase == <span class="hljs-string">"TABLE"</span>).map(_._3).sorted
+      }
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getLocalSequences</span></span>(<span class="hljs-keyword">implicit</span> session: profile.<span class="hljs-type">Backend</span>#<span class="hljs-type">Session</span>) = {
+      <span class="hljs-keyword">val</span> tables = <span class="hljs-type">ResultSetInvoker</span>[(<span class="hljs-type">String</span>,<span class="hljs-type">String</span>,<span class="hljs-type">String</span>, <span class="hljs-type">String</span>)](_.conn.getMetaData().getTables(<span class="hljs-string">""</span>, <span class="hljs-string">"public"</span>, <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>))
+      tables.buildColl[<span class="hljs-type">List</span>].filter(_._4.toUpperCase == <span class="hljs-string">"SEQUENCE"</span>).map(_._3).sorted
+    }
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">capabilities</span> </span>= <span class="hljs-keyword">super</span>.capabilities - <span class="hljs-type">TestDB</span>.capabilities.jdbcMetaGetFunctions
+  }
+}
+</code></pre>
+</div></div>
+<p>The name of a configuration prefix, in this case <code class="hljs">mypostgres</code>, is passed to <code class="hljs">ExternalJdbcTestDB</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tdb</span> </span>=
+  <span class="hljs-keyword">new</span> <span class="hljs-type">ExternalJdbcTestDB</span>(<span class="hljs-string">"mypostgres"</span>) ...
+</code></pre>
+</div></div>
+<h2 id="database-configuration" class="a_section" data-magellan-target="database-configuration">Database Configuration<a class="a_hlink" href="#database-configuration"></a></h2>
+<p>Since the PostgreSQL test harness is based on <code class="hljs">ExternalJdbcTestDB</code>, it needs to be configured in
+<code class="hljs">test-dbs/testkit.conf</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-yaml">mypostgres.enabled = <span class="hljs-literal">true</span>
+mypostgres.user = myuser
+mypostgres.password = secret
+</code></pre>
+</div></div>
+<p>There are several other configuration options that need to be set for an <code class="hljs">ExternalJdbcTestDB</code>.
+These are defined with suitable defaults in <code class="hljs">testkit-reference.conf</code> so that <code class="hljs">testkit.conf</code> can
+be kept very simple in most cases.</p>
+<h2 id="testing" class="a_section" data-magellan-target="testing">Testing<a class="a_hlink" href="#testing"></a></h2>
+<p>Running <code class="hljs">sbt test</code> discovers <code class="hljs">MyPostgresTest</code> and runs it with TestKit’s
+JUnit runner. This in turn causes the database to be set up through the test
+harness and all tests which are applicable for the profile (as determined by
+the <code class="hljs">capabilities</code> setting in the test harness) to be run.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="migrations.html"  title="Database Migrations" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="documentation.html"  title="Markdown Documentation" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/testkit.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#slick-testkit">Slick TestKit</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#scaffolding">Scaffolding</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#profile">Profile</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#test-harness">Test Harness</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#database-configuration">Database Configuration</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#testing">Testing</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

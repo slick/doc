@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-Defined Features</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="code-generation.html"  title="Schema Code Generation"  />  <link rel="edit" href="https://github.com/slick/slick/blob/3.2/doc/src/userdefined.md"  />  <link rel="next" href="sql.html"  title="Plain SQL Queries"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.2.3</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="code-generation.html"  title="Schema Code Generation" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="sql.html"  title="Plain SQL Queries" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/userdefined.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="user-defined-features" class="a_section" data-magellan-target="user-defined-features">User-Defined Features<a class="a_hlink" href="#user-defined-features"></a></h1>
+<p>This chapter describes how to use custom data types and database functions
+with Slick’s Scala API.</p>
+<blockquote class="note">
+<p>In the code examples below we assume the following imports:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Future</span>, <span class="hljs-type">Await</span>}
+<span class="hljs-keyword">import</span> scala.concurrent.duration.<span class="hljs-type">Duration</span>
+<span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._
+<span class="hljs-keyword">import</span> java.sql.<span class="hljs-type">Date</span>
+<span class="hljs-keyword">import</span> scala.reflect.<span class="hljs-type">ClassTag</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L4-L8" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>If you’re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p>
+</blockquote>
+<h2 id="scalar-database-functions" class="a_section" data-magellan-target="scalar-database-functions">Scalar Database Functions<a class="a_hlink" href="#scalar-database-functions"></a></h2>
+<p>If your database system supports a scalar function that is not available as a method in Slick you can define it as a
+<a href="api/index.html#slick.lifted.SimpleFunction">SimpleFunction</a>. There are predefined methods for creating unary, binary and ternary functions with
+fixed parameter and return types.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// H2 has a day_of_week() function which extracts the day of week from a timestamp</span>
+<span class="hljs-keyword">val</span> dayOfWeek = <span class="hljs-type">SimpleFunction</span>.unary[<span class="hljs-type">Date</span>, <span class="hljs-type">Int</span>](<span class="hljs-string">"day_of_week"</span>)
+
+<span class="hljs-comment">// Use the lifted function in a query to group by day of week</span>
+<span class="hljs-keyword">val</span> q1 = <span class="hljs-keyword">for</span> {
+  (dow, q) &lt;- salesPerDay.map(s =&gt; (dayOfWeek(s.day), s.count)).groupBy(_._1)
+} <span class="hljs-keyword">yield</span> (dow, q.map(_._2).sum)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L463-L469" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>If you need more flexibility regarding the types (e.g. for varargs,
+polymorphic functions, or to support Option and non-Option types in a single
+function), you can use <code class="hljs">SimpleFunction.apply</code> to get an untyped instance and
+write your own wrapper function with the proper type-checking:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dayOfWeek2</span></span>(c: <span class="hljs-type">Rep</span>[<span class="hljs-type">Date</span>]) =
+  <span class="hljs-type">SimpleFunction</span>[<span class="hljs-type">Int</span>](<span class="hljs-string">"day_of_week"</span>).apply(<span class="hljs-type">Seq</span>(c))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L473-L474" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p><a href="api/index.html#slick.lifted.SimpleBinaryOperator">SimpleBinaryOperator</a> and
+<a href="api/index.html#slick.lifted.SimpleLiteral">SimpleLiteral</a> work in a similar way. For even more
+flexibility (e.g. function-like expressions with unusual syntax), you can
+use <a href="api/index.html#slick.lifted.SimpleExpression">SimpleExpression</a>.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> current_date = <span class="hljs-type">SimpleLiteral</span>[java.sql.<span class="hljs-type">Date</span>](<span class="hljs-string">"CURRENT_DATE"</span>)
+salesPerDay.map(_ =&gt; current_date)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L483-L484" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h2 id="other-database-functions-and-stored-procedures" class="a_section" data-magellan-target="other-database-functions-and-stored-procedures">Other Database Functions And Stored Procedures<a class="a_hlink" href="#other-database-functions-and-stored-procedures"></a></h2>
+<p>For database functions that return complete tables or stored procedures please use <a href="sql.html">Plain SQL Queries</a>.
+Stored procedures that return multiple result sets are currently not supported.</p>
+<h2 id="scalar-types" class="a_section" data-magellan-target="scalar-types">Using Custom Scalar Types in Queries<a class="a_hlink" href="#scalar-types"></a></h2>
+<p>If you need a custom column type you can implement
+<a href="api/index.html#slick.jdbc.JdbcProfile@ColumnType[T]:ColumnType[T]">ColumnType</a>. The most
+common scenario is mapping an application-specific type to an already supported type in the database.
+This can be done much simpler by using
+<a href="api/index.html#slick.jdbc.JdbcProfile@MappedColumnType:MappedJdbcType.type">MappedColumnType</a>
+which takes care of all the boilerplate. It comes with the usual import from the profile.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// An algebraic data type for booleans</span>
+<span class="hljs-keyword">sealed</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Bool</span></span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">True</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Bool</span></span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">False</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Bool</span></span>
+
+<span class="hljs-comment">// And a ColumnType that maps it to Int values 1 and 0</span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-keyword">val</span> boolColumnType = <span class="hljs-type">MappedColumnType</span>.base[<span class="hljs-type">Bool</span>, <span class="hljs-type">Int</span>](
+  { b =&gt; <span class="hljs-keyword">if</span>(b == <span class="hljs-type">True</span>) <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> },    <span class="hljs-comment">// map Bool to Int</span>
+  { i =&gt; <span class="hljs-keyword">if</span>(i == <span class="hljs-number">1</span>) <span class="hljs-type">True</span> <span class="hljs-keyword">else</span> <span class="hljs-type">False</span> } <span class="hljs-comment">// map Int to Bool</span>
+)
+
+<span class="hljs-comment">// You can now use Bool like any built-in column type (in tables, queries, etc.)</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L493-L504" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>You can also subclass <a href="api/index.html#slick.jdbc.JdbcProfile@MappedJdbcType">MappedJdbcType</a> for a bit more flexibility.</p>
+<p>If you have a wrapper class (which can optionally be a case class and/or value
+class) for an underlying value of some supported type, you can make it extend
+<a href="api/index.html#slick.lifted.MappedTo">MappedTo</a> to get a macro-generated implicit
+<code class="hljs">ColumnType</code> for free. Such wrapper classes are commonly used for type-safe
+table-specific primary key types:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// A custom ID type for a table</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyID</span>(<span class="hljs-params">value: <span class="hljs-type">Long</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">MappedTo</span>[<span class="hljs-type">Long</span>]</span>
+
+<span class="hljs-comment">// Use it directly for this table's ID -- No extra boilerplate needed</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTable</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">MyID</span>, <span class="hljs-type">String</span>)](<span class="hljs-params">tag, "<span class="hljs-type">MY_TABLE</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">MyID</span>](<span class="hljs-string">"ID"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">data</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"DATA"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id, data)
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L510-L518" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h2 id="record-types" class="a_section" data-magellan-target="record-types">Using Custom Record Types in Queries<a class="a_hlink" href="#record-types"></a></h2>
+<p>Record types are data structures containing a statically known
+number of components with individually declared types.  Out of the box,
+Slick supports Scala tuples (up to arity 22) and Slick’s own
+<a href="api/index.html#slick.collection.heterogeneous.HList">HList</a> implementation. Record
+types can be nested and mixed arbitrarily.</p>
+<p>In order to use custom record types (case classes, custom HLists, tuple-like
+types, etc.) in queries you need to tell Slick how to map them between queries
+and results. You can do that using a <a href="api/index.html#slick.lifted.Shape">Shape</a>
+extending <a href="api/index.html#slick.lifted.MappedScalaProductShape">MappedScalaProductShape</a>.</p>
+<h3 id="polymorphic-types-e.g.-custom-tuple-types-or-hlists" class="a_section" data-magellan-target="polymorphic-types-e.g.-custom-tuple-types-or-hlists">Polymorphic Types (e.g. Custom Tuple Types or HLists)<a class="a_hlink" href="#polymorphic-types-e.g.-custom-tuple-types-or-hlists"></a></h3>
+<p>The distinguishing feature of a <em>polymorphic</em> record type is that it abstracts
+over its element types, so you can use the same record type for both, lifted
+and plain element types. You can add support for custom polymorphic record
+types using an appropriate implicit <a href="api/index.html#slick.lifted.Shape">Shape</a>.</p>
+<p>Here is an example for a type <code class="hljs">Pair</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// A custom record class</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Pair</span>[<span class="hljs-type">A</span>, <span class="hljs-type">B</span>](<span class="hljs-params">a: <span class="hljs-type">A</span>, b: <span class="hljs-type">B</span></span>)</span>
+
+<span class="hljs-comment">// A Shape implementation for Pair</span>
+<span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PairShape</span>[<span class="hljs-type">Level</span> &lt;: <span class="hljs-type">ShapeLevel</span>, <span class="hljs-type">M</span> &lt;: <span class="hljs-type">Pair</span>[_,_], <span class="hljs-title">U</span> <span class="hljs-title">&lt;</span></span>: <span class="hljs-type">Pair</span>[_,_] : <span class="hljs-type">ClassTag</span>, <span class="hljs-type">P</span> &lt;: <span class="hljs-type">Pair</span>[_,_]](
+  <span class="hljs-keyword">val</span> shapes: <span class="hljs-type">Seq</span>[<span class="hljs-type">Shape</span>[_ &lt;: <span class="hljs-type">ShapeLevel</span>, _, _, _]])
+<span class="hljs-keyword">extends</span> <span class="hljs-type">MappedScalaProductShape</span>[<span class="hljs-type">Level</span>, <span class="hljs-type">Pair</span>[_,_], <span class="hljs-type">M</span>, <span class="hljs-type">U</span>, <span class="hljs-type">P</span>] {
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">buildValue</span></span>(elems: <span class="hljs-type">IndexedSeq</span>[<span class="hljs-type">Any</span>]) = <span class="hljs-type">Pair</span>(elems(<span class="hljs-number">0</span>), elems(<span class="hljs-number">1</span>))
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">copy</span></span>(shapes: <span class="hljs-type">Seq</span>[<span class="hljs-type">Shape</span>[_ &lt;: <span class="hljs-type">ShapeLevel</span>, _, _, _]]) = <span class="hljs-keyword">new</span> <span class="hljs-type">PairShape</span>(shapes)
+}
+
+<span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pairShape</span></span>[<span class="hljs-type">Level</span> &lt;: <span class="hljs-type">ShapeLevel</span>, <span class="hljs-type">M1</span>, <span class="hljs-type">M2</span>, <span class="hljs-type">U1</span>, <span class="hljs-type">U2</span>, <span class="hljs-type">P1</span>, <span class="hljs-type">P2</span>](
+  <span class="hljs-keyword">implicit</span> s1: <span class="hljs-type">Shape</span>[_ &lt;: <span class="hljs-type">Level</span>, <span class="hljs-type">M1</span>, <span class="hljs-type">U1</span>, <span class="hljs-type">P1</span>], s2: <span class="hljs-type">Shape</span>[_ &lt;: <span class="hljs-type">Level</span>, <span class="hljs-type">M2</span>, <span class="hljs-type">U2</span>, <span class="hljs-type">P2</span>]
+) = <span class="hljs-keyword">new</span> <span class="hljs-type">PairShape</span>[<span class="hljs-type">Level</span>, <span class="hljs-type">Pair</span>[<span class="hljs-type">M1</span>, <span class="hljs-type">M2</span>], <span class="hljs-type">Pair</span>[<span class="hljs-type">U1</span>, <span class="hljs-type">U2</span>], <span class="hljs-type">Pair</span>[<span class="hljs-type">P1</span>, <span class="hljs-type">P2</span>]](<span class="hljs-type">Seq</span>(s1, s2))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L524-L537" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>The implicit method <code class="hljs">pairShape</code> in this example provides a Shape for a
+<code class="hljs">Pair</code> of two element types whenever Shapes for the individual element
+types are available.</p>
+<p>With these definitions in place, we can use the <code class="hljs">Pair</code> record type in every
+location in Slick where a tuple or <code class="hljs">HList</code> would be acceptable:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Use it in a table definition</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[<span class="hljs-type">Pair</span>[<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>]](<span class="hljs-params">tag, "shape_a"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"id"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"s"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= <span class="hljs-type">Pair</span>(id, s)
+}
+<span class="hljs-keyword">val</span> as = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">A</span>]
+
+<span class="hljs-comment">// Insert data with the custom shape</span>
+<span class="hljs-keyword">val</span> insertAction = <span class="hljs-type">DBIO</span>.seq(
+  as += <span class="hljs-type">Pair</span>(<span class="hljs-number">1</span>, <span class="hljs-string">"a"</span>),
+  as += <span class="hljs-type">Pair</span>(<span class="hljs-number">2</span>, <span class="hljs-string">"c"</span>),
+  as += <span class="hljs-type">Pair</span>(<span class="hljs-number">3</span>, <span class="hljs-string">"b"</span>)
+)
+
+<span class="hljs-comment">// Use it for returning data from a query</span>
+<span class="hljs-keyword">val</span> q2 = as
+  .map { <span class="hljs-keyword">case</span> a =&gt; <span class="hljs-type">Pair</span>(a.id, (a.s ++ a.s)) }
+  .filter { <span class="hljs-keyword">case</span> <span class="hljs-type">Pair</span>(id, _) =&gt; id =!= <span class="hljs-number">1</span> }
+  .sortBy { <span class="hljs-keyword">case</span> <span class="hljs-type">Pair</span>(_, ss) =&gt; ss }
+  .map { <span class="hljs-keyword">case</span> <span class="hljs-type">Pair</span>(id, ss) =&gt; <span class="hljs-type">Pair</span>(id, <span class="hljs-type">Pair</span>(<span class="hljs-number">42</span> , ss)) }
+<span class="hljs-comment">// returns: Vector(Pair(3,Pair(42,"bb")), Pair(2,Pair(42,"cc")))</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L541-L562" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h3 id="monomorphic-case-classes" class="a_section" data-magellan-target="monomorphic-case-classes">Monomorphic Case Classes<a class="a_hlink" href="#monomorphic-case-classes"></a></h3>
+<p>Custom <em>case classes</em> are frequently used as monomorphic record types (i.e.
+record types where the element types are fixed). In order to use them in Slick,
+you need to define the case class for a record of plain values (as usual) plus
+an additional case class for a matching record of lifted values.</p>
+<p>In order to provide a <a href="api/index.html#slick.lifted.Shape">Shape</a> for a custom case class,
+you can use <a href="api/index.html#slick.lifted.CaseClassShape">CaseClassShape</a>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// two custom case class variants</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LiftedB</span>(<span class="hljs-params">a: <span class="hljs-type">Rep</span>[<span class="hljs-type">Int</span>], b: <span class="hljs-type">Rep</span>[<span class="hljs-type">String</span>]</span>)</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">B</span>(<span class="hljs-params">a: <span class="hljs-type">Int</span>, b: <span class="hljs-type">String</span></span>)</span>
+
+<span class="hljs-comment">// custom case class mapping</span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BShape</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CaseClassShape</span>(<span class="hljs-params"><span class="hljs-type">LiftedB</span>.tupled, <span class="hljs-type">B</span>.tupled</span>)</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BRow</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[<span class="hljs-type">B</span>](<span class="hljs-params">tag, "shape_b"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"id"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"s"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= <span class="hljs-type">LiftedB</span>(id, s)
+}
+<span class="hljs-keyword">val</span> bs = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">BRow</span>]
+
+<span class="hljs-keyword">val</span> insertActions = <span class="hljs-type">DBIO</span>.seq(
+  bs += <span class="hljs-type">B</span>(<span class="hljs-number">1</span>, <span class="hljs-string">"a"</span>),
+  bs.map(b =&gt; (b.id, b.s)) += ((<span class="hljs-number">2</span>, <span class="hljs-string">"c"</span>)),
+  bs += <span class="hljs-type">B</span>(<span class="hljs-number">3</span>, <span class="hljs-string">"b"</span>)
+)
+
+<span class="hljs-keyword">val</span> q3 = bs
+  .map { <span class="hljs-keyword">case</span> b =&gt; <span class="hljs-type">LiftedB</span>(b.id, (b.s ++ b.s)) }
+  .filter { <span class="hljs-keyword">case</span> <span class="hljs-type">LiftedB</span>(id, _) =&gt; id =!= <span class="hljs-number">1</span> }
+  .sortBy { <span class="hljs-keyword">case</span> <span class="hljs-type">LiftedB</span>(_, ss) =&gt; ss }
+
+<span class="hljs-comment">// returns: Vector(B(3,"bb"), B(2,"cc"))</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L568-L593" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>Note that this mechanism can be used as an alternative to client-side mappings
+with the <code class="hljs">&lt;&gt;</code> operator. It requires a bit more boilerplate but allows you to use
+the same field names in both, plain and lifted records.</p>
+<h3 id="combining-mapped-types" class="a_section" data-magellan-target="combining-mapped-types">Combining Mapped Types<a class="a_hlink" href="#combining-mapped-types"></a></h3>
+<p>In the following example we are combining a mapped case class and the mapped
+<code class="hljs">Pair</code> type in another mapped case class.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Combining multiple mapped types</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LiftedC</span>(<span class="hljs-params">p: <span class="hljs-type">Pair</span>[<span class="hljs-type">Rep</span>[<span class="hljs-type">Int</span>],<span class="hljs-type">Rep</span>[<span class="hljs-type">String</span>]], b: <span class="hljs-type">LiftedB</span></span>)</span>
+<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>(<span class="hljs-params">p: <span class="hljs-type">Pair</span>[<span class="hljs-type">Int</span>,<span class="hljs-type">String</span>], b: <span class="hljs-type">B</span></span>)</span>
+
+<span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">CShape</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CaseClassShape</span>(<span class="hljs-params"><span class="hljs-type">LiftedC</span>.tupled, <span class="hljs-type">C</span>.tupled</span>)</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CRow</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[<span class="hljs-type">C</span>](<span class="hljs-params">tag, "shape_c"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"id"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">s</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"s"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">projection</span> </span>= <span class="hljs-type">LiftedC</span>(
+    <span class="hljs-type">Pair</span>(column(<span class="hljs-string">"p1"</span>),column(<span class="hljs-string">"p2"</span>)), <span class="hljs-comment">// (cols defined inline, type inferred)</span>
+    <span class="hljs-type">LiftedB</span>(id,s)
+  )
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= projection
+}
+<span class="hljs-keyword">val</span> cs = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">CRow</span>]
+
+<span class="hljs-keyword">val</span> insertActions2 = <span class="hljs-type">DBIO</span>.seq(
+  cs += <span class="hljs-type">C</span>(<span class="hljs-type">Pair</span>(<span class="hljs-number">7</span>,<span class="hljs-string">"x"</span>), <span class="hljs-type">B</span>(<span class="hljs-number">1</span>,<span class="hljs-string">"a"</span>)),
+  cs += <span class="hljs-type">C</span>(<span class="hljs-type">Pair</span>(<span class="hljs-number">8</span>,<span class="hljs-string">"y"</span>), <span class="hljs-type">B</span>(<span class="hljs-number">2</span>,<span class="hljs-string">"c"</span>)),
+  cs += <span class="hljs-type">C</span>(<span class="hljs-type">Pair</span>(<span class="hljs-number">9</span>,<span class="hljs-string">"z"</span>), <span class="hljs-type">B</span>(<span class="hljs-number">3</span>,<span class="hljs-string">"b"</span>))
+)
+
+<span class="hljs-keyword">val</span> q4 = cs
+  .map { <span class="hljs-keyword">case</span> c =&gt; <span class="hljs-type">LiftedC</span>(c.projection.p, <span class="hljs-type">LiftedB</span>(c.id,(c.s ++ c.s))) }
+  .filter { <span class="hljs-keyword">case</span> <span class="hljs-type">LiftedC</span>(_, <span class="hljs-type">LiftedB</span>(id,_)) =&gt; id =!= <span class="hljs-number">1</span> }
+  .sortBy { <span class="hljs-keyword">case</span> <span class="hljs-type">LiftedC</span>(<span class="hljs-type">Pair</span>(_,p2), <span class="hljs-type">LiftedB</span>(_,ss)) =&gt; ss++p2 }
+
+<span class="hljs-comment">// returns: Vector(C(Pair(9,"z"),B(3,"bb")), C(Pair(8,"y"),B(2,"cc")))</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/doc/code/LiftedEmbedding.scala#L598-L626" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="code-generation.html"  title="Schema Code Generation" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="sql.html"  title="Plain SQL Queries" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/userdefined.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#user-defined-features">User-Defined Features</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#scalar-database-functions">Scalar Database Functions</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#other-database-functions-and-stored-procedures">Other Database Functions And Stored Procedures</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#scalar-types">Using Custom Scalar Types in Queries</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#record-types">Using Custom Record Types in Queries</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#polymorphic-types-e.g.-custom-tuple-types-or-hlists">Polymorphic Types (e.g. Custom Tuple Types or HLists)</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#monomorphic-case-classes">Monomorphic Case Classes</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#combining-mapped-types">Combining Mapped Types</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

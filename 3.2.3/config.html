@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="documentation.html"  title="Markdown Documentation"  />  <link rel="edit" href="https://github.com/slick/slick/blob/3.2/doc/src/config.md"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.2.3</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="documentation.html"  title="Markdown Documentation" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Next</span></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/config.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="configuration" class="a_section" data-magellan-target="configuration">Configuration<a class="a_hlink" href="#configuration"></a></h1>
+<p>In addition to configuring your <a href="database.html">database connections</a> in <code class="hljs">application.conf</code> you can also set some
+global options in this file or through system properties (see the <a href="https://github.com/typesafehub/config">Typesafe Config</a> documentation for details).
+These are the available options and their default values as defined in Slick’s own <code class="hljs">reference.conf</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-yaml"><span class="hljs-comment"># These settings are read by slick.util.SlickConfig</span>
+slick {
+  <span class="hljs-comment"># Use ANSI color sequences in tree dumps (as used in log messages and</span>
+  <span class="hljs-comment"># exceptions of type SlickTreeException).</span>
+  ansiDump = <span class="hljs-literal">false</span>
+
+  <span class="hljs-comment"># Use Unicode box characters in tree and table dumps (as used in log</span>
+  <span class="hljs-comment"># messages). If this option is not enabled, ASCII approximations are used</span>
+  <span class="hljs-comment"># instead.</span>
+  unicodeDump = <span class="hljs-literal">false</span>
+
+  <span class="hljs-comment"># Dump individual "Select" and "Ref" nodes instead of combining them into a</span>
+  <span class="hljs-comment"># single "Path" element when creating a tree dump (as used in log messages</span>
+  <span class="hljs-comment"># and exceptions of type SlickTreeException).</span>
+  dumpPaths = <span class="hljs-literal">false</span>
+
+  <span class="hljs-comment"># Use multi-line, indented formatting for SQL statements. If not enabled,</span>
+  <span class="hljs-comment"># statements are generated without any linebreaks or indentation. This</span>
+  <span class="hljs-comment"># option applies to all generated statements (but not to the Plain SQL API).</span>
+  sqlIndent = <span class="hljs-literal">false</span>
+
+  <span class="hljs-comment"># Verify types after each query compiler phase. This is useful for debugging</span>
+  <span class="hljs-comment"># the query compiler but should generally not be enabled in production</span>
+  <span class="hljs-comment"># environments because it makes query compilation considerably slower.</span>
+  verifyTypes = <span class="hljs-literal">false</span>
+
+  <span class="hljs-comment"># Detect unnecessary rebuilding of the AST after every query compiler phase.</span>
+  <span class="hljs-comment"># This is useful for debugging the query compiler. Query compilation</span>
+  <span class="hljs-comment"># performance is negatively affected by this if phase logging is enabled.</span>
+  detectRebuild = <span class="hljs-literal">false</span>
+}
+
+<span class="hljs-comment"># Profile-specific settings for MySQLProfile</span>
+slick.jdbc.MySQLProfile {
+  <span class="hljs-comment"># The default SQL type for strings without an explicit size limit.</span>
+  <span class="hljs-comment"># When set to null / undefined, pick "TEXT" where possible, otherwise fall back</span>
+  <span class="hljs-comment"># to "VARCHAR(254)"</span>
+  defaultStringType = <span class="hljs-literal">null</span>
+}
+
+<span class="hljs-comment"># Profile-specific settings for SQLServerProfile</span>
+slick.jdbc.SQLServerProfile {
+  <span class="hljs-comment"># The default SQL type for strings without an explicit size limit.</span>
+  <span class="hljs-comment"># When set to null / undefined, pick "TEXT" where possible, otherwise fall back to "VARCHAR(254)"</span>
+  defaultStringType = <span class="hljs-literal">null</span>
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/slick/src/main/resources/reference.conf" class="a_sourcelink">reference.conf</a></div></div>
+<h2 id="logging" class="a_section" data-magellan-target="logging">Logging<a class="a_hlink" href="#logging"></a></h2>
+<p>Slick uses <a href="http://www.slf4j.org/">SLF4J</a> for logging. How to configure loggers and appenders depends on the actual logging framework that you
+use in your application. The following <a href="http://logback.qos.ch/">Logback</a> configuration is used internally for testing and debugging of Slick. It
+contains a list of all loggers that are used by Slick for debug output:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"STDOUT"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>*** \(%logger{30}\)%green(%X{debugId}) %msg%n<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.root:-info}"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"STDOUT"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.basic.BasicBackend.action"</span>          <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.action:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.basic.BasicBackend.stream"</span>          <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.stream:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler"</span>                           <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.QueryCompiler"</span>             <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.phases:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.QueryCompilerBenchmark"</span>    <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.bench:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.Inline"</span>                    <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.inline:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.AssignUniqueSymbols"</span>       <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.assignUniqueSymbols:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.InferTypes"</span>                <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.inferTypes:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.ExpandTables"</span>              <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.expandTables:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.EmulateOuterJoins"</span>         <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.emulateOuterJoins:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.ForceOuterBinds"</span>           <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.forceOuterBinds:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.RemoveMappedTypes"</span>         <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.removeMappedTypes:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.CreateResultSetMapping"</span>    <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.createResultSetMapping:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.ExpandSums"</span>                <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.expandSums:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.ExpandRecords"</span>             <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.expandRecords:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.ExpandConditionals"</span>        <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.expandConditionals:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.FlattenProjections"</span>        <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.flattenProjections:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.CreateAggregates"</span>          <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.createAggregates:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.RewriteJoins"</span>              <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.rewriteJoins:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.RemoveTakeDrop"</span>            <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.removeTakeDrop:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.ResolveZipJoins"</span>           <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.resolveZipJoins:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.HoistClientOps"</span>            <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.hoistClientOps:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.ReorderOperations"</span>         <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.reorderOperations:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.MergeToComprehensions"</span>     <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.mergeToComprehensions:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.OptimizeScalar"</span>            <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.optimizeScalar:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.FixRowNumberOrdering"</span>      <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.fixRowNumberOrdering:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.PruneProjections"</span>          <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.pruneProjections:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.RewriteDistinct"</span>           <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.rewriteDistinct:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.RewriteBooleans"</span>           <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.rewriteBooleans:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.SpecializeParameters"</span>      <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.specializeParameters:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.CodeGen"</span>                   <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.codeGen:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.RemoveFieldNames"</span>          <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.removeFieldNames:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.InsertCompiler"</span>            <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.insertCompiler:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.compiler.VerifyTypes"</span>               <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.qcomp.verifyTypes:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.jdbc.DriverDataSource"</span>              <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.jdbc.driver:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.jdbc.JdbcBackend.statement"</span>         <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.jdbc.statement:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.jdbc.JdbcBackend.parameter"</span>         <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.jdbc.parameter:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.jdbc.JdbcBackend.benchmark"</span>         <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.jdbc.bench:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.jdbc.StatementInvoker.result"</span>       <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.jdbc.result:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.jdbc.JdbcModelBuilder"</span>              <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.createModel:-info}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.memory.HeapBackend"</span>                 <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.heap:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.memory.QueryInterpreter"</span>            <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.interpreter:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.relational.ResultConverterCompiler"</span> <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.resultConverter:-inherited}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slick.util.AsyncExecutor"</span>                 <span class="hljs-attr">level</span>=<span class="hljs-string">"${log.asyncExecutor:-inherited}"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.2.3/common-test-resources/logback.xml" class="a_sourcelink">logback.xml</a></div></div>
+<blockquote class="note">
+<p>Messages on WARNING and ERROR levels may also be emitted by loggers that are not explicitly mentioned in this
+configuration.</p>
+</blockquote>
+<p>You should generally enable logging for the root package <code class="hljs">slick</code> at level <code class="hljs">INFO</code> (currently unused)
+or <code class="hljs">WARNING</code>. Debug logging should only be enabled selectively for individual loggers, otherwise you will get a huge
+amount of log output.</p>
+<p>The following loggers are particularly interesting:</p>
+<ul>
+<li>
+<p><code class="hljs">slick.basic.BasicBackend.action</code>:
+Shows the execution of every <a href="dbio.html">Database I/O Action</a>.</p>
+</li>
+<li>
+<p><code class="hljs">slick.compiler.QueryCompiler</code>:
+Shows a dump of the AST after every phase of the query compiler when compiling a query.</p>
+</li>
+<li>
+<p><code class="hljs">slick.jdbc.DriverDataSource</code>:
+Shows information about <a href="http://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> drivers being loaded by <a href="api/index.html#slick.jdbc.DriverDataSource">DriverDataSource</a>. Does not
+apply when using a connection pool unless you explicitly use a DriverDataSource as the source for the connection
+pool.</p>
+</li>
+<li>
+<p><code class="hljs">slick.jdbc.JdbcBackend.statement</code>:
+Shows all SQL statements which are executed.</p>
+</li>
+<li>
+<p><code class="hljs">slick.jdbc.JdbcBackend.parameter</code>:
+Shows bind variable contents (for supported types) of all SQL statements which are executed.</p>
+</li>
+<li>
+<p><code class="hljs">slick.jdbc.JdbcBackend.benchmark</code>:
+Shows execution times for SQL statements.</p>
+</li>
+<li>
+<p><code class="hljs">slick.jdbc.StatementInvoker.result</code>:
+Shows the first rows of the result set when a query is executed. Does not apply to streaming results.</p>
+</li>
+</ul>
+<h2 id="monitoring" class="a_section" data-magellan-target="monitoring">Monitoring<a class="a_hlink" href="#monitoring"></a></h2>
+<p>When a <a href="database.html">Database</a> object has the <code class="hljs">registerMbeans</code> option enabled (see
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forConfig(String,Config,Driver,ClassLoader):Database">Database.forConfig</a>,
+Slick registers a <a href="https://en.wikipedia.org/wiki/Java_Management_Extensions">JMX</a> management bean of type <a href="api/index.html#slick.util.AsyncExecutorMXBean">AsyncExecutorMXBean</a> that provides information about the
+current workload of the database I/O thread pool and the task queue.</p>
+<p>Connection pool implementations may also honor this option and register additional management beans. In particular,
+the default <a href="http://brettwooldridge.github.io/HikariCP/">HikariCP</a> pool implementation does this. See <a href="https://github.com/brettwooldridge/HikariCP/wiki/MBean-(JMX)-Monitoring-and-Management">HikariCP Monitoring</a> in the HikariCP documentation for
+details.</p>
+<p>The management bean names are qualified with the <code class="hljs">poolName</code> from the database configuration, or the config path
+if the <code class="hljs">poolName</code> has not been set explicitly.</p>
+<p>Example: Including the following configuration options in the database configuration</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-yaml">connectionPool = <span class="hljs-string">"HikariCP"</span>
+registerMbeans = <span class="hljs-literal">true</span>
+poolName = <span class="hljs-string">"myDb"</span>
+</code></pre>
+</div></div>
+<p>results in these three management beans being registered:</p>
+<ul>
+<li><code class="hljs">slick:type=AsyncExecutor,name=myDb</code></li>
+<li><code class="hljs">com.zaxxer.hikari:type=PoolConfig (myDb)</code></li>
+<li><code class="hljs">com.zaxxer.hikari:type=Pool (myDb)</code></li>
+</ul>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="documentation.html"  title="Markdown Documentation" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Next</span></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/3.2/doc/src/config.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#configuration">Configuration</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#logging">Logging</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#monitoring">Monitoring</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>
