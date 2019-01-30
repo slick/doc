@@ -1,0 +1,574 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>dbio - Slick 3.3.0 - slick.dbio</title>
+          <meta name="description" content="dbio - Slick 3.3.0 - slick.dbio" />
+          <meta name="keywords" content="dbio Slick 3.3.0 slick.dbio" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.dbio.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a></p>
+        <h1>dbio</h1><span class="permalink">
+      <a href="../../index.html#slick.dbio.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">dbio</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>The <code>dbio</code> package contains the Database I/O Action implementation.
+See <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a> for details.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.3.0/slick/src/main/scala/slick/dbio/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph1" viewBox="0.00 0.00 1701.00 220.00" height="220pt" width="1701pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 216)" class="graph" id="graph0"><polygon points="-4,4 -4,-216 1697,-216 1697,4 -4,4" stroke="none" fill="white"></polygon><!-- node0 --><g class="node trait" id="graph1_0"><g id="a_trait|graph1_0"><a xlink:title="slick.dbio.Streaming" xlink:href="Streaming.html#inheritance-diagram"><polygon points="100.25,-150 -0.25,-150 -0.25,-124 100.25,-124 100.25,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-143" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="32" text-anchor="start">Streaming[T]</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="slick.dbio.NoStream" xlink:href="NoStream.html#inheritance-diagram"><polygon points="94.25,-212 5.75,-212 5.75,-186 94.25,-186 94.25,-212" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-205" x="18" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-196.5" x="38" text-anchor="start">NoStream</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="Streaming[T] is a subtype of NoStream"><path d="M50,-180.683C50,-170.896 50,-158.903 50,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="48.2501,-180.858 50,-185.858 51.7501,-180.858 48.2501,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="slick.dbio.SynchronousDatabaseAction" xlink:href="SynchronousDatabaseAction.html#inheritance-diagram"><polygon points="1559.25,-88 1336.75,-88 1336.75,-62 1559.25,-62 1559.25,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-81" x="1349" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-72.5" x="1369" text-anchor="start">SynchronousDatabaseAction[R, S, B, E]</text></a></g></g><!-- node13 --><g class="node class" id="graph1_13"><g id="a_class|graph1_13"><a xlink:title="slick.dbio.FailureAction" xlink:href="FailureAction.html#inheritance-diagram"><polygon points="1433.25,-26 1330.75,-26 1330.75,-0 1433.25,-0 1433.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1343" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1363" text-anchor="start">FailureAction</text></a></g></g><!-- node2&#45;&gt;node13 --><g class="edge inheritance" id="graph1_2_13"><g id="a_inheritance|graph1_2_13"><a xlink:title="FailureAction is a subtype of SynchronousDatabaseAction[R, S, B, E]"><path d="M1430.72,-58.2924C1419.66,-48.2386 1405.53,-35.3904 1395.34,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="1429.77,-59.7896 1434.64,-61.8581 1432.12,-57.1998 1429.77,-59.7896" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node14 --><g class="node class" id="graph1_14"><g id="a_class|graph1_14"><a xlink:title="slick.dbio.SuccessAction" xlink:href="SuccessAction.html#inheritance-diagram"><polygon points="1575.5,-26 1452.5,-26 1452.5,-0 1575.5,-0 1575.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1464" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1484" text-anchor="start">SuccessAction[R]</text></a></g></g><!-- node2&#45;&gt;node14 --><g class="edge inheritance" id="graph1_2_14"><g id="a_inheritance|graph1_2_14"><a xlink:title="SuccessAction[R] is a subtype of SynchronousDatabaseAction[R, S, B, E]"><path d="M1465.28,-58.2924C1476.34,-48.2386 1490.47,-35.3904 1500.66,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="1463.88,-57.1998 1461.36,-61.8581 1466.23,-59.7896 1463.88,-57.1998" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="slick.dbio.StreamingActionContext" xlink:href="StreamingActionContext.html#inheritance-diagram"><polygon points="1693.25,-150 1542.75,-150 1542.75,-124 1693.25,-124 1693.25,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-143" x="1555" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="1575" text-anchor="start">StreamingActionContext</text></a></g></g><!-- node4 --><g class="node trait" id="graph1_4"><g id="a_trait|graph1_4"><a xlink:title="slick.dbio.ActionContext" xlink:href="ActionContext.html#inheritance-diagram"><polygon points="1671.25,-212 1564.75,-212 1564.75,-186 1671.25,-186 1671.25,-212" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-205" x="1577" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-196.5" x="1597" text-anchor="start">ActionContext</text></a></g></g><!-- node4&#45;&gt;node3 --><g class="edge inheritance" id="graph1_4_3"><g id="a_inheritance|graph1_4_3"><a xlink:title="StreamingActionContext is a subtype of ActionContext"><path d="M1618,-180.683C1618,-170.896 1618,-158.903 1618,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="1616.25,-180.858 1618,-185.858 1619.75,-180.858 1616.25,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node class" id="graph1_5"><g id="a_class|graph1_5"><a xlink:title="slick.dbio.NamedAction" xlink:href="NamedAction.html#inheritance-diagram"><polygon points="261,-150 119,-150 119,-124 261,-124 261,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="131" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="151" text-anchor="start">NamedAction[R, S, E]</text></a></g></g><!-- node6 --><g class="node class" id="graph1_6"><g id="a_class|graph1_6"><a xlink:title="slick.dbio.AsTryAction" xlink:href="AsTryAction.html#inheritance-diagram"><polygon points="402.5,-150 279.5,-150 279.5,-124 402.5,-124 402.5,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="291" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="311" text-anchor="start">AsTryAction[R, E]</text></a></g></g><!-- node7 --><g class="node class" id="graph1_7"><g id="a_class|graph1_7"><a xlink:title="slick.dbio.FailedAction" xlink:href="FailedAction.html#inheritance-diagram"><polygon points="532.5,-150 421.5,-150 421.5,-124 532.5,-124 532.5,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="433" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="453" text-anchor="start">FailedAction[E]</text></a></g></g><!-- node8 --><g class="node class" id="graph1_8"><g id="a_class|graph1_8"><a xlink:title="slick.dbio.CleanUpAction" xlink:href="CleanUpAction.html#inheritance-diagram"><polygon points="699,-150 551,-150 551,-124 699,-124 699,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="563" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="583" text-anchor="start">CleanUpAction[R, S, E]</text></a></g></g><!-- node9 --><g class="node class" id="graph1_9"><g id="a_class|graph1_9"><a xlink:title="slick.dbio.SequenceAction" xlink:href="SequenceAction.html#inheritance-diagram"><polygon points="877,-150 717,-150 717,-124 877,-124 877,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="729" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="749" text-anchor="start">SequenceAction[R, R2, E]</text></a></g></g><!-- node10 --><g class="node class" id="graph1_10"><g id="a_class|graph1_10"><a xlink:title="slick.dbio.AndThenAction" xlink:href="AndThenAction.html#inheritance-diagram"><polygon points="1044.5,-150 895.5,-150 895.5,-124 1044.5,-124 1044.5,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="907" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="927" text-anchor="start">AndThenAction[R, S, E]</text></a></g></g><!-- node11 --><g class="node class" id="graph1_11"><g id="a_class|graph1_11"><a xlink:title="slick.dbio.FlatMapAction" xlink:href="FlatMapAction.html#inheritance-diagram"><polygon points="1220.5,-150 1063.5,-150 1063.5,-124 1220.5,-124 1220.5,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="1075" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="1095" text-anchor="start">FlatMapAction[R, S, P, E]</text></a></g></g><!-- node12 --><g class="node class" id="graph1_12"><g id="a_class|graph1_12"><a xlink:title="slick.dbio.FutureAction" xlink:href="FutureAction.html#inheritance-diagram"><polygon points="1353,-150 1239,-150 1239,-124 1353,-124 1353,-150" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-143" x="1251" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="1271" text-anchor="start">FutureAction[R]</text></a></g></g><!-- node15 --><g class="node trait" id="graph1_15"><g id="a_trait|graph1_15"><a xlink:title="slick.dbio.DatabaseAction" xlink:href="DatabaseAction.html#inheritance-diagram"><polygon points="1524.25,-150 1371.75,-150 1371.75,-124 1524.25,-124 1524.25,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-143" x="1384" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="1404" text-anchor="start">DatabaseAction[R, S, E]</text></a></g></g><!-- node15&#45;&gt;node2 --><g class="edge inheritance" id="graph1_15_2"><g id="a_inheritance|graph1_15_2"><a xlink:title="SynchronousDatabaseAction[R, S, B, E] is a subtype of DatabaseAction[R, S, E]"><path d="M1448,-118.683C1448,-108.896 1448,-96.9026 1448,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="1446.25,-118.858 1448,-123.858 1449.75,-118.858 1446.25,-118.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16 --><g class="node trait" id="graph1_16"><g id="a_trait|graph1_16"><a xlink:title="slick.dbio.DBIOAction" xlink:href="DBIOAction.html#inheritance-diagram"><polygon points="864.25,-212 729.75,-212 729.75,-186 864.25,-186 864.25,-212" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-205" x="742" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-196.5" x="762" text-anchor="start">DBIOAction[R, S, E]</text></a></g></g><!-- node16&#45;&gt;node5 --><g class="edge inheritance" id="graph1_16_5"><g id="a_inheritance|graph1_16_5"><a xlink:title="NamedAction[R, S, E] is a subtype of DBIOAction[R, S, E]"><path d="M724.407,-192.729C622.653,-185.035 431.906,-169.5 270,-150 267.072,-149.647 264.086,-149.272 261.071,-148.879" stroke="#d4d4d4" fill="none"></path><polygon points="724.366,-194.481 729.484,-193.112 724.63,-190.99 724.366,-194.481" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node6 --><g class="edge inheritance" id="graph1_16_6"><g id="a_inheritance|graph1_16_6"><a xlink:title="AsTryAction[R, E] is a subtype of DBIOAction[R, S, E]"><path d="M724.386,-189.898C646.889,-181.03 520.578,-165.936 412,-150 408.908,-149.546 405.742,-149.067 402.548,-148.57" stroke="#d4d4d4" fill="none"></path><polygon points="724.253,-191.644 729.419,-190.473 724.65,-188.167 724.253,-191.644" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node7 --><g class="edge inheritance" id="graph1_16_7"><g id="a_inheritance|graph1_16_7"><a xlink:title="FailedAction[E] is a subtype of DBIOAction[R, S, E]"><path d="M727.411,-184.952C669.052,-174.01 586.806,-158.589 532.722,-148.448" stroke="#d4d4d4" fill="none"></path><polygon points="727.391,-186.729 732.628,-185.93 728.036,-183.289 727.391,-186.729" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node8 --><g class="edge inheritance" id="graph1_16_8"><g id="a_inheritance|graph1_16_8"><a xlink:title="CleanUpAction[R, S, E] is a subtype of DBIOAction[R, S, E]"><path d="M757.169,-184.105C727.595,-173.789 687.668,-159.861 659.461,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="756.896,-185.864 762.193,-185.858 758.049,-182.559 756.896,-185.864" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node9 --><g class="edge inheritance" id="graph1_16_9"><g id="a_inheritance|graph1_16_9"><a xlink:title="SequenceAction[R, R2, E] is a subtype of DBIOAction[R, S, E]"><path d="M797,-180.683C797,-170.896 797,-158.903 797,-150.124" stroke="#d4d4d4" fill="none"></path><polygon points="795.25,-180.858 797,-185.858 798.75,-180.858 795.25,-180.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node10 --><g class="edge inheritance" id="graph1_16_10"><g id="a_inheritance|graph1_16_10"><a xlink:title="AndThenAction[R, S, E] is a subtype of DBIOAction[R, S, E]"><path d="M837.063,-184.105C866.809,-173.789 906.968,-159.861 935.339,-150.021" stroke="#d4d4d4" fill="none"></path><polygon points="836.16,-182.566 832.009,-185.858 837.307,-185.873 836.16,-182.566" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node11 --><g class="edge inheritance" id="graph1_16_11"><g id="a_inheritance|graph1_16_11"><a xlink:title="FlatMapAction[R, S, P, E] is a subtype of DBIOAction[R, S, E]"><path d="M869.33,-185.421C929.215,-175.006 1013.75,-160.305 1072.76,-150.041" stroke="#d4d4d4" fill="none"></path><polygon points="868.965,-183.708 864.338,-186.289 869.564,-187.156 868.965,-183.708" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node12 --><g class="edge inheritance" id="graph1_16_12"><g id="a_inheritance|graph1_16_12"><a xlink:title="FutureAction[R] is a subtype of DBIOAction[R, S, E]"><path d="M869.587,-191.423C955.576,-183.289 1103.06,-168.255 1229,-150 1232.16,-149.542 1235.39,-149.048 1238.66,-148.529" stroke="#d4d4d4" fill="none"></path><polygon points="869.336,-189.689 864.522,-191.901 869.665,-193.174 869.336,-189.689" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16&#45;&gt;node15 --><g class="edge inheritance" id="graph1_16_15"><g id="a_inheritance|graph1_16_15"><a xlink:title="DatabaseAction[R, S, E] is a subtype of DBIOAction[R, S, E]"><path d="M869.568,-193.092C977.224,-185.525 1185.53,-169.794 1362,-150 1365.15,-149.647 1368.35,-149.271 1371.59,-148.879" stroke="#d4d4d4" fill="none"></path><polygon points="869.384,-191.35 864.518,-193.446 869.628,-194.841 869.384,-191.35" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.dbio"><span>dbio</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.dbio.ActionContext" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ActionContextextendsAnyRef"></a>
+      <a id="ActionContext:ActionContext"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ActionContext.html"><span class="name">ActionContext</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@ActionContextextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The base trait for the context object passed to synchronous database actions by the execution
+engine.</p>
+    </li><li name="slick.dbio.AndThenAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="AndThenAction[R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable"></a>
+      <a id="AndThenAction[R,+S&lt;:NoStream,-E&lt;:Effect]:AndThenAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AndThenAction.html"><span class="name">AndThenAction</span></a><span class="tparams">[<span name="R">R</span>, <span name="S">+S &lt;: <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="as">as: <span class="extype" name="scala.IndexedSeq">IndexedSeq</span>[<a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Any">Any</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.AndThenAction.E">E</span>]]</span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.AndThenAction.R">R</span>, <span class="extype" name="slick.dbio.AndThenAction.S">S</span>, <span class="extype" name="slick.dbio.AndThenAction.E">E</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@AndThenAction[R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that represents a <code>seq</code> or <code>andThen</code> operation for sequencing in the DBIOAction
+monad.</p><div class="fullcomment"><div class="comment cmt"><p>A DBIOAction that represents a <code>seq</code> or <code>andThen</code> operation for sequencing in the DBIOAction
+monad. Unlike <code>SequenceAction</code> it only keeps the last result.</p></div></div>
+    </li><li name="slick.dbio.AsTryAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AsTryAction[+R,-E&lt;:slick.dbio.Effect]extendsDBIOAction[scala.util.Try[R],slick.dbio.NoStream,E]withProductwithSerializable"></a>
+      <a id="AsTryAction[+R,-E&lt;:Effect]:AsTryAction[R,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="AsTryAction.html"><span class="name">AsTryAction</span></a><span class="tparams">[<span name="R">+R</span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="a">a: <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.AsTryAction.R">R</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.AsTryAction.E">E</span>]</span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="slick.dbio.AsTryAction.R">R</span>], <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.AsTryAction.E">E</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@AsTryAction[+R,-E&lt;:slick.dbio.Effect]extendsDBIOAction[scala.util.Try[R],slick.dbio.NoStream,E]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that represents an <code>asTry</code> operation.</p>
+    </li><li name="slick.dbio.CleanUpAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CleanUpAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable"></a>
+      <a id="CleanUpAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:CleanUpAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CleanUpAction.html"><span class="name">CleanUpAction</span></a><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="base">base: <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.CleanUpAction.R">R</span>, <span class="extype" name="slick.dbio.CleanUpAction.S">S</span>, <span class="extype" name="slick.dbio.CleanUpAction.E">E</span>]</span>, <span name="f">f: (<span class="extype" name="scala.Option">Option</span>[<span class="extype" name="scala.Throwable">Throwable</span>]) ⇒ <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[_, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.CleanUpAction.E">E</span>]</span>, <span name="keepFailure">keepFailure: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="executor">executor: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.CleanUpAction.R">R</span>, <span class="extype" name="slick.dbio.CleanUpAction.S">S</span>, <span class="extype" name="slick.dbio.CleanUpAction.E">E</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@CleanUpAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that represents a <code>cleanUp</code> operation for sequencing in the DBIOAction monad.</p>
+    </li><li name="slick.dbio.DBIO" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]"></a>
+      <a id="DBIO[+R]:DBIO[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DBIO</span><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> = <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.DBIO.R">R</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="Effect$$All.html" class="extype" name="slick.dbio.Effect.All">All</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@DBIO[+R]=slick.dbio.DBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect.All]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Simplified type for a <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a> without streaming or effect tracking</p>
+    </li><li name="slick.dbio.DBIOAction" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DBIOAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDumpable"></a>
+      <a id="DBIOAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:DBIOAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DBIOAction.html"><span class="name">DBIOAction</span></a><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> extends <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@DBIOAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDumpable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Database I/O Action that can be executed on a database.</p><div class="fullcomment"><div class="comment cmt"><p>A Database I/O Action that can be executed on a database. The DBIOAction type allows a
+separation of execution logic and resource usage management logic from composition logic.
+DBIOActions can be composed with methods such as <code>andThen</code>, <code>andFinally</code> and <code>flatMap</code>.
+Individual parts of a composite DBIOAction are always executed serially on a single database,
+but possibly in different database sessions, unless the session is pinned either explicitly
+(using <code>withPinnedSession</code>) or implicitly (e.g. through a transaction).</p><p>The actual implementation base type for all Actions is <code>DBIOAction</code>. <code>StreamingDBIO</code> and
+<code>DBIO</code> are type aliases which discard the effect type (and the streaming result type in the
+latter case) to make DBIOAction types easier to write when these features are not needed. All
+primitive DBIOActions and all DBIOActions produced by the standard combinators in Slick have
+correct Effect types and are streaming (if possible).
+</p></div><dl class="paramcmts block"><dt class="tparam">R</dt><dd class="cmt"><p>The result type when executing the DBIOAction and fully materializing the result.</p></dd><dt class="tparam">S</dt><dd class="cmt"><p>An encoding of the result type for streaming results. If this action is capable of
+          streaming, it is <code>Streaming[T]</code> for an element type <code>T</code>. For non-streaming
+          DBIOActions it is <code>NoStream</code>.</p></dd><dt class="tparam">E</dt><dd class="cmt"><p>The DBIOAction's effect type, e.g. <code>Effect.Read with Effect.Write</code>. When composing
+          actions, the correct combined effect type will be inferred. Effects can be used in
+          user code, e.g. to automatically direct all read-only Actions to a slave database
+          and write Actions to the master copy.</p></dd></dl></div>
+    </li><li name="slick.dbio.DatabaseAction" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DatabaseAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]"></a>
+      <a id="DatabaseAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:DatabaseAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DatabaseAction.html"><span class="name">DatabaseAction</span></a><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.DatabaseAction.R">R</span>, <span class="extype" name="slick.dbio.DatabaseAction.S">S</span>, <span class="extype" name="slick.dbio.DatabaseAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@DatabaseAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that represents a database operation.</p><div class="fullcomment"><div class="comment cmt"><p>A DBIOAction that represents a database operation. Concrete implementations are backend-specific.</p></div></div>
+    </li><li name="slick.dbio.Effect" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="EffectextendsAnyRef"></a>
+      <a id="Effect:Effect"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Effect.html"><span class="name">Effect</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@EffectextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A phantom type for annotating DBIOActions with specific effects (e.g.</p><div class="fullcomment"><div class="comment cmt"><p>A phantom type for annotating DBIOActions with specific effects (e.g. <code>Write</code> or
+<code>Transactional</code>). Effects can be composed through intersection types (e.g.
+<code>Write with Transactional</code>. The standard Slick back-ends do not restrict the evaluation of
+actions based on effects but they can be used in user-level code (e.g. for ensuring that all
+writes go to a master database but reads can also be performed by a slave).</p></div></div>
+    </li><li name="slick.dbio.FailedAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FailedAction[-E&lt;:slick.dbio.Effect]extendsDBIOAction[Throwable,slick.dbio.NoStream,E]withProductwithSerializable"></a>
+      <a id="FailedAction[-E&lt;:Effect]:FailedAction[E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FailedAction.html"><span class="name">FailedAction</span></a><span class="tparams">[<span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="a">a: <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[_, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.FailedAction.E">E</span>]</span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="scala.Throwable">Throwable</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.FailedAction.E">E</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@FailedAction[-E&lt;:slick.dbio.Effect]extendsDBIOAction[Throwable,slick.dbio.NoStream,E]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that represents a <code>failed</code> operation.</p>
+    </li><li name="slick.dbio.FailureAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FailureActionextendsSynchronousDatabaseAction[Nothing,slick.dbio.NoStream,slick.basic.BasicBackend,slick.dbio.Effect]withProductwithSerializable"></a>
+      <a id="FailureAction:FailureAction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FailureAction.html"><span class="name">FailureAction</span></a><span class="params">(<span name="t">t: <span class="extype" name="scala.Throwable">Throwable</span></span>)</span><span class="result"> extends <a href="SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Nothing">Nothing</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../basic/BasicBackend.html" class="extype" name="slick.basic.BasicBackend">BasicBackend</a>, <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@FailureActionextendsSynchronousDatabaseAction[Nothing,slick.dbio.NoStream,slick.basic.BasicBackend,slick.dbio.Effect]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that fails.</p>
+    </li><li name="slick.dbio.FlatMapAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FlatMapAction[+R,+S&lt;:slick.dbio.NoStream,P,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable"></a>
+      <a id="FlatMapAction[+R,+S&lt;:NoStream,P,-E&lt;:Effect]:FlatMapAction[R,S,P,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FlatMapAction.html"><span class="name">FlatMapAction</span></a><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="P">P</span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="base">base: <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.FlatMapAction.P">P</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.FlatMapAction.E">E</span>]</span>, <span name="f">f: (<span class="extype" name="slick.dbio.FlatMapAction.P">P</span>) ⇒ <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.FlatMapAction.R">R</span>, <span class="extype" name="slick.dbio.FlatMapAction.S">S</span>, <span class="extype" name="slick.dbio.FlatMapAction.E">E</span>]</span>, <span name="executor">executor: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.FlatMapAction.R">R</span>, <span class="extype" name="slick.dbio.FlatMapAction.S">S</span>, <span class="extype" name="slick.dbio.FlatMapAction.E">E</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@FlatMapAction[+R,+S&lt;:slick.dbio.NoStream,P,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that represents a <code>flatMap</code> operation for sequencing in the DBIOAction monad.</p>
+    </li><li name="slick.dbio.FutureAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FutureAction[+R]extendsDBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect]withProductwithSerializable"></a>
+      <a id="FutureAction[+R]:FutureAction[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="FutureAction.html"><span class="name">FutureAction</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="params">(<span name="f">f: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="slick.dbio.FutureAction.R">R</span>]</span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.FutureAction.R">R</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@FutureAction[+R]extendsDBIOAction[R,slick.dbio.NoStream,slick.dbio.Effect]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An asynchronous DBIOAction that returns the result of a Future.</p>
+    </li><li name="slick.dbio.NamedAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="NamedAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable"></a>
+      <a id="NamedAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:NamedAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="NamedAction.html"><span class="name">NamedAction</span></a><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="a">a: <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.NamedAction.R">R</span>, <span class="extype" name="slick.dbio.NamedAction.S">S</span>, <span class="extype" name="slick.dbio.NamedAction.E">E</span>]</span>, <span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.NamedAction.R">R</span>, <span class="extype" name="slick.dbio.NamedAction.S">S</span>, <span class="extype" name="slick.dbio.NamedAction.E">E</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@NamedAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R,S,E]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that attaches a name for logging purposes to another action.</p>
+    </li><li name="slick.dbio.NoStream" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="NoStreamextendsAnyRef"></a>
+      <a id="NoStream:NoStream"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="NoStream.html"><span class="name">NoStream</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@NoStreamextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A phantom type used as the streaming result type for DBIOActions that do not support streaming.</p><div class="fullcomment"><div class="comment cmt"><p>A phantom type used as the streaming result type for DBIOActions that do not support streaming.
+Note that this is a supertype of <code>Streaming</code> (and it is used in covariant position),
+so that any streaming action can be used where a non-streaming action is expected.</p></div></div>
+    </li><li name="slick.dbio.SequenceAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SequenceAction[R,+R2,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R2,slick.dbio.NoStream,E]withProductwithSerializable"></a>
+      <a id="SequenceAction[R,+R2,-E&lt;:Effect]:SequenceAction[R,R2,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SequenceAction.html"><span class="name">SequenceAction</span></a><span class="tparams">[<span name="R">R</span>, <span name="R2">+R2</span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="params">(<span name="as">as: <span class="extype" name="scala.IndexedSeq">IndexedSeq</span>[<a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.SequenceAction.R">R</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.SequenceAction.E">E</span>]]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="cbf">cbf: <span class="extype" name="scala.collection.generic.CanBuild">CanBuild</span>[<span class="extype" name="slick.dbio.SequenceAction.R">R</span>, <span class="extype" name="slick.dbio.SequenceAction.R2">R2</span>]</span>)</span><span class="result"> extends <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.SequenceAction.R2">R2</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <span class="extype" name="slick.dbio.SequenceAction.E">E</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@SequenceAction[R,+R2,-E&lt;:slick.dbio.Effect]extendsDBIOAction[R2,slick.dbio.NoStream,E]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that represents a <code>sequence</code> or operation for sequencing in the DBIOAction monad.</p>
+    </li><li name="slick.dbio.Streaming" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Streaming[+T]extendsNoStream"></a>
+      <a id="Streaming[+T]:Streaming[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Streaming.html"><span class="name">Streaming</span></a><span class="tparams">[<span name="T">+T</span>]</span><span class="result"> extends <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@Streaming[+T]extendsNoStream" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A phantom type used as the streaming result type for DBIOActions that do support streaming.</p>
+    </li><li name="slick.dbio.StreamingActionContext" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="StreamingActionContextextendsActionContext"></a>
+      <a id="StreamingActionContext:StreamingActionContext"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamingActionContext.html"><span class="name">StreamingActionContext</span></a><span class="result"> extends <a href="ActionContext.html" class="extype" name="slick.dbio.ActionContext">ActionContext</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@StreamingActionContextextendsActionContext" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An ActionContext with extra functionality required for streaming DBIOActions.</p>
+    </li><li name="slick.dbio.StreamingDBIO" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamingDBIO[+R,+T]=slick.dbio.DBIOAction[R,slick.dbio.Streaming[T],slick.dbio.Effect.All]"></a>
+      <a id="StreamingDBIO[+R,+T]:StreamingDBIO[R,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">StreamingDBIO</span><span class="tparams">[<span name="R">+R</span>, <span name="T">+T</span>]</span><span class="result"> = <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>[<span class="extype" name="slick.dbio.StreamingDBIO.R">R</span>, <a href="Streaming.html" class="extype" name="slick.dbio.Streaming">Streaming</a>[<span class="extype" name="slick.dbio.StreamingDBIO.T">T</span>], <a href="Effect$$All.html" class="extype" name="slick.dbio.Effect.All">All</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@StreamingDBIO[+R,+T]=slick.dbio.DBIOAction[R,slick.dbio.Streaming[T],slick.dbio.Effect.All]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Simplified type for a streaming <a href="DBIOAction.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a> without effect tracking</p>
+    </li><li name="slick.dbio.SuccessAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SuccessAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,slick.basic.BasicBackend,slick.dbio.Effect]withProductwithSerializable"></a>
+      <a id="SuccessAction[+R]:SuccessAction[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SuccessAction.html"><span class="name">SuccessAction</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="params">(<span name="value">value: <span class="extype" name="slick.dbio.SuccessAction.R">R</span></span>)</span><span class="result"> extends <a href="SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="slick.dbio.SuccessAction.R">R</span>, <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../basic/BasicBackend.html" class="extype" name="slick.basic.BasicBackend">BasicBackend</a>, <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@SuccessAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,slick.basic.BasicBackend,slick.dbio.Effect]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A DBIOAction that returns a constant value.</p>
+    </li><li name="slick.dbio.SynchronousDatabaseAction" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SynchronousDatabaseAction[+R,+S&lt;:slick.dbio.NoStream,-B&lt;:slick.basic.BasicBackend,-E&lt;:slick.dbio.Effect]extendsDatabaseAction[R,S,E]"></a>
+      <a id="SynchronousDatabaseAction[+R,+S&lt;:NoStream,-B&lt;:BasicBackend,-E&lt;:Effect]:SynchronousDatabaseAction[R,S,B,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SynchronousDatabaseAction.html"><span class="name">SynchronousDatabaseAction</span></a><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="B">-B &lt;: <a href="../basic/BasicBackend.html" class="extype" name="slick.basic.BasicBackend">BasicBackend</a></span>, <span name="E">-E &lt;: <a href="Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> extends <a href="DatabaseAction.html" class="extype" name="slick.dbio.DatabaseAction">DatabaseAction</a>[<span class="extype" name="slick.dbio.SynchronousDatabaseAction.R">R</span>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.S">S</span>, <span class="extype" name="slick.dbio.SynchronousDatabaseAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@SynchronousDatabaseAction[+R,+S&lt;:slick.dbio.NoStream,-B&lt;:slick.basic.BasicBackend,-E&lt;:slick.dbio.Effect]extendsDatabaseAction[R,S,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A synchronous database action provides a function from an <code>ActionContext</code> to the result
+type.</p><div class="fullcomment"><div class="comment cmt"><p>A synchronous database action provides a function from an <code>ActionContext</code> to the result
+type. <code>BasicBackend.DatabaseDef.run</code> supports this kind of action out of the box
+through <code>BasicBackend.DatabaseDef.runSynchronousDatabaseAction</code> so that <code>run</code> does not
+need to be extended if all primitive database actions can be expressed in this way. These
+actions also implement construction-time fusion for the <code>andFinally</code>, <code>andThen</code>, <code>asTry</code>,
+<code>failed</code>, <code>withPinnedSession</code> and <code>zip</code> operations.</p><p>The execution engine ensures that an <a href="ActionContext.html" class="extype" name="slick.dbio.ActionContext">ActionContext</a> is never used concurrently and that
+all state changes performed by one invocation of a SynchronousDatabaseAction are visible
+to the next invocation of the same or a different SynchronousDatabaseAction.</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="slick.dbio#DBIO" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DBIO:slick.dbio.DBIOAction.type"></a>
+      <a id="DBIO:DBIOAction.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DBIO</span><span class="result">: <a href="DBIOAction$.html" class="extype" name="slick.dbio.DBIOAction">DBIOAction</a>.type</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@DBIO:slick.dbio.DBIOAction.type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.dbio.DBIOAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DBIOAction"></a>
+      <a id="DBIOAction:DBIOAction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DBIOAction$.html"><span class="name">DBIOAction</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@DBIOAction" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.dbio.Effect" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Effect"></a>
+      <a id="Effect:Effect"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Effect$.html"><span class="name">Effect</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@Effect" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.dbio.SynchronousDatabaseAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SynchronousDatabaseAction"></a>
+      <a id="SynchronousDatabaseAction:SynchronousDatabaseAction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SynchronousDatabaseAction$.html"><span class="name">SynchronousDatabaseAction</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.dbio.package@SynchronousDatabaseAction" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>

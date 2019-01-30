@@ -1,0 +1,1446 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>JdbcActionComponent - Slick 3.3.0 - slick.jdbc.JdbcActionComponent</title>
+          <meta name="description" content="JdbcActionComponent - Slick 3.3.0 - slick.jdbc.JdbcActionComponent" />
+          <meta name="keywords" content="JdbcActionComponent Slick 3.3.0 slick.jdbc.JdbcActionComponent" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.jdbc.JdbcActionComponent';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Trait" src="../../lib/trait_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a>.<a href="package.html" class="extype" name="slick.jdbc">jdbc</a></p>
+        <h1>JdbcActionComponent</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="slick.jdbc">package jdbc</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">JdbcActionComponent</span><span class="result"> extends <a href="../sql/SqlActionComponent.html" class="extype" name="slick.sql.SqlActionComponent">SqlActionComponent</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Self Type</dt><dd><a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a></dd><dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.3.0/slick/src/main/scala/slick/jdbc/JdbcActionComponent.scala" target="_blank">JdbcActionComponent.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../sql/SqlActionComponent.html" class="extype" name="slick.sql.SqlActionComponent">SqlActionComponent</a>, <a href="../relational/RelationalActionComponent.html" class="extype" name="slick.relational.RelationalActionComponent">RelationalActionComponent</a>, <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="DB2Profile$.html" class="extype" name="slick.jdbc.DB2Profile">DB2Profile</a>, <a href="DB2Profile.html" class="extype" name="slick.jdbc.DB2Profile">DB2Profile</a>, <a href="DerbyProfile.html" class="extype" name="slick.jdbc.DerbyProfile">DerbyProfile</a>, <a href="DerbyProfile$.html" class="extype" name="slick.jdbc.DerbyProfile">DerbyProfile</a>, <a href="H2Profile.html" class="extype" name="slick.jdbc.H2Profile">H2Profile</a>, <a href="H2Profile$.html" class="extype" name="slick.jdbc.H2Profile">H2Profile</a>, <a href="HsqldbProfile.html" class="extype" name="slick.jdbc.HsqldbProfile">HsqldbProfile</a>, <a href="HsqldbProfile$.html" class="extype" name="slick.jdbc.HsqldbProfile">HsqldbProfile</a>, <a href="JdbcProfile.html" class="extype" name="slick.jdbc.JdbcProfile">JdbcProfile</a>, <a href="MySQLProfile$.html" class="extype" name="slick.jdbc.MySQLProfile">MySQLProfile</a>, <a href="MySQLProfile.html" class="extype" name="slick.jdbc.MySQLProfile">MySQLProfile</a>, <a href="OracleProfile.html" class="extype" name="slick.jdbc.OracleProfile">OracleProfile</a>, <a href="OracleProfile$.html" class="extype" name="slick.jdbc.OracleProfile">OracleProfile</a>, <a href="PostgresProfile$.html" class="extype" name="slick.jdbc.PostgresProfile">PostgresProfile</a>, <a href="PostgresProfile.html" class="extype" name="slick.jdbc.PostgresProfile">PostgresProfile</a>, <a href="SQLServerProfile.html" class="extype" name="slick.jdbc.SQLServerProfile">SQLServerProfile</a>, <a href="SQLServerProfile$.html" class="extype" name="slick.jdbc.SQLServerProfile">SQLServerProfile</a>, <a href="SQLiteProfile.html" class="extype" name="slick.jdbc.SQLiteProfile">SQLiteProfile</a>, <a href="SQLiteProfile$.html" class="extype" name="slick.jdbc.SQLiteProfile">SQLiteProfile</a></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 200.00 158.00" height="158pt" width="200pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 154)" class="graph" id="graph0"><polygon points="-4,4 -4,-154 196,-154 196,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph1_0"><g id="a_this trait|graph1_0"><a xlink:title="slick.jdbc.JdbcActionComponent (this trait)" xlink:href="#inheritance-diagram"><polygon points="167.25,-88 24.75,-88 24.75,-62 167.25,-62 167.25,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-81" x="37" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-72.5" x="57" text-anchor="start">JdbcActionComponent</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="slick.jdbc.JdbcProfile" xlink:href="JdbcProfile.html#inheritance-diagram"><polygon points="142.25,-26 49.75,-26 49.75,-0 142.25,-0 142.25,-26" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-19" x="62" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="82" text-anchor="start">JdbcProfile</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="JdbcProfile is a subtype of JdbcActionComponent"><path d="M96,-56.6826C96,-46.8961 96,-34.9026 96,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="94.2501,-56.8581 96,-61.8581 97.7501,-56.8581 94.2501,-56.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node trait" id="graph1_2"><g id="a_trait|graph1_2"><a xlink:title="slick.sql.SqlActionComponent" xlink:href="../sql/SqlActionComponent.html#inheritance-diagram"><polygon points="164.25,-150 27.75,-150 27.75,-124 164.25,-124 164.25,-150" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-143" x="40" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-134.5" x="60" text-anchor="start">SqlActionComponent</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="JdbcActionComponent is a subtype of SqlActionComponent"><path d="M96,-118.683C96,-108.896 96,-96.9026 96,-88.1238" stroke="#d4d4d4" fill="none"></path><polygon points="94.2501,-118.858 96,-123.858 97.7501,-118.858 94.2501,-118.858" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.jdbc.JdbcActionComponent"><span>JdbcActionComponent</span></li><li class="in" name="slick.sql.SqlActionComponent"><span>SqlActionComponent</span></li><li class="in" name="slick.relational.RelationalActionComponent"><span>RelationalActionComponent</span></li><li class="in" name="slick.basic.BasicActionComponent"><span>BasicActionComponent</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.jdbc.JdbcActionComponent.CountingInsertActionComposer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]"></a>
+      <a id="CountingInsertActionComposer[U]:JdbcProfile.CountingInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$CountingInsertActionComposer.html"><span class="name">CountingInsertActionComposer</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcProfile.html#InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.InsertActionComposer">JdbcProfile.InsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.CountingInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An InsertInvoker that returns the number of affected rows.</p>
+    </li><li name="slick.jdbc.JdbcActionComponent.CountingInsertActionComposerImpl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CountingInsertActionComposerImpl[U]extendsJdbcActionComponent.this.InsertActionComposerImpl[U]withJdbcActionComponent.this.CountingInsertActionComposer[U]"></a>
+      <a id="CountingInsertActionComposerImpl[U]:JdbcProfile.CountingInsertActionComposerImpl[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$CountingInsertActionComposerImpl.html"><span class="name">CountingInsertActionComposerImpl</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcProfile.html#InsertActionComposerImpl[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.InsertActionComposerImpl">JdbcProfile.InsertActionComposerImpl</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.CountingInsertActionComposerImpl.U">U</span>] with <a href="JdbcProfile.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.CountingInsertActionComposer">JdbcProfile.CountingInsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.CountingInsertActionComposerImpl.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@CountingInsertActionComposerImpl[U]extendsJdbcActionComponent.this.InsertActionComposerImpl[U]withJdbcActionComponent.this.CountingInsertActionComposer[U]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.DeleteActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DeleteActionExtensionMethods=JdbcActionComponent.this.DeleteActionExtensionMethodsImpl"></a>
+      <a id="DeleteActionExtensionMethods:JdbcProfile.DeleteActionExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DeleteActionExtensionMethods</span><span class="result"> = <a href="JdbcProfile.html#DeleteActionExtensionMethodsImplextendsAnyRef" class="extmbr" name="slick.jdbc.JdbcActionComponent.DeleteActionExtensionMethodsImpl">JdbcProfile.DeleteActionExtensionMethodsImpl</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@DeleteActionExtensionMethods=JdbcActionComponent.this.DeleteActionExtensionMethodsImpl" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.DeleteActionExtensionMethodsImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DeleteActionExtensionMethodsImplextendsAnyRef"></a>
+      <a id="DeleteActionExtensionMethodsImpl:JdbcProfile.DeleteActionExtensionMethodsImpl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$DeleteActionExtensionMethodsImpl.html"><span class="name">DeleteActionExtensionMethodsImpl</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@DeleteActionExtensionMethodsImplextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.InsertActionComposer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]"></a>
+      <a id="InsertActionComposer[U]:JdbcProfile.InsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$InsertActionComposer.html"><span class="name">InsertActionComposer</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcProfile.html#SimpleInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionExtensionMethodsImpl[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.SimpleInsertActionComposer">JdbcProfile.SimpleInsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.InsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods to generate the JDBC-specific insert actions.</p>
+    </li><li name="slick.jdbc.JdbcActionComponent.InsertActionComposerImpl" visbl="prt" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="InsertActionComposerImpl[U]extendsJdbcActionComponent.this.InsertActionComposer[U]"></a>
+      <a id="InsertActionComposerImpl[U]:JdbcProfile.InsertActionComposerImpl[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$InsertActionComposerImpl.html"><span class="name">InsertActionComposerImpl</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcProfile.html#InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.InsertActionComposer">JdbcProfile.InsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.InsertActionComposerImpl.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@InsertActionComposerImpl[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.InsertActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="InsertActionExtensionMethods[T]=JdbcActionComponent.this.CountingInsertActionComposer[T]"></a>
+      <a id="InsertActionExtensionMethods[T]:JdbcProfile.InsertActionExtensionMethods[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">InsertActionExtensionMethods</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="JdbcProfile.html#CountingInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.CountingInsertActionComposer">JdbcProfile.CountingInsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.InsertActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@InsertActionExtensionMethods[T]=JdbcActionComponent.this.CountingInsertActionComposer[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../relational/RelationalActionComponent.html" class="extype" name="slick.relational.RelationalActionComponent">RelationalActionComponent</a></dd></dl></div>
+    </li><li name="slick.relational.RelationalActionComponent.InsertActionExtensionMethodsImpl" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="InsertActionExtensionMethodsImpl[T]extendsAnyRef"></a>
+      <a id="InsertActionExtensionMethodsImpl[T]:RelationalProfile.InsertActionExtensionMethodsImpl[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../relational/RelationalActionComponent$InsertActionExtensionMethodsImpl.html"><span class="name">InsertActionExtensionMethodsImpl</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.relational.RelationalActionComponent@InsertActionExtensionMethodsImpl[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../relational/RelationalActionComponent.html" class="extype" name="slick.relational.RelationalActionComponent">RelationalActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.IntoInsertActionComposer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="IntoInsertActionComposer[U,RU]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]"></a>
+      <a id="IntoInsertActionComposer[U,RU]:JdbcProfile.IntoInsertActionComposer[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$IntoInsertActionComposer.html"><span class="name">IntoInsertActionComposer</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="JdbcProfile.html#SimpleInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionExtensionMethodsImpl[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.SimpleInsertActionComposer">JdbcProfile.SimpleInsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.IntoInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@IntoInsertActionComposer[U,RU]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An InsertActionComposer that returns a mapping of the inserted and generated data.</p>
+    </li><li name="slick.jdbc.JdbcActionComponent.JdbcActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="JdbcActionExtensionMethods[E&lt;:slick.dbio.Effect,R,S&lt;:slick.dbio.NoStream]extendsAnyRef"></a>
+      <a id="JdbcActionExtensionMethods[E&lt;:Effect,R,S&lt;:NoStream]:JdbcProfile.JdbcActionExtensionMethods[E,R,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$JdbcActionExtensionMethods.html"><span class="name">JdbcActionExtensionMethods</span></a><span class="tparams">[<span name="E">E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>, <span name="R">R</span>, <span name="S">S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@JdbcActionExtensionMethods[E&lt;:slick.dbio.Effect,R,S&lt;:slick.dbio.NoStream]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.MutatingResultAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MutatingResultAction[T]extendsSynchronousDatabaseAction[Nothing,slick.dbio.Streaming[slick.jdbc.ResultSetMutator[T]],JdbcActionComponent.this.Backend,slick.dbio.Effect]withJdbcActionComponent.this.ProfileAction[Nothing,slick.dbio.Streaming[slick.jdbc.ResultSetMutator[T]],slick.dbio.Effect]"></a>
+      <a id="MutatingResultAction[T]:JdbcProfile.MutatingResultAction[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$MutatingResultAction.html"><span class="name">MutatingResultAction</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Nothing">Nothing</span>, <a href="../dbio/Streaming.html" class="extype" name="slick.dbio.Streaming">Streaming</a>[<a href="ResultSetMutator.html" class="extype" name="slick.jdbc.ResultSetMutator">ResultSetMutator</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.MutatingResultAction.T">T</span>]], <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>] with <a href="JdbcProfile.html#ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlAction[R,S,E]" class="extmbr" name="slick.jdbc.JdbcProfile.ProfileAction">JdbcProfile.ProfileAction</a>[<span class="extype" name="scala.Nothing">Nothing</span>, <a href="../dbio/Streaming.html" class="extype" name="slick.dbio.Streaming">Streaming</a>[<a href="ResultSetMutator.html" class="extype" name="slick.jdbc.ResultSetMutator">ResultSetMutator</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.MutatingResultAction.T">T</span>]], <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@MutatingResultAction[T]extendsSynchronousDatabaseAction[Nothing,slick.dbio.Streaming[slick.jdbc.ResultSetMutator[T]],JdbcActionComponent.this.Backend,slick.dbio.Effect]withJdbcActionComponent.this.ProfileAction[Nothing,slick.dbio.Streaming[slick.jdbc.ResultSetMutator[T]],slick.dbio.Effect]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.ProfileAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlAction[R,S,E]"></a>
+      <a id="ProfileAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:JdbcProfile.ProfileAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ProfileAction</span><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="../sql/FixedSqlAction.html" class="extype" name="slick.sql.FixedSqlAction">FixedSqlAction</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.ProfileAction.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.ProfileAction.S">S</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.ProfileAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlAction[R,S,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../sql/SqlActionComponent.html" class="extype" name="slick.sql.SqlActionComponent">SqlActionComponent</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.PushStatementParameters" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PushStatementParametersextendsSynchronousDatabaseAction[Unit,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]"></a>
+      <a id="PushStatementParameters:JdbcProfile.PushStatementParameters"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$PushStatementParameters.html"><span class="name">PushStatementParameters</span></a><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Unit">Unit</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@PushStatementParametersextendsSynchronousDatabaseAction[Unit,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream]=JdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,S]"></a>
+      <a id="QueryActionExtensionMethods[R,S&lt;:NoStream]:JdbcProfile.QueryActionExtensionMethods[R,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">QueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="S">S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>]</span><span class="result"> = <a href="JdbcProfile.html#QueryActionExtensionMethodsImpl[R,S&lt;:slick.dbio.NoStream]extendsJdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,S]" class="extmbr" name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethodsImpl">JdbcProfile.QueryActionExtensionMethodsImpl</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethods.S">S</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@QueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream]=JdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,S]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethodsImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryActionExtensionMethodsImpl[R,S&lt;:slick.dbio.NoStream]extendsJdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,S]"></a>
+      <a id="QueryActionExtensionMethodsImpl[R,S&lt;:NoStream]:JdbcProfile.QueryActionExtensionMethodsImpl[R,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$QueryActionExtensionMethodsImpl.html"><span class="name">QueryActionExtensionMethodsImpl</span></a><span class="tparams">[<span name="R">R</span>, <span name="S">S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>]</span><span class="result"> extends <span class="extype" name="slick.basic.BasicActionComponent.QueryActionExtensionMethodsImpl">JdbcProfile.QueryActionExtensionMethodsImpl</span>[<span class="extype" name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethodsImpl.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethodsImpl.S">S</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@QueryActionExtensionMethodsImpl[R,S&lt;:slick.dbio.NoStream]extendsJdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,S]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ReturningInsertActionComposer[U,RU]extendsJdbcActionComponent.this.InsertActionComposer[U]withJdbcActionComponent.this.IntoInsertActionComposer[U,RU]"></a>
+      <a id="ReturningInsertActionComposer[U,RU]:JdbcProfile.ReturningInsertActionComposer[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$ReturningInsertActionComposer.html"><span class="name">ReturningInsertActionComposer</span></a><span class="tparams">[<span name="U">U</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="JdbcProfile.html#InsertActionComposer[U]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.InsertActionComposer">JdbcProfile.InsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposer.U">U</span>] with <a href="JdbcProfile.html#IntoInsertActionComposer[U,RU]extendsJdbcActionComponent.this.SimpleInsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.IntoInsertActionComposer">JdbcProfile.IntoInsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposer.U">U</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposer.RU">RU</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ReturningInsertActionComposer[U,RU]extendsJdbcActionComponent.this.InsertActionComposer[U]withJdbcActionComponent.this.IntoInsertActionComposer[U,RU]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An InsertActionComposer that returns generated keys or other columns.</p>
+    </li><li name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposerImpl" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ReturningInsertActionComposerImpl[U,QR,RU]extendsJdbcActionComponent.this.InsertActionComposerImpl[U]withJdbcActionComponent.this.ReturningInsertActionComposer[U,RU]"></a>
+      <a id="ReturningInsertActionComposerImpl[U,QR,RU]:JdbcProfile.ReturningInsertActionComposerImpl[U,QR,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$ReturningInsertActionComposerImpl.html"><span class="name">ReturningInsertActionComposerImpl</span></a><span class="tparams">[<span name="U">U</span>, <span name="QR">QR</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="JdbcProfile.html#InsertActionComposerImpl[U]extendsJdbcActionComponent.this.InsertActionComposer[U]" class="extmbr" name="slick.jdbc.JdbcActionComponent.InsertActionComposerImpl">JdbcProfile.InsertActionComposerImpl</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposerImpl.U">U</span>] with <a href="JdbcProfile.html#ReturningInsertActionComposer[U,RU]extendsJdbcActionComponent.this.InsertActionComposer[U]withJdbcActionComponent.this.IntoInsertActionComposer[U,RU]" class="extmbr" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposer">JdbcProfile.ReturningInsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposerImpl.U">U</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposerImpl.RU">RU</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ReturningInsertActionComposerImpl[U,QR,RU]extendsJdbcActionComponent.this.InsertActionComposerImpl[U]withJdbcActionComponent.this.ReturningInsertActionComposer[U,RU]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.SchemaActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SchemaActionExtensionMethods=JdbcActionComponent.this.SchemaActionExtensionMethodsImpl"></a>
+      <a id="SchemaActionExtensionMethods:JdbcProfile.SchemaActionExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SchemaActionExtensionMethods</span><span class="result"> = <a href="JdbcProfile.html#SchemaActionExtensionMethodsImplextendsJdbcActionComponent.this.SchemaActionExtensionMethodsImpl" class="extmbr" name="slick.jdbc.JdbcActionComponent.SchemaActionExtensionMethodsImpl">JdbcProfile.SchemaActionExtensionMethodsImpl</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@SchemaActionExtensionMethods=JdbcActionComponent.this.SchemaActionExtensionMethodsImpl" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../relational/RelationalActionComponent.html" class="extype" name="slick.relational.RelationalActionComponent">RelationalActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.SchemaActionExtensionMethodsImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SchemaActionExtensionMethodsImplextendsJdbcActionComponent.this.SchemaActionExtensionMethodsImpl"></a>
+      <a id="SchemaActionExtensionMethodsImpl:JdbcProfile.SchemaActionExtensionMethodsImpl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$SchemaActionExtensionMethodsImpl.html"><span class="name">SchemaActionExtensionMethodsImpl</span></a><span class="result"> extends <span class="extype" name="slick.relational.RelationalActionComponent.SchemaActionExtensionMethodsImpl">JdbcProfile.SchemaActionExtensionMethodsImpl</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@SchemaActionExtensionMethodsImplextendsJdbcActionComponent.this.SchemaActionExtensionMethodsImpl" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.SetTransactionIsolation" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]"></a>
+      <a id="SetTransactionIsolation:JdbcProfile.SetTransactionIsolation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$SetTransactionIsolation.html"><span class="name">SetTransactionIsolation</span></a><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Int">Int</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@SetTransactionIsolationextendsSynchronousDatabaseAction[Int,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.SimpleInsertActionComposer" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionExtensionMethodsImpl[U]"></a>
+      <a id="SimpleInsertActionComposer[U]:JdbcProfile.SimpleInsertActionComposer[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$SimpleInsertActionComposer.html"><span class="name">SimpleInsertActionComposer</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="JdbcProfile.html#InsertActionExtensionMethodsImpl[T]extendsAnyRef" class="extmbr" name="slick.relational.RelationalActionComponent.InsertActionExtensionMethodsImpl">JdbcProfile.InsertActionExtensionMethodsImpl</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.SimpleInsertActionComposer.U">U</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@SimpleInsertActionComposer[U]extendsJdbcActionComponent.this.InsertActionExtensionMethodsImpl[U]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods to generate the JDBC-specific insert actions.</p>
+    </li><li name="slick.jdbc.JdbcActionComponent.SimpleJdbcProfileAction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleJdbcProfileAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]withJdbcActionComponent.this.ProfileAction[R,slick.dbio.NoStream,slick.dbio.Effect]"></a>
+      <a id="SimpleJdbcProfileAction[+R]:JdbcProfile.SimpleJdbcProfileAction[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$SimpleJdbcProfileAction.html"><span class="name">SimpleJdbcProfileAction</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.SimpleJdbcProfileAction.R">R</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>] with <a href="JdbcProfile.html#ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlAction[R,S,E]" class="extmbr" name="slick.jdbc.JdbcProfile.ProfileAction">JdbcProfile.ProfileAction</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.SimpleJdbcProfileAction.R">R</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@SimpleJdbcProfileAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,JdbcActionComponent.this.Backend,slick.dbio.Effect]withJdbcActionComponent.this.ProfileAction[R,slick.dbio.NoStream,slick.dbio.Effect]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.StreamingProfileAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamingProfileAction[+R,+T,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlStreamingAction[R,T,E]"></a>
+      <a id="StreamingProfileAction[+R,+T,-E&lt;:Effect]:JdbcProfile.StreamingProfileAction[R,T,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">StreamingProfileAction</span><span class="tparams">[<span name="R">+R</span>, <span name="T">+T</span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="../sql/FixedSqlStreamingAction.html" class="extype" name="slick.sql.FixedSqlStreamingAction">FixedSqlStreamingAction</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingProfileAction.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingProfileAction.T">T</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingProfileAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@StreamingProfileAction[+R,+T,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlStreamingAction[R,T,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../sql/SqlActionComponent.html" class="extype" name="slick.sql.SqlActionComponent">SqlActionComponent</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamingQueryActionExtensionMethods[R,T]=JdbcActionComponent.this.StreamingQueryActionExtensionMethodsImpl[R,T]"></a>
+      <a id="StreamingQueryActionExtensionMethods[R,T]:JdbcProfile.StreamingQueryActionExtensionMethods[R,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">StreamingQueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="T">T</span>]</span><span class="result"> = <a href="JdbcProfile.html#StreamingQueryActionExtensionMethodsImpl[R,T]extendsJdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,slick.dbio.Streaming[T]]withJdbcActionComponent.this.StreamingQueryActionExtensionMethodsImpl[R,T]" class="extmbr" name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethodsImpl">JdbcProfile.StreamingQueryActionExtensionMethodsImpl</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@StreamingQueryActionExtensionMethods[R,T]=JdbcActionComponent.this.StreamingQueryActionExtensionMethodsImpl[R,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethodsImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamingQueryActionExtensionMethodsImpl[R,T]extendsJdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,slick.dbio.Streaming[T]]withJdbcActionComponent.this.StreamingQueryActionExtensionMethodsImpl[R,T]"></a>
+      <a id="StreamingQueryActionExtensionMethodsImpl[R,T]:JdbcProfile.StreamingQueryActionExtensionMethodsImpl[R,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$StreamingQueryActionExtensionMethodsImpl.html"><span class="name">StreamingQueryActionExtensionMethodsImpl</span></a><span class="tparams">[<span name="R">R</span>, <span name="T">T</span>]</span><span class="result"> extends <a href="JdbcProfile.html#QueryActionExtensionMethodsImpl[R,S&lt;:slick.dbio.NoStream]extendsJdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,S]" class="extmbr" name="slick.jdbc.JdbcActionComponent.QueryActionExtensionMethodsImpl">JdbcProfile.QueryActionExtensionMethodsImpl</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethodsImpl.R">R</span>, <a href="../dbio/Streaming.html" class="extype" name="slick.dbio.Streaming">Streaming</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethodsImpl.T">T</span>]] with <span class="extype" name="slick.basic.BasicActionComponent.StreamingQueryActionExtensionMethodsImpl">JdbcProfile.StreamingQueryActionExtensionMethodsImpl</span>[<span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethodsImpl.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.StreamingQueryActionExtensionMethodsImpl.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@StreamingQueryActionExtensionMethodsImpl[R,T]extendsJdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,slick.dbio.Streaming[T]]withJdbcActionComponent.this.StreamingQueryActionExtensionMethodsImpl[R,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.UpdateActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpdateActionExtensionMethods[T]=JdbcActionComponent.this.UpdateActionExtensionMethodsImpl[T]"></a>
+      <a id="UpdateActionExtensionMethods[T]:JdbcProfile.UpdateActionExtensionMethods[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UpdateActionExtensionMethods</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="JdbcProfile.html#UpdateActionExtensionMethodsImpl[T]extendsAnyRef" class="extmbr" name="slick.jdbc.JdbcActionComponent.UpdateActionExtensionMethodsImpl">JdbcProfile.UpdateActionExtensionMethodsImpl</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.UpdateActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@UpdateActionExtensionMethods[T]=JdbcActionComponent.this.UpdateActionExtensionMethodsImpl[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent.UpdateActionExtensionMethodsImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UpdateActionExtensionMethodsImpl[T]extendsAnyRef"></a>
+      <a id="UpdateActionExtensionMethodsImpl[T]:JdbcProfile.UpdateActionExtensionMethodsImpl[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$UpdateActionExtensionMethodsImpl.html"><span class="name">UpdateActionExtensionMethodsImpl</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@UpdateActionExtensionMethodsImpl[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.basic.BasicActionComponent.DriverAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.ProfileAction[R,S,E]"></a>
+      <a id="DriverAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:JdbcProfile.DriverAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use ProfileAction instead of DriverAction">DriverAction</span><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="JdbcProfile.html#ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlAction[R,S,E]" class="extmbr" name="slick.jdbc.JdbcProfile.ProfileAction">JdbcProfile.ProfileAction</a>[<span class="extype" name="slick.basic.BasicActionComponent.DriverAction.R">R</span>, <span class="extype" name="slick.basic.BasicActionComponent.DriverAction.S">S</span>, <span class="extype" name="slick.basic.BasicActionComponent.DriverAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.ProfileAction[R,S,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>ProfileAction</code> instead of <code>DriverAction</code></p></dd></dl></div>
+    </li><li name="slick.basic.BasicActionComponent.StreamingDriverAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamingDriverAction[+R,+T,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.StreamingProfileAction[R,T,E]"></a>
+      <a id="StreamingDriverAction[+R,+T,-E&lt;:Effect]:JdbcProfile.StreamingDriverAction[R,T,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use StreamingProfileAction instead of StreamingDriverAction">StreamingDriverAction</span><span class="tparams">[<span name="R">+R</span>, <span name="T">+T</span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="JdbcProfile.html#StreamingProfileAction[+R,+T,-E&lt;:slick.dbio.Effect]=slick.sql.FixedSqlStreamingAction[R,T,E]" class="extmbr" name="slick.jdbc.JdbcProfile.StreamingProfileAction">JdbcProfile.StreamingProfileAction</a>[<span class="extype" name="slick.basic.BasicActionComponent.StreamingDriverAction.R">R</span>, <span class="extype" name="slick.basic.BasicActionComponent.StreamingDriverAction.T">T</span>, <span class="extype" name="slick.basic.BasicActionComponent.StreamingDriverAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@StreamingDriverAction[+R,+T,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.StreamingProfileAction[R,T,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>StreamingProfileAction</code> instead of <code>StreamingDriverAction</code></p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@+(other:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(JdbcActionComponent,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.Commit" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Commit"></a>
+      <a id="Commit:Commit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$Commit$.html"><span class="name">Commit</span></a><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Unit">Unit</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@Commit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.PopStatementParameters" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PopStatementParameters"></a>
+      <a id="PopStatementParameters:PopStatementParameters"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$PopStatementParameters$.html"><span class="name">PopStatementParameters</span></a><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Unit">Unit</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@PopStatementParameters" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.Rollback" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Rollback"></a>
+      <a id="Rollback:Rollback"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$Rollback$.html"><span class="name">Rollback</span></a><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Unit">Unit</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@Rollback" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent.StartTransaction" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StartTransaction"></a>
+      <a id="StartTransaction:StartTransaction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="JdbcActionComponent$StartTransaction$.html"><span class="name">StartTransaction</span></a><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="scala.Unit">Unit</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="JdbcProfile.html#Backend=slick.jdbc.JdbcBackend" class="extmbr" name="slick.jdbc.JdbcProfile.Backend">Backend</a>, <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@StartTransaction" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#createDeleteActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createDeleteActionExtensionMethods(tree:slick.ast.Node,param:Any):JdbcActionComponent.this.DeleteActionExtensionMethods"></a>
+      <a id="createDeleteActionExtensionMethods(Node,Any):JdbcProfile.DeleteActionExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createDeleteActionExtensionMethods</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcProfile.html#DeleteActionExtensionMethods=JdbcActionComponent.this.DeleteActionExtensionMethodsImpl" class="extmbr" name="slick.jdbc.JdbcProfile.DeleteActionExtensionMethods">JdbcProfile.DeleteActionExtensionMethods</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@createDeleteActionExtensionMethods(tree:slick.ast.Node,param:Any):JdbcActionComponent.this.DeleteActionExtensionMethods" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent#createInsertActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createInsertActionExtensionMethods[T](compiled:JdbcActionComponent.this.CompiledInsert):JdbcActionComponent.this.InsertActionExtensionMethods[T]"></a>
+      <a id="createInsertActionExtensionMethods[T](CompiledInsert):JdbcProfile.InsertActionExtensionMethods[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createInsertActionExtensionMethods</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="compiled">compiled: <a href="JdbcProfile.html#CompiledInsert=JdbcProfile.this.JdbcCompiledInsert" class="extmbr" name="slick.jdbc.JdbcProfile.CompiledInsert">CompiledInsert</a></span>)</span><span class="result">: <a href="JdbcProfile.html#InsertActionExtensionMethods[T]=JdbcActionComponent.this.CountingInsertActionComposer[T]" class="extmbr" name="slick.jdbc.JdbcProfile.InsertActionExtensionMethods">JdbcProfile.InsertActionExtensionMethods</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.createInsertActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@createInsertActionExtensionMethods[T](compiled:JdbcActionComponent.this.CompiledInsert):JdbcActionComponent.this.InsertActionExtensionMethods[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../relational/RelationalActionComponent.html" class="extype" name="slick.relational.RelationalActionComponent">RelationalActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#createQueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createQueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream](tree:slick.ast.Node,param:Any):JdbcActionComponent.this.QueryActionExtensionMethods[R,S]"></a>
+      <a id="createQueryActionExtensionMethods[R,S&lt;:NoStream](Node,Any):JdbcProfile.QueryActionExtensionMethods[R,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="S">S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcProfile.html#QueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream]=JdbcActionComponent.this.QueryActionExtensionMethodsImpl[R,S]" class="extmbr" name="slick.jdbc.JdbcProfile.QueryActionExtensionMethods">JdbcProfile.QueryActionExtensionMethods</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.createQueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.createQueryActionExtensionMethods.S">S</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@createQueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream](tree:slick.ast.Node,param:Any):JdbcActionComponent.this.QueryActionExtensionMethods[R,S]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#createReturningInsertActionComposer" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createReturningInsertActionComposer[U,QR,RU](compiled:JdbcActionComponent.this.CompiledInsert,keys:slick.ast.Node,mux:(U,QR)=&gt;RU):JdbcActionComponent.this.ReturningInsertActionComposer[U,RU]"></a>
+      <a id="createReturningInsertActionComposer[U,QR,RU](CompiledInsert,Node,(U,QR)⇒RU):JdbcProfile.ReturningInsertActionComposer[U,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createReturningInsertActionComposer</span><span class="tparams">[<span name="U">U</span>, <span name="QR">QR</span>, <span name="RU">RU</span>]</span><span class="params">(<span name="compiled">compiled: <a href="JdbcProfile.html#CompiledInsert=JdbcProfile.this.JdbcCompiledInsert" class="extmbr" name="slick.jdbc.JdbcProfile.CompiledInsert">CompiledInsert</a></span>, <span name="keys">keys: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="mux">mux: (<span class="extype" name="slick.jdbc.JdbcActionComponent.createReturningInsertActionComposer.U">U</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.createReturningInsertActionComposer.QR">QR</span>) ⇒ <span class="extype" name="slick.jdbc.JdbcActionComponent.createReturningInsertActionComposer.RU">RU</span></span>)</span><span class="result">: <a href="JdbcProfile.html#ReturningInsertActionComposer[U,RU]extendsJdbcActionComponent.this.InsertActionComposer[U]withJdbcActionComponent.this.IntoInsertActionComposer[U,RU]" class="extmbr" name="slick.jdbc.JdbcActionComponent.ReturningInsertActionComposer">JdbcProfile.ReturningInsertActionComposer</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.createReturningInsertActionComposer.U">U</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.createReturningInsertActionComposer.RU">RU</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@createReturningInsertActionComposer[U,QR,RU](compiled:JdbcActionComponent.this.CompiledInsert,keys:slick.ast.Node,mux:(U,QR)=&gt;RU):JdbcActionComponent.this.ReturningInsertActionComposer[U,RU]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.jdbc.JdbcActionComponent#createSchemaActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createSchemaActionExtensionMethods(schema:JdbcActionComponent.this.SchemaDescription):JdbcActionComponent.this.SchemaActionExtensionMethods"></a>
+      <a id="createSchemaActionExtensionMethods(JdbcProfile.SchemaDescription):JdbcProfile.SchemaActionExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createSchemaActionExtensionMethods</span><span class="params">(<span name="schema">schema: <a href="JdbcProfile.html#SchemaDescription=SqlProfile.this.DDL" class="extmbr" name="slick.jdbc.JdbcProfile.SchemaDescription">JdbcProfile.SchemaDescription</a></span>)</span><span class="result">: <a href="JdbcProfile.html#SchemaActionExtensionMethods=JdbcActionComponent.this.SchemaActionExtensionMethodsImpl" class="extmbr" name="slick.jdbc.JdbcProfile.SchemaActionExtensionMethods">JdbcProfile.SchemaActionExtensionMethods</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@createSchemaActionExtensionMethods(schema:JdbcActionComponent.this.SchemaDescription):JdbcActionComponent.this.SchemaActionExtensionMethods" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../relational/RelationalActionComponent.html" class="extype" name="slick.relational.RelationalActionComponent">RelationalActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#createStreamingQueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createStreamingQueryActionExtensionMethods[R,T](tree:slick.ast.Node,param:Any):JdbcActionComponent.this.StreamingQueryActionExtensionMethods[R,T]"></a>
+      <a id="createStreamingQueryActionExtensionMethods[R,T](Node,Any):JdbcProfile.StreamingQueryActionExtensionMethods[R,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createStreamingQueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="T">T</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcProfile.html#StreamingQueryActionExtensionMethods[R,T]=JdbcActionComponent.this.StreamingQueryActionExtensionMethodsImpl[R,T]" class="extmbr" name="slick.jdbc.JdbcProfile.StreamingQueryActionExtensionMethods">JdbcProfile.StreamingQueryActionExtensionMethods</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.createStreamingQueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.jdbc.JdbcActionComponent.createStreamingQueryActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@createStreamingQueryActionExtensionMethods[R,T](tree:slick.ast.Node,param:Any):JdbcActionComponent.this.StreamingQueryActionExtensionMethods[R,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#createUpdateActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createUpdateActionExtensionMethods[T](tree:slick.ast.Node,param:Any):JdbcActionComponent.this.UpdateActionExtensionMethods[T]"></a>
+      <a id="createUpdateActionExtensionMethods[T](Node,Any):JdbcProfile.UpdateActionExtensionMethods[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createUpdateActionExtensionMethods</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="JdbcProfile.html#UpdateActionExtensionMethods[T]=JdbcActionComponent.this.UpdateActionExtensionMethodsImpl[T]" class="extmbr" name="slick.jdbc.JdbcProfile.UpdateActionExtensionMethods">JdbcProfile.UpdateActionExtensionMethods</a>[<span class="extype" name="slick.jdbc.JdbcActionComponent.createUpdateActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@createUpdateActionExtensionMethods[T](tree:slick.ast.Node,param:Any):JdbcActionComponent.this.UpdateActionExtensionMethods[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((JdbcActionComponent)⇒Boolean,⇒Any):JdbcActionComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((JdbcActionComponent)⇒Boolean):JdbcActionComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):JdbcActionComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):JdbcActionComponent"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#useServerSideUpsert" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="useServerSideUpsert:Boolean"></a>
+      <a id="useServerSideUpsert:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">useServerSideUpsert</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@useServerSideUpsert:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#useServerSideUpsertReturning" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="useServerSideUpsertReturning:Boolean"></a>
+      <a id="useServerSideUpsertReturning:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">useServerSideUpsertReturning</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@useServerSideUpsertReturning:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#useTransactionForUpsert" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="useTransactionForUpsert:Boolean"></a>
+      <a id="useTransactionForUpsert:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">useTransactionForUpsert</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@useTransactionForUpsert:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="slick.jdbc.JdbcActionComponent#useTransactionForUpsertReturning" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="useTransactionForUpsertReturning:Boolean"></a>
+      <a id="useTransactionForUpsertReturning:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">useTransactionForUpsertReturning</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@useTransactionForUpsertReturning:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(JdbcActionComponent,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.jdbc.JdbcActionComponent@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.sql.SqlActionComponent">
+              <h3>Inherited from <a href="../sql/SqlActionComponent.html" class="extype" name="slick.sql.SqlActionComponent">SqlActionComponent</a></h3>
+            </div><div class="parent" name="slick.relational.RelationalActionComponent">
+              <h3>Inherited from <a href="../relational/RelationalActionComponent.html" class="extype" name="slick.relational.RelationalActionComponent">RelationalActionComponent</a></h3>
+            </div><div class="parent" name="slick.basic.BasicActionComponent">
+              <h3>Inherited from <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.jdbc.JdbcActionComponent">JdbcActionComponent</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>
