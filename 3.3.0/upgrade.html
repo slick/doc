@@ -70,7 +70,7 @@
                 
                 <h1 id="upgrade-guides" class="a_section" data-magellan-target="upgrade-guides">Upgrade Guides<a class="a_hlink" href="#upgrade-guides"></a></h1>
 <h2 id="compatibility-policy" class="a_section" data-magellan-target="compatibility-policy">Compatibility Policy<a class="a_hlink" href="#compatibility-policy"></a></h2>
-<p>Slick 3.2 requires Scala 2.11 or 2.12 and Java 8.</p>
+<p>Slick 3.3.0 requires Scala 2.11 or 2.12 and Java 8.</p>
 <p>Slick version numbers consist of an epoch, a major and minor version, and possibly a qualifier
 (for milestone, RC and SNAPSHOT versions).</p>
 <p>For release versions (i.e. versions without a qualifier), backward binary compatibility is
@@ -84,6 +84,15 @@ deprecated in 2.1.0 will not be removed before 2.2.0) but this is not possible f
 changes.</p>
 <p>Release candidates have the same compatibility guarantees as the final versions to which they
 lead. There are <em>no compatibility guarantees</em> whatsoever for milestones and snapshots.</p>
+<h2 id="upgrade-from-3.2-to-3.3" class="a_section" data-magellan-target="upgrade-from-3.2-to-3.3">Upgrade from 3.2 to 3.3<a class="a_hlink" href="#upgrade-from-3.2-to-3.3"></a></h2>
+<h3 id="create--drop-if-not-exists" class="a_section" data-magellan-target="create--drop-if-not-exists">Create / Drop If Not Exists<a class="a_hlink" href="#create--drop-if-not-exists"></a></h3>
+<p>There is no major changes in the API except for the addition of <code class="hljs">createIfNotExists</code> and <code class="hljs">dropIfExistsPhase</code>. This has only impact on database profile developers. Regular users are not impacted by it.</p>
+<p>In other to support <code class="hljs">createIfNotExists</code> and <code class="hljs">dropIfExistsPhase</code>, the following changes were made:</p>
+<ul>
+<li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.createTable receives not a <code class="hljs">checkNotExists: Boolean</code> as argument</li>
+<li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.dropTable receives not a <code class="hljs">ifExists: Boolean</code> as argument</li>
+<li>slick.sql.SqlProfile#DDL.apply has two more arguments <code class="hljs">createIfNotExists: Iterable[String]</code> and <code class="hljs">dropIfExists: Iterable[String]</code></li>
+</ul>
 <h2 id="upgrade-from-3.1-to-3.2" class="a_section" data-magellan-target="upgrade-from-3.1-to-3.2">Upgrade from 3.1 to 3.2<a class="a_hlink" href="#upgrade-from-3.1-to-3.2"></a></h2>
 <p>This section describes the changes that are needed when upgrading from Slick 3.1 to 3.2. If you are
 currently using an older version of Slick, please see the older <a href="http://slick.typesafe.com/docs/">Slick Manuals</a> for details on other
@@ -330,6 +339,26 @@ You only need to configure it manually if you use a connection pool through a JD
       
          <a href="#compatibility-policy">Compatibility Policy</a> 
       
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#upgrade-from-3.2-to-3.3">Upgrade from 3.2 to 3.3</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#create--drop-if-not-exists">Create / Drop If Not Exists</a> 
+      
+      
+    </li>
+  
+  </ul>
       
     </li>
   
