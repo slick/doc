@@ -93,6 +93,159 @@ lead. There are <em>no compatibility guarantees</em> whatsoever for milestones a
 <li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.dropTable receives not a <code class="hljs">ifExists: Boolean</code> as argument</li>
 <li>slick.sql.SqlProfile#DDL.apply has two more arguments <code class="hljs">createIfNotExists: Iterable[String]</code> and <code class="hljs">dropIfExists: Iterable[String]</code></li>
 </ul>
+<h3 id="support-for-java.time-columns" class="a_section" data-magellan-target="support-for-java.time-columns">Support for <code class="hljs">java.time</code> columns<a class="a_hlink" href="#support-for-java.time-columns"></a></h3>
+<p>Slick 3.3.0 profiles now supports <code class="hljs">java.time</code> types as columns (for example, in <code class="hljs">Table</code> <code class="hljs">column</code> definitions).</p>
+<p>If you already have <a href="http://slick.lightbend.com/doc/3.3.0/userdefined.html#scalar-types">custom mappings</a> for these types,
+please review the formats in the tables below.
+These formats are the built-in Slick mappings,
+and they are the ones applied when you upgrade to Slick 3.3.0.
+That is, they take precedence over any <code class="hljs">MappedColumnType</code> you may have defined for the <code class="hljs">java.time</code> types.</p>
+<p>The types are: <code class="hljs">Instant</code>, <code class="hljs">LocalDate</code>, <code class="hljs">LocalTime</code>, <code class="hljs">LocalDateTime</code>, <code class="hljs">OffsetTime</code>, <code class="hljs">OffsetDateTime</code>, and <code class="hljs">ZonedDateTime</code>.</p>
+<p>If you need to customise these formats,
+you can by extending a <code class="hljs">Profile</code> and overriding the appropriate methods.
+For an example of this see: <a href="https://github.com/d6y/instant-etc/blob/master/src/main/scala/main.scala#L9-L45">https://github.com/d6y/instant-etc/blob/master/src/main/scala/main.scala#L9-L45</a>.
+Also of use will be an example of a full mapping, such as: <a href="https://github.com/slick/slick/blob/v3.3.0/slick/src/main/scala/slick/jdbc/JdbcTypesComponent.scala#L187-L365">https://github.com/slick/slick/blob/v3.3.0/slick/src/main/scala/slick/jdbc/JdbcTypesComponent.scala#L187-L365</a>.</p>
+<p>If you wish to upgrade your application to use the new formats,
+you may need to migrate your database columns to match the Slick column formats.</p>
+<p>In the tables that follow there are many similarities between databases.
+However, not all databases can directly map the various <code class="hljs">java.time</code> semantics.
+In these cases, a <code class="hljs">VARCHAR</code> may have been used to store a formatted time representation.
+For more details see the <a href="http://slick.lightbend.com/doc/3.3.0/datetimetypes.html">description of Slick’s approach</a> to these mappings.</p>
+<h4 id="slick.jdbc.db2profile" class="a_section"><code class="hljs">slick.jdbc.DB2Profile</code><a class="a_hlink" href="#slick.jdbc.db2profile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.660Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">&#x27;2019-02-03&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.derbyprofile" class="a_section"><code class="hljs">slick.jdbc.DerbyProfile</code><a class="a_hlink" href="#slick.jdbc.derbyprofile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.660Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">&#x27;2019-02-03&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.h2profile" class="a_section"><code class="hljs">slick.jdbc.H2Profile</code><a class="a_hlink" href="#slick.jdbc.h2profile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">TIMESTAMP(9) WITH TIME ZONE</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.660Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">&#x27;2019-02-03&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">VARCHAR</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">VARCHAR</code></td><td><code class="hljs">&#x27;18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">VARCHAR</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">VARCHAR</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.hsqldbprofile" class="a_section"><code class="hljs">slick.jdbc.HsqldbProfile</code><a class="a_hlink" href="#slick.jdbc.hsqldbprofile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">TIMESTAMP(9) WITH TIME ZONE</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.66&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">&#x27;2019-02-03&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">TIME(3)</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">TIME(9) WITH TIME ZONE</code></td><td><code class="hljs">&#x27;18:20:28.661+0:00&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">TIMESTAMP(9) WITH TIME ZONE</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.661+0:00&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">LONGVARCHAR</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.sqlserverprofile" class="a_section"><code class="hljs">slick.jdbc.SQLServerProfile</code><a class="a_hlink" href="#slick.jdbc.sqlserverprofile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">DATETIMEOFFSET(6)</code></td><td><code class="hljs">(convert(datetimeoffset(6), &#x27;2019-02-03 18:20:28.66 &#x27;))</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">&#x27;2019-02-03&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">TIME(6)</code></td><td><code class="hljs">(convert(time(6), &#x27;18:20:28.661&#x27;))</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">DATETIME2(6)</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">VARCHAR(MAX)</code></td><td><code class="hljs">&#x27;18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">DATETIMEOFFSET(6)</code></td><td><code class="hljs">(convert(datetimeoffset(6), &#x27;2019-02-03 18:20:28.661 &#x27;))</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">VARCHAR(MAX)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.mysqlprofile" class="a_section"><code class="hljs">slick.jdbc.MySQLProfile</code><a class="a_hlink" href="#slick.jdbc.mysqlprofile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">TEXT</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.660Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">&#x27;2019-02-03&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">TEXT</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TEXT</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">TEXT</code></td><td><code class="hljs">&#x27;18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">TEXT</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">TEXT</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.oracleprofile" class="a_section"><code class="hljs">slick.jdbc.OracleProfile</code><a class="a_hlink" href="#slick.jdbc.oracleprofile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">TIMESTAMP(9) WITH TIME ZONE</code></td><td><code class="hljs">TO_TIMESTAMP_TZ(&#x27;2019-02-03 18:20:28.660 +00&#x27;, &#x27;YYYY-MM-DD HH24:MI:SS.FF3 TZH&#x27;)</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">TO_DATE(&#x27;2019-02-03&#x27;, &#x27;SYYYY-MM-DD&#x27;)</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">VARCHAR2(254)</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">TO_TIMESTAMP(&#x27;2019-02-03 18:20:28.661&#x27;, &#x27;YYYY-MM-DD HH24:MI:SS.FF3&#x27;)</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">TIMESTAMP(6) WITH TIME ZONE</code></td><td><code class="hljs">TO_TIMESTAMP_TZ(&#x27;1970-01-01 18:20:28.661 +0000&#x27;, &#x27;YYYY-MM-DD HH24:MI:SS.FF3 TZH:TZM&#x27;)</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">TIMESTAMP(6) WITH TIME ZONE</code></td><td><code class="hljs">TO_TIMESTAMP_TZ(&#x27;2019-02-03 18:20:28.661 +0000&#x27;, &#x27;YYYY-MM-DD HH24:MI:SS.FF3 TZH:TZM&#x27;)</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">TIMESTAMP(6) WITH TIME ZONE</code></td><td><code class="hljs">TO_TIMESTAMP_TZ(&#x27;2019-02-03 18:20:28.661 Europe/London&#x27;, &#x27;YYYY-MM-DD HH24:MI:SS.FF3 TZR&#x27;)</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.postgresprofile" class="a_section"><code class="hljs">slick.jdbc.PostgresProfile</code><a class="a_hlink" href="#slick.jdbc.postgresprofile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.66&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">&#x27;2019-02-03&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">TIME</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">&#x27;2019-02-03 18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">TIMETZ</code></td><td><code class="hljs">&#x27;18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">VARCHAR</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">VARCHAR</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
+<h4 id="slick.jdbc.sqliteprofile" class="a_section"><code class="hljs">slick.jdbc.SQLiteProfile</code><a class="a_hlink" href="#slick.jdbc.sqliteprofile"></a></h4>
+<div class="row"><div class="small-expand columns a_xscroll a_table"><table>
+<thead>
+<tr><th>Java Type</th><th>SQL Type</th><th>Example SQL Literal</th></tr>
+</thead>
+<tbody>
+<tr><td><code class="hljs">java.time.Instant</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">1549218028660</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDate</code></td><td><code class="hljs">DATE</code></td><td><code class="hljs">1549152000000</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;18:20:28.661&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.LocalDateTime</code></td><td><code class="hljs">TIMESTAMP</code></td><td><code class="hljs">1549218028661</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.OffsetDateTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z&#x27;</code></td></tr>
+<tr><td><code class="hljs">java.time.ZonedDateTime</code></td><td><code class="hljs">VARCHAR(254)</code></td><td><code class="hljs">&#x27;2019-02-03T18:20:28.661Z[Europe/London]&#x27;</code></td></tr>
+</tbody>
+</table></div></div>
 <h2 id="upgrade-from-3.1-to-3.2" class="a_section" data-magellan-target="upgrade-from-3.1-to-3.2">Upgrade from 3.1 to 3.2<a class="a_hlink" href="#upgrade-from-3.1-to-3.2"></a></h2>
 <p>This section describes the changes that are needed when upgrading from Slick 3.1 to 3.2. If you are
 currently using an older version of Slick, please see the older <a href="http://slick.typesafe.com/docs/">Slick Manuals</a> for details on other
@@ -354,6 +507,15 @@ You only need to configure it manually if you use a connection pool through a JD
     <li>
       
          <a href="#create--drop-if-not-exists">Create / Drop If Not Exists</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#support-for-java.time-columns">Support for java.time columns</a> 
       
       
     </li>
