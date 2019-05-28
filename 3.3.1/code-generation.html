@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schema Code Generation</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="queries.html"  title="Queries"  />  <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/code-generation.md"  />  <link rel="next" href="userdefined.html"  title="User-Defined Features"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.3.1</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="queries.html"  title="Queries" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="userdefined.html"  title="User-Defined Features" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/code-generation.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="schema-code-generation" class="a_section" data-magellan-target="schema-code-generation">Schema Code Generation<a class="a_hlink" href="#schema-code-generation"></a></h1>
+<p>The Slick code generator is a convenient tool for working
+with an existing or evolving database schema. It can be run
+stand-alone or integrated into your sbt build for creating all
+code Slick needs to work.</p>
+<h2 id="overview" class="a_section" data-magellan-target="overview">Overview<a class="a_hlink" href="#overview"></a></h2>
+<p>By default, the code generator generates <code class="hljs">Table</code> classes, corresponding <code class="hljs">TableQuery</code> values, which
+can be used in a collection-like manner, as well as case classes for holding complete
+rows of values. Since Slick 3.3 this is even true for tables with more than 22 columns. In order to accomplish the support of case classes with such a huge parameter count, despite Scala’s tuple size limit, some of the generated functions (like <code class="hljs">def *</code> and <code class="hljs">def ?</code>) use <code class="hljs">HList</code>s internally and thus look somewhat different but behave the same as those for tables with less columns.</p>
+<p>Parts of the generator are also explained in our
+<a href="http://slick.typesafe.com/docs/#20131203_patterns_for_slick_database_applications_at_scala_exchange_2013">talk at Scala eXchange 2013</a>.</p>
+<h2 id="standalone-use" class="a_section" data-magellan-target="standalone-use">Standalone use<a class="a_hlink" href="#standalone-use"></a></h2>
+<p>To include Slick’s code generator use the published library. For sbt projects add following to your build definition -
+<code class="hljs">build.sbt</code> or <code class="hljs">project/Build.scala</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">libraryDependencies += <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick-codegen"</span> % <span class="hljs-string">"3.3.1"</span>
+</code></pre>
+</div></div>
+<p>For Maven projects add the following to your <code class="hljs">&lt;dependencies&gt;</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.typesafe.slick<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slick-codegen_2.11<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.3.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+</div></div>
+<blockquote class="note">
+<p>In the code examples below we assume the following imports:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global
+<span class="hljs-keyword">import</span> scala.util.{<span class="hljs-type">Failure</span>, <span class="hljs-type">Success</span>}
+<span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._
+<span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/CodeGenerator.scala#L4-L7" class="a_sourcelink">CodeGenerator.scala</a></div></div>
+<p>If you’re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p>
+</blockquote>
+<p>Slick’s code generator comes with a default runner that can be used from the command line or from Java/Scala. You can simply execute</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">slick.codegen.<span class="hljs-type">SourceCodeGenerator</span>.main(
+  <span class="hljs-type">Array</span>(uri, outputFolder)
+)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/CodeGenerator.scala#L22-L24" class="a_sourcelink">CodeGenerator.scala</a></div></div>
+<p>or</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">slick.codegen.<span class="hljs-type">SourceCodeGenerator</span>.main(
+  <span class="hljs-type">Array</span>(profile, jdbcDriver, url, outputFolder, pkg)
+)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/CodeGenerator.scala#L27-L29" class="a_sourcelink">CodeGenerator.scala</a></div></div>
+<p>or</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">slick.codegen.<span class="hljs-type">SourceCodeGenerator</span>.main(
+  <span class="hljs-type">Array</span>(profile, jdbcDriver, url, outputFolder, pkg, user, password)
+)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/CodeGenerator.scala#L32-L34" class="a_sourcelink">CodeGenerator.scala</a></div></div>
+<p>and provide the following values</p>
+<ul>
+<li><code class="hljs">uri</code>: Config URL and/or fragment for path in typesafe config, e.g. <code class="hljs">url#slick.db.default</code></li>
+<li><code class="hljs">profile</code>: Fully qualified name of the profile class, e.g. <code class="hljs">slick.jdbc.H2Profile</code></li>
+<li><code class="hljs">jdbcDriver</code>: Fully qualified name of the JDBC driver class, e.g. <code class="hljs">org.h2.Driver</code></li>
+<li><code class="hljs">url</code>: JDBC url, e.g. <code class="hljs">jdbc:postgresql://localhost/test</code></li>
+<li><code class="hljs">outputFolder</code>: Place where the package folder structure should be put</li>
+<li><code class="hljs">pkg</code>: Scala package the generated code should be places in</li>
+<li><code class="hljs">user</code>: database connection user name</li>
+<li><code class="hljs">password</code>: database connection password</li>
+<li><code class="hljs">outputToMultipleFiles</code>: Boolean indicating if the generated output should be one big file or one file per table. Default is false.</li>
+</ul>
+<h2 id="integrated-into-sbt" class="a_section" data-magellan-target="integrated-into-sbt">Integrated into sbt<a class="a_hlink" href="#integrated-into-sbt"></a></h2>
+<p>The code generator can be run before every compilation or manually in <a href="http://www.scala-sbt.org/">sbt</a>.
+An example project showing both can be <a href="https://github.com/slick/slick-codegen-example">found here</a>.</p>
+<h2 id="generated-code" class="a_section" data-magellan-target="generated-code">Generated Code<a class="a_hlink" href="#generated-code"></a></h2>
+<p>By default, the code generator places a file <code class="hljs">Tables.scala</code> in the given folder in a subfolder corresponding
+to the package. The file contains an <code class="hljs">object Tables</code> from which the code
+can be imported for use right away. Make sure you use the same profile.
+The file also contains a <code class="hljs">trait Tables</code> which can be used in the cake pattern.</p>
+<p>If <code class="hljs">outputToMultipleFiles</code> is set to true, the code generator will instead create a <code class="hljs">trait</code> per table.
+<code class="hljs">Tables.scala</code> then stacks all the generated tables. The advantage of this, is that you avoid a potentially huge file</p>
+<blockquote class="warning">
+<p>When using the generated code, be careful <em>not</em> to mix different profiles accidentally. The
+default <code class="hljs">object Tables</code> uses the profile used during code generation. Using it together with a different
+profile for queries will lead to runtime errors. The generated <code class="hljs">trait Tables</code> can be used with a
+different profile, but be aware, that this is currently untested and not officially supported. It may or
+may not work in your case. We will officially support this at some point in the future.</p>
+</blockquote>
+<h2 id="customization" class="a_section" data-magellan-target="customization">Customization<a class="a_hlink" href="#customization"></a></h2>
+<p>The generator can be flexibly customized by overriding methods to programmatically
+generate any code based on the data model. This can be used for minor customizations
+as well as heavy, model driven code generation, e.g. for framework bindings in <a href="https://playframework.com/">Play</a>,
+other data-related, repetitive sections of applications, etc.</p>
+<p><a href="https://github.com/slick/slick-codegen-customization-example">This example</a>
+shows a customized code-generator and how to setup
+up a multi-project sbt build, which compiles and runs it
+before compiling the main sources.</p>
+<p>The implementation of the code generator is structured into a small hierarchy of sub-generators responsible
+for different fragments of the complete output. The implementation of each sub-generator can be swapped out
+for a customized one by overriding the corresponding factory method.
+<a href="codegen-api/index.html#slick.codegen.SourceCodeGenerator">SourceCodeGenerator</a> contains a factory method Table,
+which it uses to generate a sub-generator for each table. The sub-generator Table in turn contains
+sub-generators for Table classes, entity case classes, columns, key, indices, etc.
+Custom sub-generators can easily be added as well.</p>
+<p>Within the sub-generators the relevant part of the Slick data model can
+be accessed to drive the code generation.</p>
+<p>Please see the <a href="codegen-api/index.html#slick.codegen.SourceCodeGenerator">api documentation</a> for info
+on all of the methods that can be overridden for customization.</p>
+<p>Here is an example for customizing the generator. Noteworthy, the line <code class="hljs">override def hugeClassEnabled = false</code>
+disables generation of case classes for tables with more than 22 columns. A <code class="hljs">HList</code> based type
+will be generated instead. So this way you get back the default behavior before the advent of Slick 3.3.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.codegen.<span class="hljs-type">SourceCodeGenerator</span>
+<span class="hljs-comment">// fetch data model</span>
+<span class="hljs-keyword">val</span> modelAction = <span class="hljs-type">H2Profile</span>.createModel(<span class="hljs-type">Some</span>(<span class="hljs-type">H2Profile</span>.defaultTables)) <span class="hljs-comment">// you can filter specific tables here</span>
+<span class="hljs-keyword">val</span> modelFuture = db.run(modelAction)
+<span class="hljs-comment">// customize code generator</span>
+<span class="hljs-keyword">val</span> codegenFuture = modelFuture.map(model =&gt; <span class="hljs-keyword">new</span> <span class="hljs-type">SourceCodeGenerator</span>(model) {
+  <span class="hljs-comment">// override mapped table and class name</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">entityName</span> </span>=
+    dbTableName =&gt; dbTableName.dropRight(<span class="hljs-number">1</span>).toLowerCase.toCamelCase
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tableName</span> </span>=
+    dbTableName =&gt; dbTableName.toLowerCase.toCamelCase
+
+  <span class="hljs-comment">// add some custom import</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">code</span> </span>= <span class="hljs-string">"import foo.{MyCustomType,MyCustomTypeMapper}"</span> + <span class="hljs-string">"\n"</span> + <span class="hljs-keyword">super</span>.code
+
+  <span class="hljs-comment">// override table generator</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Table</span> </span>= <span class="hljs-keyword">new</span> <span class="hljs-type">Table</span>(_){
+    <span class="hljs-comment">// disable entity class generation for tables with more than 22 columns</span>
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hugeClassEnabled</span> </span>= <span class="hljs-literal">false</span>
+
+    <span class="hljs-comment">// override contained column generator</span>
+    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Column</span> </span>= <span class="hljs-keyword">new</span> <span class="hljs-type">Column</span>(_){
+      <span class="hljs-comment">// use the data model member of this column to change the Scala type,</span>
+      <span class="hljs-comment">// e.g. to a custom enum or anything else</span>
+      <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rawType</span> </span>=
+        <span class="hljs-keyword">if</span>(model.name == <span class="hljs-string">"SOME_SPECIAL_COLUMN_NAME"</span>) <span class="hljs-string">"MyCustomType"</span> <span class="hljs-keyword">else</span> <span class="hljs-keyword">super</span>.rawType
+    }
+  }
+})
+codegenFuture.onComplete {
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Success</span>(codegen) =&gt;
+    codegen.writeToFile(
+      <span class="hljs-string">"slick.jdbc.H2Profile"</span>,<span class="hljs-string">"some/folder/"</span>,<span class="hljs-string">"some.packag"</span>,<span class="hljs-string">"Tables"</span>,<span class="hljs-string">"Tables.scala"</span>
+    )
+  <span class="hljs-keyword">case</span> <span class="hljs-type">Failure</span>(_) =&gt;
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/CodeGenerator.scala#L37-L72" class="a_sourcelink">CodeGenerator.scala</a></div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="queries.html"  title="Queries" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="userdefined.html"  title="User-Defined Features" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/code-generation.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#schema-code-generation">Schema Code Generation</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#overview">Overview</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#standalone-use">Standalone use</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#integrated-into-sbt">Integrated into sbt</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#generated-code">Generated Code</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#customization">Customization</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

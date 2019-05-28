@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/introduction.md"  />  <link rel="next" href="supported-databases.html"  title="Supported Databases"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.3.1</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Previous</span></li>
+      
+    
+      
+        <li><a href="supported-databases.html"  title="Supported Databases" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/introduction.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="introduction" class="a_section" data-magellan-target="introduction">Introduction<a class="a_hlink" href="#introduction"></a></h1>
+<h2 id="what-is-slick" class="a_section" data-magellan-target="what-is-slick">What is Slick?<a class="a_hlink" href="#what-is-slick"></a></h2>
+<p>Slick (“Scala Language-Integrated Connection Kit”) is <a href="https://lightbend.com">Lightbend</a>’s
+Functional Relational Mapping (FRM) library for Scala that makes it easy to work with relational
+databases. It allows you to work with stored data almost as if you were using Scala collections
+while at the same time giving you full control over when database access happens and which data
+is transferred. You can also use SQL directly. Execution of database actions is done
+asynchronously, making Slick a perfect fit for your reactive applications based on <a href="https://playframework.com/">Play</a> and <a href="http://akka.io/">Akka</a>.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> limit = <span class="hljs-number">10.0</span>
+
+<span class="hljs-comment">// Your query could look like this:</span>
+( <span class="hljs-keyword">for</span>( c &lt;- coffees; <span class="hljs-keyword">if</span> c.price &lt; limit ) <span class="hljs-keyword">yield</span> c.name ).result
+
+<span class="hljs-comment">// Equivalent SQL: select COF_NAME from COFFEES where PRICE &lt; 10.0</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/GettingStartedOverview.scala#L49-L54" class="a_sourcelink">GettingStartedOverview.scala</a></div></div>
+<p>When using Scala instead of raw SQL for your queries you benefit from compile-time safety
+and compositionality. Slick can generate queries for different back-end databases including
+your own, using its extensible query compiler.</p>
+<p>See <a href="supported-databases.html">here</a> for an overview of the supported database systems for which
+Slick can generate code.</p>
+<h2 id="functional-relational-mapping" class="a_section" data-magellan-target="functional-relational-mapping">Functional Relational Mapping<a class="a_hlink" href="#functional-relational-mapping"></a></h2>
+<p>Functional programmers have long suffered Object-Relational and Object-Math impedance mismatches
+when connecting to relational databases. Slick’s new Functional Relational Mapping (FRM) paradigm
+allows mapping to be completed within Scala, with loose-coupling, minimal configuration requirements,
+and a number of other major advantages that abstract the complexities away from connecting with
+relational databases.</p>
+<p>We don‘t try to fight the relational model, we embrace it through a functional paradigm. Instead of
+trying to bridge the gap between the object model and the database model, we’ve brought the database
+model into Scala so developers don’t need to write SQL code.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffees</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">String</span>, <span class="hljs-type">Double</span>)](<span class="hljs-params">tag, "<span class="hljs-type">COFFEES</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"COF_NAME"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">price</span> </span>= column[<span class="hljs-type">Double</span>](<span class="hljs-string">"PRICE"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (name, price)
+}
+<span class="hljs-keyword">val</span> coffees = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Coffees</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/GettingStartedOverview.scala#L22-L27" class="a_sourcelink">GettingStartedOverview.scala</a></div></div>
+<p>Slick integrates databases directly into Scala, allowing stored and remote data to be queried and
+processed in the same way as in-memory data, using ordinary Scala classes and collections.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Query that only returns the "name" column</span>
+<span class="hljs-comment">// Equivalent SQL: select NAME from COFFEES</span>
+coffees.map(_.name)
+
+<span class="hljs-comment">// Query that limits results by price &lt; 10.0</span>
+<span class="hljs-comment">// Equivalent SQL: select * from COFFEES where PRICE &lt; 10.0</span>
+coffees.filter(_.price &lt; <span class="hljs-number">10.0</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/GettingStartedOverview.scala#L70-L76" class="a_sourcelink">GettingStartedOverview.scala</a></div></div>
+<p>This enables full control over when a database is accessed and which data is transferred. The
+language integrated query model in Slick’s FRM is inspired by the LINQ project at Microsoft
+and leverages concepts tracing all the way back to the early work of Mnesia at Ericsson.</p>
+<p>Some of the key benefits of Slick’s FRM approach for functional programming include:</p>
+<ul>
+<li>
+<p>Efficiency with Pre-Optimization</p>
+<p>FRM is a more efficient way to connect; unlike ORM it has the ability to pre-optimize its
+communication with the database - and with FRM you get this out of the box. The road to making an
+app faster is much shorter with FRM than ORM.</p>
+</li>
+<li>
+<p>No More Tedious Troubleshooting with Type Safety</p>
+<p>FRM brings type safety to building database queries. Developers are more productive because the
+compiler finds errors automatically versus the typical tedious troubleshooting required of finding
+errors in untyped strings.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// The result of "select PRICE from COFFEES" is a Seq of Double</span>
+<span class="hljs-comment">// because of the type safe column definitions</span>
+<span class="hljs-keyword">val</span> coffeeNames: <span class="hljs-type">Future</span>[<span class="hljs-type">Seq</span>[<span class="hljs-type">Double</span>]] = db.run(
+  coffees.map(_.price).result
+)
+
+<span class="hljs-comment">// Query builders are type safe:</span>
+coffees.filter(_.price &lt; <span class="hljs-number">10.0</span>)
+<span class="hljs-comment">// Using a string in the filter would result in a compilation error</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/GettingStartedOverview.scala#L83-L94" class="a_sourcelink">GettingStartedOverview.scala</a></div></div>
+<p>Misspelled the column name <code class="hljs">price</code>? The compiler will tell you:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code>GettingStartedOverview.scala:89: value prices is not a member of com.typesafe.slick.docs.GettingStartedOverview.Coffees
+        coffees.map(_.prices).result
+                      ^
+</code></pre>
+</div></div>
+<p>The same goes for type errors:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code>GettingStartedOverview.scala:89: type mismatch;
+ found   : slick.jdbc.H2Profile.StreamingProfileAction[Seq[String],String,slick.dbio.Effect.Read]
+    (which expands to)  slick.sql.FixedSqlStreamingAction[Seq[String],String,slick.dbio.Effect.Read]
+ required: slick.dbio.DBIOAction[Seq[Double],slick.dbio.NoStream,Nothing]
+        coffees.map(_.name).result
+                            ^
+</code></pre>
+</div></div>
+</li>
+<li>
+<p>A More Productive, Composable Model for Building Queries</p>
+<p>FRM supports a composable model for building queries. It’s a very natural model to compose pieces
+together to build a query, and then reuse pieces across your code base.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Create a query for coffee names with a price less than 10, sorted by name</span>
+coffees.filter(_.price &lt; <span class="hljs-number">10.0</span>).sortBy(_.name).map(_.name)
+<span class="hljs-comment">// The generated SQL is equivalent to:</span>
+<span class="hljs-comment">// select name from COFFEES where PRICE &lt; 10.0 order by NAME</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/GettingStartedOverview.scala#L102-L105" class="a_sourcelink">GettingStartedOverview.scala</a></div></div>
+</li>
+</ul>
+<h2 id="reactive-applications" class="a_section" data-magellan-target="reactive-applications">Reactive Applications<a class="a_hlink" href="#reactive-applications"></a></h2>
+<p>Slick is easy to use in asynchronous, non-blocking application designs, and supports building
+applications according to the <a href="http://www.reactivemanifesto.org/">Reactive Manifesto</a>. Unlike simple wrappers around traditional,
+blocking database APIs, Slick gives you:</p>
+<ul>
+<li>
+<p>Clean separation of I/O and CPU-intensive code: Isolating I/O allows you to keep your main
+thread pool busy with CPU-intensive parts of the application while waiting for I/O in the
+background.</p>
+</li>
+<li>
+<p>Resilience under load: When a database cannot keep up with the load of your application,
+Slick will not create more and more threads (thus making the situation worse) or lock out all
+kinds of I/O. Back-pressure is controlled efficiently through a queue (of configurable size)
+for database I/O actions, allowing a certain number of requests to build up with very little
+resource usage and failing immediately once this limit has been reached.</p>
+</li>
+<li>
+<p><a href="http://www.reactive-streams.org/">Reactive Streams</a> for asynchronous streaming.</p>
+</li>
+<li>
+<p>Efficient utilization of database resources: Slick can be tuned easily and precisely for the
+parallelism (number of concurrent active jobs) and resource usage (number of currently
+suspended database sessions) of your database server.</p>
+</li>
+</ul>
+<h2 id="plain-sql-support" class="a_section" data-magellan-target="plain-sql-support">Plain SQL Support<a class="a_hlink" href="#plain-sql-support"></a></h2>
+<p>The Scala-based query API for Slick allows you to write database queries like queries for
+Scala collections. Please see <a href="gettingstarted.html">Getting Started</a> for an introduction. Most of this
+user manual focuses on this API.</p>
+<p>If you want to write your own SQL statements and still execute them asynchronously like
+normal Slick queries, you can use the <a href="sql.html">Plain SQL</a> API:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> limit = <span class="hljs-number">10.0</span>
+
+<span class="hljs-string">sql"select COF_NAME from COFFEES where PRICE &lt; <span class="hljs-subst">$limit</span>"</span>.as[<span class="hljs-type">String</span>]
+
+<span class="hljs-comment">// Automatically using a bind variable to be safe from SQL injection:</span>
+<span class="hljs-comment">// select COF_NAME from COFFEES where PRICE &lt; ?</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/GettingStartedOverview.scala#L58-L63" class="a_sourcelink">GettingStartedOverview.scala</a></div></div>
+<h2 id="license" class="a_section" data-magellan-target="license">License<a class="a_hlink" href="#license"></a></h2>
+<p>Slick is released under a BSD-Style free and open source software <a href="https://github.com/slick/slick/blob/v3.3.1/LICENSE.txt">license</a>.</p>
+<h2 id="next-steps" class="a_section" data-magellan-target="next-steps">Next Steps<a class="a_hlink" href="#next-steps"></a></h2>
+<ul>
+<li>If you are new to Slick, continue to <a href="gettingstarted.html">Getting Started</a></li>
+<li>If you have used an older version of Slick, make sure to read the <a href="upgrade.html">Upgrade Guides</a></li>
+<li>If you have used an ORM before, see <a href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+<li>If you are familiar with SQL, see <a href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+</ul>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><span><span class="a_foundation_icon"></span>  Previous</span></li>
+      
+    
+      
+        <li><a href="supported-databases.html"  title="Supported Databases" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/introduction.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li  class="a_thispage" >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#introduction">Introduction</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#what-is-slick">What is Slick?</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#functional-relational-mapping">Functional Relational Mapping</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#reactive-applications">Reactive Applications</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#plain-sql-support">Plain SQL Support</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#license">License</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#next-steps">Next Steps</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

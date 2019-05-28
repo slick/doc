@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schemas</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="dbio.html"  title="Database I/O Actions"  />  <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/schemas.md"  />  <link rel="next" href="queries.html"  title="Queries"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.3.1</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="dbio.html"  title="Database I/O Actions" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="queries.html"  title="Queries" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/schemas.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="schemas" class="a_section" data-magellan-target="schemas">Schemas<a class="a_hlink" href="#schemas"></a></h1>
+<p>This chapter describes how to work with database schemas in Scala code, in particular how to write
+them manually, which is useful when you start writing an application without a pre-existing database.
+If you already have a schema in the database, you can also use the <a href="code-generation.html">code generator</a>
+to take this work off your hands.</p>
+<blockquote class="note">
+<p>In the code examples below we assume the following imports:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Future</span>, <span class="hljs-type">Await</span>}
+<span class="hljs-keyword">import</span> scala.concurrent.duration.<span class="hljs-type">Duration</span>
+<span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._
+<span class="hljs-keyword">import</span> java.sql.<span class="hljs-type">Date</span>
+<span class="hljs-keyword">import</span> scala.reflect.<span class="hljs-type">ClassTag</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L4-L8" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>If you’re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p>
+</blockquote>
+<h2 id="table-rows" class="a_section" data-magellan-target="table-rows">Table Rows<a class="a_hlink" href="#table-rows"></a></h2>
+<p>In order to use the Scala API for type-safe queries, you need to
+define <code class="hljs">Table</code> row classes for your database schema. These describe the
+structure of the tables:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffees</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Double</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)](<span class="hljs-params">tag, "<span class="hljs-type">COFFEES</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"COF_NAME"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">supID</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"SUP_ID"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">price</span> </span>= column[<span class="hljs-type">Double</span>](<span class="hljs-string">"PRICE"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sales</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"SALES"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">Default</span>(<span class="hljs-number">0</span>))
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">total</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"TOTAL"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">Default</span>(<span class="hljs-number">0</span>))
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (name, supID, price, sales, total)
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L57-L88" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>All columns are defined through the <code class="hljs">column</code> method. Each column has a
+Scala type and a column name for the database (usually in upper-case). The
+following primitive types are supported out of the box for JDBC-based
+databases in <code class="hljs">JdbcProfile</code> (with certain limitations imposed by the
+individual database profiles):</p>
+<ul>
+<li><em>Numeric types</em>: Byte, Short, Int, Long, BigDecimal, Float, Double</li>
+<li><em>LOB types</em>: java.sql.Blob, java.sql.Clob, Array[Byte]</li>
+<li><em>Date types</em>: java.sql.Date, java.sql.Time, java.sql.Timestamp</li>
+<li>Java 8 date and time types: java.time.*</li>
+<li>Boolean</li>
+<li>String</li>
+<li>Unit</li>
+<li>java.util.UUID</li>
+</ul>
+<p>Nullable columns are represented by <code class="hljs">Option[T]</code> where <code class="hljs">T</code> is one of the
+supported primitive types.</p>
+<blockquote class="note">
+<p>Note: Currently all operations on Option values use the database‘s null propagation semantics
+which may differ from Scala’s Option semantics. In particular, <code class="hljs">None === None</code> evaluates
+to <code class="hljs">None</code>. This behaviour may change in a future major release of Slick.</p>
+</blockquote>
+<p>After the column name, you can add optional column options to a <code class="hljs">column</code>
+definition. The applicable options are available through the table’s <code class="hljs">O</code>
+object. The following ones are defined for <code class="hljs">JdbcProfile</code>:</p>
+<ul>
+<li>
+<p><code class="hljs">PrimaryKey</code>:  Mark the column as a (non-compound) primary key when creating the DDL statements.</p>
+</li>
+<li>
+<p><code class="hljs">Default[T](defaultValue: T)</code>:  Specify a default value for inserting data into the table without this column.
+This information is only used for creating DDL statements so that the database can fill in the missing information.</p>
+</li>
+<li>
+<p><code class="hljs">Unique</code>: Add a uniqueness constraint to the DDL statement for the column.</p>
+</li>
+<li>
+<p><code class="hljs">SqlType(typeName: String)</code>: Use a non-standard database-specific type for the DDL statements (e.g.
+<code class="hljs">SqlType(&quot;VARCHAR(20)&quot;)</code> for a <code class="hljs">String</code> column).</p>
+</li>
+<li>
+<p><code class="hljs">AutoInc</code>: Mark the column as an auto-incrementing key when creating the DDL statements. Unlike the other column
+options, this one also has a meaning outside of DDL creation: Many databases do not allow non-AutoInc columns to
+be returned when inserting data (often silently ignoring other columns), so Slick will check if the return column is
+properly marked as AutoInc where needed.</p>
+</li>
+</ul>
+<p>Every table requires a <code class="hljs">*</code> method containing a default projection.
+This describes what you get back when you return rows (in the form of a
+table row object) from a query. Slick’s <code class="hljs">*</code> projection does not have to match
+the one in the database. You can add new columns (e.g. with computed values)
+or omit some columns as you like. The non-lifted type corresponding to the
+<code class="hljs">*</code> projection is given as a type parameter to <code class="hljs">Table</code>. For simple,
+non-mapped tables, this will be a single column type or a tuple of column
+types.</p>
+<p>If your database layout requires <em>schema names</em>, you can specify the schema
+name for a table in front of the table name, wrapped in <code class="hljs">Some()</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffees</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>)</span>
+  <span class="hljs-keyword">extends</span> <span class="hljs-type">Table</span>[(<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Double</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)](tag, <span class="hljs-type">Some</span>(<span class="hljs-string">"MYSCHEMA"</span>), <span class="hljs-string">"COFFEES"</span>) {
+  <span class="hljs-comment">//...</span>
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L97-L104" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p><a href="datetimetypes.html">See notes here on the java.time.* types</a></p>
+<h2 id="table-query" class="a_section" data-magellan-target="table-query">Table Query<a class="a_hlink" href="#table-query"></a></h2>
+<p>Alongside the <code class="hljs">Table</code> row class you also need a <code class="hljs">TableQuery</code> value
+which represents the actual database table:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> coffees = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Coffees</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L91" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>The simple <code class="hljs">TableQuery[T]</code> syntax is a
+macro which expands to a proper TableQuery instance that calls the table’s
+constructor (<code class="hljs">new TableQuery(new T(_))</code>).</p>
+<p>You can also extend <code class="hljs">TableQuery</code> to use it as a convenient namespace for
+additional functionality associated with the table:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">coffees</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">TableQuery</span>(<span class="hljs-params">new <span class="hljs-type">Coffees</span>(_</span>)) </span>{
+  <span class="hljs-keyword">val</span> findByName = <span class="hljs-keyword">this</span>.findBy(_.name)
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L108-L110" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h2 id="mapped-tables" class="a_section" data-magellan-target="mapped-tables">Mapped Tables<a class="a_hlink" href="#mapped-tables"></a></h2>
+<p>It is possible to define a mapped table that uses a custom type for its <code class="hljs">*</code>
+projection by adding a bi-directional mapping with the <code class="hljs">&lt;&gt;</code> operator:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>(<span class="hljs-params">id: <span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>], first: <span class="hljs-type">String</span>, last: <span class="hljs-type">String</span></span>)</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Users</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[<span class="hljs-type">User</span>](<span class="hljs-params">tag, "users"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"id"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>, <span class="hljs-type">O</span>.<span class="hljs-type">AutoInc</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">first</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"first"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">last</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"last"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id.?, first, last) &lt;&gt; (<span class="hljs-type">User</span>.tupled, <span class="hljs-type">User</span>.unapply)
+}
+<span class="hljs-keyword">val</span> users = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Users</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L120-L129" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>It is optimized for case classes (with a simple <code class="hljs">apply</code> method and an
+<code class="hljs">unapply</code> method that wraps its result in an <code class="hljs">Option</code>) but it can also
+be used with arbitrary mapping functions. In these cases it can be useful
+to call <code class="hljs">.shaped</code> on a tuple on the left-hand side in order to get its
+type inferred properly. Otherwise you may have to add full type annotations
+to the mapping functions.</p>
+<p>For case classes with hand-written companion objects, <code class="hljs">.tupled</code> only works
+if you manually extend the correct Scala function type. Alternatively you can use
+<code class="hljs">(User.apply _).tupled</code>. See <a href="https://issues.scala-lang.org/browse/SI-3664">SI-3664</a> and <a href="https://issues.scala-lang.org/browse/SI-4808">SI-4808</a>.</p>
+<h2 id="constraints" class="a_section" data-magellan-target="constraints">Constraints<a class="a_hlink" href="#constraints"></a></h2>
+<p>A foreign key constraint can be defined with a Table’s
+<a href="api/index.html#slick.relational.RelationalTableComponent$Table@foreignKey[P,PU,TT%253C:AbstractTable[_],U](String,P,TableQuery[TT])((TT)=%3EP,ForeignKeyAction,ForeignKeyAction)(Shape[_%253C:FlatShapeLevel,TT,U,_],Shape[_%253C:FlatShapeLevel,P,PU,_]):ForeignKeyQuery[TT,U]">foreignKey</a>
+method. It first takes a name for the constraint, the referencing column(s) and the referenced table. The second
+argument list takes a function from the referenced table to its referenced column(s) as well as
+<a href="api/index.html#slick.model.ForeignKeyAction$">ForeignKeyAction</a> for <code class="hljs">onUpdate</code> and <code class="hljs">onDelete</code>, which are optional and default to
+<a href="api/index.html#slick.model.ForeignKeyAction$$NoAction$">NoAction</a>. When creating the DDL statements for the table, the foreign key
+definition is added to it.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Suppliers</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>)](<span class="hljs-params">tag, "<span class="hljs-type">SUPPLIERS</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"SUP_ID"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-comment">//...</span>
+}
+<span class="hljs-keyword">val</span> suppliers = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Suppliers</span>]
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffees</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Double</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)](<span class="hljs-params">tag, "<span class="hljs-type">COFFEES</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">supID</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"SUP_ID"</span>)
+  <span class="hljs-comment">//...</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">supplier</span> </span>= foreignKey(<span class="hljs-string">"SUP_FK"</span>, supID, suppliers)(_.id, onUpdate=<span class="hljs-type">ForeignKeyAction</span>.<span class="hljs-type">Restrict</span>, onDelete=<span class="hljs-type">ForeignKeyAction</span>.<span class="hljs-type">Cascade</span>)
+  <span class="hljs-comment">// compiles to SQL:</span>
+  <span class="hljs-comment">//   alter table "COFFEES" add constraint "SUP_FK" foreign key("SUP_ID")</span>
+  <span class="hljs-comment">//     references "SUPPLIERS"("SUP_ID")</span>
+  <span class="hljs-comment">//     on update RESTRICT on delete CASCADE</span>
+}
+<span class="hljs-keyword">val</span> coffees = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Coffees</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L40-L92" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>Independent of the actual constraint defined in the database, such a foreign
+key can be used to navigate to the referenced data with a <em>join</em>. For this
+purpose, it behaves the same as a manually defined utility method for finding
+the joined data:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">supplier</span> </span>= foreignKey(<span class="hljs-string">"SUP_FK"</span>, supID, suppliers)(_.id, onUpdate=<span class="hljs-type">ForeignKeyAction</span>.<span class="hljs-type">Restrict</span>, onDelete=<span class="hljs-type">ForeignKeyAction</span>.<span class="hljs-type">Cascade</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">supplier2</span> </span>= suppliers.filter(_.id === supID)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L75-L84" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>A primary key constraint can be defined in a similar fashion by adding a
+method that calls <code class="hljs">primaryKey</code>. This is useful for defining compound
+primary keys (which cannot be done with the <code class="hljs">O.PrimaryKey</code> column option):</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)](<span class="hljs-params">tag, "a"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">k1</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"k1"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">k2</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"k2"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (k1, k2)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pk</span> </span>= primaryKey(<span class="hljs-string">"pk_a"</span>, (k1, k2))
+  <span class="hljs-comment">// compiles to SQL:</span>
+  <span class="hljs-comment">//   alter table "a" add constraint "pk_a" primary key("k1","k2")</span>
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L137-L151" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>Other indexes are defined in a similar way with the <code class="hljs">index</code> method. They
+are non-unique by default unless you set the <code class="hljs">unique</code> parameter:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)](<span class="hljs-params">tag, "a"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">k1</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"k1"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">k2</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"k2"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (k1, k2)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">idx</span> </span>= index(<span class="hljs-string">"idx_a"</span>, (k1, k2), unique = <span class="hljs-literal">true</span>)
+  <span class="hljs-comment">// compiles to SQL:</span>
+  <span class="hljs-comment">//   create unique index "idx_a" on "a" ("k1","k2")</span>
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L136-L152" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>All constraints are discovered reflectively by searching for methods with
+the appropriate return types which are defined in the table. This behavior
+can be customized by overriding the <code class="hljs">tableConstraints</code> method.</p>
+<h2 id="data-definition-language" class="a_section" data-magellan-target="data-definition-language">Data Definition Language<a class="a_hlink" href="#data-definition-language"></a></h2>
+<p>DDL statements for a table can be created with its <code class="hljs">TableQuery</code>’s <code class="hljs">schema</code> method. Multiple
+<code class="hljs">DDL</code> objects can be concatenated with <code class="hljs">++</code> to get a compound <code class="hljs">DDL</code> object which can create
+and drop all entities in the correct order, even in the presence of cyclic dependencies between
+tables. The <code class="hljs">create</code>, <code class="hljs">createIfNotExists</code>, <code class="hljs">dropIfExists</code>, <code class="hljs">drop</code> and <code class="hljs">truncate</code> methods produce the Actions for executing the DDL statements. To safely create and drop tables use the methods <code class="hljs">createIfNotExists</code> and <code class="hljs">dropIfExists</code> :</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> schema = coffees.schema ++ suppliers.schema
+db.run(<span class="hljs-type">DBIO</span>.seq(
+  schema.create,
+  schema.createIfNotExists,
+  <span class="hljs-comment">//...</span>
+  schema.drop,
+  schema.dropIfExists
+))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L158-L168" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>You can use the the <code class="hljs">statements</code> method to get the SQL code, like for most other SQL-based
+Actions. Schema Actions are currently the only Actions that can produce more than one statement.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">schema.create.statements.foreach(println)
+schema.createIfNotExists.statements.foreach(println)
+schema.truncate.statements.foreach(println)
+schema.drop.statements.foreach(println)
+schema.dropIfExists.statements.foreach(println)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L173-L177" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="dbio.html"  title="Database I/O Actions" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="queries.html"  title="Queries" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/schemas.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#schemas">Schemas</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#table-rows">Table Rows</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#table-query">Table Query</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#mapped-tables">Mapped Tables</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#constraints">Constraints</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#data-definition-language">Data Definition Language</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

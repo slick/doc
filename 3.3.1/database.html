@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Configuration</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="concepts.html"  title="Core Concepts"  />  <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/database.md"  />  <link rel="next" href="dbio.html"  title="Database I/O Actions"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.3.1</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="concepts.html"  title="Core Concepts" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="dbio.html"  title="Database I/O Actions" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/database.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="database-configuration" class="a_section" data-magellan-target="database-configuration">Database Configuration<a class="a_hlink" href="#database-configuration"></a></h1>
+<p>You can tell Slick how to connect to the JDBC database of your choice by creating a
+<a href="api/index.html#slick.jdbc.JdbcBackend@Database:Database">Database</a> object, which encapsulates the information. There are several
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef">factory methods</a> on <code class="hljs">slick.jdbc.JdbcBackend.Database</code> that you can use
+depending on what connection data you have available.</p>
+<h2 id="using-typesafe-config" class="a_section" data-magellan-target="using-typesafe-config">Using Typesafe Config<a class="a_hlink" href="#using-typesafe-config"></a></h2>
+<p>The preferred way to configure database connections is through <a href="https://github.com/typesafehub/config">Typesafe Config</a> in your
+<code class="hljs">application.conf</code>, which is also used by <a href="https://playframework.com/">Play</a> and <a href="http://akka.io/">Akka</a> for their configuration.</p>
+<p>Such a configuration can be loaded with <code class="hljs">Database.forConfig</code> (see the
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forConfig(String,Config,Driver,ClassLoader):Database">API documentation</a>
+of this method for details on the configuration parameters).</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forConfig(<span class="hljs-string">"mydb"</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/Connection.scala#L50" class="a_sourcelink">Connection.scala</a></div></div>
+<h4 id="examples" class="a_section">Examples<a class="a_hlink" href="#examples"></a></h4>
+<h5 id="postgresql" class="a_section">PostgreSQL<a class="a_hlink" href="#postgresql"></a></h5>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-yaml">mydb = {
+  connectionPool = <span class="hljs-string">"HikariCP"</span> //use HikariCP for our connection pool
+  dataSourceClass = <span class="hljs-string">"org.postgresql.ds.PGSimpleDataSource"</span> //Simple datasource with <span class="hljs-literal">no</span> connection pooling. The connection pool has already been specified with HikariCP.
+  properties = {
+    serverName = <span class="hljs-string">"localhost"</span>
+    portNumber = <span class="hljs-string">"5432"</span>
+    databaseName = <span class="hljs-string">"mydb"</span>
+    user = <span class="hljs-string">"postgres"</span>
+    password = <span class="hljs-string">"postgres"</span>
+  }
+  numThreads = <span class="hljs-number">10</span>
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/application.conf#L11-L22" class="a_sourcelink">application.conf</a></div></div>
+<p>When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code class="hljs">org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">libraryDependencies ++= <span class="hljs-type">Seq</span>(
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick"</span> % <span class="hljs-string">"3.3.1"</span>,
+  <span class="hljs-string">"org.slf4j"</span> % <span class="hljs-string">"slf4j-nop"</span> % <span class="hljs-string">"1.6.4"</span>,
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick-hikaricp"</span> % <span class="hljs-string">"3.3.1"</span>,
+  <span class="hljs-string">"org.postgresql"</span> % <span class="hljs-string">"postgresql"</span> % <span class="hljs-string">"9.4-1206-jdbc42"</span> <span class="hljs-comment">//org.postgresql.ds.PGSimpleDataSource dependency</span>
+)
+</code></pre>
+</div></div>
+<h5 id="mysql" class="a_section">MySQL<a class="a_hlink" href="#mysql"></a></h5>
+<p>Very simple example without a connection pool and using the driver directly:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-yaml">mydb = {
+  driver = <span class="hljs-string">"com.mysql.cj.jdbc.Driver"</span>,
+  url = <span class="hljs-string">"jdbc:mysql://127.0.0.1:3306/mydb?serverTimezone=UTC"</span>,
+  user = <span class="hljs-string">"user"</span>,
+  password = <span class="hljs-string">"pass"</span>,
+  connectionPool = disabled
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/application.conf#L26-L32" class="a_sourcelink">application.conf</a></div></div>
+<p>To use the MySQL driver, the following library dependency needs to be configured via SBT:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">libraryDependencies += <span class="hljs-string">"mysql"</span> % <span class="hljs-string">"mysql-connector-java"</span> % <span class="hljs-string">"6.0.6"</span>
+</code></pre>
+</div></div>
+<h2 id="using-a-jdbc-url" class="a_section" data-magellan-target="using-a-jdbc-url">Using a JDBC URL<a class="a_hlink" href="#using-a-jdbc-url"></a></h2>
+<p>You can pass a JDBC URL to
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forURL(String,String,String,Properties,String,AsyncExecutor,Boolean,ClassLoader):DatabaseDef">forURL</a>.
+(see your database‘s JDBC driver’s documentation for the correct URL syntax).</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forURL(<span class="hljs-string">"jdbc:h2:mem:test1;DB_CLOSE_DELAY=-1"</span>,
+  driver=<span class="hljs-string">"org.h2.Driver"</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/Connection.scala#L56-L57" class="a_sourcelink">Connection.scala</a></div></div>
+<p>Here we are connecting to a new, empty, in-memory H2 database called <code class="hljs">test1</code> and keep it resident
+until the JVM ends (<code class="hljs">DB_CLOSE_DELAY=-1</code>, which is H2 specific).</p>
+<h2 id="using-a-database-url" class="a_section" data-magellan-target="using-a-database-url">Using a Database URL<a class="a_hlink" href="#using-a-database-url"></a></h2>
+<p>A Database URL, a platform independent URL in the form <code class="hljs">vendor://user:password@host:port/db</code>, is often provided by
+platforms such as Heroku. You can use a Database URL in Typesafe Config as shown here:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-yaml">databaseUrl {
+  dataSourceClass = <span class="hljs-string">"slick.jdbc.DatabaseUrlDataSource"</span>
+  properties = {
+    driver = <span class="hljs-string">"org.postgresql.Driver"</span>
+    url = <span class="hljs-string">"postgres://user:pass@host/dbname"</span>
+  }
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/application.conf#L47-L53" class="a_sourcelink">application.conf</a></div></div>
+<p>By default, the data source will use the value of the <code class="hljs">DATABASE_URL</code> environment variable. Thus you may omit the <code class="hljs">url</code>
+property if the <code class="hljs">DATABASE_URL</code> environment variable is set. You may also define a custom environment variable with
+standard Typesafe Config syntax, such as <code class="hljs">${?MYSQL_DATABASE_URL}</code>.</p>
+<p>Or you may pass a <a href="api/index.html#slick/jdbc/DatabaseUrlDataSource">slick/jdbc/DatabaseUrlDataSource</a> object to
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forDataSource(DataSource,Option[Int],AsyncExecutor,Boolean):DatabaseDef">forDataSource</a>.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forDataSource(dataSource: slick.jdbc.<span class="hljs-type">DatabaseUrlDataSource</span>,
+  <span class="hljs-type">None</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/Connection.scala#L37-L38" class="a_sourcelink">Connection.scala</a></div></div>
+<h2 id="using-a-datasource" class="a_section" data-magellan-target="using-a-datasource">Using a DataSource<a class="a_hlink" href="#using-a-datasource"></a></h2>
+<p>You can pass a <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html">DataSource</a> object to
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forDataSource(DataSource,Option[Int],AsyncExecutor,Boolean):DatabaseDef">forDataSource</a>.
+If you got it from the connection pool of your application framework, this plugs the pool into Slick. If the pool has
+a size limit, the correct size should always be specified.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forDataSource(dataSource: javax.sql.<span class="hljs-type">DataSource</span>,
+  <span class="hljs-type">Some</span>(size: <span class="hljs-type">Int</span>))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/Connection.scala#L30-L31" class="a_sourcelink">Connection.scala</a></div></div>
+<h2 id="using-a-jndi-name" class="a_section" data-magellan-target="using-a-jndi-name">Using a JNDI Name<a class="a_hlink" href="#using-a-jndi-name"></a></h2>
+<p>If you are using <a href="http://en.wikipedia.org/wiki/JNDI">JNDI</a> you can pass a JNDI name to
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forName(String,Option[Int],AsyncExecutor):DatabaseDef">forName</a>
+under which a <a href="http://docs.oracle.com/javase/7/docs/api/javax/sql/DataSource.html">DataSource</a> object can be looked up. If the data source has
+a limit in the number of connections it can provide, the correct size should always be specified.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forName(jndiName: <span class="hljs-type">String</span>, <span class="hljs-type">Some</span>(size: <span class="hljs-type">Int</span>))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/Connection.scala#L45" class="a_sourcelink">Connection.scala</a></div></div>
+<h2 id="database-thread-pool" class="a_section" data-magellan-target="database-thread-pool">Database thread pool<a class="a_hlink" href="#database-thread-pool"></a></h2>
+<p>Every <code class="hljs">Database</code> contains an <a href="api/index.html#slick.util.AsyncExecutor">AsyncExecutor</a> that manages the thread pool
+for asynchronous execution of Database I/O Actions. Its size is the main parameter to tune for the best
+performance of the <code class="hljs">Database</code> object. It should be set to the value that you would use for the
+size of the <em>connection pool</em> in a traditional, blocking application (see <a href="https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing">About Pool Sizing</a>
+in the <a href="http://brettwooldridge.github.io/HikariCP/">HikariCP</a> documentation for further information). When using
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forConfig(String,Config,Driver,ClassLoader):Database">Database.forConfig</a>,
+the thread pool is configured directly in the external configuration file together with the connection
+parameters. If you use any other factory method to get a <code class="hljs">Database</code>, you can either use a default
+configuration or specify a custom AsyncExecutor:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forURL(<span class="hljs-string">"jdbc:h2:mem:test1;DB_CLOSE_DELAY=-1"</span>,
+  driver=<span class="hljs-string">"org.h2.Driver"</span>,
+  executor = <span class="hljs-type">AsyncExecutor</span>(<span class="hljs-string">"test1"</span>, numThreads=<span class="hljs-number">10</span>, queueSize=<span class="hljs-number">1000</span>))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/Connection.scala#L63-L65" class="a_sourcelink">Connection.scala</a></div></div>
+<h2 id="connection-pools" class="a_section" data-magellan-target="connection-pools">Connection pools<a class="a_hlink" href="#connection-pools"></a></h2>
+<p>When using a connection pool (which is always recommended in production environments) the <em>minimum</em>
+size of the <em>connection pool</em> should also be set to at least the same size. The <em>maximum</em> size of
+the <em>connection pool</em> can be set much higher than in a blocking application. Any connections beyond
+the size of the <em>thread pool</em> will only be used when other connections are required to keep a
+database session open (e.g. while waiting for the result from an asynchronous computation in the
+middle of a transaction) but are not actively doing any work on the database.</p>
+<p>Note that reasonable defaults for the connection pool sizes are calculated from the thread pool size when using
+<a href="api/index.html#slick.jdbc.JdbcBackend$DatabaseFactoryDef@forConfig(String,Config,Driver,ClassLoader):Database">Database.forConfig</a>.</p>
+<p>Slick uses <em>prepared</em> statements wherever possible but it does not cache them on its own. You
+should therefore enable prepared statement caching in the connection pool’s configuration.</p>
+<h2 id="databaseconfig" class="a_section" data-magellan-target="databaseconfig">DatabaseConfig<a class="a_hlink" href="#databaseconfig"></a></h2>
+<blockquote class="note">
+<p>This section is based on the <strong>MultiDB</strong> sample (<a href="https://github.com/slick/slick/tree/3.3/samples/slick-multidb">github</a>,
+<a href="https://example.lightbend.com/v1/download/slick-multidb-3.3">zip</a>) which provides ready-to-run apps to demonstrate the features.</p>
+</blockquote>
+<p>On top of the configuration syntax for <code class="hljs">Database</code>, there is another layer in the form of
+<a href="api/index.html#slick.basic.DatabaseConfig">DatabaseConfig</a> which allows you to configure a Slick profile plus a
+matching <code class="hljs">Database</code> together. This makes it easy to abstract over different kinds of
+database systems by simply changing a configuration file.</p>
+<p>You can see it in action in <code class="hljs">SimpleExample.scala</code>. First we load the DatabaseConfig and then import the
+Slick API from its profile:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> dc = <span class="hljs-type">DatabaseConfig</span>.forConfig[<span class="hljs-type">JdbcProfile</span>](<span class="hljs-string">"h2_dc"</span>)
+
+<span class="hljs-comment">// Import the JdbcProfile API from the configured profile</span>
+<span class="hljs-keyword">import</span> dc.profile.api._</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/databaseconfig/SimpleExample.scala#L11-L14" class="a_sourcelink">SimpleExample.scala</a></div></div>
+<p>The <code class="hljs">JdbcProfile</code> type annotation specifies the profile level whose API you get. You have to configure a profile of
+a matching type in the external configuration file. Since we’re using the basic <code class="hljs">forConfig</code> method with only a path
+(“h2_dc”), the configuration must be located in the global application config, usually found in <code class="hljs">application.conf</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">h2_dc {
+  profile = <span class="hljs-string">"slick.jdbc.H2Profile$"</span>
+  db {
+    url = <span class="hljs-string">"jdbc:h2:mem:test1"</span>
+    driver = org.h2.<span class="hljs-type">Driver</span>
+    connectionPool = disabled
+    keepAliveConnection = <span class="hljs-literal">true</span>
+  }
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/resources/application.conf#L16-L24" class="a_sourcelink">application.conf</a></div></div>
+<p>You can use different database systems in your application by either switching out or overriding the application
+config (e.g. different <code class="hljs">application.conf</code> files for development and production) or by passing a config path into
+the application. This way of implementing multi-database support is also used when building a Play app with Slick.</p>
+<h2 id="other-multi-db-patterns" class="a_section" data-magellan-target="other-multi-db-patterns">Other Multi-DB Patterns<a class="a_hlink" href="#other-multi-db-patterns"></a></h2>
+<blockquote class="note">
+<p>This section is based on the <strong>MultiDB</strong> sample (<a href="https://github.com/slick/slick/tree/3.3/samples/slick-multidb">github</a>,
+<a href="https://example.lightbend.com/v1/download/slick-multidb-3.3">zip</a>) which provides ready-to-run apps to demonstrate the features.</p>
+</blockquote>
+<p>Since its addition in Slick 3.0 <code class="hljs">DatabaseConfig</code> (see <a href="database.html#databaseconfig">above</a>) is the recommended solution.
+More complex scenarios (for example, where you need to map custom functions differently for different database
+systems, or where you cannot use the simple application.conf syntax) may require abstracting over databases in Scala
+code. The following sections explain two different ways of accomplishing this.</p>
+<h3 id="a-dao-class" class="a_section" data-magellan-target="a-dao-class">A DAO Class<a class="a_hlink" href="#a-dao-class"></a></h3>
+<p>We start with a simple DAO (data access object) class, <code class="hljs">DAO.scala</code>. It contains some database-related definitions
+(for a <code class="hljs">PROPS</code> table that acts as a simple key/value store) and methods (for storing and reading entries).</p>
+<p>The class is parameterized by a concrete <code class="hljs">JdbcProfile</code> and it imports all API features from this profile’s api object:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DAO</span>(<span class="hljs-params">val profile: <span class="hljs-type">JdbcProfile</span></span>) </span>{
+  <span class="hljs-comment">// Import the Scala API from the profile</span>
+  <span class="hljs-keyword">import</span> profile.api._</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/basic/DAO.scala#L8-L10" class="a_sourcelink">DAO.scala</a></div></div>
+<p>Slick has multiple abstract profiles but in most cases you will want to use <code class="hljs">JdbcProfile</code> which contains all the
+features that you also get when importing directly from one of Slick’s concrete profiles for JDBC databases.</p>
+<p>Outside of the DAO class, you can still refer to its profile and the other features, but you have to get the imports
+from the profile in order to work with queries. This can be seen in <code class="hljs">DAOHelper.scala</code>. It defines a new method
+<code class="hljs">restrictKey</code> which we could have also put directly into the DAO class.</p>
+<p>To gain access to all of the profile’s features, we parameterize the <code class="hljs">DAOHelper</code> with the <code class="hljs">DAO</code> and import from its
+profile:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DAOHelper</span>(<span class="hljs-params">val dao: <span class="hljs-type">DAO</span></span>) </span>{
+  <span class="hljs-keyword">import</span> dao.profile.api._
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">restrictKey</span></span>[<span class="hljs-type">C</span>[_]](s: <span class="hljs-type">String</span>, q: <span class="hljs-type">Query</span>[<span class="hljs-type">DAO</span>#<span class="hljs-type">Props</span>, _, <span class="hljs-type">C</span>]) =
+    q.filter(_.key === s)
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/basic/DAOHelper.scala#L7-L12" class="a_sourcelink">DAOHelper.scala</a></div></div>
+<p>Note the use of the type projection <code class="hljs">DAO#Props</code> in the definition of <code class="hljs">restrictKey</code>. This points to the <code class="hljs">Props</code> type
+coming from any <code class="hljs">DAO</code> instance. This is less type-safe than using a path-dependent type like <code class="hljs">dao.Props</code> but
+generally easier to use. You still need to ensure not to mix drivers when you do this.</p>
+<p>We are using the <code class="hljs">DAO</code> and <code class="hljs">DAOHelper</code> in <code class="hljs">MultiDBExample.scala</code>. The <code class="hljs">run</code> method is parameterized with both,
+a Slick profile and a matching JDBC <code class="hljs">Database</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span></span>(dao: <span class="hljs-type">DAO</span>, db: <span class="hljs-type">Database</span>): <span class="hljs-type">Future</span>[<span class="hljs-type">Unit</span>] = {
+  <span class="hljs-keyword">val</span> h = <span class="hljs-keyword">new</span> <span class="hljs-type">DAOHelper</span>(dao)
+  println(<span class="hljs-string">"Using profile "</span> + dao.profile)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L15-L17" class="a_sourcelink">MultiDBExample.scala</a></div></div>
+<p>Since we don‘t have the convenience of a single profile’s <code class="hljs">api._</code> import at this point, we need to import the
+<code class="hljs">Database</code> and <code class="hljs">DBIO</code> types directly:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.dbio.<span class="hljs-type">DBIO</span>
+<span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">JdbcBackend</span>.<span class="hljs-type">Database</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L6-L7" class="a_sourcelink">MultiDBExample.scala</a></div></div>
+<p>In the body of <code class="hljs">MultiDBExample</code>, we create two <code class="hljs">DAO</code> instances with matching <code class="hljs">Database</code> objects in order to run the
+same code on both, H2 and SQLite:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> f = {
+  <span class="hljs-keyword">val</span> h2db = <span class="hljs-type">Database</span>.forConfig(<span class="hljs-string">"h2"</span>)
+  run(<span class="hljs-keyword">new</span> <span class="hljs-type">DAO</span>(<span class="hljs-type">H2Profile</span>), h2db).andThen { <span class="hljs-keyword">case</span> _ =&gt; h2db.close }
+}.flatMap { _ =&gt;
+  <span class="hljs-keyword">val</span> sqlitedb = <span class="hljs-type">Database</span>.forConfig(<span class="hljs-string">"sqlite"</span>)
+  run(<span class="hljs-keyword">new</span> <span class="hljs-type">DAO</span>(<span class="hljs-type">SQLiteProfile</span>), sqlitedb).andThen { <span class="hljs-keyword">case</span> _ =&gt; sqlitedb.close }
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L30-L36" class="a_sourcelink">MultiDBExample.scala</a></div></div>
+<h3 id="the-cake-pattern" class="a_section" data-magellan-target="the-cake-pattern">The Cake Pattern<a class="a_hlink" href="#the-cake-pattern"></a></h3>
+<p>In more complex designs where you want to split up the database code into separate modules that deal with different
+database entities, but still have dependencies between these modules, you can use the Cake Pattern to structure your
+code.</p>
+<p>We are doing this here in the app <code class="hljs">MultiDBCakeExample.scala</code>. From the point of view of this main app, the new
+approach looks exactly like the previous one: You create a DAL (data access layer) object with a Slick profile, and
+use it together with a matching <code class="hljs">Database</code>.</p>
+<p>The most basic slice of the cake is the <code class="hljs">ProfileComponent</code>. It provides a <code class="hljs">JdbcProfile</code> which is kept abstract at
+this point:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">JdbcProfile</span>
+
+<span class="hljs-comment">/** The slice of the cake which provides the Slick profile */</span>
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">ProfileComponent</span> </span>{
+  <span class="hljs-keyword">val</span> profile: <span class="hljs-type">JdbcProfile</span>
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/cake/ProfileComponent.scala" class="a_sourcelink">ProfileComponent.scala</a></div></div>
+<p>Through the use of a self-type, the <code class="hljs">PictureComponent</code> requires a <code class="hljs">ProfileComponent</code> to me mixed in, so that it can
+import the query language features from the profile:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">PictureComponent</span> </span>{ <span class="hljs-keyword">this</span>: <span class="hljs-type">ProfileComponent</span> =&gt;
+  <span class="hljs-keyword">import</span> profile.api._</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/cake/PictureComponent.scala#L8-L9" class="a_sourcelink">PictureComponent.scala</a></div></div>
+<p>Using the imported features, <code class="hljs">PictureComponent</code> provides definitions and methods for working with <code class="hljs">Picture</code> objects
+in the database. <code class="hljs">UserComponent</code> does the same for <code class="hljs">User</code> entities. In addition to <code class="hljs">ProfileComponent</code> it also
+requires <code class="hljs">PictureComponent</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">UserComponent</span> </span>{ <span class="hljs-keyword">this</span>: <span class="hljs-type">ProfileComponent</span> <span class="hljs-keyword">with</span> <span class="hljs-type">PictureComponent</span> =&gt;
+  <span class="hljs-keyword">import</span> profile.api._</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/cake/UserComponent.scala#L8-L9" class="a_sourcelink">UserComponent.scala</a></div></div>
+<p>The <code class="hljs">PictureComponent</code> dependency allows <code class="hljs">UserComponent</code> to insert a new <code class="hljs">Picture</code> when needed:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">pic &lt;-
+  <span class="hljs-keyword">if</span>(user.picture.id.isEmpty) insert(user.picture)
+  <span class="hljs-keyword">else</span> <span class="hljs-type">DBIO</span>.successful(user.picture)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/cake/UserComponent.scala#L25-L27" class="a_sourcelink">UserComponent.scala</a></div></div>
+<p>We put all slices of the cake together in <code class="hljs">DAL.scala</code>. The <code class="hljs">DAL</code> class inherits from all components and adds the
+missing profile through a field in the constructor:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">JdbcProfile</span>
+
+<span class="hljs-comment">/** The Data Access Layer contains all components and a profile */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DAL</span>(<span class="hljs-params">val profile: <span class="hljs-type">JdbcProfile</span></span>)</span>
+      <span class="hljs-keyword">extends</span> <span class="hljs-type">UserComponent</span> <span class="hljs-keyword">with</span> <span class="hljs-type">PictureComponent</span> <span class="hljs-keyword">with</span> <span class="hljs-type">ProfileComponent</span> {
+  <span class="hljs-keyword">import</span> profile.api._
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create</span> </span>=
+    (users.schema ++ pictures.schema).create
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/samples/slick-multidb/src/main/scala/cake/DAL.scala" class="a_sourcelink">DAL.scala</a></div></div>
+<p>This is also a good place to add functionality that affects all components, like the <code class="hljs">create</code> method.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="concepts.html"  title="Core Concepts" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="dbio.html"  title="Database I/O Actions" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/database.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#database-configuration">Database Configuration</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#using-typesafe-config">Using Typesafe Config</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#using-a-jdbc-url">Using a JDBC URL</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#using-a-database-url">Using a Database URL</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#using-a-datasource">Using a DataSource</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#using-a-jndi-name">Using a JNDI Name</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#database-thread-pool">Database thread pool</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#connection-pools">Connection pools</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#databaseconfig">DatabaseConfig</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#other-multi-db-patterns">Other Multi-DB Patterns</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#a-dao-class">A DAO Class</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#the-cake-pattern">The Cake Pattern</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2017 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

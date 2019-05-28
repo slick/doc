@@ -1,0 +1,851 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>compiler - Slick 3.3.1 - slick.compiler</title>
+          <meta name="description" content="compiler - Slick 3.3.1 - slick.compiler" />
+          <meta name="keywords" content="compiler Slick 3.3.1 slick.compiler" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.compiler.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a></p>
+        <h1>compiler</h1><span class="permalink">
+      <a href="../../index.html#slick.compiler.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compiler</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Slick AST to database query compiler</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.3.1/slick/src/main/scala/slick/compiler/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">Content Hierarchy</span>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph1" viewBox="0.00 0.00 4108.00 96.00" height="96pt" width="4108pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 92)" class="graph" id="graph0"><polygon points="-4,4 -4,-92 4104,-92 4104,4 -4,4" stroke="none" fill="white"></polygon><!-- node0 --><g class="node class" id="graph1_0"><g id="a_class|graph1_0"><a xlink:title="slick.compiler.VerifyTypes" xlink:href="VerifyTypes.html#inheritance-diagram"><polygon points="94.25,-26 -0.25,-26 -0.25,-0 94.25,-0 94.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="12" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="32" text-anchor="start">VerifyTypes</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="slick.compiler.VerifySymbols" xlink:href="VerifySymbols.html#inheritance-diagram"><polygon points="221,-26 113,-26 113,-0 221,-0 221,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="125" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="145" text-anchor="start">VerifySymbols</text></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="slick.compiler.UnrollTailBinds" xlink:href="UnrollTailBinds.html#inheritance-diagram"><polygon points="348.25,-26 239.75,-26 239.75,-0 348.25,-0 348.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="252" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="272" text-anchor="start">UnrollTailBinds</text></a></g></g><!-- node3 --><g class="node class" id="graph1_3"><g id="a_class|graph1_3"><a xlink:title="slick.compiler.SpecializeParameters" xlink:href="SpecializeParameters.html#inheritance-diagram"><polygon points="507.25,-26 366.75,-26 366.75,-0 507.25,-0 507.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="379" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="399" text-anchor="start">SpecializeParameters</text></a></g></g><!-- node4 --><g class="node class" id="graph1_4"><g id="a_class|graph1_4"><a xlink:title="slick.compiler.RewriteJoins" xlink:href="RewriteJoins.html#inheritance-diagram"><polygon points="626,-26 526,-26 526,-0 626,-0 626,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="538" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="558" text-anchor="start">RewriteJoins</text></a></g></g><!-- node5 --><g class="node class" id="graph1_5"><g id="a_class|graph1_5"><a xlink:title="slick.compiler.RewriteDistinct" xlink:href="RewriteDistinct.html#inheritance-diagram"><polygon points="755.25,-26 644.75,-26 644.75,-0 755.25,-0 755.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="657" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="677" text-anchor="start">RewriteDistinct</text></a></g></g><!-- node6 --><g class="node class" id="graph1_6"><g id="a_class|graph1_6"><a xlink:title="slick.compiler.RewriteBooleans" xlink:href="RewriteBooleans.html#inheritance-diagram"><polygon points="892,-26 774,-26 774,-0 892,-0 892,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="786" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="806" text-anchor="start">RewriteBooleans</text></a></g></g><!-- node7 --><g class="node class" id="graph1_7"><g id="a_class|graph1_7"><a xlink:title="slick.compiler.ResolveZipJoins" xlink:href="ResolveZipJoins.html#inheritance-diagram"><polygon points="1025.25,-26 910.75,-26 910.75,-0 1025.25,-0 1025.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="923" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="943" text-anchor="start">ResolveZipJoins</text></a></g></g><!-- node8 --><g class="node class" id="graph1_8"><g id="a_class|graph1_8"><a xlink:title="slick.compiler.ReorderOperations" xlink:href="ReorderOperations.html#inheritance-diagram"><polygon points="1170.25,-26 1043.75,-26 1043.75,-0 1170.25,-0 1170.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1056" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1076" text-anchor="start">ReorderOperations</text></a></g></g><!-- node9 --><g class="node class" id="graph1_9"><g id="a_class|graph1_9"><a xlink:title="slick.compiler.RemoveTakeDrop" xlink:href="RemoveTakeDrop.html#inheritance-diagram"><polygon points="1309.25,-26 1188.75,-26 1188.75,-0 1309.25,-0 1309.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1201" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1221" text-anchor="start">RemoveTakeDrop</text></a></g></g><!-- node10 --><g class="node class" id="graph1_10"><g id="a_class|graph1_10"><a xlink:title="slick.compiler.RemoveFieldNames" xlink:href="RemoveFieldNames.html#inheritance-diagram"><polygon points="1460,-26 1328,-26 1328,-0 1460,-0 1460,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1340" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1360" text-anchor="start">RemoveFieldNames</text></a></g></g><!-- node11 --><g class="node class" id="graph1_11"><g id="a_class|graph1_11"><a xlink:title="slick.compiler.RelabelUnions" xlink:href="RelabelUnions.html#inheritance-diagram"><polygon points="1586,-26 1478,-26 1478,-0 1586,-0 1586,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1490" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1510" text-anchor="start">RelabelUnions</text></a></g></g><!-- node12 --><g class="node trait" id="graph1_12"><g id="a_trait|graph1_12"><a xlink:title="slick.compiler.Phase" xlink:href="Phase.html#inheritance-diagram"><polygon points="2061.25,-88 1988.75,-88 1988.75,-62 2061.25,-62 2061.25,-88" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-81" x="2001" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-72.5" x="2021" text-anchor="start">Phase</text></a></g></g><!-- node12&#45;&gt;node0 --><g class="edge inheritance" id="graph1_12_0"><g id="a_inheritance|graph1_12_0"><a xlink:title="VerifyTypes is a subtype of Phase"><path d="M1983.14,-73.9936C1737.97,-73.7986 485.973,-70.6012 104,-26 100.886,-25.6364 97.6907,-25.1849 94.4789,-24.6721" stroke="#d4d4d4" fill="none"></path><polygon points="1983.4,-75.7437 1988.4,-73.9974 1983.4,-72.2437 1983.4,-75.7437" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node1 --><g class="edge inheritance" id="graph1_12_1"><g id="a_inheritance|graph1_12_1"><a xlink:title="VerifySymbols is a subtype of Phase"><path d="M1983.65,-73.8021C1749.33,-72.543 586.133,-64.4246 230,-26 227.122,-25.6895 224.178,-25.3182 221.213,-24.9018" stroke="#d4d4d4" fill="none"></path><polygon points="1983.67,-75.5521 1988.68,-73.8288 1983.69,-72.0522 1983.67,-75.5521" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node2 --><g class="edge inheritance" id="graph1_12_2"><g id="a_inheritance|graph1_12_2"><a xlink:title="UnrollTailBinds is a subtype of Phase"><path d="M1983.37,-73.7026C1758.45,-71.959 686.327,-61.8712 357,-26 354.233,-25.6986 351.405,-25.3416 348.556,-24.9428" stroke="#d4d4d4" fill="none"></path><polygon points="1983.51,-75.4537 1988.53,-73.7423 1983.54,-71.9538 1983.51,-75.4537" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node3 --><g class="edge inheritance" id="graph1_12_3"><g id="a_inheritance|graph1_12_3"><a xlink:title="SpecializeParameters is a subtype of Phase"><path d="M1983.35,-73.3347C1771.66,-69.8521 813.378,-52.8523 517,-26 513.923,-25.7212 510.784,-25.4017 507.616,-25.0506" stroke="#d4d4d4" fill="none"></path><polygon points="1983.48,-75.087 1988.51,-73.4193 1983.54,-71.5874 1983.48,-75.087" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node4 --><g class="edge inheritance" id="graph1_12_4"><g id="a_inheritance|graph1_12_4"><a xlink:title="RewriteJoins is a subtype of Phase"><path d="M1983.36,-73.4956C1781.79,-70.911 905.965,-58.0093 635,-26 632.093,-25.6566 629.117,-25.2448 626.12,-24.7837" stroke="#d4d4d4" fill="none"></path><polygon points="1983.54,-75.2479 1988.56,-73.5619 1983.59,-71.7482 1983.54,-75.2479" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node5 --><g class="edge inheritance" id="graph1_12_5"><g id="a_inheritance|graph1_12_5"><a xlink:title="RewriteDistinct is a subtype of Phase"><path d="M1983.3,-73.2224C1793.39,-69.5569 1009.12,-53.0408 765,-26 761.92,-25.6589 758.767,-25.2562 755.591,-24.8088" stroke="#d4d4d4" fill="none"></path><polygon points="1983.44,-74.9755 1988.48,-73.322 1983.51,-71.4761 1983.44,-74.9755" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node6 --><g class="edge inheritance" id="graph1_12_6"><g id="a_inheritance|graph1_12_6"><a xlink:title="RewriteBooleans is a subtype of Phase"><path d="M1983.37,-74.1994C1835.48,-74.488 1321.72,-71.9025 901,-26 898.14,-25.6879 895.218,-25.3289 892.272,-24.9345" stroke="#d4d4d4" fill="none"></path><polygon points="1983.48,-75.9492 1988.48,-74.188 1983.48,-72.4493 1983.48,-75.9492" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node7 --><g class="edge inheritance" id="graph1_12_7"><g id="a_inheritance|graph1_12_7"><a xlink:title="ResolveZipJoins is a subtype of Phase"><path d="M1983.3,-73.9376C1846.66,-73.3157 1400.21,-67.977 1034,-26 1031.22,-25.6817 1028.39,-25.3176 1025.53,-24.9191" stroke="#d4d4d4" fill="none"></path><polygon points="1983.41,-75.688 1988.41,-73.9593 1983.42,-72.188 1983.41,-75.688" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node8 --><g class="edge inheritance" id="graph1_12_8"><g id="a_inheritance|graph1_12_8"><a xlink:title="ReorderOperations is a subtype of Phase"><path d="M1983.27,-73.2336C1859.95,-70.6252 1486.58,-60.2551 1179,-26 1176.23,-25.6914 1173.4,-25.3472 1170.55,-24.9759" stroke="#d4d4d4" fill="none"></path><polygon points="1983.57,-74.9901 1988.6,-73.3449 1983.64,-71.4909 1983.57,-74.9901" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node9 --><g class="edge inheritance" id="graph1_12_9"><g id="a_inheritance|graph1_12_9"><a xlink:title="RemoveTakeDrop is a subtype of Phase"><path d="M1983.45,-72.6545C1874.25,-68.7984 1570.27,-55.9998 1319,-26 1315.82,-25.6199 1312.56,-25.1933 1309.27,-24.7335" stroke="#d4d4d4" fill="none"></path><polygon points="1983.45,-74.4053 1988.5,-72.8314 1983.57,-70.9074 1983.45,-74.4053" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node10 --><g class="edge inheritance" id="graph1_12_10"><g id="a_inheritance|graph1_12_10"><a xlink:title="RemoveFieldNames is a subtype of Phase"><path d="M1983.37,-71.4423C1890.73,-65.5237 1660.59,-49.5654 1469,-26 1466.12,-25.6458 1463.18,-25.2639 1460.22,-24.8617" stroke="#d4d4d4" fill="none"></path><polygon points="1983.37,-73.1961 1988.48,-71.7672 1983.6,-69.7031 1983.37,-73.1961" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12&#45;&gt;node11 --><g class="edge inheritance" id="graph1_12_11"><g id="a_inheritance|graph1_12_11"><a xlink:title="RelabelUnions is a subtype of Phase"><path d="M1983.25,-70.4174C1906.26,-63.5712 1736.81,-47.3877 1595,-26 1592.14,-25.5683 1589.21,-25.1005 1586.25,-24.6083" stroke="#d4d4d4" fill="none"></path><polygon points="1983.5,-72.1961 1988.63,-70.8942 1983.81,-68.7097 1983.5,-72.1961" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node13 --><g class="node class" id="graph1_13"><g id="a_class|graph1_13"><a xlink:title="slick.compiler.PruneProjections" xlink:href="PruneProjections.html#inheritance-diagram"><polygon points="1723.5,-26 1604.5,-26 1604.5,-0 1723.5,-0 1723.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1616" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1636" text-anchor="start">PruneProjections</text></a></g></g><!-- node12&#45;&gt;node13 --><g class="edge inheritance" id="graph1_12_13"><g id="a_inheritance|graph1_12_13"><a xlink:title="PruneProjections is a subtype of Phase"><path d="M1983.57,-67.3136C1926.95,-58.1477 1822.25,-41.0954 1733,-26 1730,-25.493 1726.93,-24.9707 1723.83,-24.4407" stroke="#d4d4d4" fill="none"></path><polygon points="1983.35,-69.0503 1988.56,-68.1217 1983.91,-65.5953 1983.35,-69.0503" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node14 --><g class="node class" id="graph1_14"><g id="a_class|graph1_14"><a xlink:title="slick.compiler.OptimizeScalar" xlink:href="OptimizeScalar.html#inheritance-diagram"><polygon points="1853.5,-26 1742.5,-26 1742.5,-0 1853.5,-0 1853.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1754" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1774" text-anchor="start">OptimizeScalar</text></a></g></g><!-- node12&#45;&gt;node14 --><g class="edge inheritance" id="graph1_12_14"><g id="a_inheritance|graph1_12_14"><a xlink:title="OptimizeScalar is a subtype of Phase"><path d="M1983.33,-62.9858C1943.82,-52.5429 1884.6,-36.8896 1843.79,-26.1024" stroke="#d4d4d4" fill="none"></path><polygon points="1983.25,-64.7741 1988.53,-64.36 1984.14,-61.3903 1983.25,-64.7741" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node15 --><g class="node class" id="graph1_15"><g id="a_class|graph1_15"><a xlink:title="slick.compiler.MergeToComprehensions" xlink:href="MergeToComprehensions.html#inheritance-diagram"><polygon points="2027.25,-26 1872.75,-26 1872.75,-0 2027.25,-0 2027.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="1885" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="1905" text-anchor="start">MergeToComprehensions</text></a></g></g><!-- node12&#45;&gt;node15 --><g class="edge inheritance" id="graph1_12_15"><g id="a_inheritance|graph1_12_15"><a xlink:title="MergeToComprehensions is a subtype of Phase"><path d="M2005.7,-58.5563C1993.08,-48.4643 1976.84,-35.4716 1965.15,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="2004.83,-60.1011 2009.82,-61.8581 2007.01,-57.3681 2004.83,-60.1011" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node16 --><g class="node class" id="graph1_16"><g id="a_class|graph1_16"><a xlink:title="slick.compiler.InsertCompiler" xlink:href="InsertCompiler.html#inheritance-diagram"><polygon points="2154,-26 2046,-26 2046,-0 2154,-0 2154,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2058" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="2078" text-anchor="start">InsertCompiler</text></a></g></g><!-- node12&#45;&gt;node16 --><g class="edge inheritance" id="graph1_12_16"><g id="a_inheritance|graph1_12_16"><a xlink:title="InsertCompiler is a subtype of Phase"><path d="M2044.3,-58.5563C2056.92,-48.4643 2073.16,-35.4716 2084.85,-26.1238" stroke="#d4d4d4" fill="none"></path><polygon points="2042.99,-57.3681 2040.18,-61.8581 2045.17,-60.1011 2042.99,-57.3681" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node17 --><g class="node class" id="graph1_17"><g id="a_class|graph1_17"><a xlink:title="slick.compiler.InferTypes" xlink:href="InferTypes.html#inheritance-diagram"><polygon points="2261.25,-26 2172.75,-26 2172.75,-0 2261.25,-0 2261.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2185" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="2205" text-anchor="start">InferTypes</text></a></g></g><!-- node12&#45;&gt;node17 --><g class="edge inheritance" id="graph1_12_17"><g id="a_inheritance|graph1_12_17"><a xlink:title="InferTypes is a subtype of Phase"><path d="M2066.38,-61.0688C2099.68,-50.663 2146.12,-36.1514 2178.6,-26.0011" stroke="#d4d4d4" fill="none"></path><polygon points="2065.82,-59.4114 2061.57,-62.5732 2066.86,-62.7521 2065.82,-59.4114" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node18 --><g class="node class" id="graph1_18"><g id="a_class|graph1_18"><a xlink:title="slick.compiler.HoistClientOps" xlink:href="HoistClientOps.html#inheritance-diagram"><polygon points="2390.25,-26 2279.75,-26 2279.75,-0 2390.25,-0 2390.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2292" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="2312" text-anchor="start">HoistClientOps</text></a></g></g><!-- node12&#45;&gt;node18 --><g class="edge inheritance" id="graph1_12_18"><g id="a_inheritance|graph1_12_18"><a xlink:title="HoistClientOps is a subtype of Phase"><path d="M2066.66,-65.9372C2121.62,-55.2997 2218.51,-36.5457 2279.6,-24.7221" stroke="#d4d4d4" fill="none"></path><polygon points="2066.05,-64.2725 2061.47,-66.9408 2066.71,-67.7087 2066.05,-64.2725" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node19 --><g class="node class" id="graph1_19"><g id="a_class|graph1_19"><a xlink:title="slick.compiler.ForceOuterBinds" xlink:href="ForceOuterBinds.html#inheritance-diagram"><polygon points="2527.25,-26 2408.75,-26 2408.75,-0 2527.25,-0 2527.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2421" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="2441" text-anchor="start">ForceOuterBinds</text></a></g></g><!-- node12&#45;&gt;node19 --><g class="edge inheritance" id="graph1_12_19"><g id="a_inheritance|graph1_12_19"><a xlink:title="ForceOuterBinds is a subtype of Phase"><path d="M2066.7,-69.2632C2135.87,-61.2671 2278.66,-44.1768 2399,-26 2402.13,-25.5278 2405.33,-25.0278 2408.56,-24.5104" stroke="#d4d4d4" fill="none"></path><polygon points="2066.21,-67.5578 2061.44,-69.8695 2066.61,-71.0348 2066.21,-67.5578" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node20 --><g class="node class" id="graph1_20"><g id="a_class|graph1_20"><a xlink:title="slick.compiler.FlattenProjections" xlink:href="FlattenProjections.html#inheritance-diagram"><polygon points="2669.5,-26 2546.5,-26 2546.5,-0 2669.5,-0 2669.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2558" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="2578" text-anchor="start">FlattenProjections</text></a></g></g><!-- node12&#45;&gt;node20 --><g class="edge inheritance" id="graph1_12_20"><g id="a_inheritance|graph1_12_20"><a xlink:title="FlattenProjections is a subtype of Phase"><path d="M2066.4,-71.1197C2153.52,-64.8376 2362.08,-48.6323 2536,-26 2539.39,-25.5585 2542.87,-25.0766 2546.38,-24.5678" stroke="#d4d4d4" fill="none"></path><polygon points="2066.21,-69.3794 2061.34,-71.4833 2066.46,-72.8704 2066.21,-69.3794" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node21 --><g class="node class" id="graph1_21"><g id="a_class|graph1_21"><a xlink:title="slick.compiler.FixRowNumberOrdering" xlink:href="FixRowNumberOrdering.html#inheritance-diagram"><polygon points="2836,-26 2688,-26 2688,-0 2836,-0 2836,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2700" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="2720" text-anchor="start">FixRowNumberOrdering</text></a></g></g><!-- node12&#45;&gt;node21 --><g class="edge inheritance" id="graph1_12_21"><g id="a_inheritance|graph1_12_21"><a xlink:title="FixRowNumberOrdering is a subtype of Phase"><path d="M2066.63,-71.9317C2170.2,-66.5717 2447.66,-50.8888 2678,-26 2681.22,-25.6518 2684.51,-25.2749 2687.83,-24.8767" stroke="#d4d4d4" fill="none"></path><polygon points="2066.44,-70.1892 2061.54,-72.1944 2066.62,-73.6846 2066.44,-70.1892" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node22 --><g class="node class" id="graph1_22"><g id="a_class|graph1_22"><a xlink:title="slick.compiler.ExpandTables" xlink:href="ExpandTables.html#inheritance-diagram"><polygon points="2959.5,-26 2854.5,-26 2854.5,-0 2959.5,-0 2959.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2866" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="2886" text-anchor="start">ExpandTables</text></a></g></g><!-- node12&#45;&gt;node22 --><g class="edge inheritance" id="graph1_12_22"><g id="a_inheritance|graph1_12_22"><a xlink:title="ExpandTables is a subtype of Phase"><path d="M2066.76,-73.5095C2187.69,-71.6696 2548.38,-63.2199 2845,-26 2848.05,-25.6178 2851.17,-25.1756 2854.31,-24.6912" stroke="#d4d4d4" fill="none"></path><polygon points="2066.5,-71.7631 2061.53,-73.5872 2066.56,-75.2627 2066.5,-71.7631" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node23 --><g class="node class" id="graph1_23"><g id="a_class|graph1_23"><a xlink:title="slick.compiler.ExpandSums" xlink:href="ExpandSums.html#inheritance-diagram"><polygon points="3082,-26 2978,-26 2978,-0 3082,-0 3082,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="2990" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3010" text-anchor="start">ExpandSums</text></a></g></g><!-- node12&#45;&gt;node23 --><g class="edge inheritance" id="graph1_12_23"><g id="a_inheritance|graph1_12_23"><a xlink:title="ExpandSums is a subtype of Phase"><path d="M2066.91,-73.9585C2199.54,-73.3802 2621.71,-68.1137 2968,-26 2971.27,-25.6029 2974.62,-25.1341 2977.99,-24.6158" stroke="#d4d4d4" fill="none"></path><polygon points="2066.56,-72.2098 2061.57,-73.9799 2066.57,-75.7097 2066.56,-72.2098" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node24 --><g class="node class" id="graph1_24"><g id="a_class|graph1_24"><a xlink:title="slick.compiler.ExpandRecords" xlink:href="ExpandRecords.html#inheritance-diagram"><polygon points="3215.25,-26 3100.75,-26 3100.75,-0 3215.25,-0 3215.25,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="3113" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3133" text-anchor="start">ExpandRecords</text></a></g></g><!-- node12&#45;&gt;node24 --><g class="edge inheritance" id="graph1_12_24"><g id="a_inheritance|graph1_12_24"><a xlink:title="ExpandRecords is a subtype of Phase"><path d="M2066.85,-74.0999C2210.16,-74.0197 2694.27,-70.2635 3091,-26 3094.17,-25.6462 3097.42,-25.2336 3100.69,-24.7784" stroke="#d4d4d4" fill="none"></path><polygon points="2066.49,-72.3499 2061.49,-74.1012 2066.49,-75.8499 2066.49,-72.3499" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node25 --><g class="node class" id="graph1_25"><g id="a_class|graph1_25"><a xlink:title="slick.compiler.EmulateOuterJoins" xlink:href="EmulateOuterJoins.html#inheritance-diagram"><polygon points="3362,-26 3234,-26 3234,-0 3362,-0 3362,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="3246" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3266" text-anchor="start">EmulateOuterJoins</text></a></g></g><!-- node12&#45;&gt;node25 --><g class="edge inheritance" id="graph1_12_25"><g id="a_inheritance|graph1_12_25"><a xlink:title="EmulateOuterJoins is a subtype of Phase"><path d="M2066.72,-74.1499C2220.81,-74.3176 2772.31,-71.497 3224,-26 3227.24,-25.6739 3230.55,-25.2971 3233.89,-24.8825" stroke="#d4d4d4" fill="none"></path><polygon points="2066.41,-72.3996 2061.41,-74.1427 2066.41,-75.8996 2066.41,-72.3996" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node26 --><g class="node class" id="graph1_26"><g id="a_class|graph1_26"><a xlink:title="slick.compiler.RemoveMappedTypes" xlink:href="RemoveMappedTypes.html#inheritance-diagram"><polygon points="3520,-26 3380,-26 3380,-0 3520,-0 3520,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="3392" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3412" text-anchor="start">RemoveMappedTypes</text></a></g></g><!-- node12&#45;&gt;node26 --><g class="edge inheritance" id="graph1_12_26"><g id="a_inheritance|graph1_12_26"><a xlink:title="RemoveMappedTypes is a subtype of Phase"><path d="M2066.73,-74.2585C2232.27,-74.9145 2858.55,-73.8969 3371,-26 3373.9,-25.7289 3376.86,-25.4215 3379.84,-25.0856" stroke="#d4d4d4" fill="none"></path><polygon points="2066.51,-72.5076 2061.5,-74.2365 2066.5,-76.0076 2066.51,-72.5076" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node27 --><g class="node class" id="graph1_27"><g id="a_class|graph1_27"><a xlink:title="slick.compiler.CreateResultSetMapping" xlink:href="CreateResultSetMapping.html#inheritance-diagram"><polygon points="3692,-26 3538,-26 3538,-0 3692,-0 3692,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="3550" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3570" text-anchor="start">CreateResultSetMapping</text></a></g></g><!-- node12&#45;&gt;node27 --><g class="edge inheritance" id="graph1_12_27"><g id="a_inheritance|graph1_12_27"><a xlink:title="CreateResultSetMapping is a subtype of Phase"><path d="M2066.52,-74.2964C2243.31,-75.2168 2950.67,-75.4354 3529,-26 3531.85,-25.7561 3534.76,-25.4822 3537.69,-25.1843" stroke="#d4d4d4" fill="none"></path><polygon points="2066.46,-72.5461 2061.45,-74.269 2066.44,-76.0461 2066.46,-72.5461" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node28 --><g class="node class" id="graph1_28"><g id="a_class|graph1_28"><a xlink:title="slick.compiler.CreateAggregates" xlink:href="CreateAggregates.html#inheritance-diagram"><polygon points="3833.5,-26 3710.5,-26 3710.5,-0 3833.5,-0 3833.5,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="3722" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3742" text-anchor="start">CreateAggregates</text></a></g></g><!-- node12&#45;&gt;node28 --><g class="edge inheritance" id="graph1_12_28"><g id="a_inheritance|graph1_12_28"><a xlink:title="CreateAggregates is a subtype of Phase"><path d="M2066.45,-73.5941C2291.59,-71.2705 3369.56,-58.5965 3701,-26 3704.11,-25.6941 3707.29,-25.3335 3710.5,-24.9318" stroke="#d4d4d4" fill="none"></path><polygon points="2066.27,-71.8457 2061.29,-73.647 2066.31,-75.3455 2066.27,-71.8457" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node29 --><g class="node class" id="graph1_29"><g id="a_class|graph1_29"><a xlink:title="slick.compiler.CodeGen" xlink:href="CodeGen.html#inheritance-diagram"><polygon points="3938,-26 3852,-26 3852,-0 3938,-0 3938,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="3864" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3884" text-anchor="start">CodeGen</text></a></g></g><!-- node12&#45;&gt;node29 --><g class="edge inheritance" id="graph1_12_29"><g id="a_inheritance|graph1_12_29"><a xlink:title="CodeGen is a subtype of Phase"><path d="M2066.5,-74.01C2302.93,-73.8996 3482.03,-71.0628 3842,-26 3845.18,-25.6016 3848.46,-25.0973 3851.74,-24.5223" stroke="#d4d4d4" fill="none"></path><polygon points="2066.42,-72.2599 2061.42,-74.012 2066.42,-75.7599 2066.42,-72.2599" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node30 --><g class="node class" id="graph1_30"><g id="a_class|graph1_30"><a xlink:title="slick.compiler.AssignUniqueSymbols" xlink:href="AssignUniqueSymbols.html#inheritance-diagram"><polygon points="4100,-26 3956,-26 3956,-0 4100,-0 4100,-26" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-19" x="3968" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-10.5" x="3988" text-anchor="start">AssignUniqueSymbols</text></a></g></g><!-- node12&#45;&gt;node30 --><g class="edge inheritance" id="graph1_12_30"><g id="a_inheritance|graph1_12_30"><a xlink:title="AssignUniqueSymbols is a subtype of Phase"><path d="M2066.85,-73.6513C2311.94,-71.5035 3563.65,-59.0583 3947,-26 3949.83,-25.7557 3952.72,-25.4764 3955.63,-25.1689" stroke="#d4d4d4" fill="none"></path><polygon points="2066.57,-71.9035 2061.59,-73.6971 2066.6,-75.4034 2066.57,-71.9035" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.compiler"><span>compiler</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.compiler.AssignUniqueSymbols" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="AssignUniqueSymbolsextendsPhase"></a>
+      <a id="AssignUniqueSymbols:AssignUniqueSymbols"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AssignUniqueSymbols.html"><span class="name">AssignUniqueSymbols</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@AssignUniqueSymbolsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Ensure that all symbol definitions in a tree are unique.</p><div class="fullcomment"><div class="comment cmt"><p>Ensure that all symbol definitions in a tree are unique. The same symbol can initially occur in
+multiple sub-trees when some part of a query is reused multiple times. This phase assigns new,
+uniqe symbols, so that later phases do not have to take scopes into account for identifying the
+source of a symbol. The rewriting is performed for both, term symbols and type symbols.</p><p>The phase state is a collection of flags depending on the presence or absence of certain node
+types in the AST. This information can be used to selectively skip later compiler phases when
+it is already known that there is nothing for them to translate.
+</p></div></div>
+    </li><li name="slick.compiler.CodeGen" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CodeGenextendsPhase"></a>
+      <a id="CodeGen:CodeGen"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CodeGen.html"><span class="name">CodeGen</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@CodeGenextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A standard skeleton for a code generator phase.</p>
+    </li><li name="slick.compiler.CompilerState" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CompilerStateextendsAnyRef"></a>
+      <a id="CompilerState:CompilerState"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CompilerState.html"><span class="name">CompilerState</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@CompilerStateextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The current state of a compiler run, consisting of the current AST and
+additional immutable state of individual phases.</p><div class="fullcomment"><div class="comment cmt"><p>The current state of a compiler run, consisting of the current AST and
+additional immutable state of individual phases. Mutability is confined
+to the SymbolNamer. The state is tied to a specific compiler instance so
+that phases can call back into the compiler.</p></div></div>
+    </li><li name="slick.compiler.CreateAggregates" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CreateAggregatesextendsPhase"></a>
+      <a id="CreateAggregates:CreateAggregates"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CreateAggregates.html"><span class="name">CreateAggregates</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@CreateAggregatesextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Rewrite aggregation function calls to Aggregate nodes.</p>
+    </li><li name="slick.compiler.CreateResultSetMapping" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CreateResultSetMappingextendsPhase"></a>
+      <a id="CreateResultSetMapping:CreateResultSetMapping"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CreateResultSetMapping.html"><span class="name">CreateResultSetMapping</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@CreateResultSetMappingextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Create a ResultSetMapping root node, ensure that the top-level server-side node returns a
+collection, and hoist client-side type conversions into the ResultSetMapping.</p><div class="fullcomment"><div class="comment cmt"><p>Create a ResultSetMapping root node, ensure that the top-level server-side node returns a
+collection, and hoist client-side type conversions into the ResultSetMapping. The original
+result type (which was removed by <code>removeMappedTypes</code>) is assigned back to the top level.</p></div></div>
+    </li><li name="slick.compiler.EmulateOuterJoins" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="EmulateOuterJoinsextendsPhase"></a>
+      <a id="EmulateOuterJoins:EmulateOuterJoins"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="EmulateOuterJoins.html"><span class="name">EmulateOuterJoins</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@EmulateOuterJoinsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An optional phase which rewrites outer joins into more commonly supported
+operations for use on databases that lack outer join support.</p><div class="fullcomment"><div class="comment cmt"><p>An optional phase which rewrites outer joins into more commonly supported
+operations for use on databases that lack outer join support.</p><p>Full outer joins are always emulated. Right joins can be replaced by left
+joins (or an emulated version thereof). Left joins can be emulated with
+inner joins and unions.
+</p></div></div>
+    </li><li name="slick.compiler.ExpandRecords" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ExpandRecordsextendsPhase"></a>
+      <a id="ExpandRecords:ExpandRecords"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ExpandRecords.html"><span class="name">ExpandRecords</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@ExpandRecordsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Expand paths of record types to reference all fields individually and
+recreate the record structure at the call site.</p>
+    </li><li name="slick.compiler.ExpandSums" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ExpandSumsextendsPhase"></a>
+      <a id="ExpandSums:ExpandSums"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ExpandSums.html"><span class="name">ExpandSums</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@ExpandSumsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Expand sum types and their catamorphisms to equivalent product type operations.</p>
+    </li><li name="slick.compiler.ExpandTables" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ExpandTablesextendsPhase"></a>
+      <a id="ExpandTables:ExpandTables"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ExpandTables.html"><span class="name">ExpandTables</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@ExpandTablesextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Expand table-valued expressions in the result type to their star projection and compute the
+missing structural expansions of table types.</p><div class="fullcomment"><div class="comment cmt"><p>Expand table-valued expressions in the result type to their star projection and compute the
+missing structural expansions of table types. After this phase the AST should always be
+well-typed.</p></div></div>
+    </li><li name="slick.compiler.FixRowNumberOrdering" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FixRowNumberOrderingextendsPhase"></a>
+      <a id="FixRowNumberOrdering:FixRowNumberOrdering"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FixRowNumberOrdering.html"><span class="name">FixRowNumberOrdering</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@FixRowNumberOrderingextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Inject the proper orderings into the RowNumber nodes produced earlier by
+the resolveFixJoins phase.</p>
+    </li><li name="slick.compiler.FlattenProjections" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="FlattenProjectionsextendsPhase"></a>
+      <a id="FlattenProjections:FlattenProjections"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FlattenProjections.html"><span class="name">FlattenProjections</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@FlattenProjectionsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Flatten all <code>Pure</code> node contents into a single <code>StructNode</code>.</p><div class="fullcomment"><div class="comment cmt"><p>Flatten all <code>Pure</code> node contents into a single <code>StructNode</code>.</p><p>After this phase, all <code>Pure</code> nodes produce a <code>StructNode</code> of primitive fields. As a
+side-effect, nested NominalTypes are eliminated.</p></div></div>
+    </li><li name="slick.compiler.ForceOuterBinds" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ForceOuterBindsextendsPhase"></a>
+      <a id="ForceOuterBinds:ForceOuterBinds"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ForceOuterBinds.html"><span class="name">ForceOuterBinds</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@ForceOuterBindsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Ensure that all collection operations are wrapped in a Bind so that we
+have a place for expanding references later.</p><div class="fullcomment"><div class="comment cmt"><p>Ensure that all collection operations are wrapped in a Bind so that we
+have a place for expanding references later. FilteredQueries are allowed
+on top of collection operations without a Bind in between, unless that
+operation is a Join, Pure or Distinct node.</p></div></div>
+    </li><li name="slick.compiler.HoistClientOps" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HoistClientOpsextendsPhase"></a>
+      <a id="HoistClientOps:HoistClientOps"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="HoistClientOps.html"><span class="name">HoistClientOps</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@HoistClientOpsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Lift applicable operations at the top level to the client side.</p>
+    </li><li name="slick.compiler.InferTypes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InferTypesextendsPhase"></a>
+      <a id="InferTypes:InferTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="InferTypes.html"><span class="name">InferTypes</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@InferTypesextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Infer all missing types.</p>
+    </li><li name="slick.compiler.InsertCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="InsertCompilerextendsPhase"></a>
+      <a id="InsertCompiler:InsertCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="InsertCompiler.html"><span class="name">InsertCompiler</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@InsertCompilerextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A custom compiler for INSERT statements.</p><div class="fullcomment"><div class="comment cmt"><p>A custom compiler for INSERT statements. We could reuse the standard
+phases with a minor modification instead, but this is much faster.</p></div></div>
+    </li><li name="slick.compiler.MergeToComprehensions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MergeToComprehensionsextendsPhase"></a>
+      <a id="MergeToComprehensions:MergeToComprehensions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MergeToComprehensions.html"><span class="name">MergeToComprehensions</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@MergeToComprehensionsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This phase merges nested nodes of types Bind, Filter, GroupBy, SortBy, Take, Drop,
+CollectionCast and Distinct to Comprehension nodes.</p><div class="fullcomment"><div class="comment cmt"><p>This phase merges nested nodes of types Bind, Filter, GroupBy, SortBy, Take, Drop,
+CollectionCast and Distinct to Comprehension nodes. Nodes can be merged if they occur in the
+following order:</p><p>[Source] -&gt; Filter (where) -&gt; GroupBy -&gt; SortBy / (Distinct | Filter (having)) -&gt; Take / Drop</p><p>Aliasing Binds and CollectionCasts are allowed everywhere in the chain. Any out of order
+operation starts a new chain with a subquery as the source.
+</p></div></div>
+    </li><li name="slick.compiler.OptimizeScalar" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OptimizeScalarextendsPhase"></a>
+      <a id="OptimizeScalar:OptimizeScalar"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="OptimizeScalar.html"><span class="name">OptimizeScalar</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@OptimizeScalarextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Optimize scalar expressions</p>
+    </li><li name="slick.compiler.Phase" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Phaseextendsslick.compiler.CompilerState=&gt;slick.compiler.CompilerStatewithLogging"></a>
+      <a id="Phase:Phase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Phase.html"><span class="name">Phase</span></a><span class="result"> extends (<a href="CompilerState.html" class="extype" name="slick.compiler.CompilerState">CompilerState</a>) ⇒ <a href="CompilerState.html" class="extype" name="slick.compiler.CompilerState">CompilerState</a> with <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@Phaseextendsslick.compiler.CompilerState=&gt;slick.compiler.CompilerStatewithLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A phase of the query compiler, identified by a unique name</p>
+    </li><li name="slick.compiler.PruneProjections" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PruneProjectionsextendsPhase"></a>
+      <a id="PruneProjections:PruneProjections"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PruneProjections.html"><span class="name">PruneProjections</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@PruneProjectionsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Remove unreferenced fields from StructNodes.</p>
+    </li><li name="slick.compiler.QueryCompiler" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryCompilerextendsLogging"></a>
+      <a id="QueryCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryCompiler.html"><span class="name">QueryCompiler</span></a><span class="result"> extends <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@QueryCompilerextendsLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An immutable, stateless query compiler consisting of a series of phases</p>
+    </li><li name="slick.compiler.RelabelUnions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RelabelUnionsextendsPhase"></a>
+      <a id="RelabelUnions:RelabelUnions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RelabelUnions.html"><span class="name">RelabelUnions</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RelabelUnionsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Assign the AnonSymbols of fields from the left side of a Union to the
+right side.</p><div class="fullcomment"><div class="comment cmt"><p>Assign the AnonSymbols of fields from the left side of a Union to the
+right side. This ensures that both sides are protected when we prune
+unused references pointing to left-side Symbols.</p></div></div>
+    </li><li name="slick.compiler.RemoveFieldNames" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RemoveFieldNamesextendsPhase"></a>
+      <a id="RemoveFieldNames:RemoveFieldNames"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RemoveFieldNames.html"><span class="name">RemoveFieldNames</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RemoveFieldNamesextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Convert unreferenced StructNodes to single columns or ProductNodes (which is needed for
+aggregation functions and at the top level).</p>
+    </li><li name="slick.compiler.RemoveMappedTypes" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RemoveMappedTypesextendsPhase"></a>
+      <a id="RemoveMappedTypes:RemoveMappedTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RemoveMappedTypes.html"><span class="name">RemoveMappedTypes</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RemoveMappedTypesextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Remove all mapped types from the tree and store the original top-level type as the phase state
+to be used later for building the ResultSetMapping.</p>
+    </li><li name="slick.compiler.RemoveTakeDrop" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RemoveTakeDropextendsPhase"></a>
+      <a id="RemoveTakeDrop:RemoveTakeDrop"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RemoveTakeDrop.html"><span class="name">RemoveTakeDrop</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RemoveTakeDropextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Replace all occurrences of <code>Take</code> and <code>Drop</code> with row number computations based on
+<code>zipWithIndex</code> operations.</p>
+    </li><li name="slick.compiler.ReorderOperations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ReorderOperationsextendsPhase"></a>
+      <a id="ReorderOperations:ReorderOperations"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ReorderOperations.html"><span class="name">ReorderOperations</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@ReorderOperationsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Reorder certain stream operations for more efficient merging in <code>mergeToComprehensions</code>.</p>
+    </li><li name="slick.compiler.ResolveZipJoins" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ResolveZipJoinsextendsPhase"></a>
+      <a id="ResolveZipJoins:ResolveZipJoins"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ResolveZipJoins.html"><span class="name">ResolveZipJoins</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@ResolveZipJoinsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Rewrite zip joins into a form suitable for SQL using inner joins and RowNumber columns.</p><div class="fullcomment"><div class="comment cmt"><p>Rewrite zip joins into a form suitable for SQL using inner joins and RowNumber columns.</p><p>We rely on having a Bind around every Join and both of its generators, which should have been
+generated by Phase.forceOuterBinds. The inner Binds need to select <code>Pure(StructNode(...))</code>
+which should be the outcome of Phase.flattenProjections.
+</p></div></div>
+    </li><li name="slick.compiler.RewriteBooleans" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RewriteBooleansextendsPhase"></a>
+      <a id="RewriteBooleans:RewriteBooleans"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RewriteBooleans.html"><span class="name">RewriteBooleans</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RewriteBooleansextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">For SQL back-ends which do not support real boolean types for fields and general expressions
+but which do have special boolean expressions and operators, this phase injects conversions
+between fake and real boolean values.</p><div class="fullcomment"><div class="comment cmt"><p>For SQL back-ends which do not support real boolean types for fields and general expressions
+but which do have special boolean expressions and operators, this phase injects conversions
+between fake and real boolean values.</p><p>The default for booleans in the AST is to use the fake type (mapped to a numeric type by the
+profile). There are specific places where a real boolean (that can be used in boolean
+expressions) is required or produced, so we inject a call to ToRealBoolean or ToFakeBoolean as
+needed.</p></div></div>
+    </li><li name="slick.compiler.RewriteDistinct" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RewriteDistinctextendsPhase"></a>
+      <a id="RewriteDistinct:RewriteDistinct"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RewriteDistinct.html"><span class="name">RewriteDistinct</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RewriteDistinctextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Rewrite &quot;distinct on&quot; to &quot;distinct&quot; or &quot;group by&quot;</p>
+    </li><li name="slick.compiler.RewriteJoins" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RewriteJoinsextendsPhase"></a>
+      <a id="RewriteJoins:RewriteJoins"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RewriteJoins.html"><span class="name">RewriteJoins</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RewriteJoinsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Rewrite monadic joins to applicative joins.</p><div class="fullcomment"><div class="comment cmt"><p>Rewrite monadic joins to applicative joins. After this phase all <code>Bind</code> nodes are of the
+form <code>Bind(_, _, Pure(_, _))</code> (i.e. <code>flatMap</code> has been reduced to <code>map</code>).</p></div></div>
+    </li><li name="slick.compiler.SpecializeParameters" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SpecializeParametersextendsPhase"></a>
+      <a id="SpecializeParameters:SpecializeParameters"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SpecializeParameters.html"><span class="name">SpecializeParameters</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@SpecializeParametersextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Specialize the AST for edge cases of query parameters.</p><div class="fullcomment"><div class="comment cmt"><p>Specialize the AST for edge cases of query parameters. This is required for
+compiling <code>take(0)</code> for some databases which do not allow <code>LIMIT 0</code>.</p></div></div>
+    </li><li name="slick.compiler.UnrollTailBinds" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UnrollTailBindsextendsPhase"></a>
+      <a id="UnrollTailBinds:UnrollTailBinds"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="UnrollTailBinds.html"><span class="name">UnrollTailBinds</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@UnrollTailBindsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.compiler.UsedFeatures" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="UsedFeaturesextendsProductwithSerializable"></a>
+      <a id="UsedFeatures:UsedFeatures"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="UsedFeatures.html"><span class="name">UsedFeatures</span></a><span class="params">(<span name="distinct">distinct: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="typeMapping">typeMapping: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="aggregate">aggregate: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="nonPrimitiveOption">nonPrimitiveOption: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@UsedFeaturesextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.compiler.VerifySymbols" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="VerifySymbolsextendsPhase"></a>
+      <a id="VerifySymbols:VerifySymbols"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="VerifySymbols.html"><span class="name">VerifySymbols</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@VerifySymbolsextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Verify that all monadic joins have been transformed into applicative joins and that the
+resulting tree does not contain references to unreachable symbols.</p>
+    </li><li name="slick.compiler.VerifyTypes" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="VerifyTypesextendsPhase"></a>
+      <a id="VerifyTypes:VerifyTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="VerifyTypes.html"><span class="name">VerifyTypes</span></a><span class="result"> extends <a href="Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@VerifyTypesextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Optional phase which verifies that retyping the tree does not change any types.</p><div class="fullcomment"><div class="comment cmt"><p>Optional phase which verifies that retyping the tree does not change any types. Useful for
+debugging type-related problems with large trees.</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="slick.compiler.CodeGen" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CodeGen"></a>
+      <a id="CodeGen:CodeGen"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CodeGen$.html"><span class="name">CodeGen</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@CodeGen" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.compiler.InsertCompiler" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="InsertCompiler"></a>
+      <a id="InsertCompiler:InsertCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="InsertCompiler$.html"><span class="name">InsertCompiler</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@InsertCompiler" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.compiler.Phase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Phase"></a>
+      <a id="Phase:Phase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Phase$.html"><span class="name">Phase</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@Phase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The <code>Phase</code> companion objects contains ready-to-use <code>Phase</code> objects for
+the standard phases of the query compiler</p>
+    </li><li name="slick.compiler.QueryCompiler" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryCompiler"></a>
+      <a id="QueryCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryCompiler$.html"><span class="name">QueryCompiler</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@QueryCompiler" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.compiler.RewriteBooleans" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RewriteBooleans"></a>
+      <a id="RewriteBooleans:RewriteBooleans"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="RewriteBooleans$.html"><span class="name">RewriteBooleans</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.compiler.package@RewriteBooleans" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>
