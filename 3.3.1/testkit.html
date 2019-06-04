@@ -81,14 +81,14 @@ required to build and test it.</p>
 <p>Its <code class="hljs">build.sbt</code> file is straight-forward. It adds the dependencies for Slick, TestKit, junit-interface, Logback and
 the PostgreSQL JDBC driver, and it sets some options for the test runs:</p>
 <div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
-<pre class="hljs"><code class="language-scala">scalaVersion := <span class="hljs-string">"2.12.8"</span>
+<pre class="hljs"><code class="language-scala">scalaVersion := <span class="hljs-string">"2.12.7"</span>
 
 libraryDependencies ++= <span class="hljs-type">List</span>(
-  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick"</span> % <span class="hljs-string">"3.3.0"</span>,
-  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick-testkit"</span> % <span class="hljs-string">"3.3.0"</span> % <span class="hljs-string">"test"</span>,
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick"</span> % <span class="hljs-string">"3.2.3"</span>,
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick-testkit"</span> % <span class="hljs-string">"3.2.3"</span> % <span class="hljs-string">"test"</span>,
   <span class="hljs-string">"com.novocode"</span> % <span class="hljs-string">"junit-interface"</span> % <span class="hljs-string">"0.11"</span> % <span class="hljs-string">"test"</span>,
   <span class="hljs-string">"ch.qos.logback"</span> % <span class="hljs-string">"logback-classic"</span> % <span class="hljs-string">"1.2.3"</span> % <span class="hljs-string">"test"</span>,
-  <span class="hljs-string">"org.postgresql"</span> % <span class="hljs-string">"postgresql"</span> % <span class="hljs-string">"42.1.4"</span> % <span class="hljs-string">"test"</span>
+  <span class="hljs-string">"org.postgresql"</span> % <span class="hljs-string">"postgresql"</span> % <span class="hljs-string">"42.2.5"</span> % <span class="hljs-string">"test"</span>
 )
 
 scalacOptions += <span class="hljs-string">"-deprecation"</span>

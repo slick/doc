@@ -126,19 +126,23 @@ This can be done much simpler by using
 <a href="api/index.html#slick.jdbc.JdbcProfile@MappedColumnType:MappedJdbcType.type">MappedColumnType</a>
 which takes care of all the boilerplate. It comes with the usual import from the profile.</p>
 <div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
-<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// An algebraic data type for booleans</span>
-<span class="hljs-keyword">sealed</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Bool</span></span>
-<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">True</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Bool</span></span>
-<span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">False</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Bool</span></span>
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Custom data type for booleans that maps to NUMBER in database</span>
+<span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">Bool</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Enumeration</span> </span>{
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Bool</span> </span>= <span class="hljs-type">Value</span>
+    <span class="hljs-keyword">val</span> <span class="hljs-type">True</span>, <span class="hljs-type">False</span> = <span class="hljs-type">Value</span>
 
-<span class="hljs-comment">// And a ColumnType that maps it to Int values 1 and 0</span>
-<span class="hljs-keyword">implicit</span> <span class="hljs-keyword">val</span> boolColumnType = <span class="hljs-type">MappedColumnType</span>.base[<span class="hljs-type">Bool</span>, <span class="hljs-type">Int</span>](
-  { b =&gt; <span class="hljs-keyword">if</span>(b == <span class="hljs-type">True</span>) <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> },    <span class="hljs-comment">// map Bool to Int</span>
-  { i =&gt; <span class="hljs-keyword">if</span>(i == <span class="hljs-number">1</span>) <span class="hljs-type">True</span> <span class="hljs-keyword">else</span> <span class="hljs-type">False</span> } <span class="hljs-comment">// map Int to Bool</span>
-)
+    <span class="hljs-comment">// A ColumnType that maps it to NUMBER values 1 and 0</span>
+    <span class="hljs-keyword">val</span> columnMapper = <span class="hljs-type">MappedColumnType</span>.base[<span class="hljs-type">Bool</span>, <span class="hljs-type">Int</span>](
+        { <span class="hljs-keyword">case</span> <span class="hljs-type">True</span> =&gt; <span class="hljs-number">1</span>; <span class="hljs-keyword">case</span> <span class="hljs-type">False</span> =&gt; <span class="hljs-number">0</span> }, <span class="hljs-comment">// map Bool to NUMBER</span>
+        { i =&gt; <span class="hljs-keyword">if</span> (i == <span class="hljs-number">1</span>) <span class="hljs-type">True</span> <span class="hljs-keyword">else</span> <span class="hljs-type">False</span> } <span class="hljs-comment">// map NUMBER to Bool</span>
+    )
+}
 
-<span class="hljs-comment">// You can now use Bool like any built-in column type (in tables, queries, etc.)</span></code></pre>
-<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L545-L556" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<span class="hljs-comment">// Make columnMapper available in table definitions and where you do queries</span>
+<span class="hljs-keyword">implicit</span> <span class="hljs-keyword">val</span> boolColumnType = <span class="hljs-type">Bool</span>.columnMapper
+
+<span class="hljs-comment">// You can now use Bool.{True, False} like any built-in column type (in tables, queries, etc.)</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L545-L560" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
 <p>You can also subclass <a href="api/index.html#slick.jdbc.JdbcProfile@MappedJdbcType">MappedJdbcType</a> for a bit more flexibility.</p>
 <p>If you have a wrapper class (which can optionally be a case class and/or value
 class) for an underlying value of some supported type, you can make it extend
@@ -155,7 +159,7 @@ table-specific primary key types:</p>
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">data</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"DATA"</span>)
   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id, data)
 }</code></pre>
-<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L562-L570" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L566-L574" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
 <h2 id="record-types" class="a_section" data-magellan-target="record-types">Using Custom Record Types in Queries<a class="a_hlink" href="#record-types"></a></h2>
 <p>Record types are data structures containing a statically known
 number of components with individually declared types.  Out of the box,
@@ -187,7 +191,7 @@ types using an appropriate implicit <a href="api/index.html#slick.lifted.Shape">
 <span class="hljs-keyword">implicit</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pairShape</span></span>[<span class="hljs-type">Level</span> &lt;: <span class="hljs-type">ShapeLevel</span>, <span class="hljs-type">M1</span>, <span class="hljs-type">M2</span>, <span class="hljs-type">U1</span>, <span class="hljs-type">U2</span>, <span class="hljs-type">P1</span>, <span class="hljs-type">P2</span>](
   <span class="hljs-keyword">implicit</span> s1: <span class="hljs-type">Shape</span>[_ &lt;: <span class="hljs-type">Level</span>, <span class="hljs-type">M1</span>, <span class="hljs-type">U1</span>, <span class="hljs-type">P1</span>], s2: <span class="hljs-type">Shape</span>[_ &lt;: <span class="hljs-type">Level</span>, <span class="hljs-type">M2</span>, <span class="hljs-type">U2</span>, <span class="hljs-type">P2</span>]
 ) = <span class="hljs-keyword">new</span> <span class="hljs-type">PairShape</span>[<span class="hljs-type">Level</span>, <span class="hljs-type">Pair</span>[<span class="hljs-type">M1</span>, <span class="hljs-type">M2</span>], <span class="hljs-type">Pair</span>[<span class="hljs-type">U1</span>, <span class="hljs-type">U2</span>], <span class="hljs-type">Pair</span>[<span class="hljs-type">P1</span>, <span class="hljs-type">P2</span>]](<span class="hljs-type">Seq</span>(s1, s2))</code></pre>
-<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L576-L589" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L580-L593" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
 <p>The implicit method <code class="hljs">pairShape</code> in this example provides a Shape for a
 <code class="hljs">Pair</code> of two element types whenever Shapes for the individual element
 types are available.</p>
@@ -216,7 +220,7 @@ location in Slick where a tuple or <code class="hljs">HList</code> would be acce
   .sortBy { <span class="hljs-keyword">case</span> <span class="hljs-type">Pair</span>(_, ss) =&gt; ss }
   .map { <span class="hljs-keyword">case</span> <span class="hljs-type">Pair</span>(id, ss) =&gt; <span class="hljs-type">Pair</span>(id, <span class="hljs-type">Pair</span>(<span class="hljs-number">42</span> , ss)) }
 <span class="hljs-comment">// returns: Vector(Pair(3,Pair(42,"bb")), Pair(2,Pair(42,"cc")))</span></code></pre>
-<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L593-L614" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L597-L618" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
 <h3 id="monomorphic-case-classes" class="a_section" data-magellan-target="monomorphic-case-classes">Monomorphic Case Classes<a class="a_hlink" href="#monomorphic-case-classes"></a></h3>
 <p>Custom <em>case classes</em> are frequently used as monomorphic record types (i.e.
 record types where the element types are fixed). In order to use them in Slick,
@@ -251,7 +255,7 @@ you can use <a href="api/index.html#slick.lifted.CaseClassShape">CaseClassShape<
   .sortBy { <span class="hljs-keyword">case</span> <span class="hljs-type">LiftedB</span>(_, ss) =&gt; ss }
 
 <span class="hljs-comment">// returns: Vector(B(3,"bb"), B(2,"cc"))</span></code></pre>
-<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L620-L645" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L624-L649" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
 <p>Note that this mechanism can be used as an alternative to client-side mappings
 with the <code class="hljs">&lt;&gt;</code> operator. It requires a bit more boilerplate but allows you to use
 the same field names in both, plain and lifted records.</p>
@@ -288,7 +292,7 @@ the same field names in both, plain and lifted records.</p>
   .sortBy { <span class="hljs-keyword">case</span> <span class="hljs-type">LiftedC</span>(<span class="hljs-type">Pair</span>(_,p2), <span class="hljs-type">LiftedB</span>(_,ss)) =&gt; ss++p2 }
 
 <span class="hljs-comment">// returns: Vector(C(Pair(9,"z"),B(3,"bb")), C(Pair(8,"y"),B(2,"cc")))</span></code></pre>
-<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L650-L678" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<a href="https://github.com/slick/slick/blob/v3.3.1/doc/code/LiftedEmbedding.scala#L654-L682" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
 
                  
   <ul class="menu align-right simple a_navbar a_navbar_bottom">
