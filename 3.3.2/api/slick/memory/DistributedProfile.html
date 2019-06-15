@@ -1,0 +1,1432 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>DistributedProfile - Slick 3.3.2 - slick.memory.DistributedProfile</title>
+          <meta name="description" content="DistributedProfile - Slick 3.3.2 - slick.memory.DistributedProfile" />
+          <meta name="keywords" content="DistributedProfile Slick 3.3.2 slick.memory.DistributedProfile" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.memory.DistributedProfile';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <img alt="Class" src="../../lib/class_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a>.<a href="package.html" class="extype" name="slick.memory">memory</a></p>
+        <h1>DistributedProfile</h1><h3><span class="morelinks"><div>Related Doc:
+            <a href="package.html" class="extype" name="slick.memory">package memory</a>
+          </div></span></h3><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DistributedProfile</span><span class="result"> extends <a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A profile for distributed queries.</p></div><dl class="attributes block"> <dt>Self Type</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a></dd><dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.3.2/slick/src/main/scala/slick/memory/DistributedProfile.scala" target="_blank">DistributedProfile.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a>, <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a>, <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a>, <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">Type Hierarchy</span>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 176.00 120.00" height="120pt" width="176pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 116)" class="graph" id="graph0"><polygon points="-4,4 -4,-116 172,-116 172,4 -4,4" stroke="none" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="slick.memory.DistributedProfile (this class)" xlink:href="#inheritance-diagram"><polygon points="143.25,-50 24.75,-50 24.75,-24 143.25,-24 143.25,-50" stroke="#115f3b" fill="#0a955b"></polygon><image xlink:href="../../lib/class_diagram.png" y="-43" x="37" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-34.5" x="57" text-anchor="start">DistributedProfile</text></a></g></g><!-- node1 --><g class="node trait" id="graph1_1"><g id="a_trait|graph1_1"><a xlink:title="slick.memory.MemoryQueryingProfile" xlink:href="MemoryQueryingProfile.html#inheritance-diagram"><polygon points="157.25,-112 10.75,-112 10.75,-86 157.25,-86 157.25,-112" stroke="#37657d" fill="#498aad"></polygon><image xlink:href="../../lib/trait_diagram.png" y="-105" x="23" preserveAspectRatio="xMinYMin meet" height="12px" width="12px"></image><text fill="#ffffff" font-size="10.00" font-family="Arial" y="-96.5" x="43" text-anchor="start">MemoryQueryingProfile</text></a></g></g><!-- node1&#45;&gt;node0 --><g class="edge inheritance" id="graph1_1_0"><g id="a_inheritance|graph1_1_0"><a xlink:title="DistributedProfile is a subtype of MemoryQueryingProfile"><path d="M84,-80.6826C84,-70.8961 84,-58.9026 84,-50.1238" stroke="#d4d4d4" fill="none"></path><polygon points="82.2501,-80.8581 84,-85.8581 85.7501,-80.8581 82.2501,-80.8581" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.memory.DistributedProfile"><span>DistributedProfile</span></li><li class="in" name="slick.memory.MemoryQueryingProfile"><span>MemoryQueryingProfile</span></li><li class="in" name="slick.basic.BasicProfile"><span>BasicProfile</span></li><li class="in" name="slick.basic.BasicActionComponent"><span>BasicActionComponent</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+                <span class="filtertype">Implicitly<br />
+                </span>
+                <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="slick.memory.DistributedProfile#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(profiles:slick.relational.RelationalProfile*):slick.memory.DistributedProfile"></a>
+      <a id="&lt;init&gt;:DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">DistributedProfile</span><span class="params">(<span name="profiles">profiles: <a href="../relational/RelationalProfile.html" class="extype" name="slick.relational.RelationalProfile">RelationalProfile</a>*</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@&lt;init&gt;(profiles:slick.relational.RelationalProfile*):slick.memory.DistributedProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.memory.MemoryQueryingProfile.API" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="APIextendsMemoryQueryingProfile.this.APIwithMemoryQueryingProfile.this.ImplicitColumnTypes"></a>
+      <a id="API:API"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile$API.html"><span class="name">API</span></a><span class="result"> extends <span class="extype" name="slick.basic.BasicProfile.API">MemoryQueryingProfile.API</span> with <a href="MemoryQueryingProfile$ImplicitColumnTypes.html" class="extype" name="slick.memory.MemoryQueryingProfile.ImplicitColumnTypes">ImplicitColumnTypes</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.MemoryQueryingProfile@APIextendsMemoryQueryingProfile.this.APIwithMemoryQueryingProfile.this.ImplicitColumnTypes" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.Backend" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Backend=slick.memory.DistributedBackend"></a>
+      <a id="Backend:Backend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Backend</span><span class="result"> = <a href="DistributedBackend.html" class="extype" name="slick.memory.DistributedBackend">DistributedBackend</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@Backend=slick.memory.DistributedBackend" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The back-end type required by this profile</p><div class="fullcomment"><div class="comment cmt"><p>The back-end type required by this profile</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingProfile.BaseColumnType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="BaseColumnType[T]=slick.ast.ScalaType[T]withslick.ast.BaseTypedType[T]"></a>
+      <a id="BaseColumnType[T]:BaseColumnType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">BaseColumnType</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="../ast/ScalaType.html" class="extype" name="slick.ast.ScalaType">ScalaType</a>[<span class="extype" name="slick.memory.MemoryQueryingProfile.BaseColumnType.T">T</span>] with <a href="../ast/BaseTypedType.html" class="extype" name="slick.ast.BaseTypedType">BaseTypedType</a>[<span class="extype" name="slick.memory.MemoryQueryingProfile.BaseColumnType.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@BaseColumnType[T]=slick.ast.ScalaType[T]withslick.ast.BaseTypedType[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingProfile.ColumnType" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ColumnType[T]=slick.ast.ScalaType[T]"></a>
+      <a id="ColumnType[T]:ColumnType[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ColumnType</span><span class="tparams">[<span name="T">T</span>]</span><span class="result"> = <a href="../ast/ScalaType.html" class="extype" name="slick.ast.ScalaType">ScalaType</a>[<span class="extype" name="slick.memory.MemoryQueryingProfile.ColumnType.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@ColumnType[T]=slick.ast.ScalaType[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingProfile.CompiledInsert" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CompiledInsert=slick.ast.Node"></a>
+      <a id="CompiledInsert:CompiledInsert"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">CompiledInsert</span><span class="result"> = <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@CompiledInsert=slick.ast.Node" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The type of a (partially) compiled AST for Insert operations.</p><div class="fullcomment"><div class="comment cmt"><p>The type of a (partially) compiled AST for Insert operations. Unlike
+querying or deleting, inserts may require different compilation results
+which should be computed lazily.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.Distribute" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DistributeextendsPhase"></a>
+      <a id="Distribute:Distribute"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedProfile$Distribute.html"><span class="name">Distribute</span></a><span class="result"> extends <a href="../compiler/Phase.html" class="extype" name="slick.compiler.Phase">Phase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@DistributeextendsPhase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Compile sub-queries with the appropriate profile</p>
+    </li><li name="slick.memory.DistributedProfile.DistributedQueryInterpreter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DistributedQueryInterpreterextendsQueryInterpreter"></a>
+      <a id="DistributedQueryInterpreter:DistributedQueryInterpreter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedProfile$DistributedQueryInterpreter.html"><span class="name">DistributedQueryInterpreter</span></a><span class="result"> extends <a href="QueryInterpreter.html" class="extype" name="slick.memory.QueryInterpreter">QueryInterpreter</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@DistributedQueryInterpreterextendsQueryInterpreter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.MemoryQueryingProfile.ImplicitColumnTypes" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ImplicitColumnTypesextendsAnyRef"></a>
+      <a id="ImplicitColumnTypes:ImplicitColumnTypes"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile$ImplicitColumnTypes.html"><span class="name">ImplicitColumnTypes</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.MemoryQueryingProfile@ImplicitColumnTypesextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingProfile.MemoryCodeGen" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MemoryCodeGenextendsCodeGenwithResultConverterCompiler[slick.memory.MemoryResultConverterDomain]"></a>
+      <a id="MemoryCodeGen:MemoryCodeGen"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile$MemoryCodeGen.html"><span class="name">MemoryCodeGen</span></a><span class="result"> extends <a href="../compiler/CodeGen.html" class="extype" name="slick.compiler.CodeGen">CodeGen</a> with <a href="../relational/ResultConverterCompiler.html" class="extype" name="slick.relational.ResultConverterCompiler">ResultConverterCompiler</a>[<a href="MemoryResultConverterDomain.html" class="extype" name="slick.memory.MemoryResultConverterDomain">MemoryResultConverterDomain</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.MemoryQueryingProfile@MemoryCodeGenextendsCodeGenwithResultConverterCompiler[slick.memory.MemoryResultConverterDomain]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.ProfileAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.basic.FixedBasicAction[R,S,E]"></a>
+      <a id="ProfileAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:ProfileAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ProfileAction</span><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="../basic/FixedBasicAction.html" class="extype" name="slick.basic.FixedBasicAction">FixedBasicAction</a>[<span class="extype" name="slick.memory.DistributedProfile.ProfileAction.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.ProfileAction.S">S</span>, <span class="extype" name="slick.memory.DistributedProfile.ProfileAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.basic.FixedBasicAction[R,S,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.QueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream]=DistributedProfile.this.QueryActionExtensionMethodsImpl[R,S]"></a>
+      <a id="QueryActionExtensionMethods[R,S&lt;:NoStream]:QueryActionExtensionMethods[R,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">QueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="S">S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>]</span><span class="result"> = <a href="DistributedProfile$QueryActionExtensionMethodsImpl.html" class="extype" name="slick.memory.DistributedProfile.QueryActionExtensionMethodsImpl">QueryActionExtensionMethodsImpl</a>[<span class="extype" name="slick.memory.DistributedProfile.QueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.QueryActionExtensionMethods.S">S</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@QueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream]=DistributedProfile.this.QueryActionExtensionMethodsImpl[R,S]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.QueryActionExtensionMethodsImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryActionExtensionMethodsImpl[R,S&lt;:slick.dbio.NoStream]extendsDistributedProfile.this.QueryActionExtensionMethodsImpl[R,S]"></a>
+      <a id="QueryActionExtensionMethodsImpl[R,S&lt;:NoStream]:QueryActionExtensionMethodsImpl[R,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedProfile$QueryActionExtensionMethodsImpl.html"><span class="name">QueryActionExtensionMethodsImpl</span></a><span class="tparams">[<span name="R">R</span>, <span name="S">S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>]</span><span class="result"> extends <span class="extype" name="slick.basic.BasicActionComponent.QueryActionExtensionMethodsImpl">DistributedProfile.QueryActionExtensionMethodsImpl</span>[<span class="extype" name="slick.memory.DistributedProfile.QueryActionExtensionMethodsImpl.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.QueryActionExtensionMethodsImpl.S">S</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@QueryActionExtensionMethodsImpl[R,S&lt;:slick.dbio.NoStream]extendsDistributedProfile.this.QueryActionExtensionMethodsImpl[R,S]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.DistributedProfile.QueryExecutor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryExecutor[R]=DistributedProfile.this.QueryExecutorDef[R]"></a>
+      <a id="QueryExecutor[R]:QueryExecutor[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">QueryExecutor</span><span class="tparams">[<span name="R">R</span>]</span><span class="result"> = <a href="DistributedProfile$QueryExecutorDef.html" class="extype" name="slick.memory.DistributedProfile.QueryExecutorDef">QueryExecutorDef</a>[<span class="extype" name="slick.memory.DistributedProfile.QueryExecutor.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@QueryExecutor[R]=DistributedProfile.this.QueryExecutorDef[R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.DistributedProfile.QueryExecutorDef" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryExecutorDef[R]extendsAnyRef"></a>
+      <a id="QueryExecutorDef[R]:QueryExecutorDef[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedProfile$QueryExecutorDef.html"><span class="name">QueryExecutorDef</span></a><span class="tparams">[<span name="R">R</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@QueryExecutorDef[R]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.basic.BasicProfile.SchemaDescription" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SchemaDescription&lt;:BasicProfile.this.SchemaDescriptionDef"></a>
+      <a id="SchemaDescription:SchemaDescription"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">SchemaDescription</span><span class="result"> &lt;: <a href="#SchemaDescriptionDefextendsAnyRef" class="extmbr" name="slick.basic.BasicProfile.SchemaDescriptionDef">SchemaDescriptionDef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@SchemaDescription&lt;:BasicProfile.this.SchemaDescriptionDef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The type of a schema description (DDL)</p><div class="fullcomment"><div class="comment cmt"><p>The type of a schema description (DDL)</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.basic.BasicProfile.SchemaDescriptionDef" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SchemaDescriptionDefextendsAnyRef"></a>
+      <a id="SchemaDescriptionDef:SchemaDescriptionDef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="../basic/BasicProfile$SchemaDescriptionDef.html"><span class="name">SchemaDescriptionDef</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.basic.BasicProfile@SchemaDescriptionDefextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A schema description contains the SQL statements for creating and
+dropping database entities.</p><div class="fullcomment"><div class="comment cmt"><p>A schema description contains the SQL statements for creating and
+dropping database entities. Schema descriptions can be combined for
+creating or dropping multiple entities together, even if they have
+circular dependencies.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.StreamingProfileAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamingProfileAction[+R,+T,-E&lt;:slick.dbio.Effect]=slick.basic.FixedBasicStreamingAction[R,T,E]"></a>
+      <a id="StreamingProfileAction[+R,+T,-E&lt;:Effect]:StreamingProfileAction[R,T,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">StreamingProfileAction</span><span class="tparams">[<span name="R">+R</span>, <span name="T">+T</span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="../basic/FixedBasicStreamingAction.html" class="extype" name="slick.basic.FixedBasicStreamingAction">FixedBasicStreamingAction</a>[<span class="extype" name="slick.memory.DistributedProfile.StreamingProfileAction.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.StreamingProfileAction.T">T</span>, <span class="extype" name="slick.memory.DistributedProfile.StreamingProfileAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@StreamingProfileAction[+R,+T,-E&lt;:slick.dbio.Effect]=slick.basic.FixedBasicStreamingAction[R,T,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamingQueryActionExtensionMethods[R,T]=DistributedProfile.this.StreamingQueryActionExtensionMethodsImpl[R,T]"></a>
+      <a id="StreamingQueryActionExtensionMethods[R,T]:StreamingQueryActionExtensionMethods[R,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">StreamingQueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="T">T</span>]</span><span class="result"> = <a href="DistributedProfile$StreamingQueryActionExtensionMethodsImpl.html" class="extype" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethodsImpl">StreamingQueryActionExtensionMethodsImpl</a>[<span class="extype" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@StreamingQueryActionExtensionMethods[R,T]=DistributedProfile.this.StreamingQueryActionExtensionMethodsImpl[R,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethodsImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamingQueryActionExtensionMethodsImpl[R,T]extendsDistributedProfile.this.QueryActionExtensionMethodsImpl[R,slick.dbio.Streaming[T]]withDistributedProfile.this.StreamingQueryActionExtensionMethodsImpl[R,T]"></a>
+      <a id="StreamingQueryActionExtensionMethodsImpl[R,T]:StreamingQueryActionExtensionMethodsImpl[R,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedProfile$StreamingQueryActionExtensionMethodsImpl.html"><span class="name">StreamingQueryActionExtensionMethodsImpl</span></a><span class="tparams">[<span name="R">R</span>, <span name="T">T</span>]</span><span class="result"> extends <a href="DistributedProfile$QueryActionExtensionMethodsImpl.html" class="extype" name="slick.memory.DistributedProfile.QueryActionExtensionMethodsImpl">QueryActionExtensionMethodsImpl</a>[<span class="extype" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethodsImpl.R">R</span>, <a href="../dbio/Streaming.html" class="extype" name="slick.dbio.Streaming">Streaming</a>[<span class="extype" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethodsImpl.T">T</span>]] with <span class="extype" name="slick.basic.BasicActionComponent.StreamingQueryActionExtensionMethodsImpl">DistributedProfile.StreamingQueryActionExtensionMethodsImpl</span>[<span class="extype" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethodsImpl.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethodsImpl.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@StreamingQueryActionExtensionMethodsImpl[R,T]extendsDistributedProfile.this.QueryActionExtensionMethodsImpl[R,slick.dbio.Streaming[T]]withDistributedProfile.this.StreamingQueryActionExtensionMethodsImpl[R,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.basic.BasicActionComponent.DriverAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.ProfileAction[R,S,E]"></a>
+      <a id="DriverAction[+R,+S&lt;:NoStream,-E&lt;:Effect]:DriverAction[R,S,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use ProfileAction instead of DriverAction">DriverAction</span><span class="tparams">[<span name="R">+R</span>, <span name="S">+S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="#ProfileAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=slick.basic.FixedBasicAction[R,S,E]" class="extmbr" name="slick.memory.DistributedProfile.ProfileAction">ProfileAction</a>[<span class="extype" name="slick.basic.BasicActionComponent.DriverAction.R">R</span>, <span class="extype" name="slick.basic.BasicActionComponent.DriverAction.S">S</span>, <span class="extype" name="slick.basic.BasicActionComponent.DriverAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@DriverAction[+R,+S&lt;:slick.dbio.NoStream,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.ProfileAction[R,S,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>ProfileAction</code> instead of <code>DriverAction</code></p></dd></dl></div>
+    </li><li name="slick.basic.BasicActionComponent.StreamingDriverAction" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="StreamingDriverAction[+R,+T,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.StreamingProfileAction[R,T,E]"></a>
+      <a id="StreamingDriverAction[+R,+T,-E&lt;:Effect]:StreamingDriverAction[R,T,E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use StreamingProfileAction instead of StreamingDriverAction">StreamingDriverAction</span><span class="tparams">[<span name="R">+R</span>, <span name="T">+T</span>, <span name="E">-E &lt;: <a href="../dbio/Effect.html" class="extype" name="slick.dbio.Effect">Effect</a></span>]</span><span class="result"> = <a href="#StreamingProfileAction[+R,+T,-E&lt;:slick.dbio.Effect]=slick.basic.FixedBasicStreamingAction[R,T,E]" class="extmbr" name="slick.memory.DistributedProfile.StreamingProfileAction">StreamingProfileAction</a>[<span class="extype" name="slick.basic.BasicActionComponent.StreamingDriverAction.R">R</span>, <span class="extype" name="slick.basic.BasicActionComponent.StreamingDriverAction.T">T</span>, <span class="extype" name="slick.basic.BasicActionComponent.StreamingDriverAction.E">E</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@StreamingDriverAction[+R,+T,-E&lt;:slick.dbio.Effect]=BasicActionComponent.this.StreamingProfileAction[R,T,E]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>StreamingProfileAction</code> instead of <code>StreamingDriverAction</code></p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="scala.AnyRef#!=" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a>
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@##():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a>
+      <a id="+(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@+(other:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a>
+      <a id="-&gt;[B](B):(DistributedProfile,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@-&gt;[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a>
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingProfile.ProductOfCommonPaths" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProductOfCommonPaths"></a>
+      <a id="ProductOfCommonPaths:ProductOfCommonPaths"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile$ProductOfCommonPaths$.html"><span class="name">ProductOfCommonPaths</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.MemoryQueryingProfile@ProductOfCommonPaths" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#api" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="api:DistributedProfile.this.API"></a>
+      <a id="api:API"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">api</span><span class="result">: <a href="#APIextendsMemoryQueryingProfile.this.APIwithMemoryQueryingProfile.this.ImplicitColumnTypes" class="extmbr" name="slick.memory.MemoryQueryingProfile.API">API</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@api:DistributedProfile.this.API" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The API for using the query language with a single import
+statement.</p><div class="fullcomment"><div class="comment cmt"><p>The API for using the query language with a single import
+statement. This provides the profile's implicits, the Database API
+and commonly used query language types and objects.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#backend" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="backend:DistributedProfile.this.Backend"></a>
+      <a id="backend:Backend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">backend</span><span class="result">: <a href="#Backend=slick.memory.DistributedBackend" class="extmbr" name="slick.memory.DistributedProfile.Backend">Backend</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@backend:DistributedProfile.this.Backend" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The back-end implementation for this profile</p><div class="fullcomment"><div class="comment cmt"><p>The back-end implementation for this profile</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.basic.BasicProfile#capabilities" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="capabilities:Set[slick.basic.Capability]"></a>
+      <a id="capabilities:Set[Capability]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">capabilities</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../basic/Capability.html" class="extype" name="slick.basic.Capability">Capability</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@capabilities:Set[slick.basic.Capability]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The capabilities supported by this profile.</p><div class="fullcomment"><div class="comment cmt"><p>The capabilities supported by this profile. This can be used to query at
+runtime whether a specific feature is supported.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a>
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@clone():Object" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingProfile#compileInsert" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compileInsert(tree:slick.ast.Node):slick.ast.Node"></a>
+      <a id="compileInsert(Node):Node"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compileInsert</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@compileInsert(tree:slick.ast.Node):slick.ast.Node" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">(Partially) ompile an AST for insert operations</p><div class="fullcomment"><div class="comment cmt"><p>(Partially) ompile an AST for insert operations</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.basic.BasicProfile#computeCapabilities" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="computeCapabilities:Set[slick.basic.Capability]"></a>
+      <a id="computeCapabilities:Set[Capability]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">computeCapabilities</span><span class="result">: <span class="extype" name="scala.Predef.Set">Set</span>[<a href="../basic/Capability.html" class="extype" name="slick.basic.Capability">Capability</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@computeCapabilities:Set[slick.basic.Capability]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Compute the capabilities.</p><div class="fullcomment"><div class="comment cmt"><p>Compute the capabilities. This should be overridden in subclasses as needed.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected </dd><dt>Definition Classes</dt><dd><a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#createDistributedQueryInterpreter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createDistributedQueryInterpreter(param:Any,session:slick.memory.DistributedBackend#SessionDef):DistributedProfile.this.DistributedQueryInterpreter"></a>
+      <a id="createDistributedQueryInterpreter(Any,SessionDef):DistributedQueryInterpreter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createDistributedQueryInterpreter</span><span class="params">(<span name="param">param: <span class="extype" name="scala.Any">Any</span></span>, <span name="session">session: <a href="DistributedBackend$SessionDef.html" class="extype" name="slick.memory.DistributedBackend.SessionDef">SessionDef</a></span>)</span><span class="result">: <a href="DistributedProfile$DistributedQueryInterpreter.html" class="extype" name="slick.memory.DistributedProfile.DistributedQueryInterpreter">DistributedQueryInterpreter</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@createDistributedQueryInterpreter(param:Any,session:slick.memory.DistributedBackend#SessionDef):DistributedProfile.this.DistributedQueryInterpreter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.DistributedProfile#createQueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createQueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream](tree:slick.ast.Node,param:Any):DistributedProfile.this.QueryActionExtensionMethods[R,S]"></a>
+      <a id="createQueryActionExtensionMethods[R,S&lt;:NoStream](Node,Any):QueryActionExtensionMethods[R,S]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="S">S &lt;: <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a></span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="#QueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream]=DistributedProfile.this.QueryActionExtensionMethodsImpl[R,S]" class="extmbr" name="slick.memory.DistributedProfile.QueryActionExtensionMethods">QueryActionExtensionMethods</a>[<span class="extype" name="slick.memory.DistributedProfile.createQueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.createQueryActionExtensionMethods.S">S</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@createQueryActionExtensionMethods[R,S&lt;:slick.dbio.NoStream](tree:slick.ast.Node,param:Any):DistributedProfile.this.QueryActionExtensionMethods[R,S]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#createQueryExecutor" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="createQueryExecutor[R](tree:slick.ast.Node,param:Any):DistributedProfile.this.QueryExecutor[R]"></a>
+      <a id="createQueryExecutor[R](Node,Any):QueryExecutor[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createQueryExecutor</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="#QueryExecutor[R]=DistributedProfile.this.QueryExecutorDef[R]" class="extmbr" name="slick.memory.DistributedProfile.QueryExecutor">QueryExecutor</a>[<span class="extype" name="slick.memory.DistributedProfile.createQueryExecutor.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@createQueryExecutor[R](tree:slick.ast.Node,param:Any):DistributedProfile.this.QueryExecutor[R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.DistributedProfile#createStreamingQueryActionExtensionMethods" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="createStreamingQueryActionExtensionMethods[R,T](tree:slick.ast.Node,param:Any):DistributedProfile.this.StreamingQueryActionExtensionMethods[R,T]"></a>
+      <a id="createStreamingQueryActionExtensionMethods[R,T](Node,Any):StreamingQueryActionExtensionMethods[R,T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">createStreamingQueryActionExtensionMethods</span><span class="tparams">[<span name="R">R</span>, <span name="T">T</span>]</span><span class="params">(<span name="tree">tree: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="param">param: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="#StreamingQueryActionExtensionMethods[R,T]=DistributedProfile.this.StreamingQueryActionExtensionMethodsImpl[R,T]" class="extmbr" name="slick.memory.DistributedProfile.StreamingQueryActionExtensionMethods">StreamingQueryActionExtensionMethods</a>[<span class="extype" name="slick.memory.DistributedProfile.createStreamingQueryActionExtensionMethods.R">R</span>, <span class="extype" name="slick.memory.DistributedProfile.createStreamingQueryActionExtensionMethods.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@createStreamingQueryActionExtensionMethods[R,T](tree:slick.ast.Node,param:Any):DistributedProfile.this.StreamingQueryActionExtensionMethods[R,T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#deleteCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="deleteCompiler:Nothing"></a>
+      <a id="deleteCompiler:Nothing"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">deleteCompiler</span><span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@deleteCompiler:Nothing" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The compiler used for deleting data</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for deleting data</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#emptyHeapDB" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="emptyHeapDB:slick.memory.HeapBackend.Database"></a>
+      <a id="emptyHeapDB:HeapBackend.Database"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">emptyHeapDB</span><span class="result">: <a href="HeapBackend$.html#Database=HeapBackend.this.DatabaseDef" class="extmbr" name="slick.memory.HeapBackend.Database">HeapBackend.Database</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@emptyHeapDB:slick.memory.HeapBackend.Database" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring((DistributedProfile)⇒Boolean,⇒Any):DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a>
+      <a id="ensuring((DistributedProfile)⇒Boolean):DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@ensuring(cond:A=&gt;Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a>
+      <a id="ensuring(Boolean,⇒Any):DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a>
+      <a id="ensuring(Boolean):DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@ensuring(cond:Boolean):A" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a>
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a>
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a>
+      <a id="formatted(String):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@formatted(fmtstr:String):String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <a id="getClass():Class[_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#insertCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="insertCompiler:Nothing"></a>
+      <a id="insertCompiler:Nothing"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">insertCompiler</span><span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@insertCompiler:Nothing" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The compiler used for inserting data</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for inserting data</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.basic.BasicProfile#loadProfileConfig" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="loadProfileConfig:com.typesafe.config.Config"></a>
+      <a id="loadProfileConfig:Config"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">loadProfileConfig</span><span class="result">: <span class="extype" name="com.typesafe.config.Config">Config</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@loadProfileConfig:com.typesafe.config.Config" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Load the configuration for this profile.</p><div class="fullcomment"><div class="comment cmt"><p>Load the configuration for this profile. This can be overridden in user-defined
+subclasses to load different configurations.</p><p>The default implementation does a breadth-first search in the supertype hierarchy of the
+runtime class until it finds a class or trait with a name matching &quot;slick.[...]Profile&quot;
+and then returns uses this name as a path in the application config. If no configuration
+exists at this path, an empty Config object is returned.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a>
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@notify():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.basic.BasicProfile#profileConfig" visbl="prt" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="profileConfig:com.typesafe.config.Config"></a>
+      <a id="profileConfig:Config"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">profileConfig</span><span class="result">: <span class="extype" name="com.typesafe.config.Config">Config</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@profileConfig:com.typesafe.config.Config" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The configuration for this profile, loaded via <a href="../basic/BasicProfile.html#loadProfileConfig:com.typesafe.config.Config" class="extmbr" name="slick.basic.BasicProfile#loadProfileConfig">loadProfileConfig</a>.</p><div class="fullcomment"><div class="comment cmt"><p>The configuration for this profile, loaded via <a href="../basic/BasicProfile.html#loadProfileConfig:com.typesafe.config.Config" class="extmbr" name="slick.basic.BasicProfile#loadProfileConfig">loadProfileConfig</a>.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#profiles" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="profiles:slick.relational.RelationalProfile*"></a>
+      <a id="profiles:RelationalProfile*"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">profiles</span><span class="result">: <a href="../relational/RelationalProfile.html" class="extype" name="slick.relational.RelationalProfile">RelationalProfile</a>*</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@profiles:slick.relational.RelationalProfile*" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.DistributedProfile#queryCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="queryCompiler:slick.compiler.QueryCompiler"></a>
+      <a id="queryCompiler:QueryCompiler"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">queryCompiler</span><span class="result">: <a href="../compiler/QueryCompiler.html" class="extype" name="slick.compiler.QueryCompiler">QueryCompiler</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@queryCompiler:slick.compiler.QueryCompiler" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The compiler used for queries</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for queries</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
+      <a id="synchronized[T0](⇒T0):T0"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.basic.BasicProfile#toString" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@toString():String" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingProfile#typeInfoFor" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="typeInfoFor(t:slick.ast.Type):slick.ast.ScalaType[Any]"></a>
+      <a id="typeInfoFor(Type):ScalaType[Any]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">typeInfoFor</span><span class="params">(<span name="t">t: <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="../ast/ScalaType.html" class="extype" name="slick.ast.ScalaType">ScalaType</a>[<span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@typeInfoFor(t:slick.ast.Type):slick.ast.ScalaType[Any]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The profile-specific representation of types</p><div class="fullcomment"><div class="comment cmt"><p>The profile-specific representation of types</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></dd></dl></div>
+    </li><li name="slick.memory.DistributedProfile#updateCompiler" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="updateCompiler:Nothing"></a>
+      <a id="updateCompiler:Nothing"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">updateCompiler</span><span class="result">: <span class="extype" name="scala.Nothing">Nothing</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@updateCompiler:Nothing" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The compiler used for updates</p><div class="fullcomment"><div class="comment cmt"><p>The compiler used for updates</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@wait():Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a>
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a>
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a>
+      <a id="→[B](B):(DistributedProfile,B)"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@→[B](y:B):(A,B)" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit information</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="slick.memory.DistributedProfile#profile" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="profile:slick.memory.DistributedProfile"></a>
+      <a id="profile:DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use the Profile object directly instead of calling .profile on it">profile</span><span class="result">: <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.DistributedProfile@profile:slick.memory.DistributedProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The external interface of this profile which defines the API.</p><div class="fullcomment"><div class="comment cmt"><p>The external interface of this profile which defines the API.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> → <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use the Profile object directly instead of calling <code>.profile</code> on it</p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.memory.MemoryQueryingProfile">
+              <h3>Inherited from <a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></h3>
+            </div><div class="parent" name="slick.basic.BasicProfile">
+              <h3>Inherited from <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></h3>
+            </div><div class="parent" name="slick.basic.BasicActionComponent">
+              <h3>Inherited from <a href="../basic/BasicActionComponent.html" class="extype" name="slick.basic.BasicActionComponent">BasicActionComponent</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>
