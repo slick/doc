@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming from SQL to Slick</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="orm-to-slick.html"  title="Coming from ORM to Slick"  />  <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/sql-to-slick.md"  />  <link rel="next" href="cookbook.html"  title="Cookbook"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.3.3</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="orm-to-slick.html"  title="Coming from ORM to Slick" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="cookbook.html"  title="Cookbook" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/sql-to-slick.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="coming-from-sql-to-slick" class="a_section" data-magellan-target="coming-from-sql-to-slick">Coming from SQL to Slick<a class="a_hlink" href="#coming-from-sql-to-slick"></a></h1>
+<p>Coming from JDBC/SQL to Slick is pretty straight forward in many ways. Slick can be considered as a
+drop-in replacement with a nicer API for handling connections, fetching results and using a query
+language, which is integrated more nicely into Scala than writing queries as Strings. The main
+obstacle for developers coming from SQL to Slick seems to be the semantic differences of seemingly
+similar operations between SQL and Scala‘s collections API which Slick’s API imitates. The
+following sections give a quick overview over the differences. They start with conceptual
+differences and then list examples of many <a href="sql-to-slick.html#sql-vs.-slick-examples">SQL operators and their Slick equivalents</a>.
+For a more detailed explanations of Slick’s API please refer to
+<a href="queries.html">chapter queries</a> and the equivalent methods in the
+<a href="http://www.scala-lang.org/api/2.11.12/#scala.collection.immutable.Seq">the Scala collections API</a>.</p>
+<h2 id="schema" class="a_section" data-magellan-target="schema">Schema<a class="a_hlink" href="#schema"></a></h2>
+<p>The later examples use the following database schema</p>
+<p><img src="from-sql-to-slick.person-address.png" alt="" /></p>
+<p>mapped to Slick using the following code:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Person</span> </span>= (<span class="hljs-type">Int</span>,<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>)
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">People</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[<span class="hljs-type">Person</span>](<span class="hljs-params">tag, "<span class="hljs-type">PERSON</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"ID"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>, <span class="hljs-type">O</span>.<span class="hljs-type">AutoInc</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"NAME"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">age</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"AGE"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addressId</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"ADDRESS_ID"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id,name,age,addressId)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">address</span> </span>= foreignKey(<span class="hljs-string">"ADDRESS"</span>,addressId,addresses)(_.id)
+}
+<span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> people = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">People</span>]
+
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Address</span> </span>= (<span class="hljs-type">Int</span>,<span class="hljs-type">String</span>,<span class="hljs-type">String</span>)
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Addresses</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[<span class="hljs-type">Address</span>](<span class="hljs-params">tag, "<span class="hljs-type">ADDRESS</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"ID"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>, <span class="hljs-type">O</span>.<span class="hljs-type">AutoInc</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">street</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"STREET"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">city</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"CITY"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id,street,city)
+}
+<span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> addresses = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Addresses</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L12-L30" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p>Tables can alternatively be mapped to case classes. Similar code can be <a href="code-generation.html">auto-generated</a> or <a href="schemas.html">hand-written</a>.</p>
+<h2 id="queries-in-comparison" class="a_section" data-magellan-target="queries-in-comparison">Queries in comparison<a class="a_hlink" href="#queries-in-comparison"></a></h2>
+<h3 id="jdbc-query" class="a_section" data-magellan-target="jdbc-query">JDBC Query<a class="a_hlink" href="#jdbc-query"></a></h3>
+<p>A JDBC query with error handling could look like this:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> java.sql._
+
+<span class="hljs-type">Class</span>.forName(<span class="hljs-string">"org.h2.Driver"</span>)
+<span class="hljs-keyword">val</span> conn = <span class="hljs-type">DriverManager</span>.getConnection(<span class="hljs-string">"jdbc:h2:mem:test1"</span>)
+<span class="hljs-keyword">val</span> people = <span class="hljs-keyword">new</span> scala.collection.mutable.<span class="hljs-type">ListBuffer</span>[(<span class="hljs-type">Int</span>,<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>)]()
+<span class="hljs-keyword">try</span>{
+  <span class="hljs-keyword">val</span> stmt = conn.createStatement()
+  <span class="hljs-keyword">try</span>{
+
+    <span class="hljs-keyword">val</span> rs = stmt.executeQuery(<span class="hljs-string">"select ID, NAME, AGE from PERSON"</span>)
+    <span class="hljs-keyword">try</span>{
+      <span class="hljs-keyword">while</span>(rs.next()){
+        people += ((rs.getInt(<span class="hljs-number">1</span>), rs.getString(<span class="hljs-number">2</span>), rs.getInt(<span class="hljs-number">3</span>)))
+      }
+    }<span class="hljs-keyword">finally</span>{
+      rs.close()
+    }
+
+  }<span class="hljs-keyword">finally</span>{
+    stmt.close()
+  }
+}<span class="hljs-keyword">finally</span>{
+  conn.close()
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L54-L77" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p>Slick gives us two choices how to write queries. One is SQL strings just like JDBC. The other is type-safe, composable queries.</p>
+<h3 id="slick-plain-sql-queries" class="a_section" data-magellan-target="slick-plain-sql-queries">Slick Plain SQL queries<a class="a_hlink" href="#slick-plain-sql-queries"></a></h3>
+<p>This is useful if you either want to continue writing queries in SQL or if you need a feature not (yet) supported by
+Slick otherwise. Executing the same query using Slick Plain SQL, which has built-in error-handling and resource
+management optimized for asynchronous execution, looks like this:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._
+
+<span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forConfig(<span class="hljs-string">"h2mem1"</span>)
+
+<span class="hljs-keyword">val</span> action = <span class="hljs-string">sql"select ID, NAME, AGE from PERSON"</span>.as[(<span class="hljs-type">Int</span>,<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>)]
+db.run(action)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L83-L94" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p><code class="hljs">.list</code> returns a list of results. <code class="hljs">.first</code> a single result. <code class="hljs">.foreach</code> can be used to iterate over the results without ever materializing all results at once.</p>
+<h3 id="slick-type-safe-composable-queries" class="a_section" data-magellan-target="slick-type-safe-composable-queries">Slick type-safe, composable queries<a class="a_hlink" href="#slick-type-safe-composable-queries"></a></h3>
+<p>Slick’s key feature is type-safe, composable queries. Slick comes with a Scala-to-SQL compiler, which allows a (purely functional) sub-set of the Scala language to be compiled to SQL queries. Also available are a subset of the standard library and some extensions, e.g. for joins. The familiarity allows Scala developers to instantly write many queries against all supported relational databases with little learning required and without knowing SQL or remembering the particular dialect. Such Slick queries are composable, which means that you can write and re-use fragments and functions to avoid repetitive code like join conditions in a much more practical way than concatenating SQL strings. The fact that such queries are type-safe not only catches many mistakes early at compile time, but also eliminates the risk of SQL injection vulnerabilities.</p>
+<p>The same query written as a type-safe Slick query looks like this:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._
+
+<span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forConfig(<span class="hljs-string">"h2mem1"</span>)
+
+<span class="hljs-keyword">val</span> query = people.map(p =&gt; (p.id,p.name,p.age))
+db.run(query.result)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L100-L111" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p><code class="hljs">.run</code> automatically returns a Seq for collection-like queries and a single value for scalar queries. <code class="hljs">.list</code>, <code class="hljs">.first</code> and <code class="hljs">.foreach</code> are also available.</p>
+<p>A key benefit compared to SQL strings is, that you can easily transform the query by calling more methods on it. E.g. <code class="hljs">query.filter(_.age &gt; 18)</code> returns transformed query which further restricts the results. This allows to build libraries of queries, which re-use each other become much more maintainable. You can abstract over join conditions, pagination, filters, etc.</p>
+<!-- Add a link to more info on this -->
+<p>It is important to note that Slick needs the type-information to type-check these queries. This type information closely corresponds to the database schema and is provided to Slick in the form of Table sub classes and TableQuery values shown above.</p>
+<h2 id="main-obstacle-semantic-api-differences" class="a_section" data-magellan-target="main-obstacle-semantic-api-differences">Main obstacle: Semantic API differences<a class="a_hlink" href="#main-obstacle-semantic-api-differences"></a></h2>
+<p>Some methods of the Scala collections work a bit differently than their SQL counter parts. This seems to be one of the
+main causes of confusion for people newly coming from SQL to Slick. Especially <a href="sql-to-slick.html#group-by"><code class="hljs">groupBy</code></a> seems to be tricky.</p>
+<p>The best approach to write queries using Slick’s type-safe API is thinking in terms of Scala collections. What would the code be if you had a Seq of tuples or case classes instead of a Slick TableQuery object. Use that exact code. If needed adapt it with workarounds where a Scala library feature is currently not supported by Slick or if Slick is slightly different. Some operations are more strongly typed in Slick than in Scala for example. Arithmetic operation in different types require explicit casts using <code class="hljs">.asColumnOf[T]</code>. Also Slick uses 3-valued logic for Option inference.</p>
+<h2 id="scala-to-sql-compilation-during-runtime" class="a_section" data-magellan-target="scala-to-sql-compilation-during-runtime">Scala-to-SQL compilation during runtime<a class="a_hlink" href="#scala-to-sql-compilation-during-runtime"></a></h2>
+<p>Slick runs a Scala-to-SQL compiler to implement its type-safe query feature. The compiler runs at Scala run-time and it does take its time which can even go up to second or longer for complex queries. It can be very useful to run the compiler only once per defined query and upfront, e.g. at app startup instead of each execution over and over. <a href="queries.html#compiled-queries">Compiled queries</a> allow you to cache the generated SQL for re-use.</p>
+<h2 id="limitations" class="a_section" data-magellan-target="limitations">Limitations<a class="a_hlink" href="#limitations"></a></h2>
+<p>When you use Slick extensively you will run into cases, where Slick’s type-safe query language does not support a query operator or JDBC feature you may desire to use or produces non-optimal SQL code. There are several ways to deal with that.</p>
+<h3 id="missing-query-operators" class="a_section" data-magellan-target="missing-query-operators">Missing query operators<a class="a_hlink" href="#missing-query-operators"></a></h3>
+<p>Slick is extensible to some degree, which means you can add some kinds of missing operators yourself.</p>
+<h4 id="definition-in-terms-of-others" class="a_section">Definition in terms of others<a class="a_hlink" href="#definition-in-terms-of-others"></a></h4>
+<p>If the operator you desire is expressible using existing Slick operations you can simply write a Scala function or implicit class that implements the operator as a method in terms of existing operators. Here we implement <code class="hljs">squared</code> using multiplication.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">implicit</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyStringColumnExtensions</span>(<span class="hljs-params">i: <span class="hljs-type">Rep</span>[<span class="hljs-type">Int</span>]</span>)</span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">squared</span> </span>= i * i
+}
+
+<span class="hljs-comment">// usage:</span>
+people.map(p =&gt; p.age.squared)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L124-L132" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="definition-using-a-database-function" class="a_section">Definition using a database function<a class="a_hlink" href="#definition-using-a-database-function"></a></h4>
+<p>If you need a fundamental operator, which is not supported out-of-the-box you can add it yourself if it operates on scalar values. For example Slick currently does not have a <code class="hljs">power</code> method out of the box. Here we are mapping it to a database function.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> power = <span class="hljs-type">SimpleFunction</span>.binary[<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>](<span class="hljs-string">"POWER"</span>)
+
+<span class="hljs-comment">// usage:</span>
+people.map(p =&gt; power(p.age,<span class="hljs-number">2</span>))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L135-L141" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p>More information can be found in the chapter about <a href="userdefined.html#scalar-database-functions">Scalar database functions</a>.</p>
+<p>You can however not add operators operating on queries using database functions. The Slick Scala-to-SQL compiler requires knowledge about the structure of the query in order to compile it to the simplest SQL query it can produce. It currently couldn‘t handle custom query operators in that context. (There are some ideas how this restriction can be somewhat lifted in the future, but it needs more investigation). An example for such operator is a MySQL index hint, which is not supported by Slick’s type-safe API and it cannot be added by users. If you require such an operator you have to write your whole query using Plain SQL. If the operator does not change the return type of the query you could alternatively use the workaround described in the following section.</p>
+<h3 id="non-optimal-sql-code" class="a_section" data-magellan-target="non-optimal-sql-code">Non-optimal SQL code<a class="a_hlink" href="#non-optimal-sql-code"></a></h3>
+<p>Slick generates SQL code and tries to make it as simple as possible. The algorithm doing that is not perfect and under continuous improvement. There are cases where the generated queries are more complicated than someone would write them by hand. This can lead to bad performance for certain queries with some optimizers and DBMS. For example, Slick occasionally generates unnecessary sub-queries. In MySQL &lt;= 5.5 this easily leads to unnecessary table scans or indices not being used. The Slick team is working towards generating code better factored to what the query optimizers can currently optimize, but that doesn’t help you now. To work around it you have to write the more optimal SQL code by hand. You can either run it as a Slick Plain SQL query or you can <a href="https://gist.github.com/cvogt/d9049c63fc395654c4b4">use a hack</a>, which allows you to simply swap out the SQL code Slick uses for a type-safe query.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.map(p =&gt; (p.id,p.name,p.age))
+      .result
+      <span class="hljs-comment">// inject hand-written SQL, see https://gist.github.com/cvogt/d9049c63fc395654c4b4</span>
+    .overrideSql(<span class="hljs-string">"SELECT id, name, age FROM Person"</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L150-L156" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h2 id="sql-vs.-slick-examples" class="a_section" data-magellan-target="sql-vs.-slick-examples">SQL vs. Slick examples<a class="a_hlink" href="#sql-vs.-slick-examples"></a></h2>
+<p>This section shows an overview over the most important types of SQL queries and a corresponding type-safe Slick query.</p>
+<h3 id="select-" class="a_section" data-magellan-target="select-">SELECT *<a class="a_hlink" href="#select-"></a></h3>
+<h4 id="sql" class="a_section">SQL<a class="a_hlink" href="#sql"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-string">sql"select * from PERSON"</span>.as[<span class="hljs-type">Person</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L163" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick" class="a_section">Slick<a class="a_hlink" href="#slick"></a></h4>
+<p>The Slick equivalent of <code class="hljs">SELECT *</code> is the <code class="hljs">result</code> of the plain TableQuery:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L167" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="select" class="a_section" data-magellan-target="select">SELECT<a class="a_hlink" href="#select"></a></h3>
+<h4 id="sql-1" class="a_section">SQL<a class="a_hlink" href="#sql-1"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select AGE, concat(concat(concat(NAME,' ('),ID),')')
+  from PERSON
+""".as[(Int,String)]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L175-L178" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-1" class="a_section">Slick<a class="a_hlink" href="#slick-1"></a></h4>
+<p>Scala’s equivalent for <code class="hljs">SELECT</code> is <code class="hljs">map</code>. Columns can be referenced similarly and functions operating on columns can be accessed using their Scala equivalents (but allowing only <code class="hljs">++</code> for String concatenation, not <code class="hljs">+</code>).</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.map(p =&gt; (p.age, p.name ++ <span class="hljs-string">" ("</span> ++ p.id.asColumnOf[<span class="hljs-type">String</span>] ++ <span class="hljs-string">")"</span>)).result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L182" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p>.. index:: WHERE, filter, or, and, &amp;&amp;, ||, ==</p>
+<h3 id="where" class="a_section" data-magellan-target="where">WHERE<a class="a_hlink" href="#where"></a></h3>
+<h4 id="sql-2" class="a_section">SQL<a class="a_hlink" href="#sql-2"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-string">sql"select * from PERSON where AGE &gt;= 18 AND NAME = 'C. Vogt'"</span>.as[<span class="hljs-type">Person</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L190" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-2" class="a_section">Slick<a class="a_hlink" href="#slick-2"></a></h4>
+<p>Scala’s equivalent for <code class="hljs">WHERE</code> is <code class="hljs">filter</code>. Make sure to use <code class="hljs">===</code> instead of <code class="hljs">==</code> for comparison.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.filter(p =&gt; p.age &gt;= <span class="hljs-number">18</span> &amp;&amp; p.name === <span class="hljs-string">"C. Vogt"</span>).result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L194" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="order-by" class="a_section" data-magellan-target="order-by">ORDER BY<a class="a_hlink" href="#order-by"></a></h3>
+<h4 id="sql-3" class="a_section">SQL<a class="a_hlink" href="#sql-3"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-string">sql"select * from PERSON order by AGE asc, NAME"</span>.as[<span class="hljs-type">Person</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L202" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-3" class="a_section">Slick<a class="a_hlink" href="#slick-3"></a></h4>
+<p>Scala‘s equivalent for <code class="hljs">ORDER BY</code> is <code class="hljs">sortBy</code>. Provide a tuple to sort by multiple columns. Slick’s <code class="hljs">.asc</code> and <code class="hljs">.desc</code> methods affect the ordering. Be aware that a single <code class="hljs">ORDER BY</code> with multiple columns is not equivalent to multiple <code class="hljs">.sortBy</code> calls but to a single <code class="hljs">.sortBy</code> call passing a tuple.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.sortBy(p =&gt; (p.age.asc, p.name)).result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L206" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="aggregations-max-etc." class="a_section" data-magellan-target="aggregations-max-etc.">Aggregations (max, etc.)<a class="a_hlink" href="#aggregations-max-etc."></a></h3>
+<h4 id="sql-4" class="a_section">SQL<a class="a_hlink" href="#sql-4"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-string">sql"select max(AGE) from PERSON"</span>.as[<span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]].head</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L214" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-4" class="a_section">Slick<a class="a_hlink" href="#slick-4"></a></h4>
+<p>Aggregations are collection methods in Scala. In SQL they are called on a column, but in Slick they are called on a collection-like value e.g. a complete query, which people coming from SQL easily trip over. They return a scalar value, which can be run individually. Aggregation methods such as <code class="hljs">max</code> that can return <code class="hljs">NULL</code> return Options in Slick.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.map(_.age).max.result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L218" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="group-by" class="a_section" data-magellan-target="group-by">GROUP BY<a class="a_hlink" href="#group-by"></a></h3>
+<p>People coming from SQL often seem to have trouble understanding Scala‘s and Slick’s <code class="hljs">groupBy</code>, because of the different signatures involved. SQL‘s <code class="hljs">GROUP BY</code> can be seen as an operation that turns all columns that weren’t part of the grouping key into collections of all the elements in a group. SQL requires the use of its aggregation operations like <code class="hljs">avg</code> to compute single values out of these collections.</p>
+<h4 id="sql-5" class="a_section">SQL<a class="a_hlink" href="#sql-5"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select ADDRESS_ID, AVG(AGE)
+  from PERSON
+  group by ADDRESS_ID
+""".as[(Int,Option[Int])]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L225-L229" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-5" class="a_section">Slick<a class="a_hlink" href="#slick-5"></a></h4>
+<p>Scala’s groupBy returns a Map of grouping keys to Lists of the rows for each group. There is no automatic conversion of individual columns into collections. This has to be done explicitly in Scala, by mapping from the group to the desired column, which then allows SQL-like aggregation.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.groupBy(p =&gt; p.addressId)
+       .map{ <span class="hljs-keyword">case</span> (addressId, group) =&gt; (addressId, group.map(_.age).avg) }
+       .result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L233-L235" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p>SQL requires aggregation of grouped values. We require the same in Slick for now. This means a <code class="hljs">groupBy</code> call must be followed by a <code class="hljs">map</code> call or will fail with an Exception. This makes Slick‘s grouping syntax a bit more complicated than SQL’s.</p>
+<h3 id="having" class="a_section" data-magellan-target="having">HAVING<a class="a_hlink" href="#having"></a></h3>
+<h4 id="sql-6" class="a_section">SQL<a class="a_hlink" href="#sql-6"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select ADDRESS_ID
+  from PERSON
+  group by ADDRESS_ID
+  having avg(AGE) &gt; 50
+""".as[Int]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L244-L249" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-6" class="a_section">Slick<a class="a_hlink" href="#slick-6"></a></h4>
+<p>Slick does not have different methods for <code class="hljs">WHERE</code> and <code class="hljs">HAVING</code>. For achieving semantics equivalent to <code class="hljs">HAVING</code>, just use <code class="hljs">filter</code> after <code class="hljs">groupBy</code> and the following <code class="hljs">map</code>.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.groupBy(p =&gt; p.addressId)
+       .map{ <span class="hljs-keyword">case</span> (addressId, group) =&gt; (addressId, group.map(_.age).avg) }
+       .filter{ <span class="hljs-keyword">case</span> (addressId, avgAge) =&gt; avgAge &gt; <span class="hljs-number">50</span> }
+       .map(_._1)
+       .result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L253-L257" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="implicit-inner-joins" class="a_section" data-magellan-target="implicit-inner-joins">Implicit inner joins<a class="a_hlink" href="#implicit-inner-joins"></a></h3>
+<h4 id="sql-7" class="a_section">SQL<a class="a_hlink" href="#sql-7"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select P.NAME, A.CITY
+  from PERSON P, ADDRESS A
+  where P.ADDRESS_ID = a.id
+""".as[(String,String)]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L265-L269" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-7" class="a_section">Slick<a class="a_hlink" href="#slick-7"></a></h4>
+<p>Slick generates SQL using implicit joins for <code class="hljs">flatMap</code> and <code class="hljs">map</code> or the corresponding for-expression syntax.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.flatMap(p =&gt;
+  addresses.filter(a =&gt; p.addressId === a.id)
+           .map(a =&gt; (p.name, a.city))
+).result
+
+<span class="hljs-comment">// or equivalent for-expression:</span>
+(<span class="hljs-keyword">for</span>(p &lt;- people;
+     a &lt;- addresses <span class="hljs-keyword">if</span> p.addressId === a.id
+ ) <span class="hljs-keyword">yield</span> (p.name, a.city)
+).result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L273-L285" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="explicit-inner-joins" class="a_section" data-magellan-target="explicit-inner-joins">Explicit inner joins<a class="a_hlink" href="#explicit-inner-joins"></a></h3>
+<h4 id="sql-8" class="a_section">SQL<a class="a_hlink" href="#sql-8"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select P.NAME, A.CITY
+  from PERSON P
+  join ADDRESS A on P.ADDRESS_ID = a.id
+""".as[(String,String)]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L294-L298" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-8" class="a_section">Slick<a class="a_hlink" href="#slick-8"></a></h4>
+<p>Slick offers a small DSL for explicit joins.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">(people join addresses on (_.addressId === _.id))
+  .map{ <span class="hljs-keyword">case</span> (p, a) =&gt; (p.name, a.city) }.result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L302-L303" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="outer-joins-leftrightfull" class="a_section" data-magellan-target="outer-joins-leftrightfull">Outer joins (left/right/full)<a class="a_hlink" href="#outer-joins-leftrightfull"></a></h3>
+<h4 id="sql-9" class="a_section">SQL<a class="a_hlink" href="#sql-9"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select P.NAME,A.CITY
+  from ADDRESS A
+  left join PERSON P on P.ADDRESS_ID = a.id
+""".as[(Option[String],String)]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L311-L315" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-9" class="a_section">Slick<a class="a_hlink" href="#slick-9"></a></h4>
+<p>Outer joins are done using Slick’s explicit join DSL. Be aware that in case of an outer join SQL changes the type of
+outer joined, non-nullable columns into nullable columns. In order to represent this in a clean way even in the
+presence of mapped types, Slick lifts the whole side of the join into an <code class="hljs">Option</code>. This goes a bit further than the
+SQL semantics because it allows you to distinguish a row which was not matched in the join from a row that was
+matched but already contained nothing but NULL values.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">(addresses joinLeft people on (_.id === _.addressId))
+  .map{ <span class="hljs-keyword">case</span> (a, p) =&gt; (p.map(_.name), a.city) }.result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L319-L320" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="subquery" class="a_section" data-magellan-target="subquery">Subquery<a class="a_hlink" href="#subquery"></a></h3>
+<h4 id="sql-10" class="a_section">SQL<a class="a_hlink" href="#sql-10"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select *
+  from PERSON P
+  where P.ID in (select ID
+                 from ADDRESS
+                 where CITY = 'New York City')
+""".as[Person]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L328-L334" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-10" class="a_section">Slick<a class="a_hlink" href="#slick-10"></a></h4>
+<p>Slick queries are composable. Subqueries can be simply composed, where the types work out, just like any other Scala code.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> address_ids = addresses.filter(_.city === <span class="hljs-string">"New York City"</span>).map(_.id)
+people.filter(_.id in address_ids).result <span class="hljs-comment">// &lt;- run as one query</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L338-L339" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<p>The method <code class="hljs">.in</code> expects a sub query. For an in-memory Scala collection, the method <code class="hljs">.inSet</code> can be used instead.</p>
+<h3 id="scalar-value-subquery--custom-function" class="a_section" data-magellan-target="scalar-value-subquery--custom-function">Scalar value subquery / custom function<a class="a_hlink" href="#scalar-value-subquery--custom-function"></a></h3>
+<h4 id="sql-11" class="a_section">SQL<a class="a_hlink" href="#sql-11"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select * from PERSON P,
+                     (select rand() * MAX(ID) as ID from PERSON) RAND_ID
+  where P.ID &gt;= RAND_ID.ID
+  order by P.ID asc
+  limit 1
+""".as[Person].head</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L368-L374" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-11" class="a_section">Slick<a class="a_hlink" href="#slick-11"></a></h4>
+<p>This code shows a subquery computing a single value in combination with a <a href="userdefined.html">user-defined database function</a>.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> rand = <span class="hljs-type">SimpleFunction</span>.nullary[<span class="hljs-type">Double</span>](<span class="hljs-string">"RAND"</span>)
+
+<span class="hljs-keyword">val</span> rndId = (people.map(_.id).max.asColumnOf[<span class="hljs-type">Double</span>] * rand).asColumnOf[<span class="hljs-type">Int</span>]
+
+people.filter(_.id &gt;= rndId)
+       .sortBy(_.id)
+       .result.head</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L378-L384" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="insert" class="a_section" data-magellan-target="insert">insert<a class="a_hlink" href="#insert"></a></h3>
+<h4 id="sql-12" class="a_section">SQL<a class="a_hlink" href="#sql-12"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sqlu"""
+  insert into PERSON (NAME, AGE, ADDRESS_ID) values ('M Odersky', 12345, 1)
+"""</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L390-L392" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-12" class="a_section">Slick<a class="a_hlink" href="#slick-12"></a></h4>
+<p>Inserts can be a bit surprising at first, when coming from SQL, because unlike SQL, Slick re-uses the same syntax that
+is used for querying to select which columns should be inserted into. So basically, you first write a query and instead
+of creating an Action that gets the result of this query, you call <code class="hljs">+=</code> on with value to be inserted, which gives you
+an Action that performs the insert. <code class="hljs">++=</code> allows insertion of a Seq of rows at once. Columns that are auto-incremented
+are automatically ignored, so inserting into them has no effect. Using <code class="hljs">forceInsert</code> allows actual insertion into
+auto-incremented columns.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.map(p =&gt; (p.name, p.age, p.addressId)) += (<span class="hljs-string">"M Odersky"</span>,<span class="hljs-number">12345</span>,<span class="hljs-number">1</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L409" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="update" class="a_section" data-magellan-target="update">update<a class="a_hlink" href="#update"></a></h3>
+<h4 id="sql-13" class="a_section">SQL<a class="a_hlink" href="#sql-13"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sqlu"""
+  update PERSON set NAME='M. Odersky', AGE=54321 where NAME='M Odersky'
+"""</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L396-L398" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-13" class="a_section">Slick<a class="a_hlink" href="#slick-13"></a></h4>
+<p>Just like inserts, updates are based on queries that select and filter what should be updated and instead of running the query and fetching the data <code class="hljs">.update</code> is used to replace it.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.filter(_.name === <span class="hljs-string">"M Odersky"</span>)
+       .map(p =&gt; (p.name,p.age))
+       .update((<span class="hljs-string">"M. Odersky"</span>,<span class="hljs-number">54321</span>))</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L414-L416" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="delete" class="a_section" data-magellan-target="delete">delete<a class="a_hlink" href="#delete"></a></h3>
+<h4 id="sql-14" class="a_section">SQL<a class="a_hlink" href="#sql-14"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sqlu"""
+  delete PERSON where NAME='M. Odersky'
+"""</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L402-L404" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-14" class="a_section">Slick<a class="a_hlink" href="#slick-14"></a></h4>
+<p>Just like inserts, deletes are based on queries that filter what should be deleted. Instead of getting the query result
+of the query, <code class="hljs">.delete</code> is used to obtain an Action that deletes the selected rows.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.filter(p =&gt; p.name === <span class="hljs-string">"M. Odersky"</span>)
+       .delete</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L421-L422" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h3 id="case" class="a_section" data-magellan-target="case">CASE<a class="a_hlink" href="#case"></a></h3>
+<h4 id="sql-15" class="a_section">SQL<a class="a_hlink" href="#sql-15"></a></h4>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">sql"""
+  select
+    case
+      when ADDRESS_ID = 1 then 'A'
+      when ADDRESS_ID = 2 then 'B'
+    end
+  from PERSON P
+""".as[Option[String]]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L436-L443" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+<h4 id="slick-15" class="a_section">Slick<a class="a_hlink" href="#slick-15"></a></h4>
+<p>Slick uses <a href="api/index.html#slick.lifted.Case$">a small DSL</a> to allow <code class="hljs">CASE</code> like case distinctions.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">people.map(p =&gt;
+  <span class="hljs-type">Case</span>
+    <span class="hljs-type">If</span>(p.addressId === <span class="hljs-number">1</span>) <span class="hljs-type">Then</span> <span class="hljs-string">"A"</span>
+    <span class="hljs-type">If</span>(p.addressId === <span class="hljs-number">2</span>) <span class="hljs-type">Then</span> <span class="hljs-string">"B"</span>
+).result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/SqlToSlick.scala#L447-L451" class="a_sourcelink">SqlToSlick.scala</a></div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="orm-to-slick.html"  title="Coming from ORM to Slick" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="cookbook.html"  title="Cookbook" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/sql-to-slick.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="cookbook.html">Cookbook</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#coming-from-sql-to-slick">Coming from SQL to Slick</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#schema">Schema</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#queries-in-comparison">Queries in comparison</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#jdbc-query">JDBC Query</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#slick-plain-sql-queries">Slick Plain SQL queries</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#slick-type-safe-composable-queries">Slick type-safe, composable queries</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#main-obstacle-semantic-api-differences">Main obstacle: Semantic API differences</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#scala-to-sql-compilation-during-runtime">Scala-to-SQL compilation during runtime</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#limitations">Limitations</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#missing-query-operators">Missing query operators</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#non-optimal-sql-code">Non-optimal SQL code</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#sql-vs.-slick-examples">SQL vs. Slick examples</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#select-">SELECT *</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#select">SELECT</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#where">WHERE</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#order-by">ORDER BY</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#aggregations-max-etc.">Aggregations (max, etc.)</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#group-by">GROUP BY</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#having">HAVING</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#implicit-inner-joins">Implicit inner joins</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#explicit-inner-joins">Explicit inner joins</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#outer-joins-leftrightfull">Outer joins (left/right/full)</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#subquery">Subquery</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#scalar-value-subquery--custom-function">Scalar value subquery / custom function</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#insert">insert</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#update">update</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#delete">delete</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#case">CASE</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2019 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

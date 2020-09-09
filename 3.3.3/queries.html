@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queries</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="schemas.html"  title="Schemas"  />  <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/queries.md"  />  <link rel="next" href="code-generation.html"  title="Schema Code Generation"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.3.3</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="schemas.html"  title="Schemas" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="code-generation.html"  title="Schema Code Generation" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/queries.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="queries" class="a_section" data-magellan-target="queries">Queries<a class="a_hlink" href="#queries"></a></h1>
+<p>This chapter describes how to write type-safe queries for selecting, inserting, updating and
+deleting data with Slick’s Scala-based query API.</p>
+<blockquote class="note">
+<p>In the code examples below we assume the following imports:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> scala.concurrent.{<span class="hljs-type">Future</span>, <span class="hljs-type">Await</span>}
+<span class="hljs-keyword">import</span> scala.concurrent.duration.<span class="hljs-type">Duration</span>
+<span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._
+<span class="hljs-keyword">import</span> java.sql.<span class="hljs-type">Date</span>
+<span class="hljs-keyword">import</span> scala.reflect.<span class="hljs-type">ClassTag</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L4-L8" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>If you’re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p>
+</blockquote>
+<p>The API for building queries is a
+<em>lifted embedding</em>, which means that you are not working with standard Scala types but with types
+that are <em>lifted</em> into a <a href="api/index.html#slick.lifted.Rep">Rep</a> type constructor. This becomes clearer when you
+compare the types of a simple Scala collections example</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffee</span>(<span class="hljs-params">name: <span class="hljs-type">String</span>, price: <span class="hljs-type">Double</span></span>)</span>
+<span class="hljs-keyword">val</span> coffees: <span class="hljs-type">List</span>[<span class="hljs-type">Coffee</span>] = <span class="hljs-comment">//...</span>
+
+<span class="hljs-keyword">val</span> l = coffees.filter(_.price &gt; <span class="hljs-number">8.0</span>).map(_.name)
+<span class="hljs-comment">//                       ^       ^          ^</span>
+<span class="hljs-comment">//                       Double  Double     String</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L27-L35" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>… with the types of similar code in Slick:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffees</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">String</span>, <span class="hljs-type">Double</span>)](<span class="hljs-params">tag, "<span class="hljs-type">COFFEES</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"COF_NAME"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">price</span> </span>= column[<span class="hljs-type">Double</span>](<span class="hljs-string">"PRICE"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (name, price)
+}
+<span class="hljs-keyword">val</span> coffees = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Coffees</span>]
+
+<span class="hljs-keyword">val</span> q = coffees.filter(_.price &gt; <span class="hljs-number">8.0</span>).map(_.name)
+<span class="hljs-comment">//                       ^       ^          ^</span>
+<span class="hljs-comment">//               Rep[Double]  Rep[Double]  Rep[String]</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L15-L116" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>All plain types are lifted into <code class="hljs">Rep</code>. The same is true for the table row
+type <code class="hljs">Coffees</code> which is a subtype of <code class="hljs">Rep[(String, Double)]</code>.
+Even the literal <code class="hljs">8.0</code> is automatically lifted to a <code class="hljs">Rep[Double]</code> by an
+implicit conversion because that is what the <code class="hljs">&gt;</code> operator on
+<code class="hljs">Rep[Double]</code> expects for the right-hand side. This lifting is necessary
+because the lifted types allow us to generate a syntax tree that captures
+the query computations. Getting plain Scala functions and values would not
+give us enough information for translating those computations to SQL.</p>
+<h2 id="expressions" class="a_section" data-magellan-target="expressions">Expressions<a class="a_hlink" href="#expressions"></a></h2>
+<p>Scalar (non-record, non-collection) values are represented by type <code class="hljs">Rep[T]</code> for which an implicit
+<code class="hljs">TypedType[T]</code> exists.</p>
+<p>The operators and other methods which are commonly used in queries
+are added through implicit conversions defined in
+<code class="hljs">ExtensionMethodConversions</code>. The actual methods can be found in
+the classes <code class="hljs">AnyExtensionMethods</code>, <code class="hljs">ColumnExtensionMethods</code>,
+<code class="hljs">NumericColumnExtensionMethods</code>, <code class="hljs">BooleanColumnExtensionMethods</code> and
+<code class="hljs">StringColumnExtensionMethods</code>
+(cf. <a href="https://github.com/slick/slick/blob/v3.3.3/slick/src/main/scala/slick/lifted/ExtensionMethods.scala">ExtensionMethods</a>).</p>
+<blockquote class="warning">
+<p>Warning: Most operators mimic the plain Scala equivalents, but you have to use <code class="hljs">===</code> instead of
+<code class="hljs">==</code> for comparing two values for equality and <code class="hljs">=!=</code> instead of <code class="hljs">!=</code> for inequality.
+This is necessary because these operators are already defined (with unsuitable types and
+semantics) on the base type <code class="hljs">Any</code>, so they cannot be replaced by extension methods.
+Similarly, to combine a Scala <code class="hljs">String</code> with a <code class="hljs">Rep[String]</code> or <code class="hljs">ConstColumn[String]</code>,
+don‘t use <code class="hljs">str + rep</code> syntax, since Scala provides a universal <code class="hljs">+</code> operator for strings
+that works with <code class="hljs">Any</code>.  Instead use slick’s <code class="hljs">++</code> operator: <code class="hljs">(str: Rep[String]) ++ rep</code></p>
+</blockquote>
+<p>Collection values are represented by the <code class="hljs">Query</code> class (a <code class="hljs">Rep[Seq[T]]</code>) which contains many
+standard collection methods like <code class="hljs">flatMap</code>, <code class="hljs">filter</code>, <code class="hljs">take</code> and <code class="hljs">groupBy</code>. Due to the two
+different component types of a <code class="hljs">Query</code> (lifted and plain, e.g. <code class="hljs">Query[(Rep[Int], Rep[String]), (Int, String), Seq]</code>), the signatures for these methods are very complex but the semantics are
+essentially the same as for Scala collections.</p>
+<p>Additional methods for queries of scalar values are added via an
+implicit conversion to <code class="hljs">SingleColumnQueryExtensionMethods</code>.</p>
+<h2 id="sorting-and-filtering" class="a_section" data-magellan-target="sorting-and-filtering">Sorting and Filtering<a class="a_hlink" href="#sorting-and-filtering"></a></h2>
+<p>There are various methods with sorting/filtering semantics (i.e. they take a
+<code class="hljs">Query</code> and return a new <code class="hljs">Query</code> of the same type), for example:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q1 = coffees.filter(_.supID === <span class="hljs-number">101</span>)
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select "COF_NAME", "SUP_ID", "PRICE", "SALES", "TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES"</span>
+<span class="hljs-comment">//     where "SUP_ID" = 101</span>
+
+<span class="hljs-keyword">val</span> q2 = coffees.drop(<span class="hljs-number">10</span>).take(<span class="hljs-number">5</span>)
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select "COF_NAME", "SUP_ID", "PRICE", "SALES", "TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES"</span>
+<span class="hljs-comment">//     limit 5 offset 10</span>
+
+<span class="hljs-keyword">val</span> q3 = coffees.sortBy(_.name.desc.nullsFirst)
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select "COF_NAME", "SUP_ID", "PRICE", "SALES", "TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES"</span>
+<span class="hljs-comment">//     order by "COF_NAME" desc nulls first</span>
+
+<span class="hljs-comment">// building criteria using a "dynamic filter" e.g. from a webform.</span>
+<span class="hljs-keyword">val</span> criteriaColombian = <span class="hljs-type">Option</span>(<span class="hljs-string">"Colombian"</span>)
+<span class="hljs-keyword">val</span> criteriaEspresso = <span class="hljs-type">Option</span>(<span class="hljs-string">"Espresso"</span>)
+<span class="hljs-keyword">val</span> criteriaRoast: <span class="hljs-type">Option</span>[<span class="hljs-type">String</span>] = <span class="hljs-type">None</span>
+
+<span class="hljs-keyword">val</span> q4 = coffees.filter { coffee =&gt;
+  <span class="hljs-type">List</span>(
+      criteriaColombian.map(coffee.name === _),
+      criteriaEspresso.map(coffee.name === _),
+      criteriaRoast.map(coffee.name === _) <span class="hljs-comment">// not a condition as `criteriaRoast` evaluates to `None`</span>
+  ).collect({<span class="hljs-keyword">case</span> <span class="hljs-type">Some</span>(criteria)  =&gt; criteria}).reduceLeftOption(_ || _).getOrElse(<span class="hljs-literal">true</span>: <span class="hljs-type">Rep</span>[<span class="hljs-type">Boolean</span>])
+}
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select "COF_NAME", "SUP_ID", "PRICE", "SALES", "TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES"</span>
+<span class="hljs-comment">//     where ("COF_NAME" = 'Colombian' or "COF_NAME" = 'Espresso')</span>
+
+<span class="hljs-comment">// Conditional filtering with option e.g. from a webform.</span>
+<span class="hljs-keyword">val</span> optionFromPrice = <span class="hljs-type">Option</span>(<span class="hljs-number">20.0</span>)
+<span class="hljs-keyword">val</span> optionToPrice: <span class="hljs-type">Option</span>[<span class="hljs-type">Double</span>]  = <span class="hljs-type">None</span>
+
+<span class="hljs-keyword">val</span> q5 = coffees
+  .filterOpt(optionFromPrice)(_.price &gt; _)
+  .filterOpt(optionToPrice)(_.price &lt; _) <span class="hljs-comment">// won't be added as a condition as `optionToPrice` evaluates to `None`</span>
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select "COF_NAME", "SUP_ID", "PRICE", "SALES", "TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES"</span>
+<span class="hljs-comment">//     where "PRICE" &gt; 20.0</span>
+
+<span class="hljs-comment">// Conditional filtering with boolean e.g. from a webform.</span>
+<span class="hljs-keyword">val</span> isRoast = <span class="hljs-literal">true</span>
+<span class="hljs-keyword">val</span> isEspresso = <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">val</span> q6 = coffees
+  .filterIf(isRoast)(_.price &gt; <span class="hljs-number">11.0</span>)
+  .filterIf(isEspresso)(_.price &gt; <span class="hljs-number">11.0</span>) <span class="hljs-comment">// won't be added as a condition as `isEspresso` evaluates to `false`</span>
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select "COF_NAME", "SUP_ID", "PRICE", "SALES", "TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES"</span>
+<span class="hljs-comment">//     where "PRICE" &gt; 11.0</span>
+</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L183-L241" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h2 id="joining-and-zipping" class="a_section" data-magellan-target="joining-and-zipping">Joining and Zipping<a class="a_hlink" href="#joining-and-zipping"></a></h2>
+<p>Joins are used to combine two different tables or queries into a single query.
+There are two different ways of writing joins: <em>Applicative</em> and <em>monadic</em>.</p>
+<h3 id="applicative-joins" class="a_section" data-magellan-target="applicative-joins">Applicative joins<a class="a_hlink" href="#applicative-joins"></a></h3>
+<p><em>Applicative</em> joins are performed by calling a method that joins two queries into a single query
+of a tuple of the individual results. They have the same restrictions as joins in SQL, i.e. the
+right-hand side may not depend on the left-hand side. This is enforced naturally through Scala’s
+scoping rules.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> crossJoin = <span class="hljs-keyword">for</span> {
+  (c, s) &lt;- coffees join suppliers
+} <span class="hljs-keyword">yield</span> (c.name, s.name)
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select x2."COF_NAME", x3."SUP_NAME" from "COFFEES" x2</span>
+<span class="hljs-comment">//     inner join "SUPPLIERS" x3</span>
+
+<span class="hljs-keyword">val</span> innerJoin = <span class="hljs-keyword">for</span> {
+  (c, s) &lt;- coffees join suppliers on (_.supID === _.id)
+} <span class="hljs-keyword">yield</span> (c.name, s.name)
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select x2."COF_NAME", x3."SUP_NAME" from "COFFEES" x2</span>
+<span class="hljs-comment">//     inner join "SUPPLIERS" x3</span>
+<span class="hljs-comment">//     on x2."SUP_ID" = x3."SUP_ID"</span>
+
+<span class="hljs-keyword">val</span> leftOuterJoin = <span class="hljs-keyword">for</span> {
+  (c, s) &lt;- coffees joinLeft suppliers on (_.supID === _.id)
+} <span class="hljs-keyword">yield</span> (c.name, s.map(_.name))
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select x2."COF_NAME", x3."SUP_NAME" from "COFFEES" x2</span>
+<span class="hljs-comment">//     left outer join "SUPPLIERS" x3</span>
+<span class="hljs-comment">//     on x2."SUP_ID" = x3."SUP_ID"</span>
+
+<span class="hljs-keyword">val</span> rightOuterJoin = <span class="hljs-keyword">for</span> {
+  (c, s) &lt;- coffees joinRight suppliers on (_.supID === _.id)
+} <span class="hljs-keyword">yield</span> (c.map(_.name), s.name)
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select x2."COF_NAME", x3."SUP_NAME" from "COFFEES" x2</span>
+<span class="hljs-comment">//     right outer join "SUPPLIERS" x3</span>
+<span class="hljs-comment">//     on x2."SUP_ID" = x3."SUP_ID"</span>
+
+<span class="hljs-keyword">val</span> fullOuterJoin = <span class="hljs-keyword">for</span> {
+  (c, s) &lt;- coffees joinFull suppliers on (_.supID === _.id)
+} <span class="hljs-keyword">yield</span> (c.map(_.name), s.map(_.name))
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select x2."COF_NAME", x3."SUP_NAME" from "COFFEES" x2</span>
+<span class="hljs-comment">//     full outer join "SUPPLIERS" x3</span>
+<span class="hljs-comment">//     on x2."SUP_ID" = x3."SUP_ID"</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/JoinsUnions.scala#L53-L90" class="a_sourcelink">JoinsUnions.scala</a></div></div>
+<p>Note the use of <code class="hljs">map</code> in the <code class="hljs">yield</code> clauses of the outer joins. Since these joins can
+introduce additional NULL values (on the right-hand side for a left outer join, on the left-hand
+sides for a right outer join, and on both sides for a full outer join), the respective sides of
+the join are wrapped in an <code class="hljs">Option</code> (with <code class="hljs">None</code> representing a row that was not matched).</p>
+<h3 id="monadic-joins" class="a_section" data-magellan-target="monadic-joins">Monadic joins<a class="a_hlink" href="#monadic-joins"></a></h3>
+<p><em>Monadic</em> joins are created with <code class="hljs">flatMap</code>. They are theoretically more powerful than
+applicative joins because the right-hand side may depend on the left-hand side. However, this is
+not possible in standard SQL, so Slick has to compile them down to applicative joins, which is
+possible in many useful cases but not in all of them (and there are cases where it is possible in
+theory but Slick cannot perform the required transformation yet). If a monadic join cannot be
+properly translated, it will fail at runtime.</p>
+<p>A <em>cross-join</em> is created with a <code class="hljs">flatMap</code> operation on a <code class="hljs">Query</code>
+(i.e. by introducing more than one generator in a for-comprehension):</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> monadicCrossJoin = <span class="hljs-keyword">for</span> {
+  c &lt;- coffees
+  s &lt;- suppliers
+} <span class="hljs-keyword">yield</span> (c.name, s.name)
+<span class="hljs-comment">// compiles to SQL:</span>
+<span class="hljs-comment">//   select x2."COF_NAME", x3."SUP_NAME"</span>
+<span class="hljs-comment">//     from "COFFEES" x2, "SUPPLIERS" x3</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/JoinsUnions.scala#L30-L36" class="a_sourcelink">JoinsUnions.scala</a></div></div>
+<p>If you add a filter expression, it becomes an <em>inner join</em>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> monadicInnerJoin = <span class="hljs-keyword">for</span> {
+  c &lt;- coffees
+  s &lt;- suppliers <span class="hljs-keyword">if</span> c.supID === s.id
+} <span class="hljs-keyword">yield</span> (c.name, s.name)
+<span class="hljs-comment">// compiles to SQL:</span>
+<span class="hljs-comment">//   select x2."COF_NAME", x3."SUP_NAME"</span>
+<span class="hljs-comment">//     from "COFFEES" x2, "SUPPLIERS" x3</span>
+<span class="hljs-comment">//     where x2."SUP_ID" = x3."SUP_ID"</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/JoinsUnions.scala#L41-L48" class="a_sourcelink">JoinsUnions.scala</a></div></div>
+<p>The semantics of these monadic joins are the same as when you are using
+<code class="hljs">flatMap</code> on Scala collections.</p>
+<blockquote class="note">
+<p>Slick generates <em>implicit</em> joins in SQL (<code class="hljs">select ... from a, b where ...</code>) for
+where possible, and <em>explicit</em> joins (<code class="hljs">select ... from a join b on ...</code>) otherwise.</p>
+</blockquote>
+<h3 id="zip-joins" class="a_section" data-magellan-target="zip-joins">Zip joins<a class="a_hlink" href="#zip-joins"></a></h3>
+<p>In addition to the usual applicative join operators supported by relational databases
+(which are based off a cross join or outer join), Slick also has <em>zip joins</em>
+which create a pairwise join of two queries. The semantics are again the same
+as for Scala collections, using the <code class="hljs">zip</code> and <code class="hljs">zipWith</code> methods:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> zipJoinQuery = <span class="hljs-keyword">for</span> {
+  (c, s) &lt;- coffees zip suppliers
+} <span class="hljs-keyword">yield</span> (c.name, s.name)
+
+<span class="hljs-keyword">val</span> zipWithJoin = <span class="hljs-keyword">for</span> {
+  res &lt;- coffees.zipWith(suppliers, (c: <span class="hljs-type">Coffees</span>, s: <span class="hljs-type">Suppliers</span>) =&gt; (c.name, s.name))
+} <span class="hljs-keyword">yield</span> res</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/JoinsUnions.scala#L99-L105" class="a_sourcelink">JoinsUnions.scala</a></div></div>
+<p>A particular kind of zip join is provided by <code class="hljs">zipWithIndex</code>. It zips a query
+result with an infinite sequence starting at 0. Such a sequence cannot be
+represented by an SQL database and Slick does not currently support it, either.
+The resulting zipped query, however, can be represented in SQL with the use of a <em>row number</em> function,
+so <code class="hljs">zipWithIndex</code> is supported as a primitive operator:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> zipWithIndexJoin = <span class="hljs-keyword">for</span> {
+  (c, idx) &lt;- coffees.zipWithIndex
+} <span class="hljs-keyword">yield</span> (c.name, idx)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/JoinsUnions.scala#L111-L113" class="a_sourcelink">JoinsUnions.scala</a></div></div>
+<h2 id="unions" class="a_section" data-magellan-target="unions">Unions<a class="a_hlink" href="#unions"></a></h2>
+<p>Two queries can be concatenated with the <code class="hljs">++</code> (or <code class="hljs">unionAll</code>) and <code class="hljs">union</code>
+operators if they have compatible types:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q1 = coffees.filter(_.price &lt; <span class="hljs-number">8.0</span>)
+<span class="hljs-keyword">val</span> q2 = coffees.filter(_.price &gt; <span class="hljs-number">9.0</span>)
+
+<span class="hljs-keyword">val</span> unionQuery = q1 union q2
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select x8."COF_NAME", x8."SUP_ID", x8."PRICE", x8."SALES", x8."TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES" x8</span>
+<span class="hljs-comment">//     where x8."PRICE" &lt; 8.0</span>
+<span class="hljs-comment">//   union select x9."COF_NAME", x9."SUP_ID", x9."PRICE", x9."SALES", x9."TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES" x9</span>
+<span class="hljs-comment">//     where x9."PRICE" &gt; 9.0</span>
+
+<span class="hljs-keyword">val</span> unionAllQuery = q1 ++ q2
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select x8."COF_NAME", x8."SUP_ID", x8."PRICE", x8."SALES", x8."TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES" x8</span>
+<span class="hljs-comment">//     where x8."PRICE" &lt; 8.0</span>
+<span class="hljs-comment">//   union all select x9."COF_NAME", x9."SUP_ID", x9."PRICE", x9."SALES", x9."TOTAL"</span>
+<span class="hljs-comment">//     from "COFFEES" x9</span>
+<span class="hljs-comment">//     where x9."PRICE" &gt; 9.0</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/JoinsUnions.scala#L118-L137" class="a_sourcelink">JoinsUnions.scala</a></div></div>
+<p>Unlike <code class="hljs">union</code> which filters out duplicate values, <code class="hljs">++</code> simply concatenates
+the results of the individual queries, which is usually more efficient.</p>
+<h2 id="aggregation" class="a_section" data-magellan-target="aggregation">Aggregation<a class="a_hlink" href="#aggregation"></a></h2>
+<p>The simplest form of aggregation consists of computing a primitive value from a
+Query that returns a single column, usually with a numeric type, e.g.:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q = coffees.map(_.price)
+
+<span class="hljs-keyword">val</span> q1 = q.min
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select min(x4."PRICE") from "COFFEES" x4</span>
+
+<span class="hljs-keyword">val</span> q2 = q.max
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select max(x4."PRICE") from "COFFEES" x4</span>
+
+<span class="hljs-keyword">val</span> q3 = q.sum
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select sum(x4."PRICE") from "COFFEES" x4</span>
+
+<span class="hljs-keyword">val</span> q4 = q.avg
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select avg(x4."PRICE") from "COFFEES" x4</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L253-L269" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>Note that these aggregate queries return a scalar result, not a collection.
+Some aggregation functions are defined for arbitrary queries (of more than
+one column):</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q1 = coffees.length
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select count(1) from "COFFEES"</span>
+
+<span class="hljs-keyword">val</span> q2 = coffees.exists
+<span class="hljs-comment">// compiles to SQL (simplified):</span>
+<span class="hljs-comment">//   select exists(select * from "COFFEES")</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L281-L287" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>Grouping is done with the <code class="hljs">groupBy</code> method. It has the same semantics as for
+Scala collections:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q = (<span class="hljs-keyword">for</span> {
+  c &lt;- coffees
+  s &lt;- c.supplier
+} <span class="hljs-keyword">yield</span> (c, s)).groupBy(_._1.supID)
+
+<span class="hljs-keyword">val</span> q2 = q.map { <span class="hljs-keyword">case</span> (supID, css) =&gt;
+  (supID, css.length, css.map(_._1.price).avg)
+}
+<span class="hljs-comment">// compiles to SQL:</span>
+<span class="hljs-comment">//   select x2."SUP_ID", count(1), avg(x2."PRICE")</span>
+<span class="hljs-comment">//     from "COFFEES" x2, "SUPPLIERS" x3</span>
+<span class="hljs-comment">//     where x3."SUP_ID" = x2."SUP_ID"</span>
+<span class="hljs-comment">//     group by x2."SUP_ID"</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L329-L341" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>The intermediate query <code class="hljs">q</code> contains nested values of type <code class="hljs">Query</code>.
+These would turn into nested collections when executing the query, which is
+not supported at the moment. Therefore it is necessary to flatten the nested
+queries immediately by aggregating their values (or individual columns)
+as done in <code class="hljs">q2</code>.</p>
+<h2 id="querying" class="a_section" data-magellan-target="querying">Querying<a class="a_hlink" href="#querying"></a></h2>
+<p>A Query can be converted into an <a href="api/index.html#slick.dbio.DBIOAction">Action</a> by calling its
+<code class="hljs">result</code> method. The Action can then be <a href="dbio.html#executing-database-io-actions">executed</a> directly in a
+streaming or fully materialized way, or composed further with other Actions:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q = coffees.map(_.price)
+<span class="hljs-keyword">val</span> action = q.result
+<span class="hljs-keyword">val</span> result: <span class="hljs-type">Future</span>[<span class="hljs-type">Seq</span>[<span class="hljs-type">Double</span>]] = db.run(action)
+<span class="hljs-keyword">val</span> sql = action.statements.head</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L294-L297" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>If you only want a single result value, you can call <code class="hljs">head</code> or <code class="hljs">headOption</code> on the <code class="hljs">result</code> Action.</p>
+<h2 id="deleting" class="a_section" data-magellan-target="deleting">Deleting<a class="a_hlink" href="#deleting"></a></h2>
+<p>Deleting works very similarly to querying. You write a query which selects the
+rows to delete and then get an Action by calling the <code class="hljs">delete</code> method on it:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q = coffees.filter(_.supID === <span class="hljs-number">15</span>)
+<span class="hljs-keyword">val</span> action = q.delete
+<span class="hljs-keyword">val</span> affectedRowsCount: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = db.run(action)
+<span class="hljs-keyword">val</span> sql = action.statements.head</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L303-L306" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>A query for deleting must only use a single table - no joins are allowed (Slick does not yet support
+the <code class="hljs">USING</code> keyword for deletes). Any projection is ignored (it always deletes full rows).</p>
+<p>If you need to perform a join, you can <code class="hljs">filter</code> based on another <code class="hljs">Query</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">//</span>
+<span class="hljs-keyword">val</span> q = coffees filter { coffee =&gt;
+  <span class="hljs-comment">// You can do any subquery here - this example uses the foreign key relation in coffees.</span>
+  coffee.supID in (
+    coffee.supplier filter { _.name === <span class="hljs-string">"Delete Me"</span> } map { _.id }
+  )
+}
+<span class="hljs-keyword">val</span> action = q.delete
+<span class="hljs-keyword">val</span> affectedRowsCount: <span class="hljs-type">Future</span>[<span class="hljs-type">Int</span>] = db.run(action)
+<span class="hljs-keyword">val</span> sql = action.statements.head</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L312-L321" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h2 id="inserting" class="a_section" data-magellan-target="inserting">Inserting<a class="a_hlink" href="#inserting"></a></h2>
+<p>Inserts are done based on a projection of columns from a single table. When you use the table
+directly, the insert is performed against its <code class="hljs">*</code> projection. Omitting some of a table’s columns
+when inserting causes the database to use the default values specified in the table definition, or
+a type-specific default in case no explicit default was given. All methods for building insert
+Actions are defined in
+<a href="api/index.html#slick.jdbc.JdbcActionComponent@CountingInsertActionComposer[U]:JdbcProfile.CountingInsertActionComposer[U]">CountingInsertActionComposer</a> and
+<a href="api/index.html#slick.jdbc.JdbcActionComponent@ReturningInsertActionComposer[U,RU]:JdbcProfile.ReturningInsertActionComposer[U,RU]">ReturningInsertActionComposer</a>.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> insertActions = <span class="hljs-type">DBIO</span>.seq(
+  coffees += (<span class="hljs-string">"Colombian"</span>, <span class="hljs-number">101</span>, <span class="hljs-number">7.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+
+  coffees ++= <span class="hljs-type">Seq</span>(
+    (<span class="hljs-string">"French_Roast"</span>, <span class="hljs-number">49</span>, <span class="hljs-number">8.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+    (<span class="hljs-string">"Espresso"</span>,    <span class="hljs-number">150</span>, <span class="hljs-number">9.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+  ),
+
+  <span class="hljs-comment">// "sales" and "total" will use the default value 0:</span>
+  coffees.map(c =&gt; (c.name, c.supID, c.price)) += (<span class="hljs-string">"Colombian_Decaf"</span>, <span class="hljs-number">101</span>, <span class="hljs-number">8.99</span>)
+)
+
+<span class="hljs-comment">// Get the statement without having to specify a value to insert:</span>
+<span class="hljs-keyword">val</span> sql = coffees.insertStatement
+
+<span class="hljs-comment">// compiles to SQL:</span>
+<span class="hljs-comment">//   INSERT INTO "COFFEES" ("COF_NAME","SUP_ID","PRICE","SALES","TOTAL") VALUES (?,?,?,?,?)</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L348-L364" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>When you include an <code class="hljs">AutoInc</code> column in an insert operation, it is silently
+ignored, so that the database can generate the proper value.
+In this case you usually want to get back the auto-generated primary key
+column. By default, <code class="hljs">+=</code> gives you a count of the number of affected
+rows (which will usually be 1) and <code class="hljs">++=</code> gives you an accumulated
+count in an <code class="hljs">Option</code> (which can be <code class="hljs">None</code> if the database system does not
+provide counts for all rows). This can be changed with the <code class="hljs">returning</code>
+method where you specify the columns to be returned (as a single value or
+tuple from <code class="hljs">+=</code> and a <code class="hljs">Seq</code> of such values from <code class="hljs">++=</code>):</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> userId =
+  (users returning users.map(_.id)) += <span class="hljs-type">User</span>(<span class="hljs-type">None</span>, <span class="hljs-string">"Stefan"</span>, <span class="hljs-string">"Zeiger"</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L378-L379" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<blockquote class="note">
+<p>Many database systems only allow a single column to be returned
+which must be the table’s auto-incrementing primary key. If you ask for
+other columns a <code class="hljs">SlickException</code> is thrown at runtime (unless the database
+actually supports it).</p>
+</blockquote>
+<p>You can follow the <code class="hljs">returning</code> method with the <code class="hljs">into</code> method to map
+the inserted values and the generated keys (specified in returning) to a desired value.
+Here is an example of using this feature to return an object with an updated id:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> userWithId =
+  (users returning users.map(_.id)
+         into ((user,id) =&gt; user.copy(id=<span class="hljs-type">Some</span>(id)))
+  ) += <span class="hljs-type">User</span>(<span class="hljs-type">None</span>, <span class="hljs-string">"Stefan"</span>, <span class="hljs-string">"Zeiger"</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L384-L387" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<blockquote class="note">
+<p>When using the <code class="hljs">++=</code> batch insert operation, Slick makes use of the JDBC batch API.
+The underlying JDBC driver will decide how to transmit the batch (via SQL) to the database server.</p>
+<p>Slick may fall back to generating multiple insert statements for batch operations.
+This will depend on the driver (if it supports batch insert),
+and other circumstances (<code class="hljs">returning</code> keys is generally not supported in batch operations).</p>
+</blockquote>
+<p>Instead of inserting data from the client side you can also insert data
+created by a <code class="hljs">Query</code> or a scalar expression that is executed in the
+database server:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Users2</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>)](<span class="hljs-params">tag, "users2"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"id"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"name"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id, name)
+}
+<span class="hljs-keyword">val</span> users2 = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Users2</span>]
+
+<span class="hljs-keyword">val</span> actions = <span class="hljs-type">DBIO</span>.seq(
+  users2.schema.create,
+  users2 forceInsertQuery (users.map { u =&gt; (u.id, u.first ++ <span class="hljs-string">" "</span> ++ u.last) }),
+  users2 forceInsertExpr (users.length + <span class="hljs-number">1</span>, <span class="hljs-string">"admin"</span>)
+)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L393-L404" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>In these cases, <code class="hljs">AutoInc</code> columns are <em>not</em> ignored.</p>
+<h2 id="updating" class="a_section" data-magellan-target="updating">Updating<a class="a_hlink" href="#updating"></a></h2>
+<p>Updates are performed by writing a query that selects the data to update and
+then replacing it with new data. The query must only return raw columns (no
+computed values) selected from a single table. The relevant methods for
+updating are defined in
+<a href="api/index.html#slick.jdbc.JdbcActionComponent@UpdateActionExtensionMethodsImpl[T]:JdbcProfile.UpdateActionExtensionMethodsImpl[T]">UpdateExtensionMethods</a>.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q = <span class="hljs-keyword">for</span> { c &lt;- coffees <span class="hljs-keyword">if</span> c.name === <span class="hljs-string">"Espresso"</span> } <span class="hljs-keyword">yield</span> c.price
+<span class="hljs-keyword">val</span> updateAction = q.update(<span class="hljs-number">10.49</span>)
+
+<span class="hljs-comment">// Get the statement without having to specify an updated value:</span>
+<span class="hljs-keyword">val</span> sql = q.updateStatement
+
+<span class="hljs-comment">// compiles to SQL:</span>
+<span class="hljs-comment">//   update "COFFEES" set "PRICE" = ? where "COFFEES"."COF_NAME" = 'Espresso'</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L421-L428" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>There is currently no way to use scalar expressions or transformations of
+the existing data in the database for updates.</p>
+<p>When you want to update multiple columns at once, just map to a tuple first:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q = coffees.filter(_.name === <span class="hljs-string">"Espresso"</span>).map(coffee =&gt; (coffee.name, coffee.price))
+<span class="hljs-comment">// A Lungo is more expensive:</span>
+<span class="hljs-keyword">val</span> updateAction = q.update((<span class="hljs-string">"Espresso Lungo"</span>, <span class="hljs-number">12.88</span>))
+
+<span class="hljs-comment">// Get the statement without having to specify an updated value:</span>
+<span class="hljs-keyword">val</span> sql = q.updateStatement
+
+<span class="hljs-comment">// compiles to SQL:</span>
+<span class="hljs-comment">//   update "COFFEES" set "COF_NAME" = ?, "PRICE" = ? where "COFFEES"."COF_NAME" = 'Espresso'</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L435-L443" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h2 id="upserting" class="a_section" data-magellan-target="upserting">Upserting<a class="a_hlink" href="#upserting"></a></h2>
+<p>Upserting is performed by supplying a row to be either inserted or updated. The
+object must contain the table’s primary key, since the update portion needs to
+be able to find a uniquelly matching row.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> updated = users.insertOrUpdate(<span class="hljs-type">User</span>(<span class="hljs-type">Some</span>(<span class="hljs-number">1</span>), <span class="hljs-string">"Admin"</span>, <span class="hljs-string">"Zeiger"</span>))
+<span class="hljs-comment">// returns: number of rows updated</span>
+
+<span class="hljs-keyword">val</span> updatedAdmin = (users returning users).insertOrUpdate(<span class="hljs-type">User</span>(<span class="hljs-type">Some</span>(<span class="hljs-number">1</span>), <span class="hljs-string">"Slick Admin"</span>, <span class="hljs-string">"Zeiger"</span>))
+<span class="hljs-comment">// returns: None if updated, Some((Int, String)) if row inserted</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L409-L413" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<h2 id="compiled-queries" class="a_section" data-magellan-target="compiled-queries">Compiled Queries<a class="a_hlink" href="#compiled-queries"></a></h2>
+<p>Database queries typically depend on some parameters, e.g. an ID for which
+you want to retrieve a matching database row. You can write a regular Scala
+function to create a parameterized <code class="hljs">Query</code> object each time you need to
+execute that query but this will incur the cost of recompiling the query
+in Slick (and possibly also on the database if you don’t use bind variables
+for all parameters). It is more efficient to pre-compile such parameterized
+query functions:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">userNameByIDRange</span></span>(min: <span class="hljs-type">Rep</span>[<span class="hljs-type">Int</span>], max: <span class="hljs-type">Rep</span>[<span class="hljs-type">Int</span>]) =
+  <span class="hljs-keyword">for</span> {
+    u &lt;- users <span class="hljs-keyword">if</span> u.id &gt;= min &amp;&amp; u.id &lt; max
+  } <span class="hljs-keyword">yield</span> u.first
+
+<span class="hljs-keyword">val</span> userNameByIDRangeCompiled = <span class="hljs-type">Compiled</span>(userNameByIDRange _)
+
+<span class="hljs-comment">// The query will be compiled only once:</span>
+<span class="hljs-keyword">val</span> namesAction1 = userNameByIDRangeCompiled(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>).result
+<span class="hljs-keyword">val</span> namesAction2 = userNameByIDRangeCompiled(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>).result
+<span class="hljs-comment">// Also works for .insert, .update and .delete</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L458-L468" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>This works for all functions that take parameters consisting only of individual columns or
+<a href="userdefined.html#record-types">records</a> of columns and return a <code class="hljs">Query</code> object or a
+scalar query. See the API documentation for <a href="api/index.html#slick.lifted.Compiled">Compiled</a>
+and its subclasses for details on composing compiled queries.</p>
+<p>Be aware that <code class="hljs">take</code> and <code class="hljs">drop</code> take <code class="hljs">ConstColumn[Long]</code> parameters. Unlike <code class="hljs">Rep[Long]</code>,
+which could be substituted by another value computed by a query, a ConstColumn can only be literal
+value or a parameter of a compiled query. This is necessary because the actual value has to be
+known by the time the query is prepared for execution by Slick.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> userPaged = <span class="hljs-type">Compiled</span>((d: <span class="hljs-type">ConstColumn</span>[<span class="hljs-type">Long</span>], t: <span class="hljs-type">ConstColumn</span>[<span class="hljs-type">Long</span>]) =&gt; users.drop(d).take(t))
+
+<span class="hljs-keyword">val</span> usersAction1 = userPaged(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>).result
+<span class="hljs-keyword">val</span> usersAction2 = userPaged(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>).result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L474-L477" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>You can use a compiled query for querying, inserting, updating and deleting data.
+To use compiled queries for inserts you can wrap your table query with <code class="hljs">Compiled</code></p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> userCompiled = <span class="hljs-type">Compiled</span>(users)
+userCompiled += <span class="hljs-type">User</span>(<span class="hljs-type">None</span>, <span class="hljs-string">"John"</span>, <span class="hljs-string">"Doe"</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L483-L484" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+<p>For backwards-compatibility with Slick 1.0 you can still create a compiled
+query by calling <code class="hljs">flatMap</code> on a <a href="api/index.html#slick.lifted.Parameters">Parameters</a> object.
+In many cases this enables you to write a single <em>for comprehension</em> for a
+compiled query:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> userNameByID = <span class="hljs-keyword">for</span> {
+  id &lt;- <span class="hljs-type">Parameters</span>[<span class="hljs-type">Int</span>]
+  u &lt;- users <span class="hljs-keyword">if</span> u.id === id
+} <span class="hljs-keyword">yield</span> u.first
+
+<span class="hljs-keyword">val</span> nameAction = userNameByID(<span class="hljs-number">2</span>).result.head
+
+<span class="hljs-keyword">val</span> userNameByIDRange = <span class="hljs-keyword">for</span> {
+  (min, max) &lt;- <span class="hljs-type">Parameters</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)]
+  u &lt;- users <span class="hljs-keyword">if</span> u.id &gt;= min &amp;&amp; u.id &lt; max
+} <span class="hljs-keyword">yield</span> u.first
+
+<span class="hljs-keyword">val</span> namesAction = userNameByIDRange(<span class="hljs-number">2</span>, <span class="hljs-number">5</span>).result</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.3.3/doc/code/LiftedEmbedding.scala#L490-L502" class="a_sourcelink">LiftedEmbedding.scala</a></div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="schemas.html"  title="Schemas" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="code-generation.html"  title="Schema Code Generation" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/queries.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="cookbook.html">Cookbook</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#queries">Queries</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#expressions">Expressions</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#sorting-and-filtering">Sorting and Filtering</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#joining-and-zipping">Joining and Zipping</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#applicative-joins">Applicative joins</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#monadic-joins">Monadic joins</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#zip-joins">Zip joins</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#unions">Unions</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#aggregation">Aggregation</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#querying">Querying</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#deleting">Deleting</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#inserting">Inserting</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#updating">Updating</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#upserting">Upserting</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#compiled-queries">Compiled Queries</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2019 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>
