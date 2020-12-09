@@ -1,0 +1,2147 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>lifted - Slick 3.3.3 - slick.lifted</title>
+          <meta name="description" content="lifted - Slick 3.3.3 - slick.lifted" />
+          <meta name="keywords" content="lifted Slick 3.3.3 slick.lifted" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.lifted.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a></p>
+        <h1>lifted</h1><span class="permalink">
+      <a href="../../index.html#slick.lifted.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">lifted</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Lifted embedding: Stable query api based on implicits and overloading lifting Scala code into Slick ASTs</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.3.3/slick/src/main/scala/slick/lifted/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.lifted"><span>lifted</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.lifted.AbstractTable" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AbstractTable[T]extendsRep[T]"></a>
+      <a id="AbstractTable[T]:AbstractTable[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractTable.html"><span class="name">AbstractTable</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="slick.lifted.AbstractTable.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@AbstractTable[T]extendsRep[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The profile-independent superclass of all table row objects.</p><div class="fullcomment"><div class="comment cmt"><p>The profile-independent superclass of all table row objects.</p></div><dl class="paramcmts block"><dt class="tparam">T</dt><dd class="cmt"><p>Row type for this table. Make sure it matches the type of your <code>*</code> projection.</p></dd></dl></div>
+    </li><li name="slick.lifted.AbstractTableShapeImplicits" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="AbstractTableShapeImplicitsextendsRepShapeImplicits"></a>
+      <a id="AbstractTableShapeImplicits:AbstractTableShapeImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="AbstractTableShapeImplicits.html"><span class="name">AbstractTableShapeImplicits</span></a><span class="result"> extends <a href="RepShapeImplicits.html" class="extype" name="slick.lifted.RepShapeImplicits">RepShapeImplicits</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@AbstractTableShapeImplicitsextendsRepShapeImplicits" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Aliases" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AliasesextendsAnyRef"></a>
+      <a id="Aliases:Aliases"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Aliases.html"><span class="name">Aliases</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@AliasesextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Aliases for lifted embedding features.</p><div class="fullcomment"><div class="comment cmt"><p>Aliases for lifted embedding features. This trait can be mixed into aliasing
+objects which simplify the use of the lifted embedding.</p></div></div>
+    </li><li name="slick.lifted.AnyExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AnyExtensionMethodsextendsAnyVal"></a>
+      <a id="AnyExtensionMethods:AnyExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AnyExtensionMethods.html"><span class="name">AnyExtensionMethods</span></a><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@AnyExtensionMethodsextendsAnyVal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for all columns and all primitive values that can be lifted to columns</p>
+    </li><li name="slick.lifted.AnyOptionExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AnyOptionExtensionMethods[O&lt;:slick.lifted.Rep[_],P]extendsAnyVal"></a>
+      <a id="AnyOptionExtensionMethods[O&lt;:Rep[_],P]:AnyOptionExtensionMethods[O,P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AnyOptionExtensionMethods.html"><span class="name">AnyOptionExtensionMethods</span></a><span class="tparams">[<span name="O">O &lt;: <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[_]</span>, <span name="P">P</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@AnyOptionExtensionMethods[O&lt;:slick.lifted.Rep[_],P]extendsAnyVal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for Options of single- and multi-column values</p>
+    </li><li name="slick.lifted.AppliedCompiledFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="AppliedCompiledFunction[PU,R&lt;:slick.lifted.Rep[_],RU]extendsRunnableCompiled[R,RU]"></a>
+      <a id="AppliedCompiledFunction[PU,R&lt;:Rep[_],RU]:AppliedCompiledFunction[PU,R,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="AppliedCompiledFunction.html"><span class="name">AppliedCompiledFunction</span></a><span class="tparams">[<span name="PU">PU</span>, <span name="R">R &lt;: <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[_]</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="RunnableCompiled.html" class="extype" name="slick.lifted.RunnableCompiled">RunnableCompiled</a>[<span class="extype" name="slick.lifted.AppliedCompiledFunction.R">R</span>, <span class="extype" name="slick.lifted.AppliedCompiledFunction.RU">RU</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@AppliedCompiledFunction[PU,R&lt;:slick.lifted.Rep[_],RU]extendsRunnableCompiled[R,RU]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.BaseColumnExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BaseColumnExtensionMethods[P1]extendsAnyValwithColumnExtensionMethods[P1,P1]withBaseExtensionMethods[P1]"></a>
+      <a id="BaseColumnExtensionMethods[P1]:BaseColumnExtensionMethods[P1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseColumnExtensionMethods.html"><span class="name">BaseColumnExtensionMethods</span></a><span class="tparams">[<span name="P1">P1</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span> with <a href="ColumnExtensionMethods.html" class="extype" name="slick.lifted.ColumnExtensionMethods">ColumnExtensionMethods</a>[<span class="extype" name="slick.lifted.BaseColumnExtensionMethods.P1">P1</span>, <span class="extype" name="slick.lifted.BaseColumnExtensionMethods.P1">P1</span>] with <a href="BaseExtensionMethods.html" class="extype" name="slick.lifted.BaseExtensionMethods">BaseExtensionMethods</a>[<span class="extype" name="slick.lifted.BaseColumnExtensionMethods.P1">P1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@BaseColumnExtensionMethods[P1]extendsAnyValwithColumnExtensionMethods[P1,P1]withBaseExtensionMethods[P1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.BaseExtensionMethods" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BaseExtensionMethods[B1]extendsAnywithExtensionMethods[B1,B1]"></a>
+      <a id="BaseExtensionMethods[B1]:BaseExtensionMethods[B1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseExtensionMethods.html"><span class="name">BaseExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>]</span><span class="result"> extends <a href="ExtensionMethods.html" class="extype" name="slick.lifted.ExtensionMethods">ExtensionMethods</a>[<span class="extype" name="slick.lifted.BaseExtensionMethods.B1">B1</span>, <span class="extype" name="slick.lifted.BaseExtensionMethods.B1">B1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@BaseExtensionMethods[B1]extendsAnywithExtensionMethods[B1,B1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.BaseJoinQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BaseJoinQuery[+E1,+E2,U1,U2,C[_],+B1,+B2]extendsWrappingQuery[(E1,E2),(U1,U2),C]"></a>
+      <a id="BaseJoinQuery[+E1,+E2,U1,U2,C[_],+B1,+B2]:BaseJoinQuery[E1,E2,U1,U2,C,B1,B2]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseJoinQuery.html"><span class="name">BaseJoinQuery</span></a><span class="tparams">[<span name="E1">+E1</span>, <span name="E2">+E2</span>, <span name="U1">U1</span>, <span name="U2">U2</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>, <span name="B1">+B1</span>, <span name="B2">+B2</span>]</span><span class="result"> extends <a href="WrappingQuery.html" class="extype" name="slick.lifted.WrappingQuery">WrappingQuery</a>[(<span class="extype" name="slick.lifted.BaseJoinQuery.E1">E1</span>, <span class="extype" name="slick.lifted.BaseJoinQuery.E2">E2</span>), (<span class="extype" name="slick.lifted.BaseJoinQuery.U1">U1</span>, <span class="extype" name="slick.lifted.BaseJoinQuery.U2">U2</span>), <span class="extype" name="slick.lifted.BaseJoinQuery.C">C</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@BaseJoinQuery[+E1,+E2,U1,U2,C[_],+B1,+B2]extendsWrappingQuery[(E1,E2),(U1,U2),C]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.BaseNumericColumnExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BaseNumericColumnExtensionMethods[P1]extendsAnyValwithNumericColumnExtensionMethods[P1,P1]withBaseExtensionMethods[P1]"></a>
+      <a id="BaseNumericColumnExtensionMethods[P1]:BaseNumericColumnExtensionMethods[P1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseNumericColumnExtensionMethods.html"><span class="name">BaseNumericColumnExtensionMethods</span></a><span class="tparams">[<span name="P1">P1</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span> with <a href="NumericColumnExtensionMethods.html" class="extype" name="slick.lifted.NumericColumnExtensionMethods">NumericColumnExtensionMethods</a>[<span class="extype" name="slick.lifted.BaseNumericColumnExtensionMethods.P1">P1</span>, <span class="extype" name="slick.lifted.BaseNumericColumnExtensionMethods.P1">P1</span>] with <a href="BaseExtensionMethods.html" class="extype" name="slick.lifted.BaseExtensionMethods">BaseExtensionMethods</a>[<span class="extype" name="slick.lifted.BaseNumericColumnExtensionMethods.P1">P1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@BaseNumericColumnExtensionMethods[P1]extendsAnyValwithNumericColumnExtensionMethods[P1,P1]withBaseExtensionMethods[P1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.BaseTag" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BaseTagextendsTag"></a>
+      <a id="BaseTag:BaseTag"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BaseTag.html"><span class="name">BaseTag</span></a><span class="result"> extends <a href="Tag.html" class="extype" name="slick.lifted.Tag">Tag</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@BaseTagextendsTag" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Tag marking the base table instance itself</p>
+    </li><li name="slick.lifted.BooleanColumnExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BooleanColumnExtensionMethods[P1]extendsAnyValwithExtensionMethods[Boolean,P1]"></a>
+      <a id="BooleanColumnExtensionMethods[P1]:BooleanColumnExtensionMethods[P1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="BooleanColumnExtensionMethods.html"><span class="name">BooleanColumnExtensionMethods</span></a><span class="tparams">[<span name="P1">P1</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span> with <a href="ExtensionMethods.html" class="extype" name="slick.lifted.ExtensionMethods">ExtensionMethods</a>[<span class="extype" name="scala.Boolean">Boolean</span>, <span class="extype" name="slick.lifted.BooleanColumnExtensionMethods.P1">P1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@BooleanColumnExtensionMethods[P1]extendsAnyValwithExtensionMethods[Boolean,P1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for Rep[Boolean] and Rep[Option[Boolean]]</p>
+    </li><li name="slick.lifted.CanBeQueryCondition" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="CanBeQueryCondition[-T]extendsT=&gt;slick.lifted.Rep[_]"></a>
+      <a id="CanBeQueryCondition[-T]:CanBeQueryCondition[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CanBeQueryCondition.html"><span class="name">CanBeQueryCondition</span></a><span class="tparams">[<span name="T">-T</span>]</span><span class="result"> extends (<span class="extype" name="slick.lifted.CanBeQueryCondition.T">T</span>) ⇒ <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[_]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CanBeQueryCondition[-T]extendsT=&gt;slick.lifted.Rep[_]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A typeclass for types that can be used as predicates in <code>filter</code> calls.</p><div class="fullcomment"><div class="comment cmt"><p>A typeclass for types that can be used as predicates in <code>filter</code> calls.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@implicitNotFound</span><span class="args">(<span>
+      
+      <span class="defval" name="&quot;Type ${T} cannot be a query condition (only Boolean, Rep[Boolean] and Rep[Option[Boolean]] are allowed&quot;">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.lifted.CaseClassShape" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CaseClassShape[P&lt;:Product,LiftedTuple,LiftedCaseClass&lt;:P,PlainTuple,PlainCaseClass&lt;:P]extendsMappedScalaProductShape[slick.lifted.FlatShapeLevel,P,LiftedCaseClass,PlainCaseClass,LiftedCaseClass]"></a>
+      <a id="CaseClassShape[P&lt;:Product,LiftedTuple,LiftedCaseClass&lt;:P,PlainTuple,PlainCaseClass&lt;:P]:CaseClassShape[P,LiftedTuple,LiftedCaseClass,PlainTuple,PlainCaseClass]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CaseClassShape.html"><span class="name">CaseClassShape</span></a><span class="tparams">[<span name="P">P &lt;: <span class="extype" name="scala.Product">Product</span></span>, <span name="LiftedTuple">LiftedTuple</span>, <span name="LiftedCaseClass">LiftedCaseClass &lt;: <span class="extype" name="slick.lifted.CaseClassShape.P">P</span></span>, <span name="PlainTuple">PlainTuple</span>, <span name="PlainCaseClass">PlainCaseClass &lt;: <span class="extype" name="slick.lifted.CaseClassShape.P">P</span></span>]</span><span class="result"> extends <a href="MappedScalaProductShape.html" class="extype" name="slick.lifted.MappedScalaProductShape">MappedScalaProductShape</a>[<a href="FlatShapeLevel.html" class="extype" name="slick.lifted.FlatShapeLevel">FlatShapeLevel</a>, <span class="extype" name="slick.lifted.CaseClassShape.P">P</span>, <span class="extype" name="slick.lifted.CaseClassShape.LiftedCaseClass">LiftedCaseClass</span>, <span class="extype" name="slick.lifted.CaseClassShape.PlainCaseClass">PlainCaseClass</span>, <span class="extype" name="slick.lifted.CaseClassShape.LiftedCaseClass">LiftedCaseClass</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CaseClassShape[P&lt;:Product,LiftedTuple,LiftedCaseClass&lt;:P,PlainTuple,PlainCaseClass&lt;:P]extendsMappedScalaProductShape[slick.lifted.FlatShapeLevel,P,LiftedCaseClass,PlainCaseClass,LiftedCaseClass]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A generic case class shape that can be used to lift a case class of
+plain Scala types to a case class of lifted types.</p><div class="fullcomment"><div class="comment cmt"><p>A generic case class shape that can be used to lift a case class of
+plain Scala types to a case class of lifted types. This allows the type
+to be used as a record type (like tuples and HLists) in the Lifted
+Embedding.</p><p>Example:</p><pre><span class="kw">case</span> <span class="kw">class</span> C(a: <span class="std">Int</span>, b: <span class="std">Option</span>[<span class="std">String</span>])
+<span class="kw">case</span> <span class="kw">class</span> LiftedC(a: Column[<span class="std">Int</span>], b: Column[<span class="std">Option</span>[<span class="std">String</span>]])
+<span class="kw">implicit</span> <span class="kw">object</span> cShape <span class="kw">extends</span> CaseClassShape(LiftedC.tupled, C.tupled)</pre></div></div>
+    </li><li name="slick.lifted.ColumnExtensionMethods" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ColumnExtensionMethods[B1,P1]extendsAnywithExtensionMethods[B1,P1]"></a>
+      <a id="ColumnExtensionMethods[B1,P1]:ColumnExtensionMethods[B1,P1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ColumnExtensionMethods.html"><span class="name">ColumnExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>, <span name="P1">P1</span>]</span><span class="result"> extends <a href="ExtensionMethods.html" class="extype" name="slick.lifted.ExtensionMethods">ExtensionMethods</a>[<span class="extype" name="slick.lifted.ColumnExtensionMethods.B1">B1</span>, <span class="extype" name="slick.lifted.ColumnExtensionMethods.P1">P1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ColumnExtensionMethods[B1,P1]extendsAnywithExtensionMethods[B1,P1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for all columns</p>
+    </li><li name="slick.lifted.ColumnOrdered" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ColumnOrdered[T]extendsOrderedwithProductwithSerializable"></a>
+      <a id="ColumnOrdered[T]:ColumnOrdered[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ColumnOrdered.html"><span class="name">ColumnOrdered</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="column">column: <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="slick.lifted.ColumnOrdered.T">T</span>]</span>, <span name="ord">ord: <a href="../ast/Ordering.html" class="extype" name="slick.ast.Ordering">Ordering</a></span>)</span><span class="result"> extends <a href="Ordered.html" class="extype" name="slick.lifted.Ordered">Ordered</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ColumnOrdered[T]extendsOrderedwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A <code>Column</code> with an associated <code>Ordering</code>.</p>
+    </li><li name="slick.lifted.ColumnsShapeLevel" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ColumnsShapeLevelextendsFlatShapeLevel"></a>
+      <a id="ColumnsShapeLevel:ColumnsShapeLevel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ColumnsShapeLevel.html"><span class="name">ColumnsShapeLevel</span></a><span class="result"> extends <a href="FlatShapeLevel.html" class="extype" name="slick.lifted.FlatShapeLevel">FlatShapeLevel</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ColumnsShapeLevelextendsFlatShapeLevel" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">ShapeLevel that only allows records of individual columns.</p><div class="fullcomment"><div class="comment cmt"><p>ShapeLevel that only allows records of individual columns.
+This level is used for parameters of compiled queries.</p></div></div>
+    </li><li name="slick.lifted.Compilable" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Compilable[T,C&lt;:slick.lifted.Compiled[T]]extendsAnyRef"></a>
+      <a id="Compilable[T,C&lt;:Compiled[T]]:Compilable[T,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Compilable.html"><span class="name">Compilable</span></a><span class="tparams">[<span name="T">T</span>, <span name="C">C &lt;: <a href="Compiled.html" class="extype" name="slick.lifted.Compiled">Compiled</a>[<span class="extype" name="slick.lifted.Compilable.T">T</span>]</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Compilable[T,C&lt;:slick.lifted.Compiled[T]]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Typeclass for types that can be contained in a <code>Compiled</code> container.</p><div class="fullcomment"><div class="comment cmt"><p>Typeclass for types that can be contained in a <code>Compiled</code> container. This
+includes all <code>Executable</code> types as well as functions (of any arity) from
+flat, fully packed parameter types to an <code>Executable</code> result type.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@implicitNotFound</span><span class="args">(<span>
+      
+      <span class="defval" name="&quot;Computation of type ${T} cannot be compiled (as type ${C})&quot;">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.lifted.CompilableFunctions" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CompilableFunctionsextendsCompilableLowPriority"></a>
+      <a id="CompilableFunctions:CompilableFunctions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CompilableFunctions.html"><span class="name">CompilableFunctions</span></a><span class="result"> extends <a href="CompilableLowPriority.html" class="extype" name="slick.lifted.CompilableLowPriority">CompilableLowPriority</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CompilableFunctionsextendsCompilableLowPriority" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.CompilableLowPriority" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CompilableLowPriorityextendsAnyRef"></a>
+      <a id="CompilableLowPriority:CompilableLowPriority"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CompilableLowPriority.html"><span class="name">CompilableLowPriority</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CompilableLowPriorityextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Compiled" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Compiled[T]extendsAnyRef"></a>
+      <a id="Compiled[T]:Compiled[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Compiled.html"><span class="name">Compiled</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Compiled[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A possibly parameterized query that will be cached for repeated efficient
+execution without having to recompile it every time.</p><div class="fullcomment"><div class="comment cmt"><p>A possibly parameterized query that will be cached for repeated efficient
+execution without having to recompile it every time. The compiled state
+is computed on demand the first time a <code>Cached</code> value is executed. It is
+always tied to a specific profile.</p><p><code>Cached</code> forms a limited monad which ensures that it can only contain
+values that are <code>Compilable</code>.</p></div></div>
+    </li><li name="slick.lifted.CompiledExecutable" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CompiledExecutable[R,RU]extendsRunnableCompiled[R,RU]withCompilersMixin"></a>
+      <a id="CompiledExecutable[R,RU]:CompiledExecutable[R,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CompiledExecutable.html"><span class="name">CompiledExecutable</span></a><span class="tparams">[<span name="R">R</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="RunnableCompiled.html" class="extype" name="slick.lifted.RunnableCompiled">RunnableCompiled</a>[<span class="extype" name="slick.lifted.CompiledExecutable.R">R</span>, <span class="extype" name="slick.lifted.CompiledExecutable.RU">RU</span>] with <a href="CompilersMixin.html" class="extype" name="slick.lifted.CompilersMixin">CompilersMixin</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CompiledExecutable[R,RU]extendsRunnableCompiled[R,RU]withCompilersMixin" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.CompiledFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CompiledFunction[F,PT,PU,R&lt;:slick.lifted.Rep[_],RU]extendsCompiled[F]withCompilersMixin"></a>
+      <a id="CompiledFunction[F,PT,PU,R&lt;:Rep[_],RU]:CompiledFunction[F,PT,PU,R,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CompiledFunction.html"><span class="name">CompiledFunction</span></a><span class="tparams">[<span name="F">F</span>, <span name="PT">PT</span>, <span name="PU">PU</span>, <span name="R">R &lt;: <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[_]</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="Compiled.html" class="extype" name="slick.lifted.Compiled">Compiled</a>[<span class="extype" name="slick.lifted.CompiledFunction.F">F</span>] with <a href="CompilersMixin.html" class="extype" name="slick.lifted.CompilersMixin">CompilersMixin</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CompiledFunction[F,PT,PU,R&lt;:slick.lifted.Rep[_],RU]extendsCompiled[F]withCompilersMixin" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.CompiledStreamingExecutable" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CompiledStreamingExecutable[R,RU,EU]extendsCompiledExecutable[R,RU]withStreamableCompiled[R,RU,EU]"></a>
+      <a id="CompiledStreamingExecutable[R,RU,EU]:CompiledStreamingExecutable[R,RU,EU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="CompiledStreamingExecutable.html"><span class="name">CompiledStreamingExecutable</span></a><span class="tparams">[<span name="R">R</span>, <span name="RU">RU</span>, <span name="EU">EU</span>]</span><span class="result"> extends <a href="CompiledExecutable.html" class="extype" name="slick.lifted.CompiledExecutable">CompiledExecutable</a>[<span class="extype" name="slick.lifted.CompiledStreamingExecutable.R">R</span>, <span class="extype" name="slick.lifted.CompiledStreamingExecutable.RU">RU</span>] with <a href="StreamableCompiled.html" class="extype" name="slick.lifted.StreamableCompiled">StreamableCompiled</a>[<span class="extype" name="slick.lifted.CompiledStreamingExecutable.R">R</span>, <span class="extype" name="slick.lifted.CompiledStreamingExecutable.RU">RU</span>, <span class="extype" name="slick.lifted.CompiledStreamingExecutable.EU">EU</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CompiledStreamingExecutable[R,RU,EU]extendsCompiledExecutable[R,RU]withStreamableCompiled[R,RU,EU]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.CompilersMixin" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="CompilersMixinextendsAnyRef"></a>
+      <a id="CompilersMixin:CompilersMixin"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CompilersMixin.html"><span class="name">CompilersMixin</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CompilersMixinextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.ConstColumn" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ConstColumn[T]extendsRep.TypedRep[T]"></a>
+      <a id="ConstColumn[T]:ConstColumn[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConstColumn.html"><span class="name">ConstColumn</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Rep$$TypedRep.html" class="extype" name="slick.lifted.Rep.TypedRep">TypedRep</a>[<span class="extype" name="slick.lifted.ConstColumn.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ConstColumn[T]extendsRep.TypedRep[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A scalar value that is known at the client side at the time a query is executed.</p><div class="fullcomment"><div class="comment cmt"><p>A scalar value that is known at the client side at the time a query is executed.
+This is either a constant value (<code>LiteralColumn</code>) or a scalar parameter.</p></div></div>
+    </li><li name="slick.lifted.ConstColumnShapeImplicits" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ConstColumnShapeImplicitsextendsRepShapeImplicits"></a>
+      <a id="ConstColumnShapeImplicits:ConstColumnShapeImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ConstColumnShapeImplicits.html"><span class="name">ConstColumnShapeImplicits</span></a><span class="result"> extends <a href="RepShapeImplicits.html" class="extype" name="slick.lifted.RepShapeImplicits">RepShapeImplicits</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ConstColumnShapeImplicitsextendsRepShapeImplicits" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Constraint" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ConstraintextendsAnyRef"></a>
+      <a id="Constraint:Constraint"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Constraint.html"><span class="name">Constraint</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ConstraintextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Marker trait for foreign key and primary key constraints.</p>
+    </li><li name="slick.lifted.Executable" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Executable[T,TU]extendsAnyRef"></a>
+      <a id="Executable[T,TU]:Executable[T,TU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Executable.html"><span class="name">Executable</span></a><span class="tparams">[<span name="T">T</span>, <span name="TU">TU</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Executable[T,TU]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Typeclass for types that can be executed as queries.</p><div class="fullcomment"><div class="comment cmt"><p>Typeclass for types that can be executed as queries. This encompasses
+collection-valued (<code>Query[_, _, _[_] ]</code>), scalar and record types.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@implicitNotFound</span><span class="args">(<span>
+      
+      <span class="defval" name="&quot;Computation of type ${T} cannot be executed (with result type ${TU})&quot;">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.lifted.ExtensionMethodConversions" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ExtensionMethodConversionsextendsAnyRef"></a>
+      <a id="ExtensionMethodConversions:ExtensionMethodConversions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ExtensionMethodConversions.html"><span class="name">ExtensionMethodConversions</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ExtensionMethodConversionsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.ExtensionMethods" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="ExtensionMethods[B1,P1]extendsAny"></a>
+      <a id="ExtensionMethods[B1,P1]:ExtensionMethods[B1,P1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ExtensionMethods.html"><span class="name">ExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>, <span name="P1">P1</span>]</span><span class="result"> extends <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ExtensionMethods[B1,P1]extendsAny" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.FlatShapeLevel" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="FlatShapeLevelextendsNestedShapeLevel"></a>
+      <a id="FlatShapeLevel:FlatShapeLevel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="FlatShapeLevel.html"><span class="name">FlatShapeLevel</span></a><span class="result"> extends <a href="NestedShapeLevel.html" class="extype" name="slick.lifted.NestedShapeLevel">NestedShapeLevel</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@FlatShapeLevelextendsNestedShapeLevel" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">ShapeLevel that does not allow nested collections.</p><div class="fullcomment"><div class="comment cmt"><p>ShapeLevel that does not allow nested collections.
+This is the standard level for executable queries.</p></div></div>
+    </li><li name="slick.lifted.ForeignKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ForeignKeyextendsAnyRef"></a>
+      <a id="ForeignKey:ForeignKey"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ForeignKey.html"><span class="name">ForeignKey</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ForeignKeyextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a foreign key.</p><div class="fullcomment"><div class="comment cmt"><p>Represents a foreign key. Objects of this type are used internally by Slick.
+At the user level you generally see <code>ForeignKeyQuery</code> objects instead.</p></div></div>
+    </li><li name="slick.lifted.ForeignKeyQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ForeignKeyQuery[E&lt;:slick.lifted.AbstractTable[_],U]extendsWrappingQuery[E,U,Seq]withConstraint"></a>
+      <a id="ForeignKeyQuery[E&lt;:AbstractTable[_],U]:ForeignKeyQuery[E,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ForeignKeyQuery.html"><span class="name">ForeignKeyQuery</span></a><span class="tparams">[<span name="E">E &lt;: <a href="AbstractTable.html" class="extype" name="slick.lifted.AbstractTable">AbstractTable</a>[_]</span>, <span name="U">U</span>]</span><span class="result"> extends <a href="WrappingQuery.html" class="extype" name="slick.lifted.WrappingQuery">WrappingQuery</a>[<span class="extype" name="slick.lifted.ForeignKeyQuery.E">E</span>, <span class="extype" name="slick.lifted.ForeignKeyQuery.U">U</span>, <a href="../../scala/package.html#Seq[+A]=Seq[A]" class="extmbr" name="scala.Seq">Seq</a>] with <a href="Constraint.html" class="extype" name="slick.lifted.Constraint">Constraint</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ForeignKeyQuery[E&lt;:slick.lifted.AbstractTable[_],U]extendsWrappingQuery[E,U,Seq]withConstraint" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A query that selects data linked by a foreign key.</p>
+    </li><li name="slick.lifted.FunctionSymbolExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FunctionSymbolExtensionMethodsextendsAnyRef"></a>
+      <a id="FunctionSymbolExtensionMethods:FunctionSymbolExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="FunctionSymbolExtensionMethods.html"><span class="name">FunctionSymbolExtensionMethods</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@FunctionSymbolExtensionMethodsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Utility methods for internal use in the lifted embedding</p>
+    </li><li name="slick.lifted.Index" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IndexextendsAnyRef"></a>
+      <a id="Index:Index"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Index.html"><span class="name">Index</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@IndexextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An index (or foreign key constraint with an implicit index).</p>
+    </li><li name="slick.lifted.Isomorphism" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Isomorphism[A,B]extendsAnyRef"></a>
+      <a id="Isomorphism[A,B]:Isomorphism[A,B]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Isomorphism.html"><span class="name">Isomorphism</span></a><span class="tparams">[<span name="A">A</span>, <span name="B">B</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Isomorphism[A,B]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An isomorphism between two types that can be used for mapped column types.</p>
+    </li><li name="slick.lifted.LiteralColumn" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="LiteralColumn[T]extendsConstColumn[T]withProductwithSerializable"></a>
+      <a id="LiteralColumn[T]:LiteralColumn[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="LiteralColumn.html"><span class="name">LiteralColumn</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="value">value: <span class="extype" name="slick.lifted.LiteralColumn.T">T</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="tt">tt: <a href="../ast/TypedType.html" class="extype" name="slick.ast.TypedType">TypedType</a>[<span class="extype" name="slick.lifted.LiteralColumn.T">T</span>]</span>)</span><span class="result"> extends <a href="ConstColumn.html" class="extype" name="slick.lifted.ConstColumn">ConstColumn</a>[<span class="extype" name="slick.lifted.LiteralColumn.T">T</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@LiteralColumn[T]extendsConstColumn[T]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A column with a constant value which is inserted into an SQL statement as a literal.</p>
+    </li><li name="slick.lifted.MappedProductShape" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MappedProductShape[Level&lt;:slick.lifted.ShapeLevel,C,M&lt;:C,U&lt;:C,P&lt;:C]extendsProductNodeShape[Level,C,M,U,P]"></a>
+      <a id="MappedProductShape[Level&lt;:ShapeLevel,C,M&lt;:C,U&lt;:C,P&lt;:C]:MappedProductShape[Level,C,M,U,P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MappedProductShape.html"><span class="name">MappedProductShape</span></a><span class="tparams">[<span name="Level">Level &lt;: <a href="ShapeLevel.html" class="extype" name="slick.lifted.ShapeLevel">ShapeLevel</a></span>, <span name="C">C</span>, <span name="M">M &lt;: <span class="extype" name="slick.lifted.MappedProductShape.C">C</span></span>, <span name="U">U &lt;: <span class="extype" name="slick.lifted.MappedProductShape.C">C</span></span>, <span name="P">P &lt;: <span class="extype" name="slick.lifted.MappedProductShape.C">C</span></span>]</span><span class="result"> extends <a href="ProductNodeShape.html" class="extype" name="slick.lifted.ProductNodeShape">ProductNodeShape</a>[<span class="extype" name="slick.lifted.MappedProductShape.Level">Level</span>, <span class="extype" name="slick.lifted.MappedProductShape.C">C</span>, <span class="extype" name="slick.lifted.MappedProductShape.M">M</span>, <span class="extype" name="slick.lifted.MappedProductShape.U">U</span>, <span class="extype" name="slick.lifted.MappedProductShape.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@MappedProductShape[Level&lt;:slick.lifted.ShapeLevel,C,M&lt;:C,U&lt;:C,P&lt;:C]extendsProductNodeShape[Level,C,M,U,P]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Base class for ProductNodeShapes with a type mapping</p>
+    </li><li name="slick.lifted.MappedProjection" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MappedProjection[T,P]extendsRep[T]"></a>
+      <a id="MappedProjection[T,P]:MappedProjection[T,P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MappedProjection.html"><span class="name">MappedProjection</span></a><span class="tparams">[<span name="T">T</span>, <span name="P">P</span>]</span><span class="result"> extends <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="slick.lifted.MappedProjection.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@MappedProjection[T,P]extendsRep[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.MappedScalaProductShape" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MappedScalaProductShape[Level&lt;:slick.lifted.ShapeLevel,C&lt;:Product,M&lt;:C,U&lt;:C,P&lt;:C]extendsMappedProductShape[Level,C,M,U,P]"></a>
+      <a id="MappedScalaProductShape[Level&lt;:ShapeLevel,C&lt;:Product,M&lt;:C,U&lt;:C,P&lt;:C]:MappedScalaProductShape[Level,C,M,U,P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="MappedScalaProductShape.html"><span class="name">MappedScalaProductShape</span></a><span class="tparams">[<span name="Level">Level &lt;: <a href="ShapeLevel.html" class="extype" name="slick.lifted.ShapeLevel">ShapeLevel</a></span>, <span name="C">C &lt;: <span class="extype" name="scala.Product">Product</span></span>, <span name="M">M &lt;: <span class="extype" name="slick.lifted.MappedScalaProductShape.C">C</span></span>, <span name="U">U &lt;: <span class="extype" name="slick.lifted.MappedScalaProductShape.C">C</span></span>, <span name="P">P &lt;: <span class="extype" name="slick.lifted.MappedScalaProductShape.C">C</span></span>]</span><span class="result"> extends <a href="MappedProductShape.html" class="extype" name="slick.lifted.MappedProductShape">MappedProductShape</a>[<span class="extype" name="slick.lifted.MappedScalaProductShape.Level">Level</span>, <span class="extype" name="slick.lifted.MappedScalaProductShape.C">C</span>, <span class="extype" name="slick.lifted.MappedScalaProductShape.M">M</span>, <span class="extype" name="slick.lifted.MappedScalaProductShape.U">U</span>, <span class="extype" name="slick.lifted.MappedScalaProductShape.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@MappedScalaProductShape[Level&lt;:slick.lifted.ShapeLevel,C&lt;:Product,M&lt;:C,U&lt;:C,P&lt;:C]extendsMappedProductShape[Level,C,M,U,P]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Base class for ProductNodeShapes with a type mapping to a type that extends scala.Product</p>
+    </li><li name="slick.lifted.MappedTo" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="MappedTo[T]extendsAnywithMappedToBase"></a>
+      <a id="MappedTo[T]:MappedTo[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MappedTo.html"><span class="name">MappedTo</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="MappedToBase.html" class="extype" name="slick.lifted.MappedToBase">MappedToBase</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@MappedTo[T]extendsAnywithMappedToBase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The base type for automatically mapped column types.</p><div class="fullcomment"><div class="comment cmt"><p>The base type for automatically mapped column types.
+Extending this type (with a type parameter <code><code>T</code></code> which is already a
+supported column type) lets you use your custom type as a column
+type in the Lifted Embedding. You must provide a constructor that
+takes a single value of the underlying type (same restriction as
+for value classes).</p></div></div>
+    </li><li name="slick.lifted.MappedToBase" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MappedToBaseextendsAny"></a>
+      <a id="MappedToBase:MappedToBase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MappedToBase.html"><span class="name">MappedToBase</span></a><span class="result"> extends <span class="extype" name="scala.Any">Any</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@MappedToBaseextendsAny" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.NestedShapeLevel" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NestedShapeLevelextendsShapeLevel"></a>
+      <a id="NestedShapeLevel:NestedShapeLevel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="NestedShapeLevel.html"><span class="name">NestedShapeLevel</span></a><span class="result"> extends <a href="ShapeLevel.html" class="extype" name="slick.lifted.ShapeLevel">ShapeLevel</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@NestedShapeLevelextendsShapeLevel" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">ShapeLevel that allows nested collections.</p>
+    </li><li name="slick.lifted.NumericColumnExtensionMethods" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="NumericColumnExtensionMethods[B1,P1]extendsAnywithExtensionMethods[B1,P1]"></a>
+      <a id="NumericColumnExtensionMethods[B1,P1]:NumericColumnExtensionMethods[B1,P1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="NumericColumnExtensionMethods.html"><span class="name">NumericColumnExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>, <span name="P1">P1</span>]</span><span class="result"> extends <a href="ExtensionMethods.html" class="extype" name="slick.lifted.ExtensionMethods">ExtensionMethods</a>[<span class="extype" name="slick.lifted.NumericColumnExtensionMethods.B1">B1</span>, <span class="extype" name="slick.lifted.NumericColumnExtensionMethods.P1">P1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@NumericColumnExtensionMethods[B1,P1]extendsAnywithExtensionMethods[B1,P1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for numeric columns</p>
+    </li><li name="slick.lifted.OptionColumnExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OptionColumnExtensionMethods[B1]extendsAnyValwithColumnExtensionMethods[B1,Option[B1]]withOptionExtensionMethods[B1]"></a>
+      <a id="OptionColumnExtensionMethods[B1]:OptionColumnExtensionMethods[B1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionColumnExtensionMethods.html"><span class="name">OptionColumnExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span> with <a href="ColumnExtensionMethods.html" class="extype" name="slick.lifted.ColumnExtensionMethods">ColumnExtensionMethods</a>[<span class="extype" name="slick.lifted.OptionColumnExtensionMethods.B1">B1</span>, <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="slick.lifted.OptionColumnExtensionMethods.B1">B1</span>]] with <a href="OptionExtensionMethods.html" class="extype" name="slick.lifted.OptionExtensionMethods">OptionExtensionMethods</a>[<span class="extype" name="slick.lifted.OptionColumnExtensionMethods.B1">B1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionColumnExtensionMethods[B1]extendsAnyValwithColumnExtensionMethods[B1,Option[B1]]withOptionExtensionMethods[B1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionExtensionMethods" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OptionExtensionMethods[B1]extendsAnywithExtensionMethods[B1,Option[B1]]"></a>
+      <a id="OptionExtensionMethods[B1]:OptionExtensionMethods[B1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionExtensionMethods.html"><span class="name">OptionExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>]</span><span class="result"> extends <a href="ExtensionMethods.html" class="extype" name="slick.lifted.ExtensionMethods">ExtensionMethods</a>[<span class="extype" name="slick.lifted.OptionExtensionMethods.B1">B1</span>, <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="slick.lifted.OptionExtensionMethods.B1">B1</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionExtensionMethods[B1]extendsAnywithExtensionMethods[B1,Option[B1]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionLift" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OptionLift[M,O]extendsAnyRef"></a>
+      <a id="OptionLift[M,O]:OptionLift[M,O]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionLift.html"><span class="name">OptionLift</span></a><span class="tparams">[<span name="M">M</span>, <span name="O">O</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionLift[M,O]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A typeclass that lifts a mixed type to the packed Option type.</p>
+    </li><li name="slick.lifted.OptionLiftLowPriority" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OptionLiftLowPriorityextendsAnyRef"></a>
+      <a id="OptionLiftLowPriority:OptionLiftLowPriority"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionLiftLowPriority.html"><span class="name">OptionLiftLowPriority</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionLiftLowPriorityextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionMapper" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OptionMapper[BR,R]extendsslick.lifted.Rep[BR]=&gt;slick.lifted.Rep[R]"></a>
+      <a id="OptionMapper[BR,R]:OptionMapper[BR,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionMapper.html"><span class="name">OptionMapper</span></a><span class="tparams">[<span name="BR">BR</span>, <span name="R">R</span>]</span><span class="result"> extends (<a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="slick.lifted.OptionMapper.BR">BR</span>]) ⇒ <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="slick.lifted.OptionMapper.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionMapper[BR,R]extendsslick.lifted.Rep[BR]=&gt;slick.lifted.Rep[R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionMapper2" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="OptionMapper2[B1,B2,BR,P1,P2,R]extendsOptionMapper[BR,R]"></a>
+      <a id="OptionMapper2[B1,B2,BR,P1,P2,R]:OptionMapper2[B1,B2,BR,P1,P2,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionMapper2.html"><span class="name">OptionMapper2</span></a><span class="tparams">[<span name="B1">B1</span>, <span name="B2">B2</span>, <span name="BR">BR</span>, <span name="P1">P1</span>, <span name="P2">P2</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="OptionMapper.html" class="extype" name="slick.lifted.OptionMapper">OptionMapper</a>[<span class="extype" name="slick.lifted.OptionMapper2.BR">BR</span>, <span class="extype" name="slick.lifted.OptionMapper2.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionMapper2[B1,B2,BR,P1,P2,R]extendsOptionMapper[BR,R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@implicitNotFound</span><span class="args">(<span>
+      
+      <span class="defval" name="&quot;Cannot perform option-mapped operation\n      with type: (${P1}, ${P2}) =&gt; ${R}\n  for base type: (${B1}, ${B2}) =&gt; ${BR}&quot;">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.lifted.OptionMapper3" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="OptionMapper3[B1,B2,B3,BR,P1,P2,P3,R]extendsOptionMapper[BR,R]"></a>
+      <a id="OptionMapper3[B1,B2,B3,BR,P1,P2,P3,R]:OptionMapper3[B1,B2,B3,BR,P1,P2,P3,R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionMapper3.html"><span class="name">OptionMapper3</span></a><span class="tparams">[<span name="B1">B1</span>, <span name="B2">B2</span>, <span name="B3">B3</span>, <span name="BR">BR</span>, <span name="P1">P1</span>, <span name="P2">P2</span>, <span name="P3">P3</span>, <span name="R">R</span>]</span><span class="result"> extends <a href="OptionMapper.html" class="extype" name="slick.lifted.OptionMapper">OptionMapper</a>[<span class="extype" name="slick.lifted.OptionMapper3.BR">BR</span>, <span class="extype" name="slick.lifted.OptionMapper3.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionMapper3[B1,B2,B3,BR,P1,P2,P3,R]extendsOptionMapper[BR,R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@implicitNotFound</span><span class="args">(<span>
+      
+      <span class="defval" name="&quot;Cannot perform option-mapped operation\n      with type: (${P1}, ${P2}, ${P3}) =&gt; ${R}\n  for base type: (${B1}, ${B2}, ${B3}) =&gt; ${BR}&quot;">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.lifted.OptionNumericColumnExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OptionNumericColumnExtensionMethods[B1]extendsAnyValwithNumericColumnExtensionMethods[B1,Option[B1]]withOptionExtensionMethods[B1]"></a>
+      <a id="OptionNumericColumnExtensionMethods[B1]:OptionNumericColumnExtensionMethods[B1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionNumericColumnExtensionMethods.html"><span class="name">OptionNumericColumnExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span> with <a href="NumericColumnExtensionMethods.html" class="extype" name="slick.lifted.NumericColumnExtensionMethods">NumericColumnExtensionMethods</a>[<span class="extype" name="slick.lifted.OptionNumericColumnExtensionMethods.B1">B1</span>, <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="slick.lifted.OptionNumericColumnExtensionMethods.B1">B1</span>]] with <a href="OptionExtensionMethods.html" class="extype" name="slick.lifted.OptionExtensionMethods">OptionExtensionMethods</a>[<span class="extype" name="slick.lifted.OptionNumericColumnExtensionMethods.B1">B1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionNumericColumnExtensionMethods[B1]extendsAnyValwithNumericColumnExtensionMethods[B1,Option[B1]]withOptionExtensionMethods[B1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionShapeImplicits" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="OptionShapeImplicitsextendsAnyRef"></a>
+      <a id="OptionShapeImplicits:OptionShapeImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionShapeImplicits.html"><span class="name">OptionShapeImplicits</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionShapeImplicitsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Ordered" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OrderedextendsAnyRef"></a>
+      <a id="Ordered:Ordered"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Ordered.html"><span class="name">Ordered</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OrderedextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Parameters" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Parameters[PU,PP]extendsAnyRef"></a>
+      <a id="Parameters[PU,PP]:Parameters[PU,PP]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Parameters.html"><span class="name">Parameters</span></a><span class="tparams">[<span name="PU">PU</span>, <span name="PP">PP</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Parameters[PU,PP]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.PrimaryKey" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PrimaryKeyextendsConstraintwithProductwithSerializable"></a>
+      <a id="PrimaryKey:PrimaryKey"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="PrimaryKey.html"><span class="name">PrimaryKey</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="columns">columns: <a href="../../scala/package.html#IndexedSeq[+A]=IndexedSeq[A]" class="extmbr" name="scala.IndexedSeq">IndexedSeq</a>[<a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a>]</span>)</span><span class="result"> extends <a href="Constraint.html" class="extype" name="slick.lifted.Constraint">Constraint</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@PrimaryKeyextendsConstraintwithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An explicit primary key.</p><div class="fullcomment"><div class="comment cmt"><p>An explicit primary key. Simple primary keys can also be represented by <code>O.PrimaryKey</code>
+column options instead.</p></div></div>
+    </li><li name="slick.lifted.ProductClassShape" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProductClassShape[E&lt;:Product,C&lt;:Product]extendsMappedScalaProductShape[slick.lifted.FlatShapeLevel,Product,C,E,C]"></a>
+      <a id="ProductClassShape[E&lt;:Product,C&lt;:Product]:ProductClassShape[E,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProductClassShape.html"><span class="name">ProductClassShape</span></a><span class="tparams">[<span name="E">E &lt;: <span class="extype" name="scala.Product">Product</span></span>, <span name="C">C &lt;: <span class="extype" name="scala.Product">Product</span></span>]</span><span class="result"> extends <a href="MappedScalaProductShape.html" class="extype" name="slick.lifted.MappedScalaProductShape">MappedScalaProductShape</a>[<a href="FlatShapeLevel.html" class="extype" name="slick.lifted.FlatShapeLevel">FlatShapeLevel</a>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="slick.lifted.ProductClassShape.C">C</span>, <span class="extype" name="slick.lifted.ProductClassShape.E">E</span>, <span class="extype" name="slick.lifted.ProductClassShape.C">C</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ProductClassShape[E&lt;:Product,C&lt;:Product]extendsMappedScalaProductShape[slick.lifted.FlatShapeLevel,Product,C,E,C]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A generic Product class shape that can be used to lift a class of
+plain Scala types to a class of lifted types.</p><div class="fullcomment"><div class="comment cmt"><p>A generic Product class shape that can be used to lift a class of
+plain Scala types to a class of lifted types. This allows the type
+to be used as a record type (like tuples and HLists) in the Lifted
+Embedding.</p><p>This can help with mapping tables &gt;22 columns to classes, especially
+when using code generation. This can be used for Scala 2.11 case classes &gt;22 fields.</p><p>Example:</p><pre><span class="kw">def</span> columnShape[T](<span class="kw">implicit</span> s: Shape[FlatShapeLevel, Column[T], T, Column[T]]) = s
+<span class="kw">class</span> C(<span class="kw">val</span> a: <span class="std">Int</span>, <span class="kw">val</span> b: <span class="std">Option</span>[<span class="std">String</span>]) <span class="kw">extends</span> Product{
+  <span class="kw">def</span> canEqual(that: <span class="std">Any</span>): <span class="std">Boolean</span> = that.isInstanceOf[C]
+  <span class="kw">def</span> productArity: <span class="std">Int</span> = <span class="num">2</span>
+  <span class="kw">def</span> productElement(n: <span class="std">Int</span>): <span class="std">Any</span> = <span class="std">Seq</span>(a, b)(n)
+}
+<span class="kw">class</span> LiftedC(<span class="kw">val</span> a: Column[<span class="std">Int</span>], <span class="kw">val</span> b: Column[<span class="std">Option</span>[<span class="std">String</span>]]) <span class="kw">extends</span> Product{
+  <span class="kw">def</span> canEqual(that: <span class="std">Any</span>): <span class="std">Boolean</span> = that.isInstanceOf[LiftedC]
+  <span class="kw">def</span> productArity: <span class="std">Int</span> = <span class="num">2</span>
+  <span class="kw">def</span> productElement(n: <span class="std">Int</span>): <span class="std">Any</span> = <span class="std">Seq</span>(a, b)(n)
+}
+<span class="kw">implicit</span> <span class="kw">object</span> cShape <span class="kw">extends</span> ProductClassShape(
+  <span class="std">Seq</span>(columnShape[<span class="std">Int</span>], columnShape[<span class="std">Option</span>[<span class="std">String</span>]]),
+  seq <span class="kw">=&gt;</span> <span class="kw">new</span> LiftedC(seq(<span class="num">0</span>).asInstanceOf[Column[<span class="std">Int</span>]], seq(<span class="num">1</span>).asInstanceOf[Column[<span class="std">Option</span>[<span class="std">String</span>]]]),
+  seq <span class="kw">=&gt;</span> <span class="kw">new</span> C(seq(<span class="num">0</span>).asInstanceOf[<span class="std">Int</span>], seq(<span class="num">1</span>).asInstanceOf[<span class="std">Option</span>[<span class="std">String</span>]])
+)</pre></div></div>
+    </li><li name="slick.lifted.ProductNodeShape" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ProductNodeShape[Level&lt;:slick.lifted.ShapeLevel,C,M&lt;:C,U&lt;:C,P&lt;:C]extendsShape[Level,M,U,P]"></a>
+      <a id="ProductNodeShape[Level&lt;:ShapeLevel,C,M&lt;:C,U&lt;:C,P&lt;:C]:ProductNodeShape[Level,C,M,U,P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProductNodeShape.html"><span class="name">ProductNodeShape</span></a><span class="tparams">[<span name="Level">Level &lt;: <a href="ShapeLevel.html" class="extype" name="slick.lifted.ShapeLevel">ShapeLevel</a></span>, <span name="C">C</span>, <span name="M">M &lt;: <span class="extype" name="slick.lifted.ProductNodeShape.C">C</span></span>, <span name="U">U &lt;: <span class="extype" name="slick.lifted.ProductNodeShape.C">C</span></span>, <span name="P">P &lt;: <span class="extype" name="slick.lifted.ProductNodeShape.C">C</span></span>]</span><span class="result"> extends <a href="Shape.html" class="extype" name="slick.lifted.Shape">Shape</a>[<span class="extype" name="slick.lifted.ProductNodeShape.Level">Level</span>, <span class="extype" name="slick.lifted.ProductNodeShape.M">M</span>, <span class="extype" name="slick.lifted.ProductNodeShape.U">U</span>, <span class="extype" name="slick.lifted.ProductNodeShape.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ProductNodeShape[Level&lt;:slick.lifted.ShapeLevel,C,M&lt;:C,U&lt;:C,P&lt;:C]extendsShape[Level,M,U,P]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Base class for Shapes of record values which are represented by
+ProductNodes in the AST.</p><div class="fullcomment"><div class="comment cmt"><p>Base class for Shapes of record values which are represented by
+ProductNodes in the AST.
+</p></div><dl class="paramcmts block"><dt class="tparam">C</dt><dd class="cmt"><p>The supertype for the record values.</p></dd><dt class="tparam">M</dt><dd class="cmt"><p>The mixed type of the Shape (a subtype of C).</p></dd><dt class="tparam">U</dt><dd class="cmt"><p>The unpacked type of the Shape (a subtype of C).</p></dd><dt class="tparam">P</dt><dd class="cmt"><p>The fully packed type of the Shape (a subtype of C).</p></dd></dl></div>
+    </li><li name="slick.lifted.ProvenShape" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ProvenShape[U]extendsAnyRef"></a>
+      <a id="ProvenShape[U]:ProvenShape[U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ProvenShape.html"><span class="name">ProvenShape</span></a><span class="tparams">[<span name="U">U</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ProvenShape[U]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A limited version of ShapedValue which can be constructed for every type
+that has a valid shape.</p><div class="fullcomment"><div class="comment cmt"><p>A limited version of ShapedValue which can be constructed for every type
+that has a valid shape. We use it to enforce that a table's * projection
+has a valid shape. A ProvenShape has itself a Shape so it can be used in
+place of the value that it wraps for purposes of packing and unpacking.</p></div></div>
+    </li><li name="slick.lifted.Query" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Query[+E,U,C[_]]extendsQueryBase[C[U]]"></a>
+      <a id="Query[+E,U,C[_]]:Query[E,U,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Query.html"><span class="name">Query</span></a><span class="tparams">[<span name="E">+E</span>, <span name="U">U</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result"> extends <a href="QueryBase.html" class="extype" name="slick.lifted.QueryBase">QueryBase</a>[<span class="extype" name="slick.lifted.Query.C">C</span>[<span class="extype" name="slick.lifted.Query.U">U</span>]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Query[+E,U,C[_]]extendsQueryBase[C[U]]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">An instance of Query represents a query or view, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>An instance of Query represents a query or view, i.e. a computation of a
+collection type (Rep[Seq[T]]). It is parameterized with both, the mixed
+type (the type of values you see e.g. when you call map()) and the unpacked
+type (the type of values that you get back when you run the query).</p><p>Additional extension methods for queries containing a single column are
+defined in <a href="SingleColumnQueryExtensionMethods.html" class="extype" name="slick.lifted.SingleColumnQueryExtensionMethods">slick.lifted.SingleColumnQueryExtensionMethods</a>.
+</p></div></div>
+    </li><li name="slick.lifted.QueryBase" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="QueryBase[T]extendsRep[T]"></a>
+      <a id="QueryBase[T]:QueryBase[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryBase.html"><span class="name">QueryBase</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="slick.lifted.QueryBase.T">T</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@QueryBase[T]extendsRep[T]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.RefTag" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="RefTagextendsTag"></a>
+      <a id="RefTag:RefTag"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="RefTag.html"><span class="name">RefTag</span></a><span class="result"> extends <a href="Tag.html" class="extype" name="slick.lifted.Tag">Tag</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@RefTagextendsTag" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Tag for table instances that represent a Node</p>
+    </li><li name="slick.lifted.Rep" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Rep[T]extendsAnyRef"></a>
+      <a id="Rep[T]:Rep[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Rep.html"><span class="name">Rep</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Rep[T]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Common base trait for all lifted values, including columns.</p><div class="fullcomment"><div class="comment cmt"><p>Common base trait for all lifted values, including columns.</p><p>All column operations are added with extension methods that depend on the type inside the <code>Rep</code>.
+These are defined in:</p><ul><li><a href="AnyExtensionMethods.html" class="extype" name="slick.lifted.AnyExtensionMethods">slick.lifted.AnyExtensionMethods</a> and <a href="ColumnExtensionMethods.html" class="extype" name="slick.lifted.ColumnExtensionMethods">slick.lifted.ColumnExtensionMethods</a> for columns of all types</li><li><a href="OptionColumnExtensionMethods.html" class="extype" name="slick.lifted.OptionColumnExtensionMethods">slick.lifted.OptionColumnExtensionMethods</a> for columns of all <code>Option</code> types</li><li><a href="BaseColumnExtensionMethods.html" class="extype" name="slick.lifted.BaseColumnExtensionMethods">slick.lifted.BaseColumnExtensionMethods</a> for columns of all non-<code>Option</code> types</li><li><a href="NumericColumnExtensionMethods.html" class="extype" name="slick.lifted.NumericColumnExtensionMethods">slick.lifted.NumericColumnExtensionMethods</a> for columns of numeric types (and Options thereof)</li><li><a href="BooleanColumnExtensionMethods.html" class="extype" name="slick.lifted.BooleanColumnExtensionMethods">slick.lifted.BooleanColumnExtensionMethods</a> for columns of <code>Boolean</code> / <code>Option[Boolean]</code></li><li><a href="StringColumnExtensionMethods.html" class="extype" name="slick.lifted.StringColumnExtensionMethods">slick.lifted.StringColumnExtensionMethods</a> for columns of <code>String</code> / <code>Option[String]</code></li><li><a href="ColumnOrdered.html" class="extype" name="slick.lifted.ColumnOrdered">slick.lifted.ColumnOrdered</a> for using columns in <code>sortBy</code> calls</li></ul><p>A <code>Rep[T : TypedType]</code> is always <code>Typed</code>, so that the <code>TypedType</code> can be retrieved directly
+from the <code>Rep</code> value.
+</p></div></div>
+    </li><li name="slick.lifted.RepOption" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="RepOption[T]extendsRep[Option[T]]withProductwithSerializable"></a>
+      <a id="RepOption[T]:RepOption[T]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="RepOption.html"><span class="name">RepOption</span></a><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="base">base: <a href="ShapedValue.html" class="extype" name="slick.lifted.ShapedValue">ShapedValue</a>[_, _]</span>, <span name="toNode">toNode: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>)</span><span class="result"> extends <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="scala.Option">Option</span>[<span class="extype" name="slick.lifted.RepOption.T">T</span>]] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@RepOption[T]extendsRep[Option[T]]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents <code>Rep[Option[T]]</code> in all cases where <code>T</code> is not a column base type.</p><div class="fullcomment"><div class="comment cmt"><p>Represents <code>Rep[Option[T]]</code> in all cases where <code>T</code> is not a column base type. This special
+representation is necessary so that a non-Option <code>Rep</code> value can be retrieved for encoding
+Option-based operations. This base value is of type <code>T</code> if <code>T &lt;: Rep[_]</code>, otherwise of
+type <code>Rep[T]</code>.</p></div></div>
+    </li><li name="slick.lifted.RepShapeImplicits" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="RepShapeImplicitsextendsOptionShapeImplicits"></a>
+      <a id="RepShapeImplicits:RepShapeImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="RepShapeImplicits.html"><span class="name">RepShapeImplicits</span></a><span class="result"> extends <a href="OptionShapeImplicits.html" class="extype" name="slick.lifted.OptionShapeImplicits">OptionShapeImplicits</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@RepShapeImplicitsextendsOptionShapeImplicits" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.RunnableCompiled" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="RunnableCompiled[R,RU]extendsCompiled[R]"></a>
+      <a id="RunnableCompiled[R,RU]:RunnableCompiled[R,RU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="RunnableCompiled.html"><span class="name">RunnableCompiled</span></a><span class="tparams">[<span name="R">R</span>, <span name="RU">RU</span>]</span><span class="result"> extends <a href="Compiled.html" class="extype" name="slick.lifted.Compiled">Compiled</a>[<span class="extype" name="slick.lifted.RunnableCompiled.R">R</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@RunnableCompiled[R,RU]extendsCompiled[R]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A compiled value that can be executed to obtain its result.</p>
+    </li><li name="slick.lifted.Shape" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Shape[Level&lt;:slick.lifted.ShapeLevel,-Mixed_,Unpacked_,Packed_]extendsAnyRef"></a>
+      <a id="Shape[Level&lt;:ShapeLevel,-Mixed_,Unpacked_,Packed_]:Shape[Level,Mixed_,Unpacked_,Packed_]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Shape.html"><span class="name">Shape</span></a><span class="tparams">[<span name="Level">Level &lt;: <a href="ShapeLevel.html" class="extype" name="slick.lifted.ShapeLevel">ShapeLevel</a></span>, <span name="Mixed_">-Mixed_</span>, <span name="Unpacked_">Unpacked_</span>, <span name="Packed_">Packed_</span>]</span><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Shape[Level&lt;:slick.lifted.ShapeLevel,-Mixed_,Unpacked_,Packed_]extendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A type class that encodes the unpacking <code>Mixed =&gt; Unpacked</code> of a
+<code>Query[Mixed]</code> to its result element type <code>Unpacked</code> and the packing to a
+fully packed type <code>Packed</code>, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>A type class that encodes the unpacking <code>Mixed =&gt; Unpacked</code> of a
+<code>Query[Mixed]</code> to its result element type <code>Unpacked</code> and the packing to a
+fully packed type <code>Packed</code>, i.e. a type where everything which is not a
+transparent container is wrapped in a <code>Column[_]</code>.</p><h3>Example:</h3><p>- Mixed: (Column[Int], Column[(Int, String)], (Int, Option[Double]))
+- Unpacked: (Int, (Int, String), (Int, Option[Double]))
+- Packed: (Column[Int], Column[(Int, String)], (Column[Int], Column[Option[Double]]))
+- Linearized: (Int, Int, String, Int, Option[Double])
+</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@implicitNotFound</span><span class="args">(<span>
+      
+      <span class="defval" name="&quot;No matching Shape found.\nSlick does not know how to map the given types.\nPossible causes: T in Table[T] does not match your * projection,\n you use an unsupported type in a Query (e.g. scala List),\n or you forgot to import a driver api into scope.\n  Required level: ${Level}\n     Source type: ${Mixed_}\n   Unpacked type: ${Unpacked_}\n     Packed type: ${Packed_}\n&quot;">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.lifted.ShapeLevel" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ShapeLevelextendsAnyRef"></a>
+      <a id="ShapeLevel:ShapeLevel"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="ShapeLevel.html"><span class="name">ShapeLevel</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ShapeLevelextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The level of a Shape, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>The level of a Shape, i.e. what kind of types it allows.
+Subtypes of this trait are used as a phantom type for Shape resolution.
+There are no instances of any ShapeLevel.</p></div></div>
+    </li><li name="slick.lifted.ShapedValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ShapedValue[T,U]extendsRep[U]withProductwithSerializable"></a>
+      <a id="ShapedValue[T,U]:ShapedValue[T,U]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ShapedValue.html"><span class="name">ShapedValue</span></a><span class="tparams">[<span name="T">T</span>, <span name="U">U</span>]</span><span class="params">(<span name="value">value: <span class="extype" name="slick.lifted.ShapedValue.T">T</span></span>, <span name="shape">shape: <a href="Shape.html" class="extype" name="slick.lifted.Shape">Shape</a>[_ &lt;: <a href="FlatShapeLevel.html" class="extype" name="slick.lifted.FlatShapeLevel">FlatShapeLevel</a>, <span class="extype" name="slick.lifted.ShapedValue.T">T</span>, <span class="extype" name="slick.lifted.ShapedValue.U">U</span>, _]</span>)</span><span class="result"> extends <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="slick.lifted.ShapedValue.U">U</span>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ShapedValue[T,U]extendsRep[U]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A value together with its Shape</p>
+    </li><li name="slick.lifted.SimpleBinaryOperator" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleBinaryOperatorextendsBinaryNode"></a>
+      <a id="SimpleBinaryOperator:SimpleBinaryOperator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleBinaryOperator.html"><span class="name">SimpleBinaryOperator</span></a><span class="result"> extends <a href="../ast/BinaryNode.html" class="extype" name="slick.ast.BinaryNode">BinaryNode</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleBinaryOperatorextendsBinaryNode" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A SimpleBinaryOperator gets translated to a binary operator call in SQL.</p>
+    </li><li name="slick.lifted.SimpleExpression" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleExpressionextendsNode"></a>
+      <a id="SimpleExpression:SimpleExpression"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleExpression.html"><span class="name">SimpleExpression</span></a><span class="result"> extends <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleExpressionextendsNode" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A SimpleExpression allows arbitrary SQL code to be generated.</p>
+    </li><li name="slick.lifted.SimpleFunction" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="SimpleFunctionextendsNode"></a>
+      <a id="SimpleFunction:SimpleFunction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleFunction.html"><span class="name">SimpleFunction</span></a><span class="result"> extends <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleFunctionextendsNode" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A SimpleFunction gets translated to a plain function call or JDBC/ODBC
+scalar function {fn ...} call in SQL.</p>
+    </li><li name="slick.lifted.SimpleLiteral" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SimpleLiteralextendsNullaryNodewithSimplyTypedNodewithProductwithSerializable"></a>
+      <a id="SimpleLiteral:SimpleLiteral"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleLiteral.html"><span class="name">SimpleLiteral</span></a><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span name="buildType">buildType: <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result"> extends <a href="../ast/NullaryNode.html" class="extype" name="slick.ast.NullaryNode">NullaryNode</a> with <a href="../ast/SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleLiteralextendsNullaryNodewithSimplyTypedNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A SimpleLiteral is inserted verbatim into a SQL query string.</p><div class="fullcomment"><div class="comment cmt"><p>A SimpleLiteral is inserted verbatim into a SQL query string. For the
+purpose of handling it in the query compiler it is assumed to be an
+expression of the specified type.</p></div></div>
+    </li><li name="slick.lifted.SingleColumnQueryExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SingleColumnQueryExtensionMethods[B1,P1,C[_]]extendsAnyVal"></a>
+      <a id="SingleColumnQueryExtensionMethods[B1,P1,C[_]]:SingleColumnQueryExtensionMethods[B1,P1,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SingleColumnQueryExtensionMethods.html"><span class="name">SingleColumnQueryExtensionMethods</span></a><span class="tparams">[<span name="B1">B1</span>, <span name="P1">P1</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SingleColumnQueryExtensionMethods[B1,P1,C[_]]extendsAnyVal" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for Queries of a single column</p>
+    </li><li name="slick.lifted.StreamableCompiled" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="StreamableCompiled[R,RU,EU]extendsRunnableCompiled[R,RU]"></a>
+      <a id="StreamableCompiled[R,RU,EU]:StreamableCompiled[R,RU,EU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamableCompiled.html"><span class="name">StreamableCompiled</span></a><span class="tparams">[<span name="R">R</span>, <span name="RU">RU</span>, <span name="EU">EU</span>]</span><span class="result"> extends <a href="RunnableCompiled.html" class="extype" name="slick.lifted.RunnableCompiled">RunnableCompiled</a>[<span class="extype" name="slick.lifted.StreamableCompiled.R">R</span>, <span class="extype" name="slick.lifted.StreamableCompiled.RU">RU</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@StreamableCompiled[R,RU,EU]extendsRunnableCompiled[R,RU]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A compiled value that can be executed to obtain its result as a stream of data.</p>
+    </li><li name="slick.lifted.StreamingExecutable" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="StreamingExecutable[T,TU,EU]extendsExecutable[T,TU]"></a>
+      <a id="StreamingExecutable[T,TU,EU]:StreamingExecutable[T,TU,EU]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamingExecutable.html"><span class="name">StreamingExecutable</span></a><span class="tparams">[<span name="T">T</span>, <span name="TU">TU</span>, <span name="EU">EU</span>]</span><span class="result"> extends <a href="Executable.html" class="extype" name="slick.lifted.Executable">Executable</a>[<span class="extype" name="slick.lifted.StreamingExecutable.T">T</span>, <span class="extype" name="slick.lifted.StreamingExecutable.TU">TU</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@StreamingExecutable[T,TU,EU]extendsExecutable[T,TU]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Typeclass for types that can be executed as streaming queries, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>Typeclass for types that can be executed as streaming queries, i.e. only
+collection-valued (<code>Query[_, _, _[_] ]</code>) types. This is used
+as a phantom type for computing the required types. The actual value is
+always <code>null</code>.</p></div><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@implicitNotFound</span><span class="args">(<span>
+      
+      <span class="defval" name="&quot;Computation of type ${T} cannot be executed (with sequence result type ${TU} and base result type ${EU})&quot;">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.lifted.StringColumnExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StringColumnExtensionMethods[P1]extendsAnyValwithExtensionMethods[String,P1]"></a>
+      <a id="StringColumnExtensionMethods[P1]:StringColumnExtensionMethods[P1]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="StringColumnExtensionMethods.html"><span class="name">StringColumnExtensionMethods</span></a><span class="tparams">[<span name="P1">P1</span>]</span><span class="result"> extends <span class="extype" name="scala.AnyVal">AnyVal</span> with <a href="ExtensionMethods.html" class="extype" name="slick.lifted.ExtensionMethods">ExtensionMethods</a>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="slick.lifted.StringColumnExtensionMethods.P1">P1</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@StringColumnExtensionMethods[P1]extendsAnyValwithExtensionMethods[String,P1]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Extension methods for Rep[String] and Rep[Option[String]]</p>
+    </li><li name="slick.lifted.TableQuery" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="TableQuery[E&lt;:slick.lifted.AbstractTable[_]]extendsQuery[E,E#TableElementType,Seq]"></a>
+      <a id="TableQuery[E&lt;:AbstractTable[_]]:TableQuery[E]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TableQuery.html"><span class="name">TableQuery</span></a><span class="tparams">[<span name="E">E &lt;: <a href="AbstractTable.html" class="extype" name="slick.lifted.AbstractTable">AbstractTable</a>[_]</span>]</span><span class="result"> extends <a href="Query.html" class="extype" name="slick.lifted.Query">Query</a>[<span class="extype" name="slick.lifted.TableQuery.E">E</span>, <span class="extype" name="slick.lifted.AbstractTable.TableElementType">lifted.TableQuery.E.TableElementType</span>, <a href="../../scala/package.html#Seq[+A]=Seq[A]" class="extmbr" name="scala.Seq">Seq</a>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@TableQuery[E&lt;:slick.lifted.AbstractTable[_]]extendsQuery[E,E#TableElementType,Seq]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a database table.</p><div class="fullcomment"><div class="comment cmt"><p>Represents a database table. Profiles add extension methods to TableQuery
+for operations that can be performed on tables but not on arbitrary
+queries, e.g. getting the table DDL.</p></div></div>
+    </li><li name="slick.lifted.Tag" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TagextendsAnyRef"></a>
+      <a id="Tag:Tag"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">sealed </span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="Tag.html"><span class="name">Tag</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@TagextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A Tag marks a specific row represented by an AbstractTable instance.</p>
+    </li><li name="slick.lifted.TupleShape" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TupleShape[Level&lt;:slick.lifted.ShapeLevel,M&lt;:Product,U&lt;:Product,P&lt;:Product]extendsProductNodeShape[Level,Product,M,U,P]"></a>
+      <a id="TupleShape[Level&lt;:ShapeLevel,M&lt;:Product,U&lt;:Product,P&lt;:Product]:TupleShape[Level,M,U,P]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TupleShape.html"><span class="name">TupleShape</span></a><span class="tparams">[<span name="Level">Level &lt;: <a href="ShapeLevel.html" class="extype" name="slick.lifted.ShapeLevel">ShapeLevel</a></span>, <span name="M">M &lt;: <span class="extype" name="scala.Product">Product</span></span>, <span name="U">U &lt;: <span class="extype" name="scala.Product">Product</span></span>, <span name="P">P &lt;: <span class="extype" name="scala.Product">Product</span></span>]</span><span class="result"> extends <a href="ProductNodeShape.html" class="extype" name="slick.lifted.ProductNodeShape">ProductNodeShape</a>[<span class="extype" name="slick.lifted.TupleShape.Level">Level</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="slick.lifted.TupleShape.M">M</span>, <span class="extype" name="slick.lifted.TupleShape.U">U</span>, <span class="extype" name="slick.lifted.TupleShape.P">P</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@TupleShape[Level&lt;:slick.lifted.ShapeLevel,M&lt;:Product,U&lt;:Product,P&lt;:Product]extendsProductNodeShape[Level,Product,M,U,P]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Shape for Scala tuples of all arities</p>
+    </li><li name="slick.lifted.TupleShapeImplicits" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TupleShapeImplicitsextendsAnyRef"></a>
+      <a id="TupleShapeImplicits:TupleShapeImplicits"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="TupleShapeImplicits.html"><span class="name">TupleShapeImplicits</span></a><span class="result"> extends <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@TupleShapeImplicitsextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.WrappingQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="WrappingQuery[+E,U,C[_]]extendsQuery[E,U,C]"></a>
+      <a id="WrappingQuery[+E,U,C[_]]:WrappingQuery[E,U,C]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="WrappingQuery.html"><span class="name">WrappingQuery</span></a><span class="tparams">[<span name="E">+E</span>, <span name="U">U</span>, <span name="C">C<span class="tparams">[<span name="_">_</span>]</span></span>]</span><span class="result"> extends <a href="Query.html" class="extype" name="slick.lifted.Query">Query</a>[<span class="extype" name="slick.lifted.WrappingQuery.E">E</span>, <span class="extype" name="slick.lifted.WrappingQuery.U">U</span>, <span class="extype" name="slick.lifted.WrappingQuery.C">C</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@WrappingQuery[+E,U,C[_]]extendsQuery[E,U,C]" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="slick.lifted.CanBeQueryCondition" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CanBeQueryCondition"></a>
+      <a id="CanBeQueryCondition:CanBeQueryCondition"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CanBeQueryCondition$.html"><span class="name">CanBeQueryCondition</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@CanBeQueryCondition" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Case" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Case"></a>
+      <a id="Case:Case"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Case$.html"><span class="name">Case</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Case" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt"><code>Case</code> provides a DSL for conditional statements in the query language.</p><div class="fullcomment"><div class="comment cmt"><p><code>Case</code> provides a DSL for conditional statements in the query language.
+An arbitrary number of <code>If</code>...<code>Then</code> expressions can be chained, optionally
+followed by <code>Else</code>, e.g.:</p><pre>Case If u.id &lt; <span class="num">3</span> Then <span class="lit">"low"</span> If u.id &lt; <span class="num">6</span> Then <span class="lit">"medium"</span> Else <span class="lit">"high"</span></pre><p>All result expressions have to be of compatible type (modulo nullability).
+If at least one of them is an <code>Option</code> type or the <code>Else</code> branch is
+missing, the result is also an <code>Option</code>.</p></div></div>
+    </li><li name="slick.lifted.Compilable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Compilable"></a>
+      <a id="Compilable:Compilable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Compilable$.html"><span class="name">Compilable</span></a><span class="result"> extends <a href="CompilableFunctions.html" class="extype" name="slick.lifted.CompilableFunctions">CompilableFunctions</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Compilable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Compiled" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Compiled"></a>
+      <a id="Compiled:Compiled"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Compiled$.html"><span class="name">Compiled</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Compiled" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Executable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Executable"></a>
+      <a id="Executable:Executable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Executable$.html"><span class="name">Executable</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Executable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.ForeignKey" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ForeignKey"></a>
+      <a id="ForeignKey:ForeignKey"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ForeignKey$.html"><span class="name">ForeignKey</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ForeignKey" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.FunctionSymbolExtensionMethods" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="FunctionSymbolExtensionMethods"></a>
+      <a id="FunctionSymbolExtensionMethods:FunctionSymbolExtensionMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="FunctionSymbolExtensionMethods$.html"><span class="name">FunctionSymbolExtensionMethods</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@FunctionSymbolExtensionMethods" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Functions" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Functions"></a>
+      <a id="Functions:Functions"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Functions$.html"><span class="name">Functions</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Functions" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Contains stand-alone database functions for use in queries.</p><div class="fullcomment"><div class="comment cmt"><p>Contains stand-alone database functions for use in queries. Functions which
+operate on columns are generally added as extension methods to the appropriate
+column types instead.</p></div></div>
+    </li><li name="slick.lifted.MappedToBase" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MappedToBase"></a>
+      <a id="MappedToBase:MappedToBase"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MappedToBase$.html"><span class="name">MappedToBase</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@MappedToBase" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionLift" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OptionLift"></a>
+      <a id="OptionLift:OptionLift"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionLift$.html"><span class="name">OptionLift</span></a><span class="result"> extends <a href="OptionLiftLowPriority.html" class="extype" name="slick.lifted.OptionLiftLowPriority">OptionLiftLowPriority</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionLift" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionMapper2" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OptionMapper2"></a>
+      <a id="OptionMapper2:OptionMapper2"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionMapper2$.html"><span class="name">OptionMapper2</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionMapper2" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionMapper3" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OptionMapper3"></a>
+      <a id="OptionMapper3:OptionMapper3"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionMapper3$.html"><span class="name">OptionMapper3</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionMapper3" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.OptionMapperDSL" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="OptionMapperDSL"></a>
+      <a id="OptionMapperDSL:OptionMapperDSL"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="OptionMapperDSL$.html"><span class="name">OptionMapperDSL</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@OptionMapperDSL" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Ordered" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Ordered"></a>
+      <a id="Ordered:Ordered"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Ordered$.html"><span class="name">Ordered</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Ordered" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Parameters" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Parameters"></a>
+      <a id="Parameters:Parameters"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Parameters$.html"><span class="name">Parameters</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Parameters" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.ProvenShape" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ProvenShape"></a>
+      <a id="ProvenShape:ProvenShape"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ProvenShape$.html"><span class="name">ProvenShape</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ProvenShape" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.Query" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Query"></a>
+      <a id="Query:Query"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Query$.html"><span class="name">Query</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Query" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The companion object for Query contains factory methods for creating queries.</p>
+    </li><li name="slick.lifted.Rep" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Rep"></a>
+      <a id="Rep:Rep"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Rep$.html"><span class="name">Rep</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Rep" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.RepShape" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="RepShape"></a>
+      <a id="RepShape:RepShape"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="RepShape$.html"><span class="name">RepShape</span></a><span class="result"> extends <a href="Shape.html" class="extype" name="slick.lifted.Shape">Shape</a>[<a href="FlatShapeLevel.html" class="extype" name="slick.lifted.FlatShapeLevel">FlatShapeLevel</a>, <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[_], <span class="extype" name="scala.Any">Any</span>, <a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[_]]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@RepShape" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Shape for Rep values (always fully packed)</p>
+    </li><li name="slick.lifted.Shape" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Shape"></a>
+      <a id="Shape:Shape"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Shape$.html"><span class="name">Shape</span></a><span class="result"> extends <a href="ConstColumnShapeImplicits.html" class="extype" name="slick.lifted.ConstColumnShapeImplicits">ConstColumnShapeImplicits</a> with <a href="AbstractTableShapeImplicits.html" class="extype" name="slick.lifted.AbstractTableShapeImplicits">AbstractTableShapeImplicits</a> with <a href="TupleShapeImplicits.html" class="extype" name="slick.lifted.TupleShapeImplicits">TupleShapeImplicits</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@Shape" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.ShapedValue" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ShapedValue"></a>
+      <a id="ShapedValue:ShapedValue"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ShapedValue$.html"><span class="name">ShapedValue</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@ShapedValue" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.SimpleBinaryOperator" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleBinaryOperator"></a>
+      <a id="SimpleBinaryOperator:SimpleBinaryOperator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleBinaryOperator$.html"><span class="name">SimpleBinaryOperator</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleBinaryOperator" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.SimpleExpression" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleExpression"></a>
+      <a id="SimpleExpression:SimpleExpression"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleExpression$.html"><span class="name">SimpleExpression</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleExpression" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.SimpleFunction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleFunction"></a>
+      <a id="SimpleFunction:SimpleFunction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleFunction$.html"><span class="name">SimpleFunction</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleFunction" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.SimpleLiteral" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleLiteral"></a>
+      <a id="SimpleLiteral:SimpleLiteral"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleLiteral$.html"><span class="name">SimpleLiteral</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@SimpleLiteral" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.StreamingExecutable" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StreamingExecutable"></a>
+      <a id="StreamingExecutable:StreamingExecutable"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="StreamingExecutable$.html"><span class="name">StreamingExecutable</span></a><span class="result"> extends <a href="StreamingExecutable.html" class="extype" name="slick.lifted.StreamingExecutable">StreamingExecutable</a>[<a href="Rep.html" class="extype" name="slick.lifted.Rep">Rep</a>[<span class="extype" name="scala.Any">Any</span>], <span class="extype" name="scala.Any">Any</span>, <span class="extype" name="scala.Any">Any</span>]</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@StreamingExecutable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A prototype <code>StreamingExecutable</code> instance for <code>Rep</code> types.</p>
+    </li><li name="slick.lifted.TableQuery" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableQuery"></a>
+      <a id="TableQuery:TableQuery"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TableQuery$.html"><span class="name">TableQuery</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@TableQuery" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.lifted.TableQueryMacroImpl" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TableQueryMacroImpl"></a>
+      <a id="TableQueryMacroImpl:TableQueryMacroImpl"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TableQueryMacroImpl$.html"><span class="name">TableQueryMacroImpl</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.lifted.package@TableQueryMacroImpl" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>

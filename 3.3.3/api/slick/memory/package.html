@@ -1,0 +1,463 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>memory - Slick 3.3.3 - slick.memory</title>
+          <meta name="description" content="memory - Slick 3.3.3 - slick.memory" />
+          <meta name="keywords" content="memory Slick 3.3.3 slick.memory" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/tools.tooltip.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../index.html';
+            var hash = 'slick.memory.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../lib/package_big.png" />
+        <p id="owner"><a href="../package.html" class="extype" name="slick">slick</a></p>
+        <h1>memory</h1><span class="permalink">
+      <a href="../../index.html#slick.memory.package" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">memory</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Contains the abstract <code>MemoryQueryingProfile</code> and related code, as well as the concrete
+<code>MemoryProfile</code> and <code>DistributedProfile</code> implementations for in-memory interpretation of
+queries and scheduling of distributed queries (i.e. combining several profiles and backends).</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.3.3/slick/src/main/scala/slick/memory/package.scala" target="_blank">package.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By Inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="slick.memory"><span>memory</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show All</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.memory.DistributedBackend" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="DistributedBackendextendsRelationalBackendwithLogging"></a>
+      <a id="DistributedBackend:DistributedBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedBackend.html"><span class="name">DistributedBackend</span></a><span class="result"> extends <a href="../relational/RelationalBackend.html" class="extype" name="slick.relational.RelationalBackend">RelationalBackend</a> with <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@DistributedBackendextendsRelationalBackendwithLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The backend for DistributedProfile.</p>
+    </li><li name="slick.memory.DistributedProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DistributedProfileextendsMemoryQueryingProfile"></a>
+      <a id="DistributedProfile:DistributedProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedProfile.html"><span class="name">DistributedProfile</span></a><span class="result"> extends <a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@DistributedProfileextendsMemoryQueryingProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A profile for distributed queries.</p>
+    </li><li name="slick.memory.HeapBackend" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="HeapBackendextendsRelationalBackendwithLogging"></a>
+      <a id="HeapBackend:HeapBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="HeapBackend.html"><span class="name">HeapBackend</span></a><span class="result"> extends <a href="../relational/RelationalBackend.html" class="extype" name="slick.relational.RelationalBackend">RelationalBackend</a> with <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@HeapBackendextendsRelationalBackendwithLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A simple database engine that stores data in heap data structures.</p>
+    </li><li name="slick.memory.MemoryProfile" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MemoryProfileextendsRelationalProfilewithMemoryQueryingProfile"></a>
+      <a id="MemoryProfile:MemoryProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryProfile.html"><span class="name">MemoryProfile</span></a><span class="result"> extends <a href="../relational/RelationalProfile.html" class="extype" name="slick.relational.RelationalProfile">RelationalProfile</a> with <a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryProfileextendsRelationalProfilewithMemoryQueryingProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A profile for interpreted queries on top of the in-memory database.</p>
+    </li><li name="slick.memory.MemoryQueryingProfile" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MemoryQueryingProfileextendsBasicProfile"></a>
+      <a id="MemoryQueryingProfile:MemoryQueryingProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryQueryingProfile.html"><span class="name">MemoryQueryingProfile</span></a><span class="result"> extends <a href="../basic/BasicProfile.html" class="extype" name="slick.basic.BasicProfile">BasicProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryQueryingProfileextendsBasicProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The querying (read-only) part that can be shared between MemoryProfile and DistributedProfile.</p>
+    </li><li name="slick.memory.MemoryResultConverterDomain" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="MemoryResultConverterDomainextendsResultConverterDomain"></a>
+      <a id="MemoryResultConverterDomain:MemoryResultConverterDomain"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryResultConverterDomain.html"><span class="name">MemoryResultConverterDomain</span></a><span class="result"> extends <a href="../relational/ResultConverterDomain.html" class="extype" name="slick.relational.ResultConverterDomain">ResultConverterDomain</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryResultConverterDomainextendsResultConverterDomain" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.ProfileComputation" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ProfileComputationextendsNullaryNodewithSimplyTypedNodewithProductwithSerializable"></a>
+      <a id="ProfileComputation:ProfileComputation"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ProfileComputation.html"><span class="name">ProfileComputation</span></a><span class="params">(<span name="compiled">compiled: <a href="../ast/Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="profile">profile: <a href="../relational/RelationalProfile.html" class="extype" name="slick.relational.RelationalProfile">RelationalProfile</a></span>, <span name="buildType">buildType: <a href="../ast/Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result"> extends <a href="../ast/NullaryNode.html" class="extype" name="slick.ast.NullaryNode">NullaryNode</a> with <a href="../ast/SimplyTypedNode.html" class="extype" name="slick.ast.SimplyTypedNode">SimplyTypedNode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@ProfileComputationextendsNullaryNodewithSimplyTypedNodewithProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Represents a computation that needs to be performed by another profile.</p><div class="fullcomment"><div class="comment cmt"><p>Represents a computation that needs to be performed by another profile.
+Despite having a child it is a NullaryNode because the sub-computation
+should be opaque to the query compiler.</p></div></div>
+    </li><li name="slick.memory.QueryInterpreter" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="QueryInterpreterextendsLogging"></a>
+      <a id="QueryInterpreter:QueryInterpreter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryInterpreter.html"><span class="name">QueryInterpreter</span></a><span class="result"> extends <a href="../util/Logging.html" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@QueryInterpreterextendsLogging" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A query interpreter for MemoryProfile and for client-side operations
+that need to be run as part of distributed queries against multiple
+backends.</p><div class="fullcomment"><div class="comment cmt"><p>A query interpreter for MemoryProfile and for client-side operations
+that need to be run as part of distributed queries against multiple
+backends.</p><p>It uses ScalaType, ProductValue/StructValue and plain Scala collections to
+represent data. Queries are expected to be in the shape after running all
+the standard query compiler phases (but not the extra relational phases)
+and assigning ScalaTypes everywhere.
+</p></div></div>
+    </li><li name="slick.memory.SimpleMemoryAction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SimpleMemoryAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,slick.memory.HeapBackend,slick.dbio.Effect.All]withProductwithSerializable"></a>
+      <a id="SimpleMemoryAction[+R]:SimpleMemoryAction[R]"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="SimpleMemoryAction.html"><span class="name">SimpleMemoryAction</span></a><span class="tparams">[<span name="R">+R</span>]</span><span class="params">(<span name="f">f: (<a href="HeapBackend.html#BasicActionContextextendsActionContext" class="extmbr" name="slick.basic.BasicBackend.BasicActionContext">HeapBackend.BasicActionContext</a>) ⇒ <span class="extype" name="slick.memory.SimpleMemoryAction.R">R</span></span>)</span><span class="result"> extends <a href="../dbio/SynchronousDatabaseAction.html" class="extype" name="slick.dbio.SynchronousDatabaseAction">SynchronousDatabaseAction</a>[<span class="extype" name="slick.memory.SimpleMemoryAction.R">R</span>, <a href="../dbio/NoStream.html" class="extype" name="slick.dbio.NoStream">NoStream</a>, <a href="HeapBackend.html" class="extype" name="slick.memory.HeapBackend">HeapBackend</a>, <a href="../dbio/Effect$$All.html" class="extype" name="slick.dbio.Effect.All">All</a>] with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@SimpleMemoryAction[+R]extendsSynchronousDatabaseAction[R,slick.dbio.NoStream,slick.memory.HeapBackend,slick.dbio.Effect.All]withProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A non-streaming Action that wraps a synchronous MemoryProfile API call.</p>
+    </li><li name="slick.memory.DistributedDriver" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="DistributedDriver=slick.memory.DistributedProfile"></a>
+      <a id="DistributedDriver:DistributedDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use slick.memory.DistributedProfile instead of slick.memory.DistributedDriver">DistributedDriver</span><span class="result"> = <a href="DistributedProfile.html" class="extype" name="slick.memory.DistributedProfile">DistributedProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@DistributedDriver=slick.memory.DistributedProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>slick.memory.DistributedProfile</code> instead of <code>slick.memory.DistributedDriver</code></p></dd></dl></div>
+    </li><li name="slick.memory.MemoryDriver" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MemoryDriver=slick.memory.MemoryProfile"></a>
+      <a id="MemoryDriver:MemoryDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use slick.memory.MemoryProfile instead of slick.memory.MemoryDriver">MemoryDriver</span><span class="result"> = <a href="MemoryProfile.html" class="extype" name="slick.memory.MemoryProfile">MemoryProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryDriver=slick.memory.MemoryProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>slick.memory.MemoryProfile</code> instead of <code>slick.memory.MemoryDriver</code></p></dd></dl></div>
+    </li><li name="slick.memory.MemoryQueryingDriver" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MemoryQueryingDriver=slick.memory.MemoryQueryingProfile"></a>
+      <a id="MemoryQueryingDriver:MemoryQueryingDriver"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use slick.memory.MemoryQueryingProfile instead of slick.memory.MemoryQueryingDriver">MemoryQueryingDriver</span><span class="result"> = <a href="MemoryQueryingProfile.html" class="extype" name="slick.memory.MemoryQueryingProfile">MemoryQueryingProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryQueryingDriver=slick.memory.MemoryQueryingProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>slick.memory.MemoryQueryingProfile</code> instead of <code>slick.memory.MemoryQueryingDriver</code></p></dd></dl></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="slick.memory.DistributedBackend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DistributedBackend"></a>
+      <a id="DistributedBackend:DistributedBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DistributedBackend$.html"><span class="name">DistributedBackend</span></a><span class="result"> extends <a href="DistributedBackend.html" class="extype" name="slick.memory.DistributedBackend">DistributedBackend</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@DistributedBackend" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.HeapBackend" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="HeapBackend"></a>
+      <a id="HeapBackend:HeapBackend"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="HeapBackend$.html"><span class="name">HeapBackend</span></a><span class="result"> extends <a href="HeapBackend.html" class="extype" name="slick.memory.HeapBackend">HeapBackend</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@HeapBackend" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.MemoryCapabilities" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MemoryCapabilities"></a>
+      <a id="MemoryCapabilities:MemoryCapabilities"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryCapabilities$.html"><span class="name">MemoryCapabilities</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryCapabilities" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Capabilities for <a href="MemoryProfile.html" class="extype" name="slick.memory.MemoryProfile">MemoryProfile</a>.</p>
+    </li><li name="slick.memory.MemoryProfile" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="MemoryProfile"></a>
+      <a id="MemoryProfile:MemoryProfile"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="MemoryProfile$.html"><span class="name">MemoryProfile</span></a><span class="result"> extends <a href="MemoryProfile.html" class="extype" name="slick.memory.MemoryProfile">MemoryProfile</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryProfile" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="slick.memory.QueryInterpreter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="QueryInterpreter"></a>
+      <a id="QueryInterpreter:QueryInterpreter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryInterpreter$.html"><span class="name">QueryInterpreter</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@QueryInterpreter" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="slick.memory#MemoryDriver" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="MemoryDriver:slick.memory.MemoryProfile.type"></a>
+      <a id="MemoryDriver:MemoryProfile.type"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2) Use slick.memory.MemoryProfile instead of slick.memory.MemoryDriver">MemoryDriver</span><span class="result">: <a href="MemoryProfile$.html" class="extype" name="slick.memory.MemoryProfile">MemoryProfile</a>.type</span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../index.html#slick.memory.package@MemoryDriver:slick.memory.MemoryProfile.type" title="Permalink" target="_top">
+        <img src="../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2)</i> Use <code>slick.memory.MemoryProfile</code> instead of <code>slick.memory.MemoryDriver</code></p></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/package.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+
+
+    </body>
+      </html>
