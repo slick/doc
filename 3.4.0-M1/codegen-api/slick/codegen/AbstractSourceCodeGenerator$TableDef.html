@@ -1,0 +1,1570 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>Slick-CodeGen 3.4.0-SNAPSHOT - slick.codegen.AbstractSourceCodeGenerator.TableDef</title>
+          <meta name="description" content="Slick - CodeGen 3.4.0 - SNAPSHOT - slick.codegen.AbstractSourceCodeGenerator.TableDef" />
+          <meta name="keywords" content="Slick CodeGen 3.4.0 SNAPSHOT slick.codegen.AbstractSourceCodeGenerator.TableDef" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      
+      <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../lib/index.js"></script>
+      <script type="text/javascript" src="../../index.js"></script>
+      <script type="text/javascript" src="../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">Slick-CodeGen<span id="doc-version">3.4.0-SNAPSHOT</span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="../../index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.slick" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="slick"></a><a id="slick:slick"></a>
+      <span class="permalink">
+      <a href="../../slick/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">slick</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="slick.codegen" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="codegen"></a><a id="codegen:codegen"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="Code generator / type providers" href="index.html"><span class="name">codegen</span></a>
+      </span>
+      
+      <p class="shortcomment cmt">Code generator / type providers</p><div class="fullcomment"><div class="comment cmt"><p>Code generator / type providers</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="slick">slick</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator" visbl="pub" class="indented3 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="AbstractSourceCodeGeneratorextendsAbstractGenerator[String,String,String]withStringGeneratorHelpers"></a><a id="AbstractSourceCodeGenerator:AbstractSourceCodeGenerator"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="Base implementation for a Source code String generator" href="AbstractSourceCodeGenerator.html"><span class="name">AbstractSourceCodeGenerator</span></a><span class="result"> extends <a href="AbstractGenerator.html" class="extype" name="slick.codegen.AbstractGenerator">AbstractGenerator</a>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>] with <a href="StringGeneratorHelpers.html" class="extype" name="slick.codegen.StringGeneratorHelpers">StringGeneratorHelpers</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Base implementation for a Source code String generator</p><div class="fullcomment"><div class="comment cmt"><p>Base implementation for a Source code String generator</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="index.html" class="extype" name="slick.codegen">codegen</a></dd></dl></div>
+    </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="GeneratorHelpers$StringExtensions.html" title="Slick code generator string extension methods."></a>
+                        <a href="GeneratorHelpers$StringExtensions.html" title="Slick code generator string extension methods.">StringExtensions</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="abstract type" href="AbstractSourceCodeGenerator$Table.html" title="Table generator virtual class"></a>
+                        <a href="AbstractSourceCodeGenerator$Table.html" title="Table generator virtual class">Table</a>
+                      </li><li class="current-entities indented3">
+                        <span class="separator"></span>
+                        <a class="class" href="" title=""></a>
+                        <a href="" title="">TableDef</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="class type">
+      <div id="definition">
+        <div class="big-circle class">c</div>
+        <p id="owner"><a href="../index.html" class="extype" name="slick">slick</a>.<a href="index.html" class="extype" name="slick.codegen">codegen</a>.<a href="AbstractSourceCodeGenerator.html" class="extype" name="slick.codegen.AbstractSourceCodeGenerator">AbstractSourceCodeGenerator</a></p>
+        <h1>TableDef<span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TableDef</span><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef">AbstractSourceCodeGenerator.TableDef</span></span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/slick-codegen/src/main/scala/slick/codegen/AbstractSourceCodeGenerator.scala" target="_blank">AbstractSourceCodeGenerator.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><span class="extype" name="slick.codegen.AbstractGenerator.TableDef">AbstractSourceCodeGenerator.TableDef</span>, <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">
+              Known Subclasses
+            </span>
+            <div class="subClasses hiddenContent"><a href="SourceCodeGenerator$TableDef.html" class="extype" name="slick.codegen.SourceCodeGenerator.TableDef">TableDef</a></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">
+                  Type Hierarchy
+                </span>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 214.00 155.00" height="155pt" width="214pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 151)" class="graph" id="page0,1_graph0"><polygon points="-4,4 -4,-151 210,-151 210,4 -4,4" stroke="transparent" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this class" id="graph1_0"><g id="a_this class|graph1_0"><a xlink:title="slick.codegen.AbstractSourceCodeGenerator.TableDef (this class)" xlink:href="#inheritance-diagram"><path d="M134.67,-86C134.67,-86 71.33,-86 71.33,-86 67.17,-86 63,-81.83 63,-77.67 63,-77.67 63,-69.33 63,-69.33 63,-65.17 67.17,-61 71.33,-61 71.33,-61 134.67,-61 134.67,-61 138.83,-61 143,-65.17 143,-69.33 143,-69.33 143,-77.67 143,-77.67 143,-81.83 138.83,-86 134.67,-86" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-80.5" x="73" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-71.1" x="94" text-anchor="start">TableDef</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="slick.codegen.SourceCodeGenerator.TableDef" xlink:href="SourceCodeGenerator$TableDef.html#inheritance-diagram"><path d="M180.67,-25C180.67,-25 25.33,-25 25.33,-25 21.17,-25 17,-20.83 17,-16.67 17,-16.67 17,-8.33 17,-8.33 17,-4.17 21.17,0 25.33,0 25.33,0 180.67,0 180.67,0 184.83,0 189,-4.17 189,-8.33 189,-8.33 189,-16.67 189,-16.67 189,-20.83 184.83,-25 180.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="27" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="48" text-anchor="start">SourceCodeGenerator.TableDef</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="SourceCodeGenerator.TableDef is a subtype of TableDef"><path d="M103,-53.76C103,-44.37 103,-33.29 103,-25.13" stroke="#d4d4d4" fill="none"></path><polygon points="100.55,-53.84 103,-60.84 105.45,-53.84 100.55,-53.84" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="slick.codegen.AbstractGenerator.TableDef" xlink:href="AbstractGenerator$TableDef.html#inheritance-diagram"><path d="M197.67,-147C197.67,-147 8.33,-147 8.33,-147 4.17,-147 0,-142.83 0,-138.67 0,-138.67 0,-130.33 0,-130.33 0,-126.17 4.17,-122 8.33,-122 8.33,-122 197.67,-122 197.67,-122 201.83,-122 206,-126.17 206,-130.33 206,-130.33 206,-138.67 206,-138.67 206,-142.83 201.83,-147 197.67,-147" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-132.1" x="31" text-anchor="start">AbstractSourceCodeGenerator.TableDef</text></a></g></g><!-- node2&#45;&gt;node0 --><g class="edge inheritance" id="graph1_2_0"><g id="a_inheritance|graph1_2_0"><a xlink:title="TableDef is a subtype of AbstractSourceCodeGenerator.TableDef"><path d="M103,-114.76C103,-105.37 103,-94.29 103,-86.13" stroke="#d4d4d4" fill="none"></path><polygon points="100.55,-114.84 103,-121.84 105.45,-114.84 100.55,-114.84" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+                <div id="diagram-controls" class="hiddenContent">
+                  <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button title="Toggle full-screen" id="diagram-fs" class="diagram-btn to-full"><i class="material-icons"></i></button>
+                </div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              <li class="group out"><span>Grouped</span></li>
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="slick.codegen.AbstractSourceCodeGenerator.TableDef"><span>TableDef</span></li><li class="in" name="slick.codegen.AbstractGenerator.TableDef"><span>TableDef</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+                  <span class="filtertype">Implicitly<br />
+                  </span>
+                  <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        <div id="constructors" class="members">
+              <h3>Instance Constructors</h3>
+              <ol><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(model:slick.model.Table):AbstractSourceCodeGenerator.this.TableDef"></a><a id="&lt;init&gt;:TableDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#&lt;init&gt;(model:slick.model.Table):AbstractSourceCodeGenerator.this.TableDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">new</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TableDef</span><span class="params">(<span name="model">model: <span class="extype" name="slick.model.Table">model.Table</span></span>)</span>
+      </span>
+      
+      
+    </li></ol>
+            </div>
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.codegen.AbstractGenerator.TableDef.Def" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="DefextendsAnyRef"></a><a id="Def:Def"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractGenerator$TableDef$Def.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Common interface for any kind of definition within the generated code" href="AbstractGenerator$TableDef$Def.html"><span class="name">Def</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Common interface for any kind of definition within the generated code</p><div class="fullcomment"><div class="comment cmt"><p>Common interface for any kind of definition within the generated code</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.TermDef" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="TermDefextendsTableDef.this.Def"></a><a id="TermDef:TermDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractGenerator$TableDef$TermDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Common interface for definitions that define a term (val, def, ...) within the generated code" href="AbstractGenerator$TableDef$TermDef.html"><span class="name">TermDef</span></a><span class="result"> extends <a href="AbstractGenerator$TableDef$Def.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef.Def">Def</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Common interface for definitions that define a term (val, def, ...) within the generated code</p><div class="fullcomment"><div class="comment cmt"><p>Common interface for definitions that define a term (val, def, ...) within the generated code</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.TypeDef" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="TypeDefextendsTableDef.this.Def"></a><a id="TypeDef:TypeDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractGenerator$TableDef$TypeDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Common interface for definitions that define a type (class, case class, ...) within the generated code" href="AbstractGenerator$TableDef$TypeDef.html"><span class="name">TypeDef</span></a><span class="result"> extends <a href="AbstractGenerator$TableDef$Def.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef.Def">Def</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Common interface for definitions that define a type (class, case class, ...) within the generated code</p><div class="fullcomment"><div class="comment cmt"><p>Common interface for definitions that define a type (class, case class, ...) within the generated code</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.Column" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Column&lt;:TableDef.this.ColumnDef"></a><a id="Column:Column"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#Column&lt;:TableDef.this.ColumnDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Column</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.ColumnDef">TableDef.ColumnDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Column generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Column generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.ColumnDef" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ColumnDefextendsTableDef.this.ColumnDef"></a><a id="ColumnDef:ColumnDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$ColumnDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$ColumnDef.html"><span class="name">ColumnDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.ColumnDef">TableDef.ColumnDef</span></span>
+      </span>
+      
+      
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.EntityType" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="EntityType&lt;:TableDef.this.EntityTypeDef"></a><a id="EntityType:EntityType"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#EntityType&lt;:TableDef.this.EntityTypeDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">EntityType</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.EntityTypeDef">TableDef.EntityTypeDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Entity case class or type alias generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Entity case class or type alias generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.EntityTypeDef" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="EntityTypeDefextendsTableDef.this.EntityTypeDef"></a><a id="EntityTypeDef:EntityTypeDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$EntityTypeDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$EntityTypeDef.html"><span class="name">EntityTypeDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.EntityTypeDef">TableDef.EntityTypeDef</span></span>
+      </span>
+      
+      
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.ForeignKey" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="ForeignKey&lt;:TableDef.this.ForeignKeyDef"></a><a id="ForeignKey:ForeignKey"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#ForeignKey&lt;:TableDef.this.ForeignKeyDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ForeignKey</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.ForeignKeyDef">TableDef.ForeignKeyDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Foreign key generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Foreign key generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.ForeignKeyDef" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ForeignKeyDefextendsTableDef.this.ForeignKeyDef"></a><a id="ForeignKeyDef:ForeignKeyDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$ForeignKeyDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$ForeignKeyDef.html"><span class="name">ForeignKeyDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.ForeignKeyDef">TableDef.ForeignKeyDef</span></span>
+      </span>
+      
+      
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.Index" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Index&lt;:TableDef.this.IndexDef"></a><a id="Index:Index"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#Index&lt;:TableDef.this.IndexDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Index</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.IndexDef">TableDef.IndexDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Index generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Index generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.IndexDef" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IndexDefextendsTableDef.this.IndexDef"></a><a id="IndexDef:IndexDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$IndexDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$IndexDef.html"><span class="name">IndexDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.IndexDef">TableDef.IndexDef</span></span>
+      </span>
+      
+      
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.PlainSqlMapper" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="PlainSqlMapper&lt;:TableDef.this.PlainSqlMapperDef"></a><a id="PlainSqlMapper:PlainSqlMapper"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#PlainSqlMapper&lt;:TableDef.this.PlainSqlMapperDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">PlainSqlMapper</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.PlainSqlMapperDef">TableDef.PlainSqlMapperDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Plain SQL GetResult mapper generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Plain SQL GetResult mapper generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.PlainSqlMapperDef" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="PlainSqlMapperDefextendsTableDef.this.PlainSqlMapperDef"></a><a id="PlainSqlMapperDef:PlainSqlMapperDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$PlainSqlMapperDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$PlainSqlMapperDef.html"><span class="name">PlainSqlMapperDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.PlainSqlMapperDef">TableDef.PlainSqlMapperDef</span></span>
+      </span>
+      
+      
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.PrimaryKey" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="PrimaryKey&lt;:TableDef.this.PrimaryKeyDef"></a><a id="PrimaryKey:PrimaryKey"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#PrimaryKey&lt;:TableDef.this.PrimaryKeyDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">PrimaryKey</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.PrimaryKeyDef">TableDef.PrimaryKeyDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Primary key generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Primary key generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.PrimaryKeyDef" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PrimaryKeyDefextendsTableDef.this.PrimaryKeyDef"></a><a id="PrimaryKeyDef:PrimaryKeyDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$PrimaryKeyDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$PrimaryKeyDef.html"><span class="name">PrimaryKeyDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.PrimaryKeyDef">TableDef.PrimaryKeyDef</span></span>
+      </span>
+      
+      
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.TableClass" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="TableClass&lt;:TableDef.this.TableClassDef"></a><a id="TableClass:TableClass"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#TableClass&lt;:TableDef.this.TableClassDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TableClass</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.TableClassDef">TableDef.TableClassDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Table class generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Table class generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.TableClassDef" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TableClassDefextendsTableDef.this.TableClassDef"></a><a id="TableClassDef:TableClassDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$TableClassDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$TableClassDef.html"><span class="name">TableClassDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.TableClassDef">TableDef.TableClassDef</span></span>
+      </span>
+      
+      
+    </li><li name="slick.codegen.AbstractGenerator.TableDef.TableValue" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="TableValue&lt;:TableDef.this.TableValueDef"></a><a id="TableValue:TableValue"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#TableValue&lt;:TableDef.this.TableValueDef" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TableValue</span><span class="result"> &lt;: <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.TableValueDef">TableDef.TableValueDef</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Table value generator virtual class</p><div class="fullcomment"><div class="comment cmt"><p>Table value generator virtual class</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef.TableValueDef" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="TableValueDefextendsTableDef.this.TableValueDef"></a><a id="TableValueDef:TableValueDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef$TableValueDef.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="AbstractSourceCodeGenerator$TableDef$TableValueDef.html"><span class="name">TableValueDef</span></a><span class="result"> extends <span class="extype" name="slick.codegen.AbstractGenerator.TableDef.TableValueDef">TableDef.TableValueDef</span></span>
+      </span>
+      
+      
+    </li></ol>
+            </div>
+
+        <div class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="slick.codegen.AbstractGenerator.TableDef#Column" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="Column:slick.model.Column=&gt;TableDef.this.Column"></a><a id="Column:(model.Column)⇒Column"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#Column:slick.model.Column=&gt;TableDef.this.Column" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Column</span><span class="result">: (<span class="extype" name="slick.model.Column">model.Column</span>) ⇒ <a href="#Column&lt;:TableDef.this.ColumnDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.Column">Column</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Column generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>Column generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#EntityType" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="EntityType:TableDef.this.EntityType"></a><a id="EntityType:EntityType"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#EntityType:TableDef.this.EntityType" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">EntityType</span><span class="result">: <a href="#EntityType&lt;:TableDef.this.EntityTypeDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.EntityType">EntityType</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Entity case class or type alias generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>Entity case class or type alias generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#ForeignKey" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="ForeignKey:slick.model.ForeignKey=&gt;TableDef.this.ForeignKey"></a><a id="ForeignKey:(model.ForeignKey)⇒ForeignKey"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#ForeignKey:slick.model.ForeignKey=&gt;TableDef.this.ForeignKey" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ForeignKey</span><span class="result">: (<span class="extype" name="slick.model.ForeignKey">model.ForeignKey</span>) ⇒ <a href="#ForeignKey&lt;:TableDef.this.ForeignKeyDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.ForeignKey">ForeignKey</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">ForeignKey generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>ForeignKey generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#Index" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="Index:slick.model.Index=&gt;TableDef.this.Index"></a><a id="Index:(model.Index)⇒Index"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#Index:slick.model.Index=&gt;TableDef.this.Index" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Index</span><span class="result">: (<span class="extype" name="slick.model.Index">model.Index</span>) ⇒ <a href="#Index&lt;:TableDef.this.IndexDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.Index">Index</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Index generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>Index generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#PlainSqlMapper" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="PlainSqlMapper:TableDef.this.PlainSqlMapper"></a><a id="PlainSqlMapper:PlainSqlMapper"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#PlainSqlMapper:TableDef.this.PlainSqlMapper" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">PlainSqlMapper</span><span class="result">: <a href="#PlainSqlMapper&lt;:TableDef.this.PlainSqlMapperDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.PlainSqlMapper">PlainSqlMapper</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Plain SQL GetResult mapper generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>Plain SQL GetResult mapper generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#PrimaryKey" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="PrimaryKey:slick.model.PrimaryKey=&gt;TableDef.this.PrimaryKey"></a><a id="PrimaryKey:(model.PrimaryKey)⇒PrimaryKey"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#PrimaryKey:slick.model.PrimaryKey=&gt;TableDef.this.PrimaryKey" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">PrimaryKey</span><span class="result">: (<span class="extype" name="slick.model.PrimaryKey">model.PrimaryKey</span>) ⇒ <a href="#PrimaryKey&lt;:TableDef.this.PrimaryKeyDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.PrimaryKey">PrimaryKey</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">PrimaryKey generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>PrimaryKey generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#TableClass" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="TableClass:TableDef.this.TableClass"></a><a id="TableClass:TableClass"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#TableClass:TableDef.this.TableClass" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TableClass</span><span class="result">: <a href="#TableClass&lt;:TableDef.this.TableClassDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.TableClass">TableClass</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Table class generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>Table class generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#TableValue" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Basic customization overrides">
+      <a id="TableValue:TableDef.this.TableValue"></a><a id="TableValue:TableValue"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#TableValue:TableDef.this.TableValue" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">TableValue</span><span class="result">: <a href="#TableValue&lt;:TableDef.this.TableValueDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.TableValue">TableValue</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Table value generator factory.</p><div class="fullcomment"><div class="comment cmt"><p>Table value generator factory. Override for customization.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a><a id="+(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#+(other:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(TableDef,B)"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#autoIncLast" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="autoIncLast:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#autoIncLast:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">autoIncLast</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Indicates whether auto increment columns should be put last.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates whether auto increment columns should be put last.
+        Please set to !hlistEnabled for switching this on.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#code" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="code:Seq[Code]"></a><a id="code:Seq[String]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#code:Seq[Code]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">code</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Generates the complete code for this table and its subordinate generators.</p><div class="fullcomment"><div class="comment cmt"><p>Generates the complete code for this table and its subordinate generators.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#columns" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="columns:Seq[TableDef.this.Column]"></a><a id="columns:Seq[Column]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#columns:Seq[TableDef.this.Column]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">columns</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="#Column&lt;:TableDef.this.ColumnDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.Column">Column</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Column code generators in the desired user-facing order.</p><div class="fullcomment"><div class="comment cmt"><p>Column code generators in the desired user-facing order.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#columnsByName" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="columnsByName:Map[String,TableDef.this.Column]"></a><a id="columnsByName:Map[String,Column]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#columnsByName:Map[String,TableDef.this.Column]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">columnsByName</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <a href="#Column&lt;:TableDef.this.ColumnDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.Column">Column</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Column code generators indexed by db column name</p><div class="fullcomment"><div class="comment cmt"><p>Column code generators indexed by db column name</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#columnsPositional" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="columnsPositional:IndexedSeq[TableDef.this.Column]"></a><a id="columnsPositional:IndexedSeq[Column]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#columnsPositional:IndexedSeq[TableDef.this.Column]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">columnsPositional</span><span class="result">: <span class="extype" name="scala.IndexedSeq">IndexedSeq</span>[<a href="#Column&lt;:TableDef.this.ColumnDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.Column">Column</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Column code generators in the order they appear in the model.</p><div class="fullcomment"><div class="comment cmt"><p>Column code generators in the order they appear in the model.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef#compoundType" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compoundType(types:Seq[String]):String"></a><a id="compoundType(Seq[String]):String"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#compoundType(types:Seq[String]):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compoundType</span><span class="params">(<span name="types">types: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Creates a compound type from a given sequence of types.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a compound type from a given sequence of types.
+ Uses HList if hlistEnabled else tuple.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> → <a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef#compoundValue" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compoundValue(values:Seq[String]):String"></a><a id="compoundValue(Seq[String]):String"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#compoundValue(values:Seq[String]):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">compoundValue</span><span class="params">(<span name="values">values: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Creates a compound value from a given sequence of values.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a compound value from a given sequence of values.
+ Uses HList if hlistEnabled else tuple.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> → <a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#definitions" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="definitions:Seq[TableDef.this.Def]"></a><a id="definitions:Seq[Def]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#definitions:Seq[TableDef.this.Def]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">definitions</span><span class="result">: <span class="extype" name="scala.collection.Seq">Seq</span>[<a href="#DefextendsAnyRef" class="extmbr" name="slick.codegen.AbstractGenerator.TableDef.Def">Def</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Definitions to be generated for this table</p><div class="fullcomment"><div class="comment cmt"><p>Definitions to be generated for this table</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#desiredColumnOrder" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="desiredColumnOrder:Seq[Int]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#desiredColumnOrder:Seq[Int]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">desiredColumnOrder</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<span class="extype" name="scala.Int">Int</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Database column positions in the desired user-facing order.</p><div class="fullcomment"><div class="comment cmt"><p>Database column positions in the desired user-facing order. Currently just moves the positions of AutoInc columns to the end if autoIncLastAsOption is enabled.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((TableDef)⇒Boolean,⇒Any):TableDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((TableDef)⇒Boolean):TableDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):TableDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):TableDef"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#ensuring(cond:Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef#extractor" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="extractor:String"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#extractor:String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">extractor</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Function that extracts the unmapped values from an entity object</p><div class="fullcomment"><div class="comment cmt"><p>Function that extracts the unmapped values from an entity object</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> → <a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractSourceCodeGenerator.TableDef#factory" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="factory:String"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#factory:String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">factory</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Function that constructs an entity object from the unmapped values</p><div class="fullcomment"><div class="comment cmt"><p>Function that constructs an entity object from the unmapped values</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> → <a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#foreignKeys" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="foreignKeys:Seq[TableDef.this.ForeignKey]"></a><a id="foreignKeys:Seq[ForeignKey]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#foreignKeys:Seq[TableDef.this.ForeignKey]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">foreignKeys</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="#ForeignKey&lt;:TableDef.this.ForeignKeyDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.ForeignKey">ForeignKey</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Foreign key code generators</p><div class="fullcomment"><div class="comment cmt"><p>Foreign key code generators</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#formatted(fmtstr:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#hlistEnabled" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization now overrides">
+      <a id="hlistEnabled:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#hlistEnabled:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hlistEnabled</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">If HList should be used as a compound type instead of tuples.</p><div class="fullcomment"><div class="comment cmt"><p>If HList should be used as a compound type instead of tuples. Only if hugeClassEnabled is false.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#hugeClassEnabled" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization now overrides">
+      <a id="hugeClassEnabled:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#hugeClassEnabled:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hugeClassEnabled</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">       Default is true, i.e.</p><div class="fullcomment"><div class="comment cmt"><p>       Default is true, i.e. a case class will be generated even if column.size &gt; 22.
+       Override to false to get the code as before Slick 3.3, i.e. a HList based type will be generated instead.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#indices" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="indices:Seq[TableDef.this.Index]"></a><a id="indices:Seq[Index]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#indices:Seq[TableDef.this.Index]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">indices</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="#Index&lt;:TableDef.this.IndexDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.Index">Index</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Index code generators</p><div class="fullcomment"><div class="comment cmt"><p>Index code generators</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#isMappedToHugeClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isMappedToHugeClass:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#isMappedToHugeClass:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isMappedToHugeClass</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Indicates if table has more than 22 columns but still has to be mapped to a case class.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates if table has more than 22 columns but still has to be mapped to a case class.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#mappingEnabled" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="mappingEnabled:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#mappingEnabled:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mappingEnabled</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Indicates if this table should be mapped using factory and extractor or not, in which case tuples are used.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates if this table should be mapped using factory and extractor or not, in which case tuples are used. (Consider overriding EntityType.enabled instead, which affects this, too.) Disabled by default when using hlists.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#model" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="model:slick.model.Table"></a><a id="model:model.Table"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#model:slick.model.Table" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">model</span><span class="result">: <span class="extype" name="slick.model.Table">model.Table</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.codegen.AbstractGenerator.TableDef#primaryKey" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="primaryKey:Option[TableDef.this.PrimaryKey]"></a><a id="primaryKey:Option[PrimaryKey]"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#primaryKey:Option[TableDef.this.PrimaryKey]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">primaryKey</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<a href="#PrimaryKey&lt;:TableDef.this.PrimaryKeyDef" class="extmbr" name="slick.codegen.AbstractSourceCodeGenerator.TableDef.PrimaryKey">PrimaryKey</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Primary key code generator, if this table has one</p><div class="fullcomment"><div class="comment cmt"><p>Primary key code generator, if this table has one</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(TableDef,B)"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#→[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li>
+              </ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="slick.codegen.AbstractGenerator.TableDef#autoIncLastAsOption" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Basic customization overrides">
+      <a id="autoIncLastAsOption:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#autoIncLastAsOption:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: (Since version 3.2.0) Use autoIncLast = true and ColumnDef.asOption = autoInc instead.">autoIncLastAsOption</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Indicates whether auto increment columns should be put last and made an Option with a None default.</p><div class="fullcomment"><div class="comment cmt"><p>Indicates whether auto increment columns should be put last and made an Option with a None default.
+        Please set to !hlistEnabled for switching this on.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="AbstractGenerator$TableDef.html" class="extype" name="slick.codegen.AbstractGenerator.TableDef">TableDef</a></dd><dt>Annotations</dt><dd>
+                <span class="name">@deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"><p><i>(Since version 3.2.0)</i> Use autoIncLast = true and ColumnDef.asOption = autoInc instead.</p></dd></dl></div>
+    </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/codegen/AbstractSourceCodeGenerator$TableDef.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: ">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+                <span class="name">@Deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.codegen.AbstractGenerator.TableDef">
+              <h3>Inherited from <span class="extype" name="slick.codegen.AbstractGenerator.TableDef">AbstractSourceCodeGenerator.TableDef</span></h3>
+            </div><div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.Product">
+              <h3>Inherited from <span class="extype" name="scala.Product">Product</span></h3>
+            </div><div class="parent" name="scala.Equals">
+              <h3>Inherited from <span class="extype" name="scala.Equals">Equals</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.codegen.AbstractSourceCodeGenerator.TableDef">TableDef</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Basic customization now overrides">
+              <h3>Basic customization now overrides</h3>
+              
+            </div><div class="group" name="Basic customization overrides">
+              <h3>Basic customization overrides</h3>
+              
+            </div><div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>

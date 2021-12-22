@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookbook</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="sql-to-slick.html"  title="Coming from SQL to Slick"  />  <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/cookbook.md"  />  <link rel="next" href="upgrade.html"  title="Upgrade Guides"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id0">3.4.0-SNAPSHOT</a><span class="dropdown-pane a_vnav2_pane" id="_id0"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="sql-to-slick.html"  title="Coming from SQL to Slick" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="upgrade.html"  title="Upgrade Guides" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/cookbook.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="cookbook" class="a_section" data-magellan-target="cookbook">Cookbook<a class="a_hlink" href="#cookbook"></a></h1>
+<p>This section of the manual is for solutions to common questions.</p>
+<h2 id="mapping-more-than-22-fields" class="a_section" data-magellan-target="mapping-more-than-22-fields">Mapping more than 22 fields<a class="a_hlink" href="#mapping-more-than-22-fields"></a></h2>
+<h3 id="problem" class="a_section" data-magellan-target="problem">Problem<a class="a_hlink" href="#problem"></a></h3>
+<p>You have a table with more than 22 fields, and the Scala 2 compiler has told you:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code>too many elements for tuple: 23, allowed: 22
+</code></pre>
+</div></div>
+<h3 id="solution" class="a_section" data-magellan-target="solution">Solution<a class="a_hlink" href="#solution"></a></h3>
+<p>Switch from using a tuple in your default projection to using an HList.</p>
+<p>First, add the HList imports:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">null.{<span class="hljs-type">HList</span>, <span class="hljs-type">HCons</span>, <span class="hljs-type">HNil</span>}
+<span class="hljs-keyword">import</span> slick.collection.heterogeneous.syntax._</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/Cookbook.scala#L10-L11" class="a_sourcelink">Cookbook.scala</a></div></div>
+<p>Your case class and table definition are as unchanged,
+but your default projection ( the <code class="hljs">*</code> method) changes:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">case</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Row</span>(<span class="hljs-params">id: <span class="hljs-type">Int</span>, name: <span class="hljs-type">String</span> /* ... as many as you like */</span>)</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyTable</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[<span class="hljs-type">Row</span>](<span class="hljs-params">tag, "<span class="hljs-type">ROW</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span>   </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"ID"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"NAME"</span>)
+  <span class="hljs-comment">/* ... as many as you like */</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id :: name <span class="hljs-comment">/* as many as you like... */</span> :: <span class="hljs-type">HNil</span>).mapTo[<span class="hljs-type">Row</span>]
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/Cookbook.scala#L15-L23" class="a_sourcelink">Cookbook.scala</a></div></div>
+<h2 id="track-the-number-of-query-compilations" class="a_section" data-magellan-target="track-the-number-of-query-compilations">Track the Number of Query Compilations<a class="a_hlink" href="#track-the-number-of-query-compilations"></a></h2>
+<h3 id="problem-1" class="a_section" data-magellan-target="problem-1">Problem<a class="a_hlink" href="#problem-1"></a></h3>
+<p>Query compilation can be expensive.
+We can use the <code class="hljs">Compiled</code> construct to avoid re-compiling queries.
+However, it can also be easy to accidentally forget to use this construct or revert its usage.
+When this happens in a high-traffic deployment, query times and CPU usage can increase drastically.</p>
+<p>To identify this type of regression, we’d like to track the number of query compilations.
+We might then expose this count as an application metric and setup an alert which triggers
+when an abnormally high number of query compilations occur.</p>
+<h3 id="solution-1" class="a_section" data-magellan-target="solution-1">Solution<a class="a_hlink" href="#solution-1"></a></h3>
+<p>To track the number of query compilations, we can override the <code class="hljs">computeQueryCompiler</code> method in our profile.
+The new <code class="hljs">QueryCompiler</code> will have an additional phase, which simply increments a counter.</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">JdbcProfile</span>
+<span class="hljs-keyword">import</span> slick.compiler._
+<span class="hljs-keyword">import</span> java.util.concurrent.atomic.<span class="hljs-type">AtomicLong</span>
+
+<span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">MyProfile</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JdbcProfile</span> </span>{
+
+  <span class="hljs-comment">// This counter can be accessed from an instance of `MyProfile`</span>
+  <span class="hljs-comment">// and exposed as an application metric.</span>
+  <span class="hljs-keyword">final</span> <span class="hljs-keyword">val</span> queryCompilationCounter: <span class="hljs-type">AtomicLong</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">AtomicLong</span>(<span class="hljs-number">0</span>)
+
+  <span class="hljs-comment">// This method gets called to setup the QueryCompiler.</span>
+  <span class="hljs-comment">// We'll attach a CompilerPhase that just increments the compilation counter</span>
+  <span class="hljs-comment">// and leave the compiler otherwise unchanged.</span>
+  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">computeQueryCompiler</span></span>: <span class="hljs-type">QueryCompiler</span> = {
+    <span class="hljs-keyword">val</span> phase = <span class="hljs-keyword">new</span> <span class="hljs-type">Phase</span> {
+      <span class="hljs-keyword">override</span> <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">State</span> </span>= <span class="hljs-keyword">this</span>.<span class="hljs-keyword">type</span>
+      <span class="hljs-keyword">override</span> <span class="hljs-keyword">val</span> name: <span class="hljs-type">String</span> = <span class="hljs-string">"IncrementQueryCompilationCounter"</span>
+      <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply</span></span>(state: <span class="hljs-type">CompilerState</span>): <span class="hljs-type">CompilerState</span> = {
+        <span class="hljs-comment">// When this Phase gets applied, it just increments the counter and</span>
+        <span class="hljs-comment">// passes the CompilerState through unchanged.</span>
+        queryCompilationCounter.incrementAndGet()
+        state
+      }
+    }
+    <span class="hljs-keyword">super</span>.computeQueryCompiler + phase
+  }
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/Cookbook.scala#L30-L56" class="a_sourcelink">Cookbook.scala</a></div></div>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="sql-to-slick.html"  title="Coming from SQL to Slick" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="upgrade.html"  title="Upgrade Guides" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/cookbook.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="cookbook.html">Cookbook</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#cookbook">Cookbook</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#mapping-more-than-22-fields">Mapping more than 22 fields</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#problem">Problem</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#solution">Solution</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#track-the-number-of-query-compilations">Track the Number of Query Compilations</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#problem-1">Problem</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#solution-1">Solution</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2020 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

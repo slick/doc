@@ -1,0 +1,1486 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>Slick 3.4.0-SNAPSHOT - slick.ast.UnaryNode</title>
+          <meta name="description" content="Slick 3.4.0 - SNAPSHOT - slick.ast.UnaryNode" />
+          <meta name="keywords" content="Slick 3.4.0 SNAPSHOT slick.ast.UnaryNode" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      
+      <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../lib/index.js"></script>
+      <script type="text/javascript" src="../../index.js"></script>
+      <script type="text/javascript" src="../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">Slick<span id="doc-version">3.4.0-SNAPSHOT</span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="../../index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="edit this text on github" href="../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <p class="shortcomment cmt"><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><div class="fullcomment"><div class="comment cmt"><p><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><h4> Scala Language-Integrated Connection Kit </h4><p>This is the API documentation for the <a href="https://scala-slick.org" target="_top">Slick</a> database library.
+It should be used as an additional resource to the <a href="../index.html">user manual</a>.</p><p>Further documentation for Slick can be found on the
+<a href="https://scala-slick.org/docs/" target="_top">documentation pages</a>.</p><p><a href="slick/package.html">To the slick package list...</a></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.slick" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="slick"></a><a id="slick:slick"></a>
+      <span class="permalink">
+      <a href="../../slick/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">slick</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="slick.ast" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ast"></a><a id="ast:ast"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="Abstract Syntax Tree (AST) for representing queries during compilation" href="index.html"><span class="name">ast</span></a>
+      </span>
+      
+      <p class="shortcomment cmt">Abstract Syntax Tree (AST) for representing queries during compilation</p><div class="fullcomment"><div class="comment cmt"><p>Abstract Syntax Tree (AST) for representing queries during compilation</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="slick">slick</a></dd></dl></div>
+    </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Aggregate.html" title="An aggregation function application which is similar to a Bind(_, _, Pure(_)) where the projection contains a mapping function application."></a>
+                        <a href="Aggregate.html" title="An aggregation function application which is similar to a Bind(_, _, Pure(_)) where the projection contains a mapping function application.">Aggregate</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="AnonSymbol.html" title="An anonymous symbol defined in the AST."></a>
+                        <a href="AnonSymbol.html" title="An anonymous symbol defined in the AST.">AnonSymbol</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="AnonTableIdentitySymbol.html" title="An anonymous TableIdentitySymbol."></a>
+                        <a href="AnonTableIdentitySymbol.html" title="An anonymous TableIdentitySymbol.">AnonTableIdentitySymbol</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="AnonTypeSymbol.html" title="An anonymous symbol defined in the AST."></a>
+                        <a href="AnonTypeSymbol.html" title="An anonymous symbol defined in the AST.">AnonTypeSymbol</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Apply.html" title="A function call expression."></a>
+                        <a href="Apply.html" title="A function call expression.">Apply</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="AtomicType.html" title="An atomic type (i.e."></a>
+                        <a href="AtomicType.html" title="An atomic type (i.e.">AtomicType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="BaseTypedType.html" title=""></a>
+                        <a href="BaseTypedType.html" title="">BaseTypedType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="BinaryNode.html" title=""></a>
+                        <a href="BinaryNode.html" title="">BinaryNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Bind.html" title="A .flatMap call of type (CollectionType(c, _), CollectionType(_, u)) =&gt; CollectionType(c, u)."></a>
+                        <a href="Bind.html" title="A .flatMap call of type (CollectionType(c, _), CollectionType(_, u)) =&gt; CollectionType(c, u).">Bind</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ClientSideOp$.html" title=""></a>
+                        <a class="trait" href="ClientSideOp.html" title="An operation which is expected to be run on the client side."></a>
+                        <a href="ClientSideOp.html" title="An operation which is expected to be run on the client side.">ClientSideOp</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CollectionCast.html" title=""></a>
+                        <a href="CollectionCast.html" title="">CollectionCast</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CollectionType.html" title=""></a>
+                        <a href="CollectionType.html" title="">CollectionType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="CollectionTypeConstructor.html" title="Represents a type constructor that can be usd for a collection-valued query."></a>
+                        <a href="CollectionTypeConstructor.html" title="Represents a type constructor that can be usd for a collection-valued query.">CollectionTypeConstructor</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ColumnOption$.html" title="The basic column options that influence profile-independent parts of query compilation."></a>
+                        <a class="class" href="ColumnOption.html" title=""></a>
+                        <a href="ColumnOption.html" title="">ColumnOption</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CompiledStatement.html" title="A compiled statement with a fixed type, a statement string and profile-specific extra data."></a>
+                        <a href="CompiledStatement.html" title="A compiled statement with a fixed type, a statement string and profile-specific extra data.">CompiledStatement</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ComplexFilteredQuery.html" title="A FilteredQuery with a Symbol."></a>
+                        <a href="ComplexFilteredQuery.html" title="A FilteredQuery with a Symbol.">ComplexFilteredQuery</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Comprehension.html" title="A SQL comprehension"></a>
+                        <a href="Comprehension.html" title="A SQL comprehension">Comprehension</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="DefNode.html" title="A Node which introduces Symbols."></a>
+                        <a href="DefNode.html" title="A Node which introduces Symbols.">DefNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Distinct.html" title="A .distinct call of type (CollectionType(c, t), _) =&gt; CollectionType(c, t)."></a>
+                        <a href="Distinct.html" title="A .distinct call of type (CollectionType(c, t), _) =&gt; CollectionType(c, t).">Distinct</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Drop.html" title="A .drop call."></a>
+                        <a href="Drop.html" title="A .drop call.">Drop</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ElementSymbol.html" title="An element of a ProductNode (using a 1-based index)"></a>
+                        <a href="ElementSymbol.html" title="An element of a ProductNode (using a 1-based index)">ElementSymbol</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ErasedCollectionTypeConstructor.html" title=""></a>
+                        <a href="ErasedCollectionTypeConstructor.html" title="">ErasedCollectionTypeConstructor</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ErasedScalaBaseType.html" title=""></a>
+                        <a href="ErasedScalaBaseType.html" title="">ErasedScalaBaseType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="FieldSymbol.html" title="A named symbol which refers to an (aliased or unaliased) field."></a>
+                        <a href="FieldSymbol.html" title="A named symbol which refers to an (aliased or unaliased) field.">FieldSymbol</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Filter$.html" title=""></a>
+                        <a class="class" href="Filter.html" title="A .filter call of type (CollectionType(c, t), Boolean) =&gt; CollectionType(c, t)."></a>
+                        <a href="Filter.html" title="A .filter call of type (CollectionType(c, t), Boolean) =&gt; CollectionType(c, t).">Filter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="FilteredQuery.html" title="Common superclass for expressions of type (CollectionType(c, t), _) =&gt; CollectionType(c, t)."></a>
+                        <a href="FilteredQuery.html" title="Common superclass for expressions of type (CollectionType(c, t), _) =&gt; CollectionType(c, t).">FilteredQuery</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="First.html" title="Get the first element of a collection."></a>
+                        <a href="First.html" title="Get the first element of a collection.">First</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ForUpdate.html" title="A .forUpdate call"></a>
+                        <a href="ForUpdate.html" title="A .forUpdate call">ForUpdate</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="FunctionSymbol.html" title="A Symbol that represents a library function or operator"></a>
+                        <a href="FunctionSymbol.html" title="A Symbol that represents a library function or operator">FunctionSymbol</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="FwdPath$.html" title="A constructor/extractor for nested Selects starting at a Ref so that, for example, a :: b :: c :: Nil corresponds to path a.b.c."></a>
+                        <a href="FwdPath$.html" title="A constructor/extractor for nested Selects starting at a Ref so that, for example, a :: b :: c :: Nil corresponds to path a.b.c.">FwdPath</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="GetOrElse.html" title=""></a>
+                        <a href="GetOrElse.html" title="">GetOrElse</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="GroupBy.html" title="A .groupBy call."></a>
+                        <a href="GroupBy.html" title="A .groupBy call.">GroupBy</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="IfThenElse.html" title="A conditional expression; The clauses should be: (if then)+ else."></a>
+                        <a href="IfThenElse.html" title="A conditional expression; The clauses should be: (if then)+ else.">IfThenElse</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Insert.html" title="Represents an Insert operation."></a>
+                        <a href="Insert.html" title="Represents an Insert operation.">Insert</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="InsertColumn.html" title="A column in an Insert operation."></a>
+                        <a href="InsertColumn.html" title="A column in an Insert operation.">InsertColumn</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Join.html" title="A join expression."></a>
+                        <a href="Join.html" title="A join expression.">Join</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="JoinType$.html" title=""></a>
+                        <a class="class" href="JoinType.html" title="The type of a join operation."></a>
+                        <a href="JoinType.html" title="The type of a join operation.">JoinType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Library$.html" title="The standard library for query operators."></a>
+                        <a href="Library$.html" title="The standard library for query operators.">Library</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="LiteralNode$.html" title=""></a>
+                        <a class="class" href="LiteralNode.html" title="A literal value expression."></a>
+                        <a href="LiteralNode.html" title="A literal value expression.">LiteralNode</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="MappedScalaType$.html" title=""></a>
+                        <a class="class" href="MappedScalaType.html" title=""></a>
+                        <a href="MappedScalaType.html" title="">MappedScalaType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="Node.html" title="A node in the Slick AST."></a>
+                        <a href="Node.html" title="A node in the Slick AST.">Node</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="NodeOps.html" title="Extra methods for Nodes."></a>
+                        <a href="NodeOps.html" title="Extra methods for Nodes.">NodeOps</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="NominalType.html" title="A type with a name, as used by tables."></a>
+                        <a href="NominalType.html" title="A type with a name, as used by tables.">NominalType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="NullaryNode.html" title=""></a>
+                        <a href="NullaryNode.html" title="">NullaryNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="NumericTypedType.html" title="Mark a TypedType as eligible for numeric operators."></a>
+                        <a href="NumericTypedType.html" title="Mark a TypedType as eligible for numeric operators.">NumericTypedType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="OptionApply.html" title="Lift a value into an Option as Some (or None if the value is a null column)."></a>
+                        <a href="OptionApply.html" title="Lift a value into an Option as Some (or None if the value is a null column).">OptionApply</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="OptionDisc.html" title="A phantom type for Option discriminator columns."></a>
+                        <a href="OptionDisc.html" title="A phantom type for Option discriminator columns.">OptionDisc</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="OptionFold.html" title="The catamorphism of OptionType."></a>
+                        <a href="OptionFold.html" title="The catamorphism of OptionType.">OptionFold</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="OptionType$.html" title=""></a>
+                        <a class="trait" href="OptionType.html" title=""></a>
+                        <a href="OptionType.html" title="">OptionType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="OptionTypedType.html" title=""></a>
+                        <a href="OptionTypedType.html" title="">OptionTypedType</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Ordering$.html" title=""></a>
+                        <a class="class" href="Ordering.html" title=""></a>
+                        <a href="Ordering.html" title="">Ordering</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ParameterSwitch.html" title="A switch for special-cased parameters that needs to be interpreted in order to find the correct query string for the query arguments."></a>
+                        <a href="ParameterSwitch.html" title="A switch for special-cased parameters that needs to be interpreted in order to find the correct query string for the query arguments.">ParameterSwitch</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Path$.html" title="A constructor/extractor for nested Selects starting at a Ref so that, for example, c :: b :: a :: Nil corresponds to path a.b.c."></a>
+                        <a href="Path$.html" title="A constructor/extractor for nested Selects starting at a Ref so that, for example, c :: b :: a :: Nil corresponds to path a.b.c.">Path</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="PathElement.html" title=""></a>
+                        <a href="PathElement.html" title="">PathElement</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ProductNode.html" title="An expression that represents a conjunction of expressions."></a>
+                        <a href="ProductNode.html" title="An expression that represents a conjunction of expressions.">ProductNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ProductType.html" title=""></a>
+                        <a href="ProductType.html" title="">ProductType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Pure.html" title="An expression that represents a plain value lifted into a Query."></a>
+                        <a href="Pure.html" title="An expression that represents a plain value lifted into a Query.">Pure</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="QueryParameter$.html" title=""></a>
+                        <a class="class" href="QueryParameter.html" title="A parameter from a QueryTemplate which gets turned into a bind variable."></a>
+                        <a href="QueryParameter.html" title="A parameter from a QueryTemplate which gets turned into a bind variable.">QueryParameter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RangeFrom.html" title="A Query of this special Node represents an infinite stream of consecutive numbers starting at the given number."></a>
+                        <a href="RangeFrom.html" title="A Query of this special Node represents an infinite stream of consecutive numbers starting at the given number.">RangeFrom</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RebuildOption.html" title="Rebuild an Option type on the client side"></a>
+                        <a href="RebuildOption.html" title="Rebuild an Option type on the client side">RebuildOption</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Ref.html" title="A reference to a Symbol"></a>
+                        <a href="Ref.html" title="A reference to a Symbol">Ref</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ResultSetMapping.html" title="A client-side projection of type (CollectionType(c, t), u) =&gt; CollectionType(c, u)."></a>
+                        <a href="ResultSetMapping.html" title="A client-side projection of type (CollectionType(c, t), u) =&gt; CollectionType(c, u).">ResultSetMapping</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RowNumber.html" title="The row_number window function"></a>
+                        <a href="RowNumber.html" title="The row_number window function">RowNumber</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ScalaBaseType$.html" title=""></a>
+                        <a class="class" href="ScalaBaseType.html" title=""></a>
+                        <a href="ScalaBaseType.html" title="">ScalaBaseType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ScalaNumericType.html" title=""></a>
+                        <a href="ScalaNumericType.html" title="">ScalaNumericType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ScalaOptionType.html" title=""></a>
+                        <a href="ScalaOptionType.html" title="">ScalaOptionType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="ScalaType.html" title="A Slick Type encoding of plain Scala types."></a>
+                        <a href="ScalaType.html" title="A Slick Type encoding of plain Scala types.">ScalaType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Select.html" title="An expression that selects a field in another expression."></a>
+                        <a href="Select.html" title="An expression that selects a field in another expression.">Select</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="SequenceNode.html" title="A node that represents an SQL sequence."></a>
+                        <a href="SequenceNode.html" title="A node that represents an SQL sequence.">SequenceNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="SimpleFilteredQuery.html" title="A FilteredQuery without a Symbol."></a>
+                        <a href="SimpleFilteredQuery.html" title="A FilteredQuery without a Symbol.">SimpleFilteredQuery</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="SimpleTableIdentitySymbol.html" title="Default implementation of TableIdentitySymbol"></a>
+                        <a href="SimpleTableIdentitySymbol.html" title="Default implementation of TableIdentitySymbol">SimpleTableIdentitySymbol</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="SimplyTypedNode.html" title="A Node which can be typed without access to its scope, and whose children can be typed independently of each other."></a>
+                        <a href="SimplyTypedNode.html" title="A Node which can be typed without access to its scope, and whose children can be typed independently of each other.">SimplyTypedNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="SortBy.html" title="A .sortBy call of type (CollectionType(c, t), _) =&gt; CollectionType(c, t)."></a>
+                        <a href="SortBy.html" title="A .sortBy call of type (CollectionType(c, t), _) =&gt; CollectionType(c, t).">SortBy</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="StructNode.html" title="An expression that represents a structure, i.e."></a>
+                        <a href="StructNode.html" title="An expression that represents a structure, i.e.">StructNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="StructType.html" title=""></a>
+                        <a href="StructType.html" title="">StructType</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Subquery$.html" title=""></a>
+                        <a class="class" href="Subquery.html" title="Forces a subquery to be created in mergeToComprehension if it occurs between two other collection-valued operations that would otherwise be fused, and the subquery condition is true."></a>
+                        <a href="Subquery.html" title="Forces a subquery to be created in mergeToComprehension if it occurs between two other collection-valued operations that would otherwise be fused, and the subquery condition is true.">Subquery</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="Symbol.html" title="A symbol which can be used in the AST."></a>
+                        <a href="Symbol.html" title="A symbol which can be used in the AST.">Symbol</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="SymbolNamer$.html" title=""></a>
+                        <a class="class" href="SymbolNamer.html" title="Provides names for symbols"></a>
+                        <a href="SymbolNamer.html" title="Provides names for symbols">SymbolNamer</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="TableExpansion.html" title="A table together with its expansion into columns."></a>
+                        <a href="TableExpansion.html" title="A table together with its expansion into columns.">TableExpansion</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="TableIdentitySymbol.html" title="A TypeSymbol which uniquely identifies a table type"></a>
+                        <a href="TableIdentitySymbol.html" title="A TypeSymbol which uniquely identifies a table type">TableIdentitySymbol</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="TableNode.html" title="A Node representing a database table."></a>
+                        <a href="TableNode.html" title="A Node representing a database table.">TableNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Take.html" title="A .take call."></a>
+                        <a href="Take.html" title="A .take call.">Take</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="TermSymbol.html" title="A symbol representing a variable"></a>
+                        <a href="TermSymbol.html" title="A symbol representing a variable">TermSymbol</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Type$.html" title=""></a>
+                        <a class="trait" href="Type.html" title="Super-trait for all types"></a>
+                        <a href="Type.html" title="Super-trait for all types">Type</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="TypeGenerator.html" title="A Node which introduces a NominalType."></a>
+                        <a href="TypeGenerator.html" title="A Node which introduces a NominalType.">TypeGenerator</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="TypeMapping.html" title="A client-side type mapping"></a>
+                        <a href="TypeMapping.html" title="A client-side type mapping">TypeMapping</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="TypeSymbol.html" title="The symbol of a nominal type"></a>
+                        <a href="TypeSymbol.html" title="The symbol of a nominal type">TypeSymbol</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="TypeUtil$.html" title=""></a>
+                        <a class="class" href="TypeUtil.html" title=""></a>
+                        <a href="TypeUtil.html" title="">TypeUtil</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="TypedCollectionTypeConstructor$.html" title=""></a>
+                        <a class="class" href="TypedCollectionTypeConstructor.html" title=""></a>
+                        <a href="TypedCollectionTypeConstructor.html" title="">TypedCollectionTypeConstructor</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="TypedType$.html" title=""></a>
+                        <a class="trait" href="TypedType.html" title="A Type that carries a Scala type argument"></a>
+                        <a href="TypedType.html" title="A Type that carries a Scala type argument">TypedType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="" title=""></a>
+                        <a href="" title="">UnaryNode</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="UnassignedType$.html" title="The standard type for freshly constructed nodes without an explicit type."></a>
+                        <a href="UnassignedType$.html" title="The standard type for freshly constructed nodes without an explicit type.">UnassignedType</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="Union.html" title="A union of type (CollectionType(c, t), CollectionType(_, t)) =&gt; CollectionType(c, t)."></a>
+                        <a href="Union.html" title="A union of type (CollectionType(c, t), CollectionType(_, t)) =&gt; CollectionType(c, t).">Union</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Util$.html" title="Utility methods for AST manipulation."></a>
+                        <a href="Util$.html" title="Utility methods for AST manipulation.">Util</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="trait type">
+      <div id="definition">
+        <div class="big-circle trait">t</div>
+        <p id="owner"><a href="../index.html" class="extype" name="slick">slick</a>.<a href="index.html" class="extype" name="slick.ast">ast</a></p>
+        <h1>UnaryNode<span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">UnaryNode</span><span class="result"> extends <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/slick/src/main/scala/slick/ast/Node.scala" target="_blank">Node.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><a href="Node.html" class="extype" name="slick.ast.Node">Node</a>, <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>, <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">
+              Known Subclasses
+            </span>
+            <div class="subClasses hiddenContent"><a href="CollectionCast.html" class="extype" name="slick.ast.CollectionCast">CollectionCast</a>, <a href="First.html" class="extype" name="slick.ast.First">First</a>, <a href="GetOrElse.html" class="extype" name="slick.ast.GetOrElse">GetOrElse</a>, <a href="OptionApply.html" class="extype" name="slick.ast.OptionApply">OptionApply</a>, <a href="Pure.html" class="extype" name="slick.ast.Pure">Pure</a>, <a href="Select.html" class="extype" name="slick.ast.Select">Select</a>, <a href="Subquery.html" class="extype" name="slick.ast.Subquery">Subquery</a>, <a href="TypeMapping.html" class="extype" name="slick.ast.TypeMapping">TypeMapping</a></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">
+                  Type Hierarchy
+                </span>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 786.00 155.00" height="155pt" width="786pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 151)" class="graph" id="page0,1_graph0"><polygon points="-4,4 -4,-151 782,-151 782,4 -4,4" stroke="transparent" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph1_0"><g id="a_this trait|graph1_0"><a xlink:title="slick.ast.UnaryNode (this trait)" xlink:href="#inheritance-diagram"><path d="M430.67,-86C430.67,-86 357.33,-86 357.33,-86 353.17,-86 349,-81.83 349,-77.67 349,-77.67 349,-69.33 349,-69.33 349,-65.17 353.17,-61 357.33,-61 357.33,-61 430.67,-61 430.67,-61 434.83,-61 439,-65.17 439,-69.33 439,-69.33 439,-77.67 439,-77.67 439,-81.83 434.83,-86 430.67,-86" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="359" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-71.1" x="380" text-anchor="start">UnaryNode</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="slick.ast.CollectionCast" xlink:href="CollectionCast.html#inheritance-diagram"><path d="M93.67,-25C93.67,-25 8.33,-25 8.33,-25 4.17,-25 0,-20.83 0,-16.67 0,-16.67 0,-8.33 0,-8.33 0,-4.17 4.17,0 8.33,0 8.33,0 93.67,0 93.67,0 97.83,0 102,-4.17 102,-8.33 102,-8.33 102,-16.67 102,-16.67 102,-20.83 97.83,-25 93.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="31" text-anchor="start">CollectionCast</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="CollectionCast is a subtype of UnaryNode"><path d="M341.76,-64.1C284.93,-54.88 191.41,-39.45 111,-25 108.08,-24.47 105.08,-23.93 102.05,-23.37" stroke="#d4d4d4" fill="none"></path><polygon points="341.55,-66.55 348.85,-65.25 342.33,-61.71 341.55,-66.55" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="slick.ast.First" xlink:href="First.html#inheritance-diagram"><path d="M171.67,-25C171.67,-25 128.33,-25 128.33,-25 124.17,-25 120,-20.83 120,-16.67 120,-16.67 120,-8.33 120,-8.33 120,-4.17 124.17,0 128.33,0 128.33,0 171.67,0 171.67,0 175.83,0 180,-4.17 180,-8.33 180,-8.33 180,-16.67 180,-16.67 180,-20.83 175.83,-25 171.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="130" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="151" text-anchor="start">First</text></a></g></g><!-- node0&#45;&gt;node2 --><g class="edge inheritance" id="graph1_0_2"><g id="a_inheritance|graph1_0_2"><a xlink:title="First is a subtype of UnaryNode"><path d="M341.59,-61.25C300.05,-52.12 240.6,-38.57 189,-25 186.13,-24.25 183.16,-23.43 180.18,-22.59" stroke="#d4d4d4" fill="none"></path><polygon points="341.26,-63.69 348.62,-62.79 342.31,-58.9 341.26,-63.69" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node class" id="graph1_3"><g id="a_class|graph1_3"><a xlink:title="slick.ast.GetOrElse" xlink:href="GetOrElse.html#inheritance-diagram"><path d="M273.67,-25C273.67,-25 206.33,-25 206.33,-25 202.17,-25 198,-20.83 198,-16.67 198,-16.67 198,-8.33 198,-8.33 198,-4.17 202.17,0 206.33,0 206.33,0 273.67,0 273.67,0 277.83,0 282,-4.17 282,-8.33 282,-8.33 282,-16.67 282,-16.67 282,-20.83 277.83,-25 273.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="208" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="229" text-anchor="start">GetOrElse</text></a></g></g><!-- node0&#45;&gt;node3 --><g class="edge inheritance" id="graph1_0_3"><g id="a_inheritance|graph1_0_3"><a xlink:title="GetOrElse is a subtype of UnaryNode"><path d="M357.39,-58.47C330.79,-48.28 295.23,-34.66 270.25,-25.09" stroke="#d4d4d4" fill="none"></path><polygon points="356.53,-60.77 363.94,-60.98 358.28,-56.19 356.53,-60.77" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node class" id="graph1_4"><g id="a_class|graph1_4"><a xlink:title="slick.ast.OptionApply" xlink:href="OptionApply.html#inheritance-diagram"><path d="M384.17,-25C384.17,-25 307.83,-25 307.83,-25 303.67,-25 299.5,-20.83 299.5,-16.67 299.5,-16.67 299.5,-8.33 299.5,-8.33 299.5,-4.17 303.67,0 307.83,0 307.83,0 384.17,0 384.17,0 388.33,0 392.5,-4.17 392.5,-8.33 392.5,-8.33 392.5,-16.67 392.5,-16.67 392.5,-20.83 388.33,-25 384.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="310" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="331" text-anchor="start">OptionApply</text></a></g></g><!-- node0&#45;&gt;node4 --><g class="edge inheritance" id="graph1_0_4"><g id="a_inheritance|graph1_0_4"><a xlink:title="OptionApply is a subtype of UnaryNode"><path d="M379.88,-55.14C372.01,-45.47 362.43,-33.69 355.46,-25.13" stroke="#d4d4d4" fill="none"></path><polygon points="378.2,-56.96 384.52,-60.84 382,-53.87 378.2,-56.96" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node class" id="graph1_5"><g id="a_class|graph1_5"><a xlink:title="slick.ast.Pure" xlink:href="Pure.html#inheritance-diagram"><path d="M464.67,-25C464.67,-25 419.33,-25 419.33,-25 415.17,-25 411,-20.83 411,-16.67 411,-16.67 411,-8.33 411,-8.33 411,-4.17 415.17,0 419.33,0 419.33,0 464.67,0 464.67,0 468.83,0 473,-4.17 473,-8.33 473,-8.33 473,-16.67 473,-16.67 473,-20.83 468.83,-25 464.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="421" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="442" text-anchor="start">Pure</text></a></g></g><!-- node0&#45;&gt;node5 --><g class="edge inheritance" id="graph1_0_5"><g id="a_inheritance|graph1_0_5"><a xlink:title="Pure is a subtype of UnaryNode"><path d="M408.12,-55.14C415.99,-45.47 425.57,-33.69 432.54,-25.13" stroke="#d4d4d4" fill="none"></path><polygon points="406,-53.87 403.48,-60.84 409.8,-56.96 406,-53.87" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node6 --><g class="node class" id="graph1_6"><g id="a_class|graph1_6"><a xlink:title="slick.ast.Select" xlink:href="Select.html#inheritance-diagram"><path d="M552.17,-25C552.17,-25 499.83,-25 499.83,-25 495.67,-25 491.5,-20.83 491.5,-16.67 491.5,-16.67 491.5,-8.33 491.5,-8.33 491.5,-4.17 495.67,0 499.83,0 499.83,0 552.17,0 552.17,0 556.33,0 560.5,-4.17 560.5,-8.33 560.5,-8.33 560.5,-16.67 560.5,-16.67 560.5,-20.83 556.33,-25 552.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="502" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="523" text-anchor="start">Select</text></a></g></g><!-- node0&#45;&gt;node6 --><g class="edge inheritance" id="graph1_0_6"><g id="a_inheritance|graph1_0_6"><a xlink:title="Select is a subtype of UnaryNode"><path d="M426.24,-58.09C448.85,-47.98 478.71,-34.64 499.85,-25.19" stroke="#d4d4d4" fill="none"></path><polygon points="425.16,-55.89 419.76,-60.98 427.15,-60.36 425.16,-55.89" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node7 --><g class="node class" id="graph1_7"><g id="a_class|graph1_7"><a xlink:title="slick.ast.Subquery" xlink:href="Subquery.html#inheritance-diagram"><path d="M653.17,-25C653.17,-25 586.83,-25 586.83,-25 582.67,-25 578.5,-20.83 578.5,-16.67 578.5,-16.67 578.5,-8.33 578.5,-8.33 578.5,-4.17 582.67,0 586.83,0 586.83,0 653.17,0 653.17,0 657.33,0 661.5,-4.17 661.5,-8.33 661.5,-8.33 661.5,-16.67 661.5,-16.67 661.5,-20.83 657.33,-25 653.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="589" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="610" text-anchor="start">Subquery</text></a></g></g><!-- node0&#45;&gt;node7 --><g class="edge inheritance" id="graph1_0_7"><g id="a_inheritance|graph1_0_7"><a xlink:title="Subquery is a subtype of UnaryNode"><path d="M444.94,-59.2C485.18,-48.7 540.65,-34.21 578.29,-24.39" stroke="#d4d4d4" fill="none"></path><polygon points="444.27,-56.85 438.11,-60.98 445.5,-61.59 444.27,-56.85" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node8 --><g class="node class" id="graph1_8"><g id="a_class|graph1_8"><a xlink:title="slick.ast.TypeMapping" xlink:href="TypeMapping.html#inheritance-diagram"><path d="M769.67,-25C769.67,-25 688.33,-25 688.33,-25 684.17,-25 680,-20.83 680,-16.67 680,-16.67 680,-8.33 680,-8.33 680,-4.17 684.17,0 688.33,0 688.33,0 769.67,0 769.67,0 773.83,0 778,-4.17 778,-8.33 778,-8.33 778,-16.67 778,-16.67 778,-20.83 773.83,-25 769.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="690" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="711" text-anchor="start">TypeMapping</text></a></g></g><!-- node0&#45;&gt;node8 --><g class="edge inheritance" id="graph1_0_8"><g id="a_inheritance|graph1_0_8"><a xlink:title="TypeMapping is a subtype of UnaryNode"><path d="M446.12,-63.98C501.85,-54.77 592.78,-39.46 671,-25 673.93,-24.46 676.94,-23.89 679.97,-23.31" stroke="#d4d4d4" fill="none"></path><polygon points="445.67,-61.57 439.16,-65.12 446.47,-66.4 445.67,-61.57" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node9 --><g class="node trait" id="graph1_9"><g id="a_trait|graph1_9"><a xlink:title="slick.ast.Node" xlink:href="Node.html#inheritance-diagram"><path d="M418.67,-147C418.67,-147 369.33,-147 369.33,-147 365.17,-147 361,-142.83 361,-138.67 361,-138.67 361,-130.33 361,-130.33 361,-126.17 365.17,-122 369.33,-122 369.33,-122 418.67,-122 418.67,-122 422.83,-122 427,-126.17 427,-130.33 427,-130.33 427,-138.67 427,-138.67 427,-142.83 422.83,-147 418.67,-147" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-141.5" x="371" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-132.1" x="392" text-anchor="start">Node</text></a></g></g><!-- node9&#45;&gt;node0 --><g class="edge inheritance" id="graph1_9_0"><g id="a_inheritance|graph1_9_0"><a xlink:title="UnaryNode is a subtype of Node"><path d="M394,-114.76C394,-105.37 394,-94.29 394,-86.13" stroke="#d4d4d4" fill="none"></path><polygon points="391.55,-114.84 394,-121.84 396.45,-114.84 391.55,-114.84" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+                <div id="diagram-controls" class="hiddenContent">
+                  <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button title="Toggle full-screen" id="diagram-fs" class="diagram-btn to-full"><i class="material-icons"></i></button>
+                </div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="slick.ast.UnaryNode"><span>UnaryNode</span></li><li class="in" name="slick.ast.Node"><span>Node</span></li><li class="in" name="slick.util.Dumpable"><span>Dumpable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+                  <span class="filtertype">Implicitly<br />
+                  </span>
+                  <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.ast.Node.Self" visbl="pub" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="Self&gt;:Node.this.type&lt;:slick.ast.Node"></a><a id="Self:Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#Self&gt;:Node.this.type&lt;:slick.ast.Node" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Self</span><span class="result"> &gt;: <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>.this.type &lt;: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="slick.ast.UnaryNode#child" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="child:slick.ast.Node"></a><a id="child:Node"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#child:slick.ast.Node" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">child</span><span class="result">: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>
+      </span>
+      
+      
+    </li><li name="slick.ast.UnaryNode#rebuild" visbl="prt" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="rebuild(child:slick.ast.Node):UnaryNode.this.Self"></a><a id="rebuild(Node):Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#rebuild(child:slick.ast.Node):UnaryNode.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rebuild</span><span class="params">(<span name="child">child: <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd></dl></div>
+    </li><li name="slick.ast.Node#withInferredType" visbl="prt" class="indented0 " data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="withInferredType(scope:slick.ast.Type.Scope,typeChildren:Boolean):Node.this.Self"></a><a id="withInferredType(Scope,Boolean):Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#withInferredType(scope:slick.ast.Type.Scope,typeChildren:Boolean):Node.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withInferredType</span><span class="params">(<span name="scope">scope: <a href="Type$.html#Scope=Map[slick.ast.TermSymbol,slick.ast.Type]" class="extmbr" name="slick.ast.Type.Scope">Scope</a></span>, <span name="typeChildren">typeChildren: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a><a id="+(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#+(other:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(UnaryNode,B)"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.ast.Node#:@" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id=":@(newType:slick.ast.Type):Node.this.Self"></a><a id=":@(Type):Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#:@(newType:slick.ast.Type):Node.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $colon$at" class="name">:@</span><span class="params">(<span name="newType">newType: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Return this Node with a Type assigned (if no other type has been seen for it yet) or a typed copy.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with a Type assigned (if no other type has been seen for it yet) or a typed copy.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.ast.UnaryNode#buildCopy" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="buildCopy:UnaryNode.this.Self"></a><a id="buildCopy:Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#buildCopy:UnaryNode.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">buildCopy</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Build a copy of this node with the current children.</p><div class="fullcomment"><div class="comment cmt"><p>Build a copy of this node with the current children.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.Node#childNames" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="childNames:Iterable[String]"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#childNames:Iterable[String]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">childNames</span><span class="result">: <a href="../../scala/index.html#Iterable[+A]=Iterable[A]" class="extmbr" name="scala.Iterable">Iterable</a>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Names for the child nodes to show in AST dumps.</p><div class="fullcomment"><div class="comment cmt"><p>Names for the child nodes to show in AST dumps. Defaults to a numbered sequence starting at 0
+but can be overridden by subclasses to produce more suitable names.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.UnaryNode#children" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="children:slick.util.ConstArray[slick.ast.Node]"></a><a id="children:ConstArray[Node]"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#children:slick.util.ConstArray[slick.ast.Node]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">children</span><span class="result">: <a href="../util/ConstArray.html" class="extype" name="slick.util.ConstArray">ConstArray</a>[<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">All child nodes of this node.</p><div class="fullcomment"><div class="comment cmt"><p>All child nodes of this node. Must be implemented by subclasses.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.UnaryNode#childrenForeach" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="childrenForeach[R](f:slick.ast.Node=&gt;R):Unit"></a><a id="childrenForeach[R]((Node)⇒R):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#childrenForeach[R](f:slick.ast.Node=&gt;R):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">childrenForeach</span><span class="tparams">[<span name="R">R</span>]</span><span class="params">(<span name="f">f: (<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>) ⇒ <span class="extype" name="slick.ast.UnaryNode.childrenForeach.R">R</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Apply a side-effecting function to all direct children from left to right.</p><div class="fullcomment"><div class="comment cmt"><p>Apply a side-effecting function to all direct children from left to right. Note that</p><pre>n.childrenForeach(f)</pre><p> is equivalent to </p><pre>n.children.foreach(f)</pre><p> but can be
+implemented more efficiently in <code>Node</code> subclasses.
+ n.children.foreach(f) 
+}}}
+implemented more efficiently in <code>Node</code> subclasses.
+ n.childrenForeach(f) 
+}}}
+implemented more efficiently in <code>Node</code> subclasses.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((UnaryNode)⇒Boolean,⇒Any):UnaryNode"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((UnaryNode)⇒Boolean):UnaryNode"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):UnaryNode"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):UnaryNode"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#ensuring(cond:Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#formatted(fmtstr:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.ast.Node#getDumpInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getDumpInfo:slick.util.DumpInfo"></a><a id="getDumpInfo:DumpInfo"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#getDumpInfo:slick.util.DumpInfo" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getDumpInfo</span><span class="result">: <a href="../util/DumpInfo.html" class="extype" name="slick.util.DumpInfo">DumpInfo</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Return the name, main info, attribute info and named children</p><div class="fullcomment"><div class="comment cmt"><p>Return the name, main info, attribute info and named children</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a> → <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></dd></dl></div>
+    </li><li name="slick.ast.Node#hasType" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hasType:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#hasType:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hasType</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Check if this node has a type without marking the type as seen.</p><div class="fullcomment"><div class="comment cmt"><p>Check if this node has a type without marking the type as seen.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.ast.Node#infer" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="infer(scope:slick.ast.Type.Scope,typeChildren:Boolean):Node.this.Self"></a><a id="infer(Scope,Boolean):Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#infer(scope:slick.ast.Type.Scope,typeChildren:Boolean):Node.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">infer</span><span class="params">(<span name="scope">scope: <a href="Type$.html#Scope=Map[slick.ast.TermSymbol,slick.ast.Type]" class="extmbr" name="slick.ast.Type.Scope">Scope</a> = <span class="symbol"><span class="name"><a href="../../scala/index.html">Map.empty</a></span></span></span>, <span name="typeChildren">typeChildren: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Rebuild this node and all children with their computed type.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node and all children with their computed type. If this node already has a type,
+the children are only type-checked again if <code><code>typeChildren</code></code> is true. if <code><code>retype</code></code> is also
+true, the existing type of this node is replaced. If this node does not yet have a type, the
+types of all children are computed first.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.ast.UnaryNode#mapChildren" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="mapChildren(f:slick.ast.Node=&gt;slick.ast.Node,keepType:Boolean):UnaryNode.this.Self"></a><a id="mapChildren((Node)⇒Node,Boolean):Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#mapChildren(f:slick.ast.Node=&gt;slick.ast.Node,keepType:Boolean):UnaryNode.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">mapChildren</span><span class="params">(<span name="f">f: (<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>) ⇒ <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></span>, <span name="keepType">keepType: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Apply a mapping function to all children of this node and recreate the node with the new
+children.</p><div class="fullcomment"><div class="comment cmt"><p>Apply a mapping function to all children of this node and recreate the node with the new
+children. If all new children are identical to the old ones, this node is returned. If
+<code><code>keepType</code></code> is true, the type of this node is kept even when the children have changed.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.ast.Node#nodeType" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="nodeType:slick.ast.Type"></a><a id="nodeType:Type"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#nodeType:slick.ast.Type" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">nodeType</span><span class="result">: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">The current type of this node.</p><div class="fullcomment"><div class="comment cmt"><p>The current type of this node.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.ast.Node#peekType" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="peekType:slick.ast.Type"></a><a id="peekType:Type"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#peekType:slick.ast.Type" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">peekType</span><span class="result">: <a href="Type.html" class="extype" name="slick.ast.Type">Type</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Get the current type of this node for debug output without marking it as seen.</p><div class="fullcomment"><div class="comment cmt"><p>Get the current type of this node for debug output without marking it as seen.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="slick.ast.UnaryNode#rebuild" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="rebuild(ch:slick.util.ConstArray[slick.ast.Node]):UnaryNode.this.Self"></a><a id="rebuild(ConstArray[Node]):Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#rebuild(ch:slick.util.ConstArray[slick.ast.Node]):UnaryNode.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rebuild</span><span class="params">(<span name="ch">ch: <a href="../util/ConstArray.html" class="extype" name="slick.util.ConstArray">ConstArray</a>[<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>]</span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Rebuild this node with a new list of children.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node with a new list of children. Implementations of this method must not reuse
+the current node. This method always returns a fresh copy.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd><dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> → <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.ast.Node#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="slick.ast.Node#untyped" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="untyped:Node.this.Self"></a><a id="untyped:Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#untyped:Node.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">untyped</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Return this Node with no Type assigned (if it has not yet been observed) or an untyped copy.</p><div class="fullcomment"><div class="comment cmt"><p>Return this Node with no Type assigned (if it has not yet been observed) or an untyped copy.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.ast.Node#withChildren" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="withChildren(ch2:slick.util.ConstArray[slick.ast.Node]):Node.this.Self"></a><a id="withChildren(ConstArray[Node]):Self"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#withChildren(ch2:slick.util.ConstArray[slick.ast.Node]):Node.this.Self" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">withChildren</span><span class="params">(<span name="ch2">ch2: <a href="../util/ConstArray.html" class="extype" name="slick.util.ConstArray">ConstArray</a>[<a href="Node.html" class="extype" name="slick.ast.Node">Node</a>]</span>)</span><span class="result">: <a href="#Self&gt;:Node.this.type&lt;:slick.ast.Node" class="extmbr" name="slick.ast.UnaryNode.Self">Self</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Rebuild this node with new child nodes unless all children are identical to the current ones,
+in which case this node is returned.</p><div class="fullcomment"><div class="comment cmt"><p>Rebuild this node with new child nodes unless all children are identical to the current ones,
+in which case this node is returned.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Node.html" class="extype" name="slick.ast.Node">Node</a></dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(UnaryNode,B)"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#→[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li>
+              </ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/ast/UnaryNode.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: ">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+                <span class="name">@Deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.ast.Node">
+              <h3>Inherited from <a href="Node.html" class="extype" name="slick.ast.Node">Node</a></h3>
+            </div><div class="parent" name="slick.util.Dumpable">
+              <h3>Inherited from <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.ast.UnaryNode">UnaryNode</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html class="no-js" lang="eng" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started</title>
+    <link rel="stylesheet" href="theme/css/foundation.min.css">
+    <link rel="stylesheet" href="theme/css/app.css">
+     <link rel="icon" href="favicon.ico" /> 
+     <link rel="stylesheet" href="theme/highlight.js/styles/github-gist.css">  <link rel="stylesheet" href="theme/css/foundation-icons.custom.css"> 
+    
+     <link rel="prev" href="supported-databases.html"  title="Supported Databases"  />  <link rel="edit" href="https://github.com/slick/slick/blob/master/doc/src/gettingstarted.md"  />  <link rel="next" href="concepts.html"  title="Core Concepts"  />  <link rel="start" href="introduction.html"  title="Introduction"  />  <link rel="toc" href="index.html"  title="Slick"  />  <link rel="index" href="genindex.html"  title="Index"  /> 
+  </head>
+  <body>
+    <div class="expanded row">
+      <div class="small-12 medium-12 large-12 columns align-self-top">
+        <div class="row">
+          
+          <header class="large-12 columns align-self-top a_header">
+            <div class="row">
+              <div class="large-12 columns a_limited top-bar">
+                <div class="top-bar-left">
+                  <p><img src="slick-logo.png" alt="Slick" /> <a class="a_vnav2" data-toggle="_id3">3.4.0-SNAPSHOT</a><span class="dropdown-pane a_vnav2_pane" id="_id3"><span>Loading…</span></span> manual</p>
+
+                </div>
+                <div class="top-bar-right align-right row">
+                  
+                  
+                    <form action="site-search.html" method="get" class="align-right a_search">
+                      <input name="q" type="search"  placeholder="Search
+" >
+                      <button><img alt="&#1F50D;" src="theme/images/search.svg" /></button>
+                    </form>
+                  
+                </div>
+              </div>
+            </div>
+          </header>
+          
+          <div class="small-12 medium-12 large-12 columns align-self-top a_limited a_main">
+            <div class="row">
+              
+              <main class="columns large-order-2 sections" id="_sections">
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_top">
+    
+      
+        <li><a href="supported-databases.html"  title="Supported Databases" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="concepts.html"  title="Core Concepts" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/gettingstarted.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+                
+                <h1 id="getting-started" class="a_section" data-magellan-target="getting-started">Getting Started<a class="a_hlink" href="#getting-started"></a></h1>
+<p>The easiest way to get started is with a working sample application. The following samples are part of the official
+Slick distribution. You can either clone Slick from github or download pre-packaged zip files with an individual
+sample plus an <a href="http://www.scala-sbt.org/">sbt</a> launcher.</p>
+<ul>
+<li>
+<p>To learn the basics of Slick, start with the <strong>Hello Slick</strong> sample (<a href="https://github.com/slick/slick/blob/v3.3.2/samples/hello-slick">github</a>,
+<a href="https://example.lightbend.com/v1/download/hello-slick-3.4.x">zip</a>). This is the one we are using in this chapter.</p>
+</li>
+<li>
+<p>The <strong>Plain SQL Queries</strong> sample (<a href="https://github.com/slick/slick/blob/v3.3.2/samples/slick-plainsql">github</a>, <a href="https://example.lightbend.com/v1/download/slick-plainsql-3.4.x">zip</a>) shows you how
+to do SQL queries with Slick. See <a href="sql.html">Plain SQL Queries</a> for details.</p>
+</li>
+<li>
+<p>The <strong>Multi-DB Patterns</strong> sample (<a href="https://github.com/slick/slick/blob/v3.3.2/samples/slick-multidb">github</a>, <a href="https://example.lightbend.com/v1/download/slick-multidb-3.4.x">zip</a>) shows you how
+to write Slick applications that can use different database systems and how to use custom database functions in
+Slick queries.</p>
+</li>
+<li>
+<p>The <strong>TestKit</strong> sample (<a href="https://github.com/slick/slick/blob/v3.3.2/samples/slick-testkit-example">github</a>, <a href="https://example.lightbend.com/v1/download/slick-testkit-example-3.4.x">zip</a>) shows you
+how to use Slick TestKit to test your own database profiles.</p>
+</li>
+</ul>
+<h2 id="hello-slick" class="a_section" data-magellan-target="hello-slick">Hello Slick<a class="a_hlink" href="#hello-slick"></a></h2>
+<p>The <em>Hello Slick</em> sample contains simple Scala application, <code class="hljs">HelloSlick.scala</code>, that does basic FRM operations with
+Slick. You can run it out of the box with <code class="hljs">sbt run</code>. To make things simple this project uses an embedded in-memory
+<a href="http://www.h2database.com/">H2</a> database, so no database installation or configuration is required.</p>
+<p>The file <code class="hljs">TableSuite.scala</code> contains ScalaTest tests which perform some basic integration tests. You can run these
+tests with <code class="hljs">sbt test</code>.</p>
+<blockquote class="note">
+<p>Note: The example code in this app has intentionally verbose type information. In normal applications type inference
+is used more extensively but to assist with learning the type information was included.</p>
+</blockquote>
+<h2 id="adding-slick-to-your-project" class="a_section" data-magellan-target="adding-slick-to-your-project">Adding Slick to Your Project<a class="a_hlink" href="#adding-slick-to-your-project"></a></h2>
+<p>To include Slick in an existing project use the library published on Maven Central. Add the following to your
+build definition (<code class="hljs">build.sbt</code> for <a href="http://www.scala-sbt.org/">sbt</a> or <code class="hljs">pom.xml</code> for Maven):</p>
+<ul class="tabs" data-tabs id="_id0"><li class="tabs-title is-active"><a href="#_id1" aria-selected="true">sbt</a></li><li class="tabs-title"><a href="#_id2">Maven</a></li></ul>
+<div class="tabs-content" data-tabs-content="_id0"><div class="tabs-panel is-active" id="_id1">
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala">null ++= <span class="hljs-type">Seq</span>(
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick"</span> % <span class="hljs-string">"3.4.0-SNAPSHOT"</span>,
+  <span class="hljs-string">"org.slf4j"</span> % <span class="hljs-string">"slf4j-nop"</span> % <span class="hljs-string">"1.7.26"</span>,
+  <span class="hljs-string">"com.typesafe.slick"</span> %% <span class="hljs-string">"slick-hikaricp"</span> % <span class="hljs-string">"3.4.0-SNAPSHOT"</span>
+)
+</code></pre>
+</div></div>
+</div><div class="tabs-panel" id="_id2">
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-xml"><span class="hljs-comment">&lt;!-- Make sure to use the correct Scala version suffix "_2.12" or "_2.13"
+     to match your project's Scala version. --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.typesafe.slick<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slick_2.13<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.4.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.slf4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slf4j-nop<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.7.26<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.typesafe.slick<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>slick-hikaricp_2.13<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.4.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+</div></div>
+</div></div>
+<p>Slick uses <a href="http://www.slf4j.org/">SLF4J</a> for its own debug logging so you also need to add an SLF4J
+implementation. <em>Hello Slick</em> uses <code class="hljs">slf4j-nop</code> to disable logging. You have
+to replace this with a real logging framework like <a href="http://logback.qos.ch/">Logback</a> if you want to see
+log output.</p>
+<p>The <a href="http://www.reactive-streams.org/">Reactive Streams</a> API is pulled in automatically as a transitive dependency.</p>
+<p>If you want to use Slick’s connection pool support for <a href="http://brettwooldridge.github.io/HikariCP/">HikariCP</a>, you need to add
+the <code class="hljs">slick-hikaricp</code> module as a dependency as shown above. It will automatically
+provide a compatible version of HikariCP as a transitive dependency. Otherwise, you
+might need to disable connection pooling or specify a third-party connection pool.</p>
+<h2 id="quick-introduction" class="a_section" data-magellan-target="quick-introduction">Quick Introduction<a class="a_hlink" href="#quick-introduction"></a></h2>
+<p>To use Slick you first need to import the API for the database you will be using, like:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Use H2Profile to connect to an H2 database</span>
+<span class="hljs-keyword">import</span> slick.jdbc.<span class="hljs-type">H2Profile</span>.api._
+
+<span class="hljs-keyword">import</span> scala.concurrent.<span class="hljs-type">ExecutionContext</span>.<span class="hljs-type">Implicits</span>.global</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L4-L7" class="a_sourcelink">FirstExample.scala</a></div></div>
+<p>Since we are using <a href="http://www.h2database.com/">H2</a> as our database system, we need to import features
+from Slick‘s <code class="hljs">H2Profile</code>. A profile’s <code class="hljs">api</code> object contains all commonly
+needed imports from the profile and other parts of Slick such as
+<a href="database.html">database handling</a>.</p>
+<p>Slick’s API is fully asynchronous and runs database calls in a separate thread pool. For running
+user code in composition of <code class="hljs">DBIOAction</code> and <code class="hljs">Future</code> values, we import the global
+<code class="hljs">ExecutionContext</code>. When using Slick as part of a larger application (e.g. with <a href="https://playframework.com/">Play</a> or
+<a href="http://akka.io/">Akka</a>) the framework may provide a better alternative to this default <code class="hljs">ExecutionContext</code>.</p>
+<h3 id="database-configuration" class="a_section" data-magellan-target="database-configuration">Database Configuration<a class="a_hlink" href="#database-configuration"></a></h3>
+<p>In the body of the application we create a <code class="hljs">Database</code> object which specifies how to connect to a
+database. In most cases you will want to configure database connections with <a href="https://github.com/typesafehub/config">Typesafe Config</a> in
+your <code class="hljs">application.conf</code>, which is also used by <a href="https://playframework.com/">Play</a> and <a href="http://akka.io/">Akka</a> for their configuration:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-yaml">h2mem1 = {
+  url = <span class="hljs-string">"jdbc:h2:mem:test1"</span>
+  driver = org.h2.Driver
+  connectionPool = disabled
+  keepAliveConnection = <span class="hljs-literal">true</span>
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/application.conf#L2-L7" class="a_sourcelink">application.conf</a></div></div>
+<p>For the purpose of this example we disable the connection pool (there is no point in using one for
+an embedded in-memory database). When you use a real, external database server, the connection pool provides
+improved performance and resilience.</p>
+<p>The <code class="hljs">keepAliveConnection</code> option (which is only available without a connection pool) keeps an extra connection
+open for the lifetime of the <code class="hljs">Database</code> object in the application. This ensures that the
+database does not get dropped while we are using it.</p>
+<p><em>Hello Slick</em> is a standalone command-line application, not running inside of a container which takes care of
+resource management, so we have to do it ourselves. Since all database calls in Slick are asynchronous, we are
+going to compose Futures throughout the app, but eventually we have to wait for the result. This gives us the
+following scaffolding:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> db = <span class="hljs-type">Database</span>.forConfig(<span class="hljs-string">"h2mem1"</span>)
+<span class="hljs-keyword">try</span> {
+  <span class="hljs-comment">// val resultFuture: Future[_] = { ... }</span>
+  <span class="hljs-type">Await</span>.result(resultFuture, <span class="hljs-type">Duration</span>.<span class="hljs-type">Inf</span>)
+  lines.foreach(<span class="hljs-type">Predef</span>.println _)
+} <span class="hljs-keyword">finally</span> db.close</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L53-L155" class="a_sourcelink">FirstExample.scala</a></div></div>
+<blockquote class="note">
+<p>Note: A <code class="hljs">Database</code> object usually manages a thread pool and a connection pool. You should always
+shut it down properly when it is no longer needed (unless the JVM process terminates anyway).
+Do not create a new <code class="hljs">Database</code> for every database operation. A single instance is meant to be kept
+alive for the entire lifetime your your application.</p>
+</blockquote>
+<p>If you are not familiar with asynchronous, Future-based programming Scala, you can learn more about
+<a href="http://docs.scala-lang.org/overviews/core/futures.html">Futures and Promises</a> in the Scala documentation.</p>
+<h3 id="schema" class="a_section" data-magellan-target="schema">Schema<a class="a_hlink" href="#schema"></a></h3>
+<p>Before we can write Slick queries, we need to describe a database schema with <code class="hljs">Table</code> row classes
+and <code class="hljs">TableQuery</code> values for our tables. You can either use the <a href="code-generation.html">code generator</a>
+to automatically create them for your database schema or you can write them by hand:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Definition of the SUPPLIERS table</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Suppliers</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">Int</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>, <span class="hljs-type">String</span>)](<span class="hljs-params">tag, "<span class="hljs-type">SUPPLIERS</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"SUP_ID"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>) <span class="hljs-comment">// This is the primary key column</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"SUP_NAME"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">street</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"STREET"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">city</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"CITY"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">state</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"STATE"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">zip</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"ZIP"</span>)
+  <span class="hljs-comment">// Every table needs a * projection with the same type as the table's type parameter</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (id, name, street, city, state, zip)
+}
+<span class="hljs-keyword">val</span> suppliers = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Suppliers</span>]
+
+<span class="hljs-comment">// Definition of the COFFEES table</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Coffees</span>(<span class="hljs-params">tag: <span class="hljs-type">Tag</span></span>) <span class="hljs-keyword">extends</span> <span class="hljs-title">Table</span>[(<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Double</span>, <span class="hljs-type">Int</span>, <span class="hljs-type">Int</span>)](<span class="hljs-params">tag, "<span class="hljs-type">COFFEES</span>"</span>) </span>{
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">name</span> </span>= column[<span class="hljs-type">String</span>](<span class="hljs-string">"COF_NAME"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">supID</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"SUP_ID"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">price</span> </span>= column[<span class="hljs-type">Double</span>](<span class="hljs-string">"PRICE"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sales</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"SALES"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">total</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"TOTAL"</span>)
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (name, supID, price, sales, total)
+  <span class="hljs-comment">// A reified foreign key relation that can be navigated to create a join</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">supplier</span> </span>= foreignKey(<span class="hljs-string">"SUP_FK"</span>, supID, suppliers)(_.id)
+}
+<span class="hljs-keyword">val</span> coffees = <span class="hljs-type">TableQuery</span>[<span class="hljs-type">Coffees</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L24-L48" class="a_sourcelink">FirstExample.scala</a></div></div>
+<p>All columns get a name (usually in camel case for Scala and upper case with underscores for SQL) and a
+Scala type (from which the SQL type can be derived automatically). The table object also needs a Scala
+name, SQL name and type. The type argument of the table must match the type of the special <code class="hljs">*</code> projection.
+In simple cases this is a tuple of all columns but more complex mappings are possible.</p>
+<p>The <code class="hljs">foreignKey</code> definition in the <code class="hljs">coffees</code> table ensures that the <code class="hljs">supID</code> field can only contain values
+for which a corresponding <code class="hljs">id</code> exists in the <code class="hljs">suppliers</code> table, thus creating an <em>n to one</em> relationship:
+A <code class="hljs">Coffees</code> row points to exactly one <code class="hljs">Suppliers</code> row but any number of coffees can point to the same
+supplier. This constraint is enforced at the database level.</p>
+<h3 id="populating-the-database" class="a_section" data-magellan-target="populating-the-database">Populating the Database<a class="a_hlink" href="#populating-the-database"></a></h3>
+<p>The connection to the embedded H2 database engine provides us with an empty database. Before we can
+execute queries, we need to create the database schema (consisting of the <code class="hljs">coffees</code> and <code class="hljs">suppliers</code> tables)
+and insert some test data:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> setup = <span class="hljs-type">DBIO</span>.seq(
+  <span class="hljs-comment">// Create the tables, including primary and foreign keys</span>
+  (suppliers.schema ++ coffees.schema).create,
+
+  <span class="hljs-comment">// Insert some suppliers</span>
+  suppliers += (<span class="hljs-number">101</span>, <span class="hljs-string">"Acme, Inc."</span>,      <span class="hljs-string">"99 Market Street"</span>, <span class="hljs-string">"Groundsville"</span>, <span class="hljs-string">"CA"</span>, <span class="hljs-string">"95199"</span>),
+  suppliers += ( <span class="hljs-number">49</span>, <span class="hljs-string">"Superior Coffee"</span>, <span class="hljs-string">"1 Party Place"</span>,    <span class="hljs-string">"Mendocino"</span>,    <span class="hljs-string">"CA"</span>, <span class="hljs-string">"95460"</span>),
+  suppliers += (<span class="hljs-number">150</span>, <span class="hljs-string">"The High Ground"</span>, <span class="hljs-string">"100 Coffee Lane"</span>,  <span class="hljs-string">"Meadows"</span>,      <span class="hljs-string">"CA"</span>, <span class="hljs-string">"93966"</span>),
+  <span class="hljs-comment">// Equivalent SQL code:</span>
+  <span class="hljs-comment">// insert into SUPPLIERS(SUP_ID, SUP_NAME, STREET, CITY, STATE, ZIP) values (?,?,?,?,?,?)</span>
+
+  <span class="hljs-comment">// Insert some coffees (using JDBC's batch insert feature, if supported by the DB)</span>
+  coffees ++= <span class="hljs-type">Seq</span>(
+    (<span class="hljs-string">"Colombian"</span>,         <span class="hljs-number">101</span>, <span class="hljs-number">7.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+    (<span class="hljs-string">"French_Roast"</span>,       <span class="hljs-number">49</span>, <span class="hljs-number">8.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+    (<span class="hljs-string">"Espresso"</span>,          <span class="hljs-number">150</span>, <span class="hljs-number">9.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+    (<span class="hljs-string">"Colombian_Decaf"</span>,   <span class="hljs-number">101</span>, <span class="hljs-number">8.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+    (<span class="hljs-string">"French_Roast_Decaf"</span>, <span class="hljs-number">49</span>, <span class="hljs-number">9.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+  )
+  <span class="hljs-comment">// Equivalent SQL code:</span>
+  <span class="hljs-comment">// insert into COFFEES(COF_NAME, SUP_ID, PRICE, SALES, TOTAL) values (?,?,?,?,?)</span>
+)
+
+<span class="hljs-keyword">val</span> setupFuture = db.run(setup)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L59-L82" class="a_sourcelink">FirstExample.scala</a></div></div>
+<p>The <code class="hljs">TableQuery</code>’s <code class="hljs">schema</code> method creates <code class="hljs">DDL</code> (data definition language) objects with the database-specific
+code for creating and dropping tables and other database entities. Multiple <code class="hljs">DDL</code> values can be combined with
+<code class="hljs">++</code> to allow all entities to be created and dropped in the correct order, even when they have circular
+dependencies on each other.</p>
+<p>Inserting the tuples of data is done with the <code class="hljs">+=</code> and <code class="hljs">++=</code> methods, similar to how you add data to mutable
+Scala collections.</p>
+<p>The <code class="hljs">create</code>, <code class="hljs">+=</code> and <code class="hljs">++=</code> methods return <em>database I/O actions</em> (<code class="hljs">DBIOAction</code>) which can be executed on a database
+at a later time to produce a result. If you do not care about more advanced features like streaming, effect tracking
+or extension methods for certain actions, you can denote their type as <code class="hljs">DBIO[T]</code> (for an operation which will
+eventually produce a value of type <code class="hljs">T</code>).</p>
+<p>There are several different combinators for combining multiple <code class="hljs">DBIOAction</code>s into sequences, yielding another action.
+Here we use the simplest one, <code class="hljs">DBIO.seq</code>, which can concatenate any number of actions, discarding the return values
+(i.e. the resulting <code class="hljs">DBIOAction</code> produces a result of type <code class="hljs">Unit</code>). We then execute the setup action asynchronously
+with <code class="hljs">db.run</code>, yielding a <code class="hljs">Future[Unit]</code>.</p>
+<blockquote class="note">
+<p>Note: Database connections and transactions are managed automatically by Slick. By default
+connections are acquired and released on demand and used in <em>auto-commit</em> mode. In this mode we
+have to populate the <code class="hljs">suppliers</code> table first because the <code class="hljs">coffees</code> data can only refer to valid
+supplier IDs. We could also use an explicit transaction bracket encompassing all these statements
+(<code class="hljs">db.run(setup.transactionally)</code>). Then the order would not matter because the constraints are
+only enforced at the end when the transaction is committed.</p>
+</blockquote>
+<p>When inserting data, the database usually returns the number of affected rows, therefore the return type is
+<code class="hljs">Option[Int]</code> as can be seen in this definition of <code class="hljs">insertAction</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Insert some coffees (using JDBC's batch insert feature)</span>
+<span class="hljs-keyword">val</span> insertAction: <span class="hljs-type">DBIO</span>[<span class="hljs-type">Option</span>[<span class="hljs-type">Int</span>]] = coffees ++= <span class="hljs-type">Seq</span> (
+  (<span class="hljs-string">"Colombian"</span>,         <span class="hljs-number">101</span>, <span class="hljs-number">7.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  (<span class="hljs-string">"French_Roast"</span>,       <span class="hljs-number">49</span>, <span class="hljs-number">8.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  (<span class="hljs-string">"Espresso"</span>,          <span class="hljs-number">150</span>, <span class="hljs-number">9.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  (<span class="hljs-string">"Colombian_Decaf"</span>,   <span class="hljs-number">101</span>, <span class="hljs-number">8.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+  (<span class="hljs-string">"French_Roast_Decaf"</span>, <span class="hljs-number">49</span>, <span class="hljs-number">9.99</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+)
+
+<span class="hljs-keyword">val</span> insertAndPrintAction: <span class="hljs-type">DBIO</span>[<span class="hljs-type">Unit</span>] = insertAction.map { coffeesInsertResult =&gt;
+  <span class="hljs-comment">// Print the number of rows inserted</span>
+  coffeesInsertResult foreach { numRows =&gt;
+    println(<span class="hljs-string">s"Inserted <span class="hljs-subst">$numRows</span> rows into the Coffees table"</span>)
+  }
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/samples/hello-slick/src/main/scala/HelloSlick.scala#L33-L47" class="a_sourcelink">HelloSlick.scala</a></div></div>
+<p>We can use the <code class="hljs">map</code> combinator to run some code and compute a new value from the value returned by the action
+(or in this case run it only for its side effects and return <code class="hljs">Unit</code>).</p>
+<blockquote class="note">
+<p>Note that <code class="hljs">map</code> and all other combinators which run user code (e.g. <code class="hljs">flatMap</code>, <code class="hljs">cleanup</code>, <code class="hljs">filter</code>) take an implicit
+<code class="hljs">ExecutionContext</code> on which to run this code. Slick uses its own <code class="hljs">ExecutionContext</code> internally for running blocking
+database I/O but it always maintains a clean separation and prevents you from running non-I/O code on it.</p>
+</blockquote>
+<h3 id="querying" class="a_section" data-magellan-target="querying">Querying<a class="a_hlink" href="#querying"></a></h3>
+<p>The simplest kind of query iterates over all the data in a table by calling <code class="hljs">.result</code> on the <code class="hljs">TableQuery</code> to get
+a <code class="hljs">DBIOAction</code>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Read all coffees and print them to the console</span>
+println(<span class="hljs-string">"Coffees:"</span>)
+db.run(coffees.result).map(_.foreach {
+  <span class="hljs-keyword">case</span> (name, supID, price, sales, total) =&gt;
+    println(<span class="hljs-string">"  "</span> + name + <span class="hljs-string">"\t"</span> + supID + <span class="hljs-string">"\t"</span> + price + <span class="hljs-string">"\t"</span> + sales + <span class="hljs-string">"\t"</span> + total)
+})
+<span class="hljs-comment">// Equivalent SQL code:</span>
+<span class="hljs-comment">// select COF_NAME, SUP_ID, PRICE, SALES, TOTAL from COFFEES</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L87-L94" class="a_sourcelink">FirstExample.scala</a></div></div>
+<p>This corresponds to a <code class="hljs">SELECT * FROM COFFEES</code> in SQL (except that the <code class="hljs">*</code> is the table’s <code class="hljs">*</code> projection
+we defined earlier and not whatever the database sees as <code class="hljs">*</code>). The type of the values we get in the loop
+is, unsurprisingly, the type parameter of <code class="hljs">Coffees</code>.</p>
+<p>Let’s add a <em>projection</em> to this basic query. This is written in Scala with the <code class="hljs">map</code> method or a
+<em>for comprehension</em>:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Why not let the database do the string conversion and concatenation?</span>
+<span class="hljs-keyword">val</span> q1 = <span class="hljs-keyword">for</span>(c &lt;- coffees)
+  <span class="hljs-keyword">yield</span> <span class="hljs-type">LiteralColumn</span>(<span class="hljs-string">"  "</span>) ++ c.name ++ <span class="hljs-string">"\t"</span> ++ c.supID.asColumnOf[<span class="hljs-type">String</span>] ++
+    <span class="hljs-string">"\t"</span> ++ c.price.asColumnOf[<span class="hljs-type">String</span>] ++ <span class="hljs-string">"\t"</span> ++ c.sales.asColumnOf[<span class="hljs-type">String</span>] ++
+    <span class="hljs-string">"\t"</span> ++ c.total.asColumnOf[<span class="hljs-type">String</span>]
+<span class="hljs-comment">// The first string constant needs to be lifted manually to a LiteralColumn</span>
+<span class="hljs-comment">// so that the proper ++ operator is found</span>
+
+<span class="hljs-comment">// Equivalent SQL code:</span>
+<span class="hljs-comment">// select '  ' || COF_NAME || '\t' || SUP_ID || '\t' || PRICE || '\t' SALES || '\t' TOTAL from COFFEES</span>
+
+db.stream(q1.result).foreach(println)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L100-L114" class="a_sourcelink">FirstExample.scala</a></div></div>
+<p>The output will be the same: for each row of the table, all columns get converted to strings and concatenated
+into one tab-separated string. The difference is that all of this now happens inside the database engine, and
+only the resulting concatenated string is shipped to the client. Note that we avoid Scala’s <code class="hljs">+</code> operator
+(which is already heavily overloaded) in favor of <code class="hljs">++</code> (commonly used for sequence concatenation). Also,
+there is no automatic conversion of other argument types to strings. This has to be done explicitly with the
+type conversion method <code class="hljs">asColumnOf</code>.</p>
+<p>This time we also use <a href="http://www.reactive-streams.org/">Reactive Streams</a> to get a streaming result from the database and print the elements
+as they come in instead of materializing the whole result set upfront.</p>
+<p>Joining and filtering tables is done the same way as when working with Scala collections:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Perform a join to retrieve coffee names and supplier names for</span>
+<span class="hljs-comment">// all coffees costing less than $9.00</span>
+<span class="hljs-keyword">val</span> q2 = <span class="hljs-keyword">for</span> {
+  c &lt;- coffees <span class="hljs-keyword">if</span> c.price &lt; <span class="hljs-number">9.0</span>
+  s &lt;- suppliers <span class="hljs-keyword">if</span> s.id === c.supID
+} <span class="hljs-keyword">yield</span> (c.name, s.name)
+<span class="hljs-comment">// Equivalent SQL code:</span>
+<span class="hljs-comment">// select c.COF_NAME, s.SUP_NAME from COFFEES c, SUPPLIERS s where c.PRICE &lt; 9.0 and s.SUP_ID = c.SUP_ID</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L120-L130" class="a_sourcelink">FirstExample.scala</a></div></div>
+<blockquote class="warning">
+<p>Note the use of <code class="hljs">===</code> instead of <code class="hljs">==</code> for comparing two values for equality and <code class="hljs">=!=</code>
+instead of <code class="hljs">!=</code> for inequality. This is necessary because these operators are already defined
+(with unsuitable types and semantics) on the base type <code class="hljs">Any</code>, so they cannot be replaced by
+extension methods. The other comparison operators are the same as in standard Scala code:
+<code class="hljs">&lt;</code>, <code class="hljs">&lt;=</code>, <code class="hljs">&gt;=</code>, <code class="hljs">&gt;</code>.</p>
+</blockquote>
+<p>The generator expression <code class="hljs">suppliers if s.id === c.supID</code> follows the relationship established by the foreign
+key <code class="hljs">Coffees.supplier</code>. Instead of repeating the join condition here we can use the foreign key directly:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-keyword">val</span> q3 = <span class="hljs-keyword">for</span> {
+  c &lt;- coffees <span class="hljs-keyword">if</span> c.price &lt; <span class="hljs-number">9.0</span>
+  s &lt;- c.supplier
+} <span class="hljs-keyword">yield</span> (c.name, s.name)
+<span class="hljs-comment">// Equivalent SQL code:</span>
+<span class="hljs-comment">// select c.COF_NAME, s.SUP_NAME from COFFEES c, SUPPLIERS s where c.PRICE &lt; 9.0 and s.SUP_ID = c.SUP_ID</span></code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/doc/code/FirstExample.scala#L141-L146" class="a_sourcelink">FirstExample.scala</a></div></div>
+<h3 id="aggregations" class="a_section" data-magellan-target="aggregations">Aggregations<a class="a_hlink" href="#aggregations"></a></h3>
+<p>Aggregates values like minimum, maximum, summation, and average can be computed by the database using the query
+functions <code class="hljs">min</code>, <code class="hljs">max</code>, <code class="hljs">sum</code> and <code class="hljs">avg</code> like:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Create a new scalar value that calculates the maximum price</span>
+<span class="hljs-keyword">val</span> maxPrice: <span class="hljs-type">Rep</span>[<span class="hljs-type">Option</span>[<span class="hljs-type">Double</span>]] = coffees.map(_.price).max</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/samples/hello-slick/src/main/scala/HelloSlick.scala#L170-L171" class="a_sourcelink">HelloSlick.scala</a></div></div>
+<p>This creates a new scalar query (<code class="hljs">Rep</code>) that can be run like a collection-valued <code class="hljs">Query</code> by calling <code class="hljs">.result</code>.</p>
+<h3 id="plain-sql--string-interpolation" class="a_section" data-magellan-target="plain-sql--string-interpolation">Plain SQL / String Interpolation<a class="a_hlink" href="#plain-sql--string-interpolation"></a></h3>
+<p>Sometimes writing SQL code manually is the easiest and best way to go but we don’t want to lose SQL injection
+protection that Slick includes. <a href="sql.html">SQL String Interpolation</a> provides a nice API for doing this.
+In <em>Hello Slick</em> we use the <code class="hljs">sql</code> interpolator:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">/* Manual SQL / String Interpolation */</span>
+
+<span class="hljs-comment">// A value to insert into the statement</span>
+<span class="hljs-keyword">val</span> state = <span class="hljs-string">"CA"</span>
+
+<span class="hljs-comment">// Construct a SQL statement manually with an interpolated value</span>
+<span class="hljs-keyword">val</span> plainQuery = <span class="hljs-string">sql"select SUP_NAME from SUPPLIERS where STATE = <span class="hljs-subst">$state</span>"</span>.as[<span class="hljs-type">String</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/samples/hello-slick/src/main/scala/HelloSlick.scala#L182-L188" class="a_sourcelink">HelloSlick.scala</a></div></div>
+<p>This produces a database I/O action that can be run or streamed in the usual way.</p>
+<h3 id="case-class-mapping" class="a_section" data-magellan-target="case-class-mapping">Case Class Mapping<a class="a_hlink" href="#case-class-mapping"></a></h3>
+<p>The <code class="hljs">CaseClassMapping.scala</code> app provides an example which uses a <em>case class</em> instead of tupled values.
+To use case classes instead of tuples setup a <code class="hljs">def *</code> projection which transforms the tuple values to and from the
+case class. For example:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">*</span> </span>= (name, id.?).mapTo[<span class="hljs-type">User</span>]</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/samples/hello-slick/src/main/scala/CaseClassMapping.scala#L39" class="a_sourcelink">CaseClassMapping.scala</a></div></div>
+<p>This uses the <code class="hljs">mapTo</code> macro to convert between <code class="hljs">(Option[Int], String)</code> and <code class="hljs">User</code> bidirectionally. Now all of the
+queries can work with a <code class="hljs">User</code> object instead of the tuples.</p>
+<p>See <a href="schemas.html#mapped-tables">Mapped Tables</a> for details.</p>
+<h3 id="auto-generated-primary-keys" class="a_section" data-magellan-target="auto-generated-primary-keys">Auto-Generated Primary Keys<a class="a_hlink" href="#auto-generated-primary-keys"></a></h3>
+<p>The <code class="hljs">Users</code> table mapping in <code class="hljs">CaseClassMapping.scala</code> defines an <code class="hljs">id</code> column which uses an auto-incrementing
+primary key:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">id</span> </span>= column[<span class="hljs-type">Int</span>](<span class="hljs-string">"ID"</span>, <span class="hljs-type">O</span>.<span class="hljs-type">PrimaryKey</span>, <span class="hljs-type">O</span>.<span class="hljs-type">AutoInc</span>)</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/samples/hello-slick/src/main/scala/CaseClassMapping.scala#L32" class="a_sourcelink">CaseClassMapping.scala</a></div></div>
+<p>See <a href="schemas.html#table-rows">Table Rows</a> for more column options.</p>
+<h3 id="running-queries" class="a_section" data-magellan-target="running-queries">Running Queries<a class="a_hlink" href="#running-queries"></a></h3>
+<p>So far you have seen how to get a <code class="hljs">Seq</code> from a collection-valued query and how to stream individual elements.
+There are several other useful methods which are shown in <code class="hljs">QueryActions.scala</code>. They are equally applicable to
+<a href="queries.html">Scala queries</a> and <a href="sql.html">Plain SQL queries</a>.</p>
+<p>Note the use of <code class="hljs">Compiled</code> in this app. It is used to define a pre-compiled query that can be executed with
+different parameters without having to recompile the SQL statement each time. This is the preferred way of defining
+queries in real-world applications. It prevents the (possibly expensive) compilation each time and leads to the
+same SQL statement (or a small, fixed set of SQL statements) so that the database system can also reuse a previously
+computed execution plan. As a side-effect, all parameters are automatically turned into bind variables:</p>
+<div class="row"><div class="a_linked small-expand columns a_xscroll a_codeblock">
+<pre class="hljs"><code class="language-scala"><span class="hljs-comment">// Define a pre-compiled parameterized query for reading all key/value</span>
+<span class="hljs-comment">// pairs up to a given key.</span>
+<span class="hljs-keyword">val</span> upTo = <span class="hljs-type">Compiled</span> { (k: <span class="hljs-type">Rep</span>[<span class="hljs-type">Int</span>]) =&gt;
+  dict.filter(_.key &lt;= k).sortBy(_.key)
+}</code></pre>
+<a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/samples/hello-slick/src/main/scala/QueryActions.scala#L22-L26" class="a_sourcelink">QueryActions.scala</a></div></div>
+<p>See <a href="queries.html#compiled-queries">Compiled Queries</a> for details.</p>
+
+                 
+  <ul class="menu align-right simple a_navbar a_navbar_bottom">
+    
+      
+        <li><a href="supported-databases.html"  title="Supported Databases" ><span class="a_foundation_icon"></span>  Previous</a></li>
+      
+    
+      
+        <li><a href="concepts.html"  title="Core Concepts" ><span class="a_foundation_icon"></span>  Next</a></li>
+      
+    
+      
+        <li><a href="https://github.com/slick/slick/blob/master/doc/src/gettingstarted.md" ><span class="a_foundation_icon"></span>  Edit on GitHub</a></li>
+      
+    
+      
+        <li><a href="index.html"  title="Slick" ><span class="a_foundation_icon"></span>  Contents</a></li>
+      
+    
+      
+        <li><a href="genindex.html"  title="Index" ><span class="a_foundation_icon"></span>  Index</a></li>
+      
+    
+  </ul>
+ 
+              </main>
+              
+              
+                <div data-sticky-container class="small-12 medium-12 large-2 large-order-1 columns a_sitenav_container">
+                  <nav class="a_sitenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                    
+                    <ul>
+                       
+  <li >
+    
+      
+        <a href="introduction.html">Introduction</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="supported-databases.html">Supported Databases</a>
+      
+    
+    
+  </li>
+  
+  <li  class="a_thispage" >
+    
+      
+        <a href="gettingstarted.html">Getting Started</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="concepts.html">Core Concepts</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="database.html">Database Configuration</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="dbio.html">Database I/O Actions</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="schemas.html">Schemas</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="queries.html">Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="code-generation.html">Schema Code Generation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="userdefined.html">User-Defined Features</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql.html">Plain SQL Queries</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="orm-to-slick.html">Coming from ORM to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="sql-to-slick.html">Coming from SQL to Slick</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="cookbook.html">Cookbook</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="upgrade.html">Upgrade Guides</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="migrations.html">Database Migrations</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="testkit.html">Slick TestKit</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="documentation.html">Markdown Documentation</a>
+      
+    
+    
+  </li>
+  
+  <li >
+    
+      
+        <a href="config.html">Configuration</a>
+      
+    
+    
+  </li>
+ 
+                    </ul>
+                    
+                    
+                  </nav>
+                </div>
+              
+              
+              
+                <div class="small-12 medium-12 large-2 large-order-3 columns a_show-for-xlarge" data-sticky-container>
+                  <nav class="a_pagenav" data-sticky data-sticky-on="large" data-anchor="_sections">
+                     <header><p>On This Page</p>
+</header> 
+                    <ul class="vertical menu" data-magellan>
+                       
+  
+    <li>
+      
+         <a href="#getting-started">Getting Started</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#hello-slick">Hello Slick</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#adding-slick-to-your-project">Adding Slick to Your Project</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#quick-introduction">Quick Introduction</a> 
+      
+      
+        <ul class="vertical menu">  
+  
+    <li>
+      
+         <a href="#database-configuration">Database Configuration</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#schema">Schema</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#populating-the-database">Populating the Database</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#querying">Querying</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#aggregations">Aggregations</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#plain-sql--string-interpolation">Plain SQL / String Interpolation</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#case-class-mapping">Case Class Mapping</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#auto-generated-primary-keys">Auto-Generated Primary Keys</a> 
+      
+      
+    </li>
+  
+  
+  
+    <li>
+      
+         <a href="#running-queries">Running Queries</a> 
+      
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+  </ul>
+      
+    </li>
+  
+ 
+                    </ul>
+                  </nav>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="small-12 medium-12 large-12 columns align-self-bottom a_footer">
+        <div class="row">
+          <div class="small-12 medium-12 large-12 columns top-bar">
+            <div class="top-bar-left">
+              <p>© Copyright 2011-2020 Lightbend, Inc.</p>
+
+            </div>
+            <div class="top-bar-right">
+              <p>Generated with <a href="https://github.com/szeiger/ornate">Ornate</a>.</p>
+
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+      <div style="display: none">
+        <a href="../" id="_version_idx"></a>
+        <a href="./" id="_site_root"></a>
+      </div>
+    
+    <script src="theme/js/jquery.min.js"></script>
+    <script src="theme/js/what-input.min.js"></script>
+    <script src="theme/js/foundation.min.js"></script>
+    
+    <script src="theme/js/app.js"></script>
+    
+  </body>
+</html>

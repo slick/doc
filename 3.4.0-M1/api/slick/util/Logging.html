@@ -1,0 +1,919 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>Slick 3.4.0-SNAPSHOT - slick.util.Logging</title>
+          <meta name="description" content="Slick 3.4.0 - SNAPSHOT - slick.util.Logging" />
+          <meta name="keywords" content="Slick 3.4.0 SNAPSHOT slick.util.Logging" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      
+      <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../lib/index.js"></script>
+      <script type="text/javascript" src="../../index.js"></script>
+      <script type="text/javascript" src="../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">Slick<span id="doc-version">3.4.0-SNAPSHOT</span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="../../index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="edit this text on github" href="../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <p class="shortcomment cmt"><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><div class="fullcomment"><div class="comment cmt"><p><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><h4> Scala Language-Integrated Connection Kit </h4><p>This is the API documentation for the <a href="https://scala-slick.org" target="_top">Slick</a> database library.
+It should be used as an additional resource to the <a href="../index.html">user manual</a>.</p><p>Further documentation for Slick can be found on the
+<a href="https://scala-slick.org/docs/" target="_top">documentation pages</a>.</p><p><a href="slick/package.html">To the slick package list...</a></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.slick" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="slick"></a><a id="slick:slick"></a>
+      <span class="permalink">
+      <a href="../../slick/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">slick</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="slick.util" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="util"></a><a id="util:util"></a>
+      <span class="permalink">
+      <a href="../../slick/util/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="Helper code for various things." href="index.html"><span class="name">util</span></a>
+      </span>
+      
+      <p class="shortcomment cmt">Helper code for various things.</p><div class="fullcomment"><div class="comment cmt"><p>Helper code for various things. Tuples, Logging, SQL, ...</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="slick">slick</a></dd></dl></div>
+    </li><li class="current-entities indented2">
+                        <a class="object" href="AsyncExecutor$.html" title=""></a>
+                        <a class="trait" href="AsyncExecutor.html" title="A connection pool for asynchronous execution of blocking I/O actions."></a>
+                        <a href="AsyncExecutor.html" title="A connection pool for asynchronous execution of blocking I/O actions.">AsyncExecutor</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="AsyncExecutorMXBean.html" title="The information that is exposed by an AsyncExecutor via JMX."></a>
+                        <a href="AsyncExecutorMXBean.html" title="The information that is exposed by an AsyncExecutor via JMX.">AsyncExecutorMXBean</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="BeanConfigurator$.html" title="Configure Java Beans reflectively, using Typesafe Config for data type conversions."></a>
+                        <a href="BeanConfigurator$.html" title="Configure Java Beans reflectively, using Typesafe Config for data type conversions.">BeanConfigurator</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="ClassLoaderUtil$.html" title="Utilities for working with classloaders"></a>
+                        <a href="ClassLoaderUtil$.html" title="Utilities for working with classloaders">ClassLoaderUtil</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="CloseableIterator$.html" title=""></a>
+                        <a class="trait" href="CloseableIterator.html" title="An Iterator with a close method to close the underlying data source."></a>
+                        <a href="CloseableIterator.html" title="An Iterator with a close method to close the underlying data source.">CloseableIterator</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ConfigExtensionMethods$.html" title=""></a>
+                        <a class="class" href="ConfigExtensionMethods.html" title="Extension methods to make Typesafe Config easier to use"></a>
+                        <a href="ConfigExtensionMethods.html" title="Extension methods to make Typesafe Config easier to use">ConfigExtensionMethods</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ConstArray$.html" title=""></a>
+                        <a class="class" href="ConstArray.html" title="An efficient immutable array implementation which is used in the AST."></a>
+                        <a href="ConstArray.html" title="An efficient immutable array implementation which is used in the AST.">ConstArray</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ConstArrayBuilder.html" title="A mutable builder for ConstArrays."></a>
+                        <a href="ConstArrayBuilder.html" title="A mutable builder for ConstArrays.">ConstArrayBuilder</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ConstArrayOp$.html" title=""></a>
+                        <a class="trait" href="ConstArrayOp.html" title="A lazy operation on a ConstArray, produced by withFilter, zip, zipWithIndex and ConstArrayOp.from(Range)."></a>
+                        <a href="ConstArrayOp.html" title="A lazy operation on a ConstArray, produced by withFilter, zip, zipWithIndex and ConstArrayOp.from(Range).">ConstArrayOp</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="DumpInfo$.html" title=""></a>
+                        <a class="class" href="DumpInfo.html" title="The information required for dumping a single object"></a>
+                        <a href="DumpInfo.html" title="The information required for dumping a single object">DumpInfo</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="Dumpable.html" title="Interface for types that can be used in a tree dump"></a>
+                        <a href="Dumpable.html" title="Interface for types that can be used in a tree dump">Dumpable</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="Ellipsis$.html" title="Create a wrapper for a Dumpable to omit some nodes."></a>
+                        <a href="Ellipsis$.html" title="Create a wrapper for a Dumpable to omit some nodes.">Ellipsis</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="GlobalConfig$.html" title="Singleton object with Slick's configuration, loaded from the application config."></a>
+                        <a href="GlobalConfig$.html" title="Singleton object with Slick's configuration, loaded from the application config.">GlobalConfig</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="" title=""></a>
+                        <a href="" title="">Logging</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="MacroSupport$.html" title=""></a>
+                        <a href="MacroSupport$.html" title="">MacroSupport</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="MacroSupportInterpolation.html" title=""></a>
+                        <a href="MacroSupportInterpolation.html" title="">MacroSupportInterpolation</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ManagedArrayBlockingQueue.html" title="A simplified copy of java.util.concurrent.ArrayBlockingQueue with additional logic for temporarily rejecting elements based on the current size."></a>
+                        <a href="ManagedArrayBlockingQueue.html" title="A simplified copy of java.util.concurrent.ArrayBlockingQueue with additional logic for temporarily rejecting elements based on the current size.">ManagedArrayBlockingQueue</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ProductWrapper.html" title="A Product to represent larger arities than Tuple22"></a>
+                        <a href="ProductWrapper.html" title="A Product to represent larger arities than Tuple22">ProductWrapper</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RangeConstArrayOp.html" title=""></a>
+                        <a href="RangeConstArrayOp.html" title="">RangeConstArrayOp</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ReadAheadIterator$.html" title=""></a>
+                        <a class="trait" href="ReadAheadIterator.html" title="An iterator on top of a data source which does not offer a hasNext() method without doing a next()"></a>
+                        <a href="ReadAheadIterator.html" title="An iterator on top of a data source which does not offer a hasNext() method without doing a next()">ReadAheadIterator</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RefId.html" title="A wrapper for a value, which uses reference equality of the wrapped value as its own equality."></a>
+                        <a href="RefId.html" title="A wrapper for a value, which uses reference equality of the wrapped value as its own equality.">RefId</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="SQLBuilder$.html" title=""></a>
+                        <a class="class" href="SQLBuilder.html" title=""></a>
+                        <a href="SQLBuilder.html" title="">SQLBuilder</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="SlickLogger$.html" title=""></a>
+                        <a class="class" href="SlickLogger.html" title=""></a>
+                        <a href="SlickLogger.html" title="">SlickLogger</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="TableDump.html" title="Utility methods for creating result set debug output."></a>
+                        <a href="TableDump.html" title="Utility methods for creating result set debug output.">TableDump</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="TreePrinter$.html" title=""></a>
+                        <a class="class" href="TreePrinter.html" title="Create a readable printout of a tree."></a>
+                        <a href="TreePrinter.html" title="Create a readable printout of a tree.">TreePrinter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="TupleMethods$.html" title="Extension methods for prepending and appending values to tuples"></a>
+                        <a href="TupleMethods$.html" title="Extension methods for prepending and appending values to tuples">TupleMethods</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="TupleSupport$.html" title="Utility functions for working with tuples of different arities"></a>
+                        <a href="TupleSupport$.html" title="Utility functions for working with tuples of different arities">TupleSupport</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="trait type">
+      <div id="definition">
+        <div class="big-circle trait">t</div>
+        <p id="owner"><a href="../index.html" class="extype" name="slick">slick</a>.<a href="index.html" class="extype" name="slick.util">util</a></p>
+        <h1>Logging<span class="permalink">
+      <a href="../../slick/util/Logging.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Logging</span><span class="result"> extends <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/slick/src/main/scala/slick/util/Logging.scala" target="_blank">Logging.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">
+              Known Subclasses
+            </span>
+            <div class="subClasses hiddenContent"><a href="../compiler/AssignUniqueSymbols.html" class="extype" name="slick.compiler.AssignUniqueSymbols">AssignUniqueSymbols</a>, <a href="../compiler/CodeGen.html" class="extype" name="slick.compiler.CodeGen">CodeGen</a>, <a href="../compiler/CreateAggregates.html" class="extype" name="slick.compiler.CreateAggregates">CreateAggregates</a>, <a href="../compiler/CreateResultSetMapping.html" class="extype" name="slick.compiler.CreateResultSetMapping">CreateResultSetMapping</a>, <a href="../compiler/EmulateOuterJoins.html" class="extype" name="slick.compiler.EmulateOuterJoins">EmulateOuterJoins</a>, <a href="../compiler/ExpandRecords.html" class="extype" name="slick.compiler.ExpandRecords">ExpandRecords</a>, <a href="../compiler/ExpandSums.html" class="extype" name="slick.compiler.ExpandSums">ExpandSums</a>, <a href="../compiler/ExpandTables.html" class="extype" name="slick.compiler.ExpandTables">ExpandTables</a>, <a href="../compiler/FixRowNumberOrdering.html" class="extype" name="slick.compiler.FixRowNumberOrdering">FixRowNumberOrdering</a>, <a href="../compiler/FlattenProjections.html" class="extype" name="slick.compiler.FlattenProjections">FlattenProjections</a>, <a href="../compiler/ForceOuterBinds.html" class="extype" name="slick.compiler.ForceOuterBinds">ForceOuterBinds</a>, <a href="../compiler/HoistClientOps.html" class="extype" name="slick.compiler.HoistClientOps">HoistClientOps</a>, <a href="../compiler/InferTypes.html" class="extype" name="slick.compiler.InferTypes">InferTypes</a>, <a href="../compiler/InsertCompiler.html" class="extype" name="slick.compiler.InsertCompiler">InsertCompiler</a>, <a href="../compiler/MergeToComprehensions.html" class="extype" name="slick.compiler.MergeToComprehensions">MergeToComprehensions</a>, <a href="../compiler/OptimizeScalar.html" class="extype" name="slick.compiler.OptimizeScalar">OptimizeScalar</a>, <a href="../compiler/Phase.html" class="extype" name="slick.compiler.Phase">Phase</a>, <a href="../compiler/PruneProjections.html" class="extype" name="slick.compiler.PruneProjections">PruneProjections</a>, <a href="../compiler/QueryCompiler.html" class="extype" name="slick.compiler.QueryCompiler">QueryCompiler</a>, <a href="../compiler/RelabelUnions.html" class="extype" name="slick.compiler.RelabelUnions">RelabelUnions</a>, <a href="../compiler/RemoveFieldNames.html" class="extype" name="slick.compiler.RemoveFieldNames">RemoveFieldNames</a>, <a href="../compiler/RemoveMappedTypes.html" class="extype" name="slick.compiler.RemoveMappedTypes">RemoveMappedTypes</a>, <a href="../compiler/RemoveTakeDrop.html" class="extype" name="slick.compiler.RemoveTakeDrop">RemoveTakeDrop</a>, <a href="../compiler/ReorderOperations.html" class="extype" name="slick.compiler.ReorderOperations">ReorderOperations</a>, <a href="../compiler/ResolveZipJoins.html" class="extype" name="slick.compiler.ResolveZipJoins">ResolveZipJoins</a>, <a href="../compiler/RewriteBooleans.html" class="extype" name="slick.compiler.RewriteBooleans">RewriteBooleans</a>, <a href="../compiler/RewriteDistinct.html" class="extype" name="slick.compiler.RewriteDistinct">RewriteDistinct</a>, <a href="../compiler/RewriteJoins.html" class="extype" name="slick.compiler.RewriteJoins">RewriteJoins</a>, <a href="../compiler/SpecializeParameters.html" class="extype" name="slick.compiler.SpecializeParameters">SpecializeParameters</a>, <a href="../compiler/UnrollTailBinds.html" class="extype" name="slick.compiler.UnrollTailBinds">UnrollTailBinds</a>, <a href="../compiler/VerifySymbols.html" class="extype" name="slick.compiler.VerifySymbols">VerifySymbols</a>, <a href="../compiler/VerifyTypes.html" class="extype" name="slick.compiler.VerifyTypes">VerifyTypes</a>, <a href="../jdbc/DatabaseUrlDataSource.html" class="extype" name="slick.jdbc.DatabaseUrlDataSource">DatabaseUrlDataSource</a>, <a href="../jdbc/DerbyProfile$ModelBuilder.html" class="extype" name="slick.jdbc.DerbyProfile.ModelBuilder">ModelBuilder</a>, <a href="../jdbc/DriverDataSource.html" class="extype" name="slick.jdbc.DriverDataSource">DriverDataSource</a>, <a href="../jdbc/H2Profile$ModelBuilder.html" class="extype" name="slick.jdbc.H2Profile.ModelBuilder">ModelBuilder</a>, <a href="../jdbc/HsqldbProfile$ModelBuilder.html" class="extype" name="slick.jdbc.HsqldbProfile.ModelBuilder">ModelBuilder</a>, <a href="../jdbc/JdbcDataSource$.html" class="extype" name="slick.jdbc.JdbcDataSource">JdbcDataSource</a>, <a href="../jdbc/JdbcMappingCompilerComponent$JdbcCodeGen.html" class="extype" name="slick.jdbc.JdbcMappingCompilerComponent.JdbcCodeGen">JdbcCodeGen</a>, <a href="../jdbc/JdbcMappingCompilerComponent$JdbcInsertCodeGen.html" class="extype" name="slick.jdbc.JdbcMappingCompilerComponent.JdbcInsertCodeGen">JdbcInsertCodeGen</a>, <a href="../jdbc/JdbcModelBuilder.html" class="extype" name="slick.jdbc.JdbcModelBuilder">JdbcModelBuilder</a>, <a href="../jdbc/MySQLProfile$ModelBuilder.html" class="extype" name="slick.jdbc.MySQLProfile.ModelBuilder">ModelBuilder</a>, <a href="../jdbc/MySQLProfile$MySQLResolveZipJoins.html" class="extype" name="slick.jdbc.MySQLProfile.MySQLResolveZipJoins">MySQLResolveZipJoins</a>, <a href="../jdbc/OracleProfile$ModelBuilder.html" class="extype" name="slick.jdbc.OracleProfile.ModelBuilder">ModelBuilder</a>, <a href="../jdbc/OracleProfile$RemoveSubqueryOrdering.html" class="extype" name="slick.jdbc.OracleProfile.RemoveSubqueryOrdering">RemoveSubqueryOrdering</a>, <a href="../jdbc/PostgresProfile$ModelBuilder.html" class="extype" name="slick.jdbc.PostgresProfile.ModelBuilder">ModelBuilder</a>, <a href="../jdbc/ProtectGroupBy.html" class="extype" name="slick.jdbc.ProtectGroupBy">ProtectGroupBy</a>, <a href="../jdbc/SQLServerProfile$ModelBuilder.html" class="extype" name="slick.jdbc.SQLServerProfile.ModelBuilder">ModelBuilder</a>, <a href="../jdbc/SQLiteProfile$ModelBuilder.html" class="extype" name="slick.jdbc.SQLiteProfile.ModelBuilder">ModelBuilder</a>, <a href="../memory/DistributedBackend.html" class="extype" name="slick.memory.DistributedBackend">DistributedBackend</a>, <a href="../memory/DistributedBackend$.html" class="extype" name="slick.memory.DistributedBackend">DistributedBackend</a>, <a href="../memory/DistributedProfile$Distribute.html" class="extype" name="slick.memory.DistributedProfile.Distribute">Distribute</a>, <a href="../memory/DistributedProfile$DistributedQueryInterpreter.html" class="extype" name="slick.memory.DistributedProfile.DistributedQueryInterpreter">DistributedQueryInterpreter</a>, <a href="../memory/HeapBackend.html" class="extype" name="slick.memory.HeapBackend">HeapBackend</a>, <a href="../memory/HeapBackend$.html" class="extype" name="slick.memory.HeapBackend">HeapBackend</a>, <a href="../memory/MemoryProfile$MemoryInsertCodeGen.html" class="extype" name="slick.memory.MemoryProfile.MemoryInsertCodeGen">MemoryInsertCodeGen</a>, <a href="../memory/MemoryQueryingProfile$MemoryCodeGen.html" class="extype" name="slick.memory.MemoryQueryingProfile.MemoryCodeGen">MemoryCodeGen</a>, <a href="../memory/QueryInterpreter.html" class="extype" name="slick.memory.QueryInterpreter">QueryInterpreter</a>, <a href="AsyncExecutor$.html" class="extype" name="slick.util.AsyncExecutor">AsyncExecutor</a>, <a href="BeanConfigurator$.html" class="extype" name="slick.util.BeanConfigurator">BeanConfigurator</a>, <a href="ManagedArrayBlockingQueue.html" class="extype" name="slick.util.ManagedArrayBlockingQueue">ManagedArrayBlockingQueue</a></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">
+                  Type Hierarchy
+                </span>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 1434.50 155.00" height="155pt" width="1435pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 151)" class="graph" id="page0,1_graph0"><polygon points="-4,4 -4,-151 1430.5,-151 1430.5,4 -4,4" stroke="transparent" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph1_0"><g id="a_this trait|graph1_0"><a xlink:title="slick.util.Logging (this trait)" xlink:href="#inheritance-diagram"><path d="M736.17,-86C736.17,-86 675.83,-86 675.83,-86 671.67,-86 667.5,-81.83 667.5,-77.67 667.5,-77.67 667.5,-69.33 667.5,-69.33 667.5,-65.17 671.67,-61 675.83,-61 675.83,-61 736.17,-61 736.17,-61 740.33,-61 744.5,-65.17 744.5,-69.33 744.5,-69.33 744.5,-77.67 744.5,-77.67 744.5,-81.83 740.33,-86 736.17,-86" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="678" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-71.1" x="699" text-anchor="start">Logging</text></a></g></g><!-- node1 --><g class="node object" id="graph1_1"><g id="a_object|graph1_1"><a xlink:title="slick.util.AsyncExecutor" xlink:href="AsyncExecutor$.html#inheritance-diagram"><path d="M95.67,-25C95.67,-25 8.33,-25 8.33,-25 4.17,-25 0,-20.83 0,-16.67 0,-16.67 0,-8.33 0,-8.33 0,-4.17 4.17,0 8.33,0 8.33,0 95.67,0 95.67,0 99.83,0 104,-4.17 104,-8.33 104,-8.33 104,-16.67 104,-16.67 104,-20.83 99.83,-25 95.67,-25" stroke="#103a51" fill="#103a51"></path><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="10" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="31" text-anchor="start">AsyncExecutor</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="AsyncExecutor is a subtype of Logging"><path d="M660.12,-70.49C560.29,-65.75 315.98,-52.18 113,-25 110.12,-24.61 107.16,-24.18 104.18,-23.72" stroke="#d4d4d4" fill="none"></path><polygon points="660.24,-72.95 667.34,-70.83 660.47,-68.05 660.24,-72.95" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node object" id="graph1_2"><g id="a_object|graph1_2"><a xlink:title="slick.util.BeanConfigurator" xlink:href="BeanConfigurator$.html#inheritance-diagram"><path d="M229.67,-25C229.67,-25 130.33,-25 130.33,-25 126.17,-25 122,-20.83 122,-16.67 122,-16.67 122,-8.33 122,-8.33 122,-4.17 126.17,0 130.33,0 130.33,0 229.67,0 229.67,0 233.83,0 238,-4.17 238,-8.33 238,-8.33 238,-16.67 238,-16.67 238,-20.83 233.83,-25 229.67,-25" stroke="#103a51" fill="#103a51"></path><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="132" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="153" text-anchor="start">BeanConfigurator</text></a></g></g><!-- node0&#45;&gt;node2 --><g class="edge inheritance" id="graph1_0_2"><g id="a_inheritance|graph1_0_2"><a xlink:title="BeanConfigurator is a subtype of Logging"><path d="M659.98,-68.76C577.16,-61.81 397.62,-45.7 247,-25 244.08,-24.6 241.09,-24.17 238.07,-23.71" stroke="#d4d4d4" fill="none"></path><polygon points="660.03,-71.23 667.21,-69.37 660.44,-66.34 660.03,-71.23" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="slick.memory.DistributedBackend" xlink:href="../memory/DistributedBackend.html#inheritance-diagram"><path d="M371.67,-25C371.67,-25 264.33,-25 264.33,-25 260.17,-25 256,-20.83 256,-16.67 256,-16.67 256,-8.33 256,-8.33 256,-4.17 260.17,0 264.33,0 264.33,0 371.67,0 371.67,0 375.83,0 380,-4.17 380,-8.33 380,-8.33 380,-16.67 380,-16.67 380,-20.83 375.83,-25 371.67,-25" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-19.5" x="266" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="287" text-anchor="start">DistributedBackend</text></a></g></g><!-- node0&#45;&gt;node3 --><g class="edge inheritance" id="graph1_0_3"><g id="a_inheritance|graph1_0_3"><a xlink:title="DistributedBackend is a subtype of Logging"><path d="M660.17,-65.81C598.5,-56.76 485.43,-40.03 389,-25 386.16,-24.56 383.26,-24.1 380.33,-23.64" stroke="#d4d4d4" fill="none"></path><polygon points="660.15,-68.28 667.43,-66.87 660.86,-63.43 660.15,-68.28" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node class" id="graph1_4"><g id="a_class|graph1_4"><a xlink:title="slick.jdbc.DriverDataSource" xlink:href="../jdbc/DriverDataSource.html#inheritance-diagram"><path d="M505.67,-25C505.67,-25 406.33,-25 406.33,-25 402.17,-25 398,-20.83 398,-16.67 398,-16.67 398,-8.33 398,-8.33 398,-4.17 402.17,0 406.33,0 406.33,0 505.67,0 505.67,0 509.83,0 514,-4.17 514,-8.33 514,-8.33 514,-16.67 514,-16.67 514,-20.83 509.83,-25 505.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="408" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="429" text-anchor="start">DriverDataSource</text></a></g></g><!-- node0&#45;&gt;node4 --><g class="edge inheritance" id="graph1_0_4"><g id="a_inheritance|graph1_0_4"><a xlink:title="DriverDataSource is a subtype of Logging"><path d="M660.62,-61.79C616.61,-51.4 550.03,-35.69 504.87,-25.03" stroke="#d4d4d4" fill="none"></path><polygon points="660.11,-64.19 667.49,-63.41 661.24,-59.42 660.11,-64.19" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node trait" id="graph1_5"><g id="a_trait|graph1_5"><a xlink:title="slick.memory.HeapBackend" xlink:href="../memory/HeapBackend.html#inheritance-diagram"><path d="M625.17,-25C625.17,-25 540.83,-25 540.83,-25 536.67,-25 532.5,-20.83 532.5,-16.67 532.5,-16.67 532.5,-8.33 532.5,-8.33 532.5,-4.17 536.67,0 540.83,0 540.83,0 625.17,0 625.17,0 629.33,0 633.5,-4.17 633.5,-8.33 633.5,-8.33 633.5,-16.67 633.5,-16.67 633.5,-20.83 629.33,-25 625.17,-25" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-19.5" x="543" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="564" text-anchor="start">HeapBackend</text></a></g></g><!-- node0&#45;&gt;node5 --><g class="edge inheritance" id="graph1_0_5"><g id="a_inheritance|graph1_0_5"><a xlink:title="HeapBackend is a subtype of Logging"><path d="M675.42,-57.83C654.41,-47.75 626.9,-34.56 607.37,-25.19" stroke="#d4d4d4" fill="none"></path><polygon points="674.62,-60.17 681.99,-60.98 676.74,-55.75 674.62,-60.17" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node6 --><g class="node object" id="graph1_6"><g id="a_object|graph1_6"><a xlink:title="slick.jdbc.JdbcDataSource" xlink:href="../jdbc/JdbcDataSource$.html#inheritance-diagram"><path d="M752.17,-25C752.17,-25 659.83,-25 659.83,-25 655.67,-25 651.5,-20.83 651.5,-16.67 651.5,-16.67 651.5,-8.33 651.5,-8.33 651.5,-4.17 655.67,0 659.83,0 659.83,0 752.17,0 752.17,0 756.33,0 760.5,-4.17 760.5,-8.33 760.5,-8.33 760.5,-16.67 760.5,-16.67 760.5,-20.83 756.33,-25 752.17,-25" stroke="#103a51" fill="#103a51"></path><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="662" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="683" text-anchor="start">JdbcDataSource</text></a></g></g><!-- node0&#45;&gt;node6 --><g class="edge inheritance" id="graph1_0_6"><g id="a_inheritance|graph1_0_6"><a xlink:title="JdbcDataSource is a subtype of Logging"><path d="M706,-53.76C706,-44.37 706,-33.29 706,-25.13" stroke="#d4d4d4" fill="none"></path><polygon points="703.55,-53.84 706,-60.84 708.45,-53.84 703.55,-53.84" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node7 --><g class="node class" id="graph1_7"><g id="a_class|graph1_7"><a xlink:title="slick.jdbc.JdbcModelBuilder" xlink:href="../jdbc/JdbcModelBuilder.html#inheritance-diagram"><path d="M884.67,-25C884.67,-25 787.33,-25 787.33,-25 783.17,-25 779,-20.83 779,-16.67 779,-16.67 779,-8.33 779,-8.33 779,-4.17 783.17,0 787.33,0 787.33,0 884.67,0 884.67,0 888.83,0 893,-4.17 893,-8.33 893,-8.33 893,-16.67 893,-16.67 893,-20.83 888.83,-25 884.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="789" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="810" text-anchor="start">JdbcModelBuilder</text></a></g></g><!-- node0&#45;&gt;node7 --><g class="edge inheritance" id="graph1_0_7"><g id="a_inheritance|graph1_0_7"><a xlink:title="JdbcModelBuilder is a subtype of Logging"><path d="M738.03,-57.96C760.27,-47.87 789.52,-34.6 810.25,-25.19" stroke="#d4d4d4" fill="none"></path><polygon points="736.74,-55.86 731.37,-60.98 738.76,-60.32 736.74,-55.86" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node8 --><g class="node class" id="graph1_8"><g id="a_class|graph1_8"><a xlink:title="slick.util.ManagedArrayBlockingQueue" xlink:href="ManagedArrayBlockingQueue.html#inheritance-diagram"><path d="M1078.67,-25C1078.67,-25 919.33,-25 919.33,-25 915.17,-25 911,-20.83 911,-16.67 911,-16.67 911,-8.33 911,-8.33 911,-4.17 915.17,0 919.33,0 919.33,0 1078.67,0 1078.67,0 1082.83,0 1087,-4.17 1087,-8.33 1087,-8.33 1087,-16.67 1087,-16.67 1087,-20.83 1082.83,-25 1078.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="921" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="942" text-anchor="start">ManagedArrayBlockingQueue[E]</text></a></g></g><!-- node0&#45;&gt;node8 --><g class="edge inheritance" id="graph1_0_8"><g id="a_inheritance|graph1_0_8"><a xlink:title="ManagedArrayBlockingQueue[E] is a subtype of Logging"><path d="M751.62,-63.31C802.84,-53 886.07,-36.24 941.66,-25.05" stroke="#d4d4d4" fill="none"></path><polygon points="750.98,-60.94 744.61,-64.73 751.95,-65.75 750.98,-60.94" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node9 --><g class="node trait" id="graph1_9"><g id="a_trait|graph1_9"><a xlink:title="slick.compiler.Phase" xlink:href="../compiler/Phase.html#inheritance-diagram"><path d="M1166.17,-25C1166.17,-25 1113.83,-25 1113.83,-25 1109.67,-25 1105.5,-20.83 1105.5,-16.67 1105.5,-16.67 1105.5,-8.33 1105.5,-8.33 1105.5,-4.17 1109.67,0 1113.83,0 1113.83,0 1166.17,0 1166.17,0 1170.33,0 1174.5,-4.17 1174.5,-8.33 1174.5,-8.33 1174.5,-16.67 1174.5,-16.67 1174.5,-20.83 1170.33,-25 1166.17,-25" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-19.5" x="1116" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1137" text-anchor="start">Phase</text></a></g></g><!-- node0&#45;&gt;node9 --><g class="edge inheritance" id="graph1_0_9"><g id="a_inheritance|graph1_0_9"><a xlink:title="Phase is a subtype of Logging"><path d="M752.02,-68.91C825.29,-62.75 972.76,-48.5 1096,-25 1098.95,-24.44 1101.99,-23.79 1105.03,-23.09" stroke="#d4d4d4" fill="none"></path><polygon points="751.51,-66.5 744.74,-69.52 751.92,-71.38 751.51,-66.5" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node10 --><g class="node class" id="graph1_10"><g id="a_class|graph1_10"><a xlink:title="slick.compiler.QueryCompiler" xlink:href="../compiler/QueryCompiler.html#inheritance-diagram"><path d="M1288.67,-25C1288.67,-25 1201.33,-25 1201.33,-25 1197.17,-25 1193,-20.83 1193,-16.67 1193,-16.67 1193,-8.33 1193,-8.33 1193,-4.17 1197.17,0 1201.33,0 1201.33,0 1288.67,0 1288.67,0 1292.83,0 1297,-4.17 1297,-8.33 1297,-8.33 1297,-16.67 1297,-16.67 1297,-20.83 1292.83,-25 1288.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1203" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1224" text-anchor="start">QueryCompiler</text></a></g></g><!-- node0&#45;&gt;node10 --><g class="edge inheritance" id="graph1_0_10"><g id="a_inheritance|graph1_0_10"><a xlink:title="QueryCompiler is a subtype of Logging"><path d="M751.74,-69.29C837.02,-63.01 1025.99,-47.7 1184,-25 1186.88,-24.59 1189.83,-24.13 1192.81,-23.65" stroke="#d4d4d4" fill="none"></path><polygon points="751.35,-66.86 744.55,-69.82 751.71,-71.75 751.35,-66.86" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node11 --><g class="node class" id="graph1_11"><g id="a_class|graph1_11"><a xlink:title="slick.memory.QueryInterpreter" xlink:href="../memory/QueryInterpreter.html#inheritance-diagram"><path d="M1418.17,-25C1418.17,-25 1323.83,-25 1323.83,-25 1319.67,-25 1315.5,-20.83 1315.5,-16.67 1315.5,-16.67 1315.5,-8.33 1315.5,-8.33 1315.5,-4.17 1319.67,0 1323.83,0 1323.83,0 1418.17,0 1418.17,0 1422.33,0 1426.5,-4.17 1426.5,-8.33 1426.5,-8.33 1426.5,-16.67 1426.5,-16.67 1426.5,-20.83 1422.33,-25 1418.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1326" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1347" text-anchor="start">QueryInterpreter</text></a></g></g><!-- node0&#45;&gt;node11 --><g class="edge inheritance" id="graph1_0_11"><g id="a_inheritance|graph1_0_11"><a xlink:title="QueryInterpreter is a subtype of Logging"><path d="M752.02,-70.37C852.76,-65.37 1100.22,-51.29 1306,-25 1309.07,-24.61 1312.21,-24.17 1315.38,-23.7" stroke="#d4d4d4" fill="none"></path><polygon points="751.61,-67.93 744.74,-70.73 751.85,-72.83 751.61,-67.93" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12 --><g class="node class" id="graph1_12"><g id="a_class|graph1_12"><a xlink:title="scala.AnyRef"><path d="M733.67,-147C733.67,-147 678.33,-147 678.33,-147 674.17,-147 670,-142.83 670,-138.67 670,-138.67 670,-130.33 670,-130.33 670,-126.17 674.17,-122 678.33,-122 678.33,-122 733.67,-122 733.67,-122 737.83,-122 742,-126.17 742,-130.33 742,-130.33 742,-138.67 742,-138.67 742,-142.83 737.83,-147 733.67,-147" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-141.5" x="680" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-132.1" x="701" text-anchor="start">AnyRef</text></a></g></g><!-- node12&#45;&gt;node0 --><g class="edge inheritance" id="graph1_12_0"><g id="a_inheritance|graph1_12_0"><a xlink:title="Logging is a subtype of AnyRef"><path d="M706,-114.76C706,-105.37 706,-94.29 706,-86.13" stroke="#d4d4d4" fill="none"></path><polygon points="703.55,-114.84 706,-121.84 708.45,-114.84 703.55,-114.84" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+                <div id="diagram-controls" class="hiddenContent">
+                  <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button title="Toggle full-screen" id="diagram-fs" class="diagram-btn to-full"><i class="material-icons"></i></button>
+                </div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="slick.util.Logging"><span>Logging</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+                  <span class="filtertype">Implicitly<br />
+                  </span>
+                  <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div class="values members">
+              <h3>Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a><a id="+(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#+(other:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(Logging,B)"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.util.Logging">Logging</a>, <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((Logging)⇒Boolean,⇒Any):Logging"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.util.Logging">Logging</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((Logging)⇒Boolean):Logging"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.util.Logging">Logging</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):Logging"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):Logging"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#ensuring(cond:Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.util.Logging">Logging</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#formatted(fmtstr:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="slick.util.Logging#logger" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="logger:slick.util.SlickLogger"></a><a id="logger:SlickLogger"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#logger:slick.util.SlickLogger" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">lazy val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">logger</span><span class="result">: <a href="SlickLogger.html" class="extype" name="slick.util.SlickLogger">SlickLogger</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(Logging,B)"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#→[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.util.Logging">Logging</a>, <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.util.Logging">Logging</a> to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li>
+              </ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/util/Logging.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: ">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+                <span class="name">@Deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.util.Logging">Logging</a> to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.util.Logging">Logging</a> to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.util.Logging">Logging</a> to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.util.Logging">Logging</a> to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.util.Logging">Logging</a>]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>

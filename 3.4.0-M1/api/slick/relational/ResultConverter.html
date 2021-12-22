@@ -1,0 +1,1009 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>Slick 3.4.0-SNAPSHOT - slick.relational.ResultConverter</title>
+          <meta name="description" content="Slick 3.4.0 - SNAPSHOT - slick.relational.ResultConverter" />
+          <meta name="keywords" content="Slick 3.4.0 SNAPSHOT slick.relational.ResultConverter" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      
+      <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../lib/index.js"></script>
+      <script type="text/javascript" src="../../index.js"></script>
+      <script type="text/javascript" src="../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">Slick<span id="doc-version">3.4.0-SNAPSHOT</span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="../../index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="edit this text on github" href="../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <p class="shortcomment cmt"><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><div class="fullcomment"><div class="comment cmt"><p><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><h4> Scala Language-Integrated Connection Kit </h4><p>This is the API documentation for the <a href="https://scala-slick.org" target="_top">Slick</a> database library.
+It should be used as an additional resource to the <a href="../index.html">user manual</a>.</p><p>Further documentation for Slick can be found on the
+<a href="https://scala-slick.org/docs/" target="_top">documentation pages</a>.</p><p><a href="slick/package.html">To the slick package list...</a></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.slick" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="slick"></a><a id="slick:slick"></a>
+      <span class="permalink">
+      <a href="../../slick/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">slick</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="slick.relational" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="relational"></a><a id="relational:relational"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="Contains the abstract RelationalProfile and related code." href="index.html"><span class="name">relational</span></a>
+      </span>
+      
+      <p class="shortcomment cmt">Contains the abstract <code>RelationalProfile</code> and related code.</p><div class="fullcomment"><div class="comment cmt"><p>Contains the abstract <code>RelationalProfile</code> and related code.</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="slick">slick</a></dd></dl></div>
+    </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CompiledMapping.html" title="A node that wraps a ResultConverter"></a>
+                        <a href="CompiledMapping.html" title="A node that wraps a ResultConverter">CompiledMapping</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CompoundResultConverter.html" title="Result converter that can write to multiple sub-converters and read from the first one"></a>
+                        <a href="CompoundResultConverter.html" title="Result converter that can write to multiple sub-converters and read from the first one">CompoundResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="GetOrElseResultConverter.html" title=""></a>
+                        <a href="GetOrElseResultConverter.html" title="">GetOrElseResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="IsDefinedResultConverter.html" title=""></a>
+                        <a href="IsDefinedResultConverter.html" title="">IsDefinedResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="OptionRebuildingResultConverter.html" title=""></a>
+                        <a href="OptionRebuildingResultConverter.html" title="">OptionRebuildingResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ProductResultConverter.html" title="An efficient (albeit boxed) ResultConverter for Product/Tuple values."></a>
+                        <a href="ProductResultConverter.html" title="An efficient (albeit boxed) ResultConverter for Product/Tuple values.">ProductResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="RelationalActionComponent.html" title=""></a>
+                        <a href="RelationalActionComponent.html" title="">RelationalActionComponent</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="RelationalBackend.html" title="The required backend level for RelationalProfile."></a>
+                        <a href="RelationalBackend.html" title="The required backend level for RelationalProfile.">RelationalBackend</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="object" href="RelationalCapabilities$.html" title="Capabilities for slick.profile.RelationalProfile."></a>
+                        <a href="RelationalCapabilities$.html" title="Capabilities for slick.profile.RelationalProfile.">RelationalCapabilities</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="RelationalProfile$.html" title=""></a>
+                        <a class="trait" href="RelationalProfile.html" title="A profile for relational databases that does not assume the existence of SQL (or any other text-based language for executing statements)."></a>
+                        <a href="RelationalProfile.html" title="A profile for relational databases that does not assume the existence of SQL (or any other text-based language for executing statements).">RelationalProfile</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="RelationalSequenceComponent.html" title=""></a>
+                        <a href="RelationalSequenceComponent.html" title="">RelationalSequenceComponent</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="RelationalTableComponent.html" title=""></a>
+                        <a href="RelationalTableComponent.html" title="">RelationalTableComponent</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="RelationalTypesComponent.html" title=""></a>
+                        <a href="RelationalTypesComponent.html" title="">RelationalTypesComponent</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="" title="A ResultConverter is used to read data from a result, update a result, and set parameters of a query."></a>
+                        <a href="" title="A ResultConverter is used to read data from a result, update a result, and set parameters of a query.">ResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="ResultConverterCompiler$.html" title=""></a>
+                        <a class="trait" href="ResultConverterCompiler.html" title="Create a ResultConverter for parameters and result sets."></a>
+                        <a href="ResultConverterCompiler.html" title="Create a ResultConverter for parameters and result sets.">ResultConverterCompiler</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="trait" href="ResultConverterDomain.html" title="The domain of a ResultConverter and associated classes."></a>
+                        <a href="ResultConverterDomain.html" title="The domain of a ResultConverter and associated classes.">ResultConverterDomain</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="SimpleFastPathResultConverter.html" title="A ResultConverter that simplifies the implementation of fast path converters."></a>
+                        <a href="SimpleFastPathResultConverter.html" title="A ResultConverter that simplifies the implementation of fast path converters.">SimpleFastPathResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="TypeMappingResultConverter.html" title=""></a>
+                        <a href="TypeMappingResultConverter.html" title="">TypeMappingResultConverter</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="UnitResultConverter.html" title=""></a>
+                        <a href="UnitResultConverter.html" title="">UnitResultConverter</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="trait type">
+      <div id="definition">
+        <div class="big-circle trait">t</div>
+        <p id="owner"><a href="../index.html" class="extype" name="slick">slick</a>.<a href="index.html" class="extype" name="slick.relational">relational</a></p>
+        <h1>ResultConverter<span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ResultConverter</span><span class="tparams">[<span name="M">M &lt;: <a href="ResultConverterDomain.html" class="extype" name="slick.relational.ResultConverterDomain">ResultConverterDomain</a></span>, <span name="T">T</span>]</span><span class="result"> extends <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A <code>ResultConverter</code> is used to read data from a result, update a result,
+and set parameters of a query.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/slick/src/main/scala/slick/relational/ResultConverter.scala" target="_blank">ResultConverter.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a>, <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">
+              Known Subclasses
+            </span>
+            <div class="subClasses hiddenContent"><a href="../jdbc/BaseResultConverter.html" class="extype" name="slick.jdbc.BaseResultConverter">BaseResultConverter</a>, <a href="../jdbc/DefaultingResultConverter.html" class="extype" name="slick.jdbc.DefaultingResultConverter">DefaultingResultConverter</a>, <a href="../jdbc/IsDefinedResultConverter.html" class="extype" name="slick.jdbc.IsDefinedResultConverter">IsDefinedResultConverter</a>, <a href="../jdbc/OptionResultConverter.html" class="extype" name="slick.jdbc.OptionResultConverter">OptionResultConverter</a>, <a href="../memory/MemoryProfile$InsertMappingCompiler$InsertResultConverter.html" class="extype" name="slick.memory.MemoryProfile.InsertMappingCompiler.InsertResultConverter">InsertResultConverter</a>, <a href="../memory/MemoryQueryingProfile$MemoryCodeGen$QueryResultConverter.html" class="extype" name="slick.memory.MemoryQueryingProfile.MemoryCodeGen.QueryResultConverter">QueryResultConverter</a>, <a href="CompoundResultConverter.html" class="extype" name="slick.relational.CompoundResultConverter">CompoundResultConverter</a>, <a href="GetOrElseResultConverter.html" class="extype" name="slick.relational.GetOrElseResultConverter">GetOrElseResultConverter</a>, <a href="IsDefinedResultConverter.html" class="extype" name="slick.relational.IsDefinedResultConverter">IsDefinedResultConverter</a>, <a href="OptionRebuildingResultConverter.html" class="extype" name="slick.relational.OptionRebuildingResultConverter">OptionRebuildingResultConverter</a>, <a href="ProductResultConverter.html" class="extype" name="slick.relational.ProductResultConverter">ProductResultConverter</a>, <a href="SimpleFastPathResultConverter.html" class="extype" name="slick.relational.SimpleFastPathResultConverter">SimpleFastPathResultConverter</a>, <a href="TypeMappingResultConverter.html" class="extype" name="slick.relational.TypeMappingResultConverter">TypeMappingResultConverter</a>, <a href="UnitResultConverter.html" class="extype" name="slick.relational.UnitResultConverter">UnitResultConverter</a></div>
+          </div><div class="toggleContainer block diagram-container" id="inheritance-diagram-container">
+                <span class="toggle diagram-link">
+                  Type Hierarchy
+                </span>
+                <div class="diagram" id="inheritance-diagram"><svg class="class-diagram" id="graph1" viewBox="0.00 0.00 2541.50 155.00" height="155pt" width="2542pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 151)" class="graph" id="page0,1_graph0"><polygon points="-4,4 -4,-151 2537.5,-151 2537.5,4 -4,4" stroke="transparent" fill="white"></polygon><g class="cluster" id="clust1"></g><g class="cluster" id="clust2"></g><!-- node0 --><g class="node this trait" id="graph1_0"><g id="a_this trait|graph1_0"><a xlink:title="slick.relational.ResultConverter (this trait)" xlink:href="#inheritance-diagram"><path d="M1306.17,-86C1306.17,-86 1190.83,-86 1190.83,-86 1186.67,-86 1182.5,-81.83 1182.5,-77.67 1182.5,-77.67 1182.5,-69.33 1182.5,-69.33 1182.5,-65.17 1186.67,-61 1190.83,-61 1190.83,-61 1306.17,-61 1306.17,-61 1310.33,-61 1314.5,-65.17 1314.5,-69.33 1314.5,-69.33 1314.5,-77.67 1314.5,-77.67 1314.5,-81.83 1310.33,-86 1306.17,-86" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="1192.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-71.1" x="1213.5" text-anchor="start">ResultConverter[M, T]</text></a></g></g><!-- node1 --><g class="node class" id="graph1_1"><g id="a_class|graph1_1"><a xlink:title="slick.jdbc.BaseResultConverter" xlink:href="../jdbc/BaseResultConverter.html#inheritance-diagram"><path d="M132.67,-25C132.67,-25 8.33,-25 8.33,-25 4.17,-25 0,-20.83 0,-16.67 0,-16.67 0,-8.33 0,-8.33 0,-4.17 4.17,0 8.33,0 8.33,0 132.67,0 132.67,0 136.83,0 141,-4.17 141,-8.33 141,-8.33 141,-16.67 141,-16.67 141,-20.83 136.83,-25 132.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="10.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="31.5" text-anchor="start">BaseResultConverter[T]</text></a></g></g><!-- node0&#45;&gt;node1 --><g class="edge inheritance" id="graph1_0_1"><g id="a_inheritance|graph1_0_1"><a xlink:title="BaseResultConverter[T] is a subtype of ResultConverter[M, T]"><path d="M1175.26,-71.85C998.63,-69.72 535.33,-60.89 150.5,-25 147.43,-24.71 144.29,-24.39 141.12,-24.04" stroke="#d4d4d4" fill="none"></path><polygon points="1175.41,-74.3 1182.44,-71.93 1175.47,-69.4 1175.41,-74.3" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node2 --><g class="node class" id="graph1_2"><g id="a_class|graph1_2"><a xlink:title="slick.relational.CompoundResultConverter" xlink:href="CompoundResultConverter.html#inheritance-diagram"><path d="M327.17,-25C327.17,-25 167.83,-25 167.83,-25 163.67,-25 159.5,-20.83 159.5,-16.67 159.5,-16.67 159.5,-8.33 159.5,-8.33 159.5,-4.17 163.67,0 167.83,0 167.83,0 327.17,0 327.17,0 331.33,0 335.5,-4.17 335.5,-8.33 335.5,-8.33 335.5,-16.67 335.5,-16.67 335.5,-20.83 331.33,-25 327.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="169.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="190.5" text-anchor="start">CompoundResultConverter[M, T]</text></a></g></g><!-- node0&#45;&gt;node2 --><g class="edge inheritance" id="graph1_0_2"><g id="a_inheritance|graph1_0_2"><a xlink:title="CompoundResultConverter[M, T] is a subtype of ResultConverter[M, T]"><path d="M1175.16,-70.28C1021.09,-65.24 652.59,-51.33 344.5,-25 341.54,-24.75 338.54,-24.48 335.5,-24.19" stroke="#d4d4d4" fill="none"></path><polygon points="1175.25,-72.73 1182.33,-70.51 1175.41,-67.83 1175.25,-72.73" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3 --><g class="node class" id="graph1_3"><g id="a_class|graph1_3"><a xlink:title="slick.jdbc.DefaultingResultConverter" xlink:href="../jdbc/DefaultingResultConverter.html#inheritance-diagram"><path d="M508.67,-25C508.67,-25 362.33,-25 362.33,-25 358.17,-25 354,-20.83 354,-16.67 354,-16.67 354,-8.33 354,-8.33 354,-4.17 358.17,0 362.33,0 362.33,0 508.67,0 508.67,0 512.83,0 517,-4.17 517,-8.33 517,-8.33 517,-16.67 517,-16.67 517,-20.83 512.83,-25 508.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="364.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="385.5" text-anchor="start">DefaultingResultConverter[T]</text></a></g></g><!-- node0&#45;&gt;node3 --><g class="edge inheritance" id="graph1_0_3"><g id="a_inheritance|graph1_0_3"><a xlink:title="DefaultingResultConverter[T] is a subtype of ResultConverter[M, T]"><path d="M1174.95,-69.12C1044.25,-62.79 763.05,-47.71 526.5,-25 523.49,-24.71 520.42,-24.4 517.33,-24.08" stroke="#d4d4d4" fill="none"></path><polygon points="1175.09,-71.58 1182.2,-69.47 1175.32,-66.69 1175.09,-71.58" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node4 --><g class="node class" id="graph1_4"><g id="a_class|graph1_4"><a xlink:title="slick.relational.GetOrElseResultConverter" xlink:href="GetOrElseResultConverter.html#inheritance-diagram"><path d="M699.17,-25C699.17,-25 543.83,-25 543.83,-25 539.67,-25 535.5,-20.83 535.5,-16.67 535.5,-16.67 535.5,-8.33 535.5,-8.33 535.5,-4.17 539.67,0 543.83,0 543.83,0 699.17,0 699.17,0 703.33,0 707.5,-4.17 707.5,-8.33 707.5,-8.33 707.5,-16.67 707.5,-16.67 707.5,-20.83 703.33,-25 699.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="545.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="566.5" text-anchor="start">GetOrElseResultConverter[M, T]</text></a></g></g><!-- node0&#45;&gt;node4 --><g class="edge inheritance" id="graph1_0_4"><g id="a_inheritance|graph1_0_4"><a xlink:title="GetOrElseResultConverter[M, T] is a subtype of ResultConverter[M, T]"><path d="M1174.84,-66.66C1072.1,-58.34 879.96,-42.19 716.5,-25 713.61,-24.7 710.67,-24.38 707.7,-24.05" stroke="#d4d4d4" fill="none"></path><polygon points="1174.91,-69.12 1182.08,-67.24 1175.3,-64.24 1174.91,-69.12" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node5 --><g class="node class" id="graph1_5"><g id="a_class|graph1_5"><a xlink:title="slick.memory.MemoryProfile.InsertMappingCompiler.InsertResultConverter" xlink:href="../memory/MemoryProfile$InsertMappingCompiler$InsertResultConverter.html#inheritance-diagram"><path d="M849.17,-25C849.17,-25 733.83,-25 733.83,-25 729.67,-25 725.5,-20.83 725.5,-16.67 725.5,-16.67 725.5,-8.33 725.5,-8.33 725.5,-4.17 729.67,0 733.83,0 733.83,0 849.17,0 849.17,0 853.33,0 857.5,-4.17 857.5,-8.33 857.5,-8.33 857.5,-16.67 857.5,-16.67 857.5,-20.83 853.33,-25 849.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="735.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="756.5" text-anchor="start">InsertResultConverter</text></a></g></g><!-- node0&#45;&gt;node5 --><g class="edge inheritance" id="graph1_0_5"><g id="a_inheritance|graph1_0_5"><a xlink:title="InsertResultConverter is a subtype of ResultConverter[M, T]"><path d="M1174.87,-63.97C1097.89,-54.91 973.59,-39.87 866.5,-25 863.63,-24.6 860.7,-24.19 857.74,-23.76" stroke="#d4d4d4" fill="none"></path><polygon points="1174.94,-66.45 1182.18,-64.83 1175.51,-61.58 1174.94,-66.45" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node6 --><g class="node class" id="graph1_6"><g id="a_class|graph1_6"><a xlink:title="slick.relational.IsDefinedResultConverter" xlink:href="IsDefinedResultConverter.html#inheritance-diagram"><path d="M1028.67,-25C1028.67,-25 884.33,-25 884.33,-25 880.17,-25 876,-20.83 876,-16.67 876,-16.67 876,-8.33 876,-8.33 876,-4.17 880.17,0 884.33,0 884.33,0 1028.67,0 1028.67,0 1032.83,0 1037,-4.17 1037,-8.33 1037,-8.33 1037,-16.67 1037,-16.67 1037,-20.83 1032.83,-25 1028.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="886.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="907.5" text-anchor="start">IsDefinedResultConverter[M]</text></a></g></g><!-- node0&#45;&gt;node6 --><g class="edge inheritance" id="graph1_0_6"><g id="a_inheritance|graph1_0_6"><a xlink:title="IsDefinedResultConverter[M] is a subtype of ResultConverter[M, T]"><path d="M1184.46,-59.56C1133.53,-49.27 1062.93,-35.01 1013.85,-25.09" stroke="#d4d4d4" fill="none"></path><polygon points="1184.16,-62 1191.51,-60.98 1185.13,-57.2 1184.16,-62" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node7 --><g class="node class" id="graph1_7"><g id="a_class|graph1_7"><a xlink:title="slick.jdbc.IsDefinedResultConverter" xlink:href="../jdbc/IsDefinedResultConverter.html#inheritance-diagram"><path d="M1225.67,-25C1225.67,-25 1063.33,-25 1063.33,-25 1059.17,-25 1055,-20.83 1055,-16.67 1055,-16.67 1055,-8.33 1055,-8.33 1055,-4.17 1059.17,0 1063.33,0 1063.33,0 1225.67,0 1225.67,0 1229.83,0 1234,-4.17 1234,-8.33 1234,-8.33 1234,-16.67 1234,-16.67 1234,-20.83 1229.83,-25 1225.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1065.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1086.5" text-anchor="start">jdbc.IsDefinedResultConverter[T]</text></a></g></g><!-- node0&#45;&gt;node7 --><g class="edge inheritance" id="graph1_0_7"><g id="a_inheritance|graph1_0_7"><a xlink:title="jdbc.IsDefinedResultConverter[T] is a subtype of ResultConverter[M, T]"><path d="M1221.7,-57.29C1204.02,-47.27 1181.23,-34.34 1165,-25.13" stroke="#d4d4d4" fill="none"></path><polygon points="1220.66,-59.52 1227.95,-60.84 1223.07,-55.26 1220.66,-59.52" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node8 --><g class="node class" id="graph1_8"><g id="a_class|graph1_8"><a xlink:title="slick.relational.OptionRebuildingResultConverter" xlink:href="OptionRebuildingResultConverter.html#inheritance-diagram"><path d="M1446.17,-25C1446.17,-25 1260.83,-25 1260.83,-25 1256.67,-25 1252.5,-20.83 1252.5,-16.67 1252.5,-16.67 1252.5,-8.33 1252.5,-8.33 1252.5,-4.17 1256.67,0 1260.83,0 1260.83,0 1446.17,0 1446.17,0 1450.33,0 1454.5,-4.17 1454.5,-8.33 1454.5,-8.33 1454.5,-16.67 1454.5,-16.67 1454.5,-20.83 1450.33,-25 1446.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1262.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1283.5" text-anchor="start">OptionRebuildingResultConverter[M, T]</text></a></g></g><!-- node0&#45;&gt;node8 --><g class="edge inheritance" id="graph1_0_8"><g id="a_inheritance|graph1_0_8"><a xlink:title="OptionRebuildingResultConverter[M, T] is a subtype of ResultConverter[M, T]"><path d="M1275.31,-57.44C1293.15,-47.41 1316.24,-34.43 1332.7,-25.19" stroke="#d4d4d4" fill="none"></path><polygon points="1273.9,-55.42 1268.99,-60.98 1276.3,-59.69 1273.9,-55.42" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node9 --><g class="node class" id="graph1_9"><g id="a_class|graph1_9"><a xlink:title="slick.jdbc.OptionResultConverter" xlink:href="../jdbc/OptionResultConverter.html#inheritance-diagram"><path d="M1611.67,-25C1611.67,-25 1481.33,-25 1481.33,-25 1477.17,-25 1473,-20.83 1473,-16.67 1473,-16.67 1473,-8.33 1473,-8.33 1473,-4.17 1477.17,0 1481.33,0 1481.33,0 1611.67,0 1611.67,0 1615.83,0 1620,-4.17 1620,-8.33 1620,-8.33 1620,-16.67 1620,-16.67 1620,-20.83 1615.83,-25 1611.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1483.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1504.5" text-anchor="start">OptionResultConverter[T]</text></a></g></g><!-- node0&#45;&gt;node9 --><g class="edge inheritance" id="graph1_0_9"><g id="a_inheritance|graph1_0_9"><a xlink:title="OptionResultConverter[T] is a subtype of ResultConverter[M, T]"><path d="M1313.55,-59.62C1365.63,-49.31 1438.03,-34.98 1488.23,-25.04" stroke="#d4d4d4" fill="none"></path><polygon points="1313.06,-57.22 1306.66,-60.98 1314.01,-62.03 1313.06,-57.22" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node10 --><g class="node class" id="graph1_10"><g id="a_class|graph1_10"><a xlink:title="slick.relational.ProductResultConverter" xlink:href="ProductResultConverter.html#inheritance-diagram"><path d="M1792.17,-25C1792.17,-25 1646.83,-25 1646.83,-25 1642.67,-25 1638.5,-20.83 1638.5,-16.67 1638.5,-16.67 1638.5,-8.33 1638.5,-8.33 1638.5,-4.17 1642.67,0 1646.83,0 1646.83,0 1792.17,0 1792.17,0 1796.33,0 1800.5,-4.17 1800.5,-8.33 1800.5,-8.33 1800.5,-16.67 1800.5,-16.67 1800.5,-20.83 1796.33,-25 1792.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1648.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1669.5" text-anchor="start">ProductResultConverter[M, T]</text></a></g></g><!-- node0&#45;&gt;node10 --><g class="edge inheritance" id="graph1_0_10"><g id="a_inheritance|graph1_0_10"><a xlink:title="ProductResultConverter[M, T] is a subtype of ResultConverter[M, T]"><path d="M1321.86,-63.42C1398.59,-53.91 1522.51,-38.5 1629.5,-25 1632.31,-24.64 1635.18,-24.28 1638.07,-23.92" stroke="#d4d4d4" fill="none"></path><polygon points="1321.23,-61.03 1314.58,-64.32 1321.83,-65.89 1321.23,-61.03" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node11 --><g class="node class" id="graph1_11"><g id="a_class|graph1_11"><a xlink:title="slick.memory.MemoryQueryingProfile.MemoryCodeGen.QueryResultConverter" xlink:href="../memory/MemoryQueryingProfile$MemoryCodeGen$QueryResultConverter.html#inheritance-diagram"><path d="M1943.67,-25C1943.67,-25 1827.33,-25 1827.33,-25 1823.17,-25 1819,-20.83 1819,-16.67 1819,-16.67 1819,-8.33 1819,-8.33 1819,-4.17 1823.17,0 1827.33,0 1827.33,0 1943.67,0 1943.67,0 1947.83,0 1952,-4.17 1952,-8.33 1952,-8.33 1952,-16.67 1952,-16.67 1952,-20.83 1947.83,-25 1943.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1829.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="1850.5" text-anchor="start">QueryResultConverter</text></a></g></g><!-- node0&#45;&gt;node11 --><g class="edge inheritance" id="graph1_0_11"><g id="a_inheritance|graph1_0_11"><a xlink:title="QueryResultConverter is a subtype of ResultConverter[M, T]"><path d="M1321.95,-67.83C1429.27,-60.65 1635.14,-45.55 1809.5,-25 1812.55,-24.64 1815.66,-24.25 1818.81,-23.85" stroke="#d4d4d4" fill="none"></path><polygon points="1321.53,-65.4 1314.71,-68.31 1321.86,-70.29 1321.53,-65.4" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node12 --><g class="node class" id="graph1_12"><g id="a_class|graph1_12"><a xlink:title="slick.relational.SimpleFastPathResultConverter" xlink:href="SimpleFastPathResultConverter.html#inheritance-diagram"><path d="M2156.17,-25C2156.17,-25 1978.83,-25 1978.83,-25 1974.67,-25 1970.5,-20.83 1970.5,-16.67 1970.5,-16.67 1970.5,-8.33 1970.5,-8.33 1970.5,-4.17 1974.67,0 1978.83,0 1978.83,0 2156.17,0 2156.17,0 2160.33,0 2164.5,-4.17 2164.5,-8.33 2164.5,-8.33 2164.5,-16.67 2164.5,-16.67 2164.5,-20.83 2160.33,-25 2156.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="1980.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="2001.5" text-anchor="start">SimpleFastPathResultConverter[M, T]</text></a></g></g><!-- node0&#45;&gt;node12 --><g class="edge inheritance" id="graph1_0_12"><g id="a_inheritance|graph1_0_12"><a xlink:title="SimpleFastPathResultConverter[M, T] is a subtype of ResultConverter[M, T]"><path d="M1322.1,-68.61C1451.54,-61.54 1728.31,-45.41 1961.5,-25 1964.45,-24.74 1967.45,-24.47 1970.47,-24.19" stroke="#d4d4d4" fill="none"></path><polygon points="1321.78,-66.17 1314.92,-69 1322.05,-71.06 1321.78,-66.17" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node13 --><g class="node class" id="graph1_13"><g id="a_class|graph1_13"><a xlink:title="slick.relational.TypeMappingResultConverter" xlink:href="TypeMappingResultConverter.html#inheritance-diagram"><path d="M2368.67,-25C2368.67,-25 2190.33,-25 2190.33,-25 2186.17,-25 2182,-20.83 2182,-16.67 2182,-16.67 2182,-8.33 2182,-8.33 2182,-4.17 2186.17,0 2190.33,0 2190.33,0 2368.67,0 2368.67,0 2372.83,0 2377,-4.17 2377,-8.33 2377,-8.33 2377,-16.67 2377,-16.67 2377,-20.83 2372.83,-25 2368.67,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="2192.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="2213.5" text-anchor="start">TypeMappingResultConverter[M, T, C]</text></a></g></g><!-- node0&#45;&gt;node13 --><g class="edge inheritance" id="graph1_0_13"><g id="a_inheritance|graph1_0_13"><a xlink:title="TypeMappingResultConverter[M, T, C] is a subtype of ResultConverter[M, T]"><path d="M1322.05,-70.14C1478.78,-64.81 1857.14,-50.26 2173.5,-25 2176.27,-24.78 2179.08,-24.54 2181.91,-24.3" stroke="#d4d4d4" fill="none"></path><polygon points="1321.67,-67.7 1314.76,-70.39 1321.84,-72.6 1321.67,-67.7" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node14 --><g class="node class" id="graph1_14"><g id="a_class|graph1_14"><a xlink:title="slick.relational.UnitResultConverter" xlink:href="UnitResultConverter.html#inheritance-diagram"><path d="M2525.17,-25C2525.17,-25 2403.83,-25 2403.83,-25 2399.67,-25 2395.5,-20.83 2395.5,-16.67 2395.5,-16.67 2395.5,-8.33 2395.5,-8.33 2395.5,-4.17 2399.67,0 2403.83,0 2403.83,0 2525.17,0 2525.17,0 2529.33,0 2533.5,-4.17 2533.5,-8.33 2533.5,-8.33 2533.5,-16.67 2533.5,-16.67 2533.5,-20.83 2529.33,-25 2525.17,-25" stroke="#418565" fill="#418565"></path><image xlink:href="../../lib/class_diagram.png" y="-19.5" x="2405.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="2426.5" text-anchor="start">UnitResultConverter[M]</text></a></g></g><!-- node0&#45;&gt;node14 --><g class="edge inheritance" id="graph1_0_14"><g id="a_inheritance|graph1_0_14"><a xlink:title="UnitResultConverter[M] is a subtype of ResultConverter[M, T]"><path d="M1321.82,-72.09C1502.93,-70.52 1985.81,-62.8 2386.5,-25 2389.36,-24.73 2392.28,-24.43 2395.22,-24.1" stroke="#d4d4d4" fill="none"></path><polygon points="1321.71,-69.65 1314.73,-72.15 1321.75,-74.55 1321.71,-69.65" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node15 --><g class="node trait" id="graph1_15"><g id="a_trait|graph1_15"><a xlink:title="slick.util.Dumpable" xlink:href="../util/Dumpable.html#inheritance-diagram"><path d="M1283.17,-147C1283.17,-147 1213.83,-147 1213.83,-147 1209.67,-147 1205.5,-142.83 1205.5,-138.67 1205.5,-138.67 1205.5,-130.33 1205.5,-130.33 1205.5,-126.17 1209.67,-122 1213.83,-122 1213.83,-122 1283.17,-122 1283.17,-122 1287.33,-122 1291.5,-126.17 1291.5,-130.33 1291.5,-130.33 1291.5,-138.67 1291.5,-138.67 1291.5,-142.83 1287.33,-147 1283.17,-147" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-141.5" x="1215.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-132.1" x="1236.5" text-anchor="start">Dumpable</text></a></g></g><!-- node15&#45;&gt;node0 --><g class="edge inheritance" id="graph1_15_0"><g id="a_inheritance|graph1_15_0"><a xlink:title="ResultConverter[M, T] is a subtype of Dumpable"><path d="M1248.5,-114.76C1248.5,-105.37 1248.5,-94.29 1248.5,-86.13" stroke="#d4d4d4" fill="none"></path><polygon points="1246.05,-114.84 1248.5,-121.84 1250.95,-114.84 1246.05,-114.84" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+                <div id="diagram-controls" class="hiddenContent">
+                  <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button title="Toggle full-screen" id="diagram-fs" class="diagram-btn to-full"><i class="material-icons"></i></button>
+                </div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="slick.relational.ResultConverter"><span>ResultConverter</span></li><li class="in" name="slick.util.Dumpable"><span>Dumpable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+                  <span class="filtertype">Implicitly<br />
+                  </span>
+                  <ol id="implicits"> <li class="in" name="scala.Predef.any2stringadd" data-hidden="true"><span>by any2stringadd</span></li><li class="in" name="scala.Predef.StringFormat" data-hidden="true"><span>by StringFormat</span></li><li class="in" name="scala.Predef.Ensuring" data-hidden="true"><span>by Ensuring</span></li><li class="in" name="scala.Predef.ArrowAssoc" data-hidden="true"><span>by ArrowAssoc</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.relational.ResultConverter.Reader" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Reader=M#Reader"></a><a id="Reader:Reader"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#Reader=M#Reader" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Reader</span><span class="result alias"> = <span class="extype" name="slick.relational.ResultConverterDomain.Reader">M.Reader</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd></dl></div>
+    </li><li name="slick.relational.ResultConverter.Updater" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Updater=M#Updater"></a><a id="Updater:Updater"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#Updater=M#Updater" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Updater</span><span class="result alias"> = <span class="extype" name="slick.relational.ResultConverterDomain.Updater">M.Updater</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd></dl></div>
+    </li><li name="slick.relational.ResultConverter.Writer" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="Writer=M#Writer"></a><a id="Writer:Writer"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#Writer=M#Writer" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Writer</span><span class="result alias"> = <span class="extype" name="slick.relational.ResultConverterDomain.Writer">M.Writer</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[this] </dd></dl></div>
+    </li></ol>
+            </div>
+
+        <div class="values members">
+              <h3>Abstract Value Members</h3>
+              <ol><li name="slick.relational.ResultConverter#read" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="read(pr:ResultConverter.this.Reader):T"></a><a id="read(Reader):T"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#read(pr:ResultConverter.this.Reader):T" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">read</span><span class="params">(<span name="pr">pr: <a href="#Reader=M#Reader" class="extmbr" name="slick.relational.ResultConverter.Reader">Reader</a></span>)</span><span class="result">: <span class="extype" name="slick.relational.ResultConverter.T">T</span></span>
+      </span>
+      
+      
+    </li><li name="slick.relational.ResultConverter#set" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="set(value:T,pp:ResultConverter.this.Writer):Unit"></a><a id="set(T,Writer):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#set(value:T,pp:ResultConverter.this.Writer):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">set</span><span class="params">(<span name="value">value: <span class="extype" name="slick.relational.ResultConverter.T">T</span></span>, <span name="pp">pp: <a href="#Writer=M#Writer" class="extmbr" name="slick.relational.ResultConverter.Writer">Writer</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      
+    </li><li name="slick.relational.ResultConverter#update" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="update(value:T,pr:ResultConverter.this.Updater):Unit"></a><a id="update(T,Updater):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#update(value:T,pr:ResultConverter.this.Updater):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">update</span><span class="params">(<span name="value">value: <span class="extype" name="slick.relational.ResultConverter.T">T</span></span>, <span name="pr">pr: <a href="#Updater=M#Updater" class="extmbr" name="slick.relational.ResultConverter.Updater">Updater</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      
+    </li><li name="slick.relational.ResultConverter#width" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="width:Int"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#width:Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">abstract </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">width</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">The width of this converter (in columns), corresponding to the
+number of columns that will be read or written by it.</p>
+    </li></ol>
+            </div>
+
+        <div class="values members">
+              <h3>Concrete Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.any2stringadd#+" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="+(other:String):String"></a><a id="+(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#+(other:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="implicit">+</span><span class="params">(<span name="other">other: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method any2stringadd in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>any2stringadd</dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#-&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="-&gt;[B](y:B):(A,B)"></a><a id="-&gt;[B](B):(ResultConverter[M,T],B)"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#-&gt;[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $minus$greater" class="implicit">-&gt;</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.-&gt;.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A"></a><a id="ensuring((ResultConverter[M,T])⇒Boolean,⇒Any):ResultConverter[M,T]"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#ensuring(cond:A=&gt;Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:A=&gt;Boolean):A"></a><a id="ensuring((ResultConverter[M,T])⇒Boolean):ResultConverter[M,T]"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#ensuring(cond:A=&gt;Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: (<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean,msg:=&gt;Any):A"></a><a id="ensuring(Boolean,⇒Any):ResultConverter[M,T]"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#ensuring(cond:Boolean,msg:=&gt;Any):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="msg">msg: ⇒ <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.Predef.Ensuring#ensuring" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ensuring(cond:Boolean):A"></a><a id="ensuring(Boolean):ResultConverter[M,T]"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#ensuring(cond:Boolean):A" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">ensuring</span><span class="params">(<span name="cond">cond: <span class="extype" name="scala.Boolean">Boolean</span></span>)</span><span class="result">: <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method Ensuring in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>Ensuring</dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Predef.StringFormat#formatted" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="formatted(fmtstr:String):String"></a><a id="formatted(String):String"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#formatted(fmtstr:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="implicit">formatted</span><span class="params">(<span name="fmtstr">fmtstr: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method StringFormat in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>StringFormat</dd><dt>Annotations</dt><dd>
+                <span class="name">@inline</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.relational.ResultConverter#getDumpInfo" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getDumpInfo:slick.util.DumpInfo"></a><a id="getDumpInfo:DumpInfo"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#getDumpInfo:slick.util.DumpInfo" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getDumpInfo</span><span class="result">: <a href="../util/DumpInfo.html" class="extype" name="slick.util.DumpInfo">DumpInfo</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Return the name, main info, attribute info and named children</p><div class="fullcomment"><div class="comment cmt"><p>Return the name, main info, attribute info and named children</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a> → <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="slick.relational.ResultConverter#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a> → AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Predef.ArrowAssoc#→" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="→[B](y:B):(A,B)"></a><a id="→[B](B):(ResultConverter[M,T],B)"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#→[B](y:B):(A,B)" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $u2192" class="implicit">→</span><span class="tparams">[<span name="B">B</span>]</span><span class="params">(<span name="y">y: <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span></span>)</span><span class="result">: (<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>], <span class="extype" name="scala.Predef.ArrowAssoc.→.B">B</span>)</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt class="implicit">Implicit</dt><dd>
+            This member is added by an implicit conversion from <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to
+            <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]] performed by method ArrowAssoc in scala.Predef.
+            
+          </dd><dt>Definition Classes</dt><dd>ArrowAssoc</dd></dl></div>
+    </li>
+              </ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/relational/ResultConverter.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: ">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+                <span class="name">@Deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="slick.util.Dumpable">
+              <h3>Inherited from <a href="../util/Dumpable.html" class="extype" name="slick.util.Dumpable">Dumpable</a></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        <div class="conversion" name="scala.Predef.any2stringadd">
+              <h3>Inherited by implicit conversion any2stringadd from
+                <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to <span class="extype" name="scala.Predef.any2stringadd">any2stringadd</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.StringFormat">
+              <h3>Inherited by implicit conversion StringFormat from
+                <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to <span class="extype" name="scala.Predef.StringFormat">StringFormat</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.Ensuring">
+              <h3>Inherited by implicit conversion Ensuring from
+                <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to <span class="extype" name="scala.Predef.Ensuring">Ensuring</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]]
+              </h3>
+            </div><div class="conversion" name="scala.Predef.ArrowAssoc">
+              <h3>Inherited by implicit conversion ArrowAssoc from
+                <a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>] to <span class="extype" name="scala.Predef.ArrowAssoc">ArrowAssoc</span>[<a href="" class="extype" name="slick.relational.ResultConverter">ResultConverter</a>[<span class="extype" name="slick.relational.ResultConverter.M">M</span>, <span class="extype" name="slick.relational.ResultConverter.T">T</span>]]
+              </h3>
+            </div>
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>

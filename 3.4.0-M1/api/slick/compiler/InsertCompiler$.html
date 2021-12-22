@@ -1,0 +1,809 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>Slick 3.4.0-SNAPSHOT - slick.compiler.InsertCompiler</title>
+          <meta name="description" content="Slick 3.4.0 - SNAPSHOT - slick.compiler.InsertCompiler" />
+          <meta name="keywords" content="Slick 3.4.0 SNAPSHOT slick.compiler.InsertCompiler" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      
+      <link href="../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../lib/jquery.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../lib/index.js"></script>
+      <script type="text/javascript" src="../../index.js"></script>
+      <script type="text/javascript" src="../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../lib/template.js"></script>
+      <script type="text/javascript" src="../../lib/modernizr.custom.js"></script><script type="text/javascript" src="../../lib/diagrams.js" id="diagrams-js"></script>
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">Slick<span id="doc-version">3.4.0-SNAPSHOT</span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="../../index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="edit this text on github" href="../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <p class="shortcomment cmt"><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><div class="fullcomment"><div class="comment cmt"><p><a style="float:right" href="https://github.com/slick/slick/blob/master/scaladoc-root.txt">edit this text on github</a>
+<img src="https://scala-slick.org/resources/images/slick-logo.png" alt="Slick logo" /></p><h4> Scala Language-Integrated Connection Kit </h4><p>This is the API documentation for the <a href="https://scala-slick.org" target="_top">Slick</a> database library.
+It should be used as an additional resource to the <a href="../index.html">user manual</a>.</p><p>Further documentation for Slick can be found on the
+<a href="https://scala-slick.org/docs/" target="_top">documentation pages</a>.</p><p><a href="slick/package.html">To the slick package list...</a></p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.slick" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="slick"></a><a id="slick:slick"></a>
+      <span class="permalink">
+      <a href="../../slick/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">slick</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="slick.compiler" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="compiler"></a><a id="compiler:compiler"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/index.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="Slick AST to database query compiler" href="index.html"><span class="name">compiler</span></a>
+      </span>
+      
+      <p class="shortcomment cmt">Slick AST to database query compiler</p><div class="fullcomment"><div class="comment cmt"><p>Slick AST to database query compiler</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="slick">slick</a></dd></dl></div>
+    </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="AssignUniqueSymbols.html" title="Ensure that all symbol definitions in a tree are unique."></a>
+                        <a href="AssignUniqueSymbols.html" title="Ensure that all symbol definitions in a tree are unique.">AssignUniqueSymbols</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="CodeGen$.html" title=""></a>
+                        <a class="class" href="CodeGen.html" title="A standard skeleton for a code generator phase."></a>
+                        <a href="CodeGen.html" title="A standard skeleton for a code generator phase.">CodeGen</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CompilerState.html" title="The current state of a compiler run, consisting of the current AST and additional immutable state of individual phases."></a>
+                        <a href="CompilerState.html" title="The current state of a compiler run, consisting of the current AST and additional immutable state of individual phases.">CompilerState</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CreateAggregates.html" title="Rewrite aggregation function calls to Aggregate nodes."></a>
+                        <a href="CreateAggregates.html" title="Rewrite aggregation function calls to Aggregate nodes.">CreateAggregates</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="CreateResultSetMapping.html" title="Create a ResultSetMapping root node, ensure that the top-level server-side node returns a collection, and hoist client-side type conversions into the ResultSetMapping."></a>
+                        <a href="CreateResultSetMapping.html" title="Create a ResultSetMapping root node, ensure that the top-level server-side node returns a collection, and hoist client-side type conversions into the ResultSetMapping.">CreateResultSetMapping</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="EmulateOuterJoins.html" title="An optional phase which rewrites outer joins into more commonly supported operations for use on databases that lack outer join support."></a>
+                        <a href="EmulateOuterJoins.html" title="An optional phase which rewrites outer joins into more commonly supported operations for use on databases that lack outer join support.">EmulateOuterJoins</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ExpandRecords.html" title="Expand paths of record types to reference all fields individually and recreate the record structure at the call site."></a>
+                        <a href="ExpandRecords.html" title="Expand paths of record types to reference all fields individually and recreate the record structure at the call site.">ExpandRecords</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ExpandSums.html" title="Expand sum types and their catamorphisms to equivalent product type operations."></a>
+                        <a href="ExpandSums.html" title="Expand sum types and their catamorphisms to equivalent product type operations.">ExpandSums</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ExpandTables.html" title="Expand table-valued expressions in the result type to their star projection and compute the missing structural expansions of table types."></a>
+                        <a href="ExpandTables.html" title="Expand table-valued expressions in the result type to their star projection and compute the missing structural expansions of table types.">ExpandTables</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="FixRowNumberOrdering.html" title="Inject the proper orderings into the RowNumber nodes produced earlier by the resolveFixJoins phase."></a>
+                        <a href="FixRowNumberOrdering.html" title="Inject the proper orderings into the RowNumber nodes produced earlier by the resolveFixJoins phase.">FixRowNumberOrdering</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="FlattenProjections.html" title="Flatten all Pure node contents into a single StructNode."></a>
+                        <a href="FlattenProjections.html" title="Flatten all Pure node contents into a single StructNode.">FlattenProjections</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ForceOuterBinds.html" title="Ensure that all collection operations are wrapped in a Bind so that we have a place for expanding references later."></a>
+                        <a href="ForceOuterBinds.html" title="Ensure that all collection operations are wrapped in a Bind so that we have a place for expanding references later.">ForceOuterBinds</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="HoistClientOps.html" title="Lift applicable operations at the top level to the client side."></a>
+                        <a href="HoistClientOps.html" title="Lift applicable operations at the top level to the client side.">HoistClientOps</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="InferTypes.html" title="Infer all missing types."></a>
+                        <a href="InferTypes.html" title="Infer all missing types.">InferTypes</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="" title=""></a>
+                        <a class="class" href="InsertCompiler.html" title="A custom compiler for INSERT statements."></a>
+                        <a href="InsertCompiler.html" title="A custom compiler for INSERT statements.">InsertCompiler</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="MergeToComprehensions.html" title="This phase merges nested nodes of types Bind, Filter, GroupBy, SortBy, Take, Drop, CollectionCast and Distinct to Comprehension nodes."></a>
+                        <a href="MergeToComprehensions.html" title="This phase merges nested nodes of types Bind, Filter, GroupBy, SortBy, Take, Drop, CollectionCast and Distinct to Comprehension nodes.">MergeToComprehensions</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="OptimizeScalar.html" title="Optimize scalar expressions"></a>
+                        <a href="OptimizeScalar.html" title="Optimize scalar expressions">OptimizeScalar</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="Phase$.html" title="The Phase companion objects contains ready-to-use Phase objects for the standard phases of the query compiler"></a>
+                        <a class="trait" href="Phase.html" title="A phase of the query compiler, identified by a unique name"></a>
+                        <a href="Phase.html" title="A phase of the query compiler, identified by a unique name">Phase</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="PruneProjections.html" title="Remove unreferenced fields from StructNodes."></a>
+                        <a href="PruneProjections.html" title="Remove unreferenced fields from StructNodes.">PruneProjections</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="QueryCompiler$.html" title=""></a>
+                        <a class="class" href="QueryCompiler.html" title="An immutable, stateless query compiler consisting of a series of phases"></a>
+                        <a href="QueryCompiler.html" title="An immutable, stateless query compiler consisting of a series of phases">QueryCompiler</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RelabelUnions.html" title="Assign the AnonSymbols of fields from the left side of a Union to the right side."></a>
+                        <a href="RelabelUnions.html" title="Assign the AnonSymbols of fields from the left side of a Union to the right side.">RelabelUnions</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RemoveFieldNames.html" title="Convert unreferenced StructNodes to single columns or ProductNodes (which is needed for aggregation functions and at the top level)."></a>
+                        <a href="RemoveFieldNames.html" title="Convert unreferenced StructNodes to single columns or ProductNodes (which is needed for aggregation functions and at the top level).">RemoveFieldNames</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RemoveMappedTypes.html" title="Remove all mapped types from the tree and store the original top-level type as the phase state to be used later for building the ResultSetMapping."></a>
+                        <a href="RemoveMappedTypes.html" title="Remove all mapped types from the tree and store the original top-level type as the phase state to be used later for building the ResultSetMapping.">RemoveMappedTypes</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RemoveTakeDrop.html" title="Replace all occurrences of Take and Drop with row number computations based on zipWithIndex operations."></a>
+                        <a href="RemoveTakeDrop.html" title="Replace all occurrences of Take and Drop with row number computations based on zipWithIndex operations.">RemoveTakeDrop</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ReorderOperations.html" title="Reorder certain stream operations for more efficient merging in mergeToComprehensions."></a>
+                        <a href="ReorderOperations.html" title="Reorder certain stream operations for more efficient merging in mergeToComprehensions.">ReorderOperations</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="ResolveZipJoins.html" title="Rewrite zip joins into a form suitable for SQL using inner joins and RowNumber columns."></a>
+                        <a href="ResolveZipJoins.html" title="Rewrite zip joins into a form suitable for SQL using inner joins and RowNumber columns.">ResolveZipJoins</a>
+                      </li><li class="current-entities indented2">
+                        <a class="object" href="RewriteBooleans$.html" title=""></a>
+                        <a class="class" href="RewriteBooleans.html" title="For SQL back-ends which do not support real boolean types for fields and general expressions but which do have special boolean expressions and operators, this phase injects conversions between fake and real boolean values."></a>
+                        <a href="RewriteBooleans.html" title="For SQL back-ends which do not support real boolean types for fields and general expressions but which do have special boolean expressions and operators, this phase injects conversions between fake and real boolean values.">RewriteBooleans</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RewriteDistinct.html" title="Rewrite &quot;distinct on&quot; to &quot;distinct&quot; or &quot;group by&quot;"></a>
+                        <a href="RewriteDistinct.html" title="Rewrite &quot;distinct on&quot; to &quot;distinct&quot; or &quot;group by&quot;">RewriteDistinct</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="RewriteJoins.html" title="Rewrite monadic joins to applicative joins."></a>
+                        <a href="RewriteJoins.html" title="Rewrite monadic joins to applicative joins.">RewriteJoins</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="SpecializeParameters.html" title="Specialize the AST for edge cases of query parameters."></a>
+                        <a href="SpecializeParameters.html" title="Specialize the AST for edge cases of query parameters.">SpecializeParameters</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="UnrollTailBinds.html" title=""></a>
+                        <a href="UnrollTailBinds.html" title="">UnrollTailBinds</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="UsedFeatures.html" title=""></a>
+                        <a href="UsedFeatures.html" title="">UsedFeatures</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="VerifySymbols.html" title="Verify that all monadic joins have been transformed into applicative joins and that the resulting tree does not contain references to unreachable symbols."></a>
+                        <a href="VerifySymbols.html" title="Verify that all monadic joins have been transformed into applicative joins and that the resulting tree does not contain references to unreachable symbols.">VerifySymbols</a>
+                      </li><li class="current-entities indented2">
+                        <span class="separator"></span>
+                        <a class="class" href="VerifyTypes.html" title="Optional phase which verifies that retyping the tree does not change any types."></a>
+                        <a href="VerifyTypes.html" title="Optional phase which verifies that retyping the tree does not change any types.">VerifyTypes</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="object value">
+      <div id="definition">
+        <a href="InsertCompiler.html" title="See companion class"><div class="big-circle object-companion-class">o</div></a>
+        <p id="owner"><a href="../index.html" class="extype" name="slick">slick</a>.<a href="index.html" class="extype" name="slick.compiler">compiler</a></p>
+        <h1><a href="InsertCompiler.html" title="See companion class">InsertCompiler</a><span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"><div>
+            Companion <a href="InsertCompiler.html" title="See companion class">class InsertCompiler</a>
+          </div></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <span class="name">InsertCompiler</span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/slick/slick/blob/v3.4.0-SNAPSHOT/slick/src/main/scala/slick/compiler/InsertCompiler.scala" target="_blank">InsertCompiler.scala</a></dd></dl><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block diagram-container" id="content-diagram-container">
+                <span class="toggle diagram-link">
+                  Content Hierarchy
+                </span>
+                <div class="diagram" id="content-diagram"><svg class="package-diagram" id="graph1" viewBox="0.00 0.00 317.00 94.00" height="94pt" width="317pt" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g transform="scale(1 1) rotate(0) translate(4 90)" class="graph" id="page0,1_graph0"><polygon points="-4,4 -4,-90 313,-90 313,4 -4,4" stroke="transparent" fill="white"></polygon><!-- node0 --><g class="node object" id="graph1_0"><g id="a_object|graph1_0"><a xlink:title="slick.compiler.InsertCompiler.PrimaryKeys" xlink:href="InsertCompiler$$PrimaryKeys$.html#inheritance-diagram"><path d="M84.67,-25C84.67,-25 8.33,-25 8.33,-25 4.17,-25 0,-20.83 0,-16.67 0,-16.67 0,-8.33 0,-8.33 0,-4.17 4.17,0 8.33,0 8.33,0 84.67,0 84.67,0 88.83,0 93,-4.17 93,-8.33 93,-8.33 93,-16.67 93,-16.67 93,-20.83 88.83,-25 84.67,-25" stroke="#103a51" fill="#103a51"></path><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="10.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="31.5" text-anchor="start">PrimaryKeys</text></a></g></g><!-- node1 --><g class="node object" id="graph1_1"><g id="a_object|graph1_1"><a xlink:title="slick.compiler.InsertCompiler.NonAutoInc" xlink:href="InsertCompiler$$NonAutoInc$.html#inheritance-diagram"><path d="M193.67,-25C193.67,-25 119.33,-25 119.33,-25 115.17,-25 111,-20.83 111,-16.67 111,-16.67 111,-8.33 111,-8.33 111,-4.17 115.17,0 119.33,0 119.33,0 193.67,0 193.67,0 197.83,0 202,-4.17 202,-8.33 202,-8.33 202,-16.67 202,-16.67 202,-20.83 197.83,-25 193.67,-25" stroke="#103a51" fill="#103a51"></path><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="121.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="142.5" text-anchor="start">NonAutoInc</text></a></g></g><!-- node2 --><g class="node object" id="graph1_2"><g id="a_object|graph1_2"><a xlink:title="slick.compiler.InsertCompiler.AllColumns" xlink:href="InsertCompiler$$AllColumns$.html#inheritance-diagram"><path d="M300.67,-25C300.67,-25 228.33,-25 228.33,-25 224.17,-25 220,-20.83 220,-16.67 220,-16.67 220,-8.33 220,-8.33 220,-4.17 224.17,0 228.33,0 228.33,0 300.67,0 300.67,0 304.83,0 309,-4.17 309,-8.33 309,-8.33 309,-16.67 309,-16.67 309,-20.83 304.83,-25 300.67,-25" stroke="#103a51" fill="#103a51"></path><image xlink:href="../../lib/object_diagram.png" y="-19.5" x="230.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-10.1" x="251.5" text-anchor="start">AllColumns</text></a></g></g><!-- node3 --><g class="node trait" id="graph1_3"><g id="a_trait|graph1_3"><a xlink:title="slick.compiler.InsertCompiler.Mode" xlink:href="InsertCompiler$$Mode.html#inheritance-diagram"><path d="M181.17,-86C181.17,-86 131.83,-86 131.83,-86 127.67,-86 123.5,-81.83 123.5,-77.67 123.5,-77.67 123.5,-69.33 123.5,-69.33 123.5,-65.17 127.67,-61 131.83,-61 131.83,-61 181.17,-61 181.17,-61 185.33,-61 189.5,-65.17 189.5,-69.33 189.5,-69.33 189.5,-77.67 189.5,-77.67 189.5,-81.83 185.33,-86 181.17,-86" stroke="#2e6d82" fill="#2e6d82"></path><image xlink:href="../../lib/trait_diagram.png" y="-80.5" x="133.5" preserveAspectRatio="xMinYMin meet" height="15px" width="15px"></image><text fill="#ffffff" font-size="8.00" font-family="Source Code Pro" y="-71.1" x="154.5" text-anchor="start">Mode</text></a></g></g><!-- node3&#45;&gt;node0 --><g class="edge inheritance" id="graph1_3_0"><g id="a_inheritance|graph1_3_0"><a xlink:title="PrimaryKeys is a subtype of Mode"><path d="M128.42,-57.44C109.73,-47.41 85.53,-34.43 68.29,-25.19" stroke="#d4d4d4" fill="none"></path><polygon points="127.7,-59.83 135.03,-60.98 130.02,-55.52 127.7,-59.83" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3&#45;&gt;node1 --><g class="edge inheritance" id="graph1_3_1"><g id="a_inheritance|graph1_3_1"><a xlink:title="NonAutoInc is a subtype of Mode"><path d="M156.5,-53.76C156.5,-44.37 156.5,-33.29 156.5,-25.13" stroke="#d4d4d4" fill="none"></path><polygon points="154.05,-53.84 156.5,-60.84 158.95,-53.84 154.05,-53.84" stroke="#d4d4d4" fill="none"></polygon></a></g></g><!-- node3&#45;&gt;node2 --><g class="edge inheritance" id="graph1_3_2"><g id="a_inheritance|graph1_3_2"><a xlink:title="AllColumns is a subtype of Mode"><path d="M184.07,-57.44C202.42,-47.41 226.18,-34.43 243.1,-25.19" stroke="#d4d4d4" fill="none"></path><polygon points="182.55,-55.48 177.58,-60.98 184.9,-59.78 182.55,-55.48" stroke="#d4d4d4" fill="none"></polygon></a></g></g></g></svg></div>
+                <div id="diagram-controls" class="hiddenContent">
+                  <button id="diagram-zoom-out" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button id="diagram-zoom-in" class="diagram-btn"><i class="material-icons"></i></button>
+                  <button title="Toggle full-screen" id="diagram-fs" class="diagram-btn to-full"><i class="material-icons"></i></button>
+                </div>
+              </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="slick.compiler.InsertCompiler"><span>InsertCompiler</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="slick.compiler.InsertCompiler.Mode" visbl="pub" class="indented0 " data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="Modeextendsslick.ast.FieldSymbol=&gt;Boolean"></a><a id="Mode:Mode"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$$Mode.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a title="Determines which columns to include in the Insert and mapping nodes created by InsertCompiler." href="InsertCompiler$$Mode.html"><span class="name">Mode</span></a><span class="result"> extends (<a href="../ast/FieldSymbol.html" class="extype" name="slick.ast.FieldSymbol">FieldSymbol</a>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Determines which columns to include in the <code>Insert</code> and mapping nodes
+created by <code>InsertCompiler</code>.</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@HotSpotIntrinsicCandidate</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="slick.compiler.InsertCompiler.AllColumns" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="AllColumns"></a><a id="AllColumns:AllColumns"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$$AllColumns$.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Include all columns." href="InsertCompiler$$AllColumns$.html"><span class="name">AllColumns</span></a><span class="result"> extends <a href="InsertCompiler$$Mode.html" class="extype" name="slick.compiler.InsertCompiler.Mode">Mode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Include all columns.</p><div class="fullcomment"><div class="comment cmt"><p>Include all columns. For use in forced inserts and merges.</p></div></div>
+    </li><li name="slick.compiler.InsertCompiler.NonAutoInc" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="NonAutoInc"></a><a id="NonAutoInc:NonAutoInc"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$$NonAutoInc$.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Include only non-AutoInc columns." href="InsertCompiler$$NonAutoInc$.html"><span class="name">NonAutoInc</span></a><span class="result"> extends <a href="InsertCompiler$$Mode.html" class="extype" name="slick.compiler.InsertCompiler.Mode">Mode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Include only non-AutoInc columns.</p><div class="fullcomment"><div class="comment cmt"><p>Include only non-AutoInc columns. For use in standard (soft) inserts.</p></div></div>
+    </li><li name="slick.compiler.InsertCompiler.PrimaryKeys" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PrimaryKeys"></a><a id="PrimaryKeys:PrimaryKeys"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$$PrimaryKeys$.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a title="Include only primary keys." href="InsertCompiler$$PrimaryKeys$.html"><span class="name">PrimaryKeys</span></a><span class="result"> extends <a href="InsertCompiler$$Mode.html" class="extype" name="slick.compiler.InsertCompiler.Mode">Mode</a> with <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Include only primary keys.</p><div class="fullcomment"><div class="comment cmt"><p>Include only primary keys. For use in the insertOrUpdate emulation.</p></div></div>
+    </li>
+              </ol>
+            </div>
+
+        
+
+        <div class="values members">
+              <h3>Deprecated Value Members</h3>
+              <ol><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="../../slick/compiler/InsertCompiler$.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name deprecated" title="Deprecated: ">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<span class="extype" name="java.lang">lang</span>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[java.lang.Throwable]</span>
+    </span>)</span>
+              
+                <span class="name">@Deprecated</span>
+              
+        </dd><dt>Deprecated</dt><dd class="cmt"></dd></dl></div>
+    </li></ol>
+            </div>
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <a href="../../scala/index.html#AnyRef=Object" class="extmbr" name="scala.AnyRef">AnyRef</a></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer"> Slick is developed by Typesafe and EPFL Lausanne. </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>
