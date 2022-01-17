@@ -14,10 +14,7 @@
 <script type="text/javascript" src="js/snippets.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
 <link rel="stylesheet" type="text/css" href="css/page.css"/>
-
-<!--
 <link rel="shortcut icon" href="images/favicon.ico" />
--->
 </head>
 
 <body>
@@ -143,7 +140,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h1><a href="#introduction" name="introduction" class="anchor"><span class="anchor-link"></span></a>Introduction</h1>
 <h2><a href="#what-is-slick-" name="what-is-slick-" class="anchor"><span class="anchor-link"></span></a>What is Slick?</h2>
 <p>Slick (&ldquo;Scala Language-Integrated Connection Kit&rdquo;) is <a href="https://www.lightbend.com/">Lightbend</a>&rsquo;s Functional Relational Mapping (FRM) library for Scala that makes it easy to work with relational databases. It allows you to work with stored data almost as if you were using Scala collections while at the same time giving you full control over when database access happens and which data is transferred. You can also use SQL directly. Execution of database actions is done asynchronously, making Slick a perfect fit for your reactive applications based on <a href="https://www.playframework.com/">Play</a> and <a href="https://akka.io/">Akka</a>.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L49-L54" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L49-L54" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
 
 // Your query could look like this:
 ( for( c &lt;- coffees; if c.price &lt; limit ) yield c.name ).result
@@ -154,14 +151,14 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#functional-relational-mapping" name="functional-relational-mapping" class="anchor"><span class="anchor-link"></span></a>Functional Relational Mapping</h2>
 <p>Functional programmers have long suffered Object-Relational and Object-Math impedance mismatches when connecting to relational databases. Slick&rsquo;s new Functional Relational Mapping (FRM) paradigm allows mapping to be completed within Scala, with loose-coupling, minimal configuration requirements, and a number of other major advantages that abstract the complexities away from connecting with relational databases.</p>
 <p>We don&rsquo;t try to fight the relational model, we embrace it through a functional paradigm. Instead of trying to bridge the gap between the object model and the database model, we&rsquo;ve brought the database model into Scala so developers don&rsquo;t need to write SQL code.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L22-L27" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class Coffees(tag: Tag) extends Table[(String, Double)](tag, &quot;COFFEES&quot;) {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L22-L27" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class Coffees(tag: Tag) extends Table[(String, Double)](tag, &quot;COFFEES&quot;) {
   def name = column[String](&quot;COF_NAME&quot;, O.PrimaryKey)
   def price = column[Double](&quot;PRICE&quot;)
   def * = (name, price)
 }
 val coffees = TableQuery[Coffees]</code></pre>
 <p>Slick integrates databases directly into Scala, allowing stored and remote data to be queried and processed in the same way as in-memory data, using ordinary Scala classes and collections.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L70-L76" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Query that only returns the &quot;name&quot; column
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L70-L76" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Query that only returns the &quot;name&quot; column
 // Equivalent SQL: select NAME from COFFEES
 coffees.map(_.name)
 
@@ -178,7 +175,7 @@ coffees.filter(_.price &lt; 10.0)</code></pre>
   <li>
     <p>No More Tedious Troubleshooting with Type Safety<br/></p>
     <p>FRM brings type safety to building database queries. Developers are more productive because the compiler finds errors automatically versus the typical tedious troubleshooting required of finding errors in untyped strings.</p>
-    <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L83-L94" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// The result of &quot;select PRICE from COFFEES&quot; is a Seq of Double
+    <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L83-L94" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// The result of &quot;select PRICE from COFFEES&quot; is a Seq of Double
 // because of the type safe column definitions
 val coffeeNames: Future[Seq[Double]] = db.run(
   coffees.map(_.price).result
@@ -204,7 +201,7 @@ coffees.filter(_.price &lt; 10.0)
   <li>
     <p>A More Productive, Composable Model for Building Queries</p>
     <p>FRM supports a composable model for building queries. It&rsquo;s a very natural model to compose pieces together to build a query, and then reuse pieces across your code base.</p>
-    <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L102-L105" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Create a query for coffee names with a price less than 10, sorted by name
+    <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L102-L105" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Create a query for coffee names with a price less than 10, sorted by name
 coffees.filter(_.price &lt; 10.0).sortBy(_.name).map(_.name)
 // The generated SQL is equivalent to:
 // select name from COFFEES where PRICE &lt; 10.0 order by NAME</code></pre>
@@ -218,21 +215,21 @@ coffees.filter(_.price &lt; 10.0).sortBy(_.name).map(_.name)
   <li>
   <p>Resilience under load: When a database cannot keep up with the load of your application,  Slick will not create more and more threads (thus making the situation worse) or lock out all  kinds of I/O. Back-pressure is controlled efficiently through a queue (of configurable size)  for database I/O actions, allowing a certain number of requests to build up with very little  resource usage and failing immediately once this limit has been reached.</p></li>
   <li>
-  <p><a href="http://www.reactive-streams.org/">Reactive Streams</a> for asynchronous streaming.</p></li>
+  <p><a href="https://www.reactive-streams.org/">Reactive Streams</a> for asynchronous streaming.</p></li>
   <li>
   <p>Efficient utilization of database resources: Slick can be tuned easily and precisely for the  parallelism (number of concurrent active jobs) and resource usage (number of currently  suspended database sessions) of your database server.</p></li>
 </ul>
 <h2><a href="#plain-sql-support" name="plain-sql-support" class="anchor"><span class="anchor-link"></span></a>Plain SQL Support</h2>
 <p>The Scala-based query API for Slick allows you to write database queries like queries for Scala collections. Please see <a href="gettingstarted.html">Getting Started</a> for an introduction. Most of this user manual focuses on this API.</p>
 <p>If you want to write your own SQL statements and still execute them asynchronously like normal Slick queries, you can use the <a href="sql.html">Plain SQL</a> API:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L58-L63" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/GettingStartedOverview.scala#L58-L63" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
 
 sql&quot;select COF_NAME from COFFEES where PRICE &lt; $limit&quot;.as[String]
 
 // Automatically using a bind variable to be safe from SQL injection:
 // select COF_NAME from COFFEES where PRICE &lt; ?</code></pre>
 <h2><a href="#license" name="license" class="anchor"><span class="anchor-link"></span></a>License</h2>
-<p>Slick is released under a BSD-Style free and open source software <a href="https://github.com/nafg/slick/tree/master/LICENSE.txt">license</a>.</p>
+<p>Slick is released under a BSD-Style free and open source software <a href="https://github.com/slick/slick/tree/master/LICENSE.txt">license</a>.</p>
 <h2><a href="#next-steps" name="next-steps" class="anchor"><span class="anchor-link"></span></a>Next Steps</h2>
 <ul>
   <li>If you are new to Slick, continue to <a href="gettingstarted.html">Getting Started</a></li>
@@ -241,7 +238,7 @@ sql&quot;select COF_NAME from COFFEES where PRICE &lt; $limit&quot;.as[String]
   <li>If you are familiar with SQL, see <a href="sql-to-slick.html">Coming from SQL to Slick</a></li>
 </ul>
 <div class="source-github">
-The source code for this page can be found <a href="https://github.com/nafg/slick/tree/master/doc/target/preprocessed/introduction.md">here</a>.
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/introduction.md">here</a>.
 </div>
 
 <div class="nav-next">

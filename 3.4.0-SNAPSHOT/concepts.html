@@ -14,10 +14,7 @@
 <script type="text/javascript" src="js/snippets.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
 <link rel="stylesheet" type="text/css" href="css/page.css"/>
-
-<!--
 <link rel="shortcut icon" href="images/favicon.ico" />
--->
 </head>
 
 <body>
@@ -153,11 +150,11 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#databases" name="databases" class="anchor"><span class="anchor-link"></span></a>Databases</h2>
 <p>A <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcBackend.html#Database:Database" title="slick.jdbc.JdbcBackend"><code>Database</code></a> object encapsulates the resources that are required to connect to a specific database. This <em>can</em> be just a number of connection parameters but in most cases it includes a <em>connection pool</em> and a <em>thread pool</em>. You should usually create a single <code>Database</code> object when your application starts and shut it down when your application shuts down to ensure that all resources are released.</p>
 <h2><a href="#results" name="results" class="anchor"><span class="anchor-link"></span></a>Results</h2>
-<p>Any <em>action</em> can be run on a database to obtain the results (or perform side effects such as updating the database). Execution is always asynchronous, i.e. it does not block the caller thread. Any kind of action can be run to obtain a <code>Future</code> that is eventually completed with a result when the execution is finished (<code>myDatabase.run(myAction)</code>). Actions that produce a sequence of values usually support streaming results as well. Such an action can be combined with a database to produce a <a href="http://www.reactive-streams.org/">Reactive Streams</a> <code>Publisher</code> (<code>myDatabase.stream(myAction)</code>). The action is executed when a consumer subscribes to the Publisher.</p>
+<p>Any <em>action</em> can be run on a database to obtain the results (or perform side effects such as updating the database). Execution is always asynchronous, i.e. it does not block the caller thread. Any kind of action can be run to obtain a <code>Future</code> that is eventually completed with a result when the execution is finished (<code>myDatabase.run(myAction)</code>). Actions that produce a sequence of values usually support streaming results as well. Such an action can be combined with a database to produce a <a href="https://www.reactive-streams.org/">Reactive Streams</a> <code>Publisher</code> (<code>myDatabase.stream(myAction)</code>). The action is executed when a consumer subscribes to the Publisher.</p>
 <h2><a href="#profiles" name="profiles" class="anchor"><span class="anchor-link"></span></a>Profiles</h2>
 <p>Even when using a standard interface for database drivers like <a href="https://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> there are many differences between databases in the SQL dialect they understand, the way they encode data types, or other idiosyncracies. Slick abstracts over these differences with <em>profiles</em>. Whenever you write queries (whether in Scala or SQL) or produce other database actions, you need a concrete profile for your database. Usually these profiles extend the abstract <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcProfile.html" title="slick.jdbc.JdbcProfile"><code>JdbcProfile</code></a>. <code>Database</code> objects are interchangeable between all subtypes of JdbcProfile but they are usually configured together with the profile because you need to pick the correct profile for the database.</p>
 <div class="source-github">
-The source code for this page can be found <a href="https://github.com/nafg/slick/tree/master/doc/target/preprocessed/concepts.md">here</a>.
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/concepts.md">here</a>.
 </div>
 
 <div class="nav-next">

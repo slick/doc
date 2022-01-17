@@ -14,10 +14,7 @@
 <script type="text/javascript" src="js/snippets.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
 <link rel="stylesheet" type="text/css" href="css/page.css"/>
-
-<!--
 <link rel="shortcut icon" href="images/favicon.ico" />
--->
 </head>
 
 <body>
@@ -141,12 +138,12 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="page-content row">
 <div class="small-12 large-9 column" id="docs">
 <h1><a href="#coming-from-sql-to-slick" name="coming-from-sql-to-slick" class="anchor"><span class="anchor-link"></span></a>Coming from SQL to Slick</h1>
-<p>Coming from JDBC/SQL to Slick is pretty straight forward in many ways. Slick can be considered as a drop-in replacement with a nicer API for handling connections, fetching results and using a query language, which is integrated more nicely into Scala than writing queries as Strings. The main obstacle for developers coming from SQL to Slick seems to be the semantic differences of seemingly similar operations between SQL and Scala&rsquo;s collections API which Slick&rsquo;s API imitates. The following sections give a quick overview over the differences. They start with conceptual differences and then list examples of many <a href="#sql-vs.-slick-examples">SQL operators and their Slick equivalents</a>. For a more detailed explanations of Slick&rsquo;s API please refer to <a href="queries.html">chapter queries</a> and the equivalent methods in the <a href="https://www.scala-lang.org/api/2.13.7/scala/collection/immutable/Seq.html" title="scala.collection.immutable.Seq"><code>the Scala collections API</code></a>.</p>
+<p>Coming from JDBC/SQL to Slick is pretty straight forward in many ways. Slick can be considered as a drop-in replacement with a nicer API for handling connections, fetching results and using a query language, which is integrated more nicely into Scala than writing queries as Strings. The main obstacle for developers coming from SQL to Slick seems to be the semantic differences of seemingly similar operations between SQL and Scala&rsquo;s collections API which Slick&rsquo;s API imitates. The following sections give a quick overview over the differences. They start with conceptual differences and then list examples of many <a href="#sql-vs.-slick-examples">SQL operators and their Slick equivalents</a>. For a more detailed explanations of Slick&rsquo;s API please refer to <a href="queries.html">chapter queries</a> and the equivalent methods in the <a href="https://www.scala-lang.org/api/2.13.8/scala/collection/immutable/Seq.html" title="scala.collection.immutable.Seq"><code>the Scala collections API</code></a>.</p>
 <h2><a href="#schema" name="schema" class="anchor"><span class="anchor-link"></span></a>Schema</h2>
 <p>The later examples use the following database schema</p>
 <p><img src="from-sql-to-slick.person-address.png" /></p>
 <p>mapped to Slick using the following code:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L12-L30" target="_blank" title="Go to snippet source">source</a><code class="language-scala">type Person = (Int,String,Int,Int)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L12-L30" target="_blank" title="Go to snippet source">source</a><code class="language-scala">type Person = (Int,String,Int,Int)
 class People(tag: Tag) extends Table[Person](tag, &quot;PERSON&quot;) {
   def id = column[Int](&quot;ID&quot;, O.PrimaryKey, O.AutoInc)
   def name = column[String](&quot;NAME&quot;)
@@ -169,7 +166,7 @@ lazy val addresses = TableQuery[Addresses]</code></pre>
 <h2><a href="#queries-in-comparison" name="queries-in-comparison" class="anchor"><span class="anchor-link"></span></a>Queries in comparison</h2>
 <h3><a href="#jdbc-query" name="jdbc-query" class="anchor"><span class="anchor-link"></span></a>JDBC Query</h3>
 <p>A JDBC query with error handling could look like this:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L54-L77" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import java.sql._
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L54-L77" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import java.sql._
 
 Class.forName(&quot;org.h2.Driver&quot;)
 val conn = DriverManager.getConnection(&quot;jdbc:h2:mem:test1&quot;)
@@ -196,7 +193,7 @@ try{
 <p>Slick gives us two choices how to write queries. One is SQL strings just like JDBC. The other is type-safe, composable queries.</p>
 <h3><a href="#slick-plain-sql-queries" name="slick-plain-sql-queries" class="anchor"><span class="anchor-link"></span></a>Slick Plain SQL queries</h3>
 <p>This is useful if you either want to continue writing queries in SQL or if you need a feature not (yet) supported by Slick otherwise. Executing the same query using Slick Plain SQL, which has built-in error-handling and resource management optimized for asynchronous execution, looks like this:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L83-L94" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.H2Profile.api._
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L83-L94" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.H2Profile.api._
 
 val db = Database.forConfig(&quot;h2mem1&quot;)
 
@@ -206,7 +203,7 @@ db.run(action)</code></pre>
 <h3><a href="#slick-type-safe-composable-queries" name="slick-type-safe-composable-queries" class="anchor"><span class="anchor-link"></span></a>Slick type-safe, composable queries</h3>
 <p>Slick&rsquo;s key feature is type-safe, composable queries. Slick comes with a Scala-to-SQL compiler, which allows a (purely functional) sub-set of the Scala language to be compiled to SQL queries. Also available are a subset of the standard library and some extensions, e.g. for joins. The familiarity allows Scala developers to instantly write many queries against all supported relational databases with little learning required and without knowing SQL or remembering the particular dialect. Such Slick queries are composable, which means that you can write and re-use fragments and functions to avoid repetitive code like join conditions in a much more practical way than concatenating SQL strings. The fact that such queries are type-safe not only catches many mistakes early at compile time, but also eliminates the risk of SQL injection vulnerabilities.</p>
 <p>The same query written as a type-safe Slick query looks like this:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L100-L111" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.H2Profile.api._
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L100-L111" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.H2Profile.api._
 
 val db = Database.forConfig(&quot;h2mem1&quot;)
 
@@ -227,7 +224,7 @@ db.run(query.result)</code></pre>
 <p>Slick is extensible to some degree, which means you can add some kinds of missing operators yourself. </p>
 <h4><a href="#definition-in-terms-of-others" name="definition-in-terms-of-others" class="anchor"><span class="anchor-link"></span></a>Definition in terms of others</h4>
 <p>If the operator you desire is expressible using existing Slick operations you can simply write a Scala function or implicit class that implements the operator as a method in terms of existing operators. Here we implement <code>squared</code> using multiplication.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L124-L132" target="_blank" title="Go to snippet source">source</a><code class="language-scala">implicit class MyStringColumnExtensions(i: Rep[Int]){
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L124-L132" target="_blank" title="Go to snippet source">source</a><code class="language-scala">implicit class MyStringColumnExtensions(i: Rep[Int]){
   def squared = i * i
 }
 
@@ -235,7 +232,7 @@ db.run(query.result)</code></pre>
 people.map(p =&gt; p.age.squared)</code></pre>
 <h4><a href="#definition-using-a-database-function" name="definition-using-a-database-function" class="anchor"><span class="anchor-link"></span></a>Definition using a database function</h4>
 <p>If you need a fundamental operator, which is not supported out-of-the-box you can add it yourself if it operates on scalar values. For example Slick currently does not have a <code>power</code> method out of the box. Here we are mapping it to a database function.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L135-L141" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val power = SimpleFunction.binary[Int,Int,Int](&quot;POWER&quot;)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L135-L141" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val power = SimpleFunction.binary[Int,Int,Int](&quot;POWER&quot;)
 
 // usage:
 people.map(p =&gt; power(p.age,2))</code></pre>
@@ -243,7 +240,7 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 <p>You can however not add operators operating on queries using database functions. The Slick Scala-to-SQL compiler requires knowledge about the structure of the query in order to compile it to the simplest SQL query it can produce. It currently couldn&rsquo;t handle custom query operators in that context. (There are some ideas how this restriction can be somewhat lifted in the future, but it needs more investigation). An example for such operator is a MySQL index hint, which is not supported by Slick&rsquo;s type-safe API and it cannot be added by users. If you require such an operator you have to write your whole query using Plain SQL. If the operator does not change the return type of the query you could alternatively use the workaround described in the following section.</p>
 <h3><a href="#non-optimal-sql-code" name="non-optimal-sql-code" class="anchor"><span class="anchor-link"></span></a>Non-optimal SQL code</h3>
 <p>Slick generates SQL code and tries to make it as simple as possible. The algorithm doing that is not perfect and under continuous improvement. There are cases where the generated queries are more complicated than someone would write them by hand. This can lead to bad performance for certain queries with some optimizers and DBMS. For example, Slick occasionally generates unnecessary sub-queries. In MySQL &lt;= 5.5 this easily leads to unnecessary table scans or indices not being used. The Slick team is working towards generating code better factored to what the query optimizers can currently optimize, but that doesn&rsquo;t help you now. To work around it you have to write the more optimal SQL code by hand. You can either run it as a Slick Plain SQL query or you can <a href="https://gist.github.com/cvogt/d9049c63fc395654c4b4">use a hack</a>, which allows you to simply swap out the SQL code Slick uses for a type-safe query.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L150-L156" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.id,p.name,p.age))
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L150-L156" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.id,p.name,p.age))
       .result
       // inject hand-written SQL, see https://gist.github.com/cvogt/d9049c63fc395654c4b4
       .overrideSql(&quot;SELECT id, name, age FROM Person&quot;)</code></pre>
@@ -252,55 +249,55 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 <h3><a href="#select-" name="select-" class="anchor"><span class="anchor-link"></span></a>SELECT *</h3>
 <h4>SQL</h4>
 
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L163" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select * from PERSON&quot;.as[Person]</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L163" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select * from PERSON&quot;.as[Person]</code></pre>
 <h4>Slick</h4>
 <p>The Slick equivalent of <code>SELECT *</code> is the <code>result</code> of the plain TableQuery:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L167" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.result</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L167" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.result</code></pre>
 <h3><a href="#select" name="select" class="anchor"><span class="anchor-link"></span></a>SELECT</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L175-L178" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L175-L178" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select AGE, concat(concat(concat(NAME,&#39; (&#39;),ID),&#39;)&#39;)
   from PERSON
 &quot;&quot;&quot;.as[(Int,String)]</code></pre>
 <h4>Slick</h4>
 <p>Scala&rsquo;s equivalent for <code>SELECT</code> is <code>map</code>. Columns can be referenced similarly and functions operating on columns can be accessed using their Scala equivalents (but allowing only <code>++</code> for String concatenation, not <code>+</code>).</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L182" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.age, p.name ++ &quot; (&quot; ++ p.id.asColumnOf[String] ++ &quot;)&quot;)).result</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L182" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.age, p.name ++ &quot; (&quot; ++ p.id.asColumnOf[String] ++ &quot;)&quot;)).result</code></pre>
 <p>.. index:: WHERE, filter, or, and, &amp;&amp;, ||, ==</p>
 <h3><a href="#where" name="where" class="anchor"><span class="anchor-link"></span></a>WHERE</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L190" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select * from PERSON where AGE &gt;= 18 AND NAME = &#39;C. Vogt&#39;&quot;.as[Person]</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L190" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select * from PERSON where AGE &gt;= 18 AND NAME = &#39;C. Vogt&#39;&quot;.as[Person]</code></pre>
 <h4>Slick</h4>
 <p>Scala&rsquo;s equivalent for <code>WHERE</code> is <code>filter</code>. Make sure to use <code>===</code> instead of <code>==</code> for comparison.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L194" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.filter(p =&gt; p.age &gt;= 18 &amp;&amp; p.name === &quot;C. Vogt&quot;).result</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L194" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.filter(p =&gt; p.age &gt;= 18 &amp;&amp; p.name === &quot;C. Vogt&quot;).result</code></pre>
 <h3><a href="#order-by" name="order-by" class="anchor"><span class="anchor-link"></span></a>ORDER BY</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L202" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select * from PERSON order by AGE asc, NAME&quot;.as[Person]</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L202" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select * from PERSON order by AGE asc, NAME&quot;.as[Person]</code></pre>
 <h4>Slick</h4>
 <p>Scala&rsquo;s equivalent for <code>ORDER BY</code> is <code>sortBy</code>. Provide a tuple to sort by multiple columns. Slick&rsquo;s <code>.asc</code> and <code>.desc</code> methods affect the ordering. Be aware that a single <code>ORDER BY</code> with multiple columns is not equivalent to multiple <code>.sortBy</code> calls but to a single <code>.sortBy</code> call passing a tuple.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L206" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.sortBy(p =&gt; (p.age.asc, p.name)).result</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L206" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.sortBy(p =&gt; (p.age.asc, p.name)).result</code></pre>
 <h3><a href="#aggregations-max-etc-" name="aggregations-max-etc-" class="anchor"><span class="anchor-link"></span></a>Aggregations (max, etc.)</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L214" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select max(AGE) from PERSON&quot;.as[Option[Int]].head</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L214" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;select max(AGE) from PERSON&quot;.as[Option[Int]].head</code></pre>
 <h4>Slick</h4>
 <p>Aggregations are collection methods in Scala. In SQL they are called on a column, but in Slick they are called on a collection-like value e.g. a complete query, which people coming from SQL easily trip over. They return a scalar value, which can be run individually. Aggregation methods such as <code>max</code> that can return <code>NULL</code> return Options in Slick.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L218" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(_.age).max.result</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L218" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(_.age).max.result</code></pre>
 <h3><a href="#group-by" name="group-by" class="anchor"><span class="anchor-link"></span></a>GROUP BY</h3>
 <p>People coming from SQL often seem to have trouble understanding Scala&rsquo;s and Slick&rsquo;s <code>groupBy</code>, because of the different signatures involved. SQL&rsquo;s <code>GROUP BY</code> can be seen as an operation that turns all columns that weren&rsquo;t part of the grouping key into collections of all the elements in a group. SQL requires the use of its aggregation operations like <code>avg</code> to compute single values out of these collections.</p>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L225-L229" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L225-L229" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select ADDRESS_ID, AVG(AGE)
   from PERSON
   group by ADDRESS_ID
 &quot;&quot;&quot;.as[(Int,Option[Int])]</code></pre>
 <h4>Slick</h4>
 <p>Scala&rsquo;s groupBy returns a Map of grouping keys to Lists of the rows for each group. There is no automatic conversion of individual columns into collections. This has to be done explicitly in Scala, by mapping from the group to the desired column, which then allows SQL-like aggregation.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L233-L235" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.groupBy(p =&gt; p.addressId)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L233-L235" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.groupBy(p =&gt; p.addressId)
        .map{ case (addressId, group) =&gt; (addressId, group.map(_.age).avg) }
        .result</code></pre>
 <p>SQL requires aggregation of grouped values. We require the same in Slick for now. This means a <code>groupBy</code> call must be followed by a <code>map</code> call or will fail with an Exception. This makes Slick&rsquo;s grouping syntax a bit more complicated than SQL&rsquo;s.</p>
 <h3><a href="#having" name="having" class="anchor"><span class="anchor-link"></span></a>HAVING</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L244-L249" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L244-L249" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select ADDRESS_ID
   from PERSON
   group by ADDRESS_ID
@@ -308,21 +305,21 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 &quot;&quot;&quot;.as[Int]</code></pre>
 <h4>Slick</h4>
 <p>Slick does not have different methods for <code>WHERE</code> and <code>HAVING</code>. For achieving semantics equivalent to <code>HAVING</code>, just use <code>filter</code> after <code>groupBy</code> and the following <code>map</code>.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L253-L257" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.groupBy(p =&gt; p.addressId)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L253-L257" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.groupBy(p =&gt; p.addressId)
        .map{ case (addressId, group) =&gt; (addressId, group.map(_.age).avg) }
        .filter{ case (addressId, avgAge) =&gt; avgAge &gt; 50 }
        .map(_._1)
        .result</code></pre>
 <h3><a href="#implicit-inner-joins" name="implicit-inner-joins" class="anchor"><span class="anchor-link"></span></a>Implicit inner joins</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L265-L269" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L265-L269" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select P.NAME, A.CITY
   from PERSON P, ADDRESS A
   where P.ADDRESS_ID = a.id
 &quot;&quot;&quot;.as[(String,String)]</code></pre>
 <h4>Slick</h4>
 <p>Slick generates SQL using implicit joins for <code>flatMap</code> and <code>map</code> or the corresponding for-expression syntax.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L273-L285" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.flatMap(p =&gt;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L273-L285" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.flatMap(p =&gt;
   addresses.filter(a =&gt; p.addressId === a.id)
            .map(a =&gt; (p.name, a.city))
 ).result
@@ -334,29 +331,29 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 ).result</code></pre>
 <h3><a href="#explicit-inner-joins" name="explicit-inner-joins" class="anchor"><span class="anchor-link"></span></a>Explicit inner joins</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L294-L298" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L294-L298" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select P.NAME, A.CITY
   from PERSON P
   join ADDRESS A on P.ADDRESS_ID = a.id
 &quot;&quot;&quot;.as[(String,String)]</code></pre>
 <h4>Slick</h4>
 <p>Slick offers a small DSL for explicit joins.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L302-L303" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(people join addresses on (_.addressId === _.id))
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L302-L303" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(people join addresses on (_.addressId === _.id))
   .map{ case (p, a) =&gt; (p.name, a.city) }.result</code></pre>
 <h3><a href="#outer-joins-left-right-full-" name="outer-joins-left-right-full-" class="anchor"><span class="anchor-link"></span></a>Outer joins (left/right/full)</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L311-L315" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L311-L315" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select P.NAME,A.CITY
   from ADDRESS A
   left join PERSON P on P.ADDRESS_ID = a.id
 &quot;&quot;&quot;.as[(Option[String],String)]</code></pre>
 <h4>Slick</h4>
 <p>Outer joins are done using Slick&rsquo;s explicit join DSL. Be aware that in case of an outer join SQL changes the type of outer joined, non-nullable columns into nullable columns. In order to represent this in a clean way even in the presence of mapped types, Slick lifts the whole side of the join into an <code>Option</code>. This goes a bit further than the SQL semantics because it allows you to distinguish a row which was not matched in the join from a row that was matched but already contained nothing but NULL values.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L319-L320" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(addresses joinLeft people on (_.id === _.addressId))
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L319-L320" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(addresses joinLeft people on (_.id === _.addressId))
   .map{ case (a, p) =&gt; (p.map(_.name), a.city) }.result</code></pre>
 <h3><a href="#subquery" name="subquery" class="anchor"><span class="anchor-link"></span></a>Subquery</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L328-L334" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L328-L334" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select *
   from PERSON P
   where P.ID in (select ID
@@ -365,12 +362,12 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 &quot;&quot;&quot;.as[Person]</code></pre>
 <h4>Slick</h4>
 <p>Slick queries are composable. Subqueries can be simply composed, where the types work out, just like any other Scala code.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L338-L339" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val address_ids = addresses.filter(_.city === &quot;New York City&quot;).map(_.id)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L338-L339" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val address_ids = addresses.filter(_.city === &quot;New York City&quot;).map(_.id)
 people.filter(_.id in address_ids).result // &lt;- run as one query</code></pre>
 <p>The method <code>.in</code> expects a sub query. For an in-memory Scala collection, the method <code>.inSet</code> can be used instead.</p>
 <h3><a href="#scalar-value-subquery-custom-function" name="scalar-value-subquery-custom-function" class="anchor"><span class="anchor-link"></span></a>Scalar value subquery / custom function</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L368-L374" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L368-L374" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select * from PERSON P,
                      (select rand() * MAX(ID) as ID from PERSON) RAND_ID
   where P.ID &gt;= RAND_ID.ID
@@ -379,7 +376,7 @@ people.filter(_.id in address_ids).result // &lt;- run as one query</code></pre>
 &quot;&quot;&quot;.as[Person].head</code></pre>
 <h4>Slick</h4>
 <p>This code shows a subquery computing a single value in combination with a <a href="userdefined.html">user-defined database function</a>.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L378-L384" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val rand = SimpleFunction.nullary[Double](&quot;RAND&quot;)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L378-L384" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val rand = SimpleFunction.nullary[Double](&quot;RAND&quot;)
 
 val rndId = (people.map(_.id).max.asColumnOf[Double] * rand).asColumnOf[Int]
 
@@ -388,34 +385,34 @@ people.filter(_.id &gt;= rndId)
        .result.head</code></pre>
 <h3><a href="#insert" name="insert" class="anchor"><span class="anchor-link"></span></a>insert</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L390-L392" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sqlu&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L390-L392" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sqlu&quot;&quot;&quot;
   insert into PERSON (NAME, AGE, ADDRESS_ID) values (&#39;M Odersky&#39;, 12345, 1)
 &quot;&quot;&quot;</code></pre>
 <h4>Slick</h4>
 <p>Inserts can be a bit surprising at first, when coming from SQL, because unlike SQL, Slick re-uses the same syntax that is used for querying to select which columns should be inserted into. So basically, you first write a query and instead of creating an Action that gets the result of this query, you call <code>+=</code> on with value to be inserted, which gives you an Action that performs the insert. <code>++=</code> allows insertion of a Seq of rows at once. Columns that are auto-incremented are automatically ignored, so inserting into them has no effect. Using <code>forceInsert</code> allows actual insertion into auto-incremented columns.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L409" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.name, p.age, p.addressId)) += (&quot;M Odersky&quot;,12345,1)</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L409" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.name, p.age, p.addressId)) += (&quot;M Odersky&quot;,12345,1)</code></pre>
 <h3><a href="#update" name="update" class="anchor"><span class="anchor-link"></span></a>update</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L396-L398" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sqlu&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L396-L398" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sqlu&quot;&quot;&quot;
   update PERSON set NAME=&#39;M. Odersky&#39;, AGE=54321 where NAME=&#39;M Odersky&#39;
 &quot;&quot;&quot;</code></pre>
 <h4>Slick</h4>
 <p>Just like inserts, updates are based on queries that select and filter what should be updated and instead of running the query and fetching the data <code>.update</code> is used to replace it.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L414-L416" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.filter(_.name === &quot;M Odersky&quot;)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L414-L416" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.filter(_.name === &quot;M Odersky&quot;)
        .map(p =&gt; (p.name,p.age))
        .update((&quot;M. Odersky&quot;,54321))</code></pre>
 <h3><a href="#delete" name="delete" class="anchor"><span class="anchor-link"></span></a>delete</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L402-L404" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sqlu&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L402-L404" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sqlu&quot;&quot;&quot;
   delete PERSON where NAME=&#39;M. Odersky&#39;
 &quot;&quot;&quot;</code></pre>
 <h4>Slick</h4>
 <p>Just like inserts, deletes are based on queries that filter what should be deleted. Instead of getting the query result of the query, <code>.delete</code> is used to obtain an Action that deletes the selected rows.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L421-L422" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.filter(p =&gt; p.name === &quot;M. Odersky&quot;)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L421-L422" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.filter(p =&gt; p.name === &quot;M. Odersky&quot;)
        .delete</code></pre>
 <h3><a href="#case" name="case" class="anchor"><span class="anchor-link"></span></a>CASE</h3>
 <h4>SQL</h4>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L436-L443" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L436-L443" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;
   select
     case
       when ADDRESS_ID = 1 then &#39;A&#39;
@@ -425,13 +422,13 @@ people.filter(_.id &gt;= rndId)
 &quot;&quot;&quot;.as[Option[String]]</code></pre>
 <h4>Slick</h4>
 <p>Slick uses <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/lifted/Case$.html" title="slick.lifted.Case"><code>a small DSL</code></a> to allow <code>CASE</code> like case distinctions.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/doc/target/code/SqlToSlick.scala#L447-L451" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/SqlToSlick.scala#L447-L451" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt;
   Case
     If(p.addressId === 1) Then &quot;A&quot;
     If(p.addressId === 2) Then &quot;B&quot;
 ).result</code></pre>
 <div class="source-github">
-The source code for this page can be found <a href="https://github.com/nafg/slick/tree/master/doc/target/preprocessed/sql-to-slick.md">here</a>.
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/sql-to-slick.md">here</a>.
 </div>
 
 <div class="nav-next">

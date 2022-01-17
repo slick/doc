@@ -14,10 +14,7 @@
 <script type="text/javascript" src="js/snippets.js"></script>
 <link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
 <link rel="stylesheet" type="text/css" href="css/page.css"/>
-
-<!--
 <link rel="shortcut icon" href="images/favicon.ico" />
--->
 </head>
 
 <body>
@@ -142,10 +139,10 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h1><a href="#slick-testkit" name="slick-testkit" class="anchor"><span class="anchor-link"></span></a>Slick TestKit</h1>
 <p>When you write your own database profile for Slick, you need a way to run all the standard unit tests on it (in addition to any custom tests you may want to add) to ensure that it works correctly and does not claim to support any capabilities which are not actually implemented. For this purpose the Slick unit tests have been factored out into a separate <em>Slick TestKit</em> project.</p>
-<p>To get started, you can <a href="https://github.com/slick/slick/tree/3.4.x/samples/slick-testkit-example">clone</a> or <a href="https://example.lightbend.com/v1/download/slick-testkit-example-3.4.x">download</a> the <strong>TestKit Example</strong> project which contains a copy of Slick&rsquo;s standard PostgreSQL profile and all the infrastructure required to build and test it.</p>
+<p>To get started, you can download <a href="https://github.com/slick/slick/tree/main/samples/slick-testkit-example">the <strong>TestKit Example</strong> project</a> which contains a copy of Slick&rsquo;s standard PostgreSQL profile and all the infrastructure required to build and test it.</p>
 <h2><a href="#scaffolding" name="scaffolding" class="anchor"><span class="anchor-link"></span></a>Scaffolding</h2>
 <p>Its <code>build.sbt</code> file is straight-forward. It adds the dependencies for Slick, TestKit, junit-interface, Logback and the PostgreSQL JDBC driver, and it sets some options for the test runs:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/samples/slick-testkit-example/build.sbt" target="_blank" title="Go to snippet source">source</a><code class="language-sbt">libraryDependencies ++= List(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-testkit-example/build.sbt" target="_blank" title="Go to snippet source">source</a><code class="language-sbt">libraryDependencies ++= List(
   &quot;com.github.sbt&quot; % &quot;junit-interface&quot; % &quot;0.13.3&quot; % Test,
   &quot;ch.qos.logback&quot; % &quot;logback-classic&quot; % &quot;1.2.10&quot; % Test,
   &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.3.1&quot; % Test,
@@ -163,7 +160,7 @@ testOptions += Tests.Argument(TestFrameworks.JUnit, &quot;-q&quot;, &quot;-v&quo
 <p>There is a copy of Slick&rsquo;s logback configuration in <code>src/test/resources/logback-test.xml</code> but you can swap out the logging framework if you prefer a different one.</p>
 <h2><a href="#profile" name="profile" class="anchor"><span class="anchor-link"></span></a>Profile</h2>
 <p>The actual profile implementation can be found under <code>src/main/scala</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/samples/slick-testkit-example/src/main/scala/MyPostgresProfile.scala#L2-L254" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package com.example
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-testkit-example/src/main/scala/MyPostgresProfile.scala#L2-L254" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package com.example
 
 trait MyPostgresProfile extends JdbcProfile {
   // ...
@@ -173,7 +170,7 @@ object MyPostgresProfile extends MyPostgresProfile</code></pre>
 <h2><a href="#test-harness" name="test-harness" class="anchor"><span class="anchor-link"></span></a>Test Harness</h2>
 <p>In order to run the TestKit tests, you need to add a class that extends <code>ProfileTest</code>, plus an implementation of <code>TestDB</code> which tells TestKit how to connect to a test database, get a list of tables, clean up between tests, etc.</p>
 <p>In the case of the PostgreSQL test harness (in <code>src/test/scala/MyPostgresTest.scala</code>) most of the default implementations can be used out of the box. Only <code>localTables</code> and <code>getLocalSequences</code> require custom implementations. We also modify the profile&rsquo;s <code>capabilities</code> to indicate that our profile does not support the JDBC <code>getFunctions</code> call:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/samples/slick-testkit-example/src/test/scala/MyPostgresTest.scala#L11-L29" target="_blank" title="Go to snippet source">source</a><code class="language-scala">@RunWith(classOf[Testkit])
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-testkit-example/src/test/scala/MyPostgresTest.scala#L11-L29" target="_blank" title="Go to snippet source">source</a><code class="language-scala">@RunWith(classOf[Testkit])
 class MyPostgresTest extends ProfileTest(MyPostgresTest.tdb)
 
 object MyPostgresTest {
@@ -191,10 +188,10 @@ object MyPostgresTest {
   }
 }</code></pre>
 <p>The name of a configuration prefix, in this case <code>mypostgres</code>, is passed to <code>ExternalJdbcTestDB</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/samples/slick-testkit-example/src/test/scala/MyPostgresTest.scala#L16" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def tdb = new ExternalJdbcTestDB(&quot;mypostgres&quot;) {</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-testkit-example/src/test/scala/MyPostgresTest.scala#L16" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def tdb = new ExternalJdbcTestDB(&quot;mypostgres&quot;) {</code></pre>
 <h2><a href="#database-configuration" name="database-configuration" class="anchor"><span class="anchor-link"></span></a>Database Configuration</h2>
 <p>Since the PostgreSQL test harness is based on <code>ExternalJdbcTestDB</code>, it needs to be configured in <code>test-dbs/testkit.conf</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/samples/slick-testkit-example/test-dbs/testkit.conf" target="_blank" title="Go to snippet source">source</a><code class="language-conf"># Enable the tests for mypostgres:
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-testkit-example/test-dbs/testkit.conf" target="_blank" title="Go to snippet source">source</a><code class="language-conf"># Enable the tests for mypostgres:
 mypostgres.enabled = true
 
 # Set the user name (default: &quot;postgres&quot;)
@@ -203,7 +200,7 @@ mypostgres.user = &quot;postgres&quot;
 # Set the password (default: no password)
 mypostgres.password = null</code></pre>
 <p>There are several other configuration options that need to be set for an <code>ExternalJdbcTestDB</code>. These are defined with suitable defaults in <code>testkit-reference.conf</code> so that <code>testkit.conf</code> can be kept very simple in most cases:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/nafg/slick/tree/master/samples/slick-testkit-example/src/test/resources/testkit-reference.conf" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mypostgres {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-testkit-example/src/test/resources/testkit-reference.conf" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mypostgres {
   baseURL = &quot;jdbc:postgresql:&quot;
   user = postgres
   adminDB = postgres
@@ -221,7 +218,7 @@ mypostgres.password = null</code></pre>
 <h2><a href="#testing" name="testing" class="anchor"><span class="anchor-link"></span></a>Testing</h2>
 <p>Running <code>sbt test</code> discovers <code>MyPostgresTest</code> and runs it with TestKit&rsquo;s JUnit runner. This in turn causes the database to be set up through the test harness and all tests which are applicable for the profile (as determined by the <code>capabilities</code> setting in the test harness) to be run.</p>
 <div class="source-github">
-The source code for this page can be found <a href="https://github.com/nafg/slick/tree/master/doc/target/preprocessed/testkit.md">here</a>.
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/testkit.md">here</a>.
 </div>
 
 <div class="nav-next">
