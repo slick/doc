@@ -147,10 +147,10 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h3>Solution</h3>
 <p>Switch from using a tuple in your default projection to using an HList.</p>
 <p>First, add the HList imports:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/Cookbook.scala#L10-L11" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.collection.heterogeneous.{HList, HCons, HNil}
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L10-L11" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.collection.heterogeneous.{HList, HCons, HNil}
 import slick.collection.heterogeneous.syntax._</code></pre>
 <p>Your case class and table definition are as unchanged, but your default projection ( the <code>*</code> method) changes:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/Cookbook.scala#L15-L23" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Row(id: Int, name: String /* ... as many as you like */)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L15-L23" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Row(id: Int, name: String /* ... as many as you like */)
 
 class MyTable(tag: Tag) extends Table[Row](tag, &quot;ROW&quot;) {
   def id   = column[Int](&quot;ID&quot;, O.PrimaryKey)
@@ -165,7 +165,7 @@ class MyTable(tag: Tag) extends Table[Row](tag, &quot;ROW&quot;) {
 <p>To identify this type of regression, we&rsquo;d like to track the number of query compilations. We might then expose this count as an application metric and setup an alert which triggers when an abnormally high number of query compilations occur.</p>
 <h3>Solution</h3>
 <p>To track the number of query compilations, we can override the <code>computeQueryCompiler</code> method in our profile. The new <code>QueryCompiler</code> will have an additional phase, which simply increments a counter.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/Cookbook.scala#L30-L56" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L30-L56" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
 import slick.compiler._
 import java.util.concurrent.atomic.AtomicLong
 

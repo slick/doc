@@ -155,15 +155,15 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 </code></pre><div class="callout note "><div class="callout-title">Note</div>
 <p>In the code examples below we assume the following imports: @@snip <a href="../code/CodeGenerator.scala">CodeGenerator.scala</a> { #imports } If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
 <p>Slick&rsquo;s code generator comes with a default runner that can be used from the command line or from Java/Scala. You can simply execute</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/CodeGenerator.scala#L22-L24" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L22-L24" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
   Array(uri, outputFolder)
 )</code></pre>
 <p>or</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/CodeGenerator.scala#L27-L29" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L27-L29" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
   Array(profile, jdbcDriver, url, outputFolder, pkg)
 )</code></pre>
 <p>or</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/CodeGenerator.scala#L32-L34" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L32-L34" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
   Array(profile, jdbcDriver, url, outputFolder, pkg, user, password)
 )</code></pre>
 <p>and provide the following values</p>
@@ -191,7 +191,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>Within the sub-generators the relevant part of the Slick data model can be accessed to drive the code generation.</p>
 <p>Please see the <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/codegen-api/slick/codegen/SourceCodeGenerator.html" title="slick.codegen.SourceCodeGenerator"><code>api documentation</code></a> for info on all of the methods that can be overridden for customization.</p>
 <p>Here is an example for customizing the generator. Noteworthy, the line <code>override def hugeClassEnabled = false</code> disables generation of case classes for tables with more than 22 columns. A <code>HList</code> based type will be generated instead. So this way you get back the default behavior before the advent of Slick 3.3.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/doc/target/code/CodeGenerator.scala#L37-L72" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.codegen.SourceCodeGenerator
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L37-L72" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.codegen.SourceCodeGenerator
 // fetch data model
 val modelAction = H2Profile.createModel(Some(H2Profile.defaultTables)) // you can filter specific tables here
 val modelFuture = db.run(modelAction)
