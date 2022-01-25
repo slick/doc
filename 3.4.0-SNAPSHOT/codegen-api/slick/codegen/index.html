@@ -4,17 +4,17 @@ digraph G {
   
   
   node0 [URL="SourceCodeGenerator.html#inheritance-diagram-container", label="SourceCodeGenerator", id="graph1_0", class="default", tooltip="slick.codegen.SourceCodeGenerator"] ;
-  node1 [URL="StringGeneratorHelpers.html#inheritance-diagram-container", label="StringGeneratorHelpers", id="graph1_1", class="default", tooltip="slick.codegen.StringGeneratorHelpers"] ;
-  node2 [URL="AbstractSourceCodeGenerator.html#inheritance-diagram-container", label="AbstractSourceCodeGenerator", id="graph1_2", class="default", tooltip="slick.codegen.AbstractSourceCodeGenerator"] ;
+  node1 [URL="GeneratorHelpers.html#inheritance-diagram-container", label="GeneratorHelpers[Code, TermName, TypeName]", id="graph1_1", class="default", tooltip="slick.codegen.GeneratorHelpers"] ;
+  node2 [URL="AbstractGenerator.html#inheritance-diagram-container", label="AbstractGenerator[Code, TermName, TypeName]", id="graph1_2", class="default", tooltip="slick.codegen.AbstractGenerator"] ;
   node3 [URL="OutputHelpers.html#inheritance-diagram-container", label="OutputHelpers", id="graph1_3", class="default", tooltip="slick.codegen.OutputHelpers"] ;
-  node4 [URL="GeneratorHelpers.html#inheritance-diagram-container", label="GeneratorHelpers[Code, TermName, TypeName]", id="graph1_4", class="default", tooltip="slick.codegen.GeneratorHelpers"] ;
-  node5 [URL="AbstractGenerator.html#inheritance-diagram-container", label="AbstractGenerator[Code, TermName, TypeName]", id="graph1_5", class="default", tooltip="slick.codegen.AbstractGenerator"] ;
+  node4 [URL="StringGeneratorHelpers.html#inheritance-diagram-container", label="StringGeneratorHelpers", id="graph1_4", class="default", tooltip="slick.codegen.StringGeneratorHelpers"] ;
+  node5 [URL="AbstractSourceCodeGenerator.html#inheritance-diagram-container", label="AbstractSourceCodeGenerator", id="graph1_5", class="default", tooltip="slick.codegen.AbstractSourceCodeGenerator"] ;
   
   
-  node4 -> node5 [arrowtail="empty", dir="back", id="graph1_4_5", class="inheritance", tooltip="AbstractGenerator[Code, TermName, TypeName] is a subtype of GeneratorHelpers[Code, TermName, TypeName]"] ;
-  node5 -> node2 [arrowtail="empty", dir="back", id="graph1_5_2", class="inheritance", tooltip="AbstractSourceCodeGenerator is a subtype of AbstractGenerator[Code, TermName, TypeName]"] ;node1 -> node2 [arrowtail="empty", dir="back", id="graph1_1_2", class="inheritance", tooltip="AbstractSourceCodeGenerator is a subtype of StringGeneratorHelpers"] ;
-  node4 -> node1 [arrowtail="empty", dir="back", id="graph1_4_1", class="inheritance", tooltip="StringGeneratorHelpers is a subtype of GeneratorHelpers[Code, TermName, TypeName]"] ;
-  node2 -> node0 [arrowtail="empty", dir="back", id="graph1_2_0", class="inheritance", tooltip="SourceCodeGenerator is a subtype of AbstractSourceCodeGenerator"] ;node3 -> node0 [arrowtail="empty", dir="back", id="graph1_3_0", class="inheritance", tooltip="SourceCodeGenerator is a subtype of OutputHelpers"] ;
+  node2 -> node5 [arrowtail="empty", dir="back", id="graph1_2_5", class="inheritance", tooltip="AbstractSourceCodeGenerator is a subtype of AbstractGenerator[Code, TermName, TypeName]"] ;node4 -> node5 [arrowtail="empty", dir="back", id="graph1_4_5", class="inheritance", tooltip="AbstractSourceCodeGenerator is a subtype of StringGeneratorHelpers"] ;
+  node1 -> node4 [arrowtail="empty", dir="back", id="graph1_1_4", class="inheritance", tooltip="StringGeneratorHelpers is a subtype of GeneratorHelpers[Code, TermName, TypeName]"] ;
+  node1 -> node2 [arrowtail="empty", dir="back", id="graph1_1_2", class="inheritance", tooltip="AbstractGenerator[Code, TermName, TypeName] is a subtype of GeneratorHelpers[Code, TermName, TypeName]"] ;
+  node5 -> node0 [arrowtail="empty", dir="back", id="graph1_5_0", class="inheritance", tooltip="SourceCodeGenerator is a subtype of AbstractSourceCodeGenerator"] ;node3 -> node0 [arrowtail="empty", dir="back", id="graph1_3_0", class="inheritance", tooltip="SourceCodeGenerator is a subtype of OutputHelpers"] ;
 }
 </script><script>$("#inheritance-diagram").bind('beforeShow', function() {
   if ($("svg#graph1").children().length == 0) {
