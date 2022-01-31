@@ -145,7 +145,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h1><a href="#schemas" name="schemas" class="anchor"><span class="anchor-link"></span></a>Schemas</h1>
 <p>This chapter describes how to work with database schemas in Scala code, in particular how to write them manually, which is useful when you start writing an application without a pre-existing database. If you already have a schema in the database, you can also use the <a href="code-generation.html">code generator</a> to take this work off your hands.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>In the code examples below we assume the following imports: @@snip <a href="../code/LiftedEmbedding.scala">LiftedEmbedding.scala</a> { #imports } If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
+<p>In the code examples below we assume the following imports:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L4-L8" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import scala.concurrent.{Future, Await}
+import scala.concurrent.duration.Duration
+import slick.jdbc.H2Profile.api._
+import java.sql.Date
+import scala.reflect.ClassTag</code></pre>
+<p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
 <h2><a href="#table-rows" name="table-rows" class="anchor"><span class="anchor-link"></span></a>Table Rows</h2>
 <p>In order to use the Scala API for type-safe queries, you need to define <code>Table</code> row classes for your database schema. These describe the structure of the tables:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L58-L88" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class Coffees(tag: Tag) extends Table[(String, Int, Double, Int, Int)](tag, &quot;COFFEES&quot;) {

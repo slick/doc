@@ -145,7 +145,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h1><a href="#user-defined-features" name="user-defined-features" class="anchor"><span class="anchor-link"></span></a>User-Defined Features</h1>
 <p>This chapter describes how to use custom data types and database functions with Slick&rsquo;s Scala API.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>In the code examples below we assume the following imports: @@snip <a href="../code/LiftedEmbedding.scala">LiftedEmbedding.scala</a> { #imports } If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
+<p>In the code examples below we assume the following imports:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L4-L8" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import scala.concurrent.{Future, Await}
+import scala.concurrent.duration.Duration
+import slick.jdbc.H2Profile.api._
+import java.sql.Date
+import scala.reflect.ClassTag</code></pre>
+<p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
 <h2><a href="#scalar-database-functions" name="scalar-database-functions" class="anchor"><span class="anchor-link"></span></a>Scalar Database Functions</h2><div class="callout note "><div class="callout-title">Note</div>
 <p>This section is based on the ready-to-run <code>CallNativeDBFunction</code> app in <a href="https://github.com/slick/slick/tree/main/samples/slick-multidb">the ** MultiDB** sample</a>.</p></div>
 <p>If your database system supports a scalar function that is not available as a method in Slick you can define it as a <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/lifted/SimpleFunction.html" title="slick.lifted.SimpleFunction"><code>SimpleFunction</code></a>. There are predefined methods for creating unary, binary and ternary functions with fixed parameter and return types.</p>

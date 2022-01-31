@@ -145,7 +145,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h1><a href="#queries" name="queries" class="anchor"><span class="anchor-link"></span></a>Queries</h1>
 <p>This chapter describes how to write type-safe queries for selecting, inserting, updating and deleting data with Slick&rsquo;s Scala-based query API.</p><div class="callout note "><div class="callout-title">Note</div>
-<p>In the code examples below we assume the following imports: @@snip <a href="../code/LiftedEmbedding.scala">LiftedEmbedding.scala</a> { #imports } If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
+<p>In the code examples below we assume the following imports:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L4-L8" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import scala.concurrent.{Future, Await}
+import scala.concurrent.duration.Duration
+import slick.jdbc.H2Profile.api._
+import java.sql.Date
+import scala.reflect.ClassTag</code></pre>
+<p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
 <p>The API for building queries is a <em>lifted embedding</em>, which means that you are not working with standard Scala types but with types that are <em>lifted</em> into a <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/lifted/Rep.html" title="slick.lifted.Rep"><code>Rep</code></a> type constructor. This becomes clearer when you compare the types of a simple Scala collections example</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L27-L35" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Coffee(name: String, price: Double)
 val coffees: List[Coffee] = //...

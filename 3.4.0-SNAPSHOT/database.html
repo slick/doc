@@ -151,21 +151,38 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L50" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val db = Database.forConfig(&quot;mydb&quot;)</code></pre>
 <h4><a href="#examples" name="examples" class="anchor"><span class="anchor-link"></span></a>Examples</h4>
 <h5><a href="#postgresql" name="postgresql" class="anchor"><span class="anchor-link"></span></a>PostgreSQL</h5>
-<p>@@snip [_](../code/application.conf) { #postgres }</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L11-L22" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mydb = {
+  connectionPool = &quot;HikariCP&quot; //use HikariCP for our connection pool
+  dataSourceClass = &quot;org.postgresql.ds.PGSimpleDataSource&quot; //Simple datasource with no connection pooling. The connection pool has already been specified with HikariCP.
+  properties = {
+    serverName = &quot;localhost&quot;
+    portNumber = &quot;5432&quot;
+    databaseName = &quot;mydb&quot;
+    user = &quot;postgres&quot;
+    password = &quot;postgres&quot;
+  }
+  numThreads = 10
+}</code></pre>
 <p>When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
-<pre class="prettyprint"><code class="language-scala expandVars=true">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;{{version}}&quot;,
+<pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-SNAPSHOT&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;{{version}}&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-SNAPSHOT&quot;,
   &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.2.5&quot; //org.postgresql.ds.PGSimpleDataSource dependency
 )
 </code></pre>
 <p>Note, some examples on the internet point to the 9.4.X versions of the PostgreSQL JDBC drivers. Those examples are incorrect and many years out of date. The 42.X development line has been the main line of development since February 2017. As noted on the Postgres site, &ldquo;Unless you have unusual requirements (running old applications or JVMs), this is the driver you should be using.&rdquo; See <a href="https://jdbc.postgresql.org/download.html">https://jdbc.postgresql.org/download.html</a> for more information about when you may want to use the 9.4 line.</p>
 <h5><a href="#mysql" name="mysql" class="anchor"><span class="anchor-link"></span></a>MySQL</h5>
 <p>Very simple example without a connection pool and using the driver directly:</p>
-<p>@@snip [_](../code/application.conf) { #mysql }</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L26-L32" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mydb = {
+  driver = &quot;com.mysql.cj.jdbc.Driver&quot;,
+  url = &quot;jdbc:mysql://127.0.0.1:3306/mydb?serverTimezone=UTC&quot;,
+  user = &quot;user&quot;,
+  password = &quot;pass&quot;,
+  connectionPool = disabled
+}</code></pre>
 <p>To use the MySQL driver, the following library dependency needs to be configured via SBT:</p>
-<pre class="prettyprint"><code class="language-scala expandVars=true">libraryDependencies += &quot;mysql&quot; % &quot;mysql-connector-java&quot; % &quot;6.0.6&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;mysql&quot; % &quot;mysql-connector-java&quot; % &quot;6.0.6&quot;
 </code></pre>
 <h2><a href="#using-a-jdbc-url" name="using-a-jdbc-url" class="anchor"><span class="anchor-link"></span></a>Using a JDBC URL</h2>
 <p>You can pass a JDBC URL to <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcBackend$DatabaseFactoryDef.html#forURL(String,String,String,Properties,String,AsyncExecutor,Boolean,ClassLoader):DatabaseDef" title="slick.jdbc.JdbcBackend$DatabaseFactoryDef"><code>forURL</code></a>. (see your database&rsquo;s JDBC driver&rsquo;s documentation for the correct URL syntax).</p>
@@ -174,7 +191,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>Here we are connecting to a new, empty, in-memory H2 database called <code>test1</code> and keep it resident until the JVM ends (<code>DB_CLOSE_DELAY=-1</code>, which is H2 specific).</p>
 <h2><a href="#using-a-database-url" name="using-a-database-url" class="anchor"><span class="anchor-link"></span></a>Using a Database URL</h2>
 <p>A Database URL, a platform independent URL in the form <code>vendor://user:password@host:port/db</code>, is often provided by platforms such as Heroku. You can use a Database URL in Typesafe Config as shown here:</p>
-<p>@@snip [_](../code/application.conf) { #dburl }</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L47-L53" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databaseUrl {
+  dataSourceClass = &quot;slick.jdbc.DatabaseUrlDataSource&quot;
+  properties = {
+    driver = &quot;org.postgresql.Driver&quot;
+    url = &quot;postgres://user:pass@host/dbname&quot;
+  }
+}</code></pre>
 <p>By default, the data source will use the value of the <code>DATABASE_URL</code> environment variable. Thus you may omit the <code>url</code> property if the <code>DATABASE_URL</code> environment variable is set. You may also define a custom environment variable with standard Typesafe Config syntax, such as <code>${?MYSQL_DATABASE_URL}</code>.</p>
 <p>Or you may pass a <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/DatabaseUrlDataSource.html" title="slick.jdbc.DatabaseUrlDataSource"><code>DatabaseUrlDataSource</code></a> object to <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcBackend$DatabaseFactoryDef.html#forDataSource(DataSource,Option[Int],AsyncExecutor,Boolean):DatabaseDef" title="slick.jdbc.JdbcBackend$DatabaseFactoryDef"><code>forDataSource</code></a> .</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L37-L38" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val db = Database.forDataSource(dataSource: slick.jdbc.DatabaseUrlDataSource,
@@ -204,7 +227,15 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 // Import the JdbcProfile API from the configured profile
 import dc.profile.api._</code></pre>
 <p>The <code>JdbcProfile</code> type annotation specifies the profile level whose API you get. You have to configure a profile of a matching type in the external configuration file. Since we&rsquo;re using the basic <code>forConfig</code> method with only a path (&ldquo;h2_dc&rdquo;), the configuration must be located in the global application config, usually found in <code>application.conf</code>:</p>
-<p>@@snip <a href="../../../samples/slick-multidb/src/main/resources/application.conf">application.conf</a> { #&ndash;doc-h2_db }</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/resources/application.conf#L16-L24" target="_blank" title="Go to snippet source">source</a><code class="language-conf">h2_dc {
+  profile = &quot;slick.jdbc.H2Profile$&quot;
+  db {
+    url = &quot;jdbc:h2:mem:test1&quot;
+    driver = org.h2.Driver
+    connectionPool = disabled
+    keepAliveConnection = true
+  }
+}</code></pre>
 <p>You can use different database systems in your application by either switching out or overriding the application config (e.g. different <code>application.conf</code> files for development and production) or by passing a config path into the application. This way of implementing multi-database support is also used when building a Play app with Slick.</p>
 <h2><a href="#other-multi-db-patterns" name="other-multi-db-patterns" class="anchor"><span class="anchor-link"></span></a>Other Multi-DB Patterns</h2><div class="callout note "><div class="callout-title">Note</div>
 <p>This section is based on the <a href="https://github.com/slick/slick/tree/main/samples/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
