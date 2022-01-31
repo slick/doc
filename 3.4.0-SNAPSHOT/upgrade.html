@@ -50,7 +50,10 @@
   <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
   <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
-  <li><a href="upgrade.html" class="active page">Upgrade Guides</a></li>
+  <li><a href="upgrade.html" class="active page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+  </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
   <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
@@ -108,7 +111,10 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
   <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
-  <li><a href="upgrade.html" class="active page">Upgrade Guides</a></li>
+  <li><a href="upgrade.html" class="active page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+  </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
   <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
@@ -144,6 +150,8 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>For release versions (i.e. versions without a qualifier), backward binary compatibility is guaranteed between releases with the same epoch and major version (e.g. you could use 2.1.2 as a drop-in replacement for 2.1.0 but not for 2.0.0). Binary compatibility is not preserved for <code>slick-codegen</code>, which is generally used at compile-time.</p>
 <p>We do not guarantee source compatibility but we try to preserve it within the same major release. Upgrading to a new major release may require some changes to your sources. We generally deprecate old features and keep them around for a full major release cycle (i.e. features which become deprecated in 2.1.0 will not be removed before 2.2.0) but this is not possible for all kinds of changes.</p>
 <p>Release candidates have the same compatibility guarantees as the final versions to which they lead. There are <em>no compatibility guarantees</em> whatsoever for milestones and snapshots.</p>
+<h2><a href="#latest-changes" name="latest-changes" class="anchor"><span class="anchor-link"></span></a>Latest changes</h2>
+<p>See <a href="compat-reports.html">.</a></p>
 <h2><a href="#upgrade-from-3-2-to-3-3" name="upgrade-from-3-2-to-3-3" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.2 to 3.3</h2>
 <h3><a href="#create-drop-if-not-exists" name="create-drop-if-not-exists" class="anchor"><span class="anchor-link"></span></a>Create / Drop If Not Exists</h3>
 <p>There is no major changes in the API except for the addition of <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>. This has only impact on database profile developers. Regular users are not impacted by it.</p>
@@ -602,7 +610,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 </div>
 
 <div class="nav-next">
-<p><strong>Next:</strong> <a href="migrations.html">Database Migrations</a></p>
+<p><strong>Next:</strong> <a href="compat-reports.html">Incompatible changes</a></p>
 </div>
 </div>
 <div class="large-3 show-for-large column" data-sticky-container>
@@ -614,6 +622,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
   <li><a href="upgrade.html#upgrade-guides" class="header">Upgrade Guides</a>
   <ul>
     <li><a href="upgrade.html#compatibility-policy" class="header">Compatibility Policy</a></li>
+    <li><a href="upgrade.html#latest-changes" class="header">Latest changes</a></li>
     <li><a href="upgrade.html#upgrade-from-3-2-to-3-3" class="header">Upgrade from 3.2 to 3.3</a></li>
     <li><a href="upgrade.html#upgrade-from-3-1-to-3-2" class="header">Upgrade from 3.1 to 3.2</a></li>
   </ul></li>
