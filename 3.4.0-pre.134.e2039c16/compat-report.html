@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Incompatible changes · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='site'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.0-pre.134.e2039c16
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="active page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.0-pre.134.e2039c16
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="active page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li><a href="upgrade.html">Upgrade Guides</a></li>
+  <li>Incompatible changes</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h2><a href="#incompatible-changes" name="incompatible-changes" class="anchor"><span class="anchor-link"></span></a>Incompatible changes</h2>
+<h3><a href="#changes-since-com-typesafe-slick-slick-hikaricp-3-3-3" name="changes-since-com-typesafe-slick-slick-hikaricp-3-3-3" class="anchor"><span class="anchor-link"></span></a>Changes since <code>com.typesafe.slick:slick-hikaricp:3.3.3</code></h3>
+<h4><a href="#dependency-changes" name="dependency-changes" class="anchor"><span class="anchor-link"></span></a>Dependency changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Artifact </th>
+      <th>Previous version </th>
+      <th>Current version </th>
+      <th>Version scheme </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>com.typesafe:config</code> </td>
+      <td>1.3.2 </td>
+      <td>1.4.2 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>com.zaxxer:HikariCP</code> </td>
+      <td>3.2.0 </td>
+      <td>4.0.3 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.scala-lang.modules:scala-collection-compat_2.13</code> </td>
+      <td>2.0.0 </td>
+      <td>2.6.0 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#changes-since-com-typesafe-slick-slick-testkit-3-3-3" name="changes-since-com-typesafe-slick-slick-testkit-3-3-3" class="anchor"><span class="anchor-link"></span></a>Changes since <code>com.typesafe.slick:slick-testkit:3.3.3</code></h3>
+<h4><a href="#dependency-changes" name="dependency-changes" class="anchor"><span class="anchor-link"></span></a>Dependency changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Artifact </th>
+      <th>Previous version </th>
+      <th>Current version </th>
+      <th>Version scheme </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>com.novocode:junit-interface</code> </td>
+      <td>0.11 </td>
+      <td>Absent </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>com.typesafe:config</code> </td>
+      <td>1.3.2 </td>
+      <td>1.4.2 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>com.zaxxer:HikariCP</code> </td>
+      <td>3.2.0 </td>
+      <td>4.0.3 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>junit:junit</code> </td>
+      <td>4.11 </td>
+      <td>4.13.2 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.scala-lang.modules:scala-collection-compat_2.13</code> </td>
+      <td>2.0.0 </td>
+      <td>2.6.0 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Symbol </th>
+      <th>Problem </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backward </td>
+      <td><code>com.typesafe.slick.testkit.tests.InsertTest.testInsertOrUpdateAutoInc</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method testInsertOrUpdateAutoInc()slick.dbio.DBIOAction in class com.typesafe.slick.testkit.tests.InsertTest has a different generic signature in current version, where it is ()Lslick/dbio/DBIOAction&lt;Lscala/runtime/BoxedUnit;Lslick/dbio/NoStream;Lslick/dbio/Effect$All;&gt;; rather than ()Lslick/dbio/DBIOAction&lt;Lscala/runtime/BoxedUnit;Lslick/dbio/NoStream;Lslick/dbio/Effect$Schema;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>com.typesafe.slick.testkit.util.ExternalJdbcTestDB.loadCustomDriver</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method loadCustomDriver()scala.Option in class com.typesafe.slick.testkit.util.ExternalJdbcTestDB does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>com.typesafe.slick.testkit.util.ExternalTestDB</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class com.typesafe.slick.testkit.util.ExternalTestDB does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>com.typesafe.slick.testkit.util.ExternalTestDB$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object com.typesafe.slick.testkit.util.ExternalTestDB does not have a correspondent in current version</small></p> </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#changes-since-com-typesafe-slick-slick-3-3-3" name="changes-since-com-typesafe-slick-slick-3-3-3" class="anchor"><span class="anchor-link"></span></a>Changes since <code>com.typesafe.slick:slick:3.3.3</code></h3>
+<h4><a href="#dependency-changes" name="dependency-changes" class="anchor"><span class="anchor-link"></span></a>Dependency changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Artifact </th>
+      <th>Previous version </th>
+      <th>Current version </th>
+      <th>Version scheme </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>com.typesafe:config</code> </td>
+      <td>1.3.2 </td>
+      <td>1.4.2 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.scala-lang.modules:scala-collection-compat_2.13</code> </td>
+      <td>2.0.0 </td>
+      <td>2.6.0 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Symbol </th>
+      <th>Problem </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.dbio.DBIOAction.sequence</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method sequence(scala.collection.IterableOnce,scala.collection.Factory)slick.dbio.DBIOAction in object slick.dbio.DBIOAction has a different generic signature in current version, where it is &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;Ljava/lang/Object;&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;; rather than &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;*&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.dbio.DBIOAction.sequence</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>static method sequence(scala.collection.IterableOnce,scala.collection.Factory)slick.dbio.DBIOAction in interface slick.dbio.DBIOAction has a different generic signature in current version, where it is &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;Ljava/lang/Object;&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;; rather than &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;*&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.jdbc.JdbcBackend#BaseSession.prepareStatement</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method prepareStatement(java.lang.String,slick.jdbc.ResultSetType,slick.jdbc.ResultSetConcurrency,slick.jdbc.ResultSetHoldability)java.sql.PreparedStatement in class slick.jdbc.JdbcBackend#BaseSession does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.jdbc.JdbcBackend#DatabaseDef.stream</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method stream(slick.dbio.DBIOAction,Boolean)slick.basic.DatabasePublisher in class slick.jdbc.JdbcBackend#DatabaseDef has a different generic signature in current version, where it is &lt;T:Ljava/lang/Object;&gt;(Lslick/dbio/DBIOAction&lt;Ljava/lang/Object;Lslick/dbio/Streaming&lt;TT;&gt;;Lslick/dbio/Effect$All;&gt;;Z)Lslick/basic/DatabasePublisher&lt;TT;&gt;; rather than &lt;T:Ljava/lang/Object;&gt;(Lslick/dbio/DBIOAction&lt;*Lslick/dbio/Streaming&lt;TT;&gt;;Lslick/dbio/Effect$All;&gt;;Z)Lslick/basic/DatabasePublisher&lt;TT;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.jdbc.JdbcBackend#SessionDef.prepareStatement</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method prepareStatement(java.lang.String,slick.jdbc.ResultSetType,slick.jdbc.ResultSetConcurrency,slick.jdbc.ResultSetHoldability)java.sql.PreparedStatement in interface slick.jdbc.JdbcBackend#SessionDef does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.jdbc.MySQLProfile#UpsertBuilder.buildInsertIgnoreStart</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildInsertIgnoreStart()java.lang.String in class slick.jdbc.MySQLProfile#UpsertBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.lifted.Query.filter</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method filter(scala.Function1,slick.lifted.CanBeQueryCondition)slick.lifted.Query in class slick.lifted.Query has a different generic signature in current version, where it is &lt;T:Ljava/lang/Object;&gt;(Lscala/Function1&lt;TE;TT;&gt;;Lslick/lifted/CanBeQueryCondition&lt;TT;&gt;;)Lslick/lifted/Query&lt;TE;TU;TC;&gt;; rather than &lt;T::Lslick/lifted/Rep&lt;*&gt;;&gt;(Lscala/Function1&lt;TE;TT;&gt;;Lslick/lifted/CanBeQueryCondition&lt;TT;&gt;;)Lslick/lifted/Query&lt;TE;TU;TC;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.lifted.Query.filterIf</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method filterIf(Boolean,scala.Function1)slick.lifted.Query in class slick.lifted.Query does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.lifted.Query.filterNot</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method filterNot(scala.Function1,slick.lifted.CanBeQueryCondition)slick.lifted.Query in class slick.lifted.Query has a different generic signature in current version, where it is &lt;T:Ljava/lang/Object;&gt;(Lscala/Function1&lt;TE;TT;&gt;;Lslick/lifted/CanBeQueryCondition&lt;TT;&gt;;)Lslick/lifted/Query&lt;TE;TU;TC;&gt;; rather than &lt;T::Lslick/lifted/Rep&lt;*&gt;;&gt;(Lscala/Function1&lt;TE;TT;&gt;;Lslick/lifted/CanBeQueryCondition&lt;TT;&gt;;)Lslick/lifted/Query&lt;TE;TU;TC;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.lifted.Query.filterOpt</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method filterOpt(scala.Option,scala.Function2,slick.lifted.CanBeQueryCondition)slick.lifted.Query in class slick.lifted.Query has a different generic signature in current version, where it is &lt;V:Ljava/lang/Object;T:Ljava/lang/Object;&gt;(Lscala/Option&lt;TV;&gt;;Lscala/Function2&lt;TE;TV;TT;&gt;;Lslick/lifted/CanBeQueryCondition&lt;TT;&gt;;)Lslick/lifted/Query&lt;TE;TU;TC;&gt;; rather than &lt;V:Ljava/lang/Object;T::Lslick/lifted/Rep&lt;*&gt;;&gt;(Lscala/Option&lt;TV;&gt;;Lscala/Function2&lt;TE;TV;TT;&gt;;Lslick/lifted/CanBeQueryCondition&lt;TT;&gt;;)Lslick/lifted/Query&lt;TE;TU;TC;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$5</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic method apply$default$5()Int in object slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$5</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic static method apply$default$5()Int in interface slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$6</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic static method apply$default$6()scala.concurrent.duration.Duration in interface slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$6</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic method apply$default$6()scala.concurrent.duration.Duration in object slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$7</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic method apply$default$7()Boolean in object slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$7</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic static method apply$default$7()Boolean in interface slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.ConstArray$</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of object slick.util.ConstArray is different in current version. Missing types {slick.util.ConstArrayCompat}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.ConstArrayCompat</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>interface slick.util.ConstArrayCompat does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.SQLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.util.SQLBuilder is different in current version. Missing types {slick.util.SQLBuilderCompat}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.SQLBuilderCompat</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>interface slick.util.SQLBuilderCompat does not have a correspondent in current version</small></p> </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#changes-since-com-typesafe-slick-slick-codegen-3-3-3" name="changes-since-com-typesafe-slick-slick-codegen-3-3-3" class="anchor"><span class="anchor-link"></span></a>Changes since <code>com.typesafe.slick:slick-codegen:3.3.3</code></h3>
+<h4><a href="#dependency-changes" name="dependency-changes" class="anchor"><span class="anchor-link"></span></a>Dependency changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Artifact </th>
+      <th>Previous version </th>
+      <th>Current version </th>
+      <th>Version scheme </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>com.typesafe:config</code> </td>
+      <td>1.3.2 </td>
+      <td>1.4.2 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.scala-lang.modules:scala-collection-compat_2.13</code> </td>
+      <td>2.0.0 </td>
+      <td>2.6.0 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Symbol </th>
+      <th>Problem </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.codegen.OutputHelpers.foreignKeysPerTable</code> </td>
+      <td><strong>ReversedMissingMethodProblem</strong><p><small>abstract method foreignKeysPerTable()scala.collection.immutable.Map in interface slick.codegen.OutputHelpers is present only in current version</small></p> </td>
+    </tr>
+  </tbody>
+</table>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/compat-report.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="migrations.html">Database Migrations</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="compat-report.html#incompatible-changes" class="header">Incompatible changes</a>
+  <ul>
+    <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-hikaricp-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-hikaricp:3.3.3</code></a></li>
+    <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-testkit-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-testkit:3.3.3</code></a></li>
+    <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick:3.3.3</code></a></li>
+    <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-codegen-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-codegen:3.3.3</code></a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2022</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.134.e2039c16', '')});</script>
+
+
+</html>
