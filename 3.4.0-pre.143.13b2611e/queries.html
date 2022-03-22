@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Queries · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='site'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.0-pre.143.13b2611e
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="active page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.0-pre.143.13b2611e
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="active page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li>Queries</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#queries" name="queries" class="anchor"><span class="anchor-link"></span></a>Queries</h1>
+<p>This chapter describes how to write type-safe queries for selecting, inserting, updating and deleting data with Slick&rsquo;s Scala-based query API.</p><div class="callout note "><div class="callout-title">Note</div>
+<p>In the code examples below we assume the following imports:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L4-L8" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import scala.concurrent.{Future, Await}
+import scala.concurrent.duration.Duration
+import slick.jdbc.H2Profile.api._
+import java.sql.Date
+import scala.reflect.ClassTag</code></pre>
+<p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
+<p>The API for building queries is a <em>lifted embedding</em>, which means that you are not working with standard Scala types but with types that are <em>lifted</em> into a <a href="https://scala-slick.org/doc/3.4.0-pre.143.13b2611e/api/slick/lifted/Rep.html" title="slick.lifted.Rep"><code>Rep</code></a> type constructor. This becomes clearer when you compare the types of a simple Scala collections example</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L27-L35" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Coffee(name: String, price: Double)
+val coffees: List[Coffee] = //...
+
+val l = coffees.filter(_.price &gt; 8.0).map(_.name)
+//                       ^       ^          ^
+//                       Double  Double     String</code></pre>
+<p>&hellip; with the types of similar code in Slick:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L15-L116" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class Coffees(tag: Tag) extends Table[(String, Double)](tag, &quot;COFFEES&quot;) {
+  def name = column[String](&quot;COF_NAME&quot;)
+  def price = column[Double](&quot;PRICE&quot;)
+  def * = (name, price)
+}
+val coffees = TableQuery[Coffees]
+
+val q = coffees.filter(_.price &gt; 8.0).map(_.name)
+//                       ^       ^          ^
+//               Rep[Double]  Rep[Double]  Rep[String]</code></pre>
+<p>All plain types are lifted into <code>Rep</code>. The same is true for the table row type <code>Coffees</code> which is a subtype of <code>Rep[(String, Double)]</code>. Even the literal <code>8.0</code> is automatically lifted to a <code>Rep[Double]</code> by an implicit conversion because that is what the <code>&gt;</code> operator on <code>Rep[Double]</code> expects for the right-hand side. This lifting is necessary because the lifted types allow us to generate a syntax tree that captures the query computations. Getting plain Scala functions and values would not give us enough information for translating those computations to SQL.</p>
+<h2><a href="#expressions" name="expressions" class="anchor"><span class="anchor-link"></span></a>Expressions</h2>
+<p>Scalar (non-record, non-collection) values are represented by type <code>Rep[T]</code> for which an implicit <code>TypedType[T]</code> exists.</p>
+<p>The operators and other methods which are commonly used in queries are added through implicit conversions defined in <code>ExtensionMethodConversions</code>. The actual methods can be found in the classes <code>AnyExtensionMethods</code>, <code>ColumnExtensionMethods</code>, <code>NumericColumnExtensionMethods</code>, <code>BooleanColumnExtensionMethods</code> and <code>StringColumnExtensionMethods</code> (cf. <a href="https://github.com/slick/slick/blob/main/slick/src/main/scala/slick/lifted/ExtensionMethods.scala">ExtensionMethods</a>).</p><div class="callout warning "><div class="callout-title">Warning</div>
+<p>Warning: Most operators mimic the plain Scala equivalents, but you have to use <code>===</code> instead of <code>==</code> for comparing two values for equality and <code>=!=</code> instead of <code>!=</code> for inequality. This is necessary because these operators are already defined (with unsuitable types and semantics) on the base type <code>Any</code>, so they cannot be replaced by extension methods. Similarly, to combine a Scala <code>String</code> with a <code>Rep[String]</code> or <code>ConstColumn[String]</code>, don&rsquo;t use <code>str + rep</code> syntax, since Scala provides a universal <code>+</code> operator for strings that works with <code>Any</code>. Instead use slick&rsquo;s <code>++</code> operator: <code>(str: Rep[String]) ++ rep</code></p></div>
+<p>Collection values are represented by the <code>Query</code> class (a <code>Rep[Seq[T]]</code>) which contains many standard collection methods like <code>flatMap</code>, <code>filter</code>, <code>take</code> and <code>groupBy</code>. Due to the two different component types of a <code>Query</code> (lifted and plain, e.g. <code>Query[(Rep[Int], Rep[String]),
+(Int, String), Seq]</code>), the signatures for these methods are very complex but the semantics are essentially the same as for Scala collections.</p>
+<p>Additional methods for queries of scalar values are added via an implicit conversion to <code>SingleColumnQueryExtensionMethods</code>.</p>
+<h2><a href="#sorting-and-filtering" name="sorting-and-filtering" class="anchor"><span class="anchor-link"></span></a>Sorting and Filtering</h2>
+<p>There are various methods with sorting/filtering semantics (i.e. they take a <code>Query</code> and return a new <code>Query</code> of the same type), for example:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L196-L254" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q1 = coffees.filter(_.supID === 101)
+// compiles to SQL (simplified):
+//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;
+//     from &quot;COFFEES&quot;
+//     where &quot;SUP_ID&quot; = 101
+
+val q2 = coffees.drop(10).take(5)
+// compiles to SQL (simplified):
+//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;
+//     from &quot;COFFEES&quot;
+//     limit 5 offset 10
+
+val q3 = coffees.sortBy(_.name.desc.nullsFirst)
+// compiles to SQL (simplified):
+//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;
+//     from &quot;COFFEES&quot;
+//     order by &quot;COF_NAME&quot; desc nulls first
+
+// building criteria using a &quot;dynamic filter&quot; e.g. from a webform.
+val criteriaColombian = Option(&quot;Colombian&quot;)
+val criteriaEspresso = Option(&quot;Espresso&quot;)
+val criteriaRoast: Option[String] = None
+
+val q4 = coffees.filter { coffee =&gt;
+  List(
+      criteriaColombian.map(coffee.name === _),
+      criteriaEspresso.map(coffee.name === _),
+      criteriaRoast.map(coffee.name === _) // not a condition as `criteriaRoast` evaluates to `None`
+  ).collect({case Some(criteria)  =&gt; criteria}).reduceLeftOption(_ || _).getOrElse(true: Rep[Boolean])
+}
+// compiles to SQL (simplified):
+//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;
+//     from &quot;COFFEES&quot;
+//     where (&quot;COF_NAME&quot; = &#39;Colombian&#39; or &quot;COF_NAME&quot; = &#39;Espresso&#39;)
+
+// Conditional filtering with option e.g. from a webform.
+val optionFromPrice = Option(20.0)
+val optionToPrice: Option[Double]  = None
+
+val q5 = coffees
+  .filterOpt(optionFromPrice)(_.price &gt; _)
+  .filterOpt(optionToPrice)(_.price &lt; _) // won&#39;t be added as a condition as `optionToPrice` evaluates to `None`
+// compiles to SQL (simplified):
+//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;
+//     from &quot;COFFEES&quot;
+//     where &quot;PRICE&quot; &gt; 20.0
+
+// Conditional filtering with boolean e.g. from a webform.
+val isRoast = true
+val isEspresso = false
+
+val q6 = coffees
+  .filterIf(isRoast)(_.price &gt; 11.0)
+  .filterIf(isEspresso)(_.price &gt; 11.0) // won&#39;t be added as a condition as `isEspresso` evaluates to `false`
+// compiles to SQL (simplified):
+//   select &quot;COF_NAME&quot;, &quot;SUP_ID&quot;, &quot;PRICE&quot;, &quot;SALES&quot;, &quot;TOTAL&quot;
+//     from &quot;COFFEES&quot;
+//     where &quot;PRICE&quot; &gt; 11.0
+</code></pre>
+<h2><a href="#joining-and-zipping" name="joining-and-zipping" class="anchor"><span class="anchor-link"></span></a>Joining and Zipping</h2>
+<p>Joins are used to combine two different tables or queries into a single query. There are two different ways of writing joins: <em>Applicative</em> and <em>monadic</em>.</p>
+<h3><a href="#applicative-joins" name="applicative-joins" class="anchor"><span class="anchor-link"></span></a>Applicative joins</h3>
+<p><em>Applicative</em> joins are performed by calling a method that joins two queries into a single query of a tuple of the individual results. They have the same restrictions as joins in SQL, i.e. the right-hand side may not depend on the left-hand side. This is enforced naturally through Scala&rsquo;s scoping rules.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L53-L90" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val crossJoin = for {
+  (c, s) &lt;- coffees join suppliers
+} yield (c.name, s.name)
+// compiles to SQL (simplified):
+//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
+//     inner join &quot;SUPPLIERS&quot; x3
+
+val innerJoin = for {
+  (c, s) &lt;- coffees join suppliers on (_.supID === _.id)
+} yield (c.name, s.name)
+// compiles to SQL (simplified):
+//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
+//     inner join &quot;SUPPLIERS&quot; x3
+//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;
+
+val leftOuterJoin = for {
+  (c, s) &lt;- coffees joinLeft suppliers on (_.supID === _.id)
+} yield (c.name, s.map(_.name))
+// compiles to SQL (simplified):
+//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
+//     left outer join &quot;SUPPLIERS&quot; x3
+//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;
+
+val rightOuterJoin = for {
+  (c, s) &lt;- coffees joinRight suppliers on (_.supID === _.id)
+} yield (c.map(_.name), s.name)
+// compiles to SQL (simplified):
+//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
+//     right outer join &quot;SUPPLIERS&quot; x3
+//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;
+
+val fullOuterJoin = for {
+  (c, s) &lt;- coffees joinFull suppliers on (_.supID === _.id)
+} yield (c.map(_.name), s.map(_.name))
+// compiles to SQL (simplified):
+//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
+//     full outer join &quot;SUPPLIERS&quot; x3
+//     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;</code></pre>
+<p>Note the use of <code>map</code> in the <code>yield</code> clauses of the outer joins. Since these joins can introduce additional NULL values (on the right-hand side for a left outer join, on the left-hand sides for a right outer join, and on both sides for a full outer join), the respective sides of the join are wrapped in an <code>Option</code> (with <code>None</code> representing a row that was not matched).</p>
+<h3><a href="#monadic-joins" name="monadic-joins" class="anchor"><span class="anchor-link"></span></a>Monadic joins</h3>
+<p><em>Monadic</em> joins are created with <code>flatMap</code>. They are theoretically more powerful than applicative joins because the right-hand side may depend on the left-hand side. However, this is not possible in standard SQL, so Slick has to compile them down to applicative joins, which is possible in many useful cases but not in all of them (and there are cases where it is possible in theory but Slick cannot perform the required transformation yet). If a monadic join cannot be properly translated, it will fail at runtime.</p>
+<p>A <em>cross-join</em> is created with a <code>flatMap</code> operation on a <code>Query</code> (i.e. by introducing more than one generator in a for-comprehension):</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L30-L36" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val monadicCrossJoin = for {
+  c &lt;- coffees
+  s &lt;- suppliers
+} yield (c.name, s.name)
+// compiles to SQL:
+//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot;
+//     from &quot;COFFEES&quot; x2, &quot;SUPPLIERS&quot; x3</code></pre>
+<p>If you add a filter expression, it becomes an <em>inner join</em>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L41-L48" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val monadicInnerJoin = for {
+  c &lt;- coffees
+  s &lt;- suppliers if c.supID === s.id
+} yield (c.name, s.name)
+// compiles to SQL:
+//   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot;
+//     from &quot;COFFEES&quot; x2, &quot;SUPPLIERS&quot; x3
+//     where x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;</code></pre>
+<p>The semantics of these monadic joins are the same as when you are using <code>flatMap</code> on Scala collections.</p><div class="callout note "><div class="callout-title">Note</div>
+<p>Slick generates <em>implicit</em> joins in SQL (<code>select ... from a, b where ...</code>) for where possible, and <em>explicit</em> joins (<code>select ... from a join b on ...</code>) otherwise.</p></div>
+<h3><a href="#zip-joins" name="zip-joins" class="anchor"><span class="anchor-link"></span></a>Zip joins</h3>
+<p>In addition to the usual applicative join operators supported by relational databases (which are based off a cross join or outer join), Slick also has <em>zip joins</em> which create a pairwise join of two queries. The semantics are again the same as for Scala collections, using the <code>zip</code> and <code>zipWith</code> methods:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L99-L105" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val zipJoinQuery = for {
+  (c, s) &lt;- coffees zip suppliers
+} yield (c.name, s.name)
+
+val zipWithJoin = for {
+  res &lt;- coffees.zipWith(suppliers, (c: Coffees, s: Suppliers) =&gt; (c.name, s.name))
+} yield res</code></pre>
+<p>A particular kind of zip join is provided by <code>zipWithIndex</code>. It zips a query result with an infinite sequence starting at 0. Such a sequence cannot be represented by an SQL database and Slick does not currently support it, either. The resulting zipped query, however, can be represented in SQL with the use of a <em>row number</em> function, so <code>zipWithIndex</code> is supported as a primitive operator:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L111-L113" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val zipWithIndexJoin = for {
+  (c, idx) &lt;- coffees.zipWithIndex
+} yield (c.name, idx)</code></pre>
+<h2><a href="#unions" name="unions" class="anchor"><span class="anchor-link"></span></a>Unions</h2>
+<p>Two queries can be concatenated with the <code>++</code> (or <code>unionAll</code>) and <code>union</code> operators if they have compatible types:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L118-L137" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q1 = coffees.filter(_.price &lt; 8.0)
+val q2 = coffees.filter(_.price &gt; 9.0)
+
+val unionQuery = q1 union q2
+// compiles to SQL (simplified):
+//   select x8.&quot;COF_NAME&quot;, x8.&quot;SUP_ID&quot;, x8.&quot;PRICE&quot;, x8.&quot;SALES&quot;, x8.&quot;TOTAL&quot;
+//     from &quot;COFFEES&quot; x8
+//     where x8.&quot;PRICE&quot; &lt; 8.0
+//   union select x9.&quot;COF_NAME&quot;, x9.&quot;SUP_ID&quot;, x9.&quot;PRICE&quot;, x9.&quot;SALES&quot;, x9.&quot;TOTAL&quot;
+//     from &quot;COFFEES&quot; x9
+//     where x9.&quot;PRICE&quot; &gt; 9.0
+
+val unionAllQuery = q1 ++ q2
+// compiles to SQL (simplified):
+//   select x8.&quot;COF_NAME&quot;, x8.&quot;SUP_ID&quot;, x8.&quot;PRICE&quot;, x8.&quot;SALES&quot;, x8.&quot;TOTAL&quot;
+//     from &quot;COFFEES&quot; x8
+//     where x8.&quot;PRICE&quot; &lt; 8.0
+//   union all select x9.&quot;COF_NAME&quot;, x9.&quot;SUP_ID&quot;, x9.&quot;PRICE&quot;, x9.&quot;SALES&quot;, x9.&quot;TOTAL&quot;
+//     from &quot;COFFEES&quot; x9
+//     where x9.&quot;PRICE&quot; &gt; 9.0</code></pre>
+<p>Unlike <code>union</code> which filters out duplicate values, <code>++</code> simply concatenates the results of the individual queries, which is usually more efficient.</p>
+<h2><a href="#aggregation" name="aggregation" class="anchor"><span class="anchor-link"></span></a>Aggregation</h2>
+<p>The simplest form of aggregation consists of computing a primitive value from a Query that returns a single column, usually with a numeric type, e.g.:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L266-L282" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = coffees.map(_.price)
+
+val q1 = q.min
+// compiles to SQL (simplified):
+//   select min(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4
+
+val q2 = q.max
+// compiles to SQL (simplified):
+//   select max(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4
+
+val q3 = q.sum
+// compiles to SQL (simplified):
+//   select sum(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4
+
+val q4 = q.avg
+// compiles to SQL (simplified):
+//   select avg(x4.&quot;PRICE&quot;) from &quot;COFFEES&quot; x4</code></pre>
+<p>Note that these aggregate queries return a scalar result, not a collection. Some aggregation functions are defined for arbitrary queries (of more than one column):</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L294-L300" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q1 = coffees.length
+// compiles to SQL (simplified):
+//   select count(1) from &quot;COFFEES&quot;
+
+val q2 = coffees.exists
+// compiles to SQL (simplified):
+//   select exists(select * from &quot;COFFEES&quot;)</code></pre>
+<p>Grouping is done with the <code>groupBy</code> method. It has the same semantics as for Scala collections:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L342-L354" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = (for {
+  c &lt;- coffees
+  s &lt;- c.supplier
+} yield (c, s)).groupBy(_._1.supID)
+
+val q2 = q.map { case (supID, css) =&gt;
+  (supID, css.length, css.map(_._1.price).avg)
+}
+// compiles to SQL:
+//   select x2.&quot;SUP_ID&quot;, count(1), avg(x2.&quot;PRICE&quot;)
+//     from &quot;COFFEES&quot; x2, &quot;SUPPLIERS&quot; x3
+//     where x3.&quot;SUP_ID&quot; = x2.&quot;SUP_ID&quot;
+//     group by x2.&quot;SUP_ID&quot;</code></pre>
+<p>The intermediate query <code>q</code> contains nested values of type <code>Query</code>. These would turn into nested collections when executing the query, which is not supported at the moment. Therefore it is necessary to flatten the nested queries immediately by aggregating their values (or individual columns) as done in <code>q2</code>.</p>
+<h2><a href="#querying" name="querying" class="anchor"><span class="anchor-link"></span></a>Querying</h2>
+<p>A Query can be converted into an <a href="https://scala-slick.org/doc/3.4.0-pre.143.13b2611e/api/slick/dbio/DBIOAction.html" title="slick.dbio.DBIOAction"><code>Action</code></a> by calling its <code>result</code> method. The Action can then be <a href="dbio.html#executing-database-actions">executed</a> directly in a streaming or fully materialized way, or composed further with other Actions:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L307-L310" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = coffees.map(_.price)
+val action = q.result
+val result: Future[Seq[Double]] = db.run(action)
+val sql = action.statements.head</code></pre>
+<p>If you only want a single result value, you can call <code>head</code> or <code>headOption</code> on the <code>result</code> Action.</p>
+<h2><a href="#deleting" name="deleting" class="anchor"><span class="anchor-link"></span></a>Deleting</h2>
+<p>Deleting works very similarly to querying. You write a query which selects the rows to delete and then get an Action by calling the <code>delete</code> method on it:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L316-L319" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = coffees.filter(_.supID === 15)
+val action = q.delete
+val affectedRowsCount: Future[Int] = db.run(action)
+val sql = action.statements.head</code></pre>
+<p>A query for deleting must only use a single table - no joins are allowed (Slick does not yet support the <code>USING</code> keyword for deletes). Any projection is ignored (it always deletes full rows).</p>
+<p>If you need to perform a join, you can <code>filter</code> based on another <code>Query</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L325-L334" target="_blank" title="Go to snippet source">source</a><code class="language-scala">//
+val q = coffees filter { coffee =&gt;
+  // You can do any subquery here - this example uses the foreign key relation in coffees.
+  coffee.supID in (
+    coffee.supplier filter { _.name === &quot;Delete Me&quot; } map { _.id }
+  )
+}
+val action = q.delete
+val affectedRowsCount: Future[Int] = db.run(action)
+val sql = action.statements.head</code></pre>
+<h2><a href="#inserting" name="inserting" class="anchor"><span class="anchor-link"></span></a>Inserting</h2>
+<p>Inserts are done based on a projection of columns from a single table. When you use the table directly, the insert is performed against its <code>*</code> projection. Omitting some of a table&rsquo;s columns when inserting causes the database to use the default values specified in the table definition, or a type-specific default in case no explicit default was given. All methods for building insert Actions are defined in <a href="https://scala-slick.org/doc/3.4.0-pre.143.13b2611e/api/slick/jdbc/JdbcActionComponent.html#CountingInsertActionComposer[U]:JdbcProfile.CountingInsertActionComposer[U]" title="slick.jdbc.JdbcActionComponent"><code>CountingInsertActionComposer</code></a> and <a href="https://scala-slick.org/doc/3.4.0-pre.143.13b2611e/api/slick/jdbc/JdbcActionComponent.html#ReturningInsertActionComposer[U,RU]:JdbcProfile.ReturningInsertActionComposer[U,RU]" title="slick.jdbc.JdbcActionComponent"><code>ReturningInsertActionComposer</code></a>.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L361-L377" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val insertActions = DBIO.seq(
+  coffees += (&quot;Colombian&quot;, 101, 7.99, 0, 0),
+
+  coffees ++= Seq(
+    (&quot;French_Roast&quot;, 49, 8.99, 0, 0),
+    (&quot;Espresso&quot;,    150, 9.99, 0, 0)
+  ),
+
+  // &quot;sales&quot; and &quot;total&quot; will use the default value 0:
+  coffees.map(c =&gt; (c.name, c.supID, c.price)) += (&quot;Colombian_Decaf&quot;, 101, 8.99)
+)
+
+// Get the statement without having to specify a value to insert:
+val sql = coffees.insertStatement
+
+// compiles to SQL:
+//   INSERT INTO &quot;COFFEES&quot; (&quot;COF_NAME&quot;,&quot;SUP_ID&quot;,&quot;PRICE&quot;,&quot;SALES&quot;,&quot;TOTAL&quot;) VALUES (?,?,?,?,?)</code></pre>
+<p>When you include an <code>AutoInc</code> column in an insert operation, it is silently ignored, so that the database can generate the proper value. In this case you usually want to get back the auto-generated primary key column. By default, <code>+=</code> gives you a count of the number of affected rows (which will usually be 1) and <code>++=</code> gives you an accumulated count in an <code>Option</code> (which can be <code>None</code> if the database system does not provide counts for all rows). This can be changed with the <code>returning</code> method where you specify the columns to be returned (as a single value or tuple from <code>+=</code> and a <code>Seq</code> of such values from <code>++=</code>):</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L391-L392" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userId =
+  (users returning users.map(_.id)) += User(None, &quot;Stefan&quot;, &quot;Zeiger&quot;)</code></pre><div class="callout note "><div class="callout-title">Note</div>
+<p>Many database systems only allow a single column to be returned which must be the table&rsquo;s auto-incrementing primary key. If you ask for other columns a <code>SlickException</code> is thrown at runtime (unless the database actually supports it).</p></div>
+<p>You can follow the <code>returning</code> method with the <code>into</code> method to map the inserted values and the generated keys (specified in returning) to a desired value. Here is an example of using this feature to return an object with an updated id:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L397-L400" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userWithId =
+  (users returning users.map(_.id)
+         into ((user,id) =&gt; user.copy(id=Some(id)))
+  ) += User(None, &quot;Stefan&quot;, &quot;Zeiger&quot;)</code></pre><div class="callout note "><div class="callout-title">Note</div>
+<p>When using the <code>++=</code> batch insert operation, Slick makes use of the JDBC batch API. The underlying JDBC driver will decide how to transmit the batch (via SQL) to the database server.</p>
+<p>Slick may fall back to generating multiple insert statements for batch operations. This will depend on the driver (if it supports batch insert), and other circumstances (<code>returning</code> keys is generally not supported in batch operations).</p></div>
+<p>Instead of inserting data from the client side you can also insert data created by a <code>Query</code> or a scalar expression that is executed in the database server:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L406-L417" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class Users2(tag: Tag) extends Table[(Int, String)](tag, &quot;users2&quot;) {
+  def id = column[Int](&quot;id&quot;, O.PrimaryKey)
+  def name = column[String](&quot;name&quot;)
+  def * = (id, name)
+}
+val users2 = TableQuery[Users2]
+
+val actions = DBIO.seq(
+  users2.schema.create,
+  users2 forceInsertQuery (users.map { u =&gt; (u.id, u.first ++ &quot; &quot; ++ u.last) }),
+  users2 forceInsertExpr (users.length + 1, &quot;admin&quot;)
+)</code></pre>
+<p>In these cases, <code>AutoInc</code> columns are <em>not</em> ignored.</p>
+<h2><a href="#updating" name="updating" class="anchor"><span class="anchor-link"></span></a>Updating</h2>
+<p>Updates are performed by writing a query that selects the data to update and then replacing it with new data. The query must only return raw columns (no computed values) selected from a single table. The relevant methods for updating are defined in <a href="https://scala-slick.org/doc/3.4.0-pre.143.13b2611e/api/slick/jdbc/JdbcActionComponent.html#UpdateActionExtensionMethodsImpl[T]:JdbcProfile.UpdateActionExtensionMethodsImpl[T]" title="slick.jdbc.JdbcActionComponent"><code>UpdateExtensionMethods</code></a>.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L434-L441" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for { c &lt;- coffees if c.name === &quot;Espresso&quot; } yield c.price
+val updateAction = q.update(10.49)
+
+// Get the statement without having to specify an updated value:
+val sql = q.updateStatement
+
+// compiles to SQL:
+//   update &quot;COFFEES&quot; set &quot;PRICE&quot; = ? where &quot;COFFEES&quot;.&quot;COF_NAME&quot; = &#39;Espresso&#39;</code></pre>
+<p>There is currently no way to use scalar expressions or transformations of the existing data in the database for updates.</p>
+<p>When you want to update multiple columns at once, just map to a tuple first:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L448-L456" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = coffees.filter(_.name === &quot;Espresso&quot;).map(coffee =&gt; (coffee.name, coffee.price))
+// A Lungo is more expensive:
+val updateAction = q.update((&quot;Espresso Lungo&quot;, 12.88))
+
+// Get the statement without having to specify an updated value:
+val sql = q.updateStatement
+
+// compiles to SQL:
+//   update &quot;COFFEES&quot; set &quot;COF_NAME&quot; = ?, &quot;PRICE&quot; = ? where &quot;COFFEES&quot;.&quot;COF_NAME&quot; = &#39;Espresso&#39;</code></pre>
+<h2><a href="#upserting" name="upserting" class="anchor"><span class="anchor-link"></span></a>Upserting</h2>
+<p>Upserting is performed by supplying a row to be either inserted or updated. The object must contain the table&rsquo;s primary key, since the update portion needs to be able to find a uniquely matching row.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L422-L426" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val updated = users.insertOrUpdate(User(Some(1), &quot;Admin&quot;, &quot;Zeiger&quot;))
+// returns: number of rows updated
+
+val updatedAdmin = (users returning users).insertOrUpdate(User(Some(1), &quot;Slick Admin&quot;, &quot;Zeiger&quot;))
+// returns: None if updated, Some((Int, String)) if row inserted</code></pre>
+<h2><a href="#compiled-queries" name="compiled-queries" class="anchor"><span class="anchor-link"></span></a>Compiled Queries</h2>
+<p>Database queries typically depend on some parameters, e.g. an ID for which you want to retrieve a matching database row. You can write a regular Scala function to create a parameterized <code>Query</code> object each time you need to execute that query but this will incur the cost of recompiling the query in Slick (and possibly also on the database if you don&rsquo;t use bind variables for all parameters). It is more efficient to pre-compile such parameterized query functions:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L471-L481" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def userNameByIDRange(min: Rep[Int], max: Rep[Int]) =
+  for {
+    u &lt;- users if u.id &gt;= min &amp;&amp; u.id &lt; max
+  } yield u.first
+
+val userNameByIDRangeCompiled = Compiled(userNameByIDRange _)
+
+// The query will be compiled only once:
+val namesAction1 = userNameByIDRangeCompiled(2, 5).result
+val namesAction2 = userNameByIDRangeCompiled(1, 3).result
+// Also works for .insert, .update and .delete</code></pre>
+<p>This works for all functions that take parameters consisting only of individual columns or <a href="userdefined.html#using-custom-record-types-in-queries">records</a> of columns and return a <code>Query</code> object or a scalar query. See the API documentation for <a href="https://scala-slick.org/doc/3.4.0-pre.143.13b2611e/api/slick/lifted/Compiled.html" title="slick.lifted.Compiled"><code>Compiled</code></a> and its subclasses for details on composing compiled queries.</p>
+<p>Be aware that <code>take</code> and <code>drop</code> take <code>ConstColumn[Long]</code> parameters. Unlike <code>Rep[Long]</code>, which could be substituted by another value computed by a query, a ConstColumn can only be literal value or a parameter of a compiled query. This is necessary because the actual value has to be known by the time the query is prepared for execution by Slick.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L487-L490" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userPaged = Compiled((d: ConstColumn[Long], t: ConstColumn[Long]) =&gt; users.drop(d).take(t))
+
+val usersAction1 = userPaged(2, 1).result
+val usersAction2 = userPaged(1, 3).result</code></pre>
+<p>You can use a compiled query for querying, inserting, updating and deleting data. To use compiled queries for inserts you can wrap your table query with <code>Compiled</code></p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L496-L497" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userCompiled = Compiled(users)
+userCompiled += User(None, &quot;John&quot;, &quot;Doe&quot;)</code></pre>
+<p>For backwards-compatibility with Slick 1.0 you can still create a compiled query by calling <code>flatMap</code> on a <a href="https://scala-slick.org/doc/3.4.0-pre.143.13b2611e/api/slick/lifted/Parameters.html" title="slick.lifted.Parameters"><code>Parameters</code></a> object. In many cases this enables you to write a single <em>for comprehension</em> for a compiled query:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L503-L515" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userNameByID = for {
+  id &lt;- Parameters[Int]
+  u &lt;- users if u.id === id
+} yield u.first
+
+val nameAction = userNameByID(2).result.head
+
+val userNameByIDRange = for {
+  (min, max) &lt;- Parameters[(Int, Int)]
+  u &lt;- users if u.id &gt;= min &amp;&amp; u.id &lt; max
+} yield u.first
+
+val namesAction = userNameByIDRange(2, 5).result</code></pre>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/queries.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="code-generation.html">Schema Code Generation</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="queries.html#queries" class="header">Queries</a>
+  <ul>
+    <li><a href="queries.html#expressions" class="header">Expressions</a></li>
+    <li><a href="queries.html#sorting-and-filtering" class="header">Sorting and Filtering</a></li>
+    <li><a href="queries.html#joining-and-zipping" class="header">Joining and Zipping</a></li>
+    <li><a href="queries.html#unions" class="header">Unions</a></li>
+    <li><a href="queries.html#aggregation" class="header">Aggregation</a></li>
+    <li><a href="queries.html#querying" class="header">Querying</a></li>
+    <li><a href="queries.html#deleting" class="header">Deleting</a></li>
+    <li><a href="queries.html#inserting" class="header">Inserting</a></li>
+    <li><a href="queries.html#updating" class="header">Updating</a></li>
+    <li><a href="queries.html#upserting" class="header">Upserting</a></li>
+    <li><a href="queries.html#compiled-queries" class="header">Compiled Queries</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2022</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.143.13b2611e', '')});</script>
+
+
+</html>
