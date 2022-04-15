@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Database I/O Actions · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='site'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.0-pre.150.c6046682
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="active page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.0-pre.150.c6046682
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="active page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li>Database I/O Actions</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#database-i-o-actions" name="database-i-o-actions" class="anchor"><span class="anchor-link"></span></a>Database I/O Actions</h1>
+<p>Anything that you can execute on a database, whether it is a getting the result of a query (<code>myQuery.result</code>), creating a table (<code>myTable.schema.create</code>), inserting data (<code>myTable += item</code>) or something else, is an instance of <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html" title="slick.dbio.DBIOAction"><code>DBIOAction</code></a>, parameterized by the result type it will produce when you execute it.</p>
+<p><em>Database I/O Actions</em> can be combined with several different combinators (see the <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html" title="slick.dbio.DBIOAction"><code>DBIOAction class</code></a> and <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html" title="slick.dbio.DBIOAction"><code>DBIOAction object</code></a>, which is also available under the alias <code>DBIO</code>, for details), but they will always be executed strictly sequentially and (at least conceptually) in a single database session.</p>
+<p>In most cases you will want to use the type aliases <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/package.html#DBIO[+R]:DBIO[R]" title="slick.dbio"><code>DBIO</code></a> and <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/package.html#StreamingDBIO[+R,+T]:StreamingDBIO[R,T]" title="slick.dbio"><code>StreamingDBIO</code></a> for non-streaming and streaming Database I/O Actions. They omit the optional <em>effect types</em> supported by <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html" title="slick.dbio.DBIOAction"><code>DBIOAction</code></a>.</p><div class="callout note "><div class="callout-title">Note</div>
+<p>In the code examples below we assume the following imports:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L4-L16" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import java.sql.Blob
+import javax.sql.rowset.serial.SerialBlob
+
+import org.reactivestreams.Publisher
+
+import scala.collection.mutable.ArrayBuffer
+import scala.concurrent.{Future, Await}
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.language.higherKinds
+import scala.util.{Failure, Success}
+import slick.basic.DatabasePublisher
+import slick.jdbc.H2Profile.api._</code></pre>
+<p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
+<h2><a href="#executing-database-actions" name="executing-database-actions" class="anchor"><span class="anchor-link"></span></a>Executing Database Actions</h2>
+<p><code>DBIOAction</code>s can be executed either with the goal of producing a fully materialized result or streaming data back from the database.</p>
+<h3><a href="#materialized" name="materialized" class="anchor"><span class="anchor-link"></span></a>Materialized</h3>
+<p>You can use <code>run</code> to execute a <code>DBIOAction</code> on a Database and produce a materialized result. This can be, for example, a scalar query result (<code>myTable.length.result</code>), a collection-valued query result (<code>myTable.to[Set].result</code>), or any other action. Every <code>DBIOAction</code> supports this mode of execution.</p>
+<p>Execution of the action starts in the background when <code>run</code> is called. The calling thread is not blocked. The materialized result is returned as a <a href="https://docs.scala-lang.org/overviews/core/futures.html">Future</a> which is completed asynchronously as soon as the result is available:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L75-L82" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for (c &lt;- coffees) yield c.name
+val a = q.result
+val f: Future[Seq[String]] = db.run(a)
+
+f.onComplete {
+  case Success(s) =&gt; println(s&quot;Result: $s&quot;)
+  case Failure(t) =&gt; t.printStackTrace()
+}</code></pre>
+<h3><a href="#streaming" name="streaming" class="anchor"><span class="anchor-link"></span></a>Streaming</h3>
+<p>Collection-valued queries also support streaming results. In this case, the actual collection type is ignored and elements are streamed directly from the result set through a <a href="https://www.reactive-streams.org/">Reactive Streams</a> <code>Publisher</code>, which can be processed and consumed by <a href="https://akka.io/docs/">Akka Streams</a>.</p>
+<p>Execution of the <code>DBIOAction</code> does not start until a <code>Subscriber</code> is attached to the stream. If multiple <code>Subscriber</code>s subscribe to the same <code>Publisher</code>, each one triggers an <em>independent execution</em> of the action.</p>
+<p>Stream elements are signaled as soon as they become available in the streaming part of the <code>DBIOAction</code>. The end of the stream is signaled only after the <em>entire action</em> has completed. For example, when streaming inside a transaction and all elements have been delivered successfully, the stream can still fail afterwards if the transaction cannot be committed. The <code>Subscriber</code> is notififed of this failure.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L87-L96" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for (c &lt;- coffees) yield c.name
+val a = q.result
+val p: DatabasePublisher[String] = db.stream(a)
+
+// .foreach is a convenience method on DatabasePublisher.
+// Use Akka Streams for more elaborate stream processing.
+p.foreach { s =&gt; println(s&quot;Element: $s&quot;) }</code></pre>
+<p>When streaming a JDBC result set, the next result page will be buffered in the background if the Subscriber is not ready to receive more data, but all elements are signaled synchronously and the result set is not advanced before synchronous processing is finished. This allows synchronous callbacks to low-level JDBC values like <code>Blob</code> which depend on the state of the result set. The convenience method <code>mapResult</code> is provided for this purpose:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L101-L107" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for (c &lt;- coffees) yield c.image
+val a = q.result
+val p1: DatabasePublisher[Blob] = db.stream(a)
+val p2: DatabasePublisher[Array[Byte]] = p1.mapResult { b =&gt;
+  // Executed synchronously on the database thread
+  b.getBytes(0, b.length().toInt)
+}</code></pre><div class="callout note "><div class="callout-title">Note</div>
+<p>Some database systems may require session parameters to be set in a certain way to support streaming without caching all data at once in memory on the client side. For example, <a href="https://www.postgresql.org/">PostgreSQL</a> requires both <code>.withStatementParameters(rsType = ResultSetType.ForwardOnly, rsConcurrency = ResultSetConcurrency.ReadOnly, fetchSize = n)</code> (with the desired page size <code>n</code>) and <code>.transactionally</code> for proper streaming.</p></div>
+<h2><a href="#composing-database-i-o-actions" name="composing-database-i-o-actions" class="anchor"><span class="anchor-link"></span></a>Composing Database I/O Actions</h2>
+<p><code>DBIOAction</code>s describe sequences of individual actions to execute in strictly sequential order on one database session (at least conceptually), therefore the most commonly used combinators deal with sequencing. Since a <code>DBIOAction</code> eventually results in a <code>Success</code> or <code>Failure</code>, its combinators, just like the ones on <code>Future</code>, have to distinguish between successful and failed executions. Unless specifically noted, all combinators only apply to successful actions. Any failure will abort the sequence of execution and result in a failed <code>Future</code> or <em>Reactive Stream</em>.</p>
+<p>The available DBIO combinators are a purely functional subset of Future combinators. You should be familiar with <a href="https://docs.scala-lang.org/overviews/core/futures.html">working with Scala Futures</a> before diving into DBIO combinators. Since the result of a database action is usually a Future, this knowledge is required anyway for composing database results and other asynchronous code.</p>
+<h3><a href="#sequential-execution" name="sequential-execution" class="anchor"><span class="anchor-link"></span></a>Sequential Execution</h3>
+<p>The simplest combinator is <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html#seq[E%253C:Effect](DBIOAction[_,NoStream,E]*):DBIOAction[Unit,NoStream,E]" title="slick.dbio.DBIOAction"><code>DBIO.seq</code></a> which takes a varargs list of actions to run in sequence, discarding their return value. If you need the return value, you can use <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#andThen[R2,S2%253C:NoStream,E2%253C:Effect](DBIOAction[R2,S2,E2]):DBIOAction[R2,S2,EwithE2]" title="slick.dbio.DBIOAction"><code>andThen</code></a> to combine two actions and keep the result of the second one. If you need both return values of two actions, there is the <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#zip[R2,E2%253C:Effect](DBIOAction[R2,NoStream,E2]):DBIOAction[(R,R2),NoStream,EwithE2]" title="slick.dbio.DBIOAction"><code>zip:DBIOAction[</code></a> combinator. For getting all result values from a sequence of actions (of compatible types), use <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html#sequence[R,M[+_]%3C:TraversableOnce[_],E%3C:Effect](M[DBIOAction[R,NoStream,E]])(CanBuildFrom[M[DBIOAction[R,NoStream,E]],R,M[R]]):DBIOAction[M[R],NoStream,E]" title="slick.dbio.DBIOAction"><code>DBIO.sequence</code></a>. All these combinators work with pre-existing <code>DBIOAction</code>s which are composed eagerly:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/DBIOCombinators.scala#L15-L24" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val ins1: DBIO[Int] = coffees += (&quot;Colombian&quot;, 7.99)
+val ins2: DBIO[Int] = coffees += (&quot;French_Roast&quot;, 8.99)
+
+val a1: DBIO[Unit] = DBIO.seq(ins1, ins2)
+
+val a2: DBIO[Int] = ins1 andThen ins2
+
+val a3: DBIO[(Int, Int)] = ins1 zip ins2
+
+val a4: DBIO[Vector[Int]] = DBIO.sequence(Vector(ins1, ins2))</code></pre>
+<p>If an action depends on a previous action in the sequence, you have to compute it on the fly with <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#flatMap[R2,S2%253C:NoStream,E2%253C:Effect]((R)=%3EDBIOAction[R2,S2,E2])(ExecutionContext):DBIOAction[R2,S2,EwithE2]" title="slick.dbio.DBIOAction"><code>flatMap</code></a> or <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#map[R2]((R)=%3ER2)(ExecutionContext):DBIOAction[R2,NoStream,E]" title="slick.dbio.DBIOAction"><code>map</code></a>. These two methods plus <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#filter((R)=%3EBoolean)(ExecutionContext):DBIOAction[R,NoStream,E]" title="slick.dbio.DBIOAction"><code>filter</code></a> enable the use of <em>for comprehensions</em> for action sequencing. Since they take function arguments, they also require an implicit <code>ExecutionContext</code> on which to run the function. This way Slick ensures that no non-database code is run on the database thread pool. This ExecutionContext should be provided by your application or framework (e.g. <a href="https://akka.io/">Akka</a> or <a href="https://www.playframework.com/">Play</a>).</p><div class="callout note "><div class="callout-title">Note</div>
+<p>You should prefer the less flexible methods without an <code>ExecutionContext</code> where possible. The resulting actions can be executed more efficiently.</p></div>
+<p>Similar to <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html#sequence[R,M[+_]%3C:TraversableOnce[_],E%3C:Effect](M[DBIOAction[R,NoStream,E]])(CanBuildFrom[M[DBIOAction[R,NoStream,E]],R,M[R]]):DBIOAction[M[R],NoStream,E]" title="slick.dbio.DBIOAction"><code>DBIO.sequence</code></a> for upfront composition, there is <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html#fold[T,E%253C:Effect](Seq[DBIOAction[T,NoStream,E]],T)((T,T)=%3ET)(ExecutionContext):DBIOAction[T,NoStream,E]" title="slick.dbio.DBIOAction"><code>DBIO.fold</code></a> for working with sequences of actions and composing them based on the previous result.</p>
+<h3><a href="#error-handling" name="error-handling" class="anchor"><span class="anchor-link"></span></a>Error Handling</h3>
+<p>You can use <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#andFinally[E2%253C:Effect](DBIOAction[_,NoStream,E2]):DBIOAction[R,S,EwithE2]" title="slick.dbio.DBIOAction"><code>andFinally</code></a> to perform a cleanup action, no matter whether the previous action succeeded or failed. This is similar to using <code>try ... finally ...</code> in imperative Scala code. A more flexible version of <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#andFinally[E2%253C:Effect](DBIOAction[_,NoStream,E2]):DBIOAction[R,S,EwithE2]" title="slick.dbio.DBIOAction"><code>andFinally</code></a> is <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#cleanUp[E2%253C:Effect]((Option[Throwable])=%3EDBIOAction[_,NoStream,E2],Boolean)(ExecutionContext):DBIOAction[R,S,EwithE2]" title="slick.dbio.DBIOAction"><code>cleanUp</code></a>. It lets you transform the failure and decide how to fail the resulting action if both the original one and the cleanup failed.</p><div class="callout note "><div class="callout-title">Note</div>
+<p>For even more flexible error handling use <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#asTry:DBIOAction[Try[R],NoStream,E]" title="slick.dbio.DBIOAction"><code>asTry</code></a> and <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#failed:DBIOAction[Throwable,NoStream,E]" title="slick.dbio.DBIOAction"><code>failed</code></a>. Unlike with <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#andFinally[E2%253C:Effect](DBIOAction[_,NoStream,E2]):DBIOAction[R,S,EwithE2]" title="slick.dbio.DBIOAction"><code>andFinally</code></a> and <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#cleanUp[E2%253C:Effect]((Option[Throwable])=%3EDBIOAction[_,NoStream,E2],Boolean)(ExecutionContext):DBIOAction[R,S,EwithE2]" title="slick.dbio.DBIOAction"><code>cleanUp</code></a> the resulting actions cannot be used for streaming.</p></div>
+<h3><a href="#primitives" name="primitives" class="anchor"><span class="anchor-link"></span></a>Primitives</h3>
+<p>You can convert a <code>Future</code> into an action with <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html#from[R](Future[R]):DBIOAction[R,NoStream,Effect]" title="slick.dbio.DBIOAction"><code>DBIO.from</code></a>. This allows the result of the <code>Future</code> to be used in an action sequence. A pre-existing value or failure can be converted with <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html#successful[R](R):DBIOAction[R,NoStream,Effect]" title="slick.dbio.DBIOAction"><code>DBIO.successful</code></a> and <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction$.html#failed(Throwable):DBIOAction[Nothing,NoStream,Effect]" title="slick.dbio.DBIOAction"><code>DBIO.failed</code></a>, respectively.</p>
+<h3><a href="#debugging" name="debugging" class="anchor"><span class="anchor-link"></span></a>Debugging</h3>
+<p>The <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#named(String):DBIOAction[R,S,E]" title="slick.dbio.DBIOAction"><code>named</code></a> combinator names an action. This name can be seen in debug logs if you enable the <code>slick.basic.BasicBackend.action</code> <a href="config.html#logging">logger</a>.</p>
+<h3><a href="#transactions-and-pinned-sessions-transactions-" name="transactions-and-pinned-sessions-transactions-" class="anchor"><span class="anchor-link"></span></a>Transactions and Pinned Sessions {#transactions}</h3>
+<p>When executing a <code>DBIOAction</code> which is composed of several smaller actions, Slick acquires sessions from the connection pool and releases them again as needed so that a session is not kept in use unnecessarily while waiting for the result of a non-database computation (e.g. the function passed to <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#flatMap[R2,S2%253C:NoStream,E2%253C:Effect]((R)=%3EDBIOAction[R2,S2,E2])(ExecutionContext):DBIOAction[R2,S2,EwithE2]" title="slick.dbio.DBIOAction"><code>flatMap</code></a> that determines the next action to run). You can use <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#withPinnedSession:DBIOAction[R,S,E]" title="slick.dbio.DBIOAction"><code>withPinnedSession</code></a> to force the use of a single session, keeping the existing session open even when waiting for non-database computations.</p>
+<p>All <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html" title="slick.dbio.DBIOAction"><code>DBIOAction combinators</code></a> which combine database actions without any non-database computations in between (e.g. <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#andThen[R2,S2%253C:NoStream,E2%253C:Effect](DBIOAction[R2,S2,E2]):DBIOAction[R2,S2,EwithE2]" title="slick.dbio.DBIOAction"><code>andThen</code></a> or <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/dbio/DBIOAction.html#zip[R2,E2%253C:Effect](DBIOAction[R2,NoStream,E2]):DBIOAction[(R,R2),NoStream,EwithE2]" title="slick.dbio.DBIOAction"><code>zip</code></a> applied to two database computations) can fuse these actions for more efficient execution, with the side-effect that the fused action runs inside a single session, even without <code>withPinnedSession</code>.</p>
+<p>There is a related combinator called <a href="https://scala-slick.org/doc/3.4.0-pre.150.c6046682/api/slick/jdbc/JdbcActionComponent$JdbcActionExtensionMethods.html#transactionally:DBIOAction[R,S,EwithTransactional]" title="slick.jdbc.JdbcActionComponent$JdbcActionExtensionMethods"><code>transactionally</code></a> to force the use of a transaction. This guarantees that the entire <code>DBIOAction</code> that is executed will either succeed or fail atomically. Without it, all database actions run in auto-commit mode. The use of a transaction always implies a pinned session.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L111-L116" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val a = (for {
+  ns &lt;- coffees.filter(_.name.startsWith(&quot;ESPRESSO&quot;)).map(_.name).result
+  _ &lt;- DBIO.seq(ns.map(n =&gt; coffees.filter(_.name === n).delete): _*)
+} yield ()).transactionally
+
+val f: Future[Unit] = db.run(a)</code></pre><div class="callout warning "><div class="callout-title">Warning</div>
+<p>Warning: Failure is not guaranteed to be atomic <em>at the level of an individual</em> <code>DBIOAction</code> that is wrapped with <code>transactionally</code>, so you need to be careful where you apply error recovery combinators. An actual database transaction is only created and committed or rolled back for the outermost <code>transactionally</code> action. Nested <code>transactionally</code> actions simply execute inside the existing transaction without additional savepoints.</p></div>
+<h3><a href="#rollbacks" name="rollbacks" class="anchor"><span class="anchor-link"></span></a>Rollbacks</h3>
+<p>In case you want to force a rollback, you can return <code>DBIO.failed</code> within a <code>DBIOAction</code>.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L121-L143" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val countAction = coffees.length.result
+
+val rollbackAction = (coffees ++= Seq(
+  (&quot;Cold_Drip&quot;, new SerialBlob(Array[Byte](101))),
+  (&quot;Dutch_Coffee&quot;, new SerialBlob(Array[Byte](49)))
+)).flatMap { _ =&gt;
+  DBIO.failed(new Exception(&quot;Roll it back&quot;))
+}.transactionally
+
+val errorHandleAction = rollbackAction.asTry.flatMap {
+  case Failure(e: Throwable) =&gt; DBIO.successful(e.getMessage)
+  case Success(_) =&gt; DBIO.successful(&quot;never reached&quot;)
+}
+
+// Here we show that that coffee count is the same before and after the attempted insert.
+// We also show that the result of the action is filled in with the exception&#39;s message.
+val f = db.run(countAction zip errorHandleAction zip countAction).map {
+  case ((initialCount, result), finalCount) =&gt;
+    // init: 5, final: 5, result: Roll it back
+    println(s&quot;init: ${initialCount}, final: ${finalCount}, result: ${result}&quot;)
+    result
+}
+</code></pre>
+<h2><a href="#jdbc-interoperability" name="jdbc-interoperability" class="anchor"><span class="anchor-link"></span></a>JDBC Interoperability</h2>
+<p>In order to drop down to the JDBC level for functionality that is not available in Slick, you can use a <code>SimpleDBIO</code> action which is run on a database thread and gets access to the JDBC <code>Connection</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L151" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val getAutoCommit = SimpleDBIO[Boolean](_.connection.getAutoCommit)</code></pre>
+<p>If you need to access state of the database session across multiple <code>SimpleDBIO</code> actions, make sure to use <code>withPinnedSession</code> or <code>transactionally</code> accordingly (see <a href="#transactions">above</a>).</p>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/dbio.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="schemas.html">Schemas</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="dbio.html#database-i-o-actions" class="header">Database I/O Actions</a>
+  <ul>
+    <li><a href="dbio.html#executing-database-actions" class="header">Executing Database Actions</a></li>
+    <li><a href="dbio.html#composing-database-i-o-actions" class="header">Composing Database I/O Actions</a></li>
+    <li><a href="dbio.html#jdbc-interoperability" class="header">JDBC Interoperability</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2022</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.150.c6046682', '')});</script>
+
+
+</html>
