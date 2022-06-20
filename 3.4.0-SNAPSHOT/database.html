@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -60,7 +60,7 @@
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -129,7 +129,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -181,9 +181,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 }</code></pre>
 <p>When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-SNAPSHOT&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-pre.183.9b26e7ef&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-SNAPSHOT&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-pre.183.9b26e7ef&quot;,
   &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.2.5&quot; //org.postgresql.ds.PGSimpleDataSource dependency
 )
 </code></pre>
@@ -235,15 +235,15 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>Note that reasonable defaults for the connection pool sizes are calculated from the thread pool size when using <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcBackend$DatabaseFactoryDef.html#forConfig(String,Config,Driver,ClassLoader):Database" title="slick.jdbc.JdbcBackend$DatabaseFactoryDef"><code>Database.forConfig</code></a>.</p>
 <p>Slick uses <em>prepared</em> statements wherever possible but it does not cache them on its own. You should therefore enable prepared statement caching in the connection pool&rsquo;s configuration.</p>
 <h2><a href="#databaseconfig" name="databaseconfig" class="anchor"><span class="anchor-link"></span></a>DatabaseConfig</h2><div class="callout note "><div class="callout-title">Note</div>
-<p>This section is based on the <a href="https://github.com/slick/slick/tree/main/samples/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
+<p>This section is based on the <a href="https://github.com/slick/samples/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
 <p>On top of the configuration syntax for <code>Database</code>, there is another layer in the form of <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/basic/DatabaseConfig.html" title="slick.basic.DatabaseConfig"><code>DatabaseConfig</code></a> which allows you to configure a Slick profile plus a matching <code>Database</code> together. This makes it easy to abstract over different kinds of database systems by simply changing a configuration file.</p>
 <p>You can see it in action in <code>SimpleExample.scala</code>. First we load the DatabaseConfig and then import the Slick API from its profile:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/databaseconfig/SimpleExample.scala#L11-L14" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forConfig[JdbcProfile](&quot;h2_dc&quot;)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/databaseconfig/SimpleExample.scala#L11-L14" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forConfig[JdbcProfile](&quot;h2_dc&quot;)
 
 // Import the JdbcProfile API from the configured profile
 import dc.profile.api._</code></pre>
 <p>The <code>JdbcProfile</code> type annotation specifies the profile level whose API you get. You have to configure a profile of a matching type in the external configuration file. Since we&rsquo;re using the basic <code>forConfig</code> method with only a path (&ldquo;h2_dc&rdquo;), the configuration must be located in the global application config, usually found in <code>application.conf</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/resources/application.conf#L16-L24" target="_blank" title="Go to snippet source">source</a><code class="language-conf">h2_dc {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/resources/application.conf#L16-L24" target="_blank" title="Go to snippet source">source</a><code class="language-conf">h2_dc {
   profile = &quot;slick.jdbc.H2Profile$&quot;
   db {
     url = &quot;jdbc:h2:mem:test1&quot;
@@ -254,18 +254,18 @@ import dc.profile.api._</code></pre>
 }</code></pre>
 <p>You can use different database systems in your application by either switching out or overriding the application config (e.g. different <code>application.conf</code> files for development and production) or by passing a config path into the application. This way of implementing multi-database support is also used when building a Play app with Slick.</p>
 <h2><a href="#other-multi-db-patterns" name="other-multi-db-patterns" class="anchor"><span class="anchor-link"></span></a>Other Multi-DB Patterns</h2><div class="callout note "><div class="callout-title">Note</div>
-<p>This section is based on the <a href="https://github.com/slick/slick/tree/main/samples/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
+<p>This section is based on the <a href="https://github.com/slick/samples/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
 <p>Since its addition in Slick 3.0 <code>DatabaseConfig</code> (see <a href="#databaseconfig">above</a>) is the recommended solution. More complex scenarios (for example, where you need to map custom functions differently for different database systems, or where you cannot use the simple application.conf syntax) may require abstracting over databases in Scala code. The following sections explain two different ways of accomplishing this.</p>
 <h3><a href="#a-dao-class" name="a-dao-class" class="anchor"><span class="anchor-link"></span></a>A DAO Class</h3>
 <p>We start with a simple DAO (data access object) class, <code>DAO.scala</code>. It contains some database-related definitions (for a <code>PROPS</code> table that acts as a simple key/value store) and methods (for storing and reading entries).</p>
 <p>The class is parameterized by a concrete <code>JdbcProfile</code> and it imports all API features from this profile&rsquo;s api object:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/basic/DAO.scala#L8-L10" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class DAO(val profile: JdbcProfile) {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/basic/DAO.scala#L8-L10" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class DAO(val profile: JdbcProfile) {
   // Import the Scala API from the profile
   import profile.api._</code></pre>
 <p>Slick has multiple abstract profiles but in most cases you will want to use <code>JdbcProfile</code> which contains all the features that you also get when importing directly from one of Slick&rsquo;s concrete profiles for JDBC databases.</p>
 <p>Outside of the DAO class, you can still refer to its profile and the other features, but you have to get the imports from the profile in order to work with queries. This can be seen in <code>DAOHelper.scala</code>. It defines a new method <code>restrictKey</code> which we could have also put directly into the DAO class.</p>
 <p>To gain access to all of the profile&rsquo;s features, we parameterize the <code>DAOHelper</code> with the <code>DAO</code> and import from its profile:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/basic/DAOHelper.scala#L7-L12" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class DAOHelper(val dao: DAO) {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/basic/DAOHelper.scala#L7-L12" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class DAOHelper(val dao: DAO) {
   import dao.profile.api._
 
   def restrictKey[C[_]](s: String, q: Query[DAO#Props, _, C]) =
@@ -273,14 +273,14 @@ import dc.profile.api._</code></pre>
 }</code></pre>
 <p>Note the use of the type projection <code>DAO#Props</code> in the definition of <code>restrictKey</code>. This points to the <code>Props</code> type coming from any <code>DAO</code> instance. This is less type-safe than using a path-dependent type like <code>dao.Props</code> but generally easier to use. You still need to ensure not to mix drivers when you do this.</p>
 <p>We are using the <code>DAO</code> and <code>DAOHelper</code> in <code>MultiDBExample.scala</code>. The <code>run</code> method is parameterized with both, a Slick profile and a matching JDBC <code>Database</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L15-L17" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def run(dao: DAO, db: Database): Future[Unit] = {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L15-L17" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def run(dao: DAO, db: Database): Future[Unit] = {
   val h = new DAOHelper(dao)
   println(&quot;Using profile &quot; + dao.profile)</code></pre>
 <p>Since we don&rsquo;t have the convenience of a single profile&rsquo;s <code>api._</code> import at this point, we need to import the <code>Database</code> and <code>DBIO</code> types directly:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L6-L7" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.dbio.DBIO
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L6-L7" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.dbio.DBIO
 import slick.jdbc.JdbcBackend.Database</code></pre>
 <p>In the body of <code>MultiDBExample</code>, we create two <code>DAO</code> instances with matching <code>Database</code> objects in order to run the same code on both, H2 and SQLite:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L30-L36" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val f = {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/basic/MultiDBExample.scala#L30-L36" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val f = {
   val h2db = Database.forConfig(&quot;h2&quot;)
   run(new DAO(H2Profile), h2db).andThen { case _ =&gt; h2db.close }
 }.flatMap { _ =&gt;
@@ -291,24 +291,24 @@ import slick.jdbc.JdbcBackend.Database</code></pre>
 <p>In more complex designs where you want to split up the database code into separate modules that deal with different database entities, but still have dependencies between these modules, you can use the Cake Pattern to structure your code.</p>
 <p>We are doing this here in the app <code>MultiDBCakeExample.scala</code>. From the point of view of this main app, the new approach looks exactly like the previous one: You create a DAL (data access layer) object with a Slick profile, and use it together with a matching <code>Database</code>.</p>
 <p>The most basic slice of the cake is the <code>ProfileComponent</code>. It provides a <code>JdbcProfile</code> which is kept abstract at this point:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/cake/ProfileComponent.scala" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/cake/ProfileComponent.scala" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
 
 /** The slice of the cake which provides the Slick profile */
 trait ProfileComponent {
   val profile: JdbcProfile
 }</code></pre>
 <p>Through the use of a self-type, the <code>PictureComponent</code> requires a <code>ProfileComponent</code> to me mixed in, so that it can import the query language features from the profile:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/cake/PictureComponent.scala#L8-L9" target="_blank" title="Go to snippet source">source</a><code class="language-scala">trait PictureComponent { this: ProfileComponent =&gt;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/cake/PictureComponent.scala#L8-L9" target="_blank" title="Go to snippet source">source</a><code class="language-scala">trait PictureComponent { this: ProfileComponent =&gt;
   import profile.api._</code></pre>
 <p>Using the imported features, <code>PictureComponent</code> provides definitions and methods for working with <code>Picture</code> objects in the database. <code>UserComponent</code> does the same for <code>User</code> entities. In addition to <code>ProfileComponent</code> it also requires <code>PictureComponent</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/cake/UserComponent.scala#L8-L9" target="_blank" title="Go to snippet source">source</a><code class="language-scala">trait UserComponent { this: ProfileComponent with PictureComponent =&gt;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/cake/UserComponent.scala#L8-L9" target="_blank" title="Go to snippet source">source</a><code class="language-scala">trait UserComponent { this: ProfileComponent with PictureComponent =&gt;
   import profile.api._</code></pre>
 <p>The <code>PictureComponent</code> dependency allows <code>UserComponent</code> to insert a new <code>Picture</code> when needed:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/cake/UserComponent.scala#L25-L27" target="_blank" title="Go to snippet source">source</a><code class="language-scala">pic &lt;-
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/cake/UserComponent.scala#L25-L27" target="_blank" title="Go to snippet source">source</a><code class="language-scala">pic &lt;-
   if(user.picture.id.isEmpty) insert(user.picture)
   else DBIO.successful(user.picture)</code></pre>
 <p>We put all slices of the cake together in <code>DAL.scala</code>. The <code>DAL</code> class inherits from all components and adds the missing profile through a field in the constructor:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/slick-multidb/src/main/scala/cake/DAL.scala" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/cake/DAL.scala" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
 
 /** The Data Access Layer contains all components and a profile */
 class DAL(val profile: JdbcProfile)
@@ -412,7 +412,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-SNAPSHOT', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.183.9b26e7ef', '')});</script>
 
 
 </html>

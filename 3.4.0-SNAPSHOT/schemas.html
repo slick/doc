@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -60,7 +60,7 @@
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -129,7 +129,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -245,7 +245,7 @@ class People(tag: Tag) extends Table[Person](tag, &quot;person&quot;) {
 val people = TableQuery[People]</code></pre>
 <p>The macro should work for most case classes, even those with hand-written companion objects, however there are still come cases where you will have to fall back to the above <code>&lt;&gt;</code> operator with <code>(User.apply _).tupled</code>.</p>
 <h2><a href="#constraints" name="constraints" class="anchor"><span class="anchor-link"></span></a>Constraints</h2>
-<p>A foreign key constraint can be defined with a Table&rsquo;s <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/relational/RelationalTableComponent$Table.html#foreignKey[P,PU,TT%253C:AbstractTable[_],U](String,P,TableQuery[TT])((TT)=%3EP,ForeignKeyAction,ForeignKeyAction)(Shape[_%253C:FlatShapeLevel,TT,U,_],Shape[_%253C:FlatShapeLevel,P,PU,_]):ForeignKeyQuery[TT,U]" title="slick.relational.RelationalTableComponent$Table"><code>foreignKey</code></a> method. It first takes a name for the constraint, the referencing column(s) and the referenced table. The second argument list takes a function from the referenced table to its referenced column(s) as well as <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/model/ForeignKeyAction$.html" title="slick.model.ForeignKeyAction"><code>ForeignKeyAction</code></a> for <code>onUpdate</code> and <code>onDelete</code>, which are optional and default to <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/model/ForeignKeyAction$$NoAction$.html" title="slick.model.ForeignKeyAction$$NoAction"><code>NoAction</code></a>. When creating the DDL statements for the table, the foreign key definition is added to it.</p>
+<p>A foreign key constraint can be defined with a Table&rsquo;s <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/relational/RelationalTableComponent$Table.html#foreignKey[P,PU,TT%3C:AbstractTable[_],U](String,P,TableQuery[TT])((TT)=%3EP,ForeignKeyAction,ForeignKeyAction)(Shape[_%3C:FlatShapeLevel,TT,U,_],Shape[_%3C:FlatShapeLevel,P,PU,_]):ForeignKeyQuery[TT,U]" title="slick.relational.RelationalTableComponent$Table"><code>foreignKey</code></a> method. It first takes a name for the constraint, the referencing column(s) and the referenced table. The second argument list takes a function from the referenced table to its referenced column(s) as well as <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/model/ForeignKeyAction$.html" title="slick.model.ForeignKeyAction"><code>ForeignKeyAction</code></a> for <code>onUpdate</code> and <code>onDelete</code>, which are optional and default to <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/model/ForeignKeyAction$$NoAction$.html" title="slick.model.ForeignKeyAction$$NoAction"><code>NoAction</code></a>. When creating the DDL statements for the table, the foreign key definition is added to it.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L40-L91" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class Suppliers(tag: Tag) extends Table[(Int, String, String, String, String, String)](tag, &quot;SUPPLIERS&quot;) {
   def id = column[Int](&quot;SUP_ID&quot;, O.PrimaryKey)
   //...
@@ -389,7 +389,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-SNAPSHOT', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.183.9b26e7ef', '')});</script>
 
 
 </html>

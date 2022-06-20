@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -60,7 +60,7 @@
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -129,7 +129,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -163,13 +163,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>The easiest way to get started is with a working sample application. The following samples are part of the official Slick distribution. You can either clone Slick from github or download pre-packaged zip files with an individual sample plus an <a href="https://www.scala-sbt.org/">sbt</a> launcher.</p>
 <ul>
   <li>
-  <p>To learn the basics of Slick, start with the <a href="https://github.com/slick/slick/tree/main/samples/hello-slick"><strong>Hello Slick</strong> sample</a>. This is the  one we are using in this chapter.</p></li>
+  <p>To learn the basics of Slick, start with the <a href="https://github.com/slick/samples/hello-slick"><strong>Hello Slick</strong> sample</a>. This is the  one we are using in this chapter.</p></li>
   <li>
-  <p>The <a href="https://github.com/slick/slick/tree/main/samples/slick-plainsql"><strong>Plain SQL Queries</strong> sample</a> shows you how to do SQL queries with Slick.  See <a href="sql.html">Plain SQL Queries</a> for details.</p></li>
+  <p>The <a href="https://github.com/slick/samples/slick-plainsql"><strong>Plain SQL Queries</strong> sample</a> shows you how to do SQL queries with Slick.  See <a href="sql.html">Plain SQL Queries</a> for details.</p></li>
   <li>
-  <p>The <a href="https://github.com/slick/slick/tree/main/samples/slick-multidb"><strong>Multi-DB Patterns</strong> sample</a> shows you how to write Slick applications that can  use different database systems and how to use custom database functions in Slick queries.</p></li>
+  <p>The <a href="https://github.com/slick/samples/slick-multidb"><strong>Multi-DB Patterns</strong> sample</a> shows you how to write Slick applications that can  use different database systems and how to use custom database functions in Slick queries.</p></li>
   <li>
-  <p>The <a href="https://github.com/slick/slick/tree/main/samples/slick-testkit-example"><strong>TestKit</strong> sample</a> shows you how to use Slick TestKit to test your own  database profiles.</p></li>
+  <p>The <a href="https://github.com/slick/samples/slick-testkit-example"><strong>TestKit</strong> sample</a> shows you how to use Slick TestKit to test your own  database profiles.</p></li>
 </ul>
 <h2><a href="#hello-slick" name="hello-slick" class="anchor"><span class="anchor-link"></span></a>Hello Slick</h2>
 <p>The <em>Hello Slick</em> sample contains simple Scala application, <code>HelloSlick.scala</code>, that does basic FRM operations with Slick. You can run it out of the box with <code>sbt run</code>. To make things simple this project uses an embedded in-memory <a href="https://www.h2database.com/">H2</a> database, so no database installation or configuration is required.</p>
@@ -178,9 +178,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#adding-slick-to-your-project" name="adding-slick-to-your-project" class="anchor"><span class="anchor-link"></span></a>Adding Slick to Your Project</h2>
 <p>To include Slick in an existing project use the library published on Maven Central. Add the following to your build definition (<code>build.sbt</code> for <a href="https://www.scala-sbt.org/">sbt</a> or <code>pom.xml</code> for Maven):</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-SNAPSHOT&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-pre.183.9b26e7ef&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-SNAPSHOT&quot;
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-pre.183.9b26e7ef&quot;
 )
 </code></pre>
 <p>Slick uses <a href="https://www.slf4j.org/">SLF4J</a> for its own debug logging so you also need to add an SLF4J implementation. <em>Hello Slick</em> uses <code>slf4j-nop</code> to disable logging. You have to replace this with a real logging framework like <a href="https://logback.qos.ch/">Logback</a> if you want to see log output.</p>
@@ -274,7 +274,7 @@ val setupFuture = db.run(setup)</code></pre>
 <p>There are several different combinators for combining multiple <code>DBIOAction</code>s into sequences, yielding another action. Here we use the simplest one, <code>DBIO.seq</code>, which can concatenate any number of actions, discarding the return values (i.e. the resulting <code>DBIOAction</code> produces a result of type <code>Unit</code>). We then execute the setup action asynchronously with <code>db.run</code>, yielding a <code>Future[Unit]</code>.</p><div class="callout note "><div class="callout-title">Note</div>
 <p>Database connections and transactions are managed automatically by Slick. By default connections are acquired and released on demand and used in <em>auto-commit</em> mode. In this mode we have to populate the <code>suppliers</code> table first because the <code>coffees</code> data can only refer to valid supplier IDs. We could also use an explicit transaction bracket encompassing all these statements (<code>db.run(setup.transactionally)</code>). Then the order would not matter because the constraints are only enforced at the end when the transaction is committed.</p></div>
 <p>When inserting data, the database usually returns the number of affected rows, therefore the return type is <code>Option[Int]</code> as can be seen in this definition of <code>insertAction</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/hello-slick/src/main/scala/HelloSlick.scala#L33-L47" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Insert some coffees (using JDBC&#39;s batch insert feature)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/hello-slick/src/main/scala/HelloSlick.scala#L33-L47" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Insert some coffees (using JDBC&#39;s batch insert feature)
 val insertAction: DBIO[Option[Int]] = coffees ++= Seq (
   (&quot;Colombian&quot;,         101, 7.99, 0, 0),
   (&quot;French_Roast&quot;,       49, 8.99, 0, 0),
@@ -336,12 +336,12 @@ val q2 = for {
 // select c.COF_NAME, s.SUP_NAME from COFFEES c, SUPPLIERS s where c.PRICE &lt; 9.0 and s.SUP_ID = c.SUP_ID</code></pre>
 <h3><a href="#aggregations" name="aggregations" class="anchor"><span class="anchor-link"></span></a>Aggregations</h3>
 <p>Aggregates values like minimum, maximum, summation, and average can be computed by the database using the query functions <code>min</code>, <code>max</code>, <code>sum</code> and <code>avg</code> like:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/hello-slick/src/main/scala/HelloSlick.scala#L170-L171" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Create a new scalar value that calculates the maximum price
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/hello-slick/src/main/scala/HelloSlick.scala#L170-L171" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Create a new scalar value that calculates the maximum price
 val maxPrice: Rep[Option[Double]] = coffees.map(_.price).max</code></pre>
 <p>This creates a new scalar query (<code>Rep</code>) that can be run like a collection-valued <code>Query</code> by calling <code>.result</code>.</p>
 <h3><a href="#plain-sql-string-interpolation" name="plain-sql-string-interpolation" class="anchor"><span class="anchor-link"></span></a>Plain SQL / String Interpolation</h3>
 <p>Sometimes writing SQL code manually is the easiest and best way to go but we don&rsquo;t want to lose SQL injection protection that Slick includes. <a href="sql.html">SQL String Interpolation</a> provides a nice API for doing this. In <em>Hello Slick</em> we use the <code>sql</code> interpolator:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/hello-slick/src/main/scala/HelloSlick.scala#L182-L188" target="_blank" title="Go to snippet source">source</a><code class="language-scala">/* Manual SQL / String Interpolation */
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/hello-slick/src/main/scala/HelloSlick.scala#L182-L188" target="_blank" title="Go to snippet source">source</a><code class="language-scala">/* Manual SQL / String Interpolation */
 
 // A value to insert into the statement
 val state = &quot;CA&quot;
@@ -351,17 +351,17 @@ val plainQuery = sql&quot;select SUP_NAME from SUPPLIERS where STATE = $state&qu
 <p>This produces a database I/O action that can be run or streamed in the usual way.</p>
 <h3><a href="#case-class-mapping" name="case-class-mapping" class="anchor"><span class="anchor-link"></span></a>Case Class Mapping</h3>
 <p>The <code>CaseClassMapping.scala</code> app provides an example which uses a <em>case class</em> instead of tupled values. To use case classes instead of tuples setup a <code>def *</code> projection which transforms the tuple values to and from the case class. For example:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/hello-slick/src/main/scala/CaseClassMapping.scala#L39" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def * = (name, id.?).mapTo[User]</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/hello-slick/src/main/scala/CaseClassMapping.scala#L39" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def * = (name, id.?).mapTo[User]</code></pre>
 <p>This uses the <code>mapTo</code> macro to convert between <code>(Option[Int], String)</code> and <code>User</code> bidirectionally. Now all of the queries can work with a <code>User</code> object instead of the tuples. </p>
 <p>See <a href="schemas.html#mapped-tables">Mapped Tables</a> for details.</p>
 <h3><a href="#auto-generated-primary-keys" name="auto-generated-primary-keys" class="anchor"><span class="anchor-link"></span></a>Auto-Generated Primary Keys</h3>
 <p>The <code>Users</code> table mapping in <code>CaseClassMapping.scala</code> defines an <code>id</code> column which uses an auto-incrementing primary key:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/hello-slick/src/main/scala/CaseClassMapping.scala#L32" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def id = column[Int](&quot;ID&quot;, O.PrimaryKey, O.AutoInc)</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/hello-slick/src/main/scala/CaseClassMapping.scala#L32" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def id = column[Int](&quot;ID&quot;, O.PrimaryKey, O.AutoInc)</code></pre>
 <p>See <a href="schemas.html#table-rows">Table Rows</a> for more column options.</p>
 <h3><a href="#running-queries" name="running-queries" class="anchor"><span class="anchor-link"></span></a>Running Queries</h3>
 <p>So far you have seen how to get a <code>Seq</code> from a collection-valued query and how to stream individual elements. There are several other useful methods which are shown in <code>QueryActions.scala</code>. They are equally applicable to <a href="queries.html">Scala queries</a> and <a href="sql.html">Plain SQL queries</a>.</p>
 <p>Note the use of <code>Compiled</code> in this app. It is used to define a pre-compiled query that can be executed with different parameters without having to recompile the SQL statement each time. This is the preferred way of defining queries in real-world applications. It prevents the (possibly expensive) compilation each time and leads to the same SQL statement (or a small, fixed set of SQL statements) so that the database system can also reuse a previously computed execution plan. As a side-effect, all parameters are automatically turned into bind variables:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/samples/hello-slick/src/main/scala/QueryActions.scala#L22-L26" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Define a pre-compiled parameterized query for reading all key/value
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/hello-slick/src/main/scala/QueryActions.scala#L22-L26" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Define a pre-compiled parameterized query for reading all key/value
 // pairs up to a given key.
 val upTo = Compiled { (k: Rep[Int]) =&gt;
   dict.filter(_.key &lt;= k).sortBy(_.key)
@@ -454,7 +454,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-SNAPSHOT', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.183.9b26e7ef', '')});</script>
 
 
 </html>

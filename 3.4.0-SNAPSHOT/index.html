@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -60,7 +60,7 @@
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -129,7 +129,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -278,7 +278,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <ul>
     <li><a href="userdefined.html#scalar-database-functions" class="header">Scalar Database Functions</a></li>
     <li><a href="userdefined.html#other-database-functions-and-stored-procedures" class="header">Other Database Functions And Stored Procedures</a></li>
-    <li><a href="userdefined.html#using-custom-scalar-types-in-queries-scalar-types-index-" class="header">Using Custom Scalar Types in Queries {#scalar-types index=&ldquo;scalar,type,user-defined; type,scalar,user-defined; MappedColumnType; MappedJdbcType; MappedTo&rdquo;}</a></li>
+    <li><a href="userdefined.html#using-custom-scalar-types-in-queries" class="header">Using Custom Scalar Types in Queries</a></li>
     <li><a href="userdefined.html#using-custom-record-types-in-queries" class="header">Using Custom Record Types in Queries</a>
     <ul>
       <li><a href="userdefined.html#polymorphic-types-e-g-custom-tuple-types-or-hlists-" class="header">Polymorphic Types (e.g. Custom Tuple Types or HLists)</a></li>
@@ -359,6 +359,12 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <ul>
     <li><a href="upgrade.html#compatibility-policy" class="header">Compatibility Policy</a></li>
     <li><a href="upgrade.html#latest-changes" class="header">Latest changes</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-3-to-3-4" class="header">Upgrade from 3.3 to 3.4</a>
+    <ul>
+      <li><a href="upgrade.html#dependency-upgrades" class="header">Dependency upgrades</a></li>
+      <li><a href="upgrade.html#asyncexecutor-defaults" class="header">AsyncExecutor defaults</a></li>
+      <li><a href="upgrade.html#postgresql-java-time-mappings" class="header">PostgreSQL <code>java.time</code> mappings</a></li>
+    </ul></li>
     <li><a href="upgrade.html#upgrade-from-3-2-to-3-3" class="header">Upgrade from 3.2 to 3.3</a>
     <ul>
       <li><a href="upgrade.html#create-drop-if-not-exists" class="header">Create / Drop If Not Exists</a></li>
@@ -370,12 +376,12 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <li><a href="upgrade.html#slick-extensions" class="header">Slick Extensions</a></li>
       <li><a href="upgrade.html#database-action-scheduling" class="header">Database Action Scheduling</a></li>
     </ul></li>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a>
     <ul>
-      <li><a href="compat-reports.html#changes-since-com-typesafe-slick-slick-hikaricp-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-hikaricp:3.3.3</code></a></li>
-      <li><a href="compat-reports.html#changes-since-com-typesafe-slick-slick-testkit-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-testkit:3.3.3</code></a></li>
-      <li><a href="compat-reports.html#changes-since-com-typesafe-slick-slick-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick:3.3.3</code></a></li>
-      <li><a href="compat-reports.html#changes-since-com-typesafe-slick-slick-codegen-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-codegen:3.3.3</code></a></li>
+      <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-hikaricp-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-hikaricp:3.3.3</code></a></li>
+      <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-testkit-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-testkit:3.3.3</code></a></li>
+      <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick:3.3.3</code></a></li>
+      <li><a href="compat-report.html#changes-since-com-typesafe-slick-slick-codegen-3-3-3" class="header">Changes since <code>com.typesafe.slick:slick-codegen:3.3.3</code></a></li>
     </ul></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a>
@@ -486,7 +492,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-SNAPSHOT', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.183.9b26e7ef', '')});</script>
 
 
 </html>

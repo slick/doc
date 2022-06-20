@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -60,7 +60,7 @@
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-SNAPSHOT
+3.4.0-pre.183.9b26e7ef
 </a>
 <ul class="menu">
 </ul>
@@ -129,7 +129,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-reports.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -169,7 +169,7 @@ import java.sql.Date
 import scala.reflect.ClassTag</code></pre>
 <p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
 <h2><a href="#scalar-database-functions" name="scalar-database-functions" class="anchor"><span class="anchor-link"></span></a>Scalar Database Functions</h2><div class="callout note "><div class="callout-title">Note</div>
-<p>This section is based on the ready-to-run <code>CallNativeDBFunction</code> app in <a href="https://github.com/slick/slick/tree/main/samples/slick-multidb">the ** MultiDB** sample</a>.</p></div>
+<p>This section is based on the ready-to-run <code>CallNativeDBFunction</code> app in <a href="https://github.com/slick/samples/slick-multidb">the <strong>MultiDB</strong> sample</a>.</p></div>
 <p>If your database system supports a scalar function that is not available as a method in Slick you can define it as a <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/lifted/SimpleFunction.html" title="slick.lifted.SimpleFunction"><code>SimpleFunction</code></a>. There are predefined methods for creating unary, binary and ternary functions with fixed parameter and return types.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L528-L534" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// H2 has a day_of_week() function which extracts the day of week from a timestamp
 val dayOfWeek = SimpleFunction.unary[Date, Int](&quot;day_of_week&quot;)
@@ -186,7 +186,7 @@ val q1 = for {
 salesPerDay.map(_ =&gt; current_date)</code></pre>
 <h2><a href="#other-database-functions-and-stored-procedures" name="other-database-functions-and-stored-procedures" class="anchor"><span class="anchor-link"></span></a>Other Database Functions And Stored Procedures</h2>
 <p>For database functions that return complete tables or stored procedures please use <a href="sql.html">Plain SQL Queries</a>. Stored procedures that return multiple result sets are currently not supported.</p>
-<h2><a href="#using-custom-scalar-types-in-queries-scalar-types-index-" name="using-custom-scalar-types-in-queries-scalar-types-index-" class="anchor"><span class="anchor-link"></span></a>Using Custom Scalar Types in Queries {#scalar-types index=&ldquo;scalar,type,user-defined; type,scalar,user-defined; MappedColumnType; MappedJdbcType; MappedTo&rdquo;}</h2>
+<h2><a href="#using-custom-scalar-types-in-queries" name="using-custom-scalar-types-in-queries" class="anchor"><span class="anchor-link"></span></a>Using Custom Scalar Types in Queries</h2>
 <p>If you need a custom column type you can implement <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcProfile.html#ColumnType[T]:ColumnType[T]" title="slick.jdbc.JdbcProfile"><code>ColumnType</code></a>. The most common scenario is mapping an application-specific type to an already supported type in the database. This can be done much simpler by using <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcProfile.html#MappedColumnType:MappedJdbcType.type" title="slick.jdbc.JdbcProfile"><code>type</code></a> which takes care of all the boilerplate. It comes with the usual import from the profile.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L558-L573" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Custom data type for booleans that maps to NUMBER in database
 object Bool extends Enumeration {
@@ -338,7 +338,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
   <ul>
     <li><a href="userdefined.html#scalar-database-functions" class="header">Scalar Database Functions</a></li>
     <li><a href="userdefined.html#other-database-functions-and-stored-procedures" class="header">Other Database Functions And Stored Procedures</a></li>
-    <li><a href="userdefined.html#using-custom-scalar-types-in-queries-scalar-types-index-" class="header">Using Custom Scalar Types in Queries {#scalar-types index=&ldquo;scalar,type,user-defined; type,scalar,user-defined; MappedColumnType; MappedJdbcType; MappedTo&rdquo;}</a></li>
+    <li><a href="userdefined.html#using-custom-scalar-types-in-queries" class="header">Using Custom Scalar Types in Queries</a></li>
     <li><a href="userdefined.html#using-custom-record-types-in-queries" class="header">Using Custom Record Types in Queries</a></li>
   </ul></li>
 </ul>
@@ -408,7 +408,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-SNAPSHOT', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.183.9b26e7ef', '')});</script>
 
 
 </html>
