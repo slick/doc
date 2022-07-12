@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.270.5c1f8f0a
+3.4.0-pre.2.78964daf
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.270.5c1f8f0a
+3.4.0-pre.2.78964daf
 </a>
 <ul class="menu">
 </ul>
@@ -168,17 +168,17 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>Release candidates have the same compatibility guarantees as the final versions to which they lead. There are <em>no compatibility guarantees</em> whatsoever for milestones and snapshots.</p>
 <h2><a href="#latest-changes" name="latest-changes" class="anchor"><span class="anchor-link"></span></a>Latest changes</h2>
 <p>See <a href="compat-report.html">the generated tables of incompatible changes</a></p>
-<h2><a href="#upgrade-from-3-3-to-3-4" name="upgrade-from-3-3-to-3-4" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.3 to 3.4</h2>
-<p>The full list of changes and bug fixes in version 3.4 is <a href="https://github.com/slick/slick/discussions/2344">available on github</a>. </p>
+<h2><a href="#upgrade-from-3-3-x-to-3-4-0" name="upgrade-from-3-3-x-to-3-4-0" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.3.x to 3.4.0</h2>
+<p>The full list of bug fixes and changes in version 3.4.0 is <a href="https://github.com/slick/slick/pulls?q=is%3Apr+is%3Amerged+milestone%3A3.4.0">available on github</a>. </p>
 <h3><a href="#dependency-upgrades" name="dependency-upgrades" class="anchor"><span class="anchor-link"></span></a>Dependency upgrades</h3>
-<p>Slick 3.4 updates the following upstream dependencies. If you use these libraries as part of your build, you should update your dependency versions to match:</p>
+<p>Slick 3.4.0 updates the following upstream dependencies. If you use these libraries as part of your build, you should update your dependency versions to match:</p>
 <table>
   <thead>
     <tr>
-      <th>Dependency</th>
-      <th>Slick 3.3 depends on</th>
-      <th>Slick 3.4 depends on</th>
-      <th>Notes</th>
+      <th>Dependency </th>
+      <th>Slick 3.3 depends on </th>
+      <th>Slick 3.4 depends on </th>
+      <th>Notes </th>
     </tr>
   </thead>
   <tbody>
@@ -208,16 +208,16 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>The following bug fixes are highlighted here because they change the default mapping behaviour for some <code>java.time</code> columns in PostgreSQL:</p>
 <ul>
   <li><code>java.time.Instant.MIN</code> and <code>java.time.Instant.MAX</code> are now correctly mapped to <code>-infinity</code> and <code>infinity</code>  respectively in PostgreSQL profile (<a href="https://github.com/slick/slick/issues/2237">#2237</a>)</li>
-  <li>changes to handling of timezone part of <code>java.time.Instant</code> in PostgreSQL profile (<a href="https://github.com/slick/slick/issues/2005">#2005</a>)</li>
+  <li>changes to handling of timezone part of <code>java.time.Instant</code> in PostgreSQL profile  (<a href="https://github.com/slick/slick/issues/2005">#2005</a>)</li>
 </ul>
 <h2><a href="#upgrade-from-3-2-to-3-3" name="upgrade-from-3-2-to-3-3" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.2 to 3.3</h2>
 <h3><a href="#create-drop-if-not-exists" name="create-drop-if-not-exists" class="anchor"><span class="anchor-link"></span></a>Create / Drop If Not Exists</h3>
 <p>There is no major changes in the API except for the addition of <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>. This has only impact on database profile developers. Regular users are not impacted by it.</p>
 <p>In other to support <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>, the following changes were made:</p>
 <ul>
-  <li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.createTable receives not a <code>checkNotExists: Boolean</code> as argument</li>
+  <li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.createTable receives not a <code>checkNotExists: Boolean</code> as  argument</li>
   <li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.dropTable receives not a <code>ifExists: Boolean</code> as argument</li>
-  <li>slick.sql.SqlProfile#DDL.apply has two more arguments <code>createIfNotExists: Iterable[String]</code> and <code>dropIfExists: Iterable[String]</code></li>
+  <li>slick.sql.SqlProfile#DDL.apply has two more arguments <code>createIfNotExists: Iterable[String]</code> and  <code>dropIfExists: Iterable[String]</code></li>
 </ul>
 <h3><a href="#support-for-java-time-columns" name="support-for-java-time-columns" class="anchor"><span class="anchor-link"></span></a>Support for <code>java.time</code> columns</h3>
 <p>Slick 3.3.0 profiles now supports <code>java.time</code> types as columns (for example, in <code>Table</code> <code>column</code> definitions).</p>
@@ -681,7 +681,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
   <ul>
     <li><a href="upgrade.html#compatibility-policy" class="header">Compatibility Policy</a></li>
     <li><a href="upgrade.html#latest-changes" class="header">Latest changes</a></li>
-    <li><a href="upgrade.html#upgrade-from-3-3-to-3-4" class="header">Upgrade from 3.3 to 3.4</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-3-x-to-3-4-0" class="header">Upgrade from 3.3.x to 3.4.0</a></li>
     <li><a href="upgrade.html#upgrade-from-3-2-to-3-3" class="header">Upgrade from 3.2 to 3.3</a></li>
     <li><a href="upgrade.html#upgrade-from-3-1-to-3-2" class="header">Upgrade from 3.1 to 3.2</a></li>
   </ul></li>
@@ -752,7 +752,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.270.5c1f8f0a', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.2.78964daf', '')});</script>
 
 
 </html>
