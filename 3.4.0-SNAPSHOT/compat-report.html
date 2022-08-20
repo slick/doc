@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.13.ec186b94
+3.4.0-pre.15.6a8a47ae
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.13.ec186b94
+3.4.0-pre.15.6a8a47ae
 </a>
 <ul class="menu">
 </ul>
@@ -195,6 +195,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>2.8.1 </td>
       <td>Early semantic versioning </td>
     </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.slf4j:slf4j-api</code> </td>
+      <td>1.7.25 </td>
+      <td>2.0.0 </td>
+      <td>Early semantic versioning </td>
+    </tr>
   </tbody>
 </table>
 <h3><a href="#changes-since-com-typesafe-slick-slick-testkit-3-3-3" name="changes-since-com-typesafe-slick-slick-testkit-3-3-3" class="anchor"><span class="anchor-link"></span></a>Changes since <code>com.typesafe.slick:slick-testkit:3.3.3</code></h3>
@@ -243,6 +250,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td><code>org.scala-lang.modules:scala-collection-compat_2.13</code> </td>
       <td>2.0.0 </td>
       <td>2.8.1 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.slf4j:slf4j-api</code> </td>
+      <td>1.7.25 </td>
+      <td>2.0.0 </td>
       <td>Early semantic versioning </td>
     </tr>
   </tbody>
@@ -306,6 +320,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>2.8.1 </td>
       <td>Early semantic versioning </td>
     </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.slf4j:slf4j-api</code> </td>
+      <td>1.7.25 </td>
+      <td>2.0.0 </td>
+      <td>Early semantic versioning </td>
+    </tr>
   </tbody>
 </table>
 <h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
@@ -321,12 +342,12 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     <tr>
       <td>Backward </td>
       <td><code>slick.dbio.DBIOAction.sequence</code> </td>
-      <td><strong>IncompatibleSignatureProblem</strong><p><small>static method sequence(scala.collection.IterableOnce,scala.collection.Factory)slick.dbio.DBIOAction in interface slick.dbio.DBIOAction has a different generic signature in current version, where it is &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;Ljava/lang/Object;&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;; rather than &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;*&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method sequence(scala.collection.IterableOnce,scala.collection.Factory)slick.dbio.DBIOAction in object slick.dbio.DBIOAction has a different generic signature in current version, where it is &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;Ljava/lang/Object;&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;; rather than &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;*&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
     </tr>
     <tr>
       <td>Backward </td>
       <td><code>slick.dbio.DBIOAction.sequence</code> </td>
-      <td><strong>IncompatibleSignatureProblem</strong><p><small>method sequence(scala.collection.IterableOnce,scala.collection.Factory)slick.dbio.DBIOAction in object slick.dbio.DBIOAction has a different generic signature in current version, where it is &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;Ljava/lang/Object;&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;; rather than &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;*&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>static method sequence(scala.collection.IterableOnce,scala.collection.Factory)slick.dbio.DBIOAction in interface slick.dbio.DBIOAction has a different generic signature in current version, where it is &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;Ljava/lang/Object;&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;; rather than &lt;R:Ljava/lang/Object;M::Lscala/collection/IterableOnce&lt;*&gt;;E::Lslick/dbio/Effect;&gt;(TM;Lscala/collection/Factory&lt;TR;TM;&gt;;)Lslick/dbio/DBIOAction&lt;TM;Lslick/dbio/NoStream;TE;&gt;;. See <a href="https://github.com/lightbend/mima#incompatiblesignatureproblem">https://github.com/lightbend/mima#incompatiblesignatureproblem</a></small></p> </td>
     </tr>
     <tr>
       <td>Backward </td>
@@ -381,22 +402,22 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     <tr>
       <td>Backward </td>
       <td><code>slick.util.AsyncExecutor.apply$default$6</code> </td>
-      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic static method apply$default$6()scala.concurrent.duration.Duration in interface slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
-    </tr>
-    <tr>
-      <td>Backward </td>
-      <td><code>slick.util.AsyncExecutor.apply$default$6</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic method apply$default$6()scala.concurrent.duration.Duration in object slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Backward </td>
-      <td><code>slick.util.AsyncExecutor.apply$default$7</code> </td>
-      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic method apply$default$7()Boolean in object slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$6</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic static method apply$default$6()scala.concurrent.duration.Duration in interface slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Backward </td>
       <td><code>slick.util.AsyncExecutor.apply$default$7</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic static method apply$default$7()Boolean in interface slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Backward </td>
+      <td><code>slick.util.AsyncExecutor.apply$default$7</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic method apply$default$7()Boolean in object slick.util.AsyncExecutor does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Backward </td>
@@ -445,6 +466,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td><code>org.scala-lang.modules:scala-collection-compat_2.13</code> </td>
       <td>2.0.0 </td>
       <td>2.8.1 </td>
+      <td>Early semantic versioning </td>
+    </tr>
+    <tr>
+      <td>Backward and forward </td>
+      <td><code>org.slf4j:slf4j-api</code> </td>
+      <td>1.7.25 </td>
+      <td>2.0.0 </td>
       <td>Early semantic versioning </td>
     </tr>
   </tbody>
@@ -554,7 +582,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.13.ec186b94', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.15.6a8a47ae', '')});</script>
 
 
 </html>
