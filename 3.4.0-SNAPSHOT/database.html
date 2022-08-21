@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.15.6a8a47ae
+3.4.0-pre.17.921700c4
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.15.6a8a47ae
+3.4.0-pre.17.921700c4
 </a>
 <ul class="menu">
 </ul>
@@ -181,9 +181,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 }</code></pre>
 <p>When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-pre.15.6a8a47ae&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-pre.17.921700c4&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-pre.15.6a8a47ae&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-pre.17.921700c4&quot;,
   &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.2.5&quot; //org.postgresql.ds.PGSimpleDataSource dependency
 )
 </code></pre>
@@ -235,7 +235,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>Note that reasonable defaults for the connection pool sizes are calculated from the thread pool size when using <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/jdbc/JdbcBackend$DatabaseFactoryDef.html#forConfig(String,Config,Driver,ClassLoader):Database" title="slick.jdbc.JdbcBackend$DatabaseFactoryDef"><code>Database.forConfig</code></a>.</p>
 <p>Slick uses <em>prepared</em> statements wherever possible but it does not cache them on its own. You should therefore enable prepared statement caching in the connection pool&rsquo;s configuration.</p>
 <h2><a href="#databaseconfig" name="databaseconfig" class="anchor"><span class="anchor-link"></span></a>DatabaseConfig</h2><div class="callout note "><div class="callout-title">Note</div>
-<p>This section is based on the <a href="https://github.com/slick/samples/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
+<p>This section is based on the <a href="https://github.com/slick/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
 <p>On top of the configuration syntax for <code>Database</code>, there is another layer in the form of <a href="https://scala-slick.org/doc/3.4.0-SNAPSHOT/api/slick/basic/DatabaseConfig.html" title="slick.basic.DatabaseConfig"><code>DatabaseConfig</code></a> which allows you to configure a Slick profile plus a matching <code>Database</code> together. This makes it easy to abstract over different kinds of database systems by simply changing a configuration file.</p>
 <p>You can see it in action in <code>SimpleExample.scala</code>. First we load the DatabaseConfig and then import the Slick API from its profile:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-multidb/src/main/scala/databaseconfig/SimpleExample.scala#L11-L14" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forConfig[JdbcProfile](&quot;h2_dc&quot;)
@@ -254,7 +254,7 @@ import dc.profile.api._</code></pre>
 }</code></pre>
 <p>You can use different database systems in your application by either switching out or overriding the application config (e.g. different <code>application.conf</code> files for development and production) or by passing a config path into the application. This way of implementing multi-database support is also used when building a Play app with Slick.</p>
 <h2><a href="#other-multi-db-patterns" name="other-multi-db-patterns" class="anchor"><span class="anchor-link"></span></a>Other Multi-DB Patterns</h2><div class="callout note "><div class="callout-title">Note</div>
-<p>This section is based on the <a href="https://github.com/slick/samples/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
+<p>This section is based on the <a href="https://github.com/slick/slick-multidb"><strong>MultiDB</strong> sample</a> which provides ready-to-run apps to demonstrate the features.</p></div>
 <p>Since its addition in Slick 3.0 <code>DatabaseConfig</code> (see <a href="#databaseconfig">above</a>) is the recommended solution. More complex scenarios (for example, where you need to map custom functions differently for different database systems, or where you cannot use the simple application.conf syntax) may require abstracting over databases in Scala code. The following sections explain two different ways of accomplishing this.</p>
 <h3><a href="#a-dao-class" name="a-dao-class" class="anchor"><span class="anchor-link"></span></a>A DAO Class</h3>
 <p>We start with a simple DAO (data access object) class, <code>DAO.scala</code>. It contains some database-related definitions (for a <code>PROPS</code> table that acts as a simple key/value store) and methods (for storing and reading entries).</p>
@@ -412,7 +412,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.15.6a8a47ae', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.17.921700c4', '')});</script>
 
 
 </html>

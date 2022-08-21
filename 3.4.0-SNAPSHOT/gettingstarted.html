@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.15.6a8a47ae
+3.4.0-pre.17.921700c4
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.4.0-pre.15.6a8a47ae
+3.4.0-pre.17.921700c4
 </a>
 <ul class="menu">
 </ul>
@@ -163,13 +163,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>The easiest way to get started is with a working sample application. The following samples are part of the official Slick distribution. You can either clone Slick from github or download pre-packaged zip files with an individual sample plus an <a href="https://www.scala-sbt.org/">sbt</a> launcher.</p>
 <ul>
   <li>
-  <p>To learn the basics of Slick, start with the <a href="https://github.com/slick/samples/hello-slick"><strong>Hello Slick</strong> sample</a>. This is the  one we are using in this chapter.</p></li>
+  <p>To learn the basics of Slick, start with the <a href="https://github.com/slick/hello-slick"><strong>Hello Slick</strong> sample</a>. This is the  one we are using in this chapter.</p></li>
   <li>
-  <p>The <a href="https://github.com/slick/samples/slick-plainsql"><strong>Plain SQL Queries</strong> sample</a> shows you how to do SQL queries with Slick.  See <a href="sql.html">Plain SQL Queries</a> for details.</p></li>
+  <p>The <a href="https://github.com/slick/slick-plainsql"><strong>Plain SQL Queries</strong> sample</a> shows you how to do SQL queries with Slick.  See <a href="sql.html">Plain SQL Queries</a> for details.</p></li>
   <li>
-  <p>The <a href="https://github.com/slick/samples/slick-multidb"><strong>Multi-DB Patterns</strong> sample</a> shows you how to write Slick applications that can  use different database systems and how to use custom database functions in Slick queries.</p></li>
+  <p>The <a href="https://github.com/slick/slick-multidb"><strong>Multi-DB Patterns</strong> sample</a> shows you how to write Slick applications that can  use different database systems and how to use custom database functions in Slick queries.</p></li>
   <li>
-  <p>The <a href="https://github.com/slick/samples/slick-testkit-example"><strong>TestKit</strong> sample</a> shows you how to use Slick TestKit to test your own  database profiles.</p></li>
+  <p>The <a href="https://github.com/slick/slick-testkit-example"><strong>TestKit</strong> sample</a> shows you how to use Slick TestKit to test your own  database profiles.</p></li>
 </ul>
 <h2><a href="#hello-slick" name="hello-slick" class="anchor"><span class="anchor-link"></span></a>Hello Slick</h2>
 <p>The <em>Hello Slick</em> sample contains simple Scala application, <code>HelloSlick.scala</code>, that does basic FRM operations with Slick. You can run it out of the box with <code>sbt run</code>. To make things simple this project uses an embedded in-memory <a href="https://www.h2database.com/">H2</a> database, so no database installation or configuration is required.</p>
@@ -178,9 +178,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#adding-slick-to-your-project" name="adding-slick-to-your-project" class="anchor"><span class="anchor-link"></span></a>Adding Slick to Your Project</h2>
 <p>To include Slick in an existing project use the library published on Maven Central. Add the following to your build definition (<code>build.sbt</code> for <a href="https://www.scala-sbt.org/">sbt</a> or <code>pom.xml</code> for Maven):</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-pre.15.6a8a47ae&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.4.0-pre.17.921700c4&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-pre.15.6a8a47ae&quot;
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.4.0-pre.17.921700c4&quot;
 )
 </code></pre>
 <p>Slick uses <a href="https://www.slf4j.org/">SLF4J</a> for its own debug logging so you also need to add an SLF4J implementation. <em>Hello Slick</em> uses <code>slf4j-nop</code> to disable logging. You have to replace this with a real logging framework like <a href="https://logback.qos.ch/">Logback</a> if you want to see log output.</p>
@@ -454,7 +454,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.15.6a8a47ae', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.0-pre.17.921700c4', '')});</script>
 
 
 </html>
