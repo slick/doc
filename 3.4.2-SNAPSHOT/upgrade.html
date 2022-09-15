@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Upgrade Guides · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='site'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.2-pre.4.aa60f97a
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="active page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.4.2-pre.4.aa60f97a
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="active page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li>Upgrade Guides</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#upgrade-guides" name="upgrade-guides" class="anchor"><span class="anchor-link"></span></a>Upgrade Guides</h1>
+<h2><a href="#compatibility-policy" name="compatibility-policy" class="anchor"><span class="anchor-link"></span></a>Compatibility Policy</h2>
+<p>Slick 3.4.0 requires 2.12 or 2.13 and Java 8, 11 or higher.</p>
+<p>Slick version numbers consist of an epoch, a major and minor version, and possibly a qualifier (for milestone, RC and SNAPSHOT versions).</p>
+<p>For release versions (i.e. versions without a qualifier), backward binary compatibility is guaranteed between releases with the same epoch and major version (e.g. you could use 2.1.2 as a drop-in replacement for 2.1.0 but not for 2.0.0). Binary compatibility is not preserved for <code>slick-codegen</code>, which is generally used at compile-time.</p>
+<p>We do not guarantee source compatibility but we try to preserve it within the same major release. Upgrading to a new major release may require some changes to your sources. We generally deprecate old features and keep them around for a full major release cycle (i.e. features which become deprecated in 2.1.0 will not be removed before 2.2.0) but this is not possible for all kinds of changes.</p>
+<p>Release candidates have the same compatibility guarantees as the final versions to which they lead. There are <em>no compatibility guarantees</em> whatsoever for milestones and snapshots.</p>
+<h2><a href="#latest-changes" name="latest-changes" class="anchor"><span class="anchor-link"></span></a>Latest changes</h2>
+<p>See <a href="compat-report.html">the generated tables of incompatible changes</a></p>
+<h2><a href="#upgrade-from-3-3-x-to-3-4-0" name="upgrade-from-3-3-x-to-3-4-0" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.3.x to 3.4.0</h2>
+<p>The full list of bug fixes and changes in version 3.4.0 is <a href="https://github.com/slick/slick/pulls?q=is%3Apr+is%3Amerged+milestone%3A3.4.0">available on github</a>. </p>
+<h3><a href="#dependency-upgrades" name="dependency-upgrades" class="anchor"><span class="anchor-link"></span></a>Dependency upgrades</h3>
+<p>Slick 3.4.0 updates the following upstream dependencies. If you use these libraries as part of your build, you should update your dependency versions to match:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Dependency </th>
+      <th>Slick 3.3 depends on </th>
+      <th>Slick 3.4 depends on </th>
+      <th>Notes </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://github.com/lightbend/config">com.typesafe:config</a> </td>
+      <td>1.3.2 </td>
+      <td>1.4.2 </td>
+      <td>See the <code>config</code> library&rsquo;s <a href="https://github.com/lightbend/config/blob/main/NEWS.md">release notes</a> for changes. </td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/brettwooldridge/HikariCP">com.zaxxer:HikariCP</a> </td>
+      <td>3.2.0 </td>
+      <td>4.0.3 </td>
+      <td>See the <code>HikariCP</code> <a href="https://github.com/brettwooldridge/HikariCP/blob/dev/CHANGES">changelog</a> for changes. This only affects users who depend on the <code>slick-hikaricp</code> artifact. </td>
+    </tr>
+    <tr>
+      <td><a href="https://github.com/scala/scala-collection-compat">org.scala-lang.modules:scala-collection-compat</a> </td>
+      <td>2.0.0 </td>
+      <td>2.6.0 </td>
+      <td>Versions &gt;= 2.0.0 should be binary-compatible, so no issues are expected. This only affects users building with Scala 2.11 or 2.12. </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#asyncexecutor-defaults" name="asyncexecutor-defaults" class="anchor"><span class="anchor-link"></span></a>AsyncExecutor defaults</h3>
+<p><code>AsyncExecutor</code> wraps the thread pool that Slick uses to run blocking I/O (such as database queries). The previous default constructor arguments could potentially cause deadlocks in some cases, so Slick 3.4 changes these to safer defaults. In most cases this should be a drop-in replacement but users are encourage to test performance carefully after upgrading. See issue <a href="https://github.com/slick/slick/issues/1938">#1938</a> for details. </p>
+<h3><a href="#postgresql-java-time-mappings" name="postgresql-java-time-mappings" class="anchor"><span class="anchor-link"></span></a>PostgreSQL <code>java.time</code> mappings</h3>
+<p>The following bug fixes are highlighted here because they change the default mapping behaviour for some <code>java.time</code> columns in PostgreSQL:</p>
+<ul>
+  <li><code>java.time.Instant.MIN</code> and <code>java.time.Instant.MAX</code> are now correctly mapped to <code>-infinity</code> and <code>infinity</code>  respectively in PostgreSQL profile (<a href="https://github.com/slick/slick/issues/2237">#2237</a>)</li>
+  <li>changes to handling of timezone part of <code>java.time.Instant</code> in PostgreSQL profile  (<a href="https://github.com/slick/slick/issues/2005">#2005</a>)</li>
+</ul>
+<h2><a href="#upgrade-from-3-2-to-3-3" name="upgrade-from-3-2-to-3-3" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.2 to 3.3</h2>
+<h3><a href="#create-drop-if-not-exists" name="create-drop-if-not-exists" class="anchor"><span class="anchor-link"></span></a>Create / Drop If Not Exists</h3>
+<p>There is no major changes in the API except for the addition of <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>. This has only impact on database profile developers. Regular users are not impacted by it.</p>
+<p>In other to support <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>, the following changes were made:</p>
+<ul>
+  <li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.createTable receives not a <code>checkNotExists: Boolean</code> as  argument</li>
+  <li>slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder.dropTable receives not a <code>ifExists: Boolean</code> as argument</li>
+  <li>slick.sql.SqlProfile#DDL.apply has two more arguments <code>createIfNotExists: Iterable[String]</code> and  <code>dropIfExists: Iterable[String]</code></li>
+</ul>
+<h3><a href="#support-for-java-time-columns" name="support-for-java-time-columns" class="anchor"><span class="anchor-link"></span></a>Support for <code>java.time</code> columns</h3>
+<p>Slick 3.3.0 profiles now supports <code>java.time</code> types as columns (for example, in <code>Table</code> <code>column</code> definitions).</p>
+<p>If you already have <a href="https://scala-slick.org/doc/3.3.0/userdefined.html#scalar-types">custom mappings</a> for these types, please review the formats in the tables below. These formats are the built-in Slick mappings, and they are the ones applied when you upgrade to Slick 3.3.0. That is, they take precedence over any <code>MappedColumnType</code> you may have defined for the <code>java.time</code> types.</p>
+<p>The types are: <code>Instant</code>, <code>LocalDate</code>, <code>LocalTime</code>, <code>LocalDateTime</code>, <code>OffsetTime</code>, <code>OffsetDateTime</code>, and <code>ZonedDateTime</code>.</p>
+<p>If you need to customise these formats, you can by extending a <code>Profile</code> and overriding the appropriate methods. For an example of this see: <a href="https://github.com/d6y/instant-etc/blob/master/src/main/scala/main.scala#L9-L45">https://github.com/d6y/instant-etc/blob/master/src/main/scala/main.scala#L9-L45</a>. Also of use will be an example of a full mapping, such as: <a href="https://github.com/slick/slick/blob/v3.3.0/slick/src/main/scala/slick/jdbc/JdbcTypesComponent.scala#L187-L365">https://github.com/slick/slick/blob/v3.3.0/slick/src/main/scala/slick/jdbc/JdbcTypesComponent.scala#L187-L365</a>.</p>
+<p>If you wish to upgrade your application to use the new formats, you may need to migrate your database columns to match the Slick column formats.</p>
+<p>In the tables that follow there are many similarities between databases. However, not all databases can directly map the various <code>java.time</code> semantics. In these cases, a <code>VARCHAR</code> may have been used to store a formatted time representation. For more details see the <a href="https://scala-slick.org/doc/3.3.0/datetimetypes.html">description of Slick&rsquo;s approach</a> to these mappings.</p>
+<h4><a href="#slick-jdbc-db2profile" name="slick-jdbc-db2profile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.DB2Profile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.660Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>&#39;2019-02-03&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-derbyprofile" name="slick-jdbc-derbyprofile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.DerbyProfile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.660Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>&#39;2019-02-03&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-h2profile" name="slick-jdbc-h2profile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.H2Profile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>TIMESTAMP(9) WITH TIME ZONE</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.660Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>&#39;2019-02-03&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>VARCHAR</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>VARCHAR</code> </td>
+      <td><code>&#39;18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>VARCHAR</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>VARCHAR</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-hsqldbprofile" name="slick-jdbc-hsqldbprofile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.HsqldbProfile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>TIMESTAMP(9) WITH TIME ZONE</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.66&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>&#39;2019-02-03&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>TIME(3)</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>TIME(9) WITH TIME ZONE</code> </td>
+      <td><code>&#39;18:20:28.661+0:00&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>TIMESTAMP(9) WITH TIME ZONE</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.661+0:00&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>LONGVARCHAR</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-sqlserverprofile" name="slick-jdbc-sqlserverprofile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.SQLServerProfile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>DATETIMEOFFSET(6)</code> </td>
+      <td><code>(convert(datetimeoffset(6), &#39;2019-02-03 18:20:28.66 &#39;))</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>&#39;2019-02-03&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>TIME(6)</code> </td>
+      <td><code>(convert(time(6), &#39;18:20:28.661&#39;))</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>DATETIME2(6)</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>VARCHAR(MAX)</code> </td>
+      <td><code>&#39;18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>DATETIMEOFFSET(6)</code> </td>
+      <td><code>(convert(datetimeoffset(6), &#39;2019-02-03 18:20:28.661 &#39;))</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>VARCHAR(MAX)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-mysqlprofile" name="slick-jdbc-mysqlprofile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.MySQLProfile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>TEXT</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.660Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>&#39;2019-02-03&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>TEXT</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TEXT</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>TEXT</code> </td>
+      <td><code>&#39;18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>TEXT</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>TEXT</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-oracleprofile" name="slick-jdbc-oracleprofile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.OracleProfile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>TIMESTAMP(9) WITH TIME ZONE</code> </td>
+      <td><code>TO_TIMESTAMP_TZ(&#39;2019-02-03 18:20:28.660 +00&#39;, &#39;YYYY-MM-DD HH24:MI:SS.FF3 TZH&#39;)</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>TO_DATE(&#39;2019-02-03&#39;, &#39;SYYYY-MM-DD&#39;)</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>VARCHAR2(254)</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>TO_TIMESTAMP(&#39;2019-02-03 18:20:28.661&#39;, &#39;YYYY-MM-DD HH24:MI:SS.FF3&#39;)</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>TIMESTAMP(6) WITH TIME ZONE</code> </td>
+      <td><code>TO_TIMESTAMP_TZ(&#39;1970-01-01 18:20:28.661 +0000&#39;, &#39;YYYY-MM-DD HH24:MI:SS.FF3 TZH:TZM&#39;)</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>TIMESTAMP(6) WITH TIME ZONE</code> </td>
+      <td><code>TO_TIMESTAMP_TZ(&#39;2019-02-03 18:20:28.661 +0000&#39;, &#39;YYYY-MM-DD HH24:MI:SS.FF3 TZH:TZM&#39;)</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>TIMESTAMP(6) WITH TIME ZONE</code> </td>
+      <td><code>TO_TIMESTAMP_TZ(&#39;2019-02-03 18:20:28.661 Europe/London&#39;, &#39;YYYY-MM-DD HH24:MI:SS.FF3 TZR&#39;)</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-postgresprofile" name="slick-jdbc-postgresprofile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.PostgresProfile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.66&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>&#39;2019-02-03&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>TIME</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>&#39;2019-02-03 18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>TIMETZ</code> </td>
+      <td><code>&#39;18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>VARCHAR</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>VARCHAR</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h4><a href="#slick-jdbc-sqliteprofile" name="slick-jdbc-sqliteprofile" class="anchor"><span class="anchor-link"></span></a><code>slick.jdbc.SQLiteProfile</code></h4>
+<table>
+  <thead>
+    <tr>
+      <th>Java Type </th>
+      <th>SQL Type </th>
+      <th>Example SQL Literal </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>java.time.Instant</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>1549218028660</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDate</code> </td>
+      <td><code>DATE</code> </td>
+      <td><code>1549152000000</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;18:20:28.661&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.LocalDateTime</code> </td>
+      <td><code>TIMESTAMP</code> </td>
+      <td><code>1549218028661</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.OffsetDateTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z&#39;</code> </td>
+    </tr>
+    <tr>
+      <td><code>java.time.ZonedDateTime</code> </td>
+      <td><code>VARCHAR(254)</code> </td>
+      <td><code>&#39;2019-02-03T18:20:28.661Z[Europe/London]&#39;</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h2><a href="#upgrade-from-3-1-to-3-2" name="upgrade-from-3-1-to-3-2" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.1 to 3.2</h2>
+<p>This section describes the changes that are needed when upgrading from Slick 3.1 to 3.2. If you are currently using an older version of Slick, please see the older [Slick Manuals] for details on other changes that may be required.</p>
+<h3><a href="#profiles-vs-drivers" name="profiles-vs-drivers" class="anchor"><span class="anchor-link"></span></a>Profiles vs Drivers</h3>
+<p>Slick&rsquo;s <code>driver</code> concept has been renamed to <code>profile</code> to end the confusion over Slick drivers vs JDBC drivers. All references to <code>drivers</code> from now on refer to JDBC drivers. Slick <code>profiles</code> can be either abstract (like <a href="https://scala-slick.org/doc/3.4.2-SNAPSHOT/api/slick/jdbc/JdbcProfile.html" title="slick.jdbc.JdbcProfile"><code>JdbcProfile</code></a>) or concrete (like <a href="https://scala-slick.org/doc/3.4.2-SNAPSHOT/api/slick/jdbc/H2Profile.html" title="slick.jdbc.H2Profile"><code>H2Profile</code></a>). The old names are still available as deprecated forwarders.</p>
+<p>The renaming also affects configuration parameters (for example, for <a href="database.html#databaseconfig">Databaseconfig</a>). The old parameter names are still supported but their use will generate warnings at runtime.</p>
+<h3><a href="#slick-extensions" name="slick-extensions" class="anchor"><span class="anchor-link"></span></a>Slick Extensions</h3>
+<p>The <code>Slick Extensions</code> package with additional profiles for Oracle, DB2 and SQL Server does not exist anymore for Slick 3.2. These profiles have been added to the core Slick package:</p>
+<ul>
+  <li><a href="https://scala-slick.org/doc/3.4.2-SNAPSHOT/api/slick/jdbc/OracleProfile.html" title="slick.jdbc.OracleProfile"><code>OracleProfile</code></a></li>
+  <li><a href="https://scala-slick.org/doc/3.4.2-SNAPSHOT/api/slick/jdbc/DB2Profile.html" title="slick.jdbc.DB2Profile"><code>DB2Profile</code></a></li>
+  <li><a href="https://scala-slick.org/doc/3.4.2-SNAPSHOT/api/slick/jdbc/SQLServerProfile.html" title="slick.jdbc.SQLServerProfile"><code>SQLServerProfile</code></a></li>
+</ul>
+<h3><a href="#database-action-scheduling" name="database-action-scheduling" class="anchor"><span class="anchor-link"></span></a>Database Action Scheduling</h3>
+<p>When configuring a <a href="database.html">database connection</a> with a connection pool with a limited maximum size, you should always specify the correct size limit in Slick. This is necessary to prevent deadlocks when using transactions (or other pinned sessions). The configuration is done automatically when using Slick&rsquo;s built-in HikariCP support. You only need to configure it manually if you use a connection pool through a JDBC <code>DataSource</code> or JNDI name.</p>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/upgrade.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="compat-report.html">Incompatible changes</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="upgrade.html#upgrade-guides" class="header">Upgrade Guides</a>
+  <ul>
+    <li><a href="upgrade.html#compatibility-policy" class="header">Compatibility Policy</a></li>
+    <li><a href="upgrade.html#latest-changes" class="header">Latest changes</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-3-x-to-3-4-0" class="header">Upgrade from 3.3.x to 3.4.0</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-2-to-3-3" class="header">Upgrade from 3.2 to 3.3</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-1-to-3-2" class="header">Upgrade from 3.1 to 3.2</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2022</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.4.2-pre.4.aa60f97a', '')});</script>
+
+
+</html>
