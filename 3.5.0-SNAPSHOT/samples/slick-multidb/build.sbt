@@ -1,5 +1,5 @@
 libraryDependencies ++= List(
-  "org.slf4j" % "slf4j-nop" % "2.0.0",
+  "org.slf4j" % "slf4j-nop" % "2.0.3",
   "com.h2database" % "h2" % "2.1.214",
   "org.xerial" % "sqlite-jdbc" % "3.39.3.0"
 )
@@ -7,7 +7,7 @@ libraryDependencies ++= List(
 scalacOptions += "-deprecation"
 
 run / fork := true
-libraryDependencies += "com.typesafe.slick" %% "slick" % "3.4.0"
+libraryDependencies += "com.typesafe.slick" %% "slick" % "3.4.1"
 
 // based on https://stackoverflow.com/a/63780833/333643
 lazy val runAll = taskKey[Unit]("Run all main classes")
