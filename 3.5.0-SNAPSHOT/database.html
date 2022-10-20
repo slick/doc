@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.78.c6aaeb85
+3.5.0-pre.86.0320725d
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.78.c6aaeb85
+3.5.0-pre.86.0320725d
 </a>
 <ul class="menu">
 </ul>
@@ -181,9 +181,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 }</code></pre>
 <p>When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.5.0-pre.78.c6aaeb85&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.5.0-pre.86.0320725d&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.5.0-pre.78.c6aaeb85&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.5.0-pre.86.0320725d&quot;,
   &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.2.5&quot; //org.postgresql.ds.PGSimpleDataSource dependency
 )
 </code></pre>
@@ -200,6 +200,29 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>To use the MySQL driver, the following library dependency needs to be configured via SBT:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;mysql&quot; % &quot;mysql-connector-java&quot; % &quot;6.0.6&quot;
 </code></pre>
+<h5><a href="#generic-jdbc" name="generic-jdbc" class="anchor"><span class="anchor-link"></span></a>Generic JDBC</h5>
+<p>Sometimes a database system provides a JDBC driver, but no specific profile for its dialect has been implemented for Slick, yet. It is still possible to connect to such a database with not much effort and use the generic JDBC feature set.</p>
+<p>Here is an example for setting up a connection to a Databricks DB using the Databricks JDBC driver, depended on via SBT:</p>
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.databricks&quot; % &quot;databricks-jdbc&quot; % &quot;2.6.29&quot;
+</code></pre>
+<p>To configure the connection a profile implementation is required. It is sufficient to extend the <code>JdbcProfile</code> trait with an empty object.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GenericJdbcProfile.scala#L2-L6" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package com.typesafe.slick.docs
+
+import slick.jdbc.JdbcProfile
+
+object GenericJdbcProfile extends JdbcProfile</code></pre>
+<p>Now this profile can be used in the configuration.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L67-L76" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databricks_db {
+  profile = &quot;com.typesafe.slick.docs.GenericJdbcProfile$&quot;
+  db {
+    driver = &quot;com.databricks.client.jdbc.Driver&quot;
+    url = &quot;jdbc:databricks://DATABRICKS_HOST:443;HttpPath=/sql/1.0/endpoints/XXXXXXXXX;TransportMode=http;SSL=1&quot;
+    PWD = &quot;????????????&quot;
+    UID = &quot;token&quot;
+    AuthMech = &quot;3&quot;
+  }
+}</code></pre>
+<p>Connection parameters for database systems can differ significantly. Please refer to the respective documentation.</p>
 <h2><a href="#using-a-jdbc-url" name="using-a-jdbc-url" class="anchor"><span class="anchor-link"></span></a>Using a JDBC URL</h2>
 <p>You can pass a JDBC URL to <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/jdbc/JdbcBackend$DatabaseFactoryDef.html#forURL(String,String,String,Properties,String,AsyncExecutor,Boolean,ClassLoader):DatabaseDef" title="slick.jdbc.JdbcBackend$DatabaseFactoryDef"><code>forURL</code></a>. (see your database&rsquo;s JDBC driver&rsquo;s documentation for the correct URL syntax).</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L56-L57" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val db = Database.forURL(&quot;jdbc:h2:mem:test1;DB_CLOSE_DELAY=-1&quot;,
@@ -412,7 +435,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.78.c6aaeb85', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.86.0320725d', '')});</script>
 
 
 </html>
