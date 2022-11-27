@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.130.6809f776
+3.5.0-pre.137.e605c829
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.130.6809f776
+3.5.0-pre.137.e605c829
 </a>
 <ul class="menu">
 </ul>
@@ -210,6 +210,10 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><code>java.time.Instant.MIN</code> and <code>java.time.Instant.MAX</code> are now correctly mapped to <code>-infinity</code> and <code>infinity</code>  respectively in PostgreSQL profile (<a href="https://github.com/slick/slick/issues/2237">#2237</a>)</li>
   <li>changes to handling of timezone part of <code>java.time.Instant</code> in PostgreSQL profile  (<a href="https://github.com/slick/slick/issues/2005">#2005</a>)</li>
 </ul>
+<h2><a href="#upgrade-from-3-4-to-3-5" name="upgrade-from-3-4-to-3-5" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.4 to 3.5</h2>
+<h3><a href="#resultconverter" name="resultconverter" class="anchor"><span class="anchor-link"></span></a>ResultConverter</h3>
+<p><code>ResultConverter</code> is an internal interface for converting between values handled in JDBC and values handled in application code (case classes, etc.). While you most likely aren&rsquo;t using it directly, you may need to call methods of this interface if you are override behavior of a profile or writing a new one.</p>
+<p>In order to support a single insert statement with multiple rows, the <code>set</code> method now takes an <code>offset</code> parameter. If you have extended a profile and used the <code>set</code> method of this interface, you may need to specify 0 for the offset (unless the number of variable placeholders in the SQL dynamically changes).</p>
 <h2><a href="#upgrade-from-3-2-to-3-3" name="upgrade-from-3-2-to-3-3" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.2 to 3.3</h2>
 <h3><a href="#create-drop-if-not-exists" name="create-drop-if-not-exists" class="anchor"><span class="anchor-link"></span></a>Create / Drop If Not Exists</h3>
 <p>There is no major changes in the API except for the addition of <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>. This has only impact on database profile developers. Regular users are not impacted by it.</p>
@@ -682,6 +686,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
     <li><a href="upgrade.html#compatibility-policy" class="header">Compatibility Policy</a></li>
     <li><a href="upgrade.html#latest-changes" class="header">Latest changes</a></li>
     <li><a href="upgrade.html#upgrade-from-3-3-x-to-3-4-0" class="header">Upgrade from 3.3.x to 3.4.0</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-4-to-3-5" class="header">Upgrade from 3.4 to 3.5</a></li>
     <li><a href="upgrade.html#upgrade-from-3-2-to-3-3" class="header">Upgrade from 3.2 to 3.3</a></li>
     <li><a href="upgrade.html#upgrade-from-3-1-to-3-2" class="header">Upgrade from 3.1 to 3.2</a></li>
   </ul></li>
@@ -752,7 +757,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.130.6809f776', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.137.e605c829', '')});</script>
 
 
 </html>
