@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.31.0b6cf9e6
+3.5.0-pre.33.755e25c1
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.31.0b6cf9e6
+3.5.0-pre.33.755e25c1
 </a>
 <ul class="menu">
 </ul>
@@ -290,7 +290,7 @@ personQuery.map(p =&gt; (p.name,p.age)).update(&quot;C. Vogt&quot;, 12345)</code
 <h2><a href="#relationships" name="relationships" class="anchor"><span class="anchor-link"></span></a>Relationships</h2>
 <p>ORMs usually provide built-in, hard-coded support for 1-to-many and many-to-many relationships. They can be set up centrally in the configuration. In SQL on the other hand you would specify them using joins in every single query. You have a lot of flexibility what you join and how. With Slick you get the best of both worlds. Slick queries are as flexible as SQL, but also compositional. You can store fragments like join conditions in central places and use language-level abstraction. Relationships of any sort are just one thing you can naturally abstract over like in any Scala code. There is no need for Slick to hard-code support for certain use cases. You can easily implement arbitrary use cases yourself, e.g. the common 1-n or n-n relationships or even relationships spanning over multiple tables, relationships with additional discriminators, polymorphic relationships, etc.</p>
 <p>Here is an example for person and addresses.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L178-L192" target="_blank" title="Go to snippet source">source</a><code class="language-scala">implicit class PersonExtensions[C[_]](q: Query[People, Person, C]) {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L177-L191" target="_blank" title="Go to snippet source">source</a><code class="language-scala">implicit class PersonExtensions[C[_]](q: Query[People, Person, C]) {
   // specify mapping of relationship to address
   def withAddress = q.join(addresses).on(_.addressId === _.id)
 }
@@ -303,18 +303,18 @@ val chrisWithAddress: Future[(Person, Address)] =
 val stefanWithAddress: Future[(Person, Address)] =
   db.run(stefanQuery.withAddress.result.head)</code></pre>
 <p>A common question for new Slick users is how they can follow a relationship on a result. In an ORM you could do something like this:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L198-L199" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val chris: Person = PeopleFinder.getById(2)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L197-L198" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val chris: Person = PeopleFinder.getById(2)
 val address: Address = chris.address</code></pre>
 <p>As explained earlier, Slick does not allow navigating the object-graph as if data was in memory, because of the problem that comes with it. Instead of navigating relationships on results you write new queries instead.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L210-L212" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val chrisQuery: Query[People,Person,Seq] = people.filter(_.id === 2)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L209-L211" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val chrisQuery: Query[People,Person,Seq] = people.filter(_.id === 2)
 val addressQuery: Query[Addresses,Address,Seq] = chrisQuery.withAddress.map(_._2)
 val address = db.run(addressQuery.result.head)</code></pre>
 <p>If you leave out the optional type annotation and some intermediate vals it is very clean. And it is very clear where database round trips happen.</p>
 <p>A variant of this question Slick new comers often ask is how they can do something like this in Slick:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L204-L205" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Address( … )
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L203-L204" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Address( … )
 case class Person( …, address: Address )</code></pre>
 <p>The problem is that this hard-codes that a Person requires an Address. It cannot be loaded without it. This doesn&rsquo;t fit to Slick&rsquo;s philosophy of giving you fine-grained control over what you load exactly. With Slick it is advised to map one table to a tuple or case class without them having object references to related objects. Instead you can write a function that joins two tables and returns them as a tuple or association case class instance, providing an association externally, not strongly tied one of the classes.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L218-L222" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val tupledJoin: Query[(People,Addresses),(Person,Address), Seq]
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L217-L221" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val tupledJoin: Query[(People,Addresses),(Person,Address), Seq]
       = people join addresses on (_.addressId === _.id)
 
 case class PersonWithAddress(person: Person, address: Address)
@@ -420,7 +420,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.31.0b6cf9e6', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.33.755e25c1', '')});</script>
 
 
 </html>
