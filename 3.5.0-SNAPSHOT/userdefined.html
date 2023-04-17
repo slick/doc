@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.33.a8c1b3f4
+3.5.0-pre.37.e9888218
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.33.a8c1b3f4
+3.5.0-pre.37.e9888218
 </a>
 <ul class="menu">
 </ul>
@@ -205,23 +205,13 @@ implicit val boolColumnType = Bool.columnMapper
 
 // You can now use Bool.{True, False} like any built-in column type (in tables, queries, etc.)</code></pre>
 <p>You can also subclass <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/jdbc/JdbcProfile.html#MappedJdbcType" title="slick.jdbc.JdbcProfile"><code>MappedJdbcType</code></a> for a bit more flexibility.</p>
-<p>If you have a wrapper class (which can optionally be a case class and/or value class) for an underlying value of some supported type, you can make it extend <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/lifted/MappedTo.html" title="slick.lifted.MappedTo"><code>MappedTo</code></a> to get a macro-generated implicit <code>ColumnType</code> for free. Such wrapper classes are commonly used for type-safe table-specific primary key types:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L579-L587" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// A custom ID type for a table
-case class MyID(value: Long) extends MappedTo[Long]
-
-// Use it directly for this table&#39;s ID -- No extra boilerplate needed
-class MyTable(tag: Tag) extends Table[(MyID, String)](tag, &quot;MY_TABLE&quot;) {
-  def id = column[MyID](&quot;ID&quot;)
-  def data = column[String](&quot;DATA&quot;)
-  def * = (id, data)
-}</code></pre>
 <h2><a href="#using-custom-record-types-in-queries" name="using-custom-record-types-in-queries" class="anchor"><span class="anchor-link"></span></a>Using Custom Record Types in Queries</h2>
 <p>Record types are data structures containing a statically known number of components with individually declared types. Out of the box, Slick supports Scala tuples (up to arity 22) and Slick&rsquo;s own <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/collection/heterogeneous/HList.html" title="slick.collection.heterogeneous.HList"><code>HList</code></a> implementation. Record types can be nested and mixed arbitrarily.</p>
 <p>In order to use custom record types (case classes, custom HLists, tuple-like types, etc.) in queries you need to tell Slick how to map them between queries and results. You can do that using a <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/lifted/Shape.html" title="slick.lifted.Shape"><code>Shape</code></a> extending <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/lifted/MappedScalaProductShape.html" title="slick.lifted.MappedScalaProductShape"><code>MappedScalaProductShape</code></a>.</p>
 <h3><a href="#polymorphic-types-e-g-custom-tuple-types-or-hlists-" name="polymorphic-types-e-g-custom-tuple-types-or-hlists-" class="anchor"><span class="anchor-link"></span></a>Polymorphic Types (e.g. Custom Tuple Types or HLists)</h3>
 <p>The distinguishing feature of a <em>polymorphic</em> record type is that it abstracts over its element types, so you can use the same record type for both, lifted and plain element types. You can add support for custom polymorphic record types using an appropriate implicit <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/lifted/Shape.html" title="slick.lifted.Shape"><code>Shape</code></a>.</p>
 <p>Here is an example for a type <code>Pair</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L593-L606" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// A custom record class
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L579-L592" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// A custom record class
 case class Pair[A, B](a: A, b: B)
 
 // A Shape implementation for Pair
@@ -237,7 +227,7 @@ implicit def pairShape[Level &lt;: ShapeLevel, M1, M2, U1, U2, P1, P2](
 ) = new PairShape[Level, Pair[M1, M2], Pair[U1, U2], Pair[P1, P2]](Seq(s1, s2))</code></pre>
 <p>The implicit method <code>pairShape</code> in this example provides a Shape for a <code>Pair</code> of two element types whenever Shapes for the individual element types are available.</p>
 <p>With these definitions in place, we can use the <code>Pair</code> record type in every location in Slick where a tuple or <code>HList</code> would be acceptable:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L610-L631" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Use it in a table definition
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L596-L617" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Use it in a table definition
 class A(tag: Tag) extends Table[Pair[Int, String]](tag, &quot;shape_a&quot;) {
   def id = column[Int](&quot;id&quot;, O.PrimaryKey)
   def s = column[String](&quot;s&quot;)
@@ -262,7 +252,7 @@ val q2 = as
 <h3><a href="#monomorphic-case-classes" name="monomorphic-case-classes" class="anchor"><span class="anchor-link"></span></a>Monomorphic Case Classes</h3>
 <p>Custom <em>case classes</em> are frequently used as monomorphic record types (i.e. record types where the element types are fixed). In order to use them in Slick, you need to define the case class for a record of plain values (as usual) plus an additional case class for a matching record of lifted values.</p>
 <p>In order to provide a <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/lifted/Shape.html" title="slick.lifted.Shape"><code>Shape</code></a> for a custom case class, you can use <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/lifted/CaseClassShape.html" title="slick.lifted.CaseClassShape"><code>CaseClassShape</code></a>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L637-L662" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// two custom case class variants
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L623-L648" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// two custom case class variants
 case class LiftedB(a: Rep[Int], b: Rep[String])
 case class B(a: Int, b: String)
 
@@ -291,7 +281,7 @@ val q3 = bs
 <p>Note that this mechanism can be used as an alternative to client-side mappings with the <code>&lt;&gt;</code> operator. It requires a bit more boilerplate but allows you to use the same field names in both, plain and lifted records.</p>
 <h3><a href="#combining-mapped-types" name="combining-mapped-types" class="anchor"><span class="anchor-link"></span></a>Combining Mapped Types</h3>
 <p>In the following example we are combining a mapped case class and the mapped <code>Pair</code> type in another mapped case class.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L667-L695" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Combining multiple mapped types
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L653-L681" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Combining multiple mapped types
 case class LiftedC(p: Pair[Rep[Int],Rep[String]], b: LiftedB)
 case class C(p: Pair[Int,String], b: B)
 
@@ -408,7 +398,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.33.a8c1b3f4', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.37.e9888218', '')});</script>
 
 
 </html>
