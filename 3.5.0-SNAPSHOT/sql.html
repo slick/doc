@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.37.e9888218
+3.5.0-pre.39.982848d9
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.37.e9888218
+3.5.0-pre.39.982848d9
 </a>
 <ul class="menu">
 </ul>
@@ -166,9 +166,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>The database connection is opened <a href="gettingstarted.html#database-configuration">in the usual way</a>. All <em>Plain SQL</em> queries result in a <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/dbio/DBIOAction.html" title="slick.dbio.DBIOAction"><code>DBIOAction</code></a> that can be composed and run like any other action.</p>
 <h2><a href="#string-interpolation" name="string-interpolation" class="anchor"><span class="anchor-link"></span></a>String Interpolation</h2>
 <p><em>Plain SQL</em> queries in Slick are built via string interpolation using the <code>sql</code>, <code>sqlu</code> and <code>tsql</code> interpolators. They are available through the standard <code>api._</code> import from a Slick profile:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L9" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.H2Profile.api._</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L9" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.H2Profile.api.*</code></pre>
 <p>You can see the simplest use case in the following methods where the <code>sqlu</code> interpolator is used with a literal SQL string:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L62-L85" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def createCoffees: DBIO[Int] =
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L60-L83" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def createCoffees: DBIO[Int] =
   sqlu&quot;&quot;&quot;create table coffees(
     name varchar not null,
     sup_id int not null,
@@ -194,13 +194,13 @@ def insertSuppliers: DBIO[Unit] = DBIO.seq(
 )</code></pre>
 <p>The <code>sqlu</code> interpolator is used for DML statements which produce a row count instead of a result set. Therefore they are of type <code>DBIO[Int]</code>.</p>
 <p>Any variable or expression injected into a query gets turned into a bind variable in the resulting query string. It is not inserted directly into a query string, so there is no danger of SQL injection attacks. You can see this used in here:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L90-L91" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def insert(c: Coffee): DBIO[Int] =
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L88-L89" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def insert(c: Coffee): DBIO[Int] =
   sqlu&quot;insert into coffees values (${c.name}, ${c.supID}, ${c.price}, ${c.sales}, ${c.total})&quot;</code></pre>
 <p>The SQL statement produced by this method is always the same:</p>
 <pre class="prettyprint"><code class="language-sql">insert into coffees values (?, ?, ?, ?, ?)
 </code></pre>
 <p>Note the use of the <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/dbio/DBIOAction$.html#sequence[R,M[+_]%3C:TraversableOnce[_],E%3C:slick.dbio.Effect](in:M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]],R,M[R]]):slick.dbio.DBIOAction[M[R],slick.dbio.NoStream,E]" title="slick.dbio.DBIOAction"><code>DBIO.sequence</code></a> combinator which is useful for this kind of code:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L97-L106" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val inserts: Seq[DBIO[Int]] = Seq(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L95-L104" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val inserts: Seq[DBIO[Int]] = Seq(
   Coffee(&quot;Colombian&quot;, 101, 7.99, 0, 0),
   Coffee(&quot;French_Roast&quot;, 49, 8.99, 0, 0),
   Coffee(&quot;Espresso&quot;, 150, 9.99, 0, 0),
@@ -213,11 +213,11 @@ combined.map(_.sum)</code></pre>
 <p>Unlike the simpler <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/dbio/DBIOAction$.html#seq[E%3C:slick.dbio.Effect](actions:slick.dbio.DBIOAction[_,slick.dbio.NoStream,E]*):slick.dbio.DBIOAction[Unit,slick.dbio.NoStream,E]" title="slick.dbio.DBIOAction"><code>DBIO.seq</code></a> combinator which runs a (varargs) sequence of database I/O actions in the given order and discards the return values, <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/dbio/DBIOAction$.html#sequence[R,M[+_]%3C:TraversableOnce[_],E%3C:slick.dbio.Effect](in:M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]])(implicitcbf:scala.collection.generic.CanBuildFrom[M[slick.dbio.DBIOAction[R,slick.dbio.NoStream,E]],R,M[R]]):slick.dbio.DBIOAction[M[R],slick.dbio.NoStream,E]" title="slick.dbio.DBIOAction"><code>DBIO.sequence</code></a> turns a <code>Seq[DBIO[T]]</code> into a <code>DBIO[Seq[T]]</code>, thus preserving the results of all individual actions. It is used here to sum up the affected row counts of all inserts.</p>
 <h2><a href="#result-sets" name="result-sets" class="anchor"><span class="anchor-link"></span></a>Result Sets</h2>
 <p>The following code uses the <code>sql</code> interpolator which returns a result set produced by a statement. The interpolator by itself does not produce a <code>DBIO</code> value. It needs to be followed by a call to <code>.as</code> to define the row type:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L120-L122" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;select c.name, s.name
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L118-L120" target="_blank" title="Go to snippet source">source</a><code class="language-scala">sql&quot;&quot;&quot;select c.name, s.name
       from coffees c, suppliers s
       where c.price &lt; $price and s.id = c.sup_id&quot;&quot;&quot;.as[(String, String)]</code></pre>
 <p>This results in a <code>DBIO[Seq[(String, String)]]</code>. The call to <code>as</code> takes an implicit <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/jdbc/GetResult.html" title="slick.jdbc.GetResult"><code>GetResult</code></a> parameter which extracts data of the requested type from a result set. There are predefined <code>GetResult</code> implicits for the standard JDBC types, for Options of those (to represent nullable columns) and for tuples of types which have a <code>GetResult</code>. For non-standard return types you have to define your own converters:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L23-L30" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Case classes for our data
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L21-L28" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Case classes for our data
 case class Supplier(id: Int, name: String, street: String, city: String, state: String, zip: String)
 case class Coffee(name: String, supID: Int, price: Double, sales: Int, total: Int)
 
@@ -228,11 +228,11 @@ implicit val getCoffeeResult = GetResult(r =&gt; Coffee(r.&lt;&lt;, r.&lt;&lt;, 
 <p><code>GetResult[T]</code> is simply a wrapper for a function <code>PositionedResult =&gt; T</code>. The implicit val for <code>Supplier</code> uses the explicit <code>PositionedResult</code> methods <code>getInt</code> and <code>getString</code> to read the next <code>Int</code> or <code>String</code> value in the current row. The second one uses the shortcut method <code>&lt;&lt;</code> which returns a value of whatever type is expected at this place. (Of course you can only use it when the type is actually known like in this constructor call.)</p>
 <h2><a href="#splicing-literal-values" name="splicing-literal-values" class="anchor"><span class="anchor-link"></span></a>Splicing Literal Values</h2>
 <p>While most parameters should be inserted into SQL statements as bind variables, sometimes you need to splice literal values directly into the statement, for example to abstract over table names or to run dynamically generated SQL code. You can use <code>#$</code> instead of <code>$</code> in all interpolators for this purpose, as shown in the following piece of code:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L142-L143" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val table = &quot;coffees&quot;
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L140-L141" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val table = &quot;coffees&quot;
 sql&quot;select * from #$table where name = $name&quot;.as[Coffee].headOption</code></pre>
 <h2><a href="#type-checked-sql-statements" name="type-checked-sql-statements" class="anchor"><span class="anchor-link"></span></a>Type-Checked SQL Statements</h2>
 <p>The interpolators you have seen so far only construct a SQL statement at runtime. This provides a safe and easy way of building statements but they are still just embedded strings. If you have a syntax error in a statement or the types don&rsquo;t match up between the database and your Scala code, this cannot be detected at compile-time. You can use the <code>tsql</code> interpolator instead of <code>sql</code> to get just that:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L162-L163" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def getSuppliers(id: Int): DBIO[Seq[(Int, String, String, String, String, String)]] =
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L160-L161" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def getSuppliers(id: Int): DBIO[Seq[(Int, String, String, String, String, String)]] =
   tsql&quot;select * from suppliers where id &gt; $id&quot;</code></pre>
 <p>Note that <code>tsql</code> directly produces a <code>DBIOAction</code> of the correct type without requiring a call to <code>.as</code>.</p>
 <p>In order to give the compiler access to the database, you have to provide a configuration that can be resolved at compile-time. This is done with the <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/basic/StaticDatabaseConfig.html" title="slick.basic.StaticDatabaseConfig"><code>StaticDatabaseConfig</code></a> annotation:</p>
@@ -241,7 +241,7 @@ sql&quot;select * from #$table where name = $name&quot;.as[Coffee].headOption</c
 <p>In this case it points to the path &ldquo;tsql&rdquo; in a local <code>application.conf</code> file, which must contain an appropriate configuration for a <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/basic/StaticDatabaseConfig.html" title="slick.basic.StaticDatabaseConfig"><code>StaticDatabaseConfig</code></a> object, not just a <code>Database</code>.</p><div class="callout note "><div class="callout-title">Note</div>
 <p>You can get <code>application.conf</code> resolved via the classpath (as usual) by omitting the path and only specifying a fragment in the URL, or you can use a <code>resource:</code> URL scheme for referencing an arbitrary classpath resource, but in both cases, they have to be on the <em>compiler&rsquo;s</em> own classpath, not just the source path or the runtime classpath. Depending on the build tool this may not be possible, so it&rsquo;s usually better to use a relative <code>file:</code> URL.</p></div>
 <p>You can also retrieve the statically configured <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/basic/DatabaseConfig.html" title="slick.basic.DatabaseConfig"><code>DatabaseConfig</code></a> at runtime:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L157-L167" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forAnnotation[JdbcProfile]
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L155-L165" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forAnnotation[JdbcProfile]
 import dc.profile.api._
 val db = dc.db</code></pre>
 <p>This gives you the Slick profile for the standard <code>api._</code> import and the <code>Database</code>. Note that it is not mandatory to use the same configuration. You can get a Slick profile and <code>Database</code> at runtime in any other way you like and only use the <code>StaticDatabaseConfig</code> for compile-time checking.</p>
@@ -334,7 +334,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.37.e9888218', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.39.982848d9', '')});</script>
 
 
 </html>
