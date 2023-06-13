@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.34.6894e0e9
+3.5.0-pre.38.f04e39c8
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.34.6894e0e9
+3.5.0-pre.38.f04e39c8
 </a>
 <ul class="menu">
 </ul>
@@ -166,31 +166,32 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>Parts of the generator are also explained in our <a href="https://scala-slick.org/news/2013/12/03/Patterns-for-Slick-database-applications-Scala-eXchange.html">talk at Scala eXchange 2013</a>.</p>
 <h2><a href="#standalone-use" name="standalone-use" class="anchor"><span class="anchor-link"></span></a>Standalone use</h2>
 <p>To include Slick&rsquo;s code generator use the published library. For sbt projects add following to your build definition - <code>build.sbt</code> or <code>project/Build.scala</code>:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-codegen&quot; % &quot;3.5.0-pre.34.6894e0e9&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-codegen&quot; % &quot;3.5.0-pre.38.f04e39c8&quot;
 </code></pre>
 <p>For Maven projects add the following to your <code>&lt;dependencies&gt;</code>:</p>
 <pre class="prettyprint"><code class="language-xml">&lt;dependency&gt;
   &lt;groupId&gt;com.typesafe.slick&lt;/groupId&gt;
   &lt;artifactId&gt;slick-codegen_2.13&lt;/artifactId&gt;
-  &lt;version&gt;3.5.0-pre.34.6894e0e9&lt;/version&gt;
+  &lt;version&gt;3.5.0-pre.38.f04e39c8&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre><div class="callout note "><div class="callout-title">Note</div>
 <p>In the code examples below we assume the following imports:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L4-L7" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import scala.concurrent.ExecutionContext.Implicits.global
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L4-L8" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import scala.concurrent.ExecutionContext.Implicits.global
 import scala.util.{Failure, Success}
-import slick.jdbc.H2Profile.api._
-import slick.jdbc.H2Profile</code></pre>
+
+import slick.jdbc.H2Profile
+import slick.jdbc.H2Profile.api.*</code></pre>
 <p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
 <p>Slick&rsquo;s code generator comes with a default runner that can be used from the command line or from Java/Scala. You can simply execute</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L22-L24" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L23-L25" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
   Array(uri, outputFolder)
 )</code></pre>
 <p>or</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L27-L29" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L28-L30" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
   Array(profile, jdbcDriver, url, outputFolder, pkg)
 )</code></pre>
 <p>or</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L32-L34" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L33-L35" target="_blank" title="Go to snippet source">source</a><code class="language-scala">slick.codegen.SourceCodeGenerator.main(
   Array(profile, jdbcDriver, url, outputFolder, pkg, user, password)
 )</code></pre>
 <p>and provide the following values</p>
@@ -218,7 +219,7 @@ import slick.jdbc.H2Profile</code></pre>
 <p>Within the sub-generators the relevant part of the Slick data model can be accessed to drive the code generation.</p>
 <p>Please see the <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/codegen-api/slick/codegen/SourceCodeGenerator.html" title="slick.codegen.SourceCodeGenerator"><code>api documentation</code></a> for info on all of the methods that can be overridden for customization.</p>
 <p>Here is an example for customizing the generator. Noteworthy, the line <code>override def hugeClassEnabled = false</code> disables generation of case classes for tables with more than 22 columns. A <code>HList</code> based type will be generated instead. So this way you get back the default behavior before the advent of Slick 3.3.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L37-L72" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.codegen.SourceCodeGenerator
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/CodeGenerator.scala#L38-L73" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.codegen.SourceCodeGenerator
 // fetch data model
 val modelAction = H2Profile.createModel(Some(H2Profile.defaultTables)) // you can filter specific tables here
 val modelFuture = db.run(modelAction)
@@ -243,7 +244,7 @@ val codegenFuture = modelFuture.map(model =&gt; new SourceCodeGenerator(model) {
       // use the data model member of this column to change the Scala type,
       // e.g. to a custom enum or anything else
       override def rawType =
-        if(model.name == &quot;SOME_SPECIAL_COLUMN_NAME&quot;) &quot;MyCustomType&quot; else super.rawType
+        if(this.model.name == &quot;SOME_SPECIAL_COLUMN_NAME&quot;) &quot;MyCustomType&quot; else super.rawType
     }
   }
 })
@@ -343,7 +344,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.34.6894e0e9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.38.f04e39c8', '')});</script>
 
 
 </html>
