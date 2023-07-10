@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.62.08eaea4a
+3.5.0-pre.78.5fcb8b20
 </a>
 <ul class="menu">
 </ul>
@@ -60,7 +60,7 @@
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">compat-report.html</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.62.08eaea4a
+3.5.0-pre.78.5fcb8b20
 </a>
 <ul class="menu">
 </ul>
@@ -129,7 +129,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><a href="cookbook.html" class="page">Cookbook</a></li>
   <li><a href="upgrade.html" class="page">Upgrade Guides</a>
   <ul>
-    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+    <li><a href="compat-report.html" class="page">compat-report.html</a></li>
   </ul></li>
   <li><a href="migrations.html" class="page">Database Migrations</a></li>
   <li><a href="testkit.html" class="page">Slick TestKit</a></li>
@@ -178,9 +178,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#adding-slick-to-your-project" name="adding-slick-to-your-project" class="anchor"><span class="anchor-link"></span></a>Adding Slick to Your Project</h2>
 <p>To include Slick in an existing project use the library published on Maven Central. Add the following to your build definition (<code>build.sbt</code> for <a href="https://www.scala-sbt.org/">sbt</a> or <code>pom.xml</code> for Maven):</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.5.0-pre.62.08eaea4a&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;3.5.0-pre.78.5fcb8b20&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.5.0-pre.62.08eaea4a&quot;
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;3.5.0-pre.78.5fcb8b20&quot;
 )
 </code></pre>
 <p>Slick uses <a href="https://www.slf4j.org/">SLF4J</a> for its own debug logging so you also need to add an SLF4J implementation. <em>Hello Slick</em> uses <code>slf4j-nop</code> to disable logging. You have to replace this with a real logging framework like <a href="https://logback.qos.ch/">Logback</a> if you want to see log output.</p>
@@ -189,9 +189,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#quick-introduction" name="quick-introduction" class="anchor"><span class="anchor-link"></span></a>Quick Introduction</h2>
 <p>To use Slick you first need to import the API for the database you will be using, like:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/FirstExample.scala#L4-L7" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Use H2Profile to connect to an H2 database
-import slick.jdbc.H2Profile.api._
+import scala.concurrent.ExecutionContext.Implicits.global
 
-import scala.concurrent.ExecutionContext.Implicits.global</code></pre>
+import slick.jdbc.H2Profile.api.*</code></pre>
 <p>Since we are using <a href="https://www.h2database.com/">H2</a> as our database system, we need to import features from Slick&rsquo;s <code>H2Profile</code>. A profile&rsquo;s <code>api</code> object contains all commonly needed imports from the profile and other parts of Slick such as <a href="database.html">database handling</a>.</p>
 <p>Slick&rsquo;s API is fully asynchronous and runs database calls in a separate thread pool. For running user code in composition of <code>DBIOAction</code> and <code>Future</code> values, we import the global <code>ExecutionContext</code>. When using Slick as part of a larger application (e.g. with <a href="https://www.playframework.com/">Play</a> or <a href="https://akka.io/">Akka</a>) the framework may provide a better alternative to this default <code>ExecutionContext</code>.</p>
 <h3><a href="#database-configuration" name="database-configuration" class="anchor"><span class="anchor-link"></span></a>Database Configuration</h3>
@@ -249,18 +249,18 @@ val coffees = TableQuery[Coffees]</code></pre>
   (suppliers.schema ++ coffees.schema).create,
 
   // Insert some suppliers
-  suppliers += (101, &quot;Acme, Inc.&quot;,      &quot;99 Market Street&quot;, &quot;Groundsville&quot;, &quot;CA&quot;, &quot;95199&quot;),
-  suppliers += ( 49, &quot;Superior Coffee&quot;, &quot;1 Party Place&quot;,    &quot;Mendocino&quot;,    &quot;CA&quot;, &quot;95460&quot;),
-  suppliers += (150, &quot;The High Ground&quot;, &quot;100 Coffee Lane&quot;,  &quot;Meadows&quot;,      &quot;CA&quot;, &quot;93966&quot;),
+  suppliers += (101, &quot;Acme, Inc.&quot;, &quot;99 Market Street&quot;, &quot;Groundsville&quot;, &quot;CA&quot;, &quot;95199&quot;),
+  suppliers += (49, &quot;Superior Coffee&quot;, &quot;1 Party Place&quot;, &quot;Mendocino&quot;, &quot;CA&quot;, &quot;95460&quot;),
+  suppliers += (150, &quot;The High Ground&quot;, &quot;100 Coffee Lane&quot;, &quot;Meadows&quot;, &quot;CA&quot;, &quot;93966&quot;),
   // Equivalent SQL code:
   // insert into SUPPLIERS(SUP_ID, SUP_NAME, STREET, CITY, STATE, ZIP) values (?,?,?,?,?,?)
 
   // Insert some coffees (using JDBC&#39;s batch insert feature, if supported by the DB)
   coffees ++= Seq(
-    (&quot;Colombian&quot;,         101, 7.99, 0, 0),
-    (&quot;French_Roast&quot;,       49, 8.99, 0, 0),
-    (&quot;Espresso&quot;,          150, 9.99, 0, 0),
-    (&quot;Colombian_Decaf&quot;,   101, 8.99, 0, 0),
+    (&quot;Colombian&quot;, 101, 7.99, 0, 0),
+    (&quot;French_Roast&quot;, 49, 8.99, 0, 0),
+    (&quot;Espresso&quot;, 150, 9.99, 0, 0),
+    (&quot;Colombian_Decaf&quot;, 101, 8.99, 0, 0),
     (&quot;French_Roast_Decaf&quot;, 49, 9.99, 0, 0)
   )
   // Equivalent SQL code:
@@ -304,7 +304,7 @@ db.run(coffees.result).map(_.foreach {
 <p>This corresponds to a <code>SELECT * FROM COFFEES</code> in SQL (except that the <code>*</code> is the table&rsquo;s <code>*</code> projection we defined earlier and not whatever the database sees as <code>*</code>). The type of the values we get in the loop is, unsurprisingly, the type parameter of <code>Coffees</code>.</p>
 <p>Let&rsquo;s add a <em>projection</em> to this basic query. This is written in Scala with the <code>map</code> method or a <em>for comprehension</em>:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/FirstExample.scala#L100-L114" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Why not let the database do the string conversion and concatenation?
-val q1 = for(c &lt;- coffees)
+val q1 = for (c &lt;- coffees)
   yield LiteralColumn(&quot;  &quot;) ++ c.name ++ &quot;\t&quot; ++ c.supID.asColumnOf[String] ++
     &quot;\t&quot; ++ c.price.asColumnOf[String] ++ &quot;\t&quot; ++ c.sales.asColumnOf[String] ++
     &quot;\t&quot; ++ c.total.asColumnOf[String]
@@ -454,7 +454,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.62.08eaea4a', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.78.5fcb8b20', '')});</script>
 
 
 </html>
