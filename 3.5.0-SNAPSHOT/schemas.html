@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.10.8d8b5753
+3.5.0-pre.12.83bed2fb
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.10.8d8b5753
+3.5.0-pre.12.83bed2fb
 </a>
 <ul class="menu">
 </ul>
@@ -236,7 +236,7 @@ class Users(tag: Tag) extends Table[User](tag, &quot;users&quot;) {
 }
 val users = TableQuery[Users]</code></pre>
 <p>It is optimized for case classes (with a simple <code>apply</code> method and an <code>unapply</code> method that wraps its result in an <code>Option</code>) but it can also be used with arbitrary mapping functions. In these cases it can be useful to call <code>.shaped</code> on a tuple on the left-hand side in order to get its type inferred properly. Otherwise you may have to add full type annotations to the mapping functions.</p>
-<p>For case classes with hand-written companion objects, <code>.tupled</code> only works if you manually extend the correct Scala function type. Alternatively you can use <code>(User.apply _).tupled</code>. See <a href="https://issues.scala-lang.org/browse/SI-3664">SI-3664</a> and <a href="SI:4808">SI-4808</a>.</p>
+<p>For using <code>.tupled</code> on case classes the following workarounds are necessary * Scala 2 with hand-written companion objects: <code>.tupled</code> only works  if you manually extend the correct Scala function type, alternately you can  manually redefine <code>.tupled</code> in the case class companion object i.e.  <code>def tupled = (apply _).tupled</code>. See <a href="https://issues.scala-lang.org/browse/SI-3664">SI-3664</a> and  <a href="SI:4808">SI-4808</a> for more info. * Scala 3: <code>.tupled</code> is no longer defined for case classes so you need to  manually define <code>.tupled</code> (i.e. <code>def tupled = (apply _).tupled</code>) yourself  on the case class companion object (if you don&rsquo;t have a case class companion  object then you need to create it). Doing this also means your <code>.tupled</code>  method will cross compile for all versions of Scala.</p>
 <p>It is also possible to use the convenience method <code>mapTo</code> in most circumstances, which uses a compile-time macro to automatically fill in an implementation like the above.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L142-L153" target="_blank" title="Go to snippet source">source</a><code class="language-scala">object Person {
   def tupled = (apply _).tupled
@@ -396,7 +396,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.10.8d8b5753', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.12.83bed2fb', '')});</script>
 
 
 </html>
