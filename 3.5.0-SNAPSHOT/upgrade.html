@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.50.ea2432b1
+3.5.0-pre.54.80a82c1f
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.50.ea2432b1
+3.5.0-pre.54.80a82c1f
 </a>
 <ul class="menu">
 </ul>
@@ -172,6 +172,11 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul>
   <li><code>SynchronousDatabaseAction</code> has 5 type parameters instead of 4. See for instance  <a href="https://github.com/tminglei/slick-pg/pull/651/files#diff-208b921209dd4b53867be1f55f1fa054d81f6473575ae4b7efd960a3d8c7a298L17">https://github.com/tminglei/slick-pg/pull/651/files#diff-208b921209dd4b53867be1f55f1fa054d81f6473575ae4b7efd960a3d8c7a298L17</a></li>
 </ul>
+<h3><a href="#dependency-upgrades" name="dependency-upgrades" class="anchor"><span class="anchor-link"></span></a>Dependency upgrades</h3>
+<p>Slick 3.5.x drops <a href="https://github.com/scala/scala-collection-compat">scala-collection-compat</a> for Scala versions 2.13 and higher. This shouldn&rsquo;t affect end users unless you happen to be transitively relying on <code>scala-collection-compat</code> on a version of Scala 2.13 or higher. If this is the case then it&rsquo;s recommended to migrate your codebase away from <code>scala-collection-compat</code>, otherwise if this is not possible then you can just add the</p>
+<pre class="prettyprint"><code class="language-sbt">&quot;org.scala-lang.modules&quot; %% &quot;scala-collection-compat&quot; % &quot;2.10.0&quot;
+</code></pre>
+<p>dependency manually.</p>
 <h2><a href="#upgrade-from-3-3-x-to-3-4-0" name="upgrade-from-3-3-x-to-3-4-0" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.3.x to 3.4.0</h2>
 <p>The full list of bug fixes and changes in version 3.4.0 is <a href="https://github.com/slick/slick/pulls?q=is%3Apr+is%3Amerged+milestone%3A3.4.0">available on github</a>. </p>
 <h3><a href="#dependency-upgrades" name="dependency-upgrades" class="anchor"><span class="anchor-link"></span></a>Dependency upgrades</h3>
@@ -762,7 +767,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.50.ea2432b1', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.54.80a82c1f', '')});</script>
 
 
 </html>
