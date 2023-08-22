@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.58.469ed04c
+3.5.0-pre.60.870200a8
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.5.0-pre.58.469ed04c
+3.5.0-pre.60.870200a8
 </a>
 <ul class="menu">
 </ul>
@@ -177,6 +177,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <pre class="prettyprint"><code class="language-sbt">&quot;org.scala-lang.modules&quot; %% &quot;scala-collection-compat&quot; % &quot;2.10.0&quot;
 </code></pre>
 <p>dependency manually.</p>
+<h3><a href="#resultconverter" name="resultconverter" class="anchor"><span class="anchor-link"></span></a>ResultConverter</h3>
+<p><code>ResultConverter</code> is an internal interface for converting between values handled in JDBC and values handled in application code (case classes, etc.). While you most likely aren&rsquo;t using it directly, you may need to call methods of this interface if you are override behavior of a profile or writing a new one.</p>
+<p>In order to support a single insert statement with multiple rows, the <code>set</code> method now takes an <code>offset</code> parameter. If you have extended a profile and used the <code>set</code> method of this interface, you may need to specify 0 for the offset (unless the number of variable placeholders in the SQL dynamically changes).</p>
 <h2><a href="#upgrade-from-3-3-x-to-3-4-0" name="upgrade-from-3-3-x-to-3-4-0" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.3.x to 3.4.0</h2>
 <p>The full list of bug fixes and changes in version 3.4.0 is <a href="https://github.com/slick/slick/pulls?q=is%3Apr+is%3Amerged+milestone%3A3.4.0">available on github</a>. </p>
 <h3><a href="#dependency-upgrades" name="dependency-upgrades" class="anchor"><span class="anchor-link"></span></a>Dependency upgrades</h3>
@@ -219,11 +222,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><code>java.time.Instant.MIN</code> and <code>java.time.Instant.MAX</code> are now correctly mapped to <code>-infinity</code> and <code>infinity</code>  respectively in PostgreSQL profile (<a href="https://github.com/slick/slick/issues/2237">#2237</a>)</li>
   <li>changes to handling of timezone part of <code>java.time.Instant</code> in PostgreSQL profile  (<a href="https://github.com/slick/slick/issues/2005">#2005</a>)</li>
 </ul>
-<h2><a href="#upgrade-from-3-4-to-3-5" name="upgrade-from-3-4-to-3-5" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.4 to 3.5</h2>
-<h3><a href="#resultconverter" name="resultconverter" class="anchor"><span class="anchor-link"></span></a>ResultConverter</h3>
-<p><code>ResultConverter</code> is an internal interface for converting between values handled in JDBC and values handled in application code (case classes, etc.). While you most likely aren&rsquo;t using it directly, you may need to call methods of this interface if you are override behavior of a profile or writing a new one.</p>
-<p>In order to support a single insert statement with multiple rows, the <code>set</code> method now takes an <code>offset</code> parameter. If you have extended a profile and used the <code>set</code> method of this interface, you may need to specify 0 for the offset (unless the number of variable placeholders in the SQL dynamically changes).</p>
-<h2><a href="#upgrade-from-3-2-to-3-3" name="upgrade-from-3-2-to-3-3" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.2 to 3.3</h2>
+<h2><a href="#upgrade-from-3-2-x-to-3-3-0" name="upgrade-from-3-2-x-to-3-3-0" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.2.x to 3.3.0</h2>
 <h3><a href="#create-drop-if-not-exists" name="create-drop-if-not-exists" class="anchor"><span class="anchor-link"></span></a>Create / Drop If Not Exists</h3>
 <p>There is no major changes in the API except for the addition of <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>. This has only impact on database profile developers. Regular users are not impacted by it.</p>
 <p>In other to support <code>createIfNotExists</code> and <code>dropIfExistsPhase</code>, the following changes were made:</p>
@@ -662,7 +661,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
   </tbody>
 </table>
-<h2><a href="#upgrade-from-3-1-to-3-2" name="upgrade-from-3-1-to-3-2" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.1 to 3.2</h2>
+<h2><a href="#upgrade-from-3-1-x-to-3-2-0" name="upgrade-from-3-1-x-to-3-2-0" class="anchor"><span class="anchor-link"></span></a>Upgrade from 3.1.x to 3.2.0</h2>
 <p>This section describes the changes that are needed when upgrading from Slick 3.1 to 3.2. If you are currently using an older version of Slick, please see the older [Slick Manuals] for details on other changes that may be required.</p>
 <h3><a href="#profiles-vs-drivers" name="profiles-vs-drivers" class="anchor"><span class="anchor-link"></span></a>Profiles vs Drivers</h3>
 <p>Slick&rsquo;s <code>driver</code> concept has been renamed to <code>profile</code> to end the confusion over Slick drivers vs JDBC drivers. All references to <code>drivers</code> from now on refer to JDBC drivers. Slick <code>profiles</code> can be either abstract (like <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/jdbc/JdbcProfile.html" title="slick.jdbc.JdbcProfile"><code>JdbcProfile</code></a>) or concrete (like <a href="https://scala-slick.org/doc/3.5.0-SNAPSHOT/api/slick/jdbc/H2Profile.html" title="slick.jdbc.H2Profile"><code>H2Profile</code></a>). The old names are still available as deprecated forwarders.</p>
@@ -696,9 +695,8 @@ The source code for this page can be found <a href="https://github.com/slick/sli
     <li><a href="upgrade.html#latest-changes" class="header">Latest changes</a></li>
     <li><a href="upgrade.html#upgrade-from-3-4-x-to-3-5-0" class="header">Upgrade from 3.4.x to 3.5.0</a></li>
     <li><a href="upgrade.html#upgrade-from-3-3-x-to-3-4-0" class="header">Upgrade from 3.3.x to 3.4.0</a></li>
-    <li><a href="upgrade.html#upgrade-from-3-4-to-3-5" class="header">Upgrade from 3.4 to 3.5</a></li>
-    <li><a href="upgrade.html#upgrade-from-3-2-to-3-3" class="header">Upgrade from 3.2 to 3.3</a></li>
-    <li><a href="upgrade.html#upgrade-from-3-1-to-3-2" class="header">Upgrade from 3.1 to 3.2</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-2-x-to-3-3-0" class="header">Upgrade from 3.2.x to 3.3.0</a></li>
+    <li><a href="upgrade.html#upgrade-from-3-1-x-to-3-2-0" class="header">Upgrade from 3.1.x to 3.2.0</a></li>
   </ul></li>
 </ul>
 </div>
@@ -767,7 +765,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.58.469ed04c', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-pre.60.870200a8', '')});</script>
 
 
 </html>
