@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>User-Defined Features · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='Scala Slick documentation'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.5.0-M5
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="active page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.5.0-M5
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="active page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li>User-Defined Features</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#user-defined-features" name="user-defined-features" class="anchor"><span class="anchor-link"></span></a>User-Defined Features</h1>
+<p>This chapter describes how to use custom data types and database functions with Slick&rsquo;s Scala API.</p><div class="callout note "><div class="callout-title">Note</div>
+<p>In the code examples below we assume the following imports:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L4-L11" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import java.sql.Date
+
+import scala.concurrent.{Await, Future}
+import scala.concurrent.duration.Duration
+import scala.reflect.ClassTag
+
+import slick.jdbc.H2Profile.api.*
+import slick.lifted.ProvenShape</code></pre>
+<p>If you&rsquo;re new to Slick, please start with the <a href="gettingstarted.html">Getting Started</a> page.</p></div>
+<h2><a href="#scalar-database-functions" name="scalar-database-functions" class="anchor"><span class="anchor-link"></span></a>Scalar Database Functions</h2><div class="callout note "><div class="callout-title">Note</div>
+<p>This section is based on the ready-to-run <code>CallNativeDBFunction</code> app in <a href="https://github.com/slick/slick-multidb">the <strong>MultiDB</strong> sample</a>.</p></div>
+<p>If your database system supports a scalar function that is not available as a method in Slick you can define it as a <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/SimpleFunction.html" title="slick.lifted.SimpleFunction"><code>SimpleFunction</code></a>. There are predefined methods for creating unary, binary and ternary functions with fixed parameter and return types.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L526-L532" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// H2 has a day_of_week() function which extracts the day of week from a timestamp
+val dayOfWeek = SimpleFunction.unary[Date, Int](&quot;day_of_week&quot;)
+
+// Use the lifted function in a query to group by day of week
+val q1 = for {
+  (dow, q) &lt;- salesPerDay.map(s =&gt; (dayOfWeek(s.day), s.count)).groupBy(_._1)
+} yield (dow, q.map(_._2).sum)</code></pre>
+<p>If you need more flexibility regarding the types (e.g. for varargs, polymorphic functions, or to support Option and non-Option types in a single function), you can use <code>SimpleFunction.apply</code> to get an untyped instance and write your own wrapper function with the proper type-checking:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L536-L537" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def dayOfWeek2(c: Rep[Date]) =
+  SimpleFunction[Int](&quot;day_of_week&quot;).apply(Seq(c))</code></pre>
+<p><a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/SimpleBinaryOperator.html" title="slick.lifted.SimpleBinaryOperator"><code>SimpleBinaryOperator</code></a> and <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/SimpleLiteral.html" title="slick.lifted.SimpleLiteral"><code>SimpleLiteral</code></a> work in a similar way. For even more flexibility (e.g. function-like expressions with unusual syntax), you can use <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/SimpleExpression.html" title="slick.lifted.SimpleExpression"><code>SimpleExpression</code></a>.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L545-L546" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val current_date = SimpleLiteral[java.sql.Date](&quot;CURRENT_DATE&quot;)
+salesPerDay.map(_ =&gt; current_date)</code></pre>
+<h2><a href="#other-database-functions-and-stored-procedures" name="other-database-functions-and-stored-procedures" class="anchor"><span class="anchor-link"></span></a>Other Database Functions And Stored Procedures</h2>
+<p>For database functions that return complete tables or stored procedures please use <a href="sql.html">Plain SQL Queries</a>. Stored procedures that return multiple result sets are currently not supported.</p>
+<h2><a href="#using-custom-scalar-types-in-queries" name="using-custom-scalar-types-in-queries" class="anchor"><span class="anchor-link"></span></a>Using Custom Scalar Types in Queries</h2>
+<p>If you need a custom column type you can implement <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/jdbc/JdbcProfile.html#ColumnType[T]:ColumnType[T]" title="slick.jdbc.JdbcProfile"><code>ColumnType</code></a>. The most common scenario is mapping an application-specific type to an already supported type in the database. This can be done much simpler by using <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/jdbc/JdbcProfile.html#MappedColumnType:MappedJdbcType.type" title="slick.jdbc.JdbcProfile"><code>type</code></a> which takes care of all the boilerplate. It comes with the usual import from the profile.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L555-L570" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Custom data type for booleans that maps to NUMBER in database
+object Bool extends Enumeration {
+  type Bool = Value
+  val True, False = Value
+
+  // A ColumnType that maps it to NUMBER values 1 and 0
+  val columnMapper: BaseColumnType[Bool] = MappedColumnType.base[Bool, Int](
+    { case True =&gt; 1; case False =&gt; 0 }, // map Bool to NUMBER
+    { i =&gt; if (i == 1) True else False } // map NUMBER to Bool
+  )
+}
+
+// Make columnMapper available in table definitions and where you do queries
+implicit val boolColumnType: BaseColumnType[Bool.Bool] = Bool.columnMapper
+
+// You can now use Bool.{True, False} like any built-in column type (in tables, queries, etc.)</code></pre>
+<p>You can also subclass <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/jdbc/JdbcProfile.html#MappedJdbcType" title="slick.jdbc.JdbcProfile"><code>MappedJdbcType</code></a> for a bit more flexibility.</p>
+<h2><a href="#using-custom-record-types-in-queries" name="using-custom-record-types-in-queries" class="anchor"><span class="anchor-link"></span></a>Using Custom Record Types in Queries</h2>
+<p>Record types are data structures containing a statically known number of components with individually declared types. Out of the box, Slick supports Scala tuples (up to arity 22) and Slick&rsquo;s own <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/collection/heterogeneous/HList.html" title="slick.collection.heterogeneous.HList"><code>HList</code></a> implementation. Record types can be nested and mixed arbitrarily.</p>
+<p>In order to use custom record types (case classes, custom HLists, tuple-like types, etc.) in queries you need to tell Slick how to map them between queries and results. You can do that using a <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/Shape.html" title="slick.lifted.Shape"><code>Shape</code></a> extending <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/MappedScalaProductShape.html" title="slick.lifted.MappedScalaProductShape"><code>MappedScalaProductShape</code></a>.</p>
+<h3><a href="#polymorphic-types-e-g-custom-tuple-types-or-hlists-" name="polymorphic-types-e-g-custom-tuple-types-or-hlists-" class="anchor"><span class="anchor-link"></span></a>Polymorphic Types (e.g. Custom Tuple Types or HLists)</h3>
+<p>The distinguishing feature of a <em>polymorphic</em> record type is that it abstracts over its element types, so you can use the same record type for both, lifted and plain element types. You can add support for custom polymorphic record types using an appropriate implicit <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/Shape.html" title="slick.lifted.Shape"><code>Shape</code></a>.</p>
+<p>Here is an example for a type <code>Pair</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L576-L589" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// A custom record class
+case class Pair[A, B](a: A, b: B)
+
+// A Shape implementation for Pair
+final class PairShape[Level &lt;: ShapeLevel, M &lt;: Pair[_, _], U &lt;: Pair[_, _] : ClassTag, P &lt;: Pair[_, _]](
+                                                                                                          val shapes: Seq[Shape[_ &lt;: ShapeLevel, _, _, _]])
+  extends MappedScalaProductShape[Level, Pair[_, _], M, U, P] {
+  def buildValue(elems: IndexedSeq[Any]): Any = Pair(elems(0), elems(1))
+  def copy(shapes: Seq[Shape[_ &lt;: ShapeLevel, _, _, _]]): Shape[Level, _, _, _] = new PairShape(shapes)
+}
+
+implicit def pairShape[Level &lt;: ShapeLevel, M1, M2, U1, U2, P1, P2](
+                                                                     implicit s1: Shape[_ &lt;: Level, M1, U1, P1], s2: Shape[_ &lt;: Level, M2, U2, P2]
+                                                                   ): PairShape[Level, Pair[M1, M2], Pair[U1, U2], Pair[P1, P2]] = new PairShape[Level, Pair[M1, M2], Pair[U1, U2], Pair[P1, P2]](Seq(s1, s2))</code></pre>
+<p>The implicit method <code>pairShape</code> in this example provides a Shape for a <code>Pair</code> of two element types whenever Shapes for the individual element types are available.</p>
+<p>With these definitions in place, we can use the <code>Pair</code> record type in every location in Slick where a tuple or <code>HList</code> would be acceptable:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L593-L614" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Use it in a table definition
+class A(tag: Tag) extends Table[Pair[Int, String]](tag, &quot;shape_a&quot;) {
+  def id = column[Int](&quot;id&quot;, O.PrimaryKey)
+  def s = column[String](&quot;s&quot;)
+  def * = Pair(id, s)
+}
+val as = TableQuery[A]
+
+// Insert data with the custom shape
+val insertAction = DBIO.seq(
+  as += Pair(1, &quot;a&quot;),
+  as += Pair(2, &quot;c&quot;),
+  as += Pair(3, &quot;b&quot;)
+)
+
+// Use it for returning data from a query
+val q2 = as
+  .map { case a =&gt; Pair(a.id, (a.s ++ a.s)) }
+  .filter { case Pair(id, _) =&gt; id =!= 1 }
+  .sortBy { case Pair(_, ss) =&gt; ss }
+  .map { case Pair(id, ss) =&gt; Pair(id, Pair(42, ss)) }
+// returns: Vector(Pair(3,Pair(42,&quot;bb&quot;)), Pair(2,Pair(42,&quot;cc&quot;)))</code></pre>
+<h3><a href="#monomorphic-case-classes" name="monomorphic-case-classes" class="anchor"><span class="anchor-link"></span></a>Monomorphic Case Classes</h3>
+<p>Custom <em>case classes</em> are frequently used as monomorphic record types (i.e. record types where the element types are fixed). In order to use them in Slick, you need to define the case class for a record of plain values (as usual) plus an additional case class for a matching record of lifted values.</p>
+<p>In order to provide a <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/Shape.html" title="slick.lifted.Shape"><code>Shape</code></a> for a custom case class, you can use <a href="https://scala-slick.org/doc/3.5.0-M5/api/slick/lifted/CaseClassShape.html" title="slick.lifted.CaseClassShape"><code>CaseClassShape</code></a>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L620-L649" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// two custom case class variants
+case class LiftedB(a: Rep[Int], b: Rep[String])
+object LiftedB {
+  def tupled = (LiftedB.apply _).tupled
+}
+case class B(a: Int, b: String)
+
+// custom case class mapping
+implicit object BShape
+  extends CaseClassShape[Product, (Rep[Int], Rep[String]), LiftedB, (Int, String), B]((LiftedB.apply _).tupled, (B.apply _).tupled)
+
+class BRow(tag: Tag) extends Table[B](tag, &quot;shape_b&quot;) {
+  def id = column[Int](&quot;id&quot;, O.PrimaryKey)
+  def s = column[String](&quot;s&quot;)
+  def * = LiftedB(id, s)
+}
+val bs = TableQuery[BRow]
+
+val insertActions = DBIO.seq(
+  bs += B(1, &quot;a&quot;),
+  bs.map(b =&gt; (b.id, b.s)) += ((2, &quot;c&quot;)),
+  bs += B(3, &quot;b&quot;)
+)
+
+val q3 = bs
+  .map { case b =&gt; LiftedB(b.id, (b.s ++ b.s)) }
+  .filter { case LiftedB(id, _) =&gt; id =!= 1 }
+  .sortBy { case LiftedB(_, ss) =&gt; ss }
+
+// returns: Vector(B(3,&quot;bb&quot;), B(2,&quot;cc&quot;))</code></pre>
+<p>Note that this mechanism can be used as an alternative to client-side mappings with the <code>&lt;&gt;</code> operator. It requires a bit more boilerplate but allows you to use the same field names in both, plain and lifted records.</p>
+<h3><a href="#combining-mapped-types" name="combining-mapped-types" class="anchor"><span class="anchor-link"></span></a>Combining Mapped Types</h3>
+<p>In the following example we are combining a mapped case class and the mapped <code>Pair</code> type in another mapped case class.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/code/LiftedEmbedding.scala#L654-L689" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Combining multiple mapped types
+case class LiftedC(p: Pair[Rep[Int], Rep[String]], b: LiftedB)
+object LiftedC {
+  def tupled = (LiftedC.apply _).tupled
+}
+case class C(p: Pair[Int, String], b: B)
+object C {
+  def tupled = (C.apply _).tupled
+}
+
+implicit object CShape
+  extends CaseClassShape[Product, (Pair[Rep[Int], Rep[String]], LiftedB), LiftedC, (Pair[Int, String], B), C]((LiftedC.apply _).tupled, (C.apply _).tupled)
+
+class CRow(tag: Tag) extends Table[C](tag, &quot;shape_c&quot;) {
+  def id = column[Int](&quot;id&quot;)
+  def s = column[String](&quot;s&quot;)
+  def projection = LiftedC(
+    Pair(column(&quot;p1&quot;), column(&quot;p2&quot;)), // (cols defined inline, type inferred)
+    LiftedB(id, s)
+  )
+  def * = projection
+}
+val cs = TableQuery[CRow]
+
+val insertActions2 = DBIO.seq(
+  cs += C(Pair(7, &quot;x&quot;), B(1, &quot;a&quot;)),
+  cs += C(Pair(8, &quot;y&quot;), B(2, &quot;c&quot;)),
+  cs += C(Pair(9, &quot;z&quot;), B(3, &quot;b&quot;))
+)
+
+val q4 = cs
+  .map { case c =&gt; LiftedC(c.projection.p, LiftedB(c.id, (c.s ++ c.s))) }
+  .filter { case LiftedC(_, LiftedB(id, _)) =&gt; id =!= 1 }
+  .sortBy { case LiftedC(Pair(_, p2), LiftedB(_, ss)) =&gt; ss ++ p2 }
+
+// returns: Vector(C(Pair(9,&quot;z&quot;),B(3,&quot;bb&quot;)), C(Pair(8,&quot;y&quot;),B(2,&quot;cc&quot;)))</code></pre>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/v3.5.0-M5/doc/paradox/userdefined.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="sql.html">Plain SQL Queries</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="userdefined.html#user-defined-features" class="header">User-Defined Features</a>
+  <ul>
+    <li><a href="userdefined.html#scalar-database-functions" class="header">Scalar Database Functions</a></li>
+    <li><a href="userdefined.html#other-database-functions-and-stored-procedures" class="header">Other Database Functions And Stored Procedures</a></li>
+    <li><a href="userdefined.html#using-custom-scalar-types-in-queries" class="header">Using Custom Scalar Types in Queries</a></li>
+    <li><a href="userdefined.html#using-custom-record-types-in-queries" class="header">Using Custom Record Types in Queries</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2023</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.5.0-M5', '')});</script>
+
+
+</html>
