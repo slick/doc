@@ -9,8 +9,8 @@ mergifyExtraConditions := Seq(
 
 libraryDependencies ++= List(
   "com.github.sbt" % "junit-interface" % "0.13.3" % Test,
-  "ch.qos.logback" % "logback-classic" % "1.4.14" % Test,
-  "org.postgresql" % "postgresql" % "42.7.1" % Test,
+  "ch.qos.logback" % "logback-classic" % "1.5.0" % Test,
+  "org.postgresql" % "postgresql" % "42.7.2" % Test,
 )
 
 scalacOptions += "-deprecation"
