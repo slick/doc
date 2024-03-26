@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Introduction · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='Scala Slick documentation'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.6.0-pre.2.5ddbf75b
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="active page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.6.0-pre.2.5ddbf75b
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="active page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li>Introduction</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#introduction" name="introduction" class="anchor"><span class="anchor-link"></span></a>Introduction</h1>
+<h2><a href="#what-is-slick-" name="what-is-slick-" class="anchor"><span class="anchor-link"></span></a>What is Slick?</h2>
+<p>Slick (&ldquo;Scala Language-Integrated Connection Kit&rdquo;) is <a href="https://www.lightbend.com/">Lightbend</a>&rsquo;s Functional Relational Mapping (FRM) library for Scala that makes it easy to work with relational databases. It allows you to work with stored data almost as if you were using Scala collections while at the same time giving you full control over when database access happens and which data is transferred. You can also use SQL directly. Execution of database actions is done asynchronously, making Slick a perfect fit for your reactive applications based on <a href="https://www.playframework.com/">Play</a> and <a href="https://akka.io/">Akka</a>.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L49-L54" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
+
+// Your query could look like this:
+( for( c &lt;- coffees; if c.price &lt; limit ) yield c.name ).result
+
+// Equivalent SQL: select COF_NAME from COFFEES where PRICE &lt; 10.0</code></pre>
+<p>When using Scala instead of raw SQL for your queries you benefit from compile-time safety and compositionality. Slick can generate queries for different back-end databases including your own, using its extensible query compiler.</p>
+<p>See <a href="supported-databases.html">here</a> for an overview of the supported database systems for which Slick can generate code.</p>
+<h2><a href="#functional-relational-mapping" name="functional-relational-mapping" class="anchor"><span class="anchor-link"></span></a>Functional Relational Mapping</h2>
+<p>Functional programmers have long suffered Object-Relational and Object-Math impedance mismatches when connecting to relational databases. Slick&rsquo;s new Functional Relational Mapping (FRM) paradigm allows mapping to be completed within Scala, with loose-coupling, minimal configuration requirements, and a number of other major advantages that abstract the complexities away from connecting with relational databases.</p>
+<p>We don&rsquo;t try to fight the relational model, we embrace it through a functional paradigm. Instead of trying to bridge the gap between the object model and the database model, we&rsquo;ve brought the database model into Scala so developers don&rsquo;t need to write SQL code.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L22-L27" target="_blank" title="Go to snippet source">source</a><code class="language-scala">class Coffees(tag: Tag) extends Table[(String, Double)](tag, &quot;COFFEES&quot;) {
+  def name = column[String](&quot;COF_NAME&quot;, O.PrimaryKey)
+  def price = column[Double](&quot;PRICE&quot;)
+  def * = (name, price)
+}
+val coffees = TableQuery[Coffees]</code></pre>
+<p>Slick integrates databases directly into Scala, allowing stored and remote data to be queried and processed in the same way as in-memory data, using ordinary Scala classes and collections.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L70-L76" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Query that only returns the &quot;name&quot; column
+// Equivalent SQL: select NAME from COFFEES
+coffees.map(_.name)
+
+// Query that limits results by price &lt; 10.0
+// Equivalent SQL: select * from COFFEES where PRICE &lt; 10.0
+coffees.filter(_.price &lt; 10.0)</code></pre>
+<p>This enables full control over when a database is accessed and which data is transferred. The language integrated query model in Slick&rsquo;s FRM is inspired by the LINQ project at Microsoft and leverages concepts tracing all the way back to the early work of Mnesia at Ericsson.</p>
+<p>Some of the key benefits of Slick&rsquo;s FRM approach for functional programming include:</p>
+<ul>
+  <li>
+    <p>Efficiency with Pre-Optimization</p>
+    <p>FRM is a more efficient way to connect; unlike ORM it has the ability to pre-optimize its  communication with the database - and with FRM you get this out of the box. The road to making an  app faster is much shorter with FRM than ORM.</p>
+  </li>
+  <li>
+    <p>No More Tedious Troubleshooting with Type Safety<br/></p>
+    <p>FRM brings type safety to building database queries. Developers are more productive because the compiler finds errors automatically versus the typical tedious troubleshooting required of finding errors in untyped strings.</p>
+    <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L83-L94" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// The result of &quot;select PRICE from COFFEES&quot; is a Seq of Double
+// because of the type safe column definitions
+val coffeeNames: Future[Seq[Double]] = db.run(
+  coffees.map(_.price).result
+)
+
+// Query builders are type safe:
+coffees.filter(_.price &lt; 10.0)
+// Using a string in the filter would result in a compilation error</code></pre>
+    <p>Misspelled the column name <code>price</code>? The compiler will tell you:</p>
+    <pre class="prettyprint"><code class="nocode">GettingStartedOverview.scala:89: value prices is not a member of com.typesafe.slick.docs.GettingStartedOverview.Coffees
+      coffees.map(_.prices).result
+                    ^
+</code></pre>
+    <p>The same goes for type errors:</p>
+    <pre class="prettyprint"><code class="nocode">GettingStartedOverview.scala:89: type mismatch;
+ found   : slick.jdbc.H2Profile.StreamingProfileAction[Seq[String],String,slick.dbio.Effect.Read]
+    (which expands to)  slick.sql.FixedSqlStreamingAction[Seq[String],String,slick.dbio.Effect.Read]
+ required: slick.dbio.DBIOAction[Seq[Double],slick.dbio.NoStream,Nothing]
+        coffees.map(_.name).result
+                            ^
+</code></pre>
+  </li>
+  <li>
+    <p>A More Productive, Composable Model for Building Queries</p>
+    <p>FRM supports a composable model for building queries. It&rsquo;s a very natural model to compose pieces together to build a query, and then reuse pieces across your code base.</p>
+    <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L102-L105" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Create a query for coffee names with a price less than 10, sorted by name
+coffees.filter(_.price &lt; 10.0).sortBy(_.name).map(_.name)
+// The generated SQL is equivalent to:
+// select name from COFFEES where PRICE &lt; 10.0 order by NAME</code></pre>
+  </li>
+</ul>
+<h2><a href="#reactive-applications" name="reactive-applications" class="anchor"><span class="anchor-link"></span></a>Reactive Applications</h2>
+<p>Slick is easy to use in asynchronous, non-blocking application designs, and supports building applications according to the <a href="https://www.reactivemanifesto.org/">Reactive Manifesto</a>. Unlike simple wrappers around traditional, blocking database APIs, Slick gives you:</p>
+<ul>
+  <li>
+  <p>Clean separation of I/O and CPU-intensive code: Isolating I/O allows you to keep your main  thread pool busy with CPU-intensive parts of the application while waiting for I/O in the  background.</p></li>
+  <li>
+  <p>Resilience under load: When a database cannot keep up with the load of your application,  Slick will not create more and more threads (thus making the situation worse) or lock out all  kinds of I/O. Back-pressure is controlled efficiently through a queue (of configurable size)  for database I/O actions, allowing a certain number of requests to build up with very little  resource usage and failing immediately once this limit has been reached.</p></li>
+  <li>
+  <p><a href="https://www.reactive-streams.org/">Reactive Streams</a> for asynchronous streaming.</p></li>
+  <li>
+  <p>Efficient utilization of database resources: Slick can be tuned easily and precisely for the  parallelism (number of concurrent active jobs) and resource usage (number of currently  suspended database sessions) of your database server.</p></li>
+</ul>
+<h2><a href="#plain-sql-support" name="plain-sql-support" class="anchor"><span class="anchor-link"></span></a>Plain SQL Support</h2>
+<p>The Scala-based query API for Slick allows you to write database queries like queries for Scala collections. Please see <a href="gettingstarted.html">Getting Started</a> for an introduction. Most of this user manual focuses on this API.</p>
+<p>If you want to write your own SQL statements and still execute them asynchronously like normal Slick queries, you can use the <a href="sql.html">Plain SQL</a> API:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L58-L63" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
+
+sql&quot;select COF_NAME from COFFEES where PRICE &lt; $limit&quot;.as[String]
+
+// Automatically using a bind variable to be safe from SQL injection:
+// select COF_NAME from COFFEES where PRICE &lt; ?</code></pre>
+<h2><a href="#license" name="license" class="anchor"><span class="anchor-link"></span></a>License</h2>
+<p>Slick is released under a BSD-Style free and open source software <a href="https://github.com/slick/slick/tree/master/LICENSE.txt">license</a>.</p>
+<h2><a href="#next-steps" name="next-steps" class="anchor"><span class="anchor-link"></span></a>Next Steps</h2>
+<ul>
+  <li>If you are new to Slick, continue to <a href="gettingstarted.html">Getting Started</a></li>
+  <li>If you have used an older version of Slick, make sure to read the <a href="upgrade.html">Upgrade Guides</a></li>
+  <li>If you have used an ORM before, see <a href="orm-to-slick.html">Coming from ORM to Slick</a></li>
+  <li>If you are familiar with SQL, see <a href="sql-to-slick.html">Coming from SQL to Slick</a></li>
+</ul>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/introduction.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="supported-databases.html">Supported Databases</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html#introduction" class="header">Introduction</a>
+  <ul>
+    <li><a href="introduction.html#what-is-slick-" class="header">What is Slick?</a></li>
+    <li><a href="introduction.html#functional-relational-mapping" class="header">Functional Relational Mapping</a></li>
+    <li><a href="introduction.html#reactive-applications" class="header">Reactive Applications</a></li>
+    <li><a href="introduction.html#plain-sql-support" class="header">Plain SQL Support</a></li>
+    <li><a href="introduction.html#license" class="header">License</a></li>
+    <li><a href="introduction.html#next-steps" class="header">Next Steps</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2024</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.2.5ddbf75b', '')});</script>
+
+
+</html>

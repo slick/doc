@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Configuration · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='Scala Slick documentation'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.6.0-pre.2.5ddbf75b
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="active page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.6.0-pre.2.5ddbf75b
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="active page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li>Configuration</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#configuration" name="configuration" class="anchor"><span class="anchor-link"></span></a>Configuration</h1>
+<p>In addition to configuring your <a href="database.html">database connections</a> in <code>application.conf</code> you can also set some global options in this file or through system properties (see the <a href="https://github.com/lightbend/config">Typesafe Config</a> documentation for details). These are the available options and their default values as defined in Slick&rsquo;s own <code>reference.conf</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/slick/src/main/resources/reference.conf" target="_blank" title="Go to snippet source">source</a><code class="language-conf"># These settings are read by slick.util.SlickConfig
+slick {
+  # Use ANSI color sequences in tree dumps (as used in log messages and
+  # exceptions of type SlickTreeException).
+  ansiDump = false
+
+  # Use Unicode box characters in tree and table dumps (as used in log
+  # messages). If this option is not enabled, ASCII approximations are used
+  # instead.
+  unicodeDump = false
+
+  # Dump individual &quot;Select&quot; and &quot;Ref&quot; nodes instead of combining them into a
+  # single &quot;Path&quot; element when creating a tree dump (as used in log messages
+  # and exceptions of type SlickTreeException).
+  dumpPaths = false
+
+  # Use multi-line, indented formatting for SQL statements. If not enabled,
+  # statements are generated without any linebreaks or indentation. This
+  # option applies to all generated statements (but not to the Plain SQL API).
+  sqlIndent = false
+
+  # Verify types after each query compiler phase. This is useful for debugging
+  # the query compiler but should generally not be enabled in production
+  # environments because it makes query compilation considerably slower.
+  verifyTypes = false
+
+  # Detect unnecessary rebuilding of the AST after every query compiler phase.
+  # This is useful for debugging the query compiler. Query compilation
+  # performance is negatively affected by this if phase logging is enabled.
+  detectRebuild = false
+}
+
+# Profile-specific settings for MySQLProfile
+slick.jdbc.MySQLProfile {
+  # The default SQL type for strings without an explicit size limit.
+  # When set to null / undefined, pick &quot;TEXT&quot; where possible, otherwise fall back
+  # to &quot;VARCHAR(254)&quot;
+  defaultStringType = null
+}
+
+# Profile-specific settings for SQLServerProfile
+slick.jdbc.SQLServerProfile {
+  # The default SQL type for strings without an explicit size limit.
+  # When set to null / undefined, pick &quot;TEXT&quot; where possible, otherwise fall back to &quot;VARCHAR(254)&quot;
+  defaultStringType = null
+}</code></pre>
+<h2><a href="#logging" name="logging" class="anchor"><span class="anchor-link"></span></a>Logging</h2>
+<p>Slick uses <a href="https://www.slf4j.org/">SLF4J</a> for logging. How to configure loggers and appenders depends on the actual logging framework that you use in your application. The following <a href="https://logback.qos.ch/">Logback</a> configuration is used internally for testing and debugging of Slick. It contains a list of all loggers that are used by Slick for debug output:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/master/common-test-resources/logback.xml" target="_blank" title="Go to snippet source">source</a><code class="language-xml">&lt;configuration&gt;
+    &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;encoder&gt;
+            &lt;pattern&gt;*** \(%logger{30}\)%green(%X{debugId}) %msg%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+    &lt;root level=&quot;${log.root:-info}&quot;&gt;
+        &lt;appender-ref ref=&quot;STDOUT&quot; /&gt;
+    &lt;/root&gt;
+    &lt;logger name=&quot;slick.basic.BasicBackend.action&quot;          level=&quot;${log.action:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.basic.BasicBackend.stream&quot;          level=&quot;${log.stream:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler&quot;                           level=&quot;${log.qcomp:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.QueryCompiler&quot;             level=&quot;${log.qcomp.phases:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.QueryCompilerBenchmark&quot;    level=&quot;${log.qcomp.bench:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.Inline&quot;                    level=&quot;${log.qcomp.inline:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.AssignUniqueSymbols&quot;       level=&quot;${log.qcomp.assignUniqueSymbols:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.InferTypes&quot;                level=&quot;${log.qcomp.inferTypes:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.ExpandTables&quot;              level=&quot;${log.qcomp.expandTables:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.EmulateOuterJoins&quot;         level=&quot;${log.qcomp.emulateOuterJoins:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.ForceOuterBinds&quot;           level=&quot;${log.qcomp.forceOuterBinds:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.RemoveMappedTypes&quot;         level=&quot;${log.qcomp.removeMappedTypes:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.CreateResultSetMapping&quot;    level=&quot;${log.qcomp.createResultSetMapping:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.ExpandSums&quot;                level=&quot;${log.qcomp.expandSums:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.ExpandRecords&quot;             level=&quot;${log.qcomp.expandRecords:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.ExpandConditionals&quot;        level=&quot;${log.qcomp.expandConditionals:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.FlattenProjections&quot;        level=&quot;${log.qcomp.flattenProjections:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.CreateAggregates&quot;          level=&quot;${log.qcomp.createAggregates:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.RewriteJoins&quot;              level=&quot;${log.qcomp.rewriteJoins:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.RemoveTakeDrop&quot;            level=&quot;${log.qcomp.removeTakeDrop:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.ResolveZipJoins&quot;           level=&quot;${log.qcomp.resolveZipJoins:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.HoistClientOps&quot;            level=&quot;${log.qcomp.hoistClientOps:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.ReorderOperations&quot;         level=&quot;${log.qcomp.reorderOperations:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.MergeToComprehensions&quot;     level=&quot;${log.qcomp.mergeToComprehensions:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.OptimizeScalar&quot;            level=&quot;${log.qcomp.optimizeScalar:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.FixRowNumberOrdering&quot;      level=&quot;${log.qcomp.fixRowNumberOrdering:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.PruneProjections&quot;          level=&quot;${log.qcomp.pruneProjections:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.RewriteDistinct&quot;           level=&quot;${log.qcomp.rewriteDistinct:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.RewriteBooleans&quot;           level=&quot;${log.qcomp.rewriteBooleans:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.SpecializeParameters&quot;      level=&quot;${log.qcomp.specializeParameters:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.CodeGen&quot;                   level=&quot;${log.qcomp.codeGen:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.RemoveFieldNames&quot;          level=&quot;${log.qcomp.removeFieldNames:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.InsertCompiler&quot;            level=&quot;${log.qcomp.insertCompiler:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.compiler.VerifyTypes&quot;               level=&quot;${log.qcomp.verifyTypes:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.jdbc.DriverDataSource&quot;              level=&quot;${log.jdbc.driver:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.jdbc.JdbcBackend.statement&quot;         level=&quot;${log.jdbc.statement:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.jdbc.JdbcBackend.parameter&quot;         level=&quot;${log.jdbc.parameter:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.jdbc.JdbcBackend.benchmark&quot;         level=&quot;${log.jdbc.bench:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.jdbc.StatementInvoker.result&quot;       level=&quot;${log.jdbc.result:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.jdbc.JdbcModelBuilder&quot;              level=&quot;${log.createModel:-info}&quot; /&gt;
+    &lt;logger name=&quot;slick.memory.HeapBackend&quot;                 level=&quot;${log.heap:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.memory.QueryInterpreter&quot;            level=&quot;${log.interpreter:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.relational.ResultConverterCompiler&quot; level=&quot;${log.resultConverter:-inherited}&quot; /&gt;
+    &lt;logger name=&quot;slick.util.AsyncExecutor&quot;                 level=&quot;${log.asyncExecutor:-inherited}&quot; /&gt;
+&lt;/configuration&gt;</code></pre><div class="callout note "><div class="callout-title">Note</div>
+<p>Messages on WARNING and ERROR levels may also be emitted by loggers that are not explicitly mentioned in this configuration.</p></div>
+<p>You should generally enable logging for the root package <code>slick</code> at level <code>INFO</code> (currently unused) or <code>WARNING</code>. Debug logging should only be enabled selectively for individual loggers, otherwise you will get a huge amount of log output.</p>
+<p>The following loggers are particularly interesting:</p>
+<ul>
+  <li>
+  <p><code>slick.basic.BasicBackend.action</code>:  Shows the execution of every <a href="dbio.html">Database I/O Action</a>.</p></li>
+  <li>
+  <p><code>slick.compiler.QueryCompiler</code>:  Shows a dump of the AST after every phase of the query compiler when compiling a query.</p></li>
+  <li>
+  <p><code>slick.jdbc.DriverDataSource</code>:  Shows information about <a href="https://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> drivers being loaded by <a href="https://scala-slick.org/doc/3.6.0-SNAPSHOT/api/slick/jdbc/DriverDataSource.html" title="slick.jdbc.DriverDataSource"><code>DriverDataSource</code></a>. Does not  apply when using a connection pool unless you explicitly use a DriverDataSource as the source for the connection  pool.</p></li>
+  <li>
+  <p><code>slick.jdbc.JdbcBackend.statement</code>:  Shows all SQL statements which are executed.</p></li>
+  <li>
+  <p><code>slick.jdbc.JdbcBackend.parameter</code>:  Shows bind variable contents (for supported types) of all SQL statements which are executed.</p></li>
+  <li>
+  <p><code>slick.jdbc.JdbcBackend.benchmark</code>:  Shows execution times for SQL statements.</p></li>
+  <li>
+  <p><code>slick.jdbc.StatementInvoker.result</code>:  Shows the first rows of the result set when a query is executed. Does not apply to streaming results.</p></li>
+</ul>
+<h2><a href="#monitoring" name="monitoring" class="anchor"><span class="anchor-link"></span></a>Monitoring</h2>
+<p>When a <a href="database.html">Database</a> object has the <code>registerMbeans</code> option enabled (see <a href="https://scala-slick.org/doc/3.6.0-SNAPSHOT/api/slick/jdbc/JdbcBackend$DatabaseFactoryDef.html#forConfig(String,Config,Driver,ClassLoader):Database" title="slick.jdbc.JdbcBackend$DatabaseFactoryDef"><code>Database.forConfig</code></a>, Slick registers a <a href="https://en.wikipedia.org/wiki/Java_Management_Extensions">JMX</a> management bean of type <a href="https://scala-slick.org/doc/3.6.0-SNAPSHOT/api/slick/util/AsyncExecutorMXBean.html" title="slick.util.AsyncExecutorMXBean"><code>AsyncExecutorMXBean</code></a> that provides information about the current workload of the database I/O thread pool and the task queue.</p>
+<p>Connection pool implementations may also honor this option and register additional management beans. In particular, the default <a href="https://github.com/brettwooldridge/HikariCP">HikariCP</a> pool implementation does this. See [HikariCP Monitoring] in the HikariCP documentation for details.</p>
+<p>The management bean names are qualified with the <code>poolName</code> from the database configuration, or the config path if the <code>poolName</code> has not been set explicitly.</p>
+<p>Example: Including the following configuration options in the database configuration</p>
+<pre class="prettyprint"><code class="language-yaml">connectionPool = &quot;HikariCP&quot;
+registerMbeans = true
+poolName = &quot;myDb&quot;
+</code></pre>
+<p>results in these three management beans being registered:</p>
+<ul>
+  <li><code>slick:type=AsyncExecutor,name=myDb</code></li>
+  <li><code>com.zaxxer.hikari:type=PoolConfig (myDb)</code></li>
+  <li><code>com.zaxxer.hikari:type=Pool (myDb)</code></li>
+</ul>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/config.md">here</a>.
+</div>
+
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="config.html#configuration" class="header">Configuration</a>
+  <ul>
+    <li><a href="config.html#logging" class="header">Logging</a></li>
+    <li><a href="config.html#monitoring" class="header">Monitoring</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2024</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.2.5ddbf75b', '')});</script>
+
+
+</html>

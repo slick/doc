@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Coming from ORM to Slick · Slick</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='Scala Slick documentation'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.6.0-pre.2.5ddbf75b
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="active page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+3.6.0-pre.2.5ddbf75b
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="database.html" class="page">Database Configuration</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="orm-to-slick.html" class="active page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick</a></li>
+  <li>Coming from ORM to Slick</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#coming-from-orm-to-slick" name="coming-from-orm-to-slick" class="anchor"><span class="anchor-link"></span></a>Coming from ORM to Slick</h1>
+<h2><a href="#introduction" name="introduction" class="anchor"><span class="anchor-link"></span></a>Introduction</h2>
+<p>Slick is not an object-relational mapper (ORM) like Hibernate or other <a href="https://en.wikipedia.org/wiki/Java_Persistence_API">JPA</a>-based products. Slick is a data persistence solution like ORMs and naturally shares some concepts, but it also has significant differences. This chapter explains the differences in order to help you get the best out of Slick and avoid confusion for those familiar with ORMs. We explain how Slick manages to avoid many of the problems often referred to as the object-relational impedance mismatch.</p>
+<p>A good term to describe Slick is functional-relational mapper. Slick allows working with relational data much like with immutable collections and focuses on flexible query composition and strongly controlled side-effects. ORMs usually expose mutable object-graphs, use side-effects like read- and write-caches and hard-code support for anticipated use-cases like inheritance or relationships via association tables. Slick focuses on getting the best out of accessing a relational data store. ORMs focus on persisting an object-graph.</p>
+<p>ORMs are a natural approach when using databases from object-oriented languages. They try to allow working with persisted object-graphs partly as if they were completely in memory. Objects can be modified, associations can be changed and the object graph can be traversed. In practice this is not exactly easy to achieve due to the so called object-relational impedance mismatch. It makes ORMs hard to implement and often complicated to use for more than simple cases and if performance matters. Slick in contrast does not expose an object-graph. It is inspired by SQL and the relational model and mostly just maps their concepts to the most closely corresponding, type-safe Scala features. Database queries are expressed using a restricted, immutable, purely-functional subset of Scala much like collections. Slick also offers <a href="sql.html">first-class SQL support</a> as an alternative.</p>
+<p>In practice, ORMs often suffer from conceptual problems of what they try to achieve, from mere problems of the implementations and from mis-use, because of their complexity. In the following we look at many features of ORMs and what you would use with Slick instead. We&rsquo;ll first look at how to work with the object graph. We then look at a series of particular features and use cases and how to handle them with Slick.</p>
+<h2><a href="#configuration" name="configuration" class="anchor"><span class="anchor-link"></span></a>Configuration</h2>
+<p>Some ORMs use extensive configuration files. Slick is configured using small amounts of Scala code. You have to provide information about how to <a href="database.html">connect to the database</a> and write or auto-generate a <a href="schemas.html">database schema</a> description if you want Slick to type-check your queries. Everything else like <a href="#relationships">relationship definitions</a> beyond foreign keys are ordinary Scala code, which can use familiar abstraction methods for re-use.</p>
+<h2><a href="#mapping-configuration" name="mapping-configuration" class="anchor"><span class="anchor-link"></span></a>Mapping configuration</h2>
+<p>The later examples use the following database schema</p>
+<p><img src="from-sql-to-slick.person-address.png" /></p>
+<p>mapped to Slick using the following code:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/SqlToSlick.scala#L12-L30" target="_blank" title="Go to snippet source">source</a><code class="language-scala">type Person = (Int,String,Int,Int)
+class People(tag: Tag) extends Table[Person](tag, &quot;PERSON&quot;) {
+  def id = column[Int](&quot;ID&quot;, O.PrimaryKey, O.AutoInc)
+  def name = column[String](&quot;NAME&quot;)
+  def age = column[Int](&quot;AGE&quot;)
+  def addressId = column[Int](&quot;ADDRESS_ID&quot;)
+  def * = (id,name,age,addressId)
+  def address = foreignKey(&quot;ADDRESS&quot;,addressId,addresses)(_.id)
+}
+lazy val people = TableQuery[People]
+
+type Address = (Int,String,String)
+class Addresses(tag: Tag) extends Table[Address](tag, &quot;ADDRESS&quot;) {
+  def id = column[Int](&quot;ID&quot;, O.PrimaryKey, O.AutoInc)
+  def street = column[String](&quot;STREET&quot;)
+  def city = column[String](&quot;CITY&quot;)
+  def * = (id,street,city)
+}
+lazy val addresses = TableQuery[Addresses]</code></pre>
+<p>Tables can alternatively be mapped to case classes. Similar code can be <a href="code-generation.html">auto-generated</a> or <a href="schemas.html">hand-written</a>.</p>
+<p>In ORMs you often provide your mapping specification in a configuration file. In Slick you provide it as Scala types like above, which are used to type-check Slick queries. A difference is that the Slick mapping is conceptually very simple. It only describes database tables and optionally maps rows to case classes or something else using arbitrary factories and extractors. It does contain information about foreign keys, but nothing else about <a href="#relationships">relationships</a> or other patterns. These are mapped using re-usable queries fragments instead.</p>
+<h2><a href="#navigating-the-object-graph" name="navigating-the-object-graph" class="anchor"><span class="anchor-link"></span></a>Navigating the object graph</h2>
+<h3><a href="#using-plain-old-method-calls" name="using-plain-old-method-calls" class="anchor"><span class="anchor-link"></span></a>Using plain old method calls</h3>
+<p>This chapter could also be called strict vs. lazy or imperative vs. declarative. One common feature ORMs provide is using a persisted object graph just as if it was in-memory. And since it is not, artifacts like members or related objects are usually loaded ad-hoc only when they are needed. To make this happen, ORMs implement or intercept method calls, which look like they happen in-memory, but instead execute database queries as needed to return the desired results. Let&rsquo;s look at an example using a hypothetical ORM:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L59-L60" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val people: Seq[Person] = PeopleFinder.getByIds(Seq(2,99,17,234))
+val addresses: Seq[Address] = people.map(_.address)</code></pre>
+<p>How many database round trips does this require? In fact reasoning about this question for different code is one of the things you need to devote the most time to when learning the collections-like API of an ORM. What usually happens is, that the ORM would do an immediate database round trip for <code>getByIds</code> and return the resulting people. Then <code>map</code> would be a Scala List method and <code>.map(_.address)</code> accesses the <code>address</code> of each person. An ORM would witness the <code>address</code> accesses one-by-one not knowing upfront that they happen in a loop. This often leads to an additional database round trip for each person, which is not ideal (n+1 problem), because database round trips are expensive. To solve the problem, ORMs often provide means to work around this, by basically telling them about the future, so they can aggregate multiple upcoming round trips into fewer more efficient ones.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L64-L66" target="_blank" title="Go to snippet source">source</a><code class="language-scala">                          // tell the ORM to load all related addresses at once
+val people: Seq[Person] = PeopleFinder.getByIds(Seq(2,99,17,234)).prefetch(_.address)
+val addresses: Seq[Address] = people.map(_.address)</code></pre>
+<p>Here the prefetch method instructs the hypothetical ORM to load all addresses immediately with the people, often in only one or two database round trips. The addresses are then stored in a cache many ORMs maintain. The later <code>.map(_.address)</code> call could then be fully served from the cache. Of course this is redundant as you basically need to provide the mapping to addresses twice and if you forget to prefetch you will have poor performance. How you specify the pre-fetching rules depends on the ORM, often using external configuration or inline like here.</p>
+<p>Slick works differently. To do the same in Slick you would write the following. The type annotations are optional but shown here for clarity.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L72-L73" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val peopleQuery: Query[People,Person,Seq] = people.filter(_.id inSet(Set(2,99,17,234)))
+val addressesQuery: Query[Addresses,Address,Seq] = peopleQuery.flatMap(_.address)</code></pre>
+<p>As we can see it looks very much like collection operations but the values we get are of type <code>Query</code>. They do not store results, only a plan of the operations that are needed to create a SQL query that produces the results when needed. No database round trips happen at all in our example. To actually fetch results, we have to compile the query to a <a href="database.html">database Action</a> with <code>.result</code> and then <code>run</code> it on the Database.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L76-L77" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val addressesAction: DBIO[Seq[Address]] = addressesQuery.result
+val addresses: Future[Seq[Address]] = db.run(addressesAction)</code></pre>
+<p>A single query is executed and the results returned. This makes database round trips very explicit and easy to reason about. Achieving few database round trips is easy.</p>
+<p>As you can see with Slick we do not navigate the object graph (i.e. results) directly. We navigate it by composing queries instead, which are just place-holder values for potential database round trip yet to happen. We can lazily compose queries until they describe exactly what we need and then use a single <code>Database.run</code> call for execution.</p>
+<p>Navigating the object graph directly in an ORM is problematic as explained earlier. Slick gets away without that feature. ORMs often solve the problem by offering a declarative query language as an alternative, which is similar to how you work with Slick.</p>
+<h3><a href="#query-languages" name="query-languages" class="anchor"><span class="anchor-link"></span></a>Query languages</h3>
+<p>ORMs often come with declarative query languages like JPA&rsquo;s JQL or Criteria API. Similar to SQL or Slick, they allow expressing queries yet to happen and make execution explicit.</p>
+<h4><a href="#string-based-embeddings" name="string-based-embeddings" class="anchor"><span class="anchor-link"></span></a>String based embeddings</h4>
+<p>Quite commonly, these languages, for example HQL, but also SQL are embedded into programs as Strings. Here is an example for HQL.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L83-L85" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val hql: String = &quot;FROM Person p WHERE p.id in (:ids)&quot;
+val q: Query = session.createQuery(hql)
+q.setParameterList(&quot;ids&quot;, Array(2,99,17,234))</code></pre>
+<p>Strings are a very simple way to embed an arbitrary language and in many programming languages the only way without changing the compiler, for example in Java. While simple, this kind of embedding has significant limitations.</p>
+<p>One issue is that tools often have no knowledge about the embedded language and treat queries as ordinary Strings. The compilers or interpreters of the host languages do not detect syntactical mistakes upfront or if the query produces a different type of result than expected. Also IDEs often do not provide syntax highlighting, code completion, inline error hints, etc.</p>
+<p>More importantly, re-use is very hard. You would need to compose Strings in order to re-use certain parts of queries. As an exercise, try to make the id filtering part of our above HQL example re-useable, so we can use it for table person as well as address. It is really cumbersome.</p>
+<p>In Java and many other languages, strings are the only way to embed a concise query language. As we will see in the next sections, Scala is more flexible.</p>
+<h4><a href="#method-based-apis" name="method-based-apis" class="anchor"><span class="anchor-link"></span></a>Method based APIs</h4>
+<p>Instead of getting the ultimate flexibility for the embedded language, an alternative approach is to go with the extensibility features of the host language and use those. Object-oriented languages like Java and Scala allow extensibility through the definition of APIs consisting of objects and methods. JPA&rsquo;s Criteria API use this concept and so does Slick. This allows the host language tools to partially understand the embedded language and provide better support for the features mentioned earlier. Here is an example using Criteria Queries.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L89-L91" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val id = Property.forName(&quot;id&quot;)
+val q = session.createCriteria(classOf[Person])
+               .add( id in Array(2,99,17,234) )</code></pre>
+<p>A method based embedding makes queries compositional. Factoring out filtering by ids becomes easy:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L94-L99" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def byIds(c: Criteria, ids: Array[Int]) = c.add( id in ids )
+
+val c = byIds(
+  session.createCriteria(classOf[Person]),
+  Array(2,99,17,234)
+)      </code></pre>
+<p>Of course ids are a trivial example, but this becomes very useful for more complex queries.</p>
+<p>Java APIs like JPA&rsquo;s Criteria API do not use Scala&rsquo;s operator overloading capabilities. This can lead to more cumbersome and less familiar code when expressing queries. Let&rsquo;s query for all people younger 5 or older than 65 for example.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L103-L109" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val age = Property.forName(&quot;age&quot;)
+val q = session.createCriteria(classOf[Person])
+               .add(
+                 Restrictions.disjunction
+                   .add(age lt 5)
+                   .add(age gt 65)
+               )</code></pre>
+<p>With Scala&rsquo;s operator overloading we can do better and that&rsquo;s what Slick uses. Queries are very concise. The same query in Slick would look like this:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L113" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = people.filter(p =&gt; p.age &lt; 5 || p.age &gt; 65)</code></pre>
+<p>There are some limitations to Scala&rsquo;s overloading capabilities that affect Slick. In queries, one has to use <code>===</code> instead of <code>==</code>, <code>=!=</code> instead of <code>!=</code> and <code>++</code> for string concatenation instead of <code>+</code>. Also it is not possible to overload <code>if</code> expressions in Scala. Instead Slick comes with a small <a href="sql-to-slick.html#case">DSL for SQL case expressions</a>.</p>
+<p>As already mentioned, we are working with placeholder values, merely describing the query, not executing it. Here&rsquo;s the same expression again with added type annotations to allow us looking behind the scenes a bit:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L117-L123" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = (people: Query[People, Person, Seq]).filter(
+  (p: People) =&gt; 
+    (
+      ((p.age: Rep[Int]) &lt; 5 || p.age &gt; 65)
+      : Rep[Boolean]
+    )
+)</code></pre>
+<p><code>Query</code> marks collection-like query expressions, e.g. a whole table. <code>People</code> is the Slick Table subclass defined for table person. In this context it may be confusing that the value is used rather as a prototype for a row here. It has members of type <code>Rep</code> representing the individual columns. Expressions based on these columns result in other expressions of type <code>Rep</code>. Here we are using several <code>Rep[Int]</code> to compute a <code>Rep[Boolean]</code>, which we are using as the filter expression. Internally, Slick builds a tree from this, which represents the operations and is used to produce the corresponding SQL code. We often call this process of building up expression trees encapsulated in place-holder values as lifting expressions, which is why we also call this query interface the <em>lifted embedding</em> in Slick.</p>
+<p>It is important to note that Scala allows to be very type-safe here. E.g. Slick supports a method <code>.substring</code> for <code>Rep[String]</code> but not for <code>Rep[Int]</code>. This is impossible in Java and Java APIs like Criteria Queries, but possible in Scala using type-parameter based method extensions via implicits. This allows tools like the Scala compiler and IDEs to understand the code much more precisely and offer better checking and support.</p>
+<p>A nice property of a Slick-like query language is that it can be used with Scala&rsquo;s comprehension syntax, which is just Scala-builtin syntactic sugar for collections operations. The above example can alternatively be written as</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L127" target="_blank" title="Go to snippet source">source</a><code class="language-scala">for( p &lt;- people if p.age &lt; 5 || p.age &gt; 65 ) yield p</code></pre>
+<p>Scala&rsquo;s comprehension syntax looks much like SQL or ORM query languages. It however lacks syntactic support for some constructs like sorting and grouping, for which one has to use the method-based api, e.g.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L131" target="_blank" title="Go to snippet source">source</a><code class="language-scala">( for( p &lt;- people if p.age &lt; 5 || p.age &gt; 65 ) yield p ).sortBy(_.name)</code></pre>
+<p>Despite the syntactic limitations, the comprehension syntax is convenient when dealing with multiple inner joins.</p>
+<p>It is important to note that the problems of method-based query APIs like Criteria Queries described above are not a conceptual limitation of ORM query languages but merely an artifact of many ORMs being Java frameworks. In principle, Scala ORMs could offer a query language just like Slick&rsquo;s and they should. Comfortably compositional queries allow for a high degree of code re-use. They seem to be Slick&rsquo;s favorite feature for many developers.</p>
+<h4><a href="#macro-based-embeddings" name="macro-based-embeddings" class="anchor"><span class="anchor-link"></span></a>Macro-based embeddings</h4>
+<p>Scala macros allow other approaches for embedding queries. They can be used to check queries embedded as Strings at compile time. They can also be used to translate Scala code written without Query and Rep place holder types to SQL. Both approaches are being prototyped and evaluated for Slick but are not ready for prime-time yet. There are other database libraries out there that already use macros for their query language.</p>
+<h2><a href="#query-granularity" name="query-granularity" class="anchor"><span class="anchor-link"></span></a>Query granularity</h2>
+<p>With ORMs it is not uncommon to treat objects or complete rows as the smallest granularity when loading data. This is not necessarily a limitation of the frameworks, but a habit of using them. With Slick it is very much encouraged to only fetch the data you actually need. While you can map rows to classes with Slick, it is often more efficient to not use that feature, but to restrict your query to the data you actually need in that moment. If you only need a person&rsquo;s name and age, just map to those and return them as a tuple.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L135" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.name, p.age))</code></pre>
+<p>This allows you to be very precise about what data is actually transferred.</p>
+<h2><a href="#read-caching" name="read-caching" class="anchor"><span class="anchor-link"></span></a>Read caching</h2>
+<p>Slick doesn&rsquo;t cache query results. Working with Slick is like working with JDBC in this regard. Many ORMs come with read and write caches. Caches are side-effects. They can be hard to reason about. It can be tricky to manage cache consistency and lifetime.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L139" target="_blank" title="Go to snippet source">source</a><code class="language-scala">PeopleFinder.getById(5)</code></pre>
+<p>This call may be served from the database or from a cache. It is not clear at the call site what the performance is. With Slick it is very clear that executing a query leads to a database round trip and that Slick doesn&rsquo;t interfere with member accesses on objects.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L144" target="_blank" title="Go to snippet source">source</a><code class="language-scala">db.run(people.filter(_.id === 5).result)</code></pre>
+<p>Slick returns a consistent, immutable snapshot of a fraction of the database at that point in time. If you need consistency over multiple queries, use transactions.</p>
+<h2><a href="#writes-and-caching-" name="writes-and-caching-" class="anchor"><span class="anchor-link"></span></a>Writes (and caching)</h2>
+<p>Writes in many ORMs require write caching to be performant.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L149-L159" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val person = PeopleFinder.getById(5)
+person.name = &quot;C. Vogt&quot;
+person.age = 12345
+session.save</code></pre>
+<p>Here our hypothetical ORM records changes to the object and the <code>.save</code> method syncs back changes into the database in a single round trip rather than one per member. In Slick you would do the following instead:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L163-L164" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val personQuery = people.filter(_.id === 5)
+personQuery.map(p =&gt; (p.name,p.age)).update(&quot;C. Vogt&quot;, 12345)</code></pre>
+<p>Slick embraces declarative transformations. Rather than modifying individual members of objects one after the other, you state all modifications at once and Slick creates a single database round trip from it without using a cache. New Slick users seem to be often confused by this syntax, but it is actually very neat. Slick unifies the syntax for queries, inserts, updates and deletes. Here <code>personQuery</code> is just a query. We could use it to fetch data. But instead, we can also use it to update the columns specified by the query. Or we can use it do delete the rows.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L168" target="_blank" title="Go to snippet source">source</a><code class="language-scala">personQuery.delete // deletes person with id 5</code></pre>
+<p>For inserts, we insert into the query, that resembles the whole table and can select individual columns in the same way.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L172" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt; (p.name,p.age)) += (&quot;S. Zeiger&quot;, 54321)</code></pre>
+<h2><a href="#relationships" name="relationships" class="anchor"><span class="anchor-link"></span></a>Relationships</h2>
+<p>ORMs usually provide built-in, hard-coded support for 1-to-many and many-to-many relationships. They can be set up centrally in the configuration. In SQL on the other hand you would specify them using joins in every single query. You have a lot of flexibility what you join and how. With Slick you get the best of both worlds. Slick queries are as flexible as SQL, but also compositional. You can store fragments like join conditions in central places and use language-level abstraction. Relationships of any sort are just one thing you can naturally abstract over like in any Scala code. There is no need for Slick to hard-code support for certain use cases. You can easily implement arbitrary use cases yourself, e.g. the common 1-n or n-n relationships or even relationships spanning over multiple tables, relationships with additional discriminators, polymorphic relationships, etc.</p>
+<p>Here is an example for person and addresses.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L176-L190" target="_blank" title="Go to snippet source">source</a><code class="language-scala">implicit class PersonExtensions[C[_]](q: Query[People, Person, C]) {
+  // specify mapping of relationship to address
+  def withAddress = q.join(addresses).on(_.addressId === _.id)
+}
+
+val chrisQuery = people.filter(_.id === 2)
+val stefanQuery = people.filter(_.id === 3)
+
+val chrisWithAddress: Future[(Person, Address)] =
+  db.run(chrisQuery.withAddress.result.head)
+val stefanWithAddress: Future[(Person, Address)] =
+  db.run(stefanQuery.withAddress.result.head)</code></pre>
+<p>A common question for new Slick users is how they can follow a relationship on a result. In an ORM you could do something like this:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L197-L198" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val chris: Person = PeopleFinder.getById(2)
+val address: Address = chris.address</code></pre>
+<p>As explained earlier, Slick does not allow navigating the object-graph as if data was in memory, because of the problem that comes with it. Instead of navigating relationships on results you write new queries instead.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L211-L213" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val chrisQuery: Query[People,Person,Seq] = people.filter(_.id === 2)
+val addressQuery: Query[Addresses,Address,Seq] = chrisQuery.withAddress.map(_._2)
+val address = db.run(addressQuery.result.head)</code></pre>
+<p>If you leave out the optional type annotation and some intermediate vals it is very clean. And it is very clear where database round trips happen.</p>
+<p>A variant of this question Slick new comers often ask is how they can do something like this in Slick:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L204-L205" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Address( … )
+case class Person( …, address: Address )</code></pre>
+<p>The problem is that this hard-codes that a Person requires an Address. It cannot be loaded without it. This doesn&rsquo;t fit to Slick&rsquo;s philosophy of giving you fine-grained control over what you load exactly. With Slick it is advised to map one table to a tuple or case class without them having object references to related objects. Instead you can write a function that joins two tables and returns them as a tuple or association case class instance, providing an association externally, not strongly tied one of the classes.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L219-L223" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val tupledJoin: Query[(People,Addresses),(Person,Address), Seq]
+      = people join addresses on (_.addressId === _.id)
+
+case class PersonWithAddress(person: Person, address: Address)
+val caseClassJoinResults = db.run(tupledJoin.result).map(_.map((PersonWithAddress.apply _).tupled))</code></pre>
+<p>An alternative approach is giving your classes Option-typed members referring to related objects, where None means that the related objects have not been loaded yet. However this is less type-safe than using a tuple or case class, because it cannot be statically checked, if the related object is loaded.</p>
+<h3><a href="#modifying-relationships" name="modifying-relationships" class="anchor"><span class="anchor-link"></span></a>Modifying relationships</h3>
+<p>When manipulating relationships with ORMs you usually work on mutable collections of associated objects and inserts or remove related objects. Changes are written to the database immediately or recorded in a write cache and committed later. To avoid stateful caches and mutability, Slick handles relationship manipulations just like SQL - using foreign keys. Changing relationships means updating foreign key fields to new ids, just like updating any other field. As a bonus this allows establishing and removing associations with objects that have not been loaded into memory. Having their ids is sufficient.</p>
+<h2><a href="#inheritance" name="inheritance" class="anchor"><span class="anchor-link"></span></a>Inheritance</h2>
+<p>Slick does not persist arbitrary object-graphs. It rather exposes the relational data model nicely integrated into Scala. As the relational schema doesn&rsquo;t contain inheritance so doesn&rsquo;t Slick. This can be unfamiliar at first. Usually inheritance can be simply replaced by relationships thinking along the lines of roles. Instead of foo is a bar think foo has role bar. As Slick allows query composition and abstraction, inheritance-like query-snippets can be easily implemented and put into functions for re-use. Slick doesn&rsquo;t provide any out of the box but allows you to flexibly come up with the ones that match your problem and use them in your queries.</p>
+<h2><a href="#code-generation" name="code-generation" class="anchor"><span class="anchor-link"></span></a>Code-generation</h2>
+<p>Many of the concepts described above can be abstracted over using Scala code to avoid repetition. There are cases however, where you reach the limits of Scala&rsquo;s type system&rsquo;s abstraction capabilities. Code generation offers a solution to this. Slick comes with a very flexible and fully customizable <a href="code-generation.html">code generator</a>, which can be used to avoid repetition in these cases. The code generator operates on the meta data of the database. Combine it with your own extra meta data if needed and use it to generate Slick types, relationship accessors, association classes, etc. For more info see our Scala Days 2014 talk at <a href="https://scala-slick.org/docs/">https://scala-slick.org/docs/</a>.</p>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/orm-to-slick.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="sql-to-slick.html">Coming from SQL to Slick</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="orm-to-slick.html#coming-from-orm-to-slick" class="header">Coming from ORM to Slick</a>
+  <ul>
+    <li><a href="orm-to-slick.html#introduction" class="header">Introduction</a></li>
+    <li><a href="orm-to-slick.html#configuration" class="header">Configuration</a></li>
+    <li><a href="orm-to-slick.html#mapping-configuration" class="header">Mapping configuration</a></li>
+    <li><a href="orm-to-slick.html#navigating-the-object-graph" class="header">Navigating the object graph</a></li>
+    <li><a href="orm-to-slick.html#query-granularity" class="header">Query granularity</a></li>
+    <li><a href="orm-to-slick.html#read-caching" class="header">Read caching</a></li>
+    <li><a href="orm-to-slick.html#writes-and-caching-" class="header">Writes (and caching)</a></li>
+    <li><a href="orm-to-slick.html#relationships" class="header">Relationships</a></li>
+    <li><a href="orm-to-slick.html#inheritance" class="header">Inheritance</a></li>
+    <li><a href="orm-to-slick.html#code-generation" class="header">Code-generation</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2024</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.2.5ddbf75b', '')});</script>
+
+
+</html>
