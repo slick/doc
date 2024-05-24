@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.11.5d5b8f60
+3.6.0-pre.21.c1af28d0
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.11.5d5b8f60
+3.6.0-pre.21.c1af28d0
 </a>
 <ul class="menu">
 </ul>
@@ -188,7 +188,8 @@ logBuffered := false
 run / fork := true
 
 testOptions += Tests.Argument(TestFrameworks.JUnit, &quot;-q&quot;, &quot;-v&quot;, &quot;-s&quot;, &quot;-a&quot;)
-libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-testkit&quot; % &quot;3.4.1&quot;
+libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-testkit&quot; % &quot;3.5.1&quot;
+libraryDependencies += &quot;org.scala-lang&quot; % &quot;scala-reflect&quot; % scalaVersion.value
 
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin(&quot;11&quot;))
 ThisBuild / githubWorkflowBuildPreamble +=
@@ -196,9 +197,9 @@ ThisBuild / githubWorkflowBuildPreamble +=
 <p>There is a copy of Slick&rsquo;s logback configuration in <code>src/test/resources/logback-test.xml</code> but you can swap out the logging framework if you prefer a different one.</p>
 <h2><a href="#profile" name="profile" class="anchor"><span class="anchor-link"></span></a>Profile</h2>
 <p>The actual profile implementation can be found under <code>src/main/scala</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/main/scala/MyPostgresProfile.scala#L2-L265" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package com.example
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/main/scala/MyPostgresProfile.scala#L2-L266" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package com.example
 
-trait MyPostgresProfile extends JdbcProfile {
+trait MyPostgresProfile extends JdbcProfile with JdbcActionComponent.MultipleRowsPerStatementSupport {
   // ...
 }
 
@@ -346,7 +347,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.11.5d5b8f60', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.21.c1af28d0', '')});</script>
 
 
 </html>
