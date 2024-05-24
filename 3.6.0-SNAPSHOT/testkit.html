@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.2.5ddbf75b
+3.6.0-pre.8.bfd08d34
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.2.5ddbf75b
+3.6.0-pre.8.bfd08d34
 </a>
 <ul class="menu">
 </ul>
@@ -164,7 +164,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>To get started, you can download <a href="https://github.com/slick/slick-testkit-example">the <strong>TestKit Example</strong> project</a> which contains a copy of Slick&rsquo;s standard PostgreSQL profile and all the infrastructure required to build and test it.</p>
 <h2><a href="#scaffolding" name="scaffolding" class="anchor"><span class="anchor-link"></span></a>Scaffolding</h2>
 <p>Its <code>build.sbt</code> file is straight-forward. It adds the dependencies for Slick, TestKit, junit-interface, Logback and the PostgreSQL JDBC driver, and it sets some options for the test runs:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/build.sbt" target="_blank" title="Go to snippet source">source</a><code class="language-sbt">import _root_.io.github.nafg.mergify.dsl._
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/build.sbt" target="_blank" title="Go to snippet source">source</a><code class="language-sbt">import _root_.io.github.nafg.mergify.dsl.*
 
 
 mergifyExtraConditions := Seq(
@@ -175,8 +175,8 @@ mergifyExtraConditions := Seq(
 
 libraryDependencies ++= List(
   &quot;com.github.sbt&quot; % &quot;junit-interface&quot; % &quot;0.13.3&quot; % Test,
-  &quot;ch.qos.logback&quot; % &quot;logback-classic&quot; % &quot;1.5.3&quot; % Test,
-  &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.7.2&quot; % Test,
+  &quot;ch.qos.logback&quot; % &quot;logback-classic&quot; % &quot;1.5.6&quot; % Test,
+  &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.7.3&quot; % Test,
 )
 
 scalacOptions += &quot;-deprecation&quot;
@@ -190,6 +190,7 @@ run / fork := true
 testOptions += Tests.Argument(TestFrameworks.JUnit, &quot;-q&quot;, &quot;-v&quot;, &quot;-s&quot;, &quot;-a&quot;)
 libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-testkit&quot; % &quot;3.4.1&quot;
 
+ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin(&quot;11&quot;))
 ThisBuild / githubWorkflowBuildPreamble +=
   WorkflowStep.Run(List(&quot;docker-compose up -d&quot;), name = Some(&quot;Start database&quot;))</code></pre>
 <p>There is a copy of Slick&rsquo;s logback configuration in <code>src/test/resources/logback-test.xml</code> but you can swap out the logging framework if you prefer a different one.</p>
@@ -345,7 +346,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.2.5ddbf75b', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.8.bfd08d34', '')});</script>
 
 
 </html>

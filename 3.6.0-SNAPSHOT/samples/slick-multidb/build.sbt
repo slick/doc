@@ -8,15 +8,15 @@ mergifyExtraConditions := Seq(
 )
 
 libraryDependencies ++= List(
-  "org.slf4j" % "slf4j-nop" % "2.0.12",
+  "org.slf4j" % "slf4j-nop" % "2.0.13",
   "com.h2database" % "h2" % "2.2.224",
-  "org.xerial" % "sqlite-jdbc" % "3.45.1.0"
+  "org.xerial" % "sqlite-jdbc" % "3.45.3.0"
 )
 
 scalacOptions += "-deprecation"
 
 run / fork := true
-libraryDependencies += "com.typesafe.slick" %% "slick" % "3.5.0"
+libraryDependencies += "com.typesafe.slick" %% "slick" % "3.5.1"
 
 // based on https://stackoverflow.com/a/63780833/333643
 lazy val runAll = taskKey[Unit]("Run all main classes")

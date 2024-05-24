@@ -1,4 +1,4 @@
-import _root_.io.github.nafg.mergify.dsl._
+import _root_.io.github.nafg.mergify.dsl.*
 
 
 mergifyExtraConditions := Seq(
@@ -9,8 +9,8 @@ mergifyExtraConditions := Seq(
 
 libraryDependencies ++= List(
   "com.github.sbt" % "junit-interface" % "0.13.3" % Test,
-  "ch.qos.logback" % "logback-classic" % "1.5.3" % Test,
-  "org.postgresql" % "postgresql" % "42.7.2" % Test,
+  "ch.qos.logback" % "logback-classic" % "1.5.6" % Test,
+  "org.postgresql" % "postgresql" % "42.7.3" % Test,
 )
 
 scalacOptions += "-deprecation"
@@ -24,5 +24,6 @@ run / fork := true
 testOptions += Tests.Argument(TestFrameworks.JUnit, "-q", "-v", "-s", "-a")
 libraryDependencies += "com.typesafe.slick" %% "slick-testkit" % "3.4.1"
 
+ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("11"))
 ThisBuild / githubWorkflowBuildPreamble +=
   WorkflowStep.Run(List("docker-compose up -d"), name = Some("Start database"))
