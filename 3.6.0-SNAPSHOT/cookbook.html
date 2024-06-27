@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.49.361394ba
+3.6.0-pre.51.83381606
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.49.361394ba
+3.6.0-pre.51.83381606
 </a>
 <ul class="menu">
 </ul>
@@ -214,6 +214,78 @@ trait MyProfile extends JdbcProfile {
     super.computeQueryCompiler + phase
   }
 }</code></pre>
+<h2><a href="#distinguish-dbioactions-by-effect-type-at-runtime" name="distinguish-dbioactions-by-effect-type-at-runtime" class="anchor"><span class="anchor-link"></span></a>Distinguish DBIOActions by Effect type at runtime</h2>
+<h3>Problem</h3>
+<p>When using a replicated database with a primary (read/write) node and one or more replica (read-only) nodes, we have to maintain separate database handles and run each <code>DBIOAction</code> on the appropriate database handle. If a <code>DBIOAction</code> containing a write goes to the replica, it will fail. If a read-only <code>DBIOAction</code> goes to the primary, we lose the benefit of using a replicated database. In a large application, it&rsquo;s tedious to remember to use the right handle for every <code>DBIOAction</code>, and it&rsquo;s easy to mix them up.</p>
+<p>Ideally we would have a single method like <code>run</code> that takes a <code>DBIOAction</code> and determines whether to run it on the primary or the secondary.</p>
+<p>Slick provides a phantom <code>Effect</code> type parameter in each <code>DBIOAction</code>, but it&rsquo;s not immediately obvious how to use at runtime. For example, we cannot pattern-match on the <code>Effect</code> type parameter, as this parameter is erased at runtime due to type erasure. </p>
+<h3>Solution</h3>
+<p>This solution shows one way that we can introspect the <code>Effect</code> type in order to determine whether the <code>DBIOAction</code> should go to the primary or the secondary. We define a type class called <code>EffectInfo.ReadOnly</code>, which has a single member <code>isReadOnly: Boolean</code>. We provide instances of the type class for the various subtypes of <code>Effect</code>, such that <code>isReadOnly</code> is true only for <code>Effect</code> types <code>Read</code> and <code>Read with Transactional</code>. For any other subtypes, <code>isReadOnly</code> is false. We implement a <code>run</code> method which takes a <code>DBIOAction</code> and an implicit instance of the <code>EffectInfo.ReadOnly</code> type class for the <code>DBIOAction</code>&rsquo;s <code>Effect</code> type. We summon the type class instance and check the <code>isReadOnly</code> member to determine whether the given <code>DBIOAction</code> should go to the primary or to the secondary.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L63-L127" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.dbio._
+
+object EffectInfo {
+
+  /**
+   * Type class which can be summoned to determine if a given DBIOAction is read-only,
+   * e.g., to let us determine whether to run the DBIOAction on the primary or the secondary.
+   */
+  sealed trait ReadOnly[E &lt;: Effect] {
+    def isReadOnly: Boolean
+  }
+
+  /**
+   * Base trait provides an instance of ReadOnly where isReadOnly = false.
+   * This is extended below by the ReadOnly companion object, which overrides the instance of ReadOnly for effect
+   * types where isReadOnly should be true.
+   */
+  sealed trait ReadOnlyFalse {
+
+    implicit def readOnlyFalse[E &lt;: Effect]: ReadOnly[E] = new ReadOnly[E] {
+      val isReadOnly: Boolean = false
+    }
+  }
+
+  /**
+   * Companion object providing implementations of ReadOnly for specific types where isReadOnly = true.
+   */
+  object ReadOnly extends ReadOnlyFalse {
+
+    // When Effect.Read is used by itself, isReadOnly is true.
+    implicit object Read extends ReadOnly[Effect.Read] {
+      val isReadOnly: Boolean = true
+    }
+
+    // When Effect.Read is used with Effect.Transactional, isReadOnly is true,
+    // as a transactional read is still a read.
+    implicit object ReadWithTransactional extends ReadOnly[Effect.Read with Effect.Transactional] {
+      val isReadOnly: Boolean = true
+    }
+  }
+}
+
+// For brevity, this run method just demonstrates that we can distinguish the effect type at runtime.
+// In a real application, we could place this method in a class that contains a handle to the primary and a handle
+// to the secondary. Then the callers just call `run(action)` and don&#39;t worry about distinguishing the two handles.
+def run[A, E &lt;: Effect: EffectInfo.ReadOnly](action: DBIOAction[A, NoStream, E]): Unit =
+  if (implicitly[EffectInfo.ReadOnly[E]].isReadOnly) println(&quot;Action is read-only, run it on the secondary&quot;)
+  else println(&quot;Action is not read-only, run it on the primary&quot;)
+
+// We define a generic action and narrow it to specific effect types below.
+val action = DBIO.successful(42)
+
+// Read-only actions.
+// Each of these prints &quot;Action is read-only, run it on the secondary&quot;
+run(action: DBIOAction[Int, NoStream, Effect.Read])
+run(action: DBIOAction[Int, NoStream, Effect.Read with Effect.Transactional])
+run(action: DBIOAction[Int, NoStream, Effect with Effect.Read with Effect.Transactional])
+run(action: DBIOAction[Int, NoStream, Effect.Transactional with Effect.Read with Effect])
+
+// Other actions.
+// &quot;Action is not read-only, run it on the primary&quot;
+run(action: DBIOAction[Int, NoStream, Effect])
+run(action: DBIOAction[Int, NoStream, Effect.Write])
+run(action: DBIOAction[Int, NoStream, Effect.Schema])
+run(action: DBIOAction[Int, NoStream, Effect.All])</code></pre>
 <div class="source-github">
 The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/cookbook.md">here</a>.
 </div>
@@ -232,6 +304,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
   <ul>
     <li><a href="cookbook.html#mapping-more-than-22-fields" class="header">Mapping more than 22 fields</a></li>
     <li><a href="cookbook.html#track-the-number-of-query-compilations" class="header">Track the Number of Query Compilations</a></li>
+    <li><a href="cookbook.html#distinguish-dbioactions-by-effect-type-at-runtime" class="header">Distinguish DBIOActions by Effect type at runtime</a></li>
   </ul></li>
 </ul>
 </div>
@@ -300,7 +373,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.49.361394ba', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.51.83381606', '')});</script>
 
 
 </html>
