@@ -9,8 +9,8 @@ mergifyExtraConditions := Seq(
 
 libraryDependencies ++= List(
   "com.github.sbt" % "junit-interface" % "0.13.3" % Test,
-  "ch.qos.logback" % "logback-classic" % "1.5.6" % Test,
-  "org.postgresql" % "postgresql" % "42.7.3" % Test,
+  "ch.qos.logback" % "logback-classic" % "1.5.7" % Test,
+  "org.postgresql" % "postgresql" % "42.7.4" % Test,
 )
 
 scalacOptions += "-deprecation"
@@ -27,4 +27,4 @@ libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
 
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("11"))
 ThisBuild / githubWorkflowBuildPreamble +=
-  WorkflowStep.Run(List("docker-compose up -d"), name = Some("Start database"))
+  WorkflowStep.Run(List("docker compose up -d"), name = Some("Start database"))
