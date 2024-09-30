@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.100.97467e29
+3.6.0-pre.45.05a3d7d7
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.100.97467e29
+3.6.0-pre.45.05a3d7d7
 </a>
 <ul class="menu">
 </ul>
@@ -166,6 +166,8 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <p>Its <code>build.sbt</code> file is straight-forward. It adds the dependencies for Slick, TestKit, junit-interface, Logback and the PostgreSQL JDBC driver, and it sets some options for the test runs:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/build.sbt" target="_blank" title="Go to snippet source">source</a><code class="language-sbt">import _root_.io.github.nafg.mergify.dsl.*
 
+ThisBuild / scalaVersion := &quot;2.13.15&quot;
+ThisBuild / scalacOptions += &quot;-Xsource:3&quot;
 
 mergifyExtraConditions := Seq(
   (Attr.Author :== &quot;scala-steward&quot;) ||
@@ -175,8 +177,8 @@ mergifyExtraConditions := Seq(
 
 libraryDependencies ++= List(
   &quot;com.github.sbt&quot; % &quot;junit-interface&quot; % &quot;0.13.3&quot; % Test,
-  &quot;ch.qos.logback&quot; % &quot;logback-classic&quot; % &quot;1.5.8&quot; % Test,
-  &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.7.4&quot; % Test,
+  &quot;ch.qos.logback&quot; % &quot;logback-classic&quot; % &quot;1.5.8&quot;  % Test,
+  &quot;org.postgresql&quot; % &quot;postgresql&quot;      % &quot;42.7.4&quot; % Test
 )
 
 scalacOptions += &quot;-deprecation&quot;
@@ -189,7 +191,7 @@ run / fork := true
 
 testOptions += Tests.Argument(TestFrameworks.JUnit, &quot;-q&quot;, &quot;-v&quot;, &quot;-s&quot;, &quot;-a&quot;)
 libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-testkit&quot; % &quot;3.5.1&quot;
-libraryDependencies += &quot;org.scala-lang&quot; % &quot;scala-reflect&quot; % scalaVersion.value
+libraryDependencies += &quot;org.scala-lang&quot;      % &quot;scala-reflect&quot; % scalaVersion.value
 
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin(&quot;11&quot;))
 ThisBuild / githubWorkflowBuildPreamble +=
@@ -197,9 +199,11 @@ ThisBuild / githubWorkflowBuildPreamble +=
 <p>There is a copy of Slick&rsquo;s logback configuration in <code>src/test/resources/logback-test.xml</code> but you can swap out the logging framework if you prefer a different one.</p>
 <h2><a href="#profile" name="profile" class="anchor"><span class="anchor-link"></span></a>Profile</h2>
 <p>The actual profile implementation can be found under <code>src/main/scala</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/main/scala/MyPostgresProfile.scala#L2-L266" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package com.example
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/main/scala/slick/examples/testkit/MyPostgresProfile.scala#L2-L348" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package slick.examples.testkit
 
-trait MyPostgresProfile extends JdbcProfile with JdbcActionComponent.MultipleRowsPerStatementSupport {
+trait MyPostgresProfile
+    extends JdbcProfile
+    with JdbcActionComponent.MultipleRowsPerStatementSupport {
   // ...
 }
 
@@ -207,25 +211,34 @@ object MyPostgresProfile extends MyPostgresProfile</code></pre>
 <h2><a href="#test-harness" name="test-harness" class="anchor"><span class="anchor-link"></span></a>Test Harness</h2>
 <p>In order to run the TestKit tests, you need to add a class that extends <code>ProfileTest</code>, plus an implementation of <code>TestDB</code> which tells TestKit how to connect to a test database, get a list of tables, clean up between tests, etc.</p>
 <p>In the case of the PostgreSQL test harness (in <code>src/test/scala/MyPostgresTest.scala</code>) most of the default implementations can be used out of the box. Only <code>localTables</code> and <code>getLocalSequences</code> require custom implementations. We also modify the profile&rsquo;s <code>capabilities</code> to indicate that our profile does not support the JDBC <code>getFunctions</code> call:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/test/scala/MyPostgresTest.scala#L11-L29" target="_blank" title="Go to snippet source">source</a><code class="language-scala">@RunWith(classOf[Testkit])
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/test/scala/slick/examples/testkit/MyPostgresTest.scala#L17-L44" target="_blank" title="Go to snippet source">source</a><code class="language-scala">@RunWith(classOf[Testkit])
 class MyPostgresTest extends ProfileTest(MyPostgresTest.tdb)
 
 object MyPostgresTest {
   def tdb = new ExternalJdbcTestDB(&quot;mypostgres&quot;) {
-    val profile = MyPostgresProfile
-    override def localTables(implicit ec: ExecutionContext): DBIO[Vector[String]] =
-      ResultSetAction[(String,String,String, String)](_.conn.getMetaData().getTables(&quot;&quot;, &quot;public&quot;, null, null)).map { ts =&gt;
+    val profile: MyPostgresProfile.type = MyPostgresProfile
+    override def localTables(implicit
+        ec: ExecutionContext
+    ): DBIO[Vector[String]] =
+      ResultSetAction[(String, String, String, String)](
+        _.conn.getMetaData.getTables(&quot;&quot;, &quot;public&quot;, null, null)
+      ).map { ts =&gt;
         ts.filter(_._4.toUpperCase == &quot;TABLE&quot;).map(_._3).sorted
       }
-    override def localSequences(implicit ec: ExecutionContext): DBIO[Vector[String]] =
-      ResultSetAction[(String,String,String, String)](_.conn.getMetaData().getTables(&quot;&quot;, &quot;public&quot;, null, null)).map { ts =&gt;
+    override def localSequences(implicit
+        ec: ExecutionContext
+    ): DBIO[Vector[String]] =
+      ResultSetAction[(String, String, String, String)](
+        _.conn.getMetaData.getTables(&quot;&quot;, &quot;public&quot;, null, null)
+      ).map { ts =&gt;
         ts.filter(_._4.toUpperCase == &quot;SEQUENCE&quot;).map(_._3).sorted
       }
-    override def capabilities = super.capabilities - TestDB.capabilities.jdbcMetaGetFunctions
+    override def capabilities           =
+      super.capabilities - TestDB.capabilities.jdbcMetaGetFunctions
   }
 }</code></pre>
 <p>The name of a configuration prefix, in this case <code>mypostgres</code>, is passed to <code>ExternalJdbcTestDB</code>:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/test/scala/MyPostgresTest.scala#L16" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def tdb = new ExternalJdbcTestDB(&quot;mypostgres&quot;) {</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/src/test/scala/slick/examples/testkit/MyPostgresTest.scala#L22" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def tdb = new ExternalJdbcTestDB(&quot;mypostgres&quot;) {</code></pre>
 <h2><a href="#database-configuration" name="database-configuration" class="anchor"><span class="anchor-link"></span></a>Database Configuration</h2>
 <p>Since the PostgreSQL test harness is based on <code>ExternalJdbcTestDB</code>, it needs to be configured in <code>test-dbs/testkit.conf</code>:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/paradox/samples/slick-testkit-example/test-dbs/testkit.conf" target="_blank" title="Go to snippet source">source</a><code class="language-conf"># Enable the tests for mypostgres:
@@ -347,7 +360,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.100.97467e29', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.45.05a3d7d7', '')});</script>
 
 
 </html>
