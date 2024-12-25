@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.59.cdc292c2
+3.6.0-pre.79.1d1d9706
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.0-pre.59.cdc292c2
+3.6.0-pre.79.1d1d9706
 </a>
 <ul class="menu">
 </ul>
@@ -161,6 +161,270 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="page-content row">
 <div class="small-12 large-9 column" id="docs">
 <h2><a href="#incompatible-changes" name="incompatible-changes" class="anchor"><span class="anchor-link"></span></a>Incompatible changes</h2>
+<h3><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>slick</h3>
+<p>50 changes since 3.5.2</p>
+<h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Symbol </th>
+      <th>Problem </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.OracleProfile#OracleJdbcTypes.offsetDateTimeType</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method offsetDateTimeType()slick.jdbc.OracleProfile#OracleJdbcTypes#OracleOffsetDateTimeJdbcType in class slick.jdbc.OracleProfile#OracleJdbcTypes does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.OracleProfile#OracleJdbcTypes.zonedDateType</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method zonedDateType()slick.jdbc.OracleProfile#OracleJdbcTypes#OracleZonedDateTimeJdbcType in class slick.jdbc.OracleProfile#OracleJdbcTypes does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.OracleProfile$OracleJdbcTypes$OracleOffsetDateTimeJdbcType</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.jdbc.OracleProfile#OracleJdbcTypes#OracleOffsetDateTimeJdbcType does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.OracleProfile$OracleJdbcTypes$OracleZonedDateTimeJdbcType</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.jdbc.OracleProfile#OracleJdbcTypes#OracleZonedDateTimeJdbcType does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.writeZoneId</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method writeZoneId(Array[Byte],Int)Unit in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.extractZoneId</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method extractZoneId(Array[Byte])java.time.ZoneId in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.lowBits</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method lowBits()Int in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.highBits</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method highBits()Int in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.writeZoneOffset</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method writeZoneOffset(Array[Byte],java.time.ZoneOffset)Unit in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.extractOffset</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method extractOffset(Array[Byte])java.time.ZoneOffset in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.OFFSET_MINUTE</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method OFFSET_MINUTE()Int in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.OFFSET_HOUR</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method OFFSET_HOUR()Int in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.writeDateTime</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method writeDateTime(Array[Byte],java.time.ZonedDateTime)Unit in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.newTIMESTAMPTZBuffer</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method newTIMESTAMPTZBuffer()Array[Byte] in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.isFixedOffset</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method isFixedOffset(Array[Byte])Boolean in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.extractUtc</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method extractUtc(Array[Byte])java.time.OffsetDateTime in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestamptzToZonedDateTime</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method timestamptzToZonedDateTime(java.lang.Object)java.time.ZonedDateTime in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zonedDateTimeToTimestamptz</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method zonedDateTimeToTimestamptz(java.time.ZonedDateTime)java.lang.Object in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestamptzToOffsetDateTime</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method timestamptzToOffsetDateTime(java.lang.Object)java.time.OffsetDateTime in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.offsetDateTimeToTimestamptz</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method offsetDateTimeToTimestamptz(java.time.OffsetDateTime)java.lang.Object in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.RegionIdBit</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method RegionIdBit()Int in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zoneIdGetRegion</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method zoneIdGetRegion()java.lang.reflect.Method in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zoneIdGetId</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method zoneIdGetId()java.lang.reflect.Method in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zoneIdClass</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method zoneIdClass()java.lang.Class in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestampTZToBytes</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method timestampTZToBytes()java.lang.reflect.Method in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestampTZCtor</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method timestampTZCtor()java.lang.reflect.Constructor in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestampTZClass</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method timestampTZClass()java.lang.Class in class slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestampTZClass</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method timestampTZClass()java.lang.Class in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestampTZCtor</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method timestampTZCtor()java.lang.reflect.Constructor in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestampTZToBytes</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method timestampTZToBytes()java.lang.reflect.Method in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zoneIdClass</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method zoneIdClass()java.lang.Class in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zoneIdGetId</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method zoneIdGetId()java.lang.reflect.Method in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zoneIdGetRegion</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method zoneIdGetRegion()java.lang.reflect.Method in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.RegionIdBit</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method RegionIdBit()Int in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.offsetDateTimeToTimestamptz</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method offsetDateTimeToTimestamptz(java.time.OffsetDateTime)java.lang.Object in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestamptzToOffsetDateTime</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method timestamptzToOffsetDateTime(java.lang.Object)java.time.OffsetDateTime in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.zonedDateTimeToTimestamptz</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method zonedDateTimeToTimestamptz(java.time.ZonedDateTime)java.lang.Object in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.timestamptzToZonedDateTime</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method timestamptzToZonedDateTime(java.lang.Object)java.time.ZonedDateTime in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.extractUtc</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method extractUtc(Array[Byte])java.time.OffsetDateTime in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.isFixedOffset</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method isFixedOffset(Array[Byte])Boolean in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.newTIMESTAMPTZBuffer</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method newTIMESTAMPTZBuffer()Array[Byte] in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.writeDateTime</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method writeDateTime(Array[Byte],java.time.ZonedDateTime)Unit in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.OFFSET_HOUR</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method OFFSET_HOUR()Int in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.OFFSET_MINUTE</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method OFFSET_MINUTE()Int in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.extractOffset</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method extractOffset(Array[Byte])java.time.ZoneOffset in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.writeZoneOffset</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method writeZoneOffset(Array[Byte],java.time.ZoneOffset)Unit in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.highBits</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method highBits()Int in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.lowBits</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method lowBits()Int in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.extractZoneId</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method extractZoneId(Array[Byte])java.time.ZoneId in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.TimestamptzConverter.writeZoneId</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method writeZoneId(Array[Byte],Int)Unit in object slick.jdbc.TimestamptzConverter does not have a correspondent in current version</small></p> </td>
+    </tr>
+  </tbody>
+</table>
 <h3><a href="#slick-hikaricp" name="slick-hikaricp" class="anchor"><span class="anchor-link"></span></a>slick-hikaricp</h3>
 <p>2 changes since 3.5.2</p>
 <h4><a href="#dependency-changes" name="dependency-changes" class="anchor"><span class="anchor-link"></span></a>Dependency changes</h4>
@@ -227,6 +491,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <ul>
   <li><a href="compat-report.html#incompatible-changes" class="header">Incompatible changes</a>
   <ul>
+    <li><a href="compat-report.html#slick" class="header">slick</a></li>
     <li><a href="compat-report.html#slick-hikaricp" class="header">slick-hikaricp</a></li>
     <li><a href="compat-report.html#slick-testkit" class="header">slick-testkit</a></li>
   </ul></li>
@@ -297,7 +562,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.59.cdc292c2', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.0-pre.79.1d1d9706', '')});</script>
 
 
 </html>
