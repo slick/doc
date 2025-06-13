@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.1+16-b7e67820-SNAPSHOT
+3.6.1+18-161a7c82-SNAPSHOT
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.6.1+16-b7e67820-SNAPSHOT
+3.6.1+18-161a7c82-SNAPSHOT
 </a>
 <ul class="menu">
 </ul>
@@ -161,6 +161,95 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="page-content row">
 <div class="small-12 large-9 column" id="docs">
 <h2><a href="#incompatible-changes" name="incompatible-changes" class="anchor"><span class="anchor-link"></span></a>Incompatible changes</h2>
+<h3><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>slick</h3>
+<p>15 changes since 3.6.0</p>
+<h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Incompatibility </th>
+      <th>Symbol </th>
+      <th>Problem </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.meta.MColumn.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>static method unapply(slick.jdbc.meta.MColumn)scala.Option in class slick.jdbc.meta.MColumn has a different generic signature in current version, where it is (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple17&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;; rather than (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple16&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.meta.MColumn.apply</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method apply(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option)slick.jdbc.meta.MColumn in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.meta.MColumn.copy</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method copy(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option)slick.jdbc.meta.MColumn in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.meta.MColumn.this</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method this(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option)Unit in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.meta.MColumn.apply</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method apply(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option)slick.jdbc.meta.MColumn in object slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.meta.MColumn.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method unapply(slick.jdbc.meta.MColumn)scala.Option in object slick.jdbc.meta.MColumn has a different generic signature in current version, where it is (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple17&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;; rather than (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple16&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcModelBuilder#ColumnBuilder.generated</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method generated()Boolean in class slick.jdbc.JdbcModelBuilder#ColumnBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>static method unapply(slick.jdbc.meta.MColumn)scala.Option in class slick.jdbc.meta.MColumn has a different generic signature in current version, where it is (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple16&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;; rather than (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple17&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.apply</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method apply(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.jdbc.meta.MColumn in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.isGenerated</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method isGenerated()scala.Option in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.copy</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method copy(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.jdbc.meta.MColumn in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.copy$default$17</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>synthetic method copy$default$17()scala.Option in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.this</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method this(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)Unit in class slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.apply</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method apply(slick.jdbc.meta.MQName,java.lang.String,Int,java.lang.String,scala.Option,scala.Option,Int,scala.Option,scala.Option,scala.Option,Int,Int,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.jdbc.meta.MColumn in object slick.jdbc.meta.MColumn does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.meta.MColumn.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method unapply(slick.jdbc.meta.MColumn)scala.Option in object slick.jdbc.meta.MColumn has a different generic signature in current version, where it is (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple16&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;; rather than (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple17&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+  </tbody>
+</table>
 <h3><a href="#slick-codegen" name="slick-codegen" class="anchor"><span class="anchor-link"></span></a>slick-codegen</h3>
 <p>1 change since 3.6.0</p>
 <h4><a href="#dependency-changes" name="dependency-changes" class="anchor"><span class="anchor-link"></span></a>Dependency changes</h4>
@@ -181,7 +270,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td>Incompatible </td>
       <td>3.6.0 </td>
-      <td>3.6.1+16-b7e67820-SNAPSHOT </td>
+      <td>3.6.1+18-161a7c82-SNAPSHOT </td>
       <td>Package versioning policy </td>
     </tr>
   </tbody>
@@ -206,7 +295,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td>Incompatible </td>
       <td>3.6.0 </td>
-      <td>3.6.1+16-b7e67820-SNAPSHOT </td>
+      <td>3.6.1+18-161a7c82-SNAPSHOT </td>
       <td>Package versioning policy </td>
     </tr>
     <tr>
@@ -239,7 +328,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td>Incompatible </td>
       <td>3.6.0 </td>
-      <td>3.6.1+16-b7e67820-SNAPSHOT </td>
+      <td>3.6.1+18-161a7c82-SNAPSHOT </td>
       <td>Package versioning policy </td>
     </tr>
     <tr>
@@ -247,7 +336,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td>Incompatible </td>
       <td>3.6.0 </td>
-      <td>3.6.1+16-b7e67820-SNAPSHOT </td>
+      <td>3.6.1+18-161a7c82-SNAPSHOT </td>
       <td>Package versioning policy </td>
     </tr>
     <tr>
@@ -255,7 +344,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td>Incompatible </td>
       <td>3.6.0 </td>
-      <td>3.6.1+16-b7e67820-SNAPSHOT </td>
+      <td>3.6.1+18-161a7c82-SNAPSHOT </td>
       <td>Package versioning policy </td>
     </tr>
     <tr>
@@ -306,6 +395,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <ul>
   <li><a href="compat-report.html#incompatible-changes" class="header">Incompatible changes</a>
   <ul>
+    <li><a href="compat-report.html#slick" class="header">slick</a></li>
     <li><a href="compat-report.html#slick-codegen" class="header">slick-codegen</a></li>
     <li><a href="compat-report.html#slick-hikaricp" class="header">slick-hikaricp</a></li>
     <li><a href="compat-report.html#slick-testkit" class="header">slick-testkit</a></li>
@@ -377,7 +467,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.1+16-b7e67820-SNAPSHOT', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.6.1+18-161a7c82-SNAPSHOT', '')});</script>
 
 
 </html>
