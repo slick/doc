@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.48.c3405533
+3.7.0-pre.53.83a975f4
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.48.c3405533
+3.7.0-pre.53.83a975f4
 </a>
 <ul class="menu">
 </ul>
@@ -162,7 +162,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h2><a href="#incompatible-changes" name="incompatible-changes" class="anchor"><span class="anchor-link"></span></a>Incompatible changes</h2>
 <h3><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>slick</h3>
-<p>91 changes since 3.6.1</p>
+<p>99 changes since 3.6.1</p>
 <h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
 <table>
   <thead>
@@ -242,6 +242,31 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Binary </td>
       <td><code>slick.lifted.Shape.primitiveShape</code> </td>
       <td><strong>IncompatibleSignatureProblem</strong><p><small>method primitiveShape(slick.ast.TypedType)slick.lifted.Shape in object slick.lifted.Shape has a different generic signature in current version, where it is &lt;T:Ljava/lang/Object;Level::Lslick/lifted/ShapeLevel;&gt;(Lslick/ast/TypedType&lt;TT;&gt;;)Lslick/lifted/Shape&lt;TLevel;TT;TT;Lslick/lifted/Rep$TypedRep&lt;TT;&gt;;&gt;; rather than &lt;T:Ljava/lang/Object;Level::Lslick/lifted/ShapeLevel;&gt;(Lslick/ast/TypedType&lt;TT;&gt;;)Lslick/lifted/Shape&lt;TLevel;TT;TT;Lslick/lifted/ConstColumn&lt;TT;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.lifted.SingleColumnQueryExtensionMethods.avg$extension</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>extension static method avg$extension(slick.lifted.Query,slick.ast.TypedType)slick.lifted.Rep in class slick.lifted.SingleColumnQueryExtensionMethods has a different generic signature in current version, where it is &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;; rather than &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;TB1;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;TB1;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.lifted.SingleColumnQueryExtensionMethods.avg</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method avg(slick.ast.TypedType)slick.lifted.Rep in class slick.lifted.SingleColumnQueryExtensionMethods has a different generic signature in current version, where it is (Lslick/ast/TypedType&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;; rather than (Lslick/ast/TypedType&lt;Lscala/Option&lt;TB1;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;TB1;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.lifted.SingleColumnQueryExtensionMethods.avg$extension</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>extension method avg$extension(slick.lifted.Query,slick.ast.TypedType)slick.lifted.Rep in object slick.lifted.SingleColumnQueryExtensionMethods has a different generic signature in current version, where it is &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;; rather than &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;TB1;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;TB1;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.memory.QueryInterpreter.unwrapSingleColumn</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method unwrapSingleColumn(scala.collection.Iterable,slick.ast.Type)scala.Tuple2 in class slick.memory.QueryInterpreter does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.memory.QueryInterpreter.reduceOptionIt</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method reduceOptionIt(scala.collection.Iterator,Boolean,scala.Function1,scala.Function2)scala.Option in class slick.memory.QueryInterpreter does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -628,6 +653,21 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td><code>slick.lifted.Shape.primitiveShape</code> </td>
       <td><strong>IncompatibleSignatureProblem</strong><p><small>method primitiveShape(slick.ast.TypedType)slick.lifted.Shape in object slick.lifted.Shape has a different generic signature in current version, where it is &lt;T:Ljava/lang/Object;Level::Lslick/lifted/ShapeLevel;&gt;(Lslick/ast/TypedType&lt;TT;&gt;;)Lslick/lifted/Shape&lt;TLevel;TT;TT;Lslick/lifted/ConstColumn&lt;TT;&gt;;&gt;; rather than &lt;T:Ljava/lang/Object;Level::Lslick/lifted/ShapeLevel;&gt;(Lslick/ast/TypedType&lt;TT;&gt;;)Lslick/lifted/Shape&lt;TLevel;TT;TT;Lslick/lifted/Rep$TypedRep&lt;TT;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
     </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.lifted.SingleColumnQueryExtensionMethods.avg$extension</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>extension static method avg$extension(slick.lifted.Query,slick.ast.TypedType)slick.lifted.Rep in class slick.lifted.SingleColumnQueryExtensionMethods has a different generic signature in current version, where it is &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;TB1;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;TB1;&gt;;&gt;; rather than &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.lifted.SingleColumnQueryExtensionMethods.avg</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method avg(slick.ast.TypedType)slick.lifted.Rep in class slick.lifted.SingleColumnQueryExtensionMethods has a different generic signature in current version, where it is (Lslick/ast/TypedType&lt;Lscala/Option&lt;TB1;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;TB1;&gt;;&gt;; rather than (Lslick/ast/TypedType&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.lifted.SingleColumnQueryExtensionMethods.avg$extension</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>extension method avg$extension(slick.lifted.Query,slick.ast.TypedType)slick.lifted.Rep in object slick.lifted.SingleColumnQueryExtensionMethods has a different generic signature in current version, where it is &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;TB1;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;TB1;&gt;;&gt;; rather than &lt;B1:Ljava/lang/Object;P1:Ljava/lang/Object;C:Ljava/lang/Object;&gt;(Lslick/lifted/Query&lt;Lslick/lifted/Rep&lt;TP1;&gt;;*TC;&gt;;Lslick/ast/TypedType&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;)Lslick/lifted/Rep&lt;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
   </tbody>
 </table>
 <h3><a href="#slick-testkit" name="slick-testkit" class="anchor"><span class="anchor-link"></span></a>slick-testkit</h3>
@@ -735,7 +775,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.48.c3405533', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.53.83a975f4', '')});</script>
 
 
 </html>
