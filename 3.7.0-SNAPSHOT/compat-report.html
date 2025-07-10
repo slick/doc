@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.53.83a975f4
+3.7.0-pre.57.d86956cc
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.53.83a975f4
+3.7.0-pre.57.d86956cc
 </a>
 <ul class="menu">
 </ul>
@@ -162,7 +162,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h2><a href="#incompatible-changes" name="incompatible-changes" class="anchor"><span class="anchor-link"></span></a>Incompatible changes</h2>
 <h3><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>slick</h3>
-<p>99 changes since 3.6.1</p>
+<p>103 changes since 3.6.1</p>
 <h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
 <table>
   <thead>
@@ -335,6 +335,16 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
     <tr>
       <td>Source </td>
+      <td><code>slick.jdbc.H2Profile.createTableDDLBuilder</code> </td>
+      <td><strong>NewMixinForwarderProblem</strong><p><small>in current version, classes mixing slick.jdbc.H2Profile need be recompiled to wire to the new static mixin forwarder method all super calls to method createTableDDLBuilder(slick.relational.RelationalTableComponent#Table)slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.H2Profile.createSequenceDDLBuilder</code> </td>
+      <td><strong>NewMixinForwarderProblem</strong><p><small>in current version, classes mixing slick.jdbc.H2Profile need be recompiled to wire to the new static mixin forwarder method all super calls to method createSequenceDDLBuilder(slick.relational.RelationalSequenceComponent#Sequence)slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
       <td><code>slick.jdbc.H2Profile.TableDDLBuilder</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method TableDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder# in object slick.jdbc.H2Profile does not have a correspondent in current version</small></p> </td>
     </tr>
@@ -342,6 +352,16 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td><code>slick.jdbc.H2Profile.SequenceDDLBuilder</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.H2Profile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.H2Profile$H2SequenceDDLBuilder</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.jdbc.H2Profile#H2SequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.H2Profile$H2TableDDLBuilder</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.jdbc.H2Profile#H2TableDDLBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -775,7 +795,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.53.83a975f4', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.57.d86956cc', '')});</script>
 
 
 </html>
