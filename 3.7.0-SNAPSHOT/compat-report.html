@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.44.00c83845
+3.7.0-pre.46.20383192
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.44.00c83845
+3.7.0-pre.46.20383192
 </a>
 <ul class="menu">
 </ul>
@@ -162,7 +162,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h2><a href="#incompatible-changes" name="incompatible-changes" class="anchor"><span class="anchor-link"></span></a>Incompatible changes</h2>
 <h3><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>slick</h3>
-<p>38 changes since 3.6.1</p>
+<p>75 changes since 3.6.1</p>
 <h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
 <table>
   <thead>
@@ -173,6 +173,36 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.DB2Profile$DB2SequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.DB2Profile#DB2SequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.DerbyProfile$DerbySequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.DerbyProfile#DerbySequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.HsqldbProfile$HsqldbSequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.HsqldbProfile#HsqldbSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder</code> </td>
+      <td><strong>IncompatibleTemplateDefProblem</strong><p><small>declaration of class slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder is interface slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder in current version; changing class to interface breaks client code</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.MySQLProfile$MySQLSequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.MySQLProfile#MySQLSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.OracleProfile$OracleSequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.OracleProfile#OracleSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
     <tr>
       <td>Binary </td>
       <td><code>slick.jdbc.meta.MColumn.unapply</code> </td>
@@ -215,8 +245,148 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
     <tr>
       <td>Source </td>
+      <td><code>slick.jdbc.DB2Profile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.DB2Profile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DB2Profile$DB2SequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.DB2Profile#DB2SequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DB2Profile#DB2SequenceDDLBuilder.startClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method startClause(java.lang.Object)java.lang.String in class slick.jdbc.DB2Profile#DB2SequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DB2Profile#DB2SequenceDDLBuilder.incrementClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method incrementClause(java.lang.Object)java.lang.String in class slick.jdbc.DB2Profile#DB2SequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DB2Profile#DB2SequenceDDLBuilder.asClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method asClause()java.lang.String in class slick.jdbc.DB2Profile#DB2SequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DerbyProfile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.DerbyProfile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DerbyProfile$DerbySequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.DerbyProfile#DerbySequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport,slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport$OverrideActualStart}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DerbyProfile#DerbySequenceDDLBuilder.startClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method startClause(java.lang.Object)java.lang.String in class slick.jdbc.DerbyProfile#DerbySequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DerbyProfile#DerbySequenceDDLBuilder.incrementClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method incrementClause(java.lang.Object)java.lang.String in class slick.jdbc.DerbyProfile#DerbySequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.H2Profile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.H2Profile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.HsqldbProfile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.HsqldbProfile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.HsqldbProfile$HsqldbSequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.HsqldbProfile#HsqldbSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport,slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport$OverrideActualStart}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.HsqldbProfile#HsqldbSequenceDDLBuilder.incrementClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method incrementClause(java.lang.Object)java.lang.String in class slick.jdbc.HsqldbProfile#HsqldbSequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.HsqldbProfile#HsqldbSequenceDDLBuilder.startClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method startClause(java.lang.Object)java.lang.String in class slick.jdbc.HsqldbProfile#HsqldbSequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
       <td><code>slick.jdbc.JdbcModelBuilder#ColumnBuilder.generated</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method generated()Boolean in class slick.jdbc.JdbcModelBuilder#ColumnBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder</code> </td>
+      <td><strong>IncompatibleTemplateDefProblem</strong><p><small>declaration of interface slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder is class slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder in current version; changing interface to class breaks client code</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder#BuiltInSupport does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder#BuiltInSupport does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport$IncrementBy</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>interface slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder#BuiltInSupport#IncrementBy does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport$OverrideActualStart</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder#BuiltInSupport#OverrideActualStart does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport$StartWith</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>interface slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder#BuiltInSupport#StartWith does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.MySQLProfile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.MySQLProfile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.MySQLProfile$MySQLSequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.MySQLProfile#MySQLSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.OracleProfile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.OracleProfile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.OracleProfile$OracleSequenceDDLBuilder</code> </td>
+      <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.OracleProfile#OracleSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder$BuiltInSupport}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.OracleProfile#OracleSequenceDDLBuilder.startClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method startClause(java.lang.Object)java.lang.String in class slick.jdbc.OracleProfile#OracleSequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.OracleProfile#OracleSequenceDDLBuilder.incrementClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method incrementClause(java.lang.Object)java.lang.String in class slick.jdbc.OracleProfile#OracleSequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.OracleProfile#OracleSequenceDDLBuilder.cycleClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method cycleClause()java.lang.String in class slick.jdbc.OracleProfile#OracleSequenceDDLBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -312,6 +482,21 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td><code>slick.jdbc.PositionedResult$SqlNullException$</code> </td>
       <td><strong>MissingClassProblem</strong><p><small>object slick.jdbc.PositionedResult#SqlNullException does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.PostgresProfile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.PostgresProfile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.SQLServerProfile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.SQLServerProfile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.SQLiteProfile.SequenceDDLBuilder</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.SQLiteProfile does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -470,7 +655,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.44.00c83845', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.46.20383192', '')});</script>
 
 
 </html>
