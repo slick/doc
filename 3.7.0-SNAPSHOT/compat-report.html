@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.135.69de8578
+3.7.0-pre.137.99688261
 </a>
 <ul class="menu">
 </ul>
@@ -100,7 +100,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.135.69de8578
+3.7.0-pre.137.99688261
 </a>
 <ul class="menu">
 </ul>
@@ -162,7 +162,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="small-12 large-9 column" id="docs">
 <h2><a href="#incompatible-changes" name="incompatible-changes" class="anchor"><span class="anchor-link"></span></a>Incompatible changes</h2>
 <h3><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>slick</h3>
-<p>106 changes since 3.6.1</p>
+<p>150 changes since 3.6.1</p>
 <h4><a href="#code-changes" name="code-changes" class="anchor"><span class="anchor-link"></span></a>Code changes</h4>
 <table>
   <thead>
@@ -175,8 +175,88 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <tbody>
     <tr>
       <td>Binary </td>
+      <td><code>slick.ast.Comprehension.&lt;init&gt;$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic static method <init>&lt;default&gt;11()Boolean in class slick.ast.Comprehension has a different result type in current version, where it is scala.Option rather than Boolean</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>static method unapply(slick.ast.Comprehension)scala.Option in class slick.ast.Comprehension has a different generic signature in current version, where it is &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/LockStrength;&gt;;&gt;;&gt;; rather than &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Ljava/lang/Object;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.apply$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic static method apply$default$11()Boolean in class slick.ast.Comprehension has a different result type in current version, where it is scala.Option rather than Boolean</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.apply</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>static method apply(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension in class slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.forUpdate</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method forUpdate()Boolean in class slick.ast.Comprehension does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.copy</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>method copy(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension in class slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.copy$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic method copy$default$11()Boolean in class slick.ast.Comprehension has a different result type in current version, where it is scala.Option rather than Boolean</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.this</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>method this(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)Unit in class slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)Unit instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)Unit</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.&lt;init&gt;$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic method <init>&lt;default&gt;11()Boolean in object slick.ast.Comprehension has a different result type in current version, where it is scala.Option rather than Boolean</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.apply</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>method apply(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension in object slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.apply$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic method apply$default$11()Boolean in object slick.ast.Comprehension has a different result type in current version, where it is scala.Option rather than Boolean</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.Comprehension.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method unapply(slick.ast.Comprehension)scala.Option in object slick.ast.Comprehension has a different generic signature in current version, where it is &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/LockStrength;&gt;;&gt;;&gt;; rather than &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Ljava/lang/Object;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.ForUpdate</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.ast.ForUpdate does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.ast.ForUpdate$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object slick.ast.ForUpdate does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.DB2Profile#DB2QueryBuilder.buildForUpdateClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildForUpdateClause(Boolean)Unit in class slick.jdbc.DB2Profile#DB2QueryBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
       <td><code>slick.jdbc.DB2Profile$DB2SequenceDDLBuilder</code> </td>
       <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.DB2Profile#DB2SequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.DerbyProfile#DerbyQueryBuilder.buildForUpdateClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildForUpdateClause(Boolean)Unit in class slick.jdbc.DerbyProfile#DerbyQueryBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Binary </td>
@@ -187,6 +267,11 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Binary </td>
       <td><code>slick.jdbc.HsqldbProfile$HsqldbSequenceDDLBuilder</code> </td>
       <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.HsqldbProfile#HsqldbSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent#QueryBuilder.buildForUpdateClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildForUpdateClause(Boolean)Unit in class slick.jdbc.JdbcStatementBuilderComponent#QueryBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Binary </td>
@@ -202,6 +287,11 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Binary </td>
       <td><code>slick.jdbc.OracleProfile$OracleSequenceDDLBuilder</code> </td>
       <td><strong>MissingTypesProblem</strong><p><small>the type hierarchy of class slick.jdbc.OracleProfile#OracleSequenceDDLBuilder is different in current version. Missing types {slick.jdbc.JdbcStatementBuilderComponent$SequenceDDLBuilder}</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>slick.jdbc.SQLServerProfile#SQLServerQueryBuilder.buildForUpdateClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildForUpdateClause(Boolean)Unit in class slick.jdbc.SQLServerProfile#SQLServerQueryBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Binary </td>
@@ -285,6 +375,96 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
     <tr>
       <td>Source </td>
+      <td><code>slick.ast.Comprehension.&lt;init&gt;$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic static method <init>&lt;default&gt;11()scala.Option in class slick.ast.Comprehension has a different result type in current version, where it is Boolean rather than scala.Option</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>static method unapply(slick.ast.Comprehension)scala.Option in class slick.ast.Comprehension has a different generic signature in current version, where it is &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Ljava/lang/Object;&gt;;&gt;; rather than &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/LockStrength;&gt;;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.apply$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic static method apply$default$11()scala.Option in class slick.ast.Comprehension has a different result type in current version, where it is Boolean rather than scala.Option</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.apply</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>static method apply(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension in class slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.locking</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method locking()scala.Option in class slick.ast.Comprehension does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.copy</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>method copy(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension in class slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.copy$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic method copy$default$11()scala.Option in class slick.ast.Comprehension has a different result type in current version, where it is Boolean rather than scala.Option</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.this</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>method this(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)Unit in class slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)Unit instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)Unit</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.&lt;init&gt;$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic method <init>&lt;default&gt;11()scala.Option in object slick.ast.Comprehension has a different result type in current version, where it is Boolean rather than scala.Option</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.apply</code> </td>
+      <td><strong>IncompatibleMethTypeProblem</strong><p><small>method apply(slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension in object slick.ast.Comprehension&rsquo;s type is different in current version, where it is (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,Boolean)slick.ast.Comprehension instead of (slick.ast.TermSymbol,slick.ast.Node,slick.ast.Node,scala.Option,scala.Option,slick.util.ConstArray,scala.Option,scala.Option,scala.Option,scala.Option,scala.Option)slick.ast.Comprehension</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.apply$default$11</code> </td>
+      <td><strong>IncompatibleResultTypeProblem</strong><p><small>synthetic method apply$default$11()scala.Option in object slick.ast.Comprehension has a different result type in current version, where it is Boolean rather than scala.Option</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Comprehension.unapply</code> </td>
+      <td><strong>IncompatibleSignatureProblem</strong><p><small>method unapply(slick.ast.Comprehension)scala.Option in object slick.ast.Comprehension has a different generic signature in current version, where it is &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Ljava/lang/Object;&gt;;&gt;; rather than &lt;Fetch:Lscala/Option&lt;Lslick/ast/Node;&gt;;&gt;(Lslick/ast/Comprehension&lt;TFetch;&gt;;)Lscala/Option&lt;Lscala/Tuple11&lt;Lslick/ast/TermSymbol;Lslick/ast/Node;Lslick/ast/Node;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lslick/util/ConstArray&lt;Lscala/Tuple2&lt;Lslick/ast/Node;Lslick/ast/Ordering;&gt;;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/Node;&gt;;TFetch;Lscala/Option&lt;Lslick/ast/Node;&gt;;Lscala/Option&lt;Lslick/ast/LockStrength;&gt;;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.LockStrength</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.ast.LockStrength does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.LockStrength$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object slick.ast.LockStrength does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.LockStrength$ForShare$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object slick.ast.LockStrength#ForShare does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.LockStrength$ForUpdate$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object slick.ast.LockStrength#ForUpdate does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Locking</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class slick.ast.Locking does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.ast.Locking$</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>object slick.ast.Locking does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
       <td><code>slick.jdbc.DB2Profile.TableDDLBuilder</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method TableDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder# in object slick.jdbc.DB2Profile does not have a correspondent in current version</small></p> </td>
     </tr>
@@ -292,6 +472,11 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td><code>slick.jdbc.DB2Profile.SequenceDDLBuilder</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.DB2Profile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DB2Profile#DB2QueryBuilder.buildLockingClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildLockingClause(scala.Option)Unit in class slick.jdbc.DB2Profile#DB2QueryBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -327,6 +512,11 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td><code>slick.jdbc.DerbyProfile.SequenceDDLBuilder</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method SequenceDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#SequenceDDLBuilder# in object slick.jdbc.DerbyProfile does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.DerbyProfile#DerbyQueryBuilder.buildLockingClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildLockingClause(scala.Option)Unit in class slick.jdbc.DerbyProfile#DerbyQueryBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -410,8 +600,23 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
     <tr>
       <td>Source </td>
+      <td><code>slick.jdbc.JdbcCapabilities.forShare</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>static method forShare()slick.basic.Capability in class slick.jdbc.JdbcCapabilities does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcCapabilities.forShare</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method forShare()slick.basic.Capability in object slick.jdbc.JdbcCapabilities does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
       <td><code>slick.jdbc.JdbcModelBuilder#ColumnBuilder.generated</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method generated()Boolean in class slick.jdbc.JdbcModelBuilder#ColumnBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.jdbc.JdbcStatementBuilderComponent#QueryBuilder.buildLockingClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildLockingClause(scala.Option)Unit in class slick.jdbc.JdbcStatementBuilderComponent#QueryBuilder does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -630,6 +835,11 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
     <tr>
       <td>Source </td>
+      <td><code>slick.jdbc.SQLServerProfile#SQLServerQueryBuilder.buildLockingClause</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method buildLockingClause(scala.Option)Unit in class slick.jdbc.SQLServerProfile#SQLServerQueryBuilder does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
       <td><code>slick.jdbc.SQLiteProfile.TableDDLBuilder</code> </td>
       <td><strong>DirectMissingMethodProblem</strong><p><small>method TableDDLBuilder()slick.jdbc.JdbcStatementBuilderComponent#TableDDLBuilder# in object slick.jdbc.SQLiteProfile does not have a correspondent in current version</small></p> </td>
     </tr>
@@ -677,6 +887,16 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>Source </td>
       <td><code>slick.jdbc.meta.MColumn.unapply</code> </td>
       <td><strong>IncompatibleSignatureProblem</strong><p><small>method unapply(slick.jdbc.meta.MColumn)scala.Option in object slick.jdbc.meta.MColumn has a different generic signature in current version, where it is (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple16&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;; rather than (Lslick/jdbc/meta/MColumn;)Lscala/Option&lt;Lscala/Tuple17&lt;Lslick/jdbc/meta/MQName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Lscala/Option&lt;Ljava/lang/String;&gt;;Ljava/lang/Object;Ljava/lang/Object;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Lslick/jdbc/meta/MQName;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;Lscala/Option&lt;Ljava/lang/Object;&gt;;&gt;;&gt;;. See <a href="https://github.com/lightbend-labs/mima#incompatiblesignatureproblem">https://github.com/lightbend-labs/mima#incompatiblesignatureproblem</a></small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.lifted.Query.forShare</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method forShare()slick.lifted.Query in class slick.lifted.Query does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>slick.lifted.Query.locking</code> </td>
+      <td><strong>DirectMissingMethodProblem</strong><p><small>method locking(slick.ast.LockStrength)slick.lifted.Query in class slick.lifted.Query does not have a correspondent in current version</small></p> </td>
     </tr>
     <tr>
       <td>Source </td>
@@ -731,7 +951,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   </tbody>
 </table>
 <h3><a href="#slick-testkit" name="slick-testkit" class="anchor"><span class="anchor-link"></span></a>slick-testkit</h3>
-<p>3 changes since 3.6.1</p>
+<p>7 changes since 3.6.1</p>
 <h4><a href="#dependency-changes" name="dependency-changes" class="anchor"><span class="anchor-link"></span></a>Dependency changes</h4>
 <table>
   <thead>
@@ -765,6 +985,26 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>Binary </td>
+      <td><code>com.typesafe.slick.testkit.tests.ForUpdateTest</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class com.typesafe.slick.testkit.tests.ForUpdateTest does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Binary </td>
+      <td><code>com.typesafe.slick.testkit.tests.ForUpdateTest$T</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class com.typesafe.slick.testkit.tests.ForUpdateTest#T does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>com.typesafe.slick.testkit.tests.LockingClauseTest</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class com.typesafe.slick.testkit.tests.LockingClauseTest does not have a correspondent in current version</small></p> </td>
+    </tr>
+    <tr>
+      <td>Source </td>
+      <td><code>com.typesafe.slick.testkit.tests.LockingClauseTest$T</code> </td>
+      <td><strong>MissingClassProblem</strong><p><small>class com.typesafe.slick.testkit.tests.LockingClauseTest#T does not have a correspondent in current version</small></p> </td>
+    </tr>
     <tr>
       <td>Source </td>
       <td><code>com.typesafe.slick.testkit.tests.PlainSQLTest.testGetNonNull</code> </td>
@@ -859,7 +1099,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.135.69de8578', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.137.99688261', '')});</script>
 
 
 </html>
