@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 
 <head>
-<title>Cookbook · Slick</title>
+<title>Cookbook · Slick 4</title>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content='Scala Slick documentation'/>
@@ -25,13 +25,13 @@
 <nav class="off-canvas-nav">
 <div class="nav-home">
 <a href="index.html" >
-<span class="home-icon">⌂</span>Slick
+<span class="home-icon">⌂</span>Slick 4
 </a>
 <div class="version-number">
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.320.ce7b2d9a
+3.7.0-pre.347.581757d0
 </a>
 <ul class="menu">
 </ul>
@@ -42,23 +42,24 @@
 <div class="nav-toc">
 <ul>
   <li><a href="introduction.html" class="page">Introduction</a></li>
-  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
   <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="database.html" class="page">Database</a></li>
   <li><a href="concepts.html" class="page">Core Concepts</a></li>
-  <li><a href="database.html" class="page">Database Configuration</a></li>
   <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
   <li><a href="schemas.html" class="page">Schemas</a>
   <ul>
     <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
   </ul></li>
-  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
   <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
   <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
-  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
   <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
   <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
   <li><a href="cookbook.html" class="active page">Cookbook</a></li>
-  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <li><a href="migrating-to-slick4.html" class="page">Migrating to Slick 4</a></li>
+  <li><a href="upgrade-slick3.html" class="page">Slick 3.x Upgrade Notes</a>
   <ul>
     <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
@@ -80,7 +81,7 @@
 H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
 C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
 </a>
-<div class="title"><a href="index.html">Slick</a></div>
+<div class="title"><a href="index.html">Slick 4</a></div>
 
 <!--
 <a href="https://www.example.com" class="logo show-for-medium">logo</a>
@@ -94,13 +95,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <nav class="site-nav">
 <div class="nav-home">
 <a href="index.html" >
-<span class="home-icon">⌂</span>Slick
+<span class="home-icon">⌂</span>Slick 4
 </a>
 <div class="version-number">
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.320.ce7b2d9a
+3.7.0-pre.347.581757d0
 </a>
 <ul class="menu">
 </ul>
@@ -111,23 +112,24 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="nav-toc">
 <ul>
   <li><a href="introduction.html" class="page">Introduction</a></li>
-  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
   <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="database.html" class="page">Database</a></li>
   <li><a href="concepts.html" class="page">Core Concepts</a></li>
-  <li><a href="database.html" class="page">Database Configuration</a></li>
   <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
   <li><a href="schemas.html" class="page">Schemas</a>
   <ul>
     <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
   </ul></li>
-  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
   <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
   <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
-  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
   <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
   <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
   <li><a href="cookbook.html" class="active page">Cookbook</a></li>
-  <li><a href="upgrade.html" class="page">Upgrade Guides</a>
+  <li><a href="migrating-to-slick4.html" class="page">Migrating to Slick 4</a></li>
+  <li><a href="upgrade-slick3.html" class="page">Slick 3.x Upgrade Notes</a>
   <ul>
     <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
   </ul></li>
@@ -150,7 +152,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <div class="medium-12 show-for-medium column">
 <div class="nav-breadcrumbs">
 <ul>
-  <li><a href="index.html">Slick</a></li>
+  <li><a href="index.html">Slick 4</a></li>
   <li>Cookbook</li>
 </ul>
 </div>
@@ -169,9 +171,10 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h3>Solution</h3>
 <p>Switch from using a tuple in your default projection to using an HList.</p>
 <p>First, add the HList imports:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L10" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.collection.heterogeneous._</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L10-L11" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.collection.heterogeneous._
+// import slick.collection.heterogeneous.syntax._</code></pre>
 <p>Your case class and table definition are as unchanged, but your default projection ( the <code>*</code> method) changes:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L14-L22" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Row(id: Int, name: String /* ... as many as you like */)
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L15-L23" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class Row(id: Int, name: String /* ... as many as you like */)
 
 class MyTable(tag: Tag) extends Table[Row](tag, &quot;ROW&quot;) {
   def id   = column[Int](&quot;ID&quot;, O.PrimaryKey)
@@ -186,7 +189,7 @@ class MyTable(tag: Tag) extends Table[Row](tag, &quot;ROW&quot;) {
 <p>To identify this type of regression, we&rsquo;d like to track the number of query compilations. We might then expose this count as an application metric and setup an alert which triggers when an abnormally high number of query compilations occur.</p>
 <h3>Solution</h3>
 <p>To track the number of query compilations, we can override the <code>computeQueryCompiler</code> method in our profile. The new <code>QueryCompiler</code> will have an additional phase, which simply increments a counter.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L29-L55" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L30-L56" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.jdbc.JdbcProfile
 import slick.compiler._
 import java.util.concurrent.atomic.AtomicLong
 
@@ -220,23 +223,23 @@ trait MyProfile extends JdbcProfile {
 <p>Slick provides a phantom <code>Effect</code> type parameter in each <code>DBIOAction</code>, but it&rsquo;s not immediately obvious how to use at runtime. For example, we cannot pattern-match on the <code>Effect</code> type parameter, as this parameter is erased at runtime due to type erasure. </p>
 <h3>Solution</h3>
 <p>This solution shows one way that we can introspect the <code>Effect</code> type in order to determine whether the <code>DBIOAction</code> should go to the primary or the secondary. We define a type class called <code>EffectInfo.ReadOnly</code>, which has a single member <code>isReadOnly: Boolean</code>. We provide instances of the type class for the various subtypes of <code>Effect</code>, such that <code>isReadOnly</code> is true only for <code>Effect</code> types <code>Read</code> and <code>Read with Transactional</code>. For any other subtypes, <code>isReadOnly</code> is false. We implement a <code>run</code> method which takes a <code>DBIOAction</code> and an implicit instance of the <code>EffectInfo.ReadOnly</code> type class for the <code>DBIOAction</code>&rsquo;s <code>Effect</code> type. We summon the type class instance and check the <code>isReadOnly</code> member to determine whether the given <code>DBIOAction</code> should go to the primary or to the secondary.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L63-L127" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.dbio._
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Cookbook.scala#L64-L128" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.dbio._
 
 object EffectInfo {
 
   /**
-    * Type class which can be summoned to determine if a given DBIOAction is read-only,
-    * e.g., to let us determine whether to run the DBIOAction on the primary or the secondary.
-    */
+   * Type class which can be summoned to determine if a given DBIOAction is read-only,
+   * e.g., to let us determine whether to run the DBIOAction on the primary or the secondary.
+   */
   sealed trait ReadOnly[E &lt;: Effect] {
     def isReadOnly: Boolean
   }
 
   /**
-    * Base trait provides an instance of ReadOnly where isReadOnly = false.
-    * This is extended below by the ReadOnly companion object, which overrides the instance of ReadOnly for effect
-    * types where isReadOnly should be true.
-    */
+   * Base trait provides an instance of ReadOnly where isReadOnly = false.
+   * This is extended below by the ReadOnly companion object, which overrides the instance of ReadOnly for effect
+   * types where isReadOnly should be true.
+   */
   sealed trait ReadOnlyFalse {
 
     implicit def readOnlyFalse[E &lt;: Effect]: ReadOnly[E] = new ReadOnly[E] {
@@ -245,8 +248,8 @@ object EffectInfo {
   }
 
   /**
-    * Companion object providing implementations of ReadOnly for specific types where isReadOnly = true.
-    */
+   * Companion object providing implementations of ReadOnly for specific types where isReadOnly = true.
+   */
   object ReadOnly extends ReadOnlyFalse {
 
     // When Effect.Read is used by itself, isReadOnly is true.
@@ -290,7 +293,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 </div>
 
 <div class="nav-next">
-<p><strong>Next:</strong> <a href="upgrade.html">Upgrade Guides</a></p>
+<p><strong>Next:</strong> <a href="migrating-to-slick4.html">Migrating to Slick 4</a></p>
 </div>
 </div>
 <div class="large-3 show-for-large column" data-sticky-container>
@@ -372,7 +375,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.320.ce7b2d9a', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.347.581757d0', '')});</script>
 
 
 </html>
