@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -365,7 +365,7 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 &quot;&quot;&quot;.as[(String,String)]</code></pre>
 <h4><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>Slick</h4>
 <p>Slick offers a small DSL for explicit joins.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/SqlToSlick.scala#L328-L329" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(people join addresses on (_.addressId === _.id))
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/SqlToSlick.scala#L328-L329" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(people.join(addresses).on(_.addressId === _.id))
   .map{ case (p, a) =&gt; (p.name, a.city) }.result</code></pre>
 <h3><a href="#outer-joins-left-right-full-" name="outer-joins-left-right-full-" class="anchor"><span class="anchor-link"></span></a>Outer joins (left/right/full)</h3>
 <h4><a href="#sql" name="sql" class="anchor"><span class="anchor-link"></span></a>SQL</h4>
@@ -376,7 +376,7 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 &quot;&quot;&quot;.as[(Option[String],String)]</code></pre>
 <h4><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>Slick</h4>
 <p>Outer joins are done using Slick&rsquo;s explicit join DSL. Be aware that in case of an outer join SQL changes the type of outer joined, non-nullable columns into nullable columns. In order to represent this in a clean way even in the presence of mapped types, Slick lifts the whole side of the join into an <code>Option</code>. This goes a bit further than the SQL semantics because it allows you to distinguish a row which was not matched in the join from a row that was matched but already contained nothing but NULL values.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/SqlToSlick.scala#L347-L348" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(addresses joinLeft people on (_.id === _.addressId))
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/SqlToSlick.scala#L347-L348" target="_blank" title="Go to snippet source">source</a><code class="language-scala">(addresses.joinLeft(people).on(_.id === _.addressId))
   .map{ case (a, p) =&gt; (p.map(_.name), a.city) }.result</code></pre>
 <h3><a href="#subquery" name="subquery" class="anchor"><span class="anchor-link"></span></a>Subquery</h3>
 <h4><a href="#sql" name="sql" class="anchor"><span class="anchor-link"></span></a>SQL</h4>
@@ -390,7 +390,7 @@ people.map(p =&gt; power(p.age,2))</code></pre>
 <h4><a href="#slick" name="slick" class="anchor"><span class="anchor-link"></span></a>Slick</h4>
 <p>Slick queries are composable. Subqueries can be simply composed, where the types work out, just like any other Scala code.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/SqlToSlick.scala#L368-L369" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val address_ids = addresses.filter(_.city === &quot;New York City&quot;).map(_.id)
-people.filter(_.id in address_ids).result // &lt;- run as one query</code></pre>
+people.filter(_.id.in(address_ids)).result // &lt;- run as one query</code></pre>
 <p>The method <code>.in</code> expects a sub query. For an in-memory Scala collection, the method <code>.inSet</code> can be used instead.</p>
 <h3><a href="#scalar-value-subquery-custom-function" name="scalar-value-subquery-custom-function" class="anchor"><span class="anchor-link"></span></a>Scalar value subquery / custom function</h3>
 <h4><a href="#sql" name="sql" class="anchor"><span class="anchor-link"></span></a>SQL</h4>
@@ -451,8 +451,8 @@ people.filter(_.id &gt;= rndId)
 <p>Slick uses <a href="https://scala-slick.org/doc/3.7.0-SNAPSHOT/api/slick/lifted/Case$.html" title="slick.lifted.Case"><code>a small DSL</code></a> to allow <code>CASE</code> like case distinctions.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/SqlToSlick.scala#L487-L491" target="_blank" title="Go to snippet source">source</a><code class="language-scala">people.map(p =&gt;
   Case
-    If(p.addressId === 1) Then &quot;A&quot;
-    If(p.addressId === 2) Then &quot;B&quot;
+    .If(p.addressId === 1).Then(&quot;A&quot;)
+    .If(p.addressId === 2).Then(&quot;B&quot;)
 ).result</code></pre>
 <div class="source-github">
 The source code for this page can be found <a href="https://github.com/slick/slick/tree/main/doc/paradox/sql-to-slick.md">here</a>.
@@ -544,7 +544,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.411.d57508f9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.420.d379bd20', '')});</script>
 
 
 </html>

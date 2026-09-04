@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -164,7 +164,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h1><a href="#introduction" name="introduction" class="anchor"><span class="anchor-link"></span></a>Introduction</h1>
 <h2><a href="#what-is-slick-" name="what-is-slick-" class="anchor"><span class="anchor-link"></span></a>What is Slick?</h2>
 <p>Slick (&ldquo;Scala Language-Integrated Connection Kit&rdquo;) is <a href="https://www.lightbend.com/">Lightbend</a>&rsquo;s Functional Relational Mapping (FRM) library for Scala that makes it easy to work with relational databases. It allows you to work with stored data almost as if you were using Scala collections while at the same time giving you full control over when database access happens and which data is transferred. You can also use SQL directly. Execution of database actions is done asynchronously, and Slick provides API facades for Cats Effect/FS2, Scala Future/Reactive Streams, and ZIO/ZStream.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L51-L56" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L52-L57" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
 
 // Your query could look like this:
 ( for( c &lt;- coffees; if c.price &lt; limit ) yield c.name ).result
@@ -186,7 +186,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   def * = (name, price)
 }
 val coffees = TableQuery[Coffees]</code></pre>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L71-L77" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Query that only returns the &quot;name&quot; column
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L72-L78" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Query that only returns the &quot;name&quot; column
 // Equivalent SQL: select NAME from COFFEES
 coffees.map(_.name)
 
@@ -194,7 +194,7 @@ coffees.map(_.name)
 // Equivalent SQL: select * from COFFEES where PRICE &lt; 10.0
 coffees.filter(_.price &lt; 10.0)</code></pre>
 <p>The same type safety applies to mistakes that would otherwise become runtime SQL errors:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L81-L91" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// The result of &quot;select PRICE from COFFEES&quot; is a Seq of Double
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L82-L92" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// The result of &quot;select PRICE from COFFEES&quot; is a Seq of Double
 // because of the type safe column definitions
 val coffeeNames: IO[Seq[Double]] = db.run(
 )
@@ -203,7 +203,7 @@ val coffeeNames: IO[Seq[Double]] = db.run(
 coffees.filter(_.price &lt; 10.0)
 // Using a string in the filter would result in a compilation error</code></pre>
 <p>And queries stay composable as your codebase grows:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L95-L98" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Create a query for coffee names with a price less than 10, sorted by name
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L96-L99" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Create a query for coffee names with a price less than 10, sorted by name
 coffees.filter(_.price &lt; 10.0).sortBy(_.name).map(_.name)
 // The generated SQL is equivalent to:
 // select name from COFFEES where PRICE &lt; 10.0 order by NAME</code></pre>
@@ -224,7 +224,7 @@ coffees.filter(_.price &lt; 10.0).sortBy(_.name).map(_.name)
 <h2><a href="#plain-sql-support" name="plain-sql-support" class="anchor"><span class="anchor-link"></span></a>Plain SQL Support</h2>
 <p>The Scala-based query API for Slick allows you to write database queries like queries for Scala collections. Please see <a href="gettingstarted.html">Getting Started</a> for an introduction. Most of this user manual focuses on this API.</p>
 <p>If you want to write your own SQL statements and still execute them asynchronously like normal Slick queries, you can use the <a href="sql.html">Plain SQL</a> API:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L60-L65" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/GettingStartedOverview.scala#L61-L66" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val limit = 10.0
 
 sql&quot;select COF_NAME from COFFEES where PRICE &lt; $limit&quot;.as[String]
 
@@ -330,7 +330,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.411.d57508f9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.420.d379bd20', '')});</script>
 
 
 </html>

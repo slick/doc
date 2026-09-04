@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -205,7 +205,7 @@ val people: Seq[Person] = PeopleFinder.getByIds(Seq(2,99,17,234)).prefetch(_.add
 val addresses: Seq[Address] = people.map(_.address)</code></pre>
 <p>Here the prefetch method instructs the hypothetical ORM to load all addresses immediately with the people, often in only one or two database round trips. The addresses are then stored in a cache many ORMs maintain. The later <code>.map(_.address)</code> call could then be fully served from the cache. Of course this is redundant as you basically need to provide the mapping to addresses twice and if you forget to prefetch you will have poor performance. How you specify the pre-fetching rules depends on the ORM, often using external configuration or inline like here.</p>
 <p>Slick works differently. To do the same in Slick you would write the following. The type annotations are optional but shown here for clarity.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L84-L85" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val peopleQuery: Query[People,Person,Seq] = people.filter(_.id inSet(Set(2,99,17,234)))
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L84-L85" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val peopleQuery: Query[People,Person,Seq] = people.filter(_.id.inSet(Set(2,99,17,234)))
 val addressesQuery: Query[Addresses,Address,Seq] = peopleQuery.flatMap(_.address)</code></pre>
 <p>As we can see it looks very much like collection operations but the values we get are of type <code>Query</code>. They do not store results, only a plan of the operations that are needed to create a SQL query that produces the results when needed. No database round trips happen at all in our example. To actually fetch results, we have to compile the query to a <a href="database.html">database Action</a> with <code>.result</code> and then <code>run</code> it on the Database.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L88-L89" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val addressesAction: DBIO[Seq[Address]] = addressesQuery.result
@@ -228,9 +228,9 @@ q.setParameterList(&quot;ids&quot;, Array(2,99,17,234))</code></pre>
 <p>Instead of getting the ultimate flexibility for the embedded language, an alternative approach is to go with the extensibility features of the host language and use those. Object-oriented languages like Java and Scala allow extensibility through the definition of APIs consisting of objects and methods. JPA&rsquo;s Criteria API use this concept and so does Slick. This allows the host language tools to partially understand the embedded language and provide better support for the features mentioned earlier. Here is an example using Criteria Queries.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L104-L106" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val id = Property.forName(&quot;id&quot;)
 val q = session.createCriteria(classOf[Person])
-               .add( id in Array(2,99,17,234) )</code></pre>
+               .add( id.in(Array(2,99,17,234)) )</code></pre>
 <p>A method based embedding makes queries compositional. Factoring out filtering by ids becomes easy:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L109-L114" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def byIds(c: Criteria, ids: Array[Int]) = c.add( id in ids )
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L109-L114" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def byIds(c: Criteria, ids: Array[Int]) = c.add( id.in(ids) )
 
 val c = byIds(
   session.createCriteria(classOf[Person]),
@@ -242,8 +242,8 @@ val c = byIds(
 val q = session.createCriteria(classOf[Person])
                .add(
                  Restrictions.disjunction
-                   .add(age lt 5)
-                   .add(age gt 65)
+                   .add(age.lt(5))
+                   .add(age.gt(65))
                )</code></pre>
 <p>With Scala&rsquo;s operator overloading we can do better and that&rsquo;s what Slick uses. Queries are very concise. The same query in Slick would look like this:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L128" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = people.filter(p =&gt; p.age &lt; 5 || p.age &gt; 65)</code></pre>
@@ -315,7 +315,7 @@ val address = db.run(addressQuery.result.head)</code></pre>
 case class Person( …, address: Address )</code></pre>
 <p>The problem is that this hard-codes that a Person requires an Address. It cannot be loaded without it. This doesn&rsquo;t fit to Slick&rsquo;s philosophy of giving you fine-grained control over what you load exactly. With Slick it is advised to map one table to a tuple or case class without them having object references to related objects. Instead you can write a function that joins two tables and returns them as a tuple or association case class instance, providing an association externally, not strongly tied one of the classes.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/OrmToSlick.scala#L233-L237" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val tupledJoin: Query[(People,Addresses),(Person,Address), Seq]
-      = people join addresses on (_.addressId === _.id)
+      = people.join(addresses).on(_.addressId === _.id)
 
 case class PersonWithAddress(person: Person, address: Address)
 val caseClassJoinResults = db.run(tupledJoin.result).map(_.map((PersonWithAddress.apply _).tupled))</code></pre>
@@ -420,7 +420,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.411.d57508f9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.420.d379bd20', '')});</script>
 
 
 </html>

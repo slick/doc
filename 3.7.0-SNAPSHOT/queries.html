@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -277,14 +277,14 @@ val q6 = coffees
 <h3><a href="#applicative-joins" name="applicative-joins" class="anchor"><span class="anchor-link"></span></a>Applicative joins</h3>
 <p><em>Applicative</em> joins are performed by calling a method that joins two queries into a single query of a tuple of the individual results. They have the same restrictions as joins in SQL, i.e. the right-hand side may not depend on the left-hand side. This is enforced naturally through Scala&rsquo;s scoping rules.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L54-L91" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val crossJoin = for {
-  (c, s) &lt;- coffees join suppliers
+  (c, s) &lt;- coffees.join(suppliers)
 } yield (c.name, s.name)
 // compiles to SQL (simplified):
 //   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
 //     inner join &quot;SUPPLIERS&quot; x3
 
 val innerJoin = for {
-  (c, s) &lt;- coffees join suppliers on (_.supID === _.id)
+  (c, s) &lt;- coffees.join(suppliers).on(_.supID === _.id)
 } yield (c.name, s.name)
 // compiles to SQL (simplified):
 //   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
@@ -292,7 +292,7 @@ val innerJoin = for {
 //     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;
 
 val leftOuterJoin = for {
-  (c, s) &lt;- coffees joinLeft suppliers on (_.supID === _.id)
+  (c, s) &lt;- coffees.joinLeft(suppliers).on(_.supID === _.id)
 } yield (c.name, s.map(_.name))
 // compiles to SQL (simplified):
 //   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
@@ -300,7 +300,7 @@ val leftOuterJoin = for {
 //     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;
 
 val rightOuterJoin = for {
-  (c, s) &lt;- coffees joinRight suppliers on (_.supID === _.id)
+  (c, s) &lt;- coffees.joinRight(suppliers).on(_.supID === _.id)
 } yield (c.map(_.name), s.name)
 // compiles to SQL (simplified):
 //   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
@@ -308,7 +308,7 @@ val rightOuterJoin = for {
 //     on x2.&quot;SUP_ID&quot; = x3.&quot;SUP_ID&quot;
 
 val fullOuterJoin = for {
-  (c, s) &lt;- coffees joinFull suppliers on (_.supID === _.id)
+  (c, s) &lt;- coffees.joinFull(suppliers).on(_.supID === _.id)
 } yield (c.map(_.name), s.map(_.name))
 // compiles to SQL (simplified):
 //   select x2.&quot;COF_NAME&quot;, x3.&quot;SUP_NAME&quot; from &quot;COFFEES&quot; x2
@@ -339,7 +339,7 @@ val fullOuterJoin = for {
 <h3><a href="#zip-joins" name="zip-joins" class="anchor"><span class="anchor-link"></span></a>Zip joins</h3>
 <p>In addition to the usual applicative join operators supported by relational databases (which are based off a cross join or outer join), Slick also has <em>zip joins</em> which create a pairwise join of two queries. The semantics are again the same as for Scala collections, using the <code>zip</code> and <code>zipWith</code> methods:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L100-L106" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val zipJoinQuery = for {
-  (c, s) &lt;- coffees zip suppliers
+  (c, s) &lt;- coffees.zip(suppliers)
 } yield (c.name, s.name)
 
 val zipWithJoin = for {
@@ -355,7 +355,7 @@ val zipWithJoin = for {
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/JoinsUnions.scala#L119-L138" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q1 = coffees.filter(_.price &lt; 8.0)
 val q2 = coffees.filter(_.price &gt; 9.0)
 
-val unionQuery = q1 union q2
+val unionQuery = q1.union(q2)
 // compiles to SQL (simplified):
 //   select x8.&quot;COF_NAME&quot;, x8.&quot;SUP_ID&quot;, x8.&quot;PRICE&quot;, x8.&quot;SALES&quot;, x8.&quot;TOTAL&quot;
 //     from &quot;COFFEES&quot; x8
@@ -436,7 +436,7 @@ val sql = action.statements.head</code></pre>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L329-L342" target="_blank" title="Go to snippet source">source</a><code class="language-scala">//
 val q = coffees filter { coffee =&gt;
   // You can do any subquery here - this example uses the foreign key relation in coffees.
-  coffee.supID in (
+  coffee.supID.in(
     coffee.supplier filter {
       _.name === &quot;Delete Me&quot;
     } map {
@@ -469,12 +469,12 @@ val insertSql = coffees.insertStatement
 //   INSERT INTO &quot;COFFEES&quot; (&quot;COF_NAME&quot;,&quot;SUP_ID&quot;,&quot;PRICE&quot;,&quot;SALES&quot;,&quot;TOTAL&quot;) VALUES (?,?,?,?,?)</code></pre>
 <p>When you include an <code>AutoInc</code> column in an insert operation, it is silently ignored, so that the database can generate the proper value. In this case you usually want to get back the auto-generated primary key column. By default, <code>+=</code> gives you a count of the number of affected rows (which will usually be 1) and <code>++=</code> gives you an accumulated count in an <code>Option</code> (which can be <code>None</code> if the database system does not provide counts for all rows). This can be changed with the <code>returning</code> method where you specify the columns to be returned (as a single value or tuple from <code>+=</code> and a <code>Seq</code> of such values from <code>++=</code>):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L404-L405" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userId =
-  (users returning users.map(_.id)) += User(None, &quot;Stefan&quot;, &quot;Zeiger&quot;)</code></pre><div class="callout note "><div class="callout-title">Note</div>
+  (users.returning(users.map(_.id))) += User(None, &quot;Stefan&quot;, &quot;Zeiger&quot;)</code></pre><div class="callout note "><div class="callout-title">Note</div>
 <p>Many database systems only allow a single column to be returned which must be the table&rsquo;s auto-incrementing primary key. If you ask for other columns a <code>SlickException</code> is thrown at runtime (unless the database actually supports it).</p></div>
 <p>You can follow the <code>returning</code> method with the <code>into</code> method to map the inserted values and the generated keys (specified in returning) to a desired value. Here is an example of using this feature to return an object with an updated id:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L409-L412" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userWithId =
-  (users returning users.map(_.id)
-    into ((user, id) =&gt; user.copy(id = Some(id)))
+  (users.returning(users.map(_.id))
+    .into((user, id) =&gt; user.copy(id = Some(id)))
     ) += User(None, &quot;Stefan&quot;, &quot;Zeiger&quot;)</code></pre><div class="callout note "><div class="callout-title">Note</div>
 <p>When using the <code>++=</code> batch insert operation, Slick makes use of the JDBC batch API. The underlying JDBC driver will decide how to transmit the batch (via SQL) to the database server.</p>
 <p>Slick may fall back to generating multiple insert statements for batch operations. This will depend on the driver (if it supports batch insert), and other circumstances (<code>returning</code> keys is generally not supported in batch operations).</p></div>
@@ -488,8 +488,8 @@ val users2 = TableQuery[Users2]
 
 val actions = DBIO.seq(
   users2.schema.create,
-  users2 forceInsertQuery (users.map { u =&gt; (u.id, u.first ++ &quot; &quot; ++ u.last) }),
-  users2 forceInsertExpr(users.length + 1, &quot;admin&quot;)
+  users2.forceInsertQuery(users.map { u =&gt; (u.id, u.first ++ &quot; &quot; ++ u.last) }),
+  users2.forceInsertExpr(users.length + 1, &quot;admin&quot;)
 )</code></pre>
 <p>In these cases, <code>AutoInc</code> columns are <em>not</em> ignored.</p>
 <h2><a href="#updating" name="updating" class="anchor"><span class="anchor-link"></span></a>Updating</h2>
@@ -520,7 +520,7 @@ val sql = q.updateStatement
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L434-L438" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val updated = users.insertOrUpdate(User(Some(1), &quot;Admin&quot;, &quot;Zeiger&quot;))
 // returns: number of rows updated
 
-val updatedAdmin = (users returning users).insertOrUpdate(User(Some(1), &quot;Slick Admin&quot;, &quot;Zeiger&quot;))
+val updatedAdmin = (users.returning(users)).insertOrUpdate(User(Some(1), &quot;Slick Admin&quot;, &quot;Zeiger&quot;))
 // returns: None if updated, Some((Int, String)) if row inserted</code></pre>
 <h2><a href="#compiled-queries" name="compiled-queries" class="anchor"><span class="anchor-link"></span></a>Compiled Queries</h2>
 <p>Use compiled queries for frequently executed, parameterized query shapes.</p>
@@ -654,7 +654,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.411.d57508f9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.420.d379bd20', '')});</script>
 
 
 </html>

@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -261,7 +261,7 @@ class Users(tag: Tag) extends Table[User](tag, &quot;users&quot;) {
   def id = column[Int](&quot;id&quot;, O.PrimaryKey, O.AutoInc)
   def first = column[String](&quot;first&quot;)
   def last = column[String](&quot;last&quot;)
-  def * = (id.?, first, last) &lt;&gt; ((User.apply _).tupled, User.unapply _)
+  def * = (id.?, first, last) &lt;&gt; ((User.apply _).tupled, User.unapply)
 }
 val users = TableQuery[Users]</code></pre><div class="callout note "><div class="callout-title">No tupled method?</div>
 <p>In Scala 2, case classes generate a default companion object that extends a function type. For instance, in the above snippet the compiler generates <code>object User extends ((Option[Int], String, String) =&gt; User)</code>. Since scala function types contain a <code>tupled</code> method, in the above snippet you could replace <code>(User.apply _).tupled</code> with just <code>User.tupled</code>. However, this is not a given.</p>
@@ -420,7 +420,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.411.d57508f9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.420.d379bd20', '')});</script>
 
 
 </html>

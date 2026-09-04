@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -233,9 +233,9 @@ val ins2: DBIO[Int] = coffees += (&quot;French_Roast&quot;, 8.99)
 
 val a1: DBIO[Unit] = DBIO.seq(ins1, ins2)
 
-val a2: DBIO[Int] = ins1 andThen ins2
+val a2: DBIO[Int] = ins1.andThen(ins2)
 
-val a3: DBIO[(Int, Int)] = ins1 zip ins2
+val a3: DBIO[(Int, Int)] = ins1.zip(ins2)
 
 val a4: DBIO[Vector[Int]] = DBIO.sequence(Vector(ins1, ins2))</code></pre>
 <p>If an action depends on a previous action in the sequence, you have to compute it on the fly with <a href="https://scala-slick.org/doc/3.7.0-SNAPSHOT/api/slick/dbio/DBIOAction.html#flatMap[R2,S2%3C:NoStream,E2%3C:Effect]((R)=%3EDBIOAction[R2,S2,E2]):DBIOAction[R2,S2,EwithE2]" title="slick.dbio.DBIOAction"><code>flatMap</code></a> or <a href="https://scala-slick.org/doc/3.7.0-SNAPSHOT/api/slick/dbio/DBIOAction.html#map[R2]((R)=%3ER2):DBIOAction[R2,NoStream,E]" title="slick.dbio.DBIOAction"><code>map</code></a>. These two methods plus <a href="https://scala-slick.org/doc/3.7.0-SNAPSHOT/api/slick/dbio/DBIOAction.html#filter((R)=%3EBoolean):DBIOAction[R,NoStream,E]" title="slick.dbio.DBIOAction"><code>filter</code></a> enable the use of <em>for comprehensions</em> for action sequencing.</p>
@@ -264,7 +264,7 @@ val a4: DBIO[Vector[Int]] = DBIO.sequence(Vector(ins1, ins2))</code></pre>
 </code></pre>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L123-L128" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val a = (for {
   ns &lt;- coffees.filter(_.name.startsWith(&quot;ESPRESSO&quot;)).map(_.name).result
-  _ &lt;- DBIO.seq(ns.map(n =&gt; coffees.filter(_.name === n).delete): _*)
+  _ &lt;- DBIO.seq(ns.map(n =&gt; coffees.filter(_.name === n).delete)*)
 } yield ()).transactionally
 
 val f: IO[Unit] = db.run(a)</code></pre><div class="callout warning "><div class="callout-title">Warning</div>
@@ -288,7 +288,7 @@ val errorHandleAction = rollbackAction.asTry.flatMap {
 
 // Here we show that that coffee count is the same before and after the attempted insert.
 // We also show that the result of the action is filled in with the exception&#39;s message.
-val f = db.run(countAction zip errorHandleAction zip countAction).map {
+val f = db.run(countAction.zip(errorHandleAction).zip(countAction)).map {
   case ((initialCount, result), finalCount) =&gt;
     // init: 5, final: 5, result: Roll it back
     println(s&quot;init: ${initialCount}, final: ${finalCount}, result: ${result}&quot;)
@@ -387,7 +387,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.411.d57508f9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.420.d379bd20', '')});</script>
 
 
 </html>

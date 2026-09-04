@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-3.7.0-pre.411.d57508f9
+3.7.0-pre.420.d379bd20
 </a>
 <ul class="menu">
 </ul>
@@ -253,17 +253,27 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
       <td>lifts a <code>Future[R]</code> </td>
       <td>lifts a <code>Future[R]</code> — <strong>unchanged</strong> in <code>slick-future</code> </td>
     </tr>
+    <tr>
+      <td><code>GetResult.apply</code> / <code>SetParameter.apply</code> </td>
+      <td>function parameter is <code>implicit</code> </td>
+      <td>regular parameter; <code>GetResult(r =&gt; ...)</code> and <code>SetParameter[T]((v, pp) =&gt; ...)</code> are unchanged, only summoning a <code>GetResult[T]</code> from an implicit function via <code>GetResult[T]</code> (no argument) no longer works </td>
+    </tr>
   </tbody>
 </table>
 <hr/>
 <h2><a href="#1-dependencies" name="1-dependencies" class="anchor"><span class="anchor-link"></span></a>1. Dependencies</h2>
 <h3><a href="#add-slick-future" name="add-slick-future" class="anchor"><span class="anchor-link"></span></a>Add <code>slick-future</code></h3>
 <p>The Future facade lives in a separate module. Add it to your build:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;3.7.0-pre.411.d57508f9&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;3.7.0-pre.420.d379bd20&quot;
 </code></pre>
 <p>Keep your existing <code>slick</code> and <code>slick-hikaricp</code> dependencies. Remove any direct dependency on <code>org.reactivestreams:reactive-streams</code> — it is now pulled in transitively by <code>slick-future</code>.</p>
 <h3><a href="#scala-version" name="scala-version" class="anchor"><span class="anchor-link"></span></a>Scala version</h3>
 <p>Slick 4 supports <strong>Scala 2.12</strong>, <strong>Scala 2.13</strong>, and <strong>Scala 3</strong> (primary).</p>
+<h3><a href="#infix-method-syntax-on-scala-3" name="infix-method-syntax-on-scala-3" class="anchor"><span class="anchor-link"></span></a>Infix method syntax on Scala 3</h3>
+<p>Older Slick documentation wrote queries in infix style, for example <code>coffees join suppliers on (_.supID === _.id)</code>. Since Scala 3.4 the compiler warns when an alphanumeric method that is not declared <code>infix</code> is used as an infix operator, and with <code>-source:future</code> (or fatal warnings) this is a compile error. Slick does not declare its query methods <code>infix</code>, so the Slick 4 documentation and test suite use regular method syntax throughout:</p>
+<pre class="prettyprint"><code class="language-scala">coffees.join(suppliers).on(_.supID === _.id)
+</code></pre>
+<p>Existing infix call sites keep working on Scala 2 and, with a warning, on Scala 3. To convert them either use the compiler&rsquo;s rewrite (<code>-rewrite -source 3.4-migration</code>, which adds backticks) or scalafmt&rsquo;s <code>AvoidInfix</code> rewrite rule (which produces method syntax).</p>
 <hr/>
 <h2><a href="#2-database-construction" name="2-database-construction" class="anchor"><span class="anchor-link"></span></a>2. Database Construction</h2>
 <p>In Slick 3 you called <code>Database.forConfig(&quot;mydb&quot;)</code> (or another <code>forXxx</code> method) directly. In Slick 4 these methods are <strong>removed</strong>. The new entry point is <code>slick.jdbc.DatabaseConfig</code>, which bundles the database profile with the connection configuration and returns a <code>JdbcDatabaseConfig</code> value. You then open a <code>Database</code> from it.</p>
@@ -629,6 +639,11 @@ import scala.concurrent.ExecutionContext.parasitic
       <td>explicit <code>JdbcDatabaseDef</code> type annotation from Slick 3 </td>
       <td>Change to <code>val db: slick.future.Database</code> and migrate factory call </td>
     </tr>
+    <tr>
+      <td><code>Alphanumeric method join is not declared infix</code> (warning, or error with <code>-source:future</code>) </td>
+      <td>Scala 3.4+ infix rule, not a Slick change </td>
+      <td>Use method syntax: <code>a.join(b).on(...)</code> — see <a href="#infix-method-syntax-on-scala-3">Infix method syntax</a> </td>
+    </tr>
   </tbody>
 </table>
 <div class="source-github">
@@ -725,7 +740,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.411.d57508f9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '3.7.0-pre.420.d379bd20', '')});</script>
 
 
 </html>
