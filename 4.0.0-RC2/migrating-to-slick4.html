@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Migrating to Slick 4 · Slick 4</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='Scala Slick documentation'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick 4
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+4.0.0-RC2
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="database.html" class="page">Database</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="migrating-to-slick4.html" class="active page">Migrating to Slick 4</a></li>
+  <li><a href="upgrade-slick3.html" class="page">Slick 3.x Upgrade Notes</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick 4</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick 4
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+4.0.0-RC2
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="database.html" class="page">Database</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="migrating-to-slick4.html" class="active page">Migrating to Slick 4</a></li>
+  <li><a href="upgrade-slick3.html" class="page">Slick 3.x Upgrade Notes</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick 4</a></li>
+  <li>Migrating to Slick 4</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#migrating-to-slick-4" name="migrating-to-slick-4" class="anchor"><span class="anchor-link"></span></a>Migrating to Slick 4</h1><div class="callout note "><div class="callout-title">Note</div>
+<p>This guide is written for both human readers and AI agents performing automated migrations. The <a href="#mechanical-migration-checklist">Mechanical Migration Checklist</a> at the end contains a concise, pattern-by-pattern reference suitable for automated tooling.</p>
+<p>For upgrade notes between Slick 3.x minor versions, see <a href="upgrade-slick3.html">Slick 3.x Upgrade Notes</a>.</p></div>
+<p>Slick 4 replaces the <code>Database.forXxx</code> factory methods and <code>scala.concurrent.Future</code>-returning execution layer with a new, three-facade API. The query DSL, SQL compiler pipeline, <code>DBIOAction</code> type and phantom effect system (<code>Effect.Read</code>/<code>Write</code>/<code>Schema</code>/<code>Transactional</code>), all database profiles, and all SQL generation code are <strong>completely unchanged</strong>. If your application only composes queries and runs them, the migration is largely mechanical.</p>
+<p>Slick 4 ships three ready-made facades:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Facade </th>
+      <th>Module </th>
+      <th>Effect type </th>
+      <th>Stream type </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>slick.future.Database</code> </td>
+      <td><code>slick-future</code> </td>
+      <td><code>scala.concurrent.Future</code> </td>
+      <td>Reactive Streams <code>DatabasePublisher[T]</code> </td>
+    </tr>
+    <tr>
+      <td><code>slick.cats.Database</code> </td>
+      <td><code>slick</code> (core) </td>
+      <td><code>cats.effect.IO</code> </td>
+      <td><code>fs2.Stream[IO, T]</code> </td>
+    </tr>
+    <tr>
+      <td><code>slick.zio.Database</code> </td>
+      <td><code>slick-zio</code> </td>
+      <td><code>zio.Task</code> </td>
+      <td><code>zio.stream.ZStream[Any, Throwable, T]</code> </td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>If you are migrating from Slick 3 and are not already using Cats Effect or ZIO, use the <code>slick-future</code> module.</strong> It keeps <code>Future</code> and Reactive Streams exactly where they were — the only thing that changes is how you construct the database.</p>
+<hr/>
+<h2><a href="#what-changed-and-what-did-not" name="what-changed-and-what-did-not" class="anchor"><span class="anchor-link"></span></a>What Changed and What Did Not</h2>
+<h3><a href="#unchanged" name="unchanged" class="anchor"><span class="anchor-link"></span></a>Unchanged</h3>
+<ul>
+  <li>All query syntax: <code>users.filter(_.id === 1).result</code>, <code>users += row</code>, <code>.delete</code>, <code>.update</code>,  <code>schema.create</code>, <code>schema.createIfNotExists</code>, plain SQL interpolation (<code>sql&quot;...&quot;</code>, <code>sqlu&quot;...&quot;</code>)</li>
+  <li>The <code>DBIOAction[R, S, E]</code> type and all its combinators: <code>andThen</code>, <code>zip</code>, <code>DBIO.seq</code>,  <code>DBIO.sequence</code>, <code>DBIO.traverse</code>, <code>DBIO.fold</code>, <code>asTry</code>, <code>failed</code>, <code>andFinally</code>, <code>cleanUp</code>,  <code>withPinnedSession</code>, <code>transactionally</code>, <code>named</code></li>
+  <li>All profile imports: <code>import slick.jdbc.PostgresProfile.api.*</code></li>
+  <li>The phantom effect type system: <code>Effect.Read</code>, <code>Effect.Write</code>, <code>Effect.Schema</code>,  <code>Effect.Transactional</code></li>
+  <li><code>slick-hikaricp</code>: HikariCP integration is unchanged; <code>DataSource</code> is still the integration point</li>
+  <li><code>slick-codegen</code>: code generation is unchanged. If you have previously generated code that  contains <code>import scala.concurrent.ExecutionContext</code> (added by older codegen versions), that  import is now unused — remove it or regenerate.</li>
+</ul>
+<h3><a href="#changed-breaking-" name="changed-breaking-" class="anchor"><span class="anchor-link"></span></a>Changed (breaking)</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Area </th>
+      <th>Before (Slick 3) </th>
+      <th>After (Slick 4, <code>slick-future</code>) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>db.run(a)</code> return type </td>
+      <td><code>Future[R]</code> </td>
+      <td><code>Future[R]</code> — <strong>unchanged</strong> </td>
+    </tr>
+    <tr>
+      <td><code>db.stream(a)</code> return type </td>
+      <td><code>DatabasePublisher[T]</code> (subclass with <code>.foreach</code>/<code>.mapResult</code>) </td>
+      <td><code>DatabasePublisher[T]</code> — unchanged; <code>bufferNext</code> overload removed </td>
+    </tr>
+    <tr>
+      <td><code>Database</code> construction </td>
+      <td><code>Database.forConfig(&quot;p&quot;)</code> </td>
+      <td><code>DatabaseConfig.forConfig[P](&quot;p&quot;)</code> → <code>Database.open(dc)</code> or <code>Database.use(dc)(f)</code> </td>
+    </tr>
+    <tr>
+      <td><code>db.shutdown</code> </td>
+      <td><code>Future[Unit]</code> </td>
+      <td><strong>removed</strong> — use <code>Database.use</code> or <code>db.close()</code> </td>
+    </tr>
+    <tr>
+      <td><code>AsyncExecutor</code> </td>
+      <td>required for thread pool config </td>
+      <td><strong>removed</strong> entirely </td>
+    </tr>
+    <tr>
+      <td><code>map</code>/<code>flatMap</code> on <code>DBIOAction</code> </td>
+      <td>require <code>(implicit ec: ExecutionContext)</code> </td>
+      <td>no EC parameter </td>
+    </tr>
+    <tr>
+      <td><code>DBIO.from(x)</code> </td>
+      <td>lifts a <code>Future[R]</code> </td>
+      <td>lifts a <code>Future[R]</code> — <strong>unchanged</strong> in <code>slick-future</code> </td>
+    </tr>
+    <tr>
+      <td><code>GetResult.apply</code> / <code>SetParameter.apply</code> </td>
+      <td>function parameter is <code>implicit</code> </td>
+      <td>regular parameter; <code>GetResult(r =&gt; ...)</code> and <code>SetParameter[T]((v, pp) =&gt; ...)</code> are unchanged, only summoning a <code>GetResult[T]</code> from an implicit function via <code>GetResult[T]</code> (no argument) no longer works </td>
+    </tr>
+  </tbody>
+</table>
+<hr/>
+<h2><a href="#1-dependencies" name="1-dependencies" class="anchor"><span class="anchor-link"></span></a>1. Dependencies</h2>
+<h3><a href="#add-slick-future" name="add-slick-future" class="anchor"><span class="anchor-link"></span></a>Add <code>slick-future</code></h3>
+<p>The Future facade lives in a separate module. Add it to your build:</p>
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-RC2&quot;
+</code></pre>
+<p>Keep your existing <code>slick</code> and <code>slick-hikaricp</code> dependencies. Remove any direct dependency on <code>org.reactivestreams:reactive-streams</code> — it is now pulled in transitively by <code>slick-future</code>.</p>
+<h3><a href="#scala-version" name="scala-version" class="anchor"><span class="anchor-link"></span></a>Scala version</h3>
+<p>Slick 4 supports <strong>Scala 2.12</strong>, <strong>Scala 2.13</strong>, and <strong>Scala 3</strong> (primary).</p>
+<h3><a href="#infix-method-syntax-on-scala-3" name="infix-method-syntax-on-scala-3" class="anchor"><span class="anchor-link"></span></a>Infix method syntax on Scala 3</h3>
+<p>Older Slick documentation wrote queries in infix style, for example <code>coffees join suppliers on (_.supID === _.id)</code>. Since Scala 3.4 the compiler warns when an alphanumeric method that is not declared <code>infix</code> is used as an infix operator, and with <code>-source:future</code> (or fatal warnings) this is a compile error. Slick does not declare its query methods <code>infix</code>, so the Slick 4 documentation and test suite use regular method syntax throughout:</p>
+<pre class="prettyprint"><code class="language-scala">coffees.join(suppliers).on(_.supID === _.id)
+</code></pre>
+<p>Existing infix call sites keep working on Scala 2 and, with a warning, on Scala 3. To convert them either use the compiler&rsquo;s rewrite (<code>-rewrite -source 3.4-migration</code>, which adds backticks) or scalafmt&rsquo;s <code>AvoidInfix</code> rewrite rule (which produces method syntax).</p>
+<hr/>
+<h2><a href="#2-database-construction" name="2-database-construction" class="anchor"><span class="anchor-link"></span></a>2. Database Construction</h2>
+<p>In Slick 3 you called <code>Database.forConfig(&quot;mydb&quot;)</code> (or another <code>forXxx</code> method) directly. In Slick 4 these methods are <strong>removed</strong>. The new entry point is <code>slick.jdbc.DatabaseConfig</code>, which bundles the database profile with the connection configuration and returns a <code>JdbcDatabaseConfig</code> value. You then open a <code>Database</code> from it.</p>
+<pre class="prettyprint"><code class="language-scala">import slick.jdbc.DatabaseConfig   // the one to use for all JDBC databases
+import slick.jdbc.H2Profile
+import slick.future.Database
+</code></pre>
+<p><code>slick.jdbc.DatabaseConfig</code> provides factory methods mirroring those that existed on <code>Database</code>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Method </th>
+      <th>Description </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>DatabaseConfig.forURL(H2Profile, url, ...)</code> </td>
+      <td>JDBC URL </td>
+    </tr>
+    <tr>
+      <td><code>DatabaseConfig.forDataSource(H2Profile, ds)</code> </td>
+      <td>Existing <code>DataSource</code> </td>
+    </tr>
+    <tr>
+      <td><code>DatabaseConfig.forName(H2Profile, jndi)</code> </td>
+      <td>JNDI name </td>
+    </tr>
+    <tr>
+      <td><code>DatabaseConfig.forProfileConfig(H2Profile, &quot;mydb&quot;)</code> </td>
+      <td>Typesafe Config path with a concrete profile </td>
+    </tr>
+    <tr>
+      <td><code>DatabaseConfig.forConfig[H2Profile.type](&quot;mydb&quot;)</code> </td>
+      <td>Typesafe Config path, profile class loaded from config </td>
+    </tr>
+  </tbody>
+</table>
+<p>To set the connection pool size for programmatic configs, chain <code>.withControls</code>:</p>
+<pre class="prettyprint"><code class="language-scala">DatabaseConfig.forDataSource(H2Profile, ds)
+  .withControls(ControlsConfig(maxConnections = n))
+</code></pre>
+<p>All of these return a <code>JdbcDatabaseConfig</code> that you pass to <code>Database.open</code> or <code>Database.use</code>.</p>
+<p>There are two ways to open a <code>slick.future.Database</code> from a <code>JdbcDatabaseConfig</code>:</p>
+<ul>
+  <li><strong><code>Database.use(dc)(f)</code></strong> — opens a <strong>new</strong> database instance (and its connection pool),  runs <code>f</code> with it, then closes it when the <code>Future</code> completes. Use this to wrap your <strong>whole  program</strong> — not individual queries. Calling it per-request or per-query opens and tears down  the connection pool on every call, which is both slow and wrong.</li>
+  <li><strong><code>Database.open(dc)</code></strong> — returns <code>Future[Database]</code>; you are responsible for calling  <code>db.close()</code> once when your application shuts down.</li>
+</ul>
+<h3><a href="#option-1-database-use-for-scripts-and-top-level-programs-" name="option-1-database-use-for-scripts-and-top-level-programs-" class="anchor"><span class="anchor-link"></span></a>Option 1 — <code>Database.use</code> (for scripts and top-level programs)</h3>
+<p><code>Database.use</code> is the right choice when your entire program fits inside a single <code>Future</code> — for example a batch job, a migration script, or a <code>main</code> method:</p>
+<pre class="prettyprint"><code class="language-scala">// Slick 3
+val db = Database.forConfig(&quot;mydb&quot;)
+try {
+  Await.result(program(db), Duration.Inf)
+} finally {
+  db.close()
+}
+
+// Slick 4 — equivalent one-liner for a self-contained program
+import slick.future.Database
+import slick.jdbc.{DatabaseConfig, H2Profile}
+
+val dc = DatabaseConfig.forProfileConfig(H2Profile, &quot;mydb&quot;)
+Await.result(
+  Database.use(dc) { db =&gt; program(db) },
+  Duration.Inf
+)
+</code></pre>
+<p>The connection pool is opened once, your program runs, and the pool is closed when the <code>Future</code> completes — whether successfully or with a failure.</p><div class="callout warning "><div class="callout-title">Warning</div>
+<p>Do <strong>not</strong> call <code>Database.use</code> inside a request handler or around individual queries. Each call to <code>use</code> opens and closes the connection pool. For a long-running server use <code>Database.open</code> instead and keep the resulting <code>Database</code> for the lifetime of the application.</p></div>
+<h3><a href="#option-2-database-open-manual-close-for-long-running-applications-" name="option-2-database-open-manual-close-for-long-running-applications-" class="anchor"><span class="anchor-link"></span></a>Option 2 — <code>Database.open</code> + manual <code>close()</code> (for long-running applications)</h3>
+<p>For servers, Play applications, Akka/Pekko systems, or any code where <code>db</code> is held for the lifetime of the application, use <code>Database.open</code> once at startup and <code>db.close()</code> once at shutdown:</p>
+<pre class="prettyprint"><code class="language-scala">val dc = DatabaseConfig.forProfileConfig(H2Profile, &quot;mydb&quot;)
+val dbFuture: Future[Database] = Database.open(dc)
+
+// Pass db to your services, route handlers, actors, etc.
+// On application shutdown:
+dbFuture.foreach(_.close())
+</code></pre>
+<p>This is the direct replacement for the old <code>val db = Database.forConfig(&quot;mydb&quot;)</code> / <code>db.close()</code> pattern and the right approach for most production applications.</p>
+<hr/>
+<h2><a href="#3-db-run-and-db-stream" name="3-db-run-and-db-stream" class="anchor"><span class="anchor-link"></span></a>3. <code>db.run</code> and <code>db.stream</code></h2>
+<p>Once you have a <code>slick.future.Database</code>, <code>run</code> and <code>stream</code> return the same types as before:</p>
+<pre class="prettyprint"><code class="language-scala">// Slick 3 and Slick 4 with slick-future — identical
+val result: Future[Seq[User]]           = db.run(users.result)
+val publisher: DatabasePublisher[User]  = db.stream(users.result)
+</code></pre>
+<p>All existing code that wires the <code>Publisher</code> to a Reactive Streams subscriber (Akka Streams, Pekko Streams, etc.) continues to work without changes.</p>
+<hr/>
+<h2><a href="#4-executioncontext-removal-from-dbioaction-combinators" name="4-executioncontext-removal-from-dbioaction-combinators" class="anchor"><span class="anchor-link"></span></a>4. <code>ExecutionContext</code> removal from <code>DBIOAction</code> combinators</h2>
+<p><code>map</code>, <code>flatMap</code>, <code>filter</code>, <code>withFilter</code>, <code>cleanUp</code>, <code>zipWith</code>, and <code>DBIO.fold</code> <strong>no longer accept an implicit <code>ExecutionContext</code></strong>. Remove all EC imports and implicits that were only present for DBIO composition.</p>
+<pre class="prettyprint"><code class="language-scala">// Slick 3 — required import and implicit
+import scala.concurrent.ExecutionContext.Implicits.global
+
+val action: DBIO[String] = for {
+  count &lt;- users.length.result
+  _     &lt;- users += User(count + 1, &quot;Alice&quot;)
+} yield &quot;done&quot;
+
+// Slick 4 — no import or implicit needed
+val action: DBIO[String] = for {
+  count &lt;- users.length.result
+  _     &lt;- users += User(count + 1, &quot;Alice&quot;)
+} yield &quot;done&quot;
+</code></pre>
+<p>Keep any <code>ExecutionContext</code> imports that are used for non-Slick <code>Future</code> code in the same file.</p>
+<h3><a href="#dbio-fold" name="dbio-fold" class="anchor"><span class="anchor-link"></span></a><code>DBIO.fold</code></h3>
+<p><code>DBIO.fold</code> no longer takes an <code>ExecutionContext</code>:</p>
+<pre class="prettyprint"><code class="language-scala">// Slick 3
+DBIO.fold(actions, zero)(f)(ec)
+
+// Slick 4
+DBIO.fold(actions, zero)(f)
+</code></pre>
+<hr/>
+<h2><a href="#5-dbio-from" name="5-dbio-from" class="anchor"><span class="anchor-link"></span></a>5. <code>DBIO.from</code></h2>
+<p><code>DBIO.from</code> continues to lift a <code>Future[R]</code> into a <code>DBIOAction</code> when using <code>slick-future</code>. No change is needed here.</p>
+<pre class="prettyprint"><code class="language-scala">// Unchanged between Slick 3 and Slick 4 (slick-future)
+val action = DBIO.from(Future(computeSomething()))
+</code></pre>
+<hr/>
+<h2><a href="#6-transaction-api-unchanged" name="6-transaction-api-unchanged" class="anchor"><span class="anchor-link"></span></a>6. Transaction API — unchanged</h2>
+<p><code>.transactionally</code> works identically to before:</p>
+<pre class="prettyprint"><code class="language-scala">val transfer: DBIO[Unit] = (for {
+  _ &lt;- accounts.filter(_.id === from).map(_.balance).update(fromBal - amount)
+  _ &lt;- accounts.filter(_.id === to).map(_.balance).update(toBal + amount)
+} yield ()).transactionally
+
+val fut: Future[Unit] = db.run(transfer)
+</code></pre>
+<hr/>
+<h2><a href="#7-completely-removed-apis" name="7-completely-removed-apis" class="anchor"><span class="anchor-link"></span></a>7. Completely Removed APIs</h2>
+<h3><a href="#database-forxxx-factory-methods" name="database-forxxx-factory-methods" class="anchor"><span class="anchor-link"></span></a><code>Database.forXxx</code> factory methods</h3>
+<p><code>Database.forConfig</code>, <code>Database.forURL</code>, <code>Database.forDataSource</code>, and <code>Database.forName</code> are <strong>removed</strong>. Use <code>slick.jdbc.DatabaseConfig.forURL</code> / <code>forDataSource</code> / <code>forName</code> / <code>forProfileConfig</code>, then call <code>Database.open</code> or <code>Database.use</code> — see <a href="#2-database-construction">Database Construction</a>.</p>
+<h3><a href="#db-shutdown" name="db-shutdown" class="anchor"><span class="anchor-link"></span></a><code>db.shutdown</code></h3>
+<p><code>shutdown: Future[Unit]</code> is removed. Replace with <code>db.close()</code> (synchronous, same effect), or <code>Future(db.close())</code> if you need a <code>Future[Unit]</code> to compose with.</p>
+<h3><a href="#asyncexecutor" name="asyncexecutor" class="anchor"><span class="anchor-link"></span></a><code>AsyncExecutor</code></h3>
+<p><code>AsyncExecutor</code>, <code>ManagedArrayBlockingQueue</code>, and <code>InternalArrayQueue</code> are deleted. Remove any <code>AsyncExecutor</code> construction from your code; none of the Slick 4 factory methods accept it.</p>
+<p>The <code>minThreads == maxThreads == maxConnections</code> constraint that was required to prevent deadlocks in Slick 3 <strong>does not exist in Slick 4</strong>. You are free to size your HikariCP pool based on what your database server can handle, independent of thread counts.</p>
+<p>Slick 4 replaces the old executor queue model with explicit limits:</p>
+<ul>
+  <li><code>queueSize</code> (default <code>1000</code>): max callers waiting to start.</li>
+  <li><code>maxInflightActions</code> (default <code>2 * maxConnections</code>): max concurrent DBIO chains.</li>
+  <li><code>maxConnections</code>: max concurrent JDBC connections.</li>
+</ul>
+<p>If you configured AsyncExecutor queue sizing in Slick 3, map that intent to <code>queueSize</code> and <code>maxInflightActions</code> in Slick 4.</p>
+<h3><a href="#jmx-asyncexecutormxbean" name="jmx-asyncexecutormxbean" class="anchor"><span class="anchor-link"></span></a>JMX <code>AsyncExecutorMXBean</code></h3>
+<p>The <code>slick:type=AsyncExecutor,name=…</code> JMX bean is removed. HikariCP&rsquo;s own JMX beans (<code>com.zaxxer.hikari:type=Pool</code> and <code>com.zaxxer.hikari:type=PoolConfig</code>) still work unchanged. For programmatic inspection of Slick&rsquo;s admission and connection-slot counters, use <code>db.controlStatus: Future[ControlStatus]</code>, which exposes <code>availableConnectionSlots</code>, <code>pendingConnectionSlots</code>, <code>availableAdmissionQueueSlots</code>, and <code>availableInflightSlots</code>.</p>
+<h3><a href="#db-stream-action-buffernext-overload" name="db-stream-action-buffernext-overload" class="anchor"><span class="anchor-link"></span></a><code>db.stream(action, bufferNext)</code> overload</h3>
+<p>The two-argument <code>stream(action, bufferNext: Boolean)</code> overload is removed. In Slick 3, <code>bufferNext = false</code> kept the result set open while an async consumer processed each row, which was required to keep LOB references (e.g. <code>java.sql.Blob</code>) valid on databases such as DB2.</p>
+<p>In Slick 4 the pull model is inherently demand-driven. Use <code>db.stream(action)</code> — no flag is needed or accepted.</p>
+<pre class="prettyprint"><code class="language-scala">// Slick 3
+db.stream(blobQuery.result, bufferNext = false)
+
+// Slick 4
+db.stream(blobQuery.result)   // demand-driven by default
+</code></pre>
+<hr/>
+<h2><a href="#8-cats-effect-and-zio" name="8-cats-effect-and-zio" class="anchor"><span class="anchor-link"></span></a>8. Cats Effect and ZIO</h2>
+<p>If you want to migrate to Cats Effect 3 or ZIO in the future, Slick 4 supports both natively. See <a href="database.html">Database</a> for the <code>slick.cats.Database</code> and <code>slick.zio.Database</code> APIs.</p>
+<hr/>
+<h2><a href="#mechanical-migration-checklist" name="mechanical-migration-checklist" class="anchor"><span class="anchor-link"></span></a>Mechanical Migration Checklist</h2>
+<p>This section is a concise, pattern-by-pattern reference for automated migration tooling or for developers doing a systematic find-and-replace pass.</p>
+<p>All patterns below assume you are migrating to <code>slick-future</code> (Future + Reactive Streams).</p>
+<h3><a href="#1-dependencies-build-sbt-pom-xml" name="1-dependencies-build-sbt-pom-xml" class="anchor"><span class="anchor-link"></span></a>1. Dependencies — <code>build.sbt</code> / <code>pom.xml</code></h3>
+<ul>
+  <li><strong>Add</strong>: <code>&quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;&lt;version&gt;&quot;</code></li>
+  <li><strong>Remove</strong> (or leave — it is now a transitive dependency): direct <code>org.reactivestreams:reactive-streams</code></li>
+  <li><strong>Keep</strong> all existing <code>slick</code> and <code>slick-hikaricp</code> entries unchanged</li>
+</ul>
+<h3><a href="#2-imports-to-add" name="2-imports-to-add" class="anchor"><span class="anchor-link"></span></a>2. Imports to add</h3>
+<pre class="prettyprint"><code class="language-scala">import slick.future.Database
+import slick.jdbc.DatabaseConfig   // slick.jdbc.DatabaseConfig — the one with all factory methods
+</code></pre>
+<h3><a href="#3-imports-to-remove" name="3-imports-to-remove" class="anchor"><span class="anchor-link"></span></a>3. Imports to remove</h3>
+<p>Remove any import that was only present to provide an <code>ExecutionContext</code> for DBIO composition. Keep EC imports that are used for non-Slick <code>Future</code> code in the same file.</p>
+<pre><code>import scala.concurrent.ExecutionContext
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.ExecutionContext.parasitic
+</code></pre>
+<h3><a href="#4-database-construction" name="4-database-construction" class="anchor"><span class="anchor-link"></span></a>4. Database construction</h3>
+<p><code>Database.forXxx</code> is removed. Replace with <code>slick.jdbc.DatabaseConfig.forXxx</code> + <code>Database.use</code> or <code>Database.open</code>:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Pattern (Slick 3) </th>
+      <th>Replacement (Slick 4, <code>slick-future</code>) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Database.forConfig(&quot;p&quot;)</code> </td>
+      <td><code>DatabaseConfig.forProfileConfig(MyProfile, &quot;p&quot;)</code> or <code>DatabaseConfig.forConfig[MyProfile.type](&quot;p&quot;)</code> </td>
+    </tr>
+    <tr>
+      <td><code>Database.forURL(url, driver=d)</code> </td>
+      <td><code>DatabaseConfig.forURL(MyProfile, url, driver=d)</code> </td>
+    </tr>
+    <tr>
+      <td><code>Database.forDataSource(ds, Some(n))</code> </td>
+      <td><code>DatabaseConfig.forDataSource(MyProfile, ds).withControls(ControlsConfig(maxConnections = n))</code> </td>
+    </tr>
+    <tr>
+      <td><code>Database.forName(jndi, Some(n))</code> </td>
+      <td><code>DatabaseConfig.forName(MyProfile, jndi).withControls(ControlsConfig(maxConnections = n))</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#5-database-lifecycle" name="5-database-lifecycle" class="anchor"><span class="anchor-link"></span></a>5. Database lifecycle</h3>
+<p><code>Database.use</code> opens a <strong>new</strong> connection pool each invocation — use it only to wrap a whole program (batch job, script, <code>main</code>). For long-running servers use <code>Database.open</code> once at startup.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Pattern (Slick 3) </th>
+      <th>Replacement (Slick 4, <code>slick-future</code>) </th>
+      <th>Notes </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>val db = Database.forConfig(&quot;p&quot;)</code> + <code>db.close()</code> at shutdown </td>
+      <td><code>val dbFut = Database.open(dc)</code> + <code>dbFut.foreach(_.close())</code> at shutdown </td>
+      <td>Normal server pattern </td>
+    </tr>
+    <tr>
+      <td><code>val db = …</code> + <code>Await.result(program(db), …)</code> + <code>db.close()</code> </td>
+      <td><code>Await.result(Database.use(dc)(program), …)</code> </td>
+      <td>Scripts / batch jobs only </td>
+    </tr>
+    <tr>
+      <td><code>Await.result(db.shutdown, ...)</code> </td>
+      <td><code>db.close()</code> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#6-db-run" name="6-db-run" class="anchor"><span class="anchor-link"></span></a>6. <code>db.run</code></h3>
+<p>No change needed. <code>db.run(action)</code> still returns <code>Future[R]</code>.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Pattern (Slick 3) </th>
+      <th>Replacement (Slick 4) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>val f: Future[R] = db.run(a)</code> </td>
+      <td>unchanged </td>
+    </tr>
+    <tr>
+      <td><code>Await.result(db.run(a), d)</code> </td>
+      <td>unchanged </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#7-db-stream" name="7-db-stream" class="anchor"><span class="anchor-link"></span></a>7. <code>db.stream</code></h3>
+<p><code>db.stream(action)</code> returns a <code>DatabasePublisher[T]</code> with <code>.foreach</code> and <code>.mapResult</code> working as in Slick 3. The only breaking change is the removal of the <code>bufferNext</code> overload:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Pattern (Slick 3) </th>
+      <th>Replacement (Slick 4) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>db.stream(a, bufferNext = false)</code> </td>
+      <td><code>db.stream(a)</code> — <code>bufferNext</code> overload removed </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#8-executioncontext-parameters-on-dbioaction-methods" name="8-executioncontext-parameters-on-dbioaction-methods" class="anchor"><span class="anchor-link"></span></a>8. <code>ExecutionContext</code> parameters on <code>DBIOAction</code> methods</h3>
+<p>Remove <code>(implicit ec: ExecutionContext)</code> (or <code>(ec)</code>) from all calls to:</p>
+<ul>
+  <li><code>dbio.map(f)</code></li>
+  <li><code>dbio.flatMap(f)</code></li>
+  <li><code>dbio.filter(f)</code></li>
+  <li><code>dbio.withFilter(f)</code></li>
+  <li><code>dbio.cleanUp(f, keepFailure)</code></li>
+  <li><code>dbio.zipWith(a)(f)</code></li>
+  <li><code>DBIO.fold(actions, zero)(f)</code></li>
+</ul>
+<p>If passed implicitly it will simply no longer be resolved. If passed explicitly it will be a compile error.</p>
+<h3><a href="#9-dbio-from" name="9-dbio-from" class="anchor"><span class="anchor-link"></span></a>9. <code>DBIO.from</code></h3>
+<p>No change needed. <code>DBIO.from(future: Future[R])</code> is unchanged in <code>slick-future</code>.</p>
+<h3><a href="#10-asyncexecutor" name="10-asyncexecutor" class="anchor"><span class="anchor-link"></span></a>10. <code>AsyncExecutor</code></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Pattern (Slick 3) </th>
+      <th>Replacement (Slick 4) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>AsyncExecutor(&quot;name&quot;, n, n, m, n)</code> </td>
+      <td>Remove entirely </td>
+    </tr>
+    <tr>
+      <td><code>Database.forURL(url, executor=ae)</code> </td>
+      <td><code>DatabaseConfig.forURL(profile, url)</code> — no executor parameter </td>
+    </tr>
+    <tr>
+      <td><code>Database.forDataSource(ds, Some(n), executor=ae)</code> </td>
+      <td><code>DatabaseConfig.forDataSource(profile, ds).withControls(ControlsConfig(maxConnections = n))</code> </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#11-jmx-bean-name" name="11-jmx-bean-name" class="anchor"><span class="anchor-link"></span></a>11. JMX bean name</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Pattern (Slick 3) </th>
+      <th>Replacement (Slick 4) </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>slick:type=AsyncExecutor,name=&lt;poolName&gt;</code> </td>
+      <td>Use HikariCP JMX beans for pool metrics; use <code>db.controlStatus</code> for Slick admission/connection-slot counters </td>
+    </tr>
+  </tbody>
+</table>
+<h3><a href="#12-compile-error-guide" name="12-compile-error-guide" class="anchor"><span class="anchor-link"></span></a>12. Compile-error guide</h3>
+<p>If your project fails to compile after upgrading, use this table:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Compile error </th>
+      <th>Cause </th>
+      <th>Fix </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>overloaded method stream</code> or <code>too many arguments for method stream</code> </td>
+      <td><code>stream(a, bufferNext)</code> overload removed </td>
+      <td>Use <code>db.stream(a)</code> </td>
+    </tr>
+    <tr>
+      <td><code>could not find implicit value for parameter executor</code> </td>
+      <td>EC parameter removed from DBIO combinators </td>
+      <td>Remove <code>(implicit ec: ExecutionContext)</code> or <code>(ec)</code> from <code>flatMap</code>/<code>map</code> call </td>
+    </tr>
+    <tr>
+      <td><code>value shutdown is not a member of Database</code> </td>
+      <td><code>db.shutdown</code> removed </td>
+      <td>Use <code>db.close()</code>, or <code>Future(db.close())</code> if you need a <code>Future[Unit]</code> </td>
+    </tr>
+    <tr>
+      <td><code>object AsyncExecutor is not a member of package slick.util</code> </td>
+      <td>class removed </td>
+      <td>Remove all <code>AsyncExecutor</code> usage </td>
+    </tr>
+    <tr>
+      <td><code>object Database is not a member of package slick.jdbc</code> or <code>value forConfig is not a member of ...</code> </td>
+      <td><code>Database.forXxx</code> removed </td>
+      <td>Use <code>DatabaseConfig.forXxx</code> — see <a href="#2-database-construction">Database Construction</a> </td>
+    </tr>
+    <tr>
+      <td><code>class JdbcDatabaseDef takes type parameters</code> on a variable type annotation </td>
+      <td>explicit <code>JdbcDatabaseDef</code> type annotation from Slick 3 </td>
+      <td>Change to <code>val db: slick.future.Database</code> and migrate factory call </td>
+    </tr>
+    <tr>
+      <td><code>Alphanumeric method join is not declared infix</code> (warning, or error with <code>-source:future</code>) </td>
+      <td>Scala 3.4+ infix rule, not a Slick change </td>
+      <td>Use method syntax: <code>a.join(b).on(...)</code> — see <a href="#infix-method-syntax-on-scala-3">Infix method syntax</a> </td>
+    </tr>
+  </tbody>
+</table>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/paradox/migrating-to-slick4.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="upgrade-slick3.html">Slick 3.x Upgrade Notes</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="migrating-to-slick4.html#migrating-to-slick-4" class="header">Migrating to Slick 4</a>
+  <ul>
+    <li><a href="migrating-to-slick4.html#what-changed-and-what-did-not" class="header">What Changed and What Did Not</a></li>
+    <li><a href="migrating-to-slick4.html#1-dependencies" class="header">1. Dependencies</a></li>
+    <li><a href="migrating-to-slick4.html#2-database-construction" class="header">2. Database Construction</a></li>
+    <li><a href="migrating-to-slick4.html#3-db-run-and-db-stream" class="header">3. <code>db.run</code> and <code>db.stream</code></a></li>
+    <li><a href="migrating-to-slick4.html#4-executioncontext-removal-from-dbioaction-combinators" class="header">4. <code>ExecutionContext</code> removal from <code>DBIOAction</code> combinators</a></li>
+    <li><a href="migrating-to-slick4.html#5-dbio-from" class="header">5. <code>DBIO.from</code></a></li>
+    <li><a href="migrating-to-slick4.html#6-transaction-api-unchanged" class="header">6. Transaction API — unchanged</a></li>
+    <li><a href="migrating-to-slick4.html#7-completely-removed-apis" class="header">7. Completely Removed APIs</a></li>
+    <li><a href="migrating-to-slick4.html#8-cats-effect-and-zio" class="header">8. Cats Effect and ZIO</a></li>
+    <li><a href="migrating-to-slick4.html#mechanical-migration-checklist" class="header">Mechanical Migration Checklist</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2026</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-RC2', '')});</script>
+
+
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+<title>Database · Slick 4</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content='Scala Slick documentation'/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:100normal,100italic,300normal,300italic,400normal,400italic,500normal,500italic,700normal,700italic,900normal,900italicc" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/page.js"></script>
+<script type="text/javascript" src="js/warnOldVersion.js"></script>
+<script type="text/javascript" src="js/groups.js"></script>
+<script type="text/javascript" src="js/snippets.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/foundation/dist/foundation.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/page.css"/>
+<link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+<div class="off-canvas-wrapper">
+<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+<div class="off-canvas position-left" id="off-canvas-menu" data-off-canvas>
+<nav class="off-canvas-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick 4
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+4.0.0-RC2
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="database.html" class="active page">Database</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="migrating-to-slick4.html" class="page">Migrating to Slick 4</a></li>
+  <li><a href="upgrade-slick3.html" class="page">Slick 3.x Upgrade Notes</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+<header class="site-header expanded row">
+<div class="small-12 column">
+<a href="#" class="off-canvas-toggle hide-for-medium" data-toggle="off-canvas-menu"><svg class="svg-icon svg-icon-menu" version="1.1" id="Menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"> <path class="svg-icon-menu-path" fill="#53CDEC" d="M16.4,9H3.6C3.048,9,3,9.447,3,10c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,9.447,16.952,9,16.4,9z M16.4,13
+H3.6C3.048,13,3,13.447,3,14c0,0.553,0.048,1,0.6,1H16.4c0.552,0,0.6-0.447,0.6-1C17,13.447,16.952,13,16.4,13z M3.6,7H16.4
+C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.048,7,3.6,7z"/></svg>
+</a>
+<div class="title"><a href="index.html">Slick 4</a></div>
+
+<!--
+<a href="https://www.example.com" class="logo show-for-medium">logo</a>
+-->
+</div>
+</header>
+
+<div class="expanded row">
+
+<div class="medium-3 large-2 show-for-medium column">
+<nav class="site-nav">
+<div class="nav-home">
+<a href="index.html" >
+<span class="home-icon">⌂</span>Slick 4
+</a>
+<div class="version-number">
+<ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
+<li class="is-dropdown-submenu-parent">
+<a href="#">
+4.0.0-RC2
+</a>
+<ul class="menu">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="introduction.html" class="page">Introduction</a></li>
+  <li><a href="gettingstarted.html" class="page">Getting Started</a></li>
+  <li><a href="database.html" class="active page">Database</a></li>
+  <li><a href="concepts.html" class="page">Core Concepts</a></li>
+  <li><a href="dbio.html" class="page">Database I/O Actions</a></li>
+  <li><a href="queries.html" class="page">Queries</a></li>
+  <li><a href="schemas.html" class="page">Schemas</a>
+  <ul>
+    <li><a href="datetimetypes.html" class="page">Date and Time types</a></li>
+  </ul></li>
+  <li><a href="sql.html" class="page">Plain SQL Queries</a></li>
+  <li><a href="supported-databases.html" class="page">Supported Databases</a></li>
+  <li><a href="code-generation.html" class="page">Schema Code Generation</a></li>
+  <li><a href="userdefined.html" class="page">User-Defined Features</a></li>
+  <li><a href="orm-to-slick.html" class="page">Coming from ORM to Slick</a></li>
+  <li><a href="sql-to-slick.html" class="page">Coming from SQL to Slick</a></li>
+  <li><a href="cookbook.html" class="page">Cookbook</a></li>
+  <li><a href="migrating-to-slick4.html" class="page">Migrating to Slick 4</a></li>
+  <li><a href="upgrade-slick3.html" class="page">Slick 3.x Upgrade Notes</a>
+  <ul>
+    <li><a href="compat-report.html" class="page">Incompatible changes</a></li>
+  </ul></li>
+  <li><a href="migrations.html" class="page">Database Migrations</a></li>
+  <li><a href="testkit.html" class="page">Slick TestKit</a></li>
+  <li><a href="documentation.html" class="page">Markdown Documentation</a></li>
+  <li><a href="config.html" class="page">Configuration</a></li>
+</ul>
+</div>
+
+</nav>
+</div>
+
+<div class="small-12 medium-9 large-10 column">
+<section class="site-content">
+
+<span id="version-warning"></span>
+
+<div class="page-header row">
+<div class="medium-12 show-for-medium column">
+<div class="nav-breadcrumbs">
+<ul>
+  <li><a href="index.html">Slick 4</a></li>
+  <li>Database</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="page-content row">
+<div class="small-12 large-9 column" id="docs">
+<h1><a href="#database" name="database" class="anchor"><span class="anchor-link"></span></a>Database</h1>
+<p>Working with a database in Slick involves two steps:</p>
+<ol>
+  <li>Build a <code>DatabaseConfig[P]</code> — this describes which database profile to use and how to  connect. Several construction methods are available depending on how your connection  details are provided.</li>
+  <li>Open a <code>Database</code> value from that config using one of Slick&rsquo;s three API facades,  which adapt Slick&rsquo;s execution model to your chosen effect system:</li>
+</ol>
+<ul>
+  <li><code>slick.cats.Database</code> (Cats Effect + FS2)</li>
+  <li><code>slick.future.Database</code> (Scala Future + Reactive Streams)</li>
+  <li><code>slick.zio.Database</code> (ZIO + ZStream)</li>
+</ul>
+<h2><a href="#building-a-databaseconfig" name="building-a-databaseconfig" class="anchor"><span class="anchor-link"></span></a>Building a DatabaseConfig</h2>
+<h3><a href="#using-typesafe-config" name="using-typesafe-config" class="anchor"><span class="anchor-link"></span></a>Using Typesafe Config</h3>
+<p>The easiest way to configure database connections is through <a href="https://github.com/lightbend/config">Typesafe Config</a> in your <code>application.conf</code>, which is also used by <a href="https://www.playframework.com/">Play</a> and <a href="https://akka.io/">Akka</a> for their configuration.</p>
+<p>Such a configuration can be loaded with <code>DatabaseConfig.forProfileConfig</code> (see the <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/basic/DatabaseConfig$.html#forProfileConfig[P](profile:P,path:String,config:com.typesafe.config.Config,classLoader:ClassLoader):slick.basic.BasicDatabaseConfig[profile.type]" title="slick.basic.DatabaseConfig"><code>API documentation</code></a> of this method for details on the configuration parameters). It returns a <code>DatabaseConfig</code> value that you can open with any of the three facades.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L56-L57" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forProfileConfig(H2Profile, &quot;mydb&quot;)
+val db = Database.resource(dc)</code></pre>
+<h4><a href="#postgresql" name="postgresql" class="anchor"><span class="anchor-link"></span></a>PostgreSQL</h4>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/application.conf#L11-L27" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mydb = {
+  connectionPool = &quot;HikariCP&quot; //use HikariCP for our connection pool
+  dataSourceClass = &quot;org.postgresql.ds.PGSimpleDataSource&quot; //Simple datasource with no connection pooling. The connection pool has already been specified with HikariCP.
+  properties = {
+    serverName = &quot;localhost&quot;
+    portNumber = &quot;5432&quot;
+    databaseName = &quot;mydb&quot;
+    user = &quot;postgres&quot;
+    password = &quot;postgres&quot;
+  }
+  maxConnections = 10
+  maxInflightActions = 20
+  queueSize = 1000
+  # Optional timeout controls for waiting phases (not JDBC execution time):
+  # inflightAdmissionTimeout = 2s
+  # connectionAcquireTimeout = 5s
+}</code></pre>
+<p>When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
+<pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;4.0.0-RC2&quot;,
+  &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;4.0.0-RC2&quot;,
+  &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.2.5&quot; //org.postgresql.ds.PGSimpleDataSource dependency
+)
+</code></pre>
+<p>Note, some examples on the internet point to the 9.4.X versions of the PostgreSQL JDBC drivers. Those examples are incorrect and many years out of date. The 42.X development line has been the main line of development since February 2017. As noted on the Postgres site, &ldquo;Unless you have unusual requirements (running old applications or JVMs), this is the driver you should be using.&rdquo; See <a href="https://jdbc.postgresql.org/download.html">https://jdbc.postgresql.org/download.html</a> for more information about when you may want to use the 9.4 line.</p>
+<h4><a href="#mysql" name="mysql" class="anchor"><span class="anchor-link"></span></a>MySQL</h4>
+<p>Very simple example without a connection pool and using the driver directly:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/application.conf#L31-L37" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mydb = {
+  driver = &quot;com.mysql.cj.jdbc.Driver&quot;,
+  url = &quot;jdbc:mysql://127.0.0.1:3306/mydb?serverTimezone=UTC&quot;,
+  user = &quot;user&quot;,
+  password = &quot;pass&quot;,
+  connectionPool = disabled
+}</code></pre>
+<p>To use the MySQL driver, the following library dependency needs to be configured via SBT:</p>
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.mysql&quot; % &quot;mysql-connector-j&quot; % &quot;8.0.33&quot;
+</code></pre>
+<h4><a href="#generic-jdbc" name="generic-jdbc" class="anchor"><span class="anchor-link"></span></a>Generic JDBC</h4>
+<p>Sometimes a database system provides a JDBC driver, but no specific profile for its dialect has been implemented for Slick, yet. It is still possible to connect to such a database with not much effort and use the generic JDBC feature set.</p>
+<p>Here is an example for setting up a connection to a Databricks DB using the Databricks JDBC driver, depended on via SBT:</p>
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.databricks&quot; % &quot;databricks-jdbc&quot; % &quot;2.6.29&quot;
+</code></pre>
+<p>To configure the connection a profile implementation is required. It is sufficient to extend the <code>JdbcProfile</code> trait with an empty object.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/GenericJdbcProfile.scala#L2-L6" target="_blank" title="Go to snippet source">source</a><code class="language-scala">package com.typesafe.slick.docs
+
+import slick.jdbc.{JdbcActionComponent, JdbcProfile}
+
+object GenericJdbcProfile extends JdbcProfile with JdbcActionComponent.MultipleRowsPerStatementSupport</code></pre>
+<p>Now this profile can be used in the configuration.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/application.conf#L72-L81" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databricks_db {
+  profile = &quot;com.typesafe.slick.docs.GenericJdbcProfile$&quot;
+  db {
+    driver = &quot;com.databricks.client.jdbc.Driver&quot;
+    url = &quot;jdbc:databricks://DATABRICKS_HOST:443;HttpPath=/sql/1.0/endpoints/XXXXXXXXX;TransportMode=http;SSL=1&quot;
+    PWD = &quot;????????????&quot;
+    UID = &quot;token&quot;
+    AuthMech = &quot;3&quot;
+  }
+}</code></pre>
+<p>Connection parameters for database systems can differ significantly. Please refer to the respective documentation.</p>
+<h3><a href="#using-a-jdbc-url" name="using-a-jdbc-url" class="anchor"><span class="anchor-link"></span></a>Using a JDBC URL</h3>
+<p>You can pass a JDBC URL to <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/jdbc/DatabaseConfig$.html#forURL[P%3C:slick.jdbc.JdbcProfile](profile:P,url:String,user:String,password:String,prop:java.util.Properties,driver:String,keepAliveConnection:Boolean,classLoader:ClassLoader):slick.basic.BasicDatabaseConfig[profile.type]" title="slick.jdbc.DatabaseConfig"><code>forURL</code></a>. (see your database&rsquo;s JDBC driver&rsquo;s documentation for the correct URL syntax).</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L72-L73" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forURL(H2Profile, &quot;jdbc:h2:mem:test1;DB_CLOSE_DELAY=-1&quot;, driver=&quot;org.h2.Driver&quot;)
+val db = Database.resource(dc)</code></pre>
+<p>Here we are connecting to a new, empty, in-memory H2 database called <code>test1</code> and keep it resident until the JVM ends (<code>DB_CLOSE_DELAY=-1</code>, which is H2 specific).</p><div class="callout note "><div class="callout-title">Scala 2.12: passing a profile instance</div>
+<p>When you pass a concrete profile object directly — the common case — everything works as expected on all Scala versions:</p>
+<pre class="prettyprint"><code class="language-scala">DatabaseConfig.forURL(H2Profile, url, driver = &quot;org.h2.Driver&quot;)
+</code></pre>
+<p>If the profile is a type parameter (e.g. <code>def foo[P &lt;: JdbcProfile](p: P)</code>), Scala 2.12&rsquo;s type inference loses track of the exact profile type when default arguments are involved. In that case, assign the profile to a local <code>val</code> with an explicit singleton type and pass all arguments explicitly:</p>
+<pre class="prettyprint"><code class="language-scala">val p: profile.type = profile
+val dc: DatabaseConfig[p.type] = DatabaseConfig.forURL(p, url, null, null, null, driver, false, ClassLoaderUtil.defaultClassLoader)
+dc.profile.backend.makeDatabase[IO](dc).unsafeRunSync()
+</code></pre>
+<p>On Scala 2.13 and 3.x the simpler form works fine even with a type parameter profile.</p></div>
+<h3><a href="#using-a-database-url" name="using-a-database-url" class="anchor"><span class="anchor-link"></span></a>Using a Database URL</h3>
+<p>A Database URL, a platform independent URL in the form <code>vendor://user:password@host:port/db</code>, is often provided by platforms such as Heroku. You can use a Database URL in Typesafe Config as shown here:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/application.conf#L52-L58" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databaseUrl {
+  dataSourceClass = &quot;slick.jdbc.DatabaseUrlDataSource&quot;
+  properties = {
+    driver = &quot;org.postgresql.Driver&quot;
+    url = &quot;postgres://user:pass@host/dbname&quot;
+  }
+}</code></pre>
+<p>By default, the data source will use the value of the <code>DATABASE_URL</code> environment variable. Thus you may omit the <code>url</code> property if the <code>DATABASE_URL</code> environment variable is set. You may also define a custom environment variable with standard Typesafe Config syntax, such as <code>${?MYSQL_DATABASE_URL}</code>.</p>
+<p>Or you may pass a <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/jdbc/DatabaseUrlDataSource.html" title="slick.jdbc.DatabaseUrlDataSource"><code>DatabaseUrlDataSource</code></a> object to <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/jdbc/DatabaseConfig$.html#forDataSource[P%3C:slick.jdbc.JdbcProfile](profile:P,ds:javax.sql.DataSource,keepAliveConnection:Boolean):slick.jdbc.JdbcDatabaseConfig[P]" title="slick.jdbc.DatabaseConfig"><code>forDataSource</code></a> .</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L41-L42" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forDataSource(H2Profile, dataSource: slick.jdbc.DatabaseUrlDataSource)
+val db = Database.resource(dc)</code></pre>
+<h3><a href="#using-a-datasource" name="using-a-datasource" class="anchor"><span class="anchor-link"></span></a>Using a DataSource</h3>
+<p>You can pass a <a href="https://docs.oracle.com/javase/8/docs/api/?javax/sql/DataSource.html" title="javax.sql.DataSource"><code>DataSource</code></a> object to <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/jdbc/DatabaseConfig$.html#forDataSource[P%3C:slick.jdbc.JdbcProfile](profile:P,ds:javax.sql.DataSource,keepAliveConnection:Boolean):slick.jdbc.JdbcDatabaseConfig[P]" title="slick.jdbc.DatabaseConfig"><code>forDataSource</code></a>. If you got it from the connection pool of your application framework, this plugs the pool into Slick. If the pool has a size limit, pass the size via <code>.withControls</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L33-L35" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forDataSource(H2Profile, dataSource: javax.sql.DataSource)
+  .withControls(ControlsConfig(maxConnections = size: Int))
+val db: Resource[IO, Database] = Database.resource(dc)</code></pre>
+<h3><a href="#using-a-jndi-name" name="using-a-jndi-name" class="anchor"><span class="anchor-link"></span></a>Using a JNDI Name</h3>
+<p>If you are using <a href="https://en.wikipedia.org/wiki/">JNDI</a> you can pass a JNDI name to <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/jdbc/DatabaseConfig$.html#forName[P%3C:slick.jdbc.JdbcProfile](profile:P,name:String):slick.jdbc.JdbcDatabaseConfig[P]" title="slick.jdbc.DatabaseConfig"><code>forName</code></a> under which a <a href="https://docs.oracle.com/javase/8/docs/api/?javax/sql/DataSource.html" title="javax.sql.DataSource"><code>DataSource</code></a> object can be looked up. If the data source has a limit in the number of connections it can provide, pass the size via <code>.withControls</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L49-L51" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forName(H2Profile, jndiName: String)
+  .withControls(ControlsConfig(maxConnections = size: Int))
+val db = Database.resource(dc)</code></pre>
+<h2><a href="#opening-a-database" name="opening-a-database" class="anchor"><span class="anchor-link"></span></a>Opening a Database</h2>
+<p>Once you have a <code>DatabaseConfig</code>, open a <code>Database</code> using the facade for your effect system. All three facades expose the same operations: <code>run</code> for materialized query execution, <code>stream</code> for streaming, and <code>close</code> for unmanaged lifecycles.</p>
+<h3><a href="#cats-effect-fs2-slick-cats-database-" name="cats-effect-fs2-slick-cats-database-" class="anchor"><span class="anchor-link"></span></a>Cats Effect / FS2 (<code>slick.cats.Database</code>)</h3>
+<p>The Cats facade is part of the core <code>slick</code> module.</p>
+<p>Use <code>Database.resource</code> for managed lifecycle (recommended):</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L61" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedDb: Resource[IO, Database] = Database.resource(dc)</code></pre>
+<p>If you need manual lifecycle control, use <code>Database.make</code> and call <code>close()</code> yourself:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L65" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val openedDb: IO[Database] = Database.make(dc)</code></pre>
+<p>Run and stream queries:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L90-L96" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for (c &lt;- coffees) yield c.name
+val a = q.result
+val f: IO[Seq[String]] = db.run(a)
+
+f.map {
+  case s =&gt; println(s&quot;Result: $s&quot;)
+}</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/Connection.scala#L101-L108" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for (c &lt;- coffees) yield c.name
+val a = q.result
+val s: fs2.Stream[IO, String] = db.stream(a)
+
+// Use FS2 combinators to process the stream:
+s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
+  .compile
+  .drain</code></pre>
+<h3><a href="#future-reactive-streams-slick-future-database-" name="future-reactive-streams-slick-future-database-" class="anchor"><span class="anchor-link"></span></a>Future / Reactive Streams (<code>slick.future.Database</code>)</h3>
+<p>Add the Future facade module:</p>
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-RC2&quot;
+</code></pre>
+<p>Use <code>Database.use</code> for managed lifecycle (recommended):</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingFuture.scala#L22-L25" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: Future[Seq[String]] =
+  Database.use(dc) { db =&gt;
+    db.run(coffees.map(_.name).result)
+  }</code></pre>
+<p>If you need manual lifecycle control, use <code>Database.open</code> and call <code>close()</code> yourself:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingFuture.scala#L29" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val opened: Future[Database] = Database.open(dc)</code></pre>
+<p>Run and stream queries:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingFuture.scala#L33-L36" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val runResult: Future[Seq[String]] =
+  Database.use(dc) { db =&gt;
+    db.run(coffees.map(_.name).result)
+  }</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingFuture.scala#L40-L43" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val streamResult: Future[slick.future.DatabasePublisher[String]] =
+  Database.use(dc) { db =&gt;
+    Future.successful(db.stream(coffees.map(_.name).result))
+  }</code></pre>
+<h3><a href="#zio-slick-zio-database-" name="zio-slick-zio-database-" class="anchor"><span class="anchor-link"></span></a>ZIO (<code>slick.zio.Database</code>)</h3>
+<p>Add the ZIO facade module:</p>
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-zio&quot; % &quot;4.0.0-RC2&quot;
+</code></pre>
+<p>Use <code>Database.scoped</code> for managed lifecycle (recommended):</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingZio.scala#L19-L22" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: ZIO[Scope, Throwable, Seq[String]] =
+  Database.scoped(dc).flatMap { db =&gt;
+    db.run(coffees.map(_.name).result)
+  }</code></pre>
+<p>If you need manual lifecycle control, use <code>Database.make</code> and call <code>close()</code> yourself:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingZio.scala#L26" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val opened: Task[Database] = Database.make(dc)</code></pre>
+<p>Run and stream queries:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingZio.scala#L30-L33" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val runResult: ZIO[Scope, Throwable, Seq[String]] =
+  Database.scoped(dc).flatMap { db =&gt;
+    db.run(coffees.map(_.name).result)
+  }</code></pre>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/code/ConnectingZio.scala#L37-L40" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val streamResult: ZIO[Scope, Throwable, zio.Chunk[String]] =
+  Database.scoped(dc).flatMap { db =&gt;
+    db.stream(coffees.map(_.name).result).runCollect
+  }</code></pre>
+<h2><a href="#connection-pools" name="connection-pools" class="anchor"><span class="anchor-link"></span></a>Connection pools</h2>
+<p>Using a connection pool is always recommended in production environments. Slick integrates with <a href="https://github.com/brettwooldridge/HikariCP">HikariCP</a> via the <code>slick-hikaricp</code> module and will use it automatically when it is on the classpath (see <a href="gettingstarted.html">Getting Started</a> for the dependency).</p>
+<p>Set the <em>maximum</em> pool size to the number of concurrent database connections your database server can handle efficiently. Because Slick&rsquo;s execution model is non-blocking, you do not need to add extra connections to &ldquo;absorb&rdquo; thread blocking — size the pool purely based on the database server&rsquo;s capacity. See <a href="https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing">About Pool Sizing</a> in the HikariCP documentation for background.</p>
+<p>Note that reasonable defaults for the connection pool sizes are calculated automatically when using <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/basic/DatabaseConfig$.html#forConfig[P](path:String,config:com.typesafe.config.Config,classLoader:ClassLoader)(implicitP:scala.reflect.ClassTag[P]):slick.basic.BasicDatabaseConfig[P]" title="slick.basic.DatabaseConfig"><code>DatabaseConfig.forConfig</code></a>.</p>
+<p>Slick uses <em>prepared</em> statements wherever possible but it does not cache them on its own. You should therefore enable prepared statement caching in the connection pool&rsquo;s configuration.</p>
+<h2><a href="#execution-concurrency-model" name="execution-concurrency-model" class="anchor"><span class="anchor-link"></span></a>Execution Concurrency Model</h2>
+<p>Slick 4 uses a two-stage admission model for <code>db.run(...)</code> and <code>db.stream(...)</code> calls:</p>
+<ol>
+  <li><strong>Queue</strong> (<code>queueSize</code>): bounds how many callers are allowed to wait for admission.</li>
+  <li><strong>In-flight</strong> (<code>maxInflightActions</code>): bounds how many DBIO chains may run concurrently.</li>
+</ol>
+<p>After a call is admitted, actual JDBC work is still bounded by the connection pool size (<code>maxConnections</code>).</p>
+<h3><a href="#why-these-two-limits-exist" name="why-these-two-limits-exist" class="anchor"><span class="anchor-link"></span></a>Why these two limits exist</h3>
+<ul>
+  <li><strong>Queue</strong> protects the application from unbounded memory growth under overload.</li>
+  <li><strong>In-flight</strong> limits total concurrent action chains (including chains that are between DB steps).</li>
+  <li><strong>Connections</strong> limit actual simultaneous JDBC I/O.</li>
+</ul>
+<p>This separation avoids a common overload pattern where too many callers pile up waiting forever, while still allowing some headroom when actions do non-DB work between JDBC steps.</p>
+<h3><a href="#configuration-keys" name="configuration-keys" class="anchor"><span class="anchor-link"></span></a>Configuration keys</h3>
+<p>These keys are read from the same database config section used by <code>DatabaseConfig.forConfig</code> / <code>forProfileConfig</code>. For programmatic configs (<code>forDataSource</code>, <code>forSource</code>, <code>forName</code>, <code>forURL</code>) use <a href="https://scala-slick.org/doc/4.0.0-RC2/api/slick/ControlsConfig.html" title="slick.ControlsConfig"><code>ControlsConfig</code></a> and <code>.withControls</code> instead:</p>
+<pre class="prettyprint"><code class="language-scala">DatabaseConfig.forDataSource(MyProfile, ds)
+  .withControls(ControlsConfig(maxConnections = 10, queueSize = 500))
+</code></pre>
+<p>Config-file keys (for <code>forConfig</code> / <code>forProfileConfig</code>):</p>
+<ul>
+  <li><code>maxConnections</code>: maximum concurrent JDBC connections (existing key).</li>
+  <li><code>queueSize</code>: maximum number of callers waiting for in-flight admission (default: <code>1000</code>).</li>
+  <li><code>maxInflightActions</code>: maximum concurrently running DBIO chains (default: <code>2 * maxConnections</code>).</li>
+  <li><code>inflightAdmissionTimeout</code>: optional timeout while waiting for in-flight admission.</li>
+  <li><code>connectionAcquireTimeout</code>: optional timeout while waiting for a connection slot.</li>
+</ul>
+<p>If <code>maxInflightActions</code> is configured lower than <code>maxConnections</code>, Slick uses <code>maxConnections</code> as the effective value.</p>
+<p>Example:</p>
+<pre class="prettyprint"><code class="language-hocon">mydb {
+  connectionPool = &quot;HikariCP&quot;
+
+  # JDBC concurrency
+  maxConnections = 10
+
+  # DBIO admission control
+  maxInflightActions = 20
+  queueSize = 1000
+
+  # Optional timeout controls
+  inflightAdmissionTimeout = 2s
+  connectionAcquireTimeout = 5s
+}
+</code></pre>
+<p>Timeout failures are returned as <code>SlickException</code>:</p>
+<ul>
+  <li><code>SlickException(&quot;Timed out waiting for inflight admission after ...&quot;)</code></li>
+  <li><code>SlickException(&quot;Timed out waiting for connection slot after ...&quot;)</code></li>
+</ul>
+<h3><a href="#overload-behavior" name="overload-behavior" class="anchor"><span class="anchor-link"></span></a>Overload behavior</h3>
+<p>When the queue is full, new calls fail fast with:</p>
+<ul>
+  <li><code>SlickException(&quot;DBIOAction queue full&quot;)</code></li>
+</ul>
+<p>This is intentional back-pressure. Typical responses are to retry with jittered backoff, shed load, or increase capacity (<code>queueSize</code>, <code>maxInflightActions</code>, and/or database connection pool size) based on measured behavior.</p>
+<div class="source-github">
+The source code for this page can be found <a href="https://github.com/slick/slick/tree/v4.0.0-RC2/doc/paradox/database.md">here</a>.
+</div>
+
+<div class="nav-next">
+<p><strong>Next:</strong> <a href="concepts.html">Core Concepts</a></p>
+</div>
+</div>
+<div class="large-3 show-for-large column" data-sticky-container>
+<nav class="sidebar sticky" data-sticky data-anchor="docs" data-sticky-on="large">
+<div class="page-nav">
+<div class="nav-title">On this page:</div>
+<div class="nav-toc">
+<ul>
+  <li><a href="database.html#database" class="header">Database</a>
+  <ul>
+    <li><a href="database.html#building-a-databaseconfig" class="header">Building a DatabaseConfig</a></li>
+    <li><a href="database.html#opening-a-database" class="header">Opening a Database</a></li>
+    <li><a href="database.html#connection-pools" class="header">Connection pools</a></li>
+    <li><a href="database.html#execution-concurrency-model" class="header">Execution Concurrency Model</a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+
+</section>
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<section class="site-footer-nav">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 medium-4 large-3 text-center column">
+<div class="nav-links">
+<ul>
+<!-- <li><a href="https://www.example.com/products/">Products</a> -->
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="site-footer-base">
+<div class="expanded row">
+<div class="small-12 large-offset-2 large-10 column">
+<div class="row site-footer-content">
+
+<div class="small-12 text-center large-9 column">
+
+<!--
+<div class="copyright">
+<span class="text">&copy; 2026</span>
+<a href="https://www.example.com" class="logo">logo</a>
+</div>
+-->
+</div>
+
+</div>
+</div>
+</div>
+</section>
+</footer>
+
+</div>
+</div>
+</div>
+</body>
+
+<script type="text/javascript" src="lib/foundation/dist/foundation.min.js"></script>
+<script type="text/javascript">jQuery(document).foundation();</script>
+<script type="text/javascript" src="js/magellan.js"></script>
+<script type="text/javascript" src="js/versions.js"></script>
+
+<style type="text/css">@import "lib/prettify/prettify.css";</style>
+<script type="text/javascript" src="lib/prettify/prettify.js"></script>
+<script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
+<script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-RC2', '')});</script>
+
+
+</html>
