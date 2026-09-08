@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.3.f6b1fce6
+4.0.0-pre.5.61afbd9b
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.3.f6b1fce6
+4.0.0-pre.5.61afbd9b
 </a>
 <ul class="menu">
 </ul>
@@ -256,7 +256,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
     <tr>
       <td><code>GetResult.apply</code> / <code>SetParameter.apply</code> </td>
       <td>function parameter is <code>implicit</code> </td>
-      <td>regular parameter; <code>GetResult(r =&gt; ...)</code> and <code>SetParameter[T]((v, pp) =&gt; ...)</code> are unchanged, only summoning a <code>GetResult[T]</code> from an implicit function via <code>GetResult[T]</code> (no argument) no longer works </td>
+      <td>regular parameter; <code>GetResult(r =&gt; ...)</code> and <code>SetParameter[T]((v, pp) =&gt; ...)</code> are unchanged. <code>GetResult(using r =&gt; ...)</code> / <code>SetParameter(using (v, pp) =&gt; ...)</code> (Scala 3) no longer compile — drop the <code>using</code>. Summoning a <code>GetResult[T]</code> from an implicit function via <code>GetResult[T]</code> (no argument) also no longer works </td>
     </tr>
   </tbody>
 </table>
@@ -264,7 +264,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#1-dependencies" name="1-dependencies" class="anchor"><span class="anchor-link"></span></a>1. Dependencies</h2>
 <h3><a href="#add-slick-future" name="add-slick-future" class="anchor"><span class="anchor-link"></span></a>Add <code>slick-future</code></h3>
 <p>The Future facade lives in a separate module. Add it to your build:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.3.f6b1fce6&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.5.61afbd9b&quot;
 </code></pre>
 <p>Keep your existing <code>slick</code> and <code>slick-hikaricp</code> dependencies. Remove any direct dependency on <code>org.reactivestreams:reactive-streams</code> — it is now pulled in transitively by <code>slick-future</code>.</p>
 <h3><a href="#scala-version" name="scala-version" class="anchor"><span class="anchor-link"></span></a>Scala version</h3>
@@ -640,6 +640,11 @@ import scala.concurrent.ExecutionContext.parasitic
       <td>Change to <code>val db: slick.future.Database</code> and migrate factory call </td>
     </tr>
     <tr>
+      <td><code>Missing arguments for method apply in object GetResult</code> (or <code>SetParameter</code>) on <code>GetResult(using r =&gt; ...)</code> </td>
+      <td><code>GetResult.apply</code> / <code>SetParameter.apply</code> parameter is no longer <code>implicit</code> </td>
+      <td>Drop the <code>using</code>: <code>GetResult(r =&gt; ...)</code>, <code>SetParameter[T]((v, pp) =&gt; ...)</code> </td>
+    </tr>
+    <tr>
       <td><code>Alphanumeric method join is not declared infix</code> (warning, or error with <code>-source:future</code>) </td>
       <td>Scala 3.4+ infix rule, not a Slick change </td>
       <td>Use method syntax: <code>a.join(b).on(...)</code> — see <a href="#infix-method-syntax-on-scala-3">Infix method syntax</a> </td>
@@ -740,7 +745,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.3.f6b1fce6', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.5.61afbd9b', '')});</script>
 
 
 </html>
