@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.74.c0cd179b
+4.0.0-pre.97.d8d7b9ce
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.74.c0cd179b
+4.0.0-pre.97.d8d7b9ce
 </a>
 <ul class="menu">
 </ul>
@@ -204,7 +204,7 @@ import slick.lifted.ProvenShape</code></pre>
   <li>Unit</li>
   <li>java.util.UUID</li>
 </ul>
-<p>Nullable columns are represented by <code>Option[T]</code> where <code>T</code> is one of the supported primitive types.</p><div class="callout note "><div class="callout-title">Note</div>
+<p>Nullable columns are represented by <code>Option[T]</code> where <code>T</code> is one of the supported primitive types. Declare them with that type, e.g. <code>column[Option[Boolean]](&quot;ACTIVE&quot;)</code>, and use them as they are in the <code>*</code> projection. <code>.?</code> is for using a non-nullable column where an <code>Option</code> is expected, e.g. an <code>AutoInc</code> key that is <code>None</code> before the row is inserted (see <a href="#mapped-tables">Mapped Tables</a>).</p><div class="callout note "><div class="callout-title">Note</div>
 <p>Note: Currently all operations on Option values use the database&rsquo;s null propagation semantics which may differ from Scala&rsquo;s Option semantics. In particular, <code>None === None</code> evaluates to <code>None</code>. This behaviour may change in a future major release of Slick.</p></div>
 <p>After the column name, you can add optional column options to a <code>column</code> definition. The applicable options are available through the table&rsquo;s <code>O</code> object. The following ones are defined for <code>JdbcProfile</code>:</p>
 <ul>
@@ -253,6 +253,7 @@ val people = TableQuery[People]</code></pre>
 <p>The macro should work for most case classes, even those with user-defined companion objects. However there are still come cases where you will have to use the <code>&lt;&gt;</code> operator, as described below.</p>
 <h3><a href="#arbitrary-mapping-functions-with-the-operator" name="arbitrary-mapping-functions-with-the-operator" class="anchor"><span class="anchor-link"></span></a>Arbitrary mapping functions with the <code>&lt;&gt;</code> operator</h3>
 <p>You can also map to arbitrary types by using the <code>&lt;&gt;</code> operator. It takes two functions as parameters, one for mapping from the raw value (which may be a tuple) to the custom type, and one for mapping back.</p>
+<p>When the function for mapping back returns an <code>Option</code>, like the <code>unapply</code> method of a case class, it has to return <code>Some</code> for every value: <code>None</code> does not mean SQL <code>NULL</code> but makes Slick fail with <code>NoSuchElementException: None.get</code> when it writes the value. If the custom type is itself an <code>Option</code>, an empty value maps back to <code>Some(None)</code>.</p>
 <p>The API is designed to be optimal for Scala 2 case classes, which generate a companion object with a <code>tupled</code> method, and an <code>unapply</code> method that returns an <code>Option</code> of the case class.</p>
 <p>When using it with arbitrary mapping functions, however, it can be useful to call <code>.shaped</code> on the column or columns tuple, to get its type inferred properly. Otherwise you may have to add full type annotations to the mapping functions.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L130-L138" target="_blank" title="Go to snippet source">source</a><code class="language-scala">case class User(id: Option[Int], first: String, last: String)
@@ -420,7 +421,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.74.c0cd179b', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.97.d8d7b9ce', '')});</script>
 
 
 </html>

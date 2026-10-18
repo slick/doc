@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.74.c0cd179b
+4.0.0-pre.97.d8d7b9ce
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.74.c0cd179b
+4.0.0-pre.97.d8d7b9ce
 </a>
 <ul class="menu">
 </ul>
@@ -175,9 +175,9 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <h2><a href="#building-a-databaseconfig" name="building-a-databaseconfig" class="anchor"><span class="anchor-link"></span></a>Building a DatabaseConfig</h2>
 <h3><a href="#using-typesafe-config" name="using-typesafe-config" class="anchor"><span class="anchor-link"></span></a>Using Typesafe Config</h3>
 <p>The easiest way to configure database connections is through <a href="https://github.com/lightbend/config">Typesafe Config</a> in your <code>application.conf</code>, which is also used by <a href="https://www.playframework.com/">Play</a> and <a href="https://akka.io/">Akka</a> for their configuration.</p>
-<p>Such a configuration can be loaded with <code>DatabaseConfig.forProfileConfig</code> (see the <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/basic/DatabaseConfig$.html#forProfileConfig[P](profile:P,path:String,config:com.typesafe.config.Config,classLoader:ClassLoader):slick.basic.BasicDatabaseConfig[profile.type]" title="slick.basic.DatabaseConfig"><code>API documentation</code></a> of this method for details on the configuration parameters). It returns a <code>DatabaseConfig</code> value that you can open with any of the three facades.</p>
+<p>Such a configuration can be loaded with <code>DatabaseConfig.forProfileConfig</code> (see the <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/basic/DatabaseConfig$.html#forProfileConfig[P%3C:slick.basic.BasicProfile](profile:P,path:String,config:com.typesafe.config.Config,classLoader:ClassLoader):slick.basic.BasicDatabaseConfig[P]" title="slick.basic.DatabaseConfig"><code>API documentation</code></a> of this method for details on the configuration parameters). It returns a <code>DatabaseConfig</code> value that you can open with any of the three facades.</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L56-L57" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val dc = DatabaseConfig.forProfileConfig(H2Profile, &quot;mydb&quot;)
-val db = Database.resource(dc)</code></pre>
+val db: Resource[IO, Database] = Database.resource(dc)</code></pre>
 <h4><a href="#postgresql" name="postgresql" class="anchor"><span class="anchor-link"></span></a>PostgreSQL</h4>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L11-L27" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mydb = {
   connectionPool = &quot;HikariCP&quot; //use HikariCP for our connection pool
@@ -196,15 +196,15 @@ val db = Database.resource(dc)</code></pre>
   # inflightAdmissionTimeout = 2s
   # connectionAcquireTimeout = 5s
 }</code></pre>
-<p>When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
+<p>The <code>dataSourceClass</code> is a <code>javax.sql.DataSource</code> class provided by the JDBC driver; a Slick profile is not a <code>DataSource</code>. When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;4.0.0-pre.74.c0cd179b&quot;,
-  &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;1.7.26&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;4.0.0-pre.74.c0cd179b&quot;,
-  &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.2.5&quot; //org.postgresql.ds.PGSimpleDataSource dependency
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;4.0.0-pre.97.d8d7b9ce&quot;,
+  &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;2.0.20&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;4.0.0-pre.97.d8d7b9ce&quot;,
+  &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.7.14&quot; //org.postgresql.ds.PGSimpleDataSource dependency
 )
 </code></pre>
-<p>Note, some examples on the internet point to the 9.4.X versions of the PostgreSQL JDBC drivers. Those examples are incorrect and many years out of date. The 42.X development line has been the main line of development since February 2017. As noted on the Postgres site, &ldquo;Unless you have unusual requirements (running old applications or JVMs), this is the driver you should be using.&rdquo; See <a href="https://jdbc.postgresql.org/download.html">https://jdbc.postgresql.org/download.html</a> for more information about when you may want to use the 9.4 line.</p>
+<p>Note, some examples on the internet point to the 9.4.X versions of the PostgreSQL JDBC drivers. Those examples are incorrect and many years out of date. The 42.X development line has been the main line of development since February 2017. As noted on the Postgres site, &ldquo;Unless you have unusual requirements (running old applications or JVMs), this is the driver you should be using.&rdquo; See <a href="https://jdbc.postgresql.org/download.html">https://jdbc.postgresql.org/download.html</a> for more information about when you may want to use the 9.4 line. Old drivers fail with &ldquo;The authentication type 10 is not supported&rdquo; because they do not support the <code>scram-sha-256</code> password authentication that PostgreSQL uses by default.</p>
 <h4><a href="#mysql" name="mysql" class="anchor"><span class="anchor-link"></span></a>MySQL</h4>
 <p>Very simple example without a connection pool and using the driver directly:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L31-L37" target="_blank" title="Go to snippet source">source</a><code class="language-conf">mydb = {
@@ -229,7 +229,7 @@ import slick.jdbc.{JdbcActionComponent, JdbcProfile}
 
 object GenericJdbcProfile extends JdbcProfile with JdbcActionComponent.MultipleRowsPerStatementSupport</code></pre>
 <p>Now this profile can be used in the configuration.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L72-L81" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databricks_db {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L61-L70" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databricks_db {
   profile = &quot;com.typesafe.slick.docs.GenericJdbcProfile$&quot;
   db {
     driver = &quot;com.databricks.client.jdbc.Driver&quot;
@@ -256,7 +256,7 @@ dc.profile.backend.makeDatabase[IO](dc).unsafeRunSync()
 <p>On Scala 2.13 and 3.x the simpler form works fine even with a type parameter profile.</p></div>
 <h3><a href="#using-a-database-url" name="using-a-database-url" class="anchor"><span class="anchor-link"></span></a>Using a Database URL</h3>
 <p>A Database URL, a platform independent URL in the form <code>vendor://user:password@host:port/db</code>, is often provided by platforms such as Heroku. You can use a Database URL in Typesafe Config as shown here:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L52-L58" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databaseUrl {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L41-L47" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databaseUrl {
   dataSourceClass = &quot;slick.jdbc.DatabaseUrlDataSource&quot;
   properties = {
     driver = &quot;org.postgresql.Driver&quot;
@@ -287,14 +287,14 @@ val db = Database.resource(dc)</code></pre>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L65" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val openedDb: IO[Database] = Database.make(dc)</code></pre>
 <p>Run and stream queries:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L90-L96" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for (c &lt;- coffees) yield c.name
-val a = q.result
+val a: DBIO[Seq[String]] = q.result
 val f: IO[Seq[String]] = db.run(a)
 
 f.map {
   case s =&gt; println(s&quot;Result: $s&quot;)
 }</code></pre>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/Connection.scala#L101-L108" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val q = for (c &lt;- coffees) yield c.name
-val a = q.result
+val a: StreamingDBIO[Seq[String], String] = q.result
 val s: fs2.Stream[IO, String] = db.stream(a)
 
 // Use FS2 combinators to process the stream:
@@ -303,7 +303,7 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
   .drain</code></pre>
 <h3><a href="#future-reactive-streams-slick-future-database-" name="future-reactive-streams-slick-future-database-" class="anchor"><span class="anchor-link"></span></a>Future / Reactive Streams (<code>slick.future.Database</code>)</h3>
 <p>Add the Future facade module:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.74.c0cd179b&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.97.d8d7b9ce&quot;
 </code></pre>
 <p>Use <code>Database.use</code> for managed lifecycle (recommended):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/ConnectingFuture.scala#L22-L25" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: Future[Seq[String]] =
@@ -323,7 +323,7 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
   }</code></pre>
 <h3><a href="#zio-slick-zio-database-" name="zio-slick-zio-database-" class="anchor"><span class="anchor-link"></span></a>ZIO (<code>slick.zio.Database</code>)</h3>
 <p>Add the ZIO facade module:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-zio&quot; % &quot;4.0.0-pre.74.c0cd179b&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-zio&quot; % &quot;4.0.0-pre.97.d8d7b9ce&quot;
 </code></pre>
 <p>Use <code>Database.scoped</code> for managed lifecycle (recommended):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/ConnectingZio.scala#L19-L22" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: ZIO[Scope, Throwable, Seq[String]] =
@@ -489,7 +489,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.74.c0cd179b', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.97.d8d7b9ce', '')});</script>
 
 
 </html>
