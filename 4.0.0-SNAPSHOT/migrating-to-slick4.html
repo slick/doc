@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.137.b9df5ac9
+4.0.0-pre.141.d6cbcfb1
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.137.b9df5ac9
+4.0.0-pre.141.d6cbcfb1
 </a>
 <ul class="menu">
 </ul>
@@ -270,12 +270,13 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
   <li><strong>Custom insert builders:</strong> <code>checkInsertCompiler</code> now compiles all columns, not only the primary key, and  <code>reorderColumns</code> skips columns that are not in the given order instead of failing. This only matters to custom  profiles that override <code>CheckInsertBuilder</code> or call <code>reorderColumns</code>.</li>
   <li><strong>HSQLDB <code>UUID</code> columns:</strong> <code>java.util.UUID</code> columns are now created with HSQLDB&rsquo;s native <code>UUID</code> type instead of  <code>BINARY(16)</code>. Both types store the same 16 bytes, so tables created by Slick 3 keep working without changes.</li>
   <li><strong>HSQLDB code generation:</strong> columns of the native <code>UUID</code> type are now generated as <code>java.util.UUID</code> instead of  <code>java.sql.Blob</code>. <code>BINARY(16)</code> columns are still generated as <code>java.sql.Blob</code>, because the database metadata does  not say that they hold UUIDs.</li>
+  <li><strong><code>&amp;&amp;</code> and <code>||</code> chains:</strong> a new first compiler phase, <code>flattenBooleanChains</code>, turns nested <code>and</code> / <code>or</code> operations  into a single operation with any number of operands, so that long chains built with <code>reduce(_ || _)</code> no longer  overflow the stack. The generated SQL drops the redundant inner parentheses (<code>(a or b) or c</code> becomes <code>a or b or c</code>),  and chains of more than 64 operands are split into balanced parenthesized groups. Custom compiler phases and  profiles that match <code>Library.And(l, r)</code> or <code>Library.Or(l, r)</code> with exactly two operands need to handle more.</li>
 </ul>
 <hr/>
 <h2><a href="#1-dependencies" name="1-dependencies" class="anchor"><span class="anchor-link"></span></a>1. Dependencies</h2>
 <h3><a href="#add-slick-future" name="add-slick-future" class="anchor"><span class="anchor-link"></span></a>Add <code>slick-future</code></h3>
 <p>The Future facade lives in a separate module. Add it to your build:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.137.b9df5ac9&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.141.d6cbcfb1&quot;
 </code></pre>
 <p>Keep your existing <code>slick</code> and <code>slick-hikaricp</code> dependencies. Remove any direct dependency on <code>org.reactivestreams:reactive-streams</code> — it is now pulled in transitively by <code>slick-future</code>.</p>
 <h3><a href="#scala-version" name="scala-version" class="anchor"><span class="anchor-link"></span></a>Scala version</h3>
@@ -756,7 +757,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.137.b9df5ac9', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.141.d6cbcfb1', '')});</script>
 
 
 </html>
