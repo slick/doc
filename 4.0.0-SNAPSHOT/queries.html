@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.141.d6cbcfb1
+4.0.0-pre.152.24580462
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.141.d6cbcfb1
+4.0.0-pre.152.24580462
 </a>
 <ul class="menu">
 </ul>
@@ -548,6 +548,19 @@ val sql = q.updateStatement
 
 val updatedAdmin = (users.returning(users)).insertOrUpdate(User(Some(1), &quot;Slick Admin&quot;, &quot;Zeiger&quot;))
 // returns: None if updated, Some((Int, String)) if row inserted</code></pre>
+<p>Profiles without a native upsert emulate it on the client: Slick selects the row by its primary key and then runs an <code>UPDATE</code> or an <code>INSERT</code>. Used outside <code>transactionally</code>, these statements run in a transaction of their own.</p>
+<p>On MySQL, <code>insertOrUpdate</code> and <code>insertOrUpdateAll</code> use <code>INSERT ... ON DUPLICATE KEY UPDATE</code>, which MySQL applies to <em>any</em> unique key, not only the primary key. If the new row clashes with a different row on a unique non-key column, that other row is updated, including its primary key columns (except AutoInc ones), instead of the call failing. For a strict primary-key upsert, remove the <code>insertOrUpdate</code> capability in a custom profile so that Slick uses the emulation; a clash on another unique key then fails with a duplicate-key error. <code>insertOrUpdateAll</code> is not supported without the capability.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/StrictUpsertMySQLProfile.scala#L4-L14" target="_blank" title="Go to snippet source">source</a><code class="language-scala">import slick.basic.Capability
+import slick.jdbc.{JdbcCapabilities, MySQLProfile}
+
+trait StrictUpsertMySQLProfile extends MySQLProfile {
+  // Use the client-side emulation (select by primary key, then update or insert)
+  // instead of INSERT ... ON DUPLICATE KEY UPDATE
+  override protected def computeCapabilities: Set[Capability] =
+    super.computeCapabilities - JdbcCapabilities.insertOrUpdate
+}
+
+object StrictUpsertMySQLProfile extends StrictUpsertMySQLProfile</code></pre>
 <h2><a href="#compiled-queries" name="compiled-queries" class="anchor"><span class="anchor-link"></span></a>Compiled Queries</h2>
 <p>Use compiled queries for frequently executed, parameterized query shapes.</p>
 <p>Database queries typically depend on some parameters, e.g. an ID for which you want to retrieve a matching database row. You can write a regular Scala function to create a parameterized <code>Query</code> object each time you need to execute that query but this will incur the cost of recompiling the query in Slick (and possibly also on the database if you don&rsquo;t use bind variables for all parameters). It is more efficient to pre-compile such parameterized query functions:</p>
@@ -681,7 +694,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.141.d6cbcfb1', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.152.24580462', '')});</script>
 
 
 </html>

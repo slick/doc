@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.141.d6cbcfb1
+4.0.0-pre.152.24580462
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.141.d6cbcfb1
+4.0.0-pre.152.24580462
 </a>
 <ul class="menu">
 </ul>
@@ -197,7 +197,8 @@ def insertSuppliers: DBIO[Unit] = DBIO.seq(
   sqlu&quot;INSERT INTO suppliers VALUES(49, &#39;Superior Coffee&#39;, &#39;1 Party Place&#39;, &#39;Mendocino&#39;, &#39;CA&#39;, &#39;95460&#39;)&quot;,
   sqlu&quot;INSERT INTO suppliers VALUES(150, &#39;The High Ground&#39;, &#39;100 Coffee Lane&#39;, &#39;Meadows&#39;, &#39;CA&#39;, &#39;93966&#39;)&quot;
 )</code></pre>
-<p>The <code>sqlu</code> interpolator is used for DML statements which produce a row count instead of a result set. Therefore they are of type <code>DBIO[Int]</code>.</p>
+<p>The <code>sqlu</code> interpolator is used for DML statements which produce a row count instead of a result set. Therefore they are of type <code>DBIO[Int]</code>. Use <code>sqlu</code> (or <code>.asUpdate</code>) for every statement that does not return a result set, including DDL: reading such a statement with <code>.as[R]</code> fails with a <code>SlickException</code>.</p>
+<p>A Plain SQL action should contain a single SQL statement. Several statements separated by <code>;</code> are not portable: H2, PostgreSQL and SQL Server run all of them, MySQL runs them only with the <code>allowMultiQueries=true</code> connection property, HSQLDB, Derby, Oracle and DB2 reject them, and SQLite silently runs only the first one. Where they do run, the action returns the result of the first statement and fails if a later one fails. Use <code>DBIO.seq(sqlu&quot;...&quot;, sqlu&quot;...&quot;)</code> to run several statements.</p>
 <p>Any variable or expression injected into a query gets turned into a bind variable in the resulting query string. It is not inserted directly into a query string, so there is no danger of SQL injection attacks. You can see this used in here:</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PlainSQL.scala#L95-L96" target="_blank" title="Go to snippet source">source</a><code class="language-scala">def insert(c: Coffee): DBIO[Int] =
   sqlu&quot;insert into coffees values (${c.name}, ${c.supID}, ${c.price}, ${c.sales}, ${c.total})&quot;</code></pre>
@@ -333,7 +334,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.141.d6cbcfb1', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.152.24580462', '')});</script>
 
 
 </html>
