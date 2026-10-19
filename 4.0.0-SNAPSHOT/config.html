@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.181.a3b3eafa
+4.0.0-pre.185.dc95cd51
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.181.a3b3eafa
+4.0.0-pre.185.dc95cd51
 </a>
 <ul class="menu">
 </ul>
@@ -273,7 +273,7 @@ slick.jdbc.SQLServerProfile {
   <li>
   <p><code>slick.basic.BasicBackend.action</code>:  Shows the execution of every <a href="dbio.html">Database I/O Action</a>.</p></li>
   <li>
-  <p><code>slick.basic.BasicBackend.timing</code>:  Shows how long each SQL action took, on one line together with its SQL, e.g.  <code>SQL action took 1.234 ms: select &quot;NAME&quot; from &quot;USERS&quot;</code>, so you can see which statement took how long even when  many actions run concurrently. Failed actions are logged as <code>failed after</code>. The time is measured around the whole  action, so it can include waiting for a connection. Nothing is measured unless this logger is enabled at debug  level. This logger and <code>slick.basic.BasicBackend.action</code> are written by the default  <a href="database.html#action-listeners">action listener</a>; if you install your own listener, combine it with  <code>ActionListener.timing</code> to keep the timing log.</p></li>
+  <p><code>slick.basic.BasicBackend.timing</code>:  Shows how long each SQL action took, on one line together with its SQL, e.g.  <code>SQL action took 1.234 ms: select &quot;NAME&quot; from &quot;USERS&quot;</code>, so you can see which statement took how long even when  many actions run concurrently. Failed actions are logged as <code>failed after</code>. The time is measured around the whole  action, so it can include waiting for a connection. Synchronous actions combined with <code>&gt;&gt;</code>, <code>DBIO.seq</code>, <code>zip</code>,  <code>asTry</code> and similar combinators run as one fused action, which is logged on one line with its total time and all  its statements, e.g. <code>SQL action took 3.210 ms: select ...; insert ...</code>. For <code>db.stream</code>, the line  <code>SQL stream opened after 1.234 ms: select ...</code> covers opening the stream (running the query), not reading the  rows. Nothing is measured unless this logger is enabled at debug level. This logger and  <code>slick.basic.BasicBackend.action</code> are written by the default <a href="database.html#action-listeners">action listener</a>;  if you install your own listener, combine it with <code>ActionListener.timing</code> to keep the timing log.</p></li>
   <li>
   <p><code>slick.compiler.QueryCompiler</code>:  Shows a dump of the AST after every phase of the query compiler when compiling a query.</p></li>
   <li>
@@ -417,7 +417,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.181.a3b3eafa', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.185.dc95cd51', '')});</script>
 
 
 </html>
