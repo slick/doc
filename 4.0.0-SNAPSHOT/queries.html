@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.175.99172d17
+4.0.0-pre.181.a3b3eafa
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.175.99172d17
+4.0.0-pre.181.a3b3eafa
 </a>
 <ul class="menu">
 </ul>
@@ -492,7 +492,7 @@ val batchInsertSql = batchInsert.statements
 
 // compiles to SQL (one statement, executed once per row in a JDBC batch):
 //   insert into &quot;COFFEES&quot; (&quot;COF_NAME&quot;,&quot;SUP_ID&quot;,&quot;PRICE&quot;,&quot;SALES&quot;,&quot;TOTAL&quot;) values (?,?,?,?,?)</code></pre>
-<p>The statements contain <code>?</code> placeholders where the values are bound when the Action runs; the values are not part of the SQL string. To see them, enable the <code>slick.jdbc.JdbcBackend.parameter</code> or <code>slick.jdbc.JdbcBackend.statementAndParameter</code> <a href="config.html#logging">loggers</a>. An emulated <code>insertOrUpdate</code> consists of three statements (a check, an update and an insert), of which only some are executed for a given row.</p>
+<p>The statements contain <code>?</code> placeholders where the values are bound when the Action runs; the values are not part of the SQL string. To see them, enable the <code>slick.jdbc.JdbcBackend.parameter</code> or <code>slick.jdbc.JdbcBackend.statementAndParameter</code> <a href="config.html#logging">loggers</a>. An emulated <code>insertOrUpdate</code> consists of three statements (a check, an update and an insert), of which only some are executed for a given row. When all columns are part of the primary key there is nothing to update, and it consists of the check and the insert.</p>
 <p>When you include an <code>AutoInc</code> column in an insert operation, it is silently ignored, so that the database can generate the proper value. In this case you usually want to get back the auto-generated primary key column. By default, <code>+=</code> gives you a count of the number of affected rows (which will usually be 1) and <code>++=</code> gives you an accumulated count in an <code>Option</code> (which can be <code>None</code> if the database system does not provide counts for all rows). This can be changed with the <code>returning</code> method where you specify the columns to be returned (as a single value or tuple from <code>+=</code> and a <code>Seq</code> of such values from <code>++=</code>):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/LiftedEmbedding.scala#L436-L437" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val userId =
   (users.returning(users.map(_.id))) += User(None, &quot;Stefan&quot;, &quot;Zeiger&quot;)</code></pre><div class="callout note "><div class="callout-title">Note</div>
@@ -694,7 +694,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.175.99172d17', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.181.a3b3eafa', '')});</script>
 
 
 </html>
