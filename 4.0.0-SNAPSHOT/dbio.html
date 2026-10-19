@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.187.f10814c0
+4.0.0-pre.189.20eb025a
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.187.f10814c0
+4.0.0-pre.189.20eb025a
 </a>
 <ul class="menu">
 </ul>
@@ -259,6 +259,13 @@ val a4: DBIO[Vector[Int]] = DBIO.sequence(Vector(ins1, ins2))</code></pre>
 } yield id
 </code></pre>
 <p>A pre-existing value or failure can be converted with <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/dbio/DBIOAction$.html#successful[R](R):DBIOAction[R,NoStream,Effect]" title="slick.dbio.DBIOAction"><code>DBIO.successful</code></a> and <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/dbio/DBIOAction$.html#failed(Throwable):DBIOAction[Nothing,NoStream,Effect]" title="slick.dbio.DBIOAction"><code>DBIO.failed</code></a>, respectively.</p>
+<p>To suspend the construction of an action until it is run, use <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/dbio/DBIOAction$.html#defer[R,S%3C:NoStream,E%3C:Effect](=%3EDBIOAction[R,S,E]):DBIOAction[R,S,E]" title="slick.dbio.DBIOAction"><code>DBIO.defer</code></a>. Its by-name argument is evaluated each time the resulting action is run rather than once when it is built, and an exception thrown while evaluating it fails the action instead of the caller:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/DBIOCombinators.scala#L41-L46" target="_blank" title="Go to snippet source">source</a><code class="language-scala">var attempts = 0
+// The block is evaluated each time the action is run, not when it is built
+val countedInsert: DBIO[Int] = DBIO.defer {
+  attempts += 1
+  coffees += (s&quot;Attempt $attempts&quot;, 1.0)
+}</code></pre>
 <h3><a href="#cats-type-classes-cats-type-classes-" name="cats-type-classes-cats-type-classes-" class="anchor"><span class="anchor-link"></span></a>Cats Type Classes {#cats-type-classes}</h3>
 <p>Database I/O Actions have <a href="https://typelevel.org/cats/">cats</a> instances: <code>MonadError[F, Throwable]</code>, and a <code>Semigroup</code> or <code>Monoid</code> for actions whose result type has one. The instances live in the companion objects of <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/dbio/DBIOBase.html" title="slick.dbio.DBIOBase"><code>DBIOBase</code></a> and <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/dbio/DBIOAction$.html" title="slick.dbio.DBIOAction"><code>DBIOAction</code></a>, so they are in implicit scope and need no import besides the cats syntax itself (<code>import cats.syntax.all._</code>).</p>
 <p>A cats type class takes a unary type constructor <code>F[_]</code>, and there are two ways to view an action as one:</p>
@@ -267,7 +274,7 @@ val a4: DBIO[Vector[Int]] = DBIO.sequence(Vector(ins1, ins2))</code></pre>
   <li><a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/dbio/DBIOBase.html" title="slick.dbio.DBIOBase"><code>DBIOBase</code></a><code>[E, R]</code> is the supertype of every <code>DBIOAction[R, S, E]</code> with the  effect and result type in that order and no streaming type. On Scala 3 a <code>DBIOAction</code> unifies with an <code>F[_]</code>  as <code>DBIOBase[E, *]</code>, so any action, including streaming and profile-specific ones, works with cats syntax as  it is and keeps its effect: <code>List(1, 2).traverse(i =&gt; coffees += (s&quot;Coffee $i&quot;, 1.0))</code> is a  <code>DBIOBase[Effect.Write, List[Int]]</code>. Scala 2 does not unify a <code>DBIOAction</code> type with <code>DBIOBase</code> on its own;  there <code>DBIOBase</code> is used when spelled out, and any value whose static type is a full <code>DBIOAction[R, S, E]</code>  goes through <code>toAction</code>: the profile-specific actions of the lifted API, and the results of the combinators  that keep the streaming type (<code>flatMap</code>, <code>andThen</code>, <code>&gt;&gt;</code>, for-comprehensions, <code>transactionally</code>,  <code>withPinnedSession</code>, <code>named</code>, <code>andFinally</code>, <code>cleanUp</code>).</li>
 </ul>
 <p>The following works on every Scala version:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/DBIOCombinators.scala#L41-L58" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Values typed with DBIO or DBIOEffect, and the results of Slick&#39;s own combinators, have
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/DBIOCombinators.scala#L53-L70" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// Values typed with DBIO or DBIOEffect, and the results of Slick&#39;s own combinators, have
 // cats instances. toAction gives a profile action the DBIOEffect type with its effect.
 val inserts: DBIOEffect[Effect.Write, List[Int]] =
   List((&quot;Colombian&quot;, 7.99), (&quot;French_Roast&quot;, 8.99)).traverse(c =&gt; (coffees += c).toAction)
@@ -422,7 +429,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.187.f10814c0', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.189.20eb025a', '')});</script>
 
 
 </html>
