@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.131.5bbeb184
+4.0.0-pre.135.102f57e0
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.131.5bbeb184
+4.0.0-pre.135.102f57e0
 </a>
 <ul class="menu">
 </ul>
@@ -198,9 +198,9 @@ val db: Resource[IO, Database] = Database.resource(dc)</code></pre>
 }</code></pre>
 <p>The <code>dataSourceClass</code> is a <code>javax.sql.DataSource</code> class provided by the JDBC driver; a Slick profile is not a <code>DataSource</code>. When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;4.0.0-pre.135.102f57e0&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;2.0.20&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;4.0.0-pre.135.102f57e0&quot;,
   &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.7.14&quot; //org.postgresql.ds.PGSimpleDataSource dependency
 )
 </code></pre>
@@ -318,7 +318,7 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
   .drain</code></pre>
 <h3><a href="#future-reactive-streams-slick-future-database-" name="future-reactive-streams-slick-future-database-" class="anchor"><span class="anchor-link"></span></a>Future / Reactive Streams (<code>slick.future.Database</code>)</h3>
 <p>Add the Future facade module:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.135.102f57e0&quot;
 </code></pre>
 <p>Use <code>Database.use</code> for managed lifecycle (recommended):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/ConnectingFuture.scala#L22-L25" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: Future[Seq[String]] =
@@ -338,7 +338,7 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
   }</code></pre>
 <h3><a href="#zio-slick-zio-database-" name="zio-slick-zio-database-" class="anchor"><span class="anchor-link"></span></a>ZIO (<code>slick.zio.Database</code>)</h3>
 <p>Add the ZIO facade module:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-zio&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-zio&quot; % &quot;4.0.0-pre.135.102f57e0&quot;
 </code></pre>
 <p>Use <code>Database.scoped</code> for managed lifecycle (recommended):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/ConnectingZio.scala#L19-L22" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: ZIO[Scope, Throwable, Seq[String]] =
@@ -356,6 +356,17 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
   Database.scoped(dc).flatMap { db =&gt;
     db.stream(coffees.map(_.name).result).runCollect
   }</code></pre>
+<h3><a href="#action-listeners" name="action-listeners" class="anchor"><span class="anchor-link"></span></a>Action listeners</h3>
+<p>An <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/basic/ActionListener.html" title="slick.basic.ActionListener"><code>ActionListener</code></a> wraps the execution of every action, for example for tracing or timing. By default, Slick uses a listener that writes to the <code>slick.basic.BasicBackend.action</code> and <code>slick.basic.BasicBackend.timing</code> <a href="config.html#logging">loggers</a> when they are enabled at debug level.</p>
+<p>To use your own listener instead, create the database with <code>makeDatabase</code> on the profile&rsquo;s backend and wrap it with <code>fromCore</code> of your facade (<code>slick.cats.Database</code>, <code>slick.future.Database</code> or <code>slick.zio.Database</code>). You are then responsible for closing it. <code>ActionListener.combine(first, second)</code> installs several listeners, the first one being the outermost; combine your listener with <code>ActionListener.timing</code> to keep the <code>slick.basic.BasicBackend.timing</code> log:</p>
+<pre class="prettyprint"><code class="language-scala">import cats.effect.{IO, Resource}
+import slick.basic.ActionListener
+
+val listener = ActionListener.combine(myListener, ActionListener.timing[IO])
+val database: Resource[IO, slick.cats.Database] =
+  Resource.make(dc.profile.backend.makeDatabase[IO](dc, listener).map(slick.cats.Database.fromCore))(db =&gt;
+    IO.blocking(db.close()))
+</code></pre>
 <h2><a href="#connection-pools" name="connection-pools" class="anchor"><span class="anchor-link"></span></a>Connection pools</h2>
 <p>Using a connection pool is always recommended in production environments. Slick integrates with <a href="https://github.com/brettwooldridge/HikariCP">HikariCP</a> via the <code>slick-hikaricp</code> module and will use it automatically when it is on the classpath (see <a href="gettingstarted.html">Getting Started</a> for the dependency).</p>
 <p>Set the <em>maximum</em> pool size to the number of concurrent database connections your database server can handle efficiently. Because Slick&rsquo;s execution model is non-blocking, you do not need to add extra connections to &ldquo;absorb&rdquo; thread blocking — size the pool purely based on the database server&rsquo;s capacity. See <a href="https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing">About Pool Sizing</a> in the HikariCP documentation for background.</p>
@@ -524,7 +535,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.131.5bbeb184', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.135.102f57e0', '')});</script>
 
 
 </html>

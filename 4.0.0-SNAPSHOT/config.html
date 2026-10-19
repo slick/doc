@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.131.5bbeb184
+4.0.0-pre.135.102f57e0
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.131.5bbeb184
+4.0.0-pre.135.102f57e0
 </a>
 <ul class="menu">
 </ul>
@@ -273,6 +273,8 @@ slick.jdbc.SQLServerProfile {
   <li>
   <p><code>slick.basic.BasicBackend.action</code>:  Shows the execution of every <a href="dbio.html">Database I/O Action</a>.</p></li>
   <li>
+  <p><code>slick.basic.BasicBackend.timing</code>:  Shows how long each SQL action took, on one line together with its SQL, e.g.  <code>SQL action took 1.234 ms: select &quot;NAME&quot; from &quot;USERS&quot;</code>, so you can see which statement took how long even when  many actions run concurrently. Failed actions are logged as <code>failed after</code>. The time is measured around the whole  action, so it can include waiting for a connection. Nothing is measured unless this logger is enabled at debug  level. This logger and <code>slick.basic.BasicBackend.action</code> are written by the default  <a href="database.html#action-listeners">action listener</a>; if you install your own listener, combine it with  <code>ActionListener.timing</code> to keep the timing log.</p></li>
+  <li>
   <p><code>slick.compiler.QueryCompiler</code>:  Shows a dump of the AST after every phase of the query compiler when compiling a query.</p></li>
   <li>
   <p><code>slick.jdbc.DriverDataSource</code>:  Shows information about <a href="https://en.wikipedia.org/wiki/Java_Database_Connectivity">JDBC</a> drivers being loaded by <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/jdbc/DriverDataSource.html" title="slick.jdbc.DriverDataSource"><code>DriverDataSource</code></a>. Does not  apply when using a connection pool unless you explicitly use a DriverDataSource as the source for the connection  pool.</p></li>
@@ -281,7 +283,9 @@ slick.jdbc.SQLServerProfile {
   <li>
   <p><code>slick.jdbc.JdbcBackend.parameter</code>:  Shows bind variable contents (for supported types) of all SQL statements which are executed.</p></li>
   <li>
-  <p><code>slick.jdbc.JdbcBackend.benchmark</code>:  Shows execution times for SQL statements.</p></li>
+  <p><code>slick.jdbc.JdbcBackend.statementAndParameter</code>:  Shows executed prepared inserts, updates and batch entries (but not queries) as rendered by the JDBC driver&rsquo;s  <code>PreparedStatement.toString</code>. For drivers that include the bound values there, this shows the SQL together with  the values.</p></li>
+  <li>
+  <p><code>slick.jdbc.JdbcBackend.benchmark</code>:  Shows execution times for SQL statements, without the SQL. Use <code>slick.basic.BasicBackend.timing</code> to see which  statement took how long.</p></li>
   <li>
   <p><code>slick.jdbc.StatementInvoker.result</code>:  Shows the first rows of the result set when a query is executed. Does not apply to streaming results.</p></li>
 </ul>
@@ -413,7 +417,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.131.5bbeb184', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.135.102f57e0', '')});</script>
 
 
 </html>
