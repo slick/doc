@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.118.9cdbe1df
+4.0.0-pre.131.5bbeb184
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.118.9cdbe1df
+4.0.0-pre.131.5bbeb184
 </a>
 <ul class="menu">
 </ul>
@@ -198,9 +198,9 @@ val db: Resource[IO, Database] = Database.resource(dc)</code></pre>
 }</code></pre>
 <p>The <code>dataSourceClass</code> is a <code>javax.sql.DataSource</code> class provided by the JDBC driver; a Slick profile is not a <code>DataSource</code>. When specifying a dataSourceClass you will need to bring in the sbt dependency for that class. The following is an example for the <code>org.postgresql.ds.PGSimpleDataSource</code> data source class:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies ++= Seq(
-  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;4.0.0-pre.118.9cdbe1df&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;,
   &quot;org.slf4j&quot; % &quot;slf4j-nop&quot; % &quot;2.0.20&quot;,
-  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;4.0.0-pre.118.9cdbe1df&quot;,
+  &quot;com.typesafe.slick&quot; %% &quot;slick-hikaricp&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;,
   &quot;org.postgresql&quot; % &quot;postgresql&quot; % &quot;42.7.14&quot; //org.postgresql.ds.PGSimpleDataSource dependency
 )
 </code></pre>
@@ -217,6 +217,21 @@ val db: Resource[IO, Database] = Database.resource(dc)</code></pre>
 <p>To use the MySQL driver, the following library dependency needs to be configured via SBT:</p>
 <pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.mysql&quot; % &quot;mysql-connector-j&quot; % &quot;8.0.33&quot;
 </code></pre>
+<h4><a href="#sqlite" name="sqlite" class="anchor"><span class="anchor-link"></span></a>SQLite</h4>
+<p>SQLite has no dedicated date and time storage classes. The sqlite-jdbc driver stores <code>java.sql.Date</code>, <code>java.sql.Time</code> and <code>java.sql.Timestamp</code> values as INTEGER numbers of <strong>milliseconds</strong> since the Unix epoch (1970-01-01 00:00:00 UTC). Slick uses the same representation for its SQL literals and maps <code>LocalDate</code>, <code>LocalDateTime</code> and <code>Instant</code> through these types, so they are stored in the same way. <code>LocalDate</code> and <code>LocalDateTime</code> values are converted using the JVM&rsquo;s default time zone, so for example <code>LocalDate.of(2020, 1, 2)</code> is stored as midnight of that day in that zone. <code>LocalTime</code>, <code>OffsetTime</code>, <code>OffsetDateTime</code> and <code>ZonedDateTime</code> are stored as ISO-8601 TEXT instead (see <a href="datetimetypes.html">Date and Time types</a>).</p>
+<p>SQLite&rsquo;s own date and time functions (<code>date</code>, <code>time</code>, <code>datetime</code>, <code>julianday</code>, <code>strftime</code>, <code>unixepoch</code>) expect ISO-8601 text, Julian day numbers, or Unix time in <strong>seconds</strong>, so they cannot use the millisecond values directly. Divide by 1000 and add the <code>&#39;unixepoch&#39;</code> modifier instead, for example <code>datetime(created_at / 1000, &#39;unixepoch&#39;)</code>, which yields the UTC date and time as text.</p>
+<p>If you want date and time values to be stored as seconds, which SQLite&rsquo;s functions understand directly (<code>datetime(created_at, &#39;unixepoch&#39;)</code>), set the sqlite-jdbc connection property <code>date_precision</code> to <code>SECONDS</code> in the <code>properties</code> block of the database configuration. This drops the sub-second part of the values. The driver also has a <code>date_class</code> property (<code>INTEGER</code> (the default), <code>TEXT</code> or <code>REAL</code>) to store the values as text (in the format given by <code>date_string_format</code>, by default <code>yyyy-MM-dd HH:mm:ss.SSS</code>) or as Julian day numbers.</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L41-L50" target="_blank" title="Go to snippet source">source</a><code class="language-conf">sqlitedb = {
+  driver = &quot;org.sqlite.JDBC&quot;
+  url = &quot;jdbc:sqlite:mydb.db&quot;
+  connectionPool = disabled
+  properties = {
+    # Store java.sql.Date/Time/Timestamp (and the java.time types mapped to them)
+    # as seconds instead of milliseconds since the epoch
+    date_precision = &quot;SECONDS&quot;
+  }
+}</code></pre><div class="callout warning "><div class="callout-title">Warning</div>
+<p>These properties change the format of the stored data. They do not convert values already stored in an existing database, and they apply only to values passed as bind parameters. Slick always renders date and time <strong>literals</strong> as milliseconds since the epoch. With <code>date_precision = SECONDS</code> or a <code>date_class</code> other than <code>INTEGER</code>, a query such as <code>table.filter(_.createdAt === timestamp)</code>, where the value is inlined as a literal, does not match the stored values. Use <code>timestamp.bind</code> or a <a href="queries.html#compiled-queries">compiled query</a> so that the value is sent as a parameter. The same applies to <code>O.Default</code> values of these types, because they are rendered as literals in the DDL.</p></div>
 <h4><a href="#generic-jdbc" name="generic-jdbc" class="anchor"><span class="anchor-link"></span></a>Generic JDBC</h4>
 <p>Sometimes a database system provides a JDBC driver, but no specific profile for its dialect has been implemented for Slick, yet. It is still possible to connect to such a database with not much effort and use the generic JDBC feature set.</p>
 <p>Here is an example for setting up a connection to a Databricks DB using the Databricks JDBC driver, depended on via SBT:</p>
@@ -229,7 +244,7 @@ import slick.jdbc.{JdbcActionComponent, JdbcProfile}
 
 object GenericJdbcProfile extends JdbcProfile with JdbcActionComponent.MultipleRowsPerStatementSupport</code></pre>
 <p>Now this profile can be used in the configuration.</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L61-L70" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databricks_db {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L74-L83" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databricks_db {
   profile = &quot;com.typesafe.slick.docs.GenericJdbcProfile$&quot;
   db {
     driver = &quot;com.databricks.client.jdbc.Driver&quot;
@@ -256,7 +271,7 @@ dc.profile.backend.makeDatabase[IO](dc).unsafeRunSync()
 <p>On Scala 2.13 and 3.x the simpler form works fine even with a type parameter profile.</p></div>
 <h3><a href="#using-a-database-url" name="using-a-database-url" class="anchor"><span class="anchor-link"></span></a>Using a Database URL</h3>
 <p>A Database URL, a platform independent URL in the form <code>vendor://user:password@host:port/db</code>, is often provided by platforms such as Heroku. You can use a Database URL in Typesafe Config as shown here:</p>
-<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L41-L47" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databaseUrl {
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/application.conf#L54-L60" target="_blank" title="Go to snippet source">source</a><code class="language-conf">databaseUrl {
   dataSourceClass = &quot;slick.jdbc.DatabaseUrlDataSource&quot;
   properties = {
     driver = &quot;org.postgresql.Driver&quot;
@@ -303,7 +318,7 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
   .drain</code></pre>
 <h3><a href="#future-reactive-streams-slick-future-database-" name="future-reactive-streams-slick-future-database-" class="anchor"><span class="anchor-link"></span></a>Future / Reactive Streams (<code>slick.future.Database</code>)</h3>
 <p>Add the Future facade module:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.118.9cdbe1df&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-future&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;
 </code></pre>
 <p>Use <code>Database.use</code> for managed lifecycle (recommended):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/ConnectingFuture.scala#L22-L25" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: Future[Seq[String]] =
@@ -323,7 +338,7 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
   }</code></pre>
 <h3><a href="#zio-slick-zio-database-" name="zio-slick-zio-database-" class="anchor"><span class="anchor-link"></span></a>ZIO (<code>slick.zio.Database</code>)</h3>
 <p>Add the ZIO facade module:</p>
-<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-zio&quot; % &quot;4.0.0-pre.118.9cdbe1df&quot;
+<pre class="prettyprint"><code class="language-scala">libraryDependencies += &quot;com.typesafe.slick&quot; %% &quot;slick-zio&quot; % &quot;4.0.0-pre.131.5bbeb184&quot;
 </code></pre>
 <p>Use <code>Database.scoped</code> for managed lifecycle (recommended):</p>
 <pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/ConnectingZio.scala#L19-L22" target="_blank" title="Go to snippet source">source</a><code class="language-scala">val managedResult: ZIO[Scope, Throwable, Seq[String]] =
@@ -346,6 +361,26 @@ s.evalMap(name =&gt; IO(println(s&quot;Element: $name&quot;)))
 <p>Set the <em>maximum</em> pool size to the number of concurrent database connections your database server can handle efficiently. Because Slick&rsquo;s execution model is non-blocking, you do not need to add extra connections to &ldquo;absorb&rdquo; thread blocking — size the pool purely based on the database server&rsquo;s capacity. See <a href="https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing">About Pool Sizing</a> in the HikariCP documentation for background.</p>
 <p>Note that reasonable defaults for the connection pool sizes are calculated automatically when using <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/basic/DatabaseConfig$.html#forConfig[P](path:String,config:com.typesafe.config.Config,classLoader:ClassLoader)(implicitP:scala.reflect.ClassTag[P]):slick.basic.BasicDatabaseConfig[P]" title="slick.basic.DatabaseConfig"><code>DatabaseConfig.forConfig</code></a>.</p>
 <p>Slick uses <em>prepared</em> statements wherever possible but it does not cache them on its own. You should therefore enable prepared statement caching in the connection pool&rsquo;s configuration.</p>
+<h3><a href="#hikaricp-settings" name="hikaricp-settings" class="anchor"><span class="anchor-link"></span></a>HikariCP settings</h3>
+<p>With <code>connectionPool = &quot;HikariCP&quot;</code> (the default), the pool is configured from the same config section as the database. Most keys have the same names as the <a href="https://github.com/brettwooldridge/HikariCP#gear-configuration-knobs-baby">HikariCP configuration properties</a> and are passed on to HikariCP. These keys need some explanation:</p>
+<ul>
+  <li><code>dataSourceClass</code> or <code>dataSourceClassName</code>: the <code>javax.sql.DataSource</code> class provided by the JDBC  driver, configured with <code>properties</code>. Without it, the pool uses <code>driver</code> (or <code>driverClassName</code>) and  <code>url</code> (or <code>jdbcUrl</code>). Slick fails with a <code>SlickException</code> when the class is not a <code>DataSource</code>.</li>
+  <li><code>maximumPoolSize</code> or <code>maxConnections</code> (default: <code>numThreads</code>, or 20): the maximum pool size. Slick also  limits concurrent JDBC work to the pool size. If both keys are set, <code>maximumPoolSize</code> is used and Slick  logs a warning, because a <code>maximumPoolSize</code> in a <code>reference.conf</code> file would otherwise silently override  your <code>maxConnections</code>.</li>
+  <li><code>minimumIdle</code> or <code>minConnections</code> (default: <code>maxConnections</code>, or <code>numThreads</code>, or 20): the minimum  number of idle connections.</li>
+  <li><code>initializationFailTimeout</code> (default: <code>-1</code>): what happens when the pool cannot get a first connection  while starting. A positive value is the time to try (in milliseconds, or a duration such as <code>5s</code>) before  the pool fails to start; <code>1</code> makes the pool fail fast. With <code>0</code> the pool starts even if it cannot get  a connection, and with <code>-1</code> it does not try to get one. Note that Slick&rsquo;s default (<code>-1</code>) differs from  HikariCP&rsquo;s (<code>1</code>).</li>
+</ul>
+<h4><a href="#pool-metrics" name="pool-metrics" class="anchor"><span class="anchor-link"></span></a>Pool metrics</h4>
+<p>To register metrics or health checks on the HikariCP pool, write a <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/jdbc/JdbcDataSourceFactory.html" title="slick.jdbc.JdbcDataSourceFactory"><code>JdbcDataSourceFactory</code></a> object that calls <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/hikaricp-api/slick/jdbc/hikaricp/HikariCPJdbcDataSource$.html" title="slick.jdbc.hikaricp.HikariCPJdbcDataSource"><code>HikariCPJdbcDataSource.forConfig</code></a> and then sets them on the pool, which is available as <code>ds</code>:</p>
+<pre class="prettyprint"><code class="language-scala">object InstrumentedHikariCP extends JdbcDataSourceFactory {
+  def forConfig(c: Config, driver: Driver, name: String, classLoader: ClassLoader): HikariCPJdbcDataSource = {
+    val source = HikariCPJdbcDataSource.forConfig(c, driver, name, classLoader)
+    source.ds.setMetricRegistry(myMetricRegistry) // or setMetricsTrackerFactory
+    source.ds.setHealthCheckRegistry(myHealthCheckRegistry)
+    source
+  }
+}
+</code></pre>
+<p>Name that object in the configuration with <code>connectionPool = &quot;com.example.InstrumentedHikariCP$&quot;</code>.</p>
 <h2><a href="#execution-concurrency-model" name="execution-concurrency-model" class="anchor"><span class="anchor-link"></span></a>Execution Concurrency Model</h2>
 <p>Slick 4 uses a two-stage admission model for <code>db.run(...)</code> and <code>db.stream(...)</code> calls:</p>
 <ol>
@@ -489,7 +524,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.118.9cdbe1df', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.131.5bbeb184', '')});</script>
 
 
 </html>
