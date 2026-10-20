@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.191.f893c2b5
+4.0.0-pre.193.a0d8ab1c
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.191.f893c2b5
+4.0.0-pre.193.a0d8ab1c
 </a>
 <ul class="menu">
 </ul>
@@ -213,6 +213,40 @@ implicit val boolColumnType: BaseColumnType[Bool.Bool] = Bool.columnMapper
 // You can now use Bool.{True, False} like any built-in column type (in tables, queries, etc.)</code></pre>
 <p>The same works for any Scala <code>Enumeration</code>. To store the values by name instead, map them to <code>String</code> with <code>MappedColumnType.base[MyEnum.Value, String](_.toString, MyEnum.withName)</code>.</p>
 <p>You can also subclass <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/jdbc/JdbcProfile.html#MappedJdbcType" title="slick.jdbc.JdbcProfile"><code>MappedJdbcType</code></a> for a bit more flexibility.</p>
+<h3><a href="#custom-database-types" name="custom-database-types" class="anchor"><span class="anchor-link"></span></a>Custom Database Types</h3>
+<p>A mapped column type has the SQL type of the type it maps to. Slick uses that SQL type in DDL, and in a select list it writes a <code>None</code> literal as <code>cast(null as &lt;type&gt;)</code>, so that the database knows the type of a column that is NULL on every row, e.g. in a union. If you map a column of a custom database type, such as a PostgreSQL enum or <code>jsonb</code>, to <code>String</code>, a <code>None</code> literal of it becomes <code>cast(null as VARCHAR)</code>, and a union of it with the column fails on PostgreSQL with <code>UNION types mood and character varying cannot be matched</code>. Give such a type the real type name by subclassing <code>MappedJdbcType</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PostgresEnumType.scala#L12-L30" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// A Scala enumeration stored in a PostgreSQL enum column, created with
+// create type mood as enum (&#39;Happy&#39;, &#39;Sad&#39;)
+object Mood extends Enumeration {
+  val Happy, Sad = Value
+}
+
+implicit val moodColumnType: BaseColumnType[Mood.Value] =
+  new PostgresProfile.MappedJdbcType[Mood.Value, String] with BaseTypedType[Mood.Value] {
+    def map(m: Mood.Value) = m.toString
+    def comap(s: String) = Mood.withName(s)
+
+    // The database type, for DDL and for a None literal: cast(null as mood)
+    override def newSqlTypeName(sym: Option[FieldSymbol]) = Some(&quot;mood&quot;)
+
+    // Send values untyped, so that PostgreSQL converts them to the enum
+    override def setValue(m: Mood.Value, p: PreparedStatement, idx: Int) =
+      p.setObject(idx, map(m), Types.OTHER)
+    override def setNull(p: PreparedStatement, idx: Int) = p.setNull(idx, Types.OTHER)
+  }</code></pre>
+<p>If you cannot change the column type, e.g. because it comes from a library, cast the <code>None</code> literal to the real type in the query with <code>asColumnOfType</code>. A cast is an expression, so the NULL inside it stays a bare <code>null</code>, and the column is written as <code>cast(null as mood)</code>:</p>
+<pre class="prettyprint"><button class="snippet-button copy-snippet" title="Copy snippet to clipboard">copy</button><a class="snippet-button go-to-source" href="https://github.com/slick/slick/tree/main/doc/code/PostgresEnumType.scala#L34-L44" target="_blank" title="Go to snippet source">source</a><code class="language-scala">// A table whose mood column is mapped as a plain String
+class People(tag: Tag) extends Table[(Int, String)](tag, &quot;people&quot;) {
+  def id = column[Int](&quot;id&quot;)
+  def mood = column[String](&quot;mood&quot;)
+  def * = (id, mood)
+}
+val people = TableQuery[People]
+
+// Written as cast(null as mood) instead of cast(null as VARCHAR)
+val noMood = LiteralColumn(Option.empty[String]).asColumnOfType[Option[String]](&quot;mood&quot;)
+val moods = people.map(p =&gt; (p.id, p.mood.?)).union(people.map(p =&gt; (p.id + 100, noMood)))</code></pre>
+<p>The <a href="https://github.com/tminglei/slick-pg">slick-pg</a> library provides such types for PostgreSQL enums, JSON and many other PostgreSQL types.</p>
 <h2><a href="#using-custom-record-types-in-queries" name="using-custom-record-types-in-queries" class="anchor"><span class="anchor-link"></span></a>Using Custom Record Types in Queries</h2>
 <p>Record types are data structures containing a statically known number of components with individually declared types. Out of the box, Slick supports Scala tuples (up to arity 22) and Slick&rsquo;s own <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/collection/heterogeneous/HList.html" title="slick.collection.heterogeneous.HList"><code>HList</code></a> implementation. Record types can be nested and mixed arbitrarily.</p>
 <p>In order to use custom record types (case classes, custom HLists, tuple-like types, etc.) in queries you need to tell Slick how to map them between queries and results. You can do that using a <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/lifted/Shape.html" title="slick.lifted.Shape"><code>Shape</code></a> extending <a href="https://scala-slick.org/doc/4.0.0-SNAPSHOT/api/slick/lifted/MappedScalaProductShape.html" title="slick.lifted.MappedScalaProductShape"><code>MappedScalaProductShape</code></a>.</p>
@@ -418,7 +452,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.191.f893c2b5', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.193.a0d8ab1c', '')});</script>
 
 
 </html>
