@@ -31,7 +31,7 @@
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.195.7b1b0a08
+4.0.0-pre.197.cbb5fe78
 </a>
 <ul class="menu">
 </ul>
@@ -101,7 +101,7 @@ C16.952,7,17,6.553,17,6c0-0.553-0.048-1-0.6-1H3.6C3.048,5,3,5.447,3,6C3,6.553,3.
 <ul class="menu version-menu" data-options="disableHover: true; clickOpen: true; closeOnClickInside: false;">
 <li class="is-dropdown-submenu-parent">
 <a href="#">
-4.0.0-pre.195.7b1b0a08
+4.0.0-pre.197.cbb5fe78
 </a>
 <ul class="menu">
 </ul>
@@ -197,7 +197,13 @@ libraryDependencies += &quot;org.scala-lang&quot;      % &quot;scala-reflect&quo
 
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin(&quot;17&quot;))
 ThisBuild / githubWorkflowBuildPreamble +=
-  WorkflowStep.Run(List(&quot;docker compose up -d&quot;), name = Some(&quot;Start database&quot;))</code></pre>
+  WorkflowStep.Run(List(&quot;docker compose up -d&quot;), name = Some(&quot;Start database&quot;))
+
+// In sbt 2, `test` only reruns tests affected by changes since the cached last run,
+// so on CI it can skip the whole suite.
+ThisBuild / githubWorkflowBuild := Seq(
+  WorkflowStep.Sbt(List(&quot;testFull&quot;), name = Some(&quot;Build project&quot;))
+)</code></pre>
 <p>There is a copy of Slick&rsquo;s logback configuration in <code>src/test/resources/logback-test.xml</code> but you can swap out the logging framework if you prefer a different one.</p>
 <h2><a href="#profile" name="profile" class="anchor"><span class="anchor-link"></span></a>Profile</h2>
 <p>The actual profile implementation can be found under <code>src/main/scala</code>:</p>
@@ -223,7 +229,7 @@ object MyPostgresTest {
         ec: ExecutionContext
     ): DBIO[Vector[String]]             =
       ResultSetAction[(String, String, String, String)](
-        _.conn.getMetaData.getTables(&quot;&quot;, &quot;public&quot;, null, null)
+        _.conn.getMetaData.getTables(null, &quot;public&quot;, null, null)
       ).map { ts =&gt;
         ts.filter(_._4.toUpperCase == &quot;TABLE&quot;).map(_._3).sorted
       }
@@ -231,7 +237,7 @@ object MyPostgresTest {
         ec: ExecutionContext
     ): DBIO[Vector[String]]             =
       ResultSetAction[(String, String, String, String)](
-        _.conn.getMetaData.getTables(&quot;&quot;, &quot;public&quot;, null, null)
+        _.conn.getMetaData.getTables(null, &quot;public&quot;, null, null)
       ).map { ts =&gt;
         ts.filter(_._4.toUpperCase == &quot;SEQUENCE&quot;).map(_._3).sorted
       }
@@ -362,7 +368,7 @@ The source code for this page can be found <a href="https://github.com/slick/sli
 <script type="text/javascript" src="lib/prettify/prettify.js"></script>
 <script type="text/javascript" src="lib/prettify/lang-scala.js"></script>
 <script type="text/javascript">jQuery(function(){window.prettyPrint && prettyPrint()});</script>
-<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.195.7b1b0a08', '')});</script>
+<script type="text/javascript">jQuery(function(jq){initOldVersionWarnings(jq, '4.0.0-pre.197.cbb5fe78', '')});</script>
 
 
 </html>
