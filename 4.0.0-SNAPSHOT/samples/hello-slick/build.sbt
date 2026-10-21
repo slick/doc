@@ -1,15 +1,17 @@
 import _root_.io.github.nafg.mergify.dsl.*
 
-ThisBuild / scalaVersion := "2.13.18"
+ThisBuild / scalaVersion := "3.10.0"
 
 libraryDependencies ++= List(
-  "org.slf4j" % "slf4j-nop" % "2.0.19",
-  "com.h2database" % "h2" % "2.5.250",
+  "org.slf4j" % "slf4j-nop" % "2.0.20",
+  "com.h2database" % "h2" % "2.5.252",
   "org.scalatest" %% "scalatest" % "3.2.20" % Test
 )
 
 scalacOptions += "-deprecation"
 run / fork := true
+// There are several main classes, so the jar sbt builds for the classpath gets no Main-Class
+Compile / packageBin / mainClass := None
 libraryDependencies += "com.typesafe.slick" %% "slick" % "4.0.0-RC2"
 
 mergifyExtraConditions := Seq(
@@ -40,7 +42,8 @@ runAll := {
 
 ThisBuild / githubWorkflowPublishTargetBranches := Seq()
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.zulu("17"))
-ThisBuild / githubWorkflowBuild += WorkflowStep.Sbt(
-  List("runAll"),
-  name = Some(s"Run all main classes")
+ThisBuild / githubWorkflowBuild := Seq(
+  // sbt 2's `test` is incremental (testQuick); with the sbt disk cache CI restores, it ran no tests
+  WorkflowStep.Sbt(List("testFull"), name = Some("Build project")),
+  WorkflowStep.Sbt(List("runAll"), name = Some("Run all main classes"))
 )
